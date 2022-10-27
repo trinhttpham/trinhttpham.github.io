@@ -16,38 +16,6 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-T54X0RQWS9');
-    </script>
-	
-    <script>
-        $(document).ready(function(){
-            $('body').scrollspy({target: ".nav", offset: 50});   
-            $("#myScrollspy a").on('click', function(event) {
-                if (this.hash !== "") {
-                    event.preventDefault();
-                    var hash = this.hash;
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 600, function(){
-                        window.location.hash = hash;
-                    });
-                }  
-            });
-        });
-
-        var coll = document.getElementsByClassName("btn");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight){
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } 
-            });
-        }
     </script>	
 	
     <style>
@@ -130,19 +98,19 @@
     </style>
 </head>
 	
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
+<body data-spy="scroll" data-target="#tpwp" data-offset="15">
 <div class="container">
 	
     <div class="row">
     	
 	<!------------------------------------- Navigation -------------------------------------->	   
-        <nav class="col-md-3 col-lg-3 col-sm-2 col-xs-2" id="myScrollspy">
+        <nav class="col-md-3 col-lg-3 col-sm-2 col-xs-2" id="tpwp">
       	    <ul class="nav nav-pills nav-stacked">
         	<img src="https://trinhttpham.github.io/cv/profile.jpg?raw=1" class="img-circle" width="150" height="150"> 
         	<li class="text-center" style="font-weight: bold;"><a href="#home">Home</a></li>
         	<li class="text-center" style="font-weight: bold;"><a href="#cv">CV</a></li>
         	<li class="text-center" style="font-weight: bold;"><a href="#research">Research</a></li>
-       		<li class="text-center" style="font-weight: bold;"><a href="#teaching">Teaching</a></li>
+       		<li class="text-center" style="font-weight: bold;"><a href="#teaching">Teaching</a></li>  
       	    </ul>
     	    </nav>
 
@@ -153,15 +121,16 @@
 	    <!------------------------------------Introduction-------------------------------------->	    
       	    <div id="home"> <br>
         	<p> <br> Xin chào! and thank you for visiting my page. </p>
-        	<p> I am Trinh Pham, a Ph.D. candidate in Applied Economics at Cornell University. My research interests are in the intersection of development, labor, and environmental economics. I am particularly interested in the effects of environmental changes on human capital and labor outcomes, as well as their implications for socio-economic inequality.</p>
-        	<p> Please feel free to reach me via email at tp347[at]cornell[dot]edu </p>
-      	    </div>
+		    <p> I am Trinh Pham, a Ph.D. candidate in Applied Economics at Cornell University.</p>
+		    <p> My research interests are in the intersection of development, labor, and environmental economics. I am particularly interested in the effects of environmental changes on human capital and labor outcomes, as well as their implications for socio-economic inequality.</p>
+      	            <p> Please feel free to contact me via email at tp347[at]cornell[dot]edu.</p>
+	    </div>
       
       
       	    <!------------------------------------     CV    --------------------------------------->	 
       	    <div id="cv"> 
         	<h4 style="color:#B31B1B;"><dt><br>CV</dt></h4>
-        	<a style="color:#B31B1B" href="https://trinhttpham.github.io/cv/CV_TrinhPham.pdf"> Download CV </a>
+        	<a style="color:#3A3B3C" href="https://trinhttpham.github.io/cv/CV_TrinhPham.pdf"> Download CV </a>
       	    </div>
       
   	         
@@ -221,5 +190,36 @@
     </div>
 </div>    
 
+<script>
+        $(document).ready(function(){
+            $('body').scrollspy({target: ".nav", offset: 50});   
+            $("#tpwp a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 600, function(){
+                        window.location.hash = hash;
+                    });
+                }  
+            });
+        });
+
+        var coll = document.getElementsByClassName("btn");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } 
+            });
+        }
+</script>	
 </body>
 </html>

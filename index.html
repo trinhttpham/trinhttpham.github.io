@@ -130,7 +130,8 @@
       	    <!------------------------------------     CV    --------------------------------------->	 
       	    <div id="cv"> 
         	<h4 style="color:#B31B1B;"><dt><br>CV</dt></h4>
-        	<a style="color:#3A3B3C" href="https://trinhttpham.github.io/cv/CV_TrinhPham.pdf"> Download CV </a>
+        	<button class="btn" onclick="toggle(this);">Download CV</button>
+                <iframe hidden="hidden" id="cvdl" src="https://trinhttpham.github.io/cv/CV_TrinhPham.pdf" style="height:450px;width:100%;"></iframe>
       	    </div>
       
   	         
@@ -220,6 +221,22 @@
                 } 
             });
         }
+</script>
+	
+<script>
+    let toggle = button => {
+        let element = document.getElementById("cvdl");
+        let hidden = element.getAttribute("hidden");
+    
+        if (hidden) {
+            element.removeAttribute("hidden");
+            button.innerText = "Hide CV";
+        } else {
+        
+	element.setAttribute("hidden", "hidden");
+        button.innerText = "Show CV";
+        }
+    }
 </script>	
 </body>
 </html>

@@ -78,8 +78,10 @@
 	
   <div id="home"> 
     <div class="text-center">
-      <img src="https://trinhttpham.github.io/cv/profile.jpg?raw=1" class="img-rounded" height="150" width="150">
-      <p> <br> Xin chào! and thank you for visiting my page. </p>
+      <br><br>
+      <img src="https://trinhttpham.github.io/cv/profile.jpg?raw=1" class="img-rounded" height="150" width="150"><br><br>
+      <p>Trinh Pham (Phạm Thị Tuyết Trinh)</p><hr>
+      <p> Xin chào! and thank you for visiting my page. </p>
       <p> I am Trinh Pham, a Ph.D. candidate in Applied Economics at Cornell University.</p>
       <p> My research interests are in the intersection of development, labor, and environmental economics. I am particularly interested in the effects of environmental changes on human capital and labor markets in developing countries, and their implications for socio-economic inequality.</p>
       <p> Please feel free to contact me via email at tp347[at]cornell[dot]edu.</p>    
@@ -160,12 +162,30 @@
          <li>Teaching Assistant, Introduction to Economics of Development, Undergraduate level, Fall 2019</li> 
   </div> 
 	
-  <br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br>
    
 </div>
 
 <div class="col-sm-2 sidenav"></div>
 
+<script>
+$(document).ready(function(){
+  $('body').scrollspy({target: ".navbar", offset: 50});   
+
+  $("#myNavbar a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }  
+  });
+});
+</script>
+	
 <script>
     let toggle = button => {
         let element = document.getElementById("cvdl");

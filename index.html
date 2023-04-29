@@ -21,6 +21,7 @@
   <style>
   body {
     position: relative; 
+    background-color: #efefef;
   }
   
   .nav.navbar-nav {
@@ -33,11 +34,11 @@
       float: none;
     }
   }
-  #home {padding-top:50px; color: #3A3B3C; background-color: #FFF;}
-  #cv {padding-top:50px; color: #3A3B3C; background-color: #FFF;}
-  #teaching {padding-top:50px; color: #3A3B3C; background-color: #FFF;}
-  #pub {padding-top:50px; color: #3A3B3C; background-color: #FFF;}
-  #wp {padding-top:50px; color: #3A3B3C; background-color: #FFF;}
+  #home {padding-top:50px; padding-left:50px; padding-right:50px; padding-bottom:10px; color: #3A3B3C; background-color: #FFF;}
+  #cv {padding-top:50px; padding-left:50px; padding-right:50px; color: #3A3B3C; background-color: #FFF;}
+  #teaching {padding-top:50px; padding-left:50px; padding-right:50px; padding-bottom:50px; color: #3A3B3C; background-color: #FFF;}
+  #pub {padding-top:50px; padding-left:50px; padding-right:50px; color: #3A3B3C; background-color: #FFF;}
+  #wp {padding-top:50px; padding-left:50px; padding-right:50px; color: #3A3B3C; background-color: #FFF;}
   </style>
 </head>
 	
@@ -164,6 +165,8 @@
    
 </div>
 <div class="col-sm-2 col-md-3 sidenav"></div>
+
+<!--	
 <script>
 $(document).ready(function(){
   $('body').scrollspy({target: ".navbar", offset: 50});   
@@ -179,7 +182,7 @@ $(document).ready(function(){
     }  
   });
 });
-</script>
+</script> -->
 	
 <script>
     let toggle = button => {

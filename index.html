@@ -1,208 +1,55 @@
-<!DOCTYPE html>
-
 <html>
 <head>
-  <title>Trinh Pham</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	
-  <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T54X0RQWS9"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-T54X0RQWS9');
-    </script>		
-	
-  <style>
-  body {
-    position: relative; 
-    background-color: #efefef;
-  }
-  hr {
-    margin-top: -0.1em;
-    margin-bottom: 0.5em;
-  }
-
-  .nav.navbar-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  @media (min-width: 768px) {
-    .navbar-nav {
-      float: none;
-    }
-  }
-  #home {padding-top:50px; padding-left:50px; padding-right:50px; padding-bottom:10px; color: #3A3B3C; background-color: #FFF;}
-  #cv {padding-top:50px; padding-left:50px; padding-right:50px; color: #3A3B3C; background-color: #FFF;}
-  #teaching {padding-top:50px; padding-left:50px; padding-right:50px; padding-bottom:50px; color: #3A3B3C; background-color: #FFF;}
-  #pub {padding-top:50px; padding-left:50px; padding-right:50px; color: #3A3B3C; background-color: #FFF;}
-  #wp {padding-top:50px; padding-left:50px; padding-right:50px; color: #3A3B3C; background-color: #FFF;}
-  </style>
+		<title>Trinh Pham - Cornell University</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gelasio">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@700&display=swap" rel="stylesheet">
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-T54X0RQWS9"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-T54X0RQWS9');
+		</script>
 </head>
-	
-	
-<body data-spy="scroll" data-target=".navbar" data-offset="10">
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-        </button>
-    </div>
-	  
-	  
-    <div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="#home">Home</a></li>
-          <!-- <li><a href="#cv">CV</a></li> -->
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#research">Research<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#pub">Publications</a></li>
-              <li><a href="#wp">Working Papers</a></li>
-              <li><a href="#wpr">Work-in-Progress</a></li>
-            </ul>
-          </li>
-          <li><a href="#teaching">Teaching</a></li>
-       </ul> 
-      </div>
-    </div>  
-  </div>
-</nav> 
-	
-<div class="col-sm-2 col-md-3 sidenav"></div>
-<div class="container-fluid col-sm-8 col-md-6"> 
-	
-  <div id="home"> 
-    <div class="text-center">
-      <br><br>
-      <img src="https://trinhttpham.github.io/cv/profile.jpg?raw=1" class="img-rounded" height="150" width="150"><br><br>
-      <p> Trinh Pham (Phạm Thị Tuyết Trinh)</p><hr>
-      <p> Hello and thank you for visiting my page. </p>
-      <p> I am a Ph.D. candidate in Applied Economics at Cornell University.</p>
-      <p> My research interests are in the intersection of development and environmental economics. My current research examines the inter-relationship between environmental changes, agriculture, human capital formation and labor markets in developing countries, as well as their implications for socio-economic inequality.</p>
-      <p> Please feel free to contact me via email at tp347[at]cornell[dot]edu.</p>    
-    </div>   
-  </div> 
- 
-	
-  <!--
-  <div id="cv"> 
-    <h3 style="color:#B31B1B";>CV</h3><hr>
-      <p> <a style="margin:0; font-size:100%; color:#B31B1B" href="https://trinhttpham.github.io/cv/CV_TrinhPham.pdf">Download CV</a></p>
-      <button class="btn" onclick="toggle(this);">Show CV</button>
-      <iframe hidden="hidden" id="cvdl" src="https://trinhttpham.github.io/cv/CV_TrinhPham.pdf" style="height:450px;width:100%;"></iframe>
-  </div> -->
-      
-<div id="pub">
-<h3 style="color:#B31B1B;">Peer-Reviewed Publications</h3><hr>
-    
-  <p style="margin:0"> <a style="margin:0; font-size:100%; color:#B31B1B">Structural Transformation, Agriculture, Climate, and the Environment</a> <br> <i>Review of Environmental Economics and Policy</i>, forthcoming. 
-      <br> 
-      with <a style="color:#B31B1B" href="https://dyson.cornell.edu/faculty-research/faculty/cbb2/">Christopher B. Barrett </a> and <a style="color:#B31B1B"  href="https://dyson.cornell.edu/faculty-research/faculty/ao332/"> Ariel Ortiz-Bobea</a> <br>
-      <button class="btn" data-toggle="collapse" data-target="#reep_stace_abstract"> Abstract</button>
-        <div id="reep_stace_abstract" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-	  <p>This paper reviews the feedbacks between structural transformation and agriculture, on the one hand, and climate and the natural environment, on the other. The longstanding, dominant economic development narrative largely ignores nature’s influence on factor productivity and stocks, even as it increasingly illustrates how agricultural technological change and economic growth affect nature. We articulate some of the missing linkages and pose a range of policy research questions worth exploration concerning structural transformation and the complex feedback among agriculture, nature, and economic growth processes, especially in the low-income agrarian nations of the Global South.</p>
-        </div>
-      <button class="btn" data-toggle="collapse" data-target="#reep_stace_wp"> Other Versions</button>
-	<div id="reep_stace_wp" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px">
-	  <a style="color:#B31B1B" href="http://barrett.dyson.cornell.edu/files/papers/Barrett%20Ortiz-Bobea%20%20Pham%20Feb%202022.pdf">Working paper version</a> (February 2022)
-	</div>
-      <br><br>
-      
-      
- 
-      <p style="margin:0"> <a style="margin:0; font-size:100%; color:#B31B1B" href="https://www.sciencedirect.com/science/article/abs/pii/S027277572200084X">The Child Education and Health Ethnic Inequality Consequences of Climate Shocks in Vietnam</a> <br> <i>Economics of Education Review</i>, 2022, 90: 102311.
-      <br> 
-      <button class="btn" data-toggle="collapse" data-target="#eer_childvn_abstract"> Abstract</button>
-        <div id="eer_childvn_abstract" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-	  This paper provides a new explanation for ethnic disparities in education and health in Vietnam by studying the relationship between frequent, small-scale adverse rainfall shocks and child human capital. Exploiting 	plausibly random year-to-year variation in weather data that are linked to a longitudinal household- and individual-level dataset over the period 2008–2017, I find that excess rainfall during the annual typhoon season results in lower child subjective health status and school enrollment, with disproportionate effects on children of ethnic minorities. The negative lagged effects on education are concentrated in children at primary school start age, suggesting delaying children’s school entry is a shock–coping strategy for poor ethnic minority households, albeit with potentially big negative long-run effect on their child lifetime earnings. Estimates suggest that rainfall shocks can explain approximately 28% of the observed ethnic gap in enrollment rates of children age 16–18 in the sample during the study period, and most is due to heterogeneous effects of rainfall shocks among ethnic groups, not differences in exposure to rainfall shocks.
-	</div>
-      <button class="btn" data-toggle="collapse" data-target="#eer_childvn_wp">Other Versions</button>
-	<div id="eer_childvn_wp" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px">
-	  <a style="color:#B31B1B" href="https://trinhttpham.github.io/research/child_vietnam.pdf">Accepted version</a> (August 2022)
-	</div>
-      <br><br>
-                
-         
-        
-      <p style="margin:0"> <a style="margin:0; font-size:100%; color:#B31B1B" href="https://www.sciencedirect.com/science/article/pii/S0306919220301172">The Intertemporal Evolution of Agriculture and Labor over a Rapid Structural Transformation: Lessons from Vietnam</a> <br> <i>Food Policy</i>, 2020, 94: 101913. 
-      <br> 
-      with <a style="color:#B31B1B" href="https://www.ifpri.org/profile/yanyan-liu"> Yanyan Liu</a>, <a style="color:#B31B1B" href="https://dyson.cornell.edu/faculty-research/faculty/cbb2/">Christopher B. Barrett </a> and <a style="color:#B31B1B" href="https://www.ftc.gov/about-ftc/commissioners-staff/william-j-violette"> William Violette </a><br>  
-      <button class="btn" data-toggle="collapse" data-target="#fp_vn_abstract">Abstract</button>
-        <div id="fp_vn_abstract" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-          <p> We combine nationally representative household and labor force survey data from 1992 to 2016 to provide a detailed description of rural labor market evolution and how it relates to the structural transformation of rural Vietnam, especially within the agricultural sector. Our study adds to the emerging literature on structural transformation in low-income countries using micro-level data and helps to answer several policy-related questions. We find limited employment creation potential of agriculture, especially for youth. Rural-urban real wage convergence has gone hand-in-hand with increased diversification of the rural economy into the non-farm sector nationwide and rapid advances in educational attainment in all sectors’ and regions’ workforce. Minimum wage laws seem to have played no significant role in increasing agricultural wages. This enhanced integration also manifests in steady attenuation of the longstanding inverse farm size-yield relationship. Farming has remained securely household-based and the family farmland distribution has remained largely unchanged. Small farm sizes have not obstructed mechanization nor the uptake of labor-saving pesticides, consistent with factor substitution induced by rising real wage rates. As rural households rely more heavily on the labor market, human capital accumulation (rather than land endowments) have become the key correlate of improvements in rural household well-being.</p>
-        </div> 
-  </div> 
-  
-	
-    <div id="wp">
-    <h3 style="color:#B31B1B;">Working Papers</h3><hr>
-      <p style="margin:0"> <a style="margin:0; font-size:100%; color:#B31B1B">Climate Change and Intersectoral Labor Reallocation in a Developing Country</a><br>
-      <!--<u>Presentations</u>: MWIEDC, Harvard Climate Economics Pipeline Workshop (scheduled), AAEA (scheduled) </p> -->
-      <button class="btn" data-toggle="collapse" data-target="#labor_temperature_abstract"> Abstract</button>
-      <div id="labor_temperature_abstract" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-        How does climate change affect structural transformation in developing economies, and how does such a relationship vary across individuals who incur different switching costs? Theories suggest two conflicting forces from the production and consumption sides, namely relative labor productivity loss and local demand effects. I test which effect dominates in the context of a lower-middle-income country. Combining individual-level employment information with high-resolution data on weather variables in Vietnam from 1992-2018, I find that extremely hot temperatures induce workers to reallocate from agriculture to non-agriculture in both short and long terms. Such reallocation effects are concentrated in areas that are relatively more well-integrated into the world market. In contrast, in isolated areas, the effect is in opposite direction: there is an increase in the share of agricultural labor and decreases in non-agricultural employment shares in response to hot temperatures. Importantly, the rates of reallocation out of agriculture differ across age groups depending on destination jobs. While individuals of all groups are equally likely to move into informal non-agriculture, younger workers comprise most of those who shift to a formal non-agricultural job, even controlling for differences in educational attainment. I find evidence consistent with these results being driven by relative labor productivity loss and frictions: workers move towards sectors where their labor productivity is less affected and entry into which entails lower switching costs. Additional analysis suggests that heat's impact on agricultural labor transcends the commonly studied land productivity mechanism wherein lower crop yields drive labor reallocation out of agriculture.
-      </div> 
-  </div> 
-	
-  
-  <div id="teaching">
-    <h3 style="color:#B31B1B;">Teaching</h3><hr>
-      <p style="margin:0; font-size:100%; color:#B31B1B">Cornell University</p>
-         <li>Instructor, Math Camp for incoming Dyson School MSc Students, Summer 2022 </li> 
-         <li>Teaching Assistant, Economics of Developing Countries, Undergraduate level, Spring 2021-2022</li>
-         <li>Teaching Assistant, Applied Econometrics, Master's level, Fall 2021</li>
-         <li>Teaching Assistant, Research and Methods, Master's level, Fall 2020</li>
-         <li>Teaching Assistant, Risk Simulation and Monte Carlo Methods, Master's level, Spring 2020</li>
-         <li>Teaching Assistant, Introduction to Economics of Development, Undergraduate level, Fall 2019</li> 
-  </div> 
-	
-  <br><br><br><br><br><br><br><br><br>
-   
-</div>
-<div class="col-sm-2 col-md-3 sidenav"></div>
 
-<!--	
-<script>
-$(document).ready(function(){
-  $('body').scrollspy({target: ".navbar", offset: 50});   
-  $("#myNavbar a").on('click', function(event) {
-    if (this.hash !== "") {
-      event.preventDefault();
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-        window.location.hash = hash;
-      });
-    }  
-  });
-});
-</script> -->
+<body><center><div id="wrapper">
+	<table width=100%><tr><td>
+	<div id="header">
+		<span class="mainheader">Trinh Pham</span>
+	</div>
+	</td>
 	
-<script>
-    let toggle = button => {
-        let element = document.getElementById("cvdl");
-        let hidden = element.getAttribute("hidden");
-    
-        if (hidden) {
-            element.removeAttribute("hidden");
-            button.innerText = "Hide CV";
-        } else {
-        
-	element.setAttribute("hidden", "hidden");
-        button.innerText = "Show CV";
-        }
-    }
-</script>
-</body>
-</html>
+	<td>
+	<div id="nav">
+		<b>About</b> |
+		<a href='research.html'>Research</a> |
+        <a href='teaching.html'>Teaching</a> 
+	</div>
+	</td>
+	</tr>
+	</table>
+	<br />
+	
+        <div class="text-center">
+            <img src="https://trinhttpham.github.io/cv/profile.jpg?raw=1" class="img-rounded" height="150" width="150"><br>
+	</div>
+		
+	<div id="main"><div id="content"><table class="resume"><tbody>
+	
+		<tr class="entry"><td colspan="3" style="color:black">
+			<center>
+			<p>Hello and thank you for visiting my page. 
+			   I am a Ph.D. candidate in Applied Economics at Cornell University.</p>
+			
+			<p>My research interests are in the intersection of development, labor and environmental economics. 
+			   My current research examines the inter-relationship between environmental changes, agriculture, 
+			   human capital formation and labor markets in developing countries, as well as their implications for socio-economic inequality.</p>
+            <p>Please feel free to contact me via email at tp347[at]cornell[dot]edu.</p> 
+			</center>	
+		</td></tr>
+		
+	</tbody></table></div></div>
+
+</body></html>

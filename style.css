@@ -4,6 +4,7 @@
 body {
 	background-color:rgb(155,155,155);
 	font-family: "Charter", sans-serif;
+	font-display: optional;
 }
 
 
@@ -149,6 +150,8 @@ li.triangle:before, .resume li:before {
 .resume tr.entryHeader td:nth-child(2) {
 }
 
+
+
 /**************************************/
 /* 		COLLAPSIBLE           */
 /*************************************/
@@ -216,4 +219,8 @@ input[type='checkbox'] {
   border-bottom-right-radius: 7px;
   padding: .5rem 1rem;
   font-size: 11pt
+}
+
+img.rounded-corners {
+  border-radius: 30px;
 }

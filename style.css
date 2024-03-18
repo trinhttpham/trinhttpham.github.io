@@ -111,7 +111,7 @@ li.triangle:before, .resume li:before {
 
 .resume .entryHeader td:nth-child(1) {
 	padding-left:20px;
-	max-width:100px; min-width:100px; width:100px;
+	max-width:80px; min-width:80px; width:80px;
 }
 
 .resume tr.separator {

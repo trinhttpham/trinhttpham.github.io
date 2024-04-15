@@ -10,30 +10,30 @@ body {
 
 #wrapper {
 	background-color:rgb(250,250,250);
-        width:900px;
+        width:940px;
       	padding:10px 0px;
         display: block;
 }
 #header { 
 	text-align: left;
-    padding-left: 30px;
-	padding-top: 5px;
+    padding-left: 60px;
+	padding-top: 25px;
 	vertical-align: bottom;
 	font-size: 13pt;
 }
 #nav { 
 	text-align: right;
-	padding-top: 5px;
-    padding-right: 30px;
+	padding-top: 25px;
+    padding-right: 60px;
 	vertical-align: bottom;
 	color: rgb(0, 0, 0);
 	font-size: 13pt;
 }
 #content { 
-	margin-left:50px;
-	margin-right:50px;
-	margin-top:50px;
-	margin-bottom:50px;
+	margin-left:60px;
+	margin-right:60px;
+	margin-top:60px;
+	margin-bottom:60px;
 }
 
 /*********************************************/

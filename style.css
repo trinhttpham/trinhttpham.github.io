@@ -168,7 +168,7 @@ li.triangle:before, .resume li:before {
 
 .resume1 tr.separator1 {
 	text-align: left;
-	font-size:12pt;
+	font-size:11pt;
     font-weight: 800;
 }
 
@@ -184,7 +184,7 @@ li.triangle:before, .resume li:before {
 	max-width:auto; width:auto; min-width:auto;
 }
 
-.resume1 tr.entry1 td, .resume1 tr.entryHeader1 td {
+.resume1 tr.entry td, .resume1 tr.entryHeader1 td {
 	padding-bottom:1px;
 	padding-top:1px;
 	vertical-align:top;

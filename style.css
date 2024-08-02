@@ -191,6 +191,8 @@ li.triangle:before, .resume li:before {
 .resume1 td:nth-child(1):last-child {
 	max-width:900px; 
 	min-width:300px;
+	max-height:900px;
+	min-height:300px;
 	width: 18%;
 }
 

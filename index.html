@@ -35,6 +35,7 @@
 			text-center;
 			width: 13%;
 			font-size: 100%;
+			left: 10%;
 		}
 	
 		.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
@@ -62,7 +63,7 @@
 
         @media screen and (max-width: 768px) {
     	    #home, #cv, #pubs, #wip, #teaching, #oh, #others {
-                margin-left: 2%;
+                margin-left: 5%;
             }
     	    }
 		}
@@ -80,7 +81,7 @@
     	    margin-top: 5%;
     	    display: none;
     	    background-color: white;
-    	    font-size: 100%;
+    	    font-size: 90%;
 		}
   
 		div.panel.show {
@@ -113,14 +114,27 @@
 	
 <body data-spy="scroll" data-target="#tpwp" data-offset="15">
 <div class="container">
+
+	
 	
     <div class="row">
     	
-
-
+	<!------------------------------------- Navigation -------------------------------------->	   
+    <nav class="col-md-2 col-lg-2 col-sm-2 col-xs-2" id="tpwp">
+        <ul class="nav nav-pills nav-stacked text-center">
+       	<img src="https://trinhttpham.github.io/cv/profile3.jpg?raw=1" class="img-circle"  width="75%" height="75%"> 
+       	<li style="font-weight: bold;"><a href="#home">Home</a></li>
+       	<li style="font-weight: bold;"><a href="#pubs">Articles</a></li>
+		<li style="font-weight: bold;"><a href="#wip">Work in Progress</a></li>
+    	<li style="font-weight: bold;"><a href="#teaching">Teaching</a></li>
+		<li style="font-weight: bold;"><a href="#oh">Advising</a></li>
+		<li style="font-weight: bold;"><a href="#others">Others</a></li> 		
+        </ul>
+		</nav>  
+	
         
 	<!------------------------------------- Main -------------------------------------->    
-	<div class="col-md-7 col-lg-7 col-sm-8 col-xs-8" style="margin-left:5%;">
+	<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" style="margin-left:5%;">
       	
 	    <!------------------------------------Introduction-------------------------------------->	    
       	<div id="home"> 
@@ -137,7 +151,7 @@
 	    </div>
   	         
       	
-		<!------------------------------------  Publications  -------------------------------------->	
+		<!------------------------------------  Articles  -------------------------------------->	
       	<div id="pubs"> 
         	<h4 style="color:#006334;"><dt><br> Peer-Reviewed Publications</dt></h4>
 			
@@ -216,9 +230,24 @@
 				the labor market, human capital accumulation (rather than land endowments) have become the key correlate of 
 				improvements in rural household well-being.</p>
         	</div>
-		</div>
-		<br>
-	    	
+		
+		
+		
+		<!-------- Other Writing ---------------------------->
+		<h4 style="color:#006334;"><dt><br> Other Writings</dt></h4>
+		
+		<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" 
+			href="https://voxdev.org/topic/agriculture/feedback-loop-between-climate-change-and-agriculture" target="_blank" rel="noopener noreferrer">
+			VoxDev: The feedback loop between climate change and agriculture</a> 
+        	<br> 
+			with Chris Barrett, Jennifer Burney, Teevrat Garg, and Ariel Ortiz-Bobea <br> 
+        	<button class="btn" data-toggle="collapse" data-target="#voxdevag"> Abstract</button>
+		    <div id="voxdevag" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
+		        <p>Anthropogenic climate change will likely intensify the negative environmental impacts of agriculture through powerful feedback loops. 
+				This has important implications for development research, policy and R&D investment.</p>
+		    </div>
+			</div>
+	    <br>	
 
 		<!-----------------------------------   Work in Progress    ------------------------------------>
 		<div id="wip"> 
@@ -308,7 +337,7 @@
 		<!-----------------------------------   OH    ------------------------------------>	     
       	<div id="oh">   
 			<h4 style="color:#006334;"><dt><br>Office Hours</dt></h4>
-			Office hours are for appointment only. Please sign up 
+			Office hours are by appointment only. Please sign up 
 			<a style="color:#006334" href="https://calendly.com/trinhttpham-econ" target="_blank" rel="noopener noreferrer"> here </a> if you'd like to meet. Thank you!
       	</div>  
 		
@@ -318,8 +347,7 @@
 			<h4 style="color:#006334;"><dt><br>Others</dt></h4>
 			Below is a little bit more about myself and my academic journey.
 			<li> <a style="color:#006334" href="https://www.kdischool.ac.kr/gallery.es?mid=a30101000000&bid=0003&list_no=18906&act=view" target="_blank" rel="noopener noreferrer"> Interview with KDIS </a>
-			<li> <a style="color:#006334" href="https://www.joongang.co.kr/article/25273300" target="_blank" rel="noopener noreferrer"> 중앙일보 인터뷰</a>
-			<!--<li> <a style="color:#006334" href=""> 동아일보 인터뷰</a>-->
+			<li> <a style="color:#006334" href="https://www.joongang.co.kr/article/25273300" target="_blank" rel="noopener noreferrer"> 중앙일보 인터뷰</a>, <a style="color:#006334" href="https://www.donga.com/news/Society/article/all/20241101/130342207/1" target="_blank" rel="noopener noreferrer"> 동아일보 인터뷰</a>
       	</div>  
       	<br><br><br><br><br><br><br>
         
@@ -327,18 +355,7 @@
 	
 
 
-	<!------------------------------------- Navigation -------------------------------------->	   
-    <nav class="col-md-3 col-lg-3 col-sm-2 col-xs-2" id="tpwp" style="margin-right:5%;">
-        <ul class="nav nav-pills nav-stacked text-center">
-       	<img src="https://trinhttpham.github.io/cv/profile.jpg?raw=1" class="img-circle"  width="75%" height="75%"> 
-       	<li style="font-weight: bold;"><a href="#home">Home</a></li>
-       	<li style="font-weight: bold;"><a href="#pubs">Publications</a></li>
-		<li style="font-weight: bold;"><a href="#wip">Work in Progress</a></li>
-    	<li style="font-weight: bold;"><a href="#teaching">Teaching</a></li>
-		<li style="font-weight: bold;"><a href="#oh">Office Hours</a></li>
-		<li style="font-weight: bold;"><a href="#others">Others</a></li> 		
-        </ul>
-		</nav>  
+	
 
 
 </div>

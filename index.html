@@ -55,14 +55,13 @@
       
 		#home {color: #3A3B3C; background-color: #FFF;}
 		#cv {color: #3A3B3C; background-color: #FFF;}
-		#pubs {color: #3A3B3C; background-color: #FFF;}
-		#wip {color: #3A3B3C; background-color: #FFF;}
+		#research {color: #3A3B3C; background-color: #FFF;}
 		#teaching {color: #3A3B3C; background-color: #FFF;}
-		#oh {color: #3A3B3C; background-color: #FFF;}
+		#advising {color: #3A3B3C; background-color: #FFF;}
 		#others {color: #3A3B3C; background-color: #FFF;}
 
         @media screen and (max-width: 768px) {
-    	    #home, #cv, #pubs, #wip, #teaching, #oh, #others {
+    	    #home, #cv, #research, #teaching, #advising, #others {
                 margin-left: 5%;
             }
     	    }
@@ -114,20 +113,16 @@
 	
 <body data-spy="scroll" data-target="#tpwp" data-offset="15">
 <div class="container">
-
-	
-	
-    <div class="row">
     	
 	<!------------------------------------- Navigation -------------------------------------->	   
     <nav class="col-md-2 col-lg-2 col-sm-2 col-xs-2" id="tpwp">
         <ul class="nav nav-pills nav-stacked text-center">
        	<img src="https://trinhttpham.github.io/cv/profile3.jpg?raw=1" class="img-circle"  width="75%" height="75%"> 
        	<li style="font-weight: bold;"><a href="#home">Home</a></li>
-       	<li style="font-weight: bold;"><a href="#pubs">Articles</a></li>
-		<li style="font-weight: bold;"><a href="#wip">Work in Progress</a></li>
+       	<li style="font-weight: bold;"><a href="#research">Research</a></li>
+		<!--<li style="font-weight: bold;"><a href="#wip">Work in Progress</a></li>-->
     	<li style="font-weight: bold;"><a href="#teaching">Teaching</a></li>
-		<li style="font-weight: bold;"><a href="#oh">Advising</a></li>
+		<li style="font-weight: bold;"><a href="#advising">Advising</a></li>
 		<li style="font-weight: bold;"><a href="#others">Others</a></li> 		
         </ul>
 		</nav>  
@@ -152,7 +147,7 @@
   	         
       	
 		<!------------------------------------  Articles  -------------------------------------->	
-      	<div id="pubs"> 
+      	<div id="research"> 
         	<h4 style="color:#006334;"><dt><br> Peer-Reviewed Publications</dt></h4>
 			
 			
@@ -233,26 +228,23 @@
 		
 		
 		
-		<!-------- Other Writing ---------------------------->
-		<h4 style="color:#006334;"><dt><br> Other Writings</dt></h4>
+			<!-------- Other Writing ---------------------------->
+			<h4 style="color:#006334;"><dt><br> Other Writings</dt></h4>
 		
-		<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" 
-			href="https://voxdev.org/topic/agriculture/feedback-loop-between-climate-change-and-agriculture" target="_blank" rel="noopener noreferrer">
-			VoxDev: The feedback loop between climate change and agriculture</a> 
-        	<br> 
-			with Chris Barrett, Jennifer Burney, Teevrat Garg, and Ariel Ortiz-Bobea <br> 
-        	<button class="btn" data-toggle="collapse" data-target="#voxdevag"> Abstract</button>
-		    <div id="voxdevag" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
+			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" 
+				href="https://voxdev.org/topic/agriculture/feedback-loop-between-climate-change-and-agriculture" target="_blank" rel="noopener noreferrer">
+				VoxDev: The Feedback Loop Between Climate Change and Agriculture</a> 
+				<br> 
+				with Chris Barrett, Jennifer Burney, Teevrat Garg, and Ariel Ortiz-Bobea <br> 
+				<button class="btn" data-toggle="collapse" data-target="#voxdevag"> Abstract</button>
+				<div id="voxdevag" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
 		        <p>Anthropogenic climate change will likely intensify the negative environmental impacts of agriculture through powerful feedback loops. 
 				This has important implications for development research, policy and R&D investment.</p>
-		    </div>
-			</div>
-	    <br>	
+				</div>
+	
 
-		<!-----------------------------------   Work in Progress    ------------------------------------>
-		<div id="wip"> 
-			<h4 style="color:#006334;"><dt><br> Work in Progress</dt></h4>
-
+			<!-----------------------------------   Working Papers    ------------------------------------>
+			<h4 style="color:#006334;"><dt><br> Working Papers (draft available upon request)</dt></h4>
 	
 			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334">Climate Change and Intersectoral Labor Reallocation in a Developing Country</a>
         	<br> Awarded the Weiss Fund Distinguished PhD Research Paper Award (NEUDC 2023, Harvard Kennedy School)<br>  
@@ -291,7 +283,7 @@
 		
 
 
-			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" >Mentoring, Educational Preferences, and Career Choices: Evidence from Two Field Experiments in Bhutan</a> <br> 
+			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334"> Mentoring, Educational Preferences, and Career Choices: Evidence from Two Field Experiments in Bhutan</a> <br> 
 			with <a style="color:#006334"> Ryotaro Hayashi </a>, 
 			<a style="color:#006334" href="https://sites.google.com/site/hk2405/home" target="_blank" rel="noopener noreferrer">Hyuncheol Bryant Kim </a> 
 			and <a style="color:#006334"  href="https://sites.google.com/site/econmatsuda/" target="_blank" rel="noopener noreferrer"> Norihiko Matsuda</a> <br>   
@@ -307,16 +299,23 @@
 				and enrollment. We interpret these findings as supporting the importance of non-monetary factors in 
 				shaping educational decision-making.</p>
         	</div>
-			<br>
 
-	  
+			
+			<!-----------------------------------   Work in Progress    ------------------------------------>	
+			<h4 style="color:#006334;"><dt><br> Work in Progress </dt></h4>
+			
+			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" >The Economic and Environmental Impacts of Place-based Policies</a> <br> 
+			<br> 
+			
+			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" >The Effects of College Entrance Exam Retake on Adult Outcomes</a> <br> 
+			with <a style="color:#006334" href="https://sites.google.com/site/jinseongpark83/" target="_blank" rel="noopener noreferrer"> Jinseong Park</a><br> 
+			<br> 
 			
 			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" >Meta-analytic Review of Climate and Pollution Impacts on Human Capital</a> <br> 
 			with <a style="color:#006334"> Patrick Behrer</a>, <a style="color:#006334">  Teevrat Garg </a>, <a style="color:#006334"> Alaka Holla</a>, <a style="color:#006334"> Adriana Molina</a>, and <a style="color:#006334"> Trevor Dean Arnold</a><br>   
+		
 		</div>	
-		<br>
-			
-
+	 
       
       	<!-----------------------------------   Teaching    ------------------------------------>	     
       	<div id="teaching">         
@@ -335,7 +334,7 @@
 		
 		
 		<!-----------------------------------   OH    ------------------------------------>	     
-      	<div id="oh">   
+      	<div id="advising">   
 			<h4 style="color:#006334;"><dt><br>Office Hours</dt></h4>
 			Office hours are by appointment only. Please sign up 
 			<a style="color:#006334" href="https://calendly.com/trinhttpham-econ" target="_blank" rel="noopener noreferrer"> here </a> if you'd like to meet. Thank you!
@@ -349,16 +348,11 @@
 			<li> <a style="color:#006334" href="https://www.kdischool.ac.kr/gallery.es?mid=a30101000000&bid=0003&list_no=18906&act=view" target="_blank" rel="noopener noreferrer"> Interview with KDIS </a>
 			<li> <a style="color:#006334" href="https://www.joongang.co.kr/article/25273300" target="_blank" rel="noopener noreferrer"> 중앙일보 인터뷰</a>, <a style="color:#006334" href="https://www.donga.com/news/Society/article/all/20241101/130342207/1" target="_blank" rel="noopener noreferrer"> 동아일보 인터뷰</a>
       	</div>  
+		
+		
       	<br><br><br><br><br><br><br>
         
 	</div>
-	
-
-
-	
-
-
-</div>
 
 
 <script>

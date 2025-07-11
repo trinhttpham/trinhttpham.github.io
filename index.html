@@ -1,216 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Trinh Pham</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
-  
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T54X0RQWS9"></script>
-	
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-T54X0RQWS9');
-    </script>	
-	
-    <style>
-        body {
-            position: relative;
-        }
-		
-		h1, h2, h3, h4 {
-            border-bottom: 1px solid #006334;
-            padding-bottom: 2%; 
-            margin-bottom: 2%; 
-        }
-  
-		ul.nav-pills {
-			top: 45px;
-			position: fixed;
-			text-center;
-			width: 13%;
-			font-size: 100%;
-			left: 10%;
-		}
-	
-		.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-            color:#006334;
-            background-color:white;
-        }
-  
-		.nav-pills>li>a {
-    	    background-color: white;
-    	    border-color: white;
-            color: #006334;
-		}  
-  
-		div.col-sm-9 div {
-    	    font-size: 14px;
-		}
-      
-		#home {color: #3A3B3C; background-color: #FFF;}
-		#cv {color: #3A3B3C; background-color: #FFF;}
-		#research {color: #3A3B3C; background-color: #FFF;}
-		#teaching {color: #3A3B3C; background-color: #FFF;}
-		#advising {color: #3A3B3C; background-color: #FFF;}
-		#others {color: #3A3B3C; background-color: #FFF;}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trinh Pham</title>
 
-        @media screen and (max-width: 768px) {
-    	    #home, #cv, #research, #teaching, #advising, #others {
-                margin-left: 5%;
-            }
-    	    }
-		}
-		
+  <!-- Bootstrap 4 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- jQuery and Bootstrap Bundle JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-		li {
-			list-style: square;
-            padding-left: 1em;
-    	    text-indent: -1em;
-    	    margin: 1% 0;
-		}
-  
-		div.panel {
-    	    padding: 0 10%;
-    	    margin-top: 5%;
-    	    display: none;
-    	    background-color: white;
-    	    font-size: 90%;
-		}
-  
-		div.panel.show {
-    	    display: block !important;
-		}
-  
-		.social-row {
-    	    display: flex;
-            flex-wrap: wrap;
-    	    justify-content: space-between;
-		}  
-  
-		.active, .collapse:hover {
-			background-color: #ccc;
-		}
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T54X0RQWS9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-T54X0RQWS9");
+  </script>
 
-		.btn:after {
-			content: '[+]'; 
-			font-size: 13px;
-			float: right;
-			margin-left: 5px;
-		}
-  
-		.active:after {
-			content: "[-]"; 
-		}
-    
-    </style>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+    }
+    h2 {
+      border-bottom: 1px solid #006334;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      color: #006334;
+	  font-size: 25px;
+    }
+	h4 {
+      color: #006334;
+	  font-size: 18px;
+    }
+    section {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    .nav-link {
+      color: #006334 !important;
+    }
+    .nav-link:hover {
+      color: #004d1a !important;
+    }
+    /* Collapse button styling for abstracts */
+    .btn-toggle-abstract {
+      background: #e7e8e9;
+      border: #e7e8e9;
+      color: #006334;
+      cursor: pointer;
+      font-weight: 200;
+	  font-size: 13px;
+      padding: 1;
+      margin-left:0px;
+    }
+    .btn-toggle-abstract:focus {
+      outline: none;
+      text-decoration: underline;
+    }
+    /* Smaller text for abstracts */
+    .abstract {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      border-left: 3px solid #006334;
+    }
+	/* highlight link */
+	.container a {
+      color: black; 
+      text-decoration: none; 
+      border-bottom: 1px dotted black; 
+      padding-bottom: 2px; 
+	}
+  </style>
 </head>
-	
-<body data-spy="scroll" data-target="#tpwp" data-offset="15">
-<div class="container">
-    	
-	<!------------------------------------- Navigation -------------------------------------->	   
-    <nav class="col-md-2 col-lg-2 col-sm-2 col-xs-2" id="tpwp">
-        <ul class="nav nav-pills nav-stacked text-center">
-       	<img src="https://trinhttpham.github.io/cv/profile3.jpg?raw=1" class="img-circle"  width="75%" height="75%"> 
-       	<li style="font-weight: bold;"><a href="#home">Home</a></li>
-       	<li style="font-weight: bold;"><a href="#research">Research</a></li>
-		<!--<li style="font-weight: bold;"><a href="#wip">Work in Progress</a></li>-->
-    	<li style="font-weight: bold;"><a href="#teaching">Teaching</a></li>
-		<li style="font-weight: bold;"><a href="#advising">Advising</a></li>
-		<li style="font-weight: bold;"><a href="#others">Others</a></li> 		
-        </ul>
-		</nav>  
-	
-        
-	<!------------------------------------- Main -------------------------------------->    
-	<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" style="margin-left:5%;">
-      	
-	    <!------------------------------------Introduction-------------------------------------->	    
-      	<div id="home"> 
-		<br>
-        	<p> <br> Hello and welcome to my page. </p>
-		    <p> My name is Trinh Pham and I am an applied economist researching (i) the interrelationship between economic development and the environment, 
+<body>
+
+  <!-- Responsive Navbar -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <a class="navbar-brand font-weight-bold" style="color:#006334" href="#">Trinh Pham</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+        <li class="nav-item"><a class="nav-link" href="#teaching">Teaching</a></li>
+        <li class="nav-item"><a class="nav-link" href="#advising">Advising</a></li>
+        <li class="nav-item"><a class="nav-link" href="#others">Others</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container" style="margin-top: 80px; margin-bottom: 40px;">
+    <section id="home" class="text-center" >
+      <img
+        src="https://trinhttpham.github.io/cv/profile3.jpg?raw=1"
+        class="img-fluid rounded-circle mb-3"
+        style="max-width: 150px;"
+        alt="Trinh Pham Profile Picture"
+      />
+      <p>
+        Hello and welcome to my page.
+      </p>
+      <p>
+        My name is Trinh Pham and I am an applied economist researching (i) the interrelationship between economic development and the environment, 
 			    and (ii) the determinants of human capital in low- and middle-income countries. </p>
 		    <p> I am currently a tenure-track Assistant Professor at the Korea Development Institute (KDI) School of Public Policy and Management. 
 			    I received my PhD in Applied Economics from Cornell University in May 2024. </p>
-      	    <p> Here are <a style="color:#006334" href="https://trinhttpham.com/cv/CV_Pham.pdf" target="_blank" rel="noopener noreferrer">my CV</a> 
-			    and <a style="color:#006334" href="https://scholar.google.com/citations?user=Xq5YW5oAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar Profile</a>.
-			</p>
-			<p>Please feel free to contact me via email at tpham[at]kdischool[dot]ac[dot]kr.</p>			
-	    </div>
-  	         
-      	
-		<!------------------------------------  Articles  -------------------------------------->	
-      	<div id="research"> 
-        	<h4 style="color:#006334;"><dt><br> Peer-Reviewed Publications</dt></h4>
-			
-			
-			
-			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" href="https://www.journals.uchicago.edu/doi/10.1086/725319" 
-			target="_blank" rel="noopener noreferrer">Structural Transformation, Agriculture, Climate, and the Environment</a> <br> 
-			<i>Review of Environmental Economics and Policy</i>, 2023, Vol. 17, No. 2: 195-216. 
-        	<br> 
-			with <a style="color:#006334" href="https://dyson.cornell.edu/faculty-research/faculty/cbb2/" target="_blank" rel="noopener noreferrer">Christopher B. Barrett </a> 
-			and <a style="color:#006334"  href="https://dyson.cornell.edu/faculty-research/faculty/ao332/" target="_blank" rel="noopener noreferrer"> Ariel Ortiz-Bobea</a> <br>
-        	<button class="btn" data-toggle="collapse" data-target="#reep_stace_abstract"> Abstract</button>
-		    <div id="reep_stace_abstract" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-				<p>This paper reviews the feedbacks between structural transformation and agriculture, on the one hand, 
-					and climate and the natural environment, on the other. The longstanding, dominant economic development 
-					narrative largely ignores nature’s influence on factor productivity and stocks, even as it increasingly 
-					illustrates how agricultural technological change and economic growth affect nature. We articulate some 
-					of the missing linkages and pose a range of policy research questions worth exploration concerning 
-					structural transformation and the complex feedback among agriculture, nature, and economic growth 
-					processes, especially in the low-income agrarian nations of the Global South.</p>
-        	</div>
-			<br>
+      <p>
+        Here are
+        <a
+          href="https://trinhttpham.com/cv/CV_Pham.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          >my CV</a
+        >
+        and
+        <a
+          href="https://scholar.google.com/citations?user=Xq5YW5oAAAAJ&hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Google Scholar Profile</a
+        >.
+      </p>
+      <p>
+        Please feel free to contact me via email at
+        <a href="mailto:tpham@kdischool.ac.kr">tpham@kdischool.ac.kr</a>.
+      </p>
+    </section>
 
+    <section id="research">
+      <h2>Research</h2>
 
-        
-       	 	<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" 
-			href="https://www.sciencedirect.com/science/article/abs/pii/S027277572200084X" target="_blank" rel="noopener noreferrer">
-			The Child Education and Health Ethnic Inequality Consequences of Climate Shocks in Vietnam</a> <br> 
-			<i>Economics of Education Review</i>, 2022, 90: 102311.
-        	<br> 
-        	<button class="btn" data-toggle="collapse" data-target="#eer_childvn_abstract"> Abstract</button>
-		    <div id="eer_childvn_abstract" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-		        <p>This paper provides a new explanation for ethnic disparities in education and health in Vietnam 
-				by studying the relationship between frequent, small-scale adverse rainfall shocks and child human capital.
-				Exploiting 	plausibly random year-to-year variation in weather data that are linked to a longitudinal 
-				household- and individual-level dataset over the period 2008–2017, I find that excess rainfall 
-				during the annual typhoon season results in lower child subjective health status and school enrollment,
-				with disproportionate effects on children of ethnic minorities. The negative lagged effects on education 
-				are concentrated in children at primary school start age, suggesting delaying children’s school entry is 
-				a shock–coping strategy for poor ethnic minority households, albeit with potentially big negative long-run 
-				effect on their child lifetime earnings. Estimates suggest that rainfall shocks can explain approximately 28% 
-				of the observed ethnic gap in enrollment rates of children age 16–18 in the sample during the study period,
-				and most is due to heterogeneous effects of rainfall shocks among ethnic groups, not differences in exposure to rainfall shocks.</p>
-		    </div>
-        	<button class="btn" data-toggle="collapse" data-target="#eer_childvn_wp">Other Versions</button>
-		    <div id="eer_childvn_wp" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px; padding-bottom: 30px;">
-		        <a style="color:#006334" href="https://trinhttpham.github.io/research/child_vietnam.pdf" target="_blank" rel="noopener noreferrer">Accepted version</a> (August 2022)
-		    </div>
-        	<br><br>
-                
-                
-        	     
-            
-			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" 
-			href="https://www.sciencedirect.com/science/article/pii/S0306919220301172" target="_blank" rel="noopener noreferrer">
-			The Intertemporal Evolution of Agriculture and Labor over a Rapid Structural Transformation: Lessons from Vietnam</a> <br> 
-			<i>Food Policy</i>, 2020, 94: 101913. 
-        	<br> 
-			with <a style="color:#006334" href="https://www.ifpri.org/profile/yanyan-liu" target="_blank" rel="noopener noreferrer"> Yanyan Liu</a>, 
-			<a style="color:#006334" href="https://dyson.cornell.edu/faculty-research/faculty/cbb2/" target="_blank" rel="noopener noreferrer">Christopher B. Barrett </a> 
-			and <a style="color:#006334" href="https://www.ftc.gov/about-ftc/commissioners-staff/william-j-violette" target="_blank" rel="noopener noreferrer"> William Violette </a><br>  
-        	<button class="btn" data-toggle="collapse" data-target="#fp_vn_abstract">Abstract</button>
-		    <div id="fp_vn_abstract" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-        		<p> We combine nationally representative household and labor force survey data from 1992 to 2016 to provide 
+      <h4>Peer-Reviewed Publications</h4>
+	  
+      <p>
+        <a href="https://www.journals.uchicago.edu/doi/10.1086/725319" target="_blank" rel="noopener noreferrer">
+          [3] Structural Transformation, Agriculture, Climate, and the Environment
+        </a><br>
+        <button
+          class="btn-toggle-abstract"
+          data-toggle="collapse"
+          data-target="#abstract3"
+          aria-expanded="false"
+          aria-controls="abstract3"
+          title="Show Abstract"
+        >
+          Abstract
+		</button>
+		<em>Review of Environmental Economics and Policy</em>, 2023, Vol. 17, No. 2: 195-216. <br />
+        with <a href="https://dyson.cornell.edu/faculty-research/faculty/cbb2/" target="_blank" rel="noopener noreferrer">Christopher B. Barrett </a> and <a href="https://dyson.cornell.edu/faculty-research/faculty/ao332/" target="_blank" rel="noopener noreferrer">Ariel Ortiz-Bobea </a>
+		<div id="abstract3" class="collapse abstract">
+          This paper reviews the feedbacks between structural transformation and
+          agriculture, and climate and the natural environment. The
+          longstanding development narrative often ignores nature’s influence
+          on factor productivity and stocks. We highlight missing linkages and
+          pose policy research questions regarding structural transformation
+          and environmental-economic feedback in low-income nations.
+		</div>
+	  </p>
+		
+	  <p>
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S027277572200084X" target="_blank" rel="noopener noreferrer">
+          [2] The Child Education and Health Ethnic Inequality Consequences of Climate Shocks in Vietnam
+        </a><br><button
+          class="btn-toggle-abstract"
+          data-toggle="collapse"
+          data-target="#abstract2a"
+          aria-expanded="false"
+          aria-controls="abstract2a"
+          title="Show Abstract"
+        >
+          Abstract
+        </button> <button
+          class="btn-toggle-abstract"
+          data-toggle="collapse"
+          data-target="#abstract2b"
+          aria-expanded="false"
+          aria-controls="abstract2b"
+          title="Link To Ungated Version"
+        >
+          Ungated
+        </button> 
+        <em>Economics of Education Review</em>, 2022, 90: 102311. 
+		<div id="abstract2a" class="collapse abstract">
+          This paper provides a new explanation for ethnic disparities in education and health in Vietnam 
+		by studying the relationship between frequent, small-scale adverse rainfall shocks and child human capital.
+		Exploiting 	plausibly random year-to-year variation in weather data that are linked to a longitudinal 
+		household- and individual-level dataset over the period 2008–2017, I find that excess rainfall 
+		during the annual typhoon season results in lower child subjective health status and school enrollment,
+		with disproportionate effects on children of ethnic minorities. The negative lagged effects on education 
+		are concentrated in children at primary school start age, suggesting delaying children’s school entry is 
+		a shock–coping strategy for poor ethnic minority households, albeit with potentially big negative long-run 
+		effect on their child lifetime earnings. Estimates suggest that rainfall shocks can explain approximately 28% 
+		of the observed ethnic gap in enrollment rates of children age 16–18 in the sample during the study period,
+		and most is due to heterogeneous effects of rainfall shocks among ethnic groups, not differences in exposure to rainfall shocks.
+		</div>
+        <div id="abstract2b" class="collapse abstract">
+          <a style="color:#006334" href="https://trinhttpham.github.io/research/child_vietnam.pdf" target="_blank" rel="noopener noreferrer">Ungated Version</a> (August 2022)
+        </div>
+	  </p>
+	
+	<p>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0306919220301172" target="_blank" rel="noopener noreferrer">
+        [1] The Intertemporal Evolution of Agriculture and Labor over a Rapid Structural Transformation: Lessons from Vietnam
+        </a><br><button
+          class="btn-toggle-abstract"
+          data-toggle="collapse"
+          data-target="#abstract1"
+          aria-expanded="false"
+          aria-controls="abstract1"
+          title="Show Abstract"
+        >
+          Abstract
+		</button>
+        <em>Food Policy</em>, 2020, 94: 101913. 
+        with <a href="https://www.ifpri.org/profile/yanyan-liu" target="_blank" rel="noopener noreferrer"> Yanyan Liu</a>, 
+			<a href="https://dyson.cornell.edu/faculty-research/faculty/cbb2/" target="_blank" rel="noopener noreferrer">Christopher B. Barrett </a> 
+			and <a href="https://www.ftc.gov/about-ftc/commissioners-staff/william-j-violette" target="_blank" rel="noopener noreferrer"> William Violette </a>
+		<div id="abstract1" class="collapse abstract">
+          We combine nationally representative household and labor force survey data from 1992 to 2016 to provide 
 				a detailed description of rural labor market evolution and how it relates to the structural transformation 
 				of rural Vietnam, especially within the agricultural sector. Our study adds to the emerging literature on 
 				structural transformation in low-income countries using micro-level data and helps to answer several 
@@ -223,184 +249,183 @@
 				largely unchanged. Small farm sizes have not obstructed mechanization nor the uptake of labor-saving pesticides,
 				consistent with factor substitution induced by rising real wage rates. As rural households rely more heavily on 
 				the labor market, human capital accumulation (rather than land endowments) have become the key correlate of 
-				improvements in rural household well-being.</p>
-        	</div>
-		
-		
-		
-			<!-------- Other Writing ---------------------------->
-			<h4 style="color:#006334;"><dt><br> Other Writings</dt></h4>
-		
-			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" 
-				href="https://voxdev.org/topic/agriculture/feedback-loop-between-climate-change-and-agriculture" target="_blank" rel="noopener noreferrer">
-				VoxDev: The Feedback Loop Between Climate Change and Agriculture</a> 
-				<br> 
-				with Chris Barrett, Jennifer Burney, Teevrat Garg, and Ariel Ortiz-Bobea <br> 
-				<button class="btn" data-toggle="collapse" data-target="#voxdevag"> Abstract</button>
-				<div id="voxdevag" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-		        <p>Anthropogenic climate change will likely intensify the negative environmental impacts of agriculture through powerful feedback loops. 
-				This has important implications for development research, policy and R&D investment.</p>
-				</div>
+				improvements in rural household well-being.
+		</div>
+		</p>
 	
-
-			<!-----------------------------------   Working Papers    ------------------------------------>
-			<h4 style="color:#006334;"><dt><br> Working Papers (draft available upon request)</dt></h4>
-	
-			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334">Climate Change and Intersectoral Labor Reallocation in a Developing Country</a>
-        	<br> Awarded the Weiss Fund Distinguished PhD Research Paper Award (NEUDC 2023, Harvard Kennedy School)<br>  
-        	<button class="btn" data-toggle="collapse" data-target="#jmp_vn_abstract">Abstract</button>
-		    <div id="jmp_vn_abstract" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-        		<p> I present a simple model to reconcile different findings in the prior climate-employment literature, 
-				incorporating roles for trade openness and intersectoral switching costs. 
-				Using Vietnamese data, I provide new evidence consistent with the model’s 
-				predictions. In most places, heat induces an outflow of workers from agriculture 
-				to non-agriculture in both the short and long terms. While all workers are equally 
-				likely to take an informal non-agricultural job, younger individuals incur lower 
-				costs and comprise most of those moving into formal non-agriculture. In places less 
-				integrated into global markets, the reallocation runs in the opposite direction 
-				due to general equilibrium effects.</p>
-        	</div>
-			<br>
-
-
-
-			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" >Temperature Change and Factor-Biased Agricultural Technological Change when Labor Endowment Matters</a> <br>    
-        	<button class="btn" data-toggle="collapse" data-target="#ag_vn_abstract">Abstract</button>
-		    <div id="ag_vn_abstract" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-        		<p> This paper examines how farmers respond to increasing temperatures. 
-				Utilizing microdata from Vietnamese households, I find that extreme heat negatively affects agricultural productivity. 
-				However, its impact on agricultural output varies among households with different labor resources. 
-				Young farming households, whose production is less affected by extreme heat, also undergo significant 
-				changes in input utilization: they rely less on household labor and increasingly adopt machinery. 
-				Conversely, older farming households do not make substantial adjustments and suffer more adverse 
-				impacts of extreme heat on overall output. These findings align with the notion that farmers adjust 
-				inputs as short-term responses to mitigate extreme heat's impact on output, while navigating non-farm 
-				labor market options that differentiate among workers of different cohorts. Supporting evidence 
-				indicates that young farming households encounter labor supply constraints, leading them to intensify 
-				the use of labor-saving inputs when faced with significant labor shortages due to extreme heat.</p>
-        	</div>
-			<br>
+	  <br>
+      <h4>Working Papers (Draft Available Upon Request) </h4>
+	  <p>
+        <a href="https://www.journals.uchicago.edu/doi/10.1086/725319" target="_blank" rel="noopener noreferrer">
+          [1] Mentoring, Educational Preferences, and Career Choices: Evidence from Two Field Experiments in Bhutan
+        </a><br>
+        <button
+          class="btn-toggle-abstract"
+          data-toggle="collapse"
+          data-target="#abstract4"
+          aria-expanded="false"
+          aria-controls="abstract4"
+          title="Show Abstract"
+        >
+          Abstract
+		</button>
+		<em>Conditional Accepted, Journal of Policy Analysis and Management </em> <br />
+        with <a> Ryotaro Hayashi </a>, 
+			<a href="https://sites.google.com/site/hk2405/home" target="_blank" rel="noopener noreferrer">Hyuncheol Bryant Kim </a> 
+			and <a href="https://sites.google.com/site/econmatsuda/" target="_blank" rel="noopener noreferrer"> Norihiko Matsuda</a> 
+		<div id="abstract4" class="collapse abstract">
+          We evaluate two randomized controlled trials in Bhutan testing whether near-peer mentoring can shift students’ educational preferences toward STEM and TVET pathways. Mentors provided personalized guidance, shared their ownexperiences, and offered information on admissions and labor market outcomes. The interventions significantly increased students’ interest and perceived knowledge, but had limited effects on actual applications or enrollment. In the STEM stream, limited follow-through appears linked to structural constraints such asacademic selectivity and limited program capacity; for TVET, social stigma and parental skepticism likely
+          played a constraining role. These findings highlight the potential of light-touch, scalable mentoring to shape aspirations, while underscoring the need for complementary strategies to support behavior change and enable follow-through.
+		</div>
+		</p>
 		
+      <p>
+        [2] Climate Change and Intersectoral Labor Reallocation in a Developing Country <br />
+        <button
+          class="btn-toggle-abstract"
+          data-toggle="collapse"
+          data-target="#abstractw1"
+          aria-expanded="false"
+          aria-controls="abstractw1"
+          title="Show abstract"
+        >
+          Abstract
+        </button>
+		<em>Weiss Fund Distinguished PhD Research Paper Award (NEUDC 2023, Harvard Kennedy School)</em>
+		<div id="abstractw1" class="collapse abstract">
+        Using nearly three decades of Vietnamese data, I document the heterogeneous effects
+				of temperature changes on intersectoral labor reallocation across regions and demographics.
+				Extreme heat generally shifts workers from agriculture to non-agriculture in
+				both the short and long term. While all workers face similar probabilities of entering
+				informal non-agricultural jobs, younger individuals are more likely to secure formal
+				employment. In less globally integrated regions, extreme heat increases agricultural labor
+				shares and reduces consumption expenditure. These findings align with a model
+				of costly labor reallocation, emphasizing trade openness and intersectoral switching
+				costs as critical factors linking climate shocks to employment dynamics.
+      </div>
+	  </p>
+	  
+	  <p>
+        [3] Extreme Heat and Agriculture When Labor Endowment Matters <br />
+        <button
+          class="btn-toggle-abstract"
+          data-toggle="collapse"
+          data-target="#abstractw2"
+          aria-expanded="false"
+          aria-controls="abstractw2"
+          title="Show abstract"
+        >
+          Abstract
+        </button>
+      <div id="abstractw2" class="collapse abstract">
+        This paper investigates how smallholder farmers with varying labor endowments adapt
+				to extreme heat, using household-level data from Vietnam combined with temperature
+				records. I find that extreme heat significantly reduces agricultural production, with its
+				impact on total output varying by household labor composition. Farms with younger
+				workforces experience little to no output loss, while those with older labor suffer disproportionately.
+				Although farm productivity declines across all households, younger
+				farmers adapt by reallocating labor and increasing reliance on machinery, whereas
+				older households make fewer adjustments. These findings suggest that farmers modify
+				input use as a short-term strategy to buffer against heat stress while navigating nonfarm
+				labor market opportunities that differ across generations. These insights have important
+				implications for agricultural extension services and input supply chains, helping
+				to inform the targeted diffusion of labor-saving technologies as farmers grapple
+				with a changing climate.
+      </div>
+	  </p> 
+	  
+	  <p>
+        [4] Who Benefits from Industrialization? Labor Market Adjustments and Household Welfare in Vietnam <br />
+        <button
+          class="btn-toggle-abstract"
+          data-toggle="collapse"
+          data-target="#abstractw3"
+          aria-expanded="false"
+          aria-controls="abstractw3"
+          title="Show abstract"
+        >
+          Abstract
+        </button>
+      <div id="abstractw3" class="collapse abstract">
+       Leveraging the staggered rollout of industrial zones in Vietnam between 2002 and 2020, this study uses rich individual- and household-level data to analyze the local impacts of place-based industrial policies on labor market outcomes and household welfare. The findings reveal substantial heterogeneity across age and educational groups. Industrial zone exposure is associated with delayed labor market entry among less-educated youth and increased voluntary retirement among older, more educated adults. Among working-age adults, less-educated individuals shift primarily from agriculture to both informal and formal non-agricultural employment, while more-educated individuals transition from informal and agricultural sectors into formal non-agricultural jobs. Despite these varied individual responses, gains in household consumption are broadly shared, suggesting that intra-household resource pooling plays a key role in distributing the benefits of industrialization.
+      </div>
+	  </p> 
+	  
+	  <br>
+      <h4>Other Writings</h4>
+      <p>
+        <a href="https://voxdev.org/topic/agriculture/feedback-loop-between-climate-change-and-agriculture" target="_blank" rel="noopener noreferrer">
+          VoxDev: The Feedback Loop Between Climate Change and Agriculture
+        </a><br />
+        with Christopher B. Barrett, Jennifer Burney, Teevrat Garg, and Ariel Ortiz-Bobea
+        <button
+          class="btn-toggle-abstract"
+          data-toggle="collapse"
+          data-target="#abstract2"
+          aria-expanded="false"
+          aria-controls="abstract2"
+          title="Show Abstract"
+        >
+          Abstract
+        </button>
+      </p>
+      <div id="abstract2" class="collapse abstract">
+        Anthropogenic climate change will likely intensify the negative environmental impacts of agriculture through powerful feedback loops. 
+		This has important implications for development research, policy and R&D investment.
+      </div>
+	  
+    </section>
 
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <p><strong>KDI School</strong><br /></p>
+	  <ul>
+		<li> Development Economics (PhD), Fall 2024
+	  </ul>
+      <p><strong>Cornell University</strong></p>
+      <ul>
+        <li>TA, Applied Econometrics (Master's), Fall 2021/2023</li>
+        <li>Math Camp for incoming Dyson MSc Students, Summer 2022</li>
+        <li>TA, Economics of Developing Countries (Undergrad), Spring 2021-2022</li>
+        <li>TA, Research and Methods (Master's), Fall 2020</li>
+        <li>TA, Risk Simulation and Monte Carlo Methods (Master's), Spring 2020</li>
+        <li>TA, Introduction to Economics of Development (Undergrad), Fall 2019</li>
+      </ul>
+    </section>
 
-			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334"> Mentoring, Educational Preferences, and Career Choices: Evidence from Two Field Experiments in Bhutan</a> <br> 
-			with <a style="color:#006334"> Ryotaro Hayashi </a>, 
-			<a style="color:#006334" href="https://sites.google.com/site/hk2405/home" target="_blank" rel="noopener noreferrer">Hyuncheol Bryant Kim </a> 
-			and <a style="color:#006334"  href="https://sites.google.com/site/econmatsuda/" target="_blank" rel="noopener noreferrer"> Norihiko Matsuda</a> <br>   
-        	<button class="btn" data-toggle="collapse" data-target="#bhutan_abstract">Abstract</button>
-		    <div id="bhutan_abstract" class="collapse" style="background-color: #F1F1F1; color: #666; padding: 10px;">
-        		<p> We use data from two separate randomized control trials to study whether mentoring influences 
-				the educational preferences and career choices of Bhutanese high and middle-school students. These 
-				mentoring programs provide information about Technical and Vocational Education and Training (TVET) 
-				and Science, Technology, Engineering, and Mathematics (STEM) education systems, labor market outcomes, 
-				and mentors' experience in respective fields. Despite the contrasting levels of recognition and stigma 
-				associated with TVET and STEM, both programs generate greater interest among students, as indicated by 
-				their stated preferences. However, this heightened interest does not translate into increased applications
-				and enrollment. We interpret these findings as supporting the importance of non-monetary factors in 
-				shaping educational decision-making.</p>
-        	</div>
+    <section id="advising">
+      <h2>Office Hours</h2>
+      <p>
+        Office hours are by appointment only. Please sign up
+        <a href="https://calendly.com/trinhttpham-econ" target="_blank" rel="noopener noreferrer">here</a> if you'd like to meet. Thank you!
+      </p>
+    </section>
 
-			
-			<!-----------------------------------   Work in Progress    ------------------------------------>	
-			<h4 style="color:#006334;"><dt><br> Work in Progress </dt></h4>
-			
-			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" >The Economic and Environmental Impacts of Place-based Policies</a> <br> 
-			<br> 
-			
-			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" >The Effects of College Entrance Exam Retake on Adult Outcomes</a> <br> 
-			with <a style="color:#006334" href="https://sites.google.com/site/jinseongpark83/" target="_blank" rel="noopener noreferrer"> Jinseong Park</a><br> 
-			<br> 
-			
-			<p style="margin:0"> <a style="margin:0; font-size:100%; font-weight:bold; color:#006334" >Meta-analytic Review of Climate and Pollution Impacts on Human Capital</a> <br> 
-			with <a style="color:#006334"> Patrick Behrer</a>, <a style="color:#006334">  Teevrat Garg </a>, <a style="color:#006334"> Alaka Holla</a>, <a style="color:#006334"> Adriana Molina</a>, and <a style="color:#006334"> Trevor Dean Arnold</a><br>   
-		
-		</div>	
-	 
-      
-      	<!-----------------------------------   Teaching    ------------------------------------>	     
-      	<div id="teaching">         
-        	<h4 style="color:#006334;"><dt><br>Teaching</dt></h4>
-		    <p style="margin:0; font-size:100%; font-weight:bold; color:#006334">KDI School</p>
-          		<li>Development Economics (PhD), Fall 2024 </li> 
-				<br>
-        	<p style="margin:0; font-size:100%; font-weight:bold; color:#006334">Cornell University</p>
-				<li>TA, Applied Econometrics (Master's), Fall 2021/2023</li>
-          		<li>Math Camp for incoming Dyson School MSc Students, Summer 2022 </li> 
-          		<li>TA, Economics of Developing Countries (Undergrad), Spring 2021-2022</li>
-          		<li>TA, Research and Methods (Master's), Fall 2020</li>
-          		<li>TA, Risk Simulation and Monte Carlo Methods (Master's), Spring 2020</li>
-          		<li>TA, Introduction to Economics of Development (Undergrad), Fall 2019</li> 
-      	</div>  
-		
-		
-		<!-----------------------------------   OH    ------------------------------------>	     
-      	<div id="advising">   
-			<h4 style="color:#006334;"><dt><br>Office Hours</dt></h4>
-			Office hours are by appointment only. Please sign up 
-			<a style="color:#006334" href="https://calendly.com/trinhttpham-econ" target="_blank" rel="noopener noreferrer"> here </a> if you'd like to meet. Thank you!
-      	</div>  
-		
-		
-		<!-----------------------------------   Others    ------------------------------------>	     
-      	<div id="others">   
-			<h4 style="color:#006334;"><dt><br>Others</dt></h4>
-			Below is a little bit more about myself and my academic journey.
-			<li> <a style="color:#006334" href="https://www.kdischool.ac.kr/gallery.es?mid=a30101000000&bid=0003&list_no=18906&act=view" target="_blank" rel="noopener noreferrer"> Interview with KDIS </a>
-			<li> <a style="color:#006334" href="https://www.joongang.co.kr/article/25273300" target="_blank" rel="noopener noreferrer"> 중앙일보 인터뷰</a>, <a style="color:#006334" href="https://www.donga.com/news/Society/article/all/20241101/130342207/1" target="_blank" rel="noopener noreferrer"> 동아일보 인터뷰</a>
-      	</div>  
-		
-		
-      	<br><br><br><br><br><br><br>
-        
-	</div>
-
-
-<script>
-        $(document).ready(function(){
-            $('body').scrollspy({target: ".nav", offset: 50});   
-            $("#tpwp a").on('click', function(event) {
-                if (this.hash !== "") {
-                    event.preventDefault();
-                    var hash = this.hash;
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 600, function(){
-                        window.location.hash = hash;
-                    });
-                }  
-            });
-        });
-
-        var coll = document.getElementsByClassName("btn");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight){
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } 
-            });
-        }
-</script>
-	
-<script>
-    let toggle = button => {
-        let element = document.getElementById("cvdl");
-        let hidden = element.getAttribute("hidden");
-    
-        if (hidden) {
-            element.removeAttribute("hidden");
-            button.innerText = "Hide CV";
-        } else {
-        
-	element.setAttribute("hidden", "hidden");
-        button.innerText = "Show CV";
-        }
-    }
-</script>	
+    <section id="others">
+      <h2>Others</h2>
+	  Below is a little bit more about myself and my academic journey.
+      <ul>
+        <li>
+          <a
+            href="https://www.kdischool.ac.kr/gallery.es?mid=a30101000000&bid=0003&list_no=18906&act=view"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Interview with KDIS</a
+          >
+        </li>
+        <li>
+          <a href="https://www.joongang.co.kr/article/25273300" target="_blank" rel="noopener noreferrer"
+            >중앙일보 인터뷰</a
+          >,
+          <a
+            href="https://www.donga.com/news/Society/article/all/20241101/130342207/1"
+            target="_blank"
+            rel="noopener noreferrer"
+            >동아일보 인터뷰</a
+          >
+        </li>
+      </ul>
+    </section>
+  </div>
 </body>
 </html>

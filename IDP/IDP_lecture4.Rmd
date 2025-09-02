@@ -1,0 +1,846 @@
+---
+title: "Introduction to Development Policy"
+subtitle: "Lecture 4: Evidence-Based Policy and Causal Inference in Development"
+author: "Trinh Pham"
+institute: "KDI School of Public Policy and Management"
+date: "Fall 2025"
+output:
+  xaringan::moon_reader:
+    css: ["default", metropolis, metropolis-fonts, "custom.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"  
+
+---
+
+class: inverse
+
+Suppose you are asked to provide ideas to a policymaker who aims to increase schooling among children in your village.
+
+--
+
+Which of the following interventions would you propose, and why?
+
+--
+
+- Hiring additional teachers
+
+- Providing school meals
+
+- Supplying school uniforms
+
+- Offering student scholarships
+
+- Giving iron supplements
+
+- Administering deworming pills
+
+- Providing cash transfers to families with the condition that their children must be enrolled in school
+
+- Sharing information about how much one additional year of schooling can increase future earnings
+
+---
+
+# Evidence-based policy
+
+We need evidence to determine which interventions deliver the greatest impact within the same budget.
+
+--
+
+<div style="text-align: center;">
+  <img src="./figures/schooling.png" style="width: 100%; max-width: 600px;" /> <br>
+  <a href="https://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty">https://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty</a>
+</div> 
+
+---
+
+# Evidence-based policy
+
+Evidence-based policy refers to the practice of making policy decisions based on **rigorous and credible evidence**.
+
+--
+
+Instead of relying on intuition, political opinions, or anecdotes, policymakers use the best available data and research to guide their choices. 
+
+--
+
+The goal of evidence-based policy is to improve the effectiveness of policies by ensuring they are grounded in facts. 
+
+--
+
+This approach helps allocate resources efficiently and ensures programs achieve their intended impact.
+
+--
+
+In the field of development, evidence-based policy is critical because it targets challenges such as poverty, education, and public health, where the costs of ineffective interventions are high. 
+
+--
+
+For example, instead of funding a program because it sounds promising, evidence-based policy requires proof that the program works, such as results from household surveys, randomized controlled trials, or natural experiments.
+
+---
+
+# The challenge: correlation vs. causation
+
+Suppose we are interested in the **relationship between a mother’s education and her child’s health**.
+
+--
+
+<div style="text-align: center;">
+  <img src="./figures/correlation.png" style="width: 100%; max-width: 750px;" /> <br>
+  <a href="https://www.gapminder.org/tools/#$model$markers$bubble$encoding$x$data$concept=mean_years_in_school_women_of_reproductive_age_15_to_44&source=sg&space@=geo&=time;;&scale$domain:null&zoomed:null&type:null;;&frame$value=2009;;;;;&chart-type=bubbles&url=v2">Gap Minder</a>
+</div> 
+
+--
+
+We observe that, on average, higher levels of maternal education are associated with better child health outcomes.
+
+--
+
+This is a **positive correlation**.
+
+--
+
+But does this mean that to improve child health, we should simply focus on programs that increase women’s education?
+
+---
+
+# The challenge: correlation vs. causation
+
+Does this mean that to improve child health, we should simply focus on programs that increase women’s education?
+
+--
+
+No, we cannot conclude that from just a positive correlation. 
+
+--
+Why not? 
+
+--
+
+Because women who are more educated often come from wealthier families.
+
+--
+
+They might also marry educated men and live in environments that support better child health independently of their education.
+
+--
+
+Here, family wealth, spouse’s education, living conditions are some factors that affect both mother's education and child health but are not accounted for in a simple correlation (**omitted variables**).
+
+--
+
+These **omitted variables** can confound the relationship, making it unclear whether it is the mother’s education itself causing better child health or these other factors.
+
+--
+
+To address this, we use **regression analysis**.
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+<div style="font-size: 26px; text-align: center;">
+  Introduction to regression analysis
+</div> 
+
+
+---
+
+# Regression analysis 
+
+Regression analysis allows us to control for these other variables. 
+
+--
+
+In a regression model, we can hold constant factors like family wealth, father’s education, and environment, to better isolate the association between maternal education and child health.
+
+--
+
+Now I will be introducing equations and terminologies.
+
+--
+
+These might look intimidating at first, but please bear with me. 
+
+  - The main goal is to help you familiarize with some mathematical expressions you will encounter later in the course.
+
+---
+
+# Regression analysis
+
+We are interested in the relationship between a mother’s education $(Edu)$ and her child’s health $(Y)$.
+
+--
+
+We can model this relationship as $Y = f(Edu)$
+
+--
+
+We hypothesize that child health $Y$ increases with the education level of his mother.
+
+--
+
+We can run regression on the following model:
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+--
+
+- Left-hand side is the <span style="color:blue; font-weight:bold;">dependent variable</span> $(Y)$
+
+--
+
+- Right-hand side is the <span style="color:red; font-weight:bold;">independent variable</span> $(Edu_i)$ and an error term $\varepsilon_i$
+
+--
+
+- Subscript $i$ means that the variable contains the value for some person $i$ in our data set, where $i = 1, ..., N$
+
+
+---
+
+# Regression analysis
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+- How mother education is related to child health is given by $\beta_1 = \frac{\partial Y_i}{\partial Edu_i}$.
+
+- $\beta_1$ tells us how the child health changes as the level of mother education increases by one *unit*.
+
+--
+
+- Note in this equation, we have data on child health $(Y)$ and mother education $(Edu)$ (recall the animated figure above).
+
+--
+
+- And we want to estimate $\beta_0$ and $\beta_1$. We denote estimate(s) with hat $\hat{\beta}_0$ and $\hat{\beta}_1$.
+
+--
+
+- How do we estimate $\hat{\beta}_0$ and $\beta_1$?
+
+---
+
+# Regression analysis 
+
+We rely on a tool called Ordinary Least Squares (OLS) to estimate the regression model.
+
+--
+
+The basic idea of OLS is to **find the line (or equation) that best fits the data** by minimizing the sum of the squared differences between the observed values and the values predicted by the model.
+
+--
+
+In other words, OLS finds the set of coefficients that make the predicted outcomes as close as possible to the actual outcomes on average.
+
+---
+
+# Regression analysis
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+<div style="text-align: center;">
+  <img src="./figures/correlation.png" style="width: 100%; max-width: 500px;" /> <br>
+  <a href="https://www.gapminder.org/tools/#$model$markers$bubble$encoding$x$data$concept=mean_years_in_school_women_of_reproductive_age_15_to_44&source=sg&space@=geo&=time;;&scale$domain:null&zoomed:null&type:null;;&frame$value=2009;;;;;&chart-type=bubbles&url=v2">Gap Minder</a>
+</div> 
+
+
+---
+
+# Regression analysis
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+Let's assume we have a similar dataset for a sample of mother-child.
+
+<div style="text-align: center;">
+  <img src="./figures/OLS0.png" style="width: 100%; max-width: 500px;" /> <br>
+</div> 
+
+
+---
+
+# Regression analysis
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+We can draw different lines through the data. 
+
+<div style="text-align: center;">
+  <img src="./figures/OLS2.png" style="width: 100%; max-width: 500px;" /> <br>
+</div> 
+
+
+---
+
+# Regression analysis
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+We can draw different lines through the data. For any line, compute the difference between the observed data and the line.
+
+<div style="text-align: center;">
+  <img src="./figures/OLS3.png" style="width: 100%; max-width: 500px;" /> <br>
+</div> 
+
+---
+
+# Regression analysis
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+We can draw different lines through the data. For any line, compute the difference between the observed data and the line.
+
+<div style="text-align: center;">
+  <img src="./figures/OLS4.png" style="width: 100%; max-width: 500px;" /> <br>
+</div> 
+
+---
+
+# Regression analysis
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+We can draw different lines through the data. For any line, compute the difference between the observed data and the line.
+
+<div style="text-align: center;">
+  <img src="./figures/OLS5.png" style="width: 100%; max-width: 500px;" /> <br>
+</div> 
+
+---
+
+# Regression analysis
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+**OLS estimates** give us the line that **minimizes the sum of squared of those differences**.
+
+<div style="text-align: center;">
+  <img src="./figures/OLS1.png" style="width: 100%; max-width: 500px;" /> <br>
+</div> 
+
+---
+
+# Regression analysis 
+
+Our example gives the following estimates: $Y_i = 40.87 + 2.12 Edu_i$
+
+An additional year of education is associated with a 2-year increase in life expectancy at birth.
+
+<div style="text-align: center;">
+  <img src="./figures/OLS1.png" style="width: 100%; max-width: 500px;" /> <br>
+</div> 
+
+
+---
+
+# Regression analysis  
+
+As we discussed, there are many factors that affect child health:
+
+--
+Father education
+--
+, family background
+--
+, living environment
+--
+, etc.
+
+--
+
+They are all included in the error term $\varepsilon_i$:
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+OLS gives us **unbiased** estimates under certain assumptions (we will come back to this in a few slides).
+
+--
+
+**Unbiasedness** is denoted as: $E[\hat{\beta}] = \beta$
+
+--
+
+In words, it means that on average, out estimate $\hat{\beta}$ is exactly equal to the true $\beta$. 
+
+--
+
+The key is **on average**: we estimate the relationship using only some sample of the population.
+
+--
+
+The estimated coefficient $\hat{\beta}$ will not exactly be right for the entire population, but we expect it to match on average.
+
+  - What does this mean?
+
+
+---
+
+# Population vs. Sample 
+
+<div style="width: 100%; display: table;">
+
+  <div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;">
+
+    <div style="text-align: center;">
+    <br><br>
+      <img src="./figures/pop0.png" style="width: 90%; max-width: 500px;" />
+    </div>
+
+  </div>
+
+  <div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;">
+  
+    <div style="text-align: center;">
+    <br>
+      <img src="./figures/OLS1.png" style="width: 90%; max-width: 500px;" />
+    </div>
+
+  </div>
+
+</div>
+
+---
+
+# Population vs. Sample 
+
+<div style="width: 100%; display: table;">
+
+  <div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;">
+
+    <div style="text-align: center;">
+    <br> <br>
+      <img src="./figures/samp1.png" style="width: 90%; max-width: 500px;" />
+    </div>
+
+  </div>
+
+  <div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;">
+  
+    <div style="text-align: center;">
+    <br>
+      <img src="./figures/OLSsamp1.png" style="width: 90%; max-width: 500px;" />
+    </div>
+
+  </div>
+
+</div>
+
+---
+
+# Population vs. Sample 
+
+<div style="width: 100%; display: table;">
+
+  <div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;">
+
+    <div style="text-align: center;">
+      <br>
+      <br>
+      <img src="./figures/samp2.png" style="width: 90%; max-width: 500px;" />
+    </div>
+
+  </div>
+
+  <div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;">
+  
+    <div style="text-align: center;">
+      <br>
+      <img src="./figures/OLSsamp2.png" style="width: 90%; max-width: 500px;" />
+    </div>
+
+  </div>
+
+</div>
+
+
+---
+
+# Population vs. Sample 
+
+<div style="width: 100%; display: table;">
+
+  <div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;">
+
+    <div style="text-align: center;">
+    <br><br>
+      <img src="./figures/samp3.png" style="width: 90%; max-width: 500px;" />
+    </div>
+
+  </div>
+
+  <div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;">
+  
+    <div style="text-align: center;">
+    <br>
+      <img src="./figures/OLSsamp3.png" style="width: 90%; max-width: 500px;" />
+    </div>
+
+  </div>
+
+</div>
+
+---
+
+# Population vs. Sample 
+
+<div style="width: 100%; display: table;">
+
+  <div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;">
+
+    <div style="text-align: center;">
+    <br><br>
+      <img src="./figures/samp4.png" style="width: 90%; max-width: 500px;" />
+    </div>
+
+  </div>
+
+  <div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;">
+  
+    <div style="text-align: center;">
+    <br>
+      <img src="./figures/OLSsamp4.png" style="width: 90%; max-width: 500px;" />
+    </div>
+
+  </div>
+
+</div>
+
+
+---
+
+class: inverse, middle, center
+
+<div style="font-size: 26px; text-align: center;">
+  If we are to repeat this 1,000 times (Monte-Carlo simulation)...
+</div> 
+
+
+---
+
+# Population vs. Sample
+
+If we are to repeat this 1,000 times, **on average**, our regression lines match the population line.
+
+<div style="text-align: center;">
+   <img src="./figures/OLSsample.png" style="width: 90%; max-width: 600px;" />
+</div>
+
+--
+
+However, sampling variation exists: individual lines (estimates) will not be identical across different samples.
+
+
+---
+
+# Regression analysis
+
+OLS estimates depend on the sample of data we have.
+
+--
+
+For OLS estimates to be unbiased and gives us, on average, the causal effect of some $X$ on some $Y$, we need a few assumptions to hold:
+$$E[x\varepsilon] = 0 \qquad \text{or} \qquad \text{correlation}(x, \varepsilon) = 0$$ 
+
+--
+
+In words, we need the variable of interest $X$ to be **uncorrelated** with the error term.
+
+--
+
+If there are other factors in the error term that is correlated with both the outcome and the main variable of interest $X$, we have **omitted variable bias**.
+
+--
+
+In this case, the relationship is **correlational**, **not causal**.
+
+
+---
+
+# Regression analysis
+
+Back to our example: mother education and child health
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$
+
+--
+
+Do you think OLS of this model gives us **unbiased** estimates of $\beta_1$? 
+
+--
+
+In other words, does $\hat{\beta}_1$ capture the causal effect of mother education on child health?
+
+--
+
+No! We have omitted variable bias!
+
+---
+
+# Regression analysis
+
+
+Who is more likely to have higher education?
+
+--
+
+Women from wealthier families, with better living conditions, and supportive environments tend to attain more education.
+
+--
+
+These same factors—family wealth, household environment, and access to healthcare—also directly influence child health independently of the mother’s education.
+
+--
+
+This means that mother’s education is positively correlated with omitted factors that affect child health.
+
+--
+
+Because these omitted variables are part of the error term in a regression model, the assumption of zero correlation between the regressors and the error term is violated.
+
+---
+
+# Regression analysis
+
+You might ask: why don’t we simply control for family wealth, household environment, and access to healthcare?
+
+--
+
+The regression model would then look like this:
+
+$$Y_i = \beta_0 + \beta_1 Edu_i + \beta_2 Wealth_i + \beta_3 Environment_i + \beta_4 Healthcare\_Access_i + \varepsilon_i$$
+
+--
+
+Including these variables would certainly help reduce omitted variable bias—**if these were the only omitted factors**.
+
+--
+
+However, in reality, there are *many other unobserved factors influencing both mother’s education and child health* that we cannot easily measure or control for.
+
+
+---
+
+# Why does causality matters for policy?
+
+**Correlation/Regression** shows a relationship, but it **does not prove one thing causes the other**.
+
+--
+
+To make effective policy decisions, **we need to establish causation**—that a change in one factor directly produces a change in another.
+
+--
+
+This requires going beyond correlation by using **careful research designs and methods** that rule out alternative explanations.
+
+
+
+---
+
+class: inverse
+
+Let us consider another example. 
+
+--
+
+Suppose we implement a micro-credit program providing loan to women entrepreneurs.
+
+--
+
+We want to know if the program has improved business outcomes or not.
+
+
+
+---
+
+# Working example: loan and business profit
+
+The following figure shows how the outcome evolves over time, before the program starts
+
+<div style="text-align: center;">
+  <img src="./figures/counterfactuals-1.png" style="width: 100%; max-width: 600px;" />
+</div> 
+  
+---
+
+# Working example: loan and business profit
+
+The following figure shows how the outcome evolves over time, after the program starts
+
+<div style="text-align: center;">
+  <img src="./figures/counterfactuals-2.png" style="width: 100%; max-width: 600px;" />
+</div> 
+
+--
+
+Based on this figure, **does the program have: positive impact? negative impact? zero impact?**
+
+
+---
+
+# Working example: loan and business profit
+
+The following figure shows how the outcome evolves over time, after the program starts
+
+<div style="text-align: center;">
+  <img src="./figures/counterfactuals-2.png" style="width: 100%; max-width: 600px;" />
+</div>
+
+**We do not have enough information** to make any statement about the program impact!
+
+---
+
+class: inverse, middle, center
+
+<div style="font-size: 25px; text-align: center;">
+  What would have happened had the program not started?
+</div> 
+
+
+---
+
+# Working example: loan and business profit
+
+What would have happened had the program not started? 
+
+--
+Would it be like this?
+
+<div style="text-align: center;">
+  <img src="./figures/counterfactuals-31.png" style="width: 100%; max-width: 600px;" />
+</div>
+
+---
+
+# Working example: loan and business profit
+
+What would have happened had the program not started? Would it be like this? or this?
+
+<div style="text-align: center;">
+  <img src="./figures/counterfactuals-41.png" style="width: 100%; max-width: 600px;" />
+</div>
+
+---
+
+# Working example: loan and business profit
+
+$$\text{Impact} = \text{Factual} - \text{Counterfactual}$$
+
+- the outcome some time after the program has started (**factual**)
+
+- the outcome at the same time point **had the program not started** (**counterfactual**)
+
+--
+
+<div style="text-align: center;">
+  <img src="./figures/counterfactuals-3.png" style="width: 100%; max-width: 500px;" />
+  <img src="./figures/counterfactuals-4.png" style="width: 100%; max-width: 500px;" />
+</div>
+
+
+---
+
+# Counterfactual
+
+Getting the factual is easy.
+
+--
+
+However, the counterfactual cannot be observed.
+
+--
+
+We address this challenge by constructing the counterfactual.
+
+--
+
+  - Typically by selecting a group of individuals who did not participate in the program.
+
+--
+
+  - This group is usually referred to as the **control group** or **comparison group**.
+
+--
+
+  - How to select this group is the key decision in impact evaluation design.
+  
+--
+
+This would be the focus of next-week lectures.
+
+
+---
+
+# Main Takeaways
+
+- Evidence-based policy relies on rigorous data and research to guide effective policymaking.
+
+- Correlation does not imply causation.
+
+  - Strong associations alone cannot prove one variable causes changes in another.
+
+- Omitted Variable Bias (OVB) is a key challenge.
+
+  - Leaving out important variables that affect both the cause and effect can lead to biased estimates.
+
+- Controlling for observed confounders helps but has limits.
+  
+  - Including additional variables can reduce bias—only if all key confounders are measured.
+
+- Unobserved factors remain a problem.
+
+  - Many influences remain unmeasured or unmeasurable, sustaining potential bias.
+
+- More rigorous **causal inference methods** are necessary to establish credible cause-and-effect relationships.
+
+---
+
+class: inverse, middle, center
+
+# 
+
+<div style="font-size: 28px; text-align: center;">
+  Do you have any questions? 
+</div> 
+
+
+---
+
+# Plan for next week
+
+- **Monday**: Randomized Controlled Trials
+  
+  - Reading: [JS] Chapter 4, Section on RCT
+  
+
+
+- **Wednesday**: Difference-in-Differences (DiD)
+
+  - Reading: [JS] Chapter 5, Section on DiD
+
+  
+
+---
+
+class: inverse, middle, center
+
+# 
+
+<div style="font-size: 28px; text-align: center;">
+  Thank you!
+</div> 
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Development Economics: Labor and Development</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 4: Poverty Traps and Ultra-poor Programs
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2025
+]
+
+---
+
+
+# Roadmap
+
+- Poverty traps
+
+  - What are poverty traps? Do they exist? 
+  
+  - What are the mechanisms? How do we get people out of them?
+  
+- Presentation &amp; discussion on ultra poor programs
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Poverty traps
+&lt;/div&gt;
+
+
+---
+
+# What are poverty traps
+
+Poverty traps, at their core, are about asset accumulation
+
+  - Asset accumulation `\(\rightarrow\)` investment `\(\rightarrow\)` productivity `\(\rightarrow\)` earning potential
+  
+--
+
+Why it is important to understand poverty traps?
+
+--
+
+  - If no traps exist and poverty is transitory (i.e., due to temporary, adverse income shocks) 
+  
+    - then providing short-term relief through income/consumption support might suffice
+    
+    - poverty can also be easily escaped through (e.g.) migration (Kraay and McKenzie 2014)
+    
+--
+
+  - If a poverty trap exists and makes it difficult to escape (chronic poverty), 
+  
+    - then "big push" policies that help move people past the wealth threshold and into more productive forms of employment can have large and persistent effects in reducing poverty
+ 
+
+---
+
+# A simple theoretical framework of poverty traps
+
+- Consider a model of income generation of a household `\(i\)` in time period `\(t\)`
+
+`$$y_{it}=f_l(\alpha_{it}, k_{it} | N_t)$$`
+
+where:
+
+  - `\(y_{it}\)`: output/income
+  
+  - `\(k_{it}\)`: tangible productive asset
+  
+    - e.g., land, livestock, machinery, money, other forms of capital
+    
+  - `\(\alpha_{it}\)`: human capability 
+  
+    - e.g., skill, human capital, perceived self-efficacy
+    
+  - `\(N_t\)`: natural capital 
+  
+    - enhances the productivity of tangible assets and human capabilities
+ 
+
+---
+
+# A simple theoretical framework of poverty traps
+
+For simplicity, let's consider no financial markets and informal transfers
+
+  - Household income generation: `\(y_{it}=f_l(\alpha_{it}, k_{it} | N_t)\)`
+  
+  - Household consumption: `\(c_{it}\leq k_{it} + y_{it}\)`
+  
+    - Household consumption in each period `\(t\)` cannot exceed their cash on hand (value of productive assets and current income)
+    
+  - Productive capital in the next period: `\(k_{it+1}=[k_{it}+y_{it}-c_{it}][1+\delta_0+\delta_1(\theta_{it+1})]\)`
+    
+    - which is a function of net cash in current period, rate of growth `\((\delta_0)\)` and a random shock `\((\theta_{it})\)` 
+    
+  - For now, human capability `\(\alpha_{it}\)` are fixed at an initial endowment level for each household.
+  
+---
+
+# Putting pieces together
+
+Household `\(i\)` makes decisions according to the optimization problem:
+
+`$$\mathrm{max}_{c_{it},k_{it}} E_\theta\sum_{t=0}^\infty\beta^tu(c_{it})$$`
+
+subject to:
+
+$$
+`\begin{align*}
+c_{it} &amp;\leq k_{it} + y_{it} \\
+y_{it} &amp;= f_l(\alpha_{it}, k_{it}, \theta_{it} \mid N_t) \\
+k_{it+1} &amp;= [k_{it}+y_{it}-c_{it}][1+\delta_0+\delta_1(\theta_{it+1})] \\
+\alpha_{it+1} &amp;= \alpha_{it} = \alpha_i \\
+k_{it} &amp;\geq 0
+\end{align*}`
+$$
+
+ 
+ 
+---
+
+# Conditional convergence and single equilibrium chronic poverty 
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/barrett1.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;div style="margin-top: 8px; font-style: italic;"&gt;Barrett et al. 2018&lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+
+    Define the locus \( y^p\left(\alpha, k \mid N_t\right) \) as combinations of \(\alpha\) and \(k\) (conditional on natural capital \(N_t\)) that yield income equal to a poverty line, \( y^p \).
+
+    &lt;ul&gt;
+      &lt;li&gt;To the southwest of \( y^p\left(\alpha, k \mid N_t\right) \), households are poor&lt;/li&gt;
+      &lt;li&gt;To the northeast of \( y^p\left(\alpha, k \mid N_t\right) \), households are not poor&lt;/li&gt;
+    &lt;/ul&gt;
+
+    \( k^*_l\left(\alpha \mid N_t\right) \): steady capital curve
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+---
+
+# Conditional convergence and single equilibrium chronic poverty 
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/barrett1.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;div style="margin-top: 8px; font-style: italic;"&gt;Barrett et al. 2018&lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+
+    For households with \(\alpha_i &gt; \alpha_0\), a shock that temporarily reduces \(k\) will &lt;strong&gt;at most&lt;/strong&gt; make them &lt;strong&gt;temporarily poor&lt;/strong&gt;:
+
+    &lt;ul&gt;
+      &lt;li&gt;because they would be expected to save and strive to reach non-poor, steady state equilibrium&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    For households with \(\alpha_i &lt; \alpha_0\), a shock that temporarily reduces \(k\) will make them &lt;strong&gt;chronically poor&lt;/strong&gt;:
+
+    &lt;ul&gt;
+      &lt;li&gt;cash or other form of nonhuman capital alone cannot free the household from poverty over time&lt;/li&gt;
+    &lt;/ul&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+---
+
+# Conditional convergence and single equilibrium chronic poverty 
+
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/barrett1.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;div style="margin-top: 8px; font-style: italic;"&gt;Barrett et al. 2018&lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+
+    If technology becomes less productive, the locus \(y^p\) shifts upwards and steady-state capital holdings \(k^*_l(\alpha|N_t)\) shifts downwards
+
+    &lt;ul&gt;
+      &lt;li&gt;\(\alpha_0\) moves right, i.e., higher poverty rate&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    If there is a negative shock to natural capital \(N_t\), increase in chronic poverty
+    
+    If households can change their human capabilities, \(\alpha_{i}\), then they may be able to escape the poverty trap.
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+---
+
+# Changing human capabilities
+
+Let's allow human capabilities evolve over time:
+
+
+`$$\alpha_{it+1}=[\alpha_{it}][1+\zeta_0(c_{it})+\zeta_1(\theta_{it})]$$`
+
+`\(\zeta_0(c_{it})\)`: change in capabilities based on shock-induced consumption choices
+
+  - e.g. reduced educational expenditures for children
+  
+`\(\zeta_1(\theta_{it})\leq 0\)`: direct destruction of capabilities due to shocks
+
+  - e.g. extreme temperature damages brain development, poverty reduces capabilities (e.g. through depression)
+
+Either mechanism could lead to a scenario wherein a single shock could push households to chronic poverty if their capacities fall below `\(\alpha_0\)`.
+
+
+---
+
+# A richer theoretical framework of poverty traps
+
+We still assume financial market failures.
+
+--
+
+We now consider two types of technologies:
+
+  - a "low" productivity technology `\((f_l)\)` and a second, higher productivity technology `\(f_h\)`
+  
+  - `\(f_h\)` is more expensive than `\(f_l\)`
+  
+--
+
+Production is *non-convex*, households can only do `\(f_h\)` if they accumulate `\(k &gt; \hat{k}\)`
+  
+  - This constraint is important to the existence of multiple equilibria.
+  
+--
+
+Household income `\(y_{it} = \max [f_l(\alpha_{it}, k_{it} | N_t), \quad f_h(\alpha_{it}, k_{it} | N_t)]\)`
+
+--
+
+Two equilibrium: different steady states depending on whether you have `\(k_l^*(\alpha | N_t)\)` or `\(k_h^*(\alpha | N_t)\)`
+
+
+---
+
+# Nonconvex technology and multiple equilibrium poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/barrett3.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;div style="margin-top: 8px; font-style: italic;"&gt;Barrett et al. 2018&lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+
+    The model generates two critical skill values \(\underline{\alpha}\) (or \(\alpha_L\) ) and \(\bar{\alpha}\) (or \(\alpha_H\) )
+
+    For households above \(\bar{\alpha}\):
+  
+    &lt;ul&gt;
+      &lt;li&gt;Always move toward the high equilibrium, regardless of initial \(k_i\) &lt;/li&gt;&lt;br&gt;
+      &lt;li&gt;They do not face poverty trap.&lt;/li&gt;
+    &lt;/ul&gt;
+  
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+---
+
+# Nonconvex technology and multiple equilibrium poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/barrett3.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;div style="margin-top: 8px; font-style: italic;"&gt;Barrett et al. 2018&lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+
+    The model generates two critical skill values \(\underline{\alpha}\) (or \(\alpha_L\) ) and \(\bar{\alpha}\) (or \(\alpha_H\) )
+
+    For households below \(\bar{\alpha}\):
+  
+    &lt;ul&gt;
+      &lt;li&gt;Will move toward the low technology, regardless of initial \(k_i\) &lt;/li&gt; &lt;br&gt;
+      &lt;li&gt;They  face single equil. poverty trap.&lt;/li&gt;
+    &lt;/ul&gt;
+  
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+---
+
+# Nonconvex technology and multiple equilibrium poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/barrett2.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;div style="margin-top: 8px; font-style: italic;"&gt;Barrett et al. 2018&lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+
+    The "middle-ability" group split depending on whether they are below/above the "Micawber Frontier", \(M(\alpha, k)\)
+  
+    &lt;ul&gt;
+      &lt;li&gt;If endowed with "enough" assets (above \(M(\alpha, k)\)), they can accumulate assets and adopt high technology&lt;/li&gt; &lt;br&gt;
+      &lt;li&gt;If not enough asset endowment, or pushed back by negative shocks (below \(M(\alpha, k)\)), they settle into low equilibrium.&lt;/li&gt; &lt;br&gt;
+      &lt;li&gt;They face a multiple equilibrium poverty trap.&lt;/li&gt;
+    &lt;/ul&gt;
+  
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+---
+
+# Multiple equilibrium poverty traps: Policy implications
+
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/barrett2.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;div style="margin-top: 8px; font-style: italic;"&gt;Barrett et al. 2018&lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+
+    We can identify three groups:
+
+     &lt;ul&gt;
+      &lt;li&gt;Persistently poor (\(\alpha&lt;\underline{\alpha}\))&lt;/li&gt; &lt;br&gt;
+      &lt;li&gt;"Middle-ability" (\(\underline{\alpha}&lt; \alpha&lt; \bar{\alpha}\))&lt;/li&gt; &lt;br&gt;
+      &lt;li&gt;Persistently non-poor (\(\alpha&gt;\bar{\alpha}\))&lt;/li&gt;
+    &lt;/ul&gt;
+
+  
+    Which groups do you think we should focus on, and what kinds of policies?
+   
+  
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+---
+
+# Multiple equilibrium poverty traps: Policy implications
+
+Persistently poor `\(\alpha&lt;\underline{\alpha}\)`
+
+  - Their capacities are too low.
+  
+  - One implication is that persistent, regular transfers to supplement their earnings are required...
+  
+    - unless we can improve their capacities.
+  
+  - It's difficult to shift things like `\(N_{t}\)`.
+  
+--
+
+"Middle-ability" `\(\underline{\alpha}&lt; \alpha&lt; \bar{\alpha}\)`
+  
+  - May be able to pull themselves out of poverty through asset accumulation.
+  
+  - Policy interventions (e.g., micro-finance) might relax the constraints preventing this group from accumulating assets.
+  
+    - Note that the binding constraint might be outside financial markets (e.g. internal or capabilities constraints).
+
+    - This explains some of the heterogeneity we see in microfinance and microenterprise interventions.
+
+
+---
+
+# With a fixed, limited buget, what should we do?
+
+Ikegami et al. (2018) refer to this as "the paradox of social protection"
+  
+  - With a fixed budget, targeting the vulnerable non-poor can result in enhanced well-being of the poor in the medium term
+    
+    - because it prevents the vulnerable from joining the group of chonically poor
+    
+    - but it comes at the cost of not helping the current poor, implying higher current poverty
+    
+--
+
+It is important to identify the root cause of poverty traps.
+
+--
+
+  - If market failures (e.g. credit and insurance markets) are key constraints, then addressing these can generate indirect, longer-term general equilibrium benefits.
+  
+    - These benefits may not be captured in the short term.
+    
+--
+
+  - e.g. Bandiera et al. (2017) find a large asset-building program for poor women in Bangladesh also increased the low-skill wages received by non-participants.
+  
+
+
+
+
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Ultra-poor programs
+&lt;/div&gt;
+
+
+---
+
+# There are different types of interventions
+
+- "Big push" interventions
+
+  - Provide a one-time boost of capital/support to help households escape the low equilibrium
+  
+--
+
+- Multifaceted interventions, a.k.a. graduation programs
+
+  - Combine cash assistance that meets the intermediate needs of the poor with long-term livelihood and social assistance (e.g., productive asset transfers, financial and technical training)
+  
+  - Pioneered by Bangladesh Rural Advancement Committee (BRAC) 
+    
+---
+
+# Balboni et al. (2022): "Why do people stay poor?"
+
+"Why are the world's poor employed but have low earnings?"
+
+--
+
+There are two different views, with different implications
+
+--
+
+  - View 1: the poor have the same opportunities as everyone else, there are traits that make them unsuitable for other occupations
+  
+    - Implies that there is no poverty traps and thus even with "big push" policies, they will return to where they started
+
+--
+
+  - View 2: the poor face different opportunities and take low-earning jobs because they are born poor
+  
+    - Implies that there are poverty traps and "big push" policies could elevate them out of poverty forever
+
+--
+
+This paper distinguishes these two views.
+
+
+---
+
+# Theoretical framework
+
+Define the transition equation of individual/household `\(i\)`: `\(K_{i, t+1} = \Phi_i(K_{i,t})\)`
+  
+  - `\(K_{i,t}\)`: capital or productive assets at time `\(t\)`
+  
+--
+
+Assume individual `\(i\)` in village `\(v\)` generates earnings: `\(Y_i = A_{i,v}f(K_i)\)`
+  
+  - `\(A_{i,v}\)`: individual and village traits that determine productivity
+  
+--
+
+Transition equation can be rewritten as `\(\Phi_i(K_{i,t}) = s_i A_{i,v}f(K_i) + (1-\delta)K_{i,t}\)`
+  
+  - `\(s_i\)`: individual savings rate
+  
+  - `\(\delta\)`: rate of depreciation
+  
+--
+
+Steady state: `\(K_i^* = \Phi_i(K_i^*)\)`
+  
+  - i.e., amount of savings equals to amount of depreciation
+  
+---
+
+# A quick aside on stable and unstable equilibrium
+
+Each figure shows a possible path of adjustment for income `\(y_{t+1} = f(y_t)\)`
+
+  - Which point is equilibrium? Is it stable, unstable, or more complicated?
+
+  &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/transition1.png" style="width: 100%; max-width: 700px;" /&gt;
+  &lt;/div&gt;
+  
+
+---
+
+# A quick aside on stable and unstable equilibrium
+
+Each figure shows a possible path of adjustment for income `\(y_{t+1} = f(y_t)\)`
+
+  - Which point is equilibrium? Is it stable, unstable, or more complicated?
+
+  &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/transition2.png" style="width: 100%; max-width: 700px;" /&gt;
+  &lt;/div&gt;
+  
+---
+
+# A quick aside on stable and unstable equilibrium
+
+Each figure shows a possible path of adjustment for income `\(y_{t+1} = f(y_t)\)`
+
+  - Which point is equilibrium? Is it stable, unstable, or more complicated?
+
+  &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/transition3.png" style="width: 100%; max-width: 700px;" /&gt;
+  &lt;/div&gt;
+  
+---
+
+# Balboni et al. (2022): asset dynamics 
+
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/balboni1.png" style="width: 90%; max-width: 300px;" /&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+
+    Case 1: No poverty trap 
+
+    &lt;ul&gt;
+      &lt;li&gt;Each household eventually converges to household-specific steady state \(K_i^*\).&lt;/li&gt; &lt;br&gt;
+      &lt;li&gt;Poverty arises because household `\(i\)` has low productivity \(A_{i,v}\), yielding a low steady-state level of productive assets \(K_1^*\) and hence low income.&lt;/li&gt; &lt;br&gt;
+    &lt;/ul&gt;
+    
+    Case 1 arises under the following assumptions:
+    
+    &lt;ul&gt;
+    &lt;li&gt;\(s_i, A_{i,v}, \delta\) are constant in \(K\) &lt;/li&gt;&lt;br&gt;
+    &lt;li&gt;Production function \(f(.)\) is globally concave &lt;/li&gt;
+    
+    &lt;/ul&gt;
+  
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+---
+
+# Balboni et al. (2022): asset dynamics 
+
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/balboni2.png" style="width: 90%; max-width: 300px;" /&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+
+    Case 2: Poverty trap 
+
+    &lt;ul&gt;
+      &lt;li&gt;Even among identical households, there are three steady states.&lt;/li&gt; &lt;br&gt;
+      &lt;li&gt;\(K_P^*\) and \(K_R^*\) are stable, and \(\hat{K}\) is unstable.&lt;/li&gt; &lt;br&gt;
+      &lt;li&gt;Poverty arises because household `\(i\)` has initial endowment below \(\hat{K}\), which pushes them toward the low steady state \(K_P^*\).&lt;/li&gt; 
+    &lt;/ul&gt;
+    
+    Case 2 could arise under the following assumptions:
+    
+    &lt;ul&gt;
+    &lt;li&gt;Increasing returns to scale in \(f(.)\)&lt;/li&gt;&lt;br&gt;
+    &lt;li&gt;or \(s_i\) increasing in \(K_{i,t}\)&lt;/li&gt;
+    &lt;/ul&gt;
+  
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+---
+
+# Balboni et al. (2022): asset dynamics 
+
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+      &lt;img src="figures/balboni3.png" style="width: 90%; max-width: 300px;" /&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+
+    Case 3: Poverty trap 
+
+    &lt;ul&gt;
+      &lt;li&gt;This describes situation when households choose between two different production technologies.&lt;/li&gt; &lt;br&gt;
+      &lt;li&gt;Switching to high-capital technology requires a large investment.&lt;/li&gt; &lt;br&gt;
+      &lt;li&gt;There are two steady states, both are stable \(K_P^*\) and \(K_R^*\).&lt;/li&gt;&lt;br&gt;
+      &lt;li&gt;Poverty arises because household \(i\) has initial endowment below \(\hat{K}\), which does not allow them to access the more profitable occupation and thus cannot converge to \(K_P^*\) &lt;/li&gt;
+    &lt;/ul&gt;
+  
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+---
+
+# Testing for poverty traps
+
+Intuition 1: if the production is globally concave, there cannot be multiple stable equilibria and thus no poverty trap
+  
+  - Nonparametric shape test by Komarova and Hidalgo (2019)
+  
+--
+
+Intuition 2: poverty trap exists if and only if there is a threshold level of capital `\(\hat{K}\)`
+
+  - those below `\(\hat{K}\)` converges to a low stable steady state
+  
+  - those above `\(\hat{K}\)` converges to a high stable steady state
+  
+--
+
+General idea: look at evolution of capital over periods
+
+---
+
+# Testing for poverty traps
+
+Why can't we rely on observational data to trace out households' capital to identify poverty trap?
+
+--
+
+  - Even if there is a threshold level where asset dynamics bifurcate, then in the absence of large shocks, there would be no observations close to that threshold.
+  
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/balboni4.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+    
+
+---
+
+# The productive asset transfer
+
+This paper creates an exogenous capital shock (same as Bandiera et al. 2017)
+
+--
+
+  - One-off transfer (app. $500 worth) of productive assets to randomly selected ultra-poor HHs
+  
+  - All women, 91% chose a cow
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/balboni4.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+  
+---
+
+# Poverty traps in the short run
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/povertytrap.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+--
+  
+Transition equation is S-shaped, `\(\hat{K}\)` to be approximately $500, or 9,300 BDT:
+
+--
+
+  - People who cannot get above the threshold end up in the low-asset holding mode.
+  
+--
+
+  - People who are elevated above the threshold move toward the high-asset holding mode.
+  
+---
+
+# Short-term responses to the asset transfer
+
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/table1.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+Let's focus on column 1: `\(\Delta k_i = \alpha + \beta_0 I[k_{i,1}&gt; \hat{k}] + \varepsilon_{i}\)`
+
+- Beneficiaries below `\(\hat{k}\)` despite the transfer lose `\(14\%\)` of assets.
+
+- Those above `\(\hat{k}\)` with the transfer grow their assets by `\(16\%\)`.
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+Is poverty threshold the same to everyone?
+
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(\Phi_i(K_{i,t}) = s_i A_{i,v}f(K_i) + (1-\delta)K_{i,t}\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`.
+
+The authors test heterogeneity by allowing the poverty threshold to differ across subsamples with low and high `\(A_{i,v}\)` and `\(s_i\)`.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/het1.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(\Phi_i(K_{i,t}) = s_i A_{i,v}f(K_i) + (1-\delta)K_{i,t}\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`.
+
+The authors test heterogeneity by allowing the poverty threshold to differ across subsamples with low and high `\(A_{i,v}\)` and `\(s_i\)`.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/het2.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(\Phi_i(K_{i,t}) = s_i A_{i,v}f(K_i) + (1-\delta)K_{i,t}\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`.
+
+The authors test heterogeneity by allowing the poverty threshold to differ across subsamples with low and high `\(A_{i,v}\)` and `\(s_i\)`.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/het3.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(\Phi_i(K_{i,t}) = s_i A_{i,v}f(K_i) + (1-\delta)K_{i,t}\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`.
+
+The authors test heterogeneity by allowing the poverty threshold to differ across subsamples with low and high `\(A_{i,v}\)` and `\(s_i\)`.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/het4.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(\Phi_i(K_{i,t}) = s_i A_{i,v}f(K_i) + (1-\delta)K_{i,t}\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`.
+
+The authors test heterogeneity by allowing the poverty threshold to differ across subsamples with low and high `\(A_{i,v}\)` and `\(s_i\)`.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/het5.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(\Phi_i(K_{i,t}) = s_i A_{i,v}f(K_i) + (1-\delta)K_{i,t}\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`.
+
+The authors test heterogeneity by allowing the poverty threshold to differ across subsamples with low and high `\(A_{i,v}\)` and `\(s_i\)`.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/het6.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Poverty traps in the long run
+
+`$$Y_{i,t} = \beta_0I[k_{i,1}&gt;\hat{k}] + \sum_t \beta_{1,t} I[k_{i,1}&gt;\hat{k}]S_t + \sum_t\beta_2S_t + \eta_{i,t}$$` 
+
+where `\(S_t\)` indicators for follow-up surveys in 2009, 2011, 2014, 2014
+  
+- What `\(\beta_{1,t}\)` tells us? 
+
+--
+additional difference between beneficiaries above/below the threshold at date `\(t\)` relative to this difference just after the transfer.
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Poverty traps in the long run
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+- Consumption first declines, creating concerns about how we evaluate programs.
+
+--
+
+- Forward-looking behavior: forego current consumption for higher returns later.
+
+--
+
+- Large increases in productive assets years later.
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+Let's look at another poverty intervention.
+
+---
+
+# Banerjee et al. (2015)'s multisite RCT across six countries 
+
+Background: BRAC runs the "graduation program" targeting the poorest households, providing:
+
+  - A one-time transfer of productive asset transfer
+  
+  - A regular transfer of food or cash for a few months to about a year
+  
+  - Technical skills training on managing the particular productive assets
+  
+  - Access to a savings account (and deposit collection service/mandatory savings)
+  
+  - Some health education, basic health services, life-skills training
+
+--
+
+This paper evaluates the cost-effectiveness of the *same* intervention across a diverse set of contexts.
+
+---
+
+# Research design: randomization 
+
+This is a multi-site RCT: Ethiopia, Ghana, Honduras, India, Pakistan, Peru
+
+--
+
+  - In Ethiopia, India, Pakistan, randomization was at the household-level within each village.
+  
+--
+  
+  - In Ghana, Honduras, Peru, randomization was at both village and household levels.
+  
+    - Similar to Haushofer and Shapiro (2016) to measure spillover effect
+    
+    - The analysis here ignores the spillovers, include all pure control &amp; spillover households
+    
+--
+
+How do we evaluate the validity of this RCT research design? 
+    
+---
+
+# Research design: validity 
+    
+**Compliance issues**:
+
+  - Ethiopia, Ghana, Honduras, Pakistan, Peru: perfect compliance
+  
+    - No control received the program
+  
+    - All treatment households received the program
+
+  - India: only 52% of the treatment group participated
+
+    - 35% declined the offer because of religious beliefs or asset mishandlement
+  
+    - 13% ineligible because of participating in other microcredit/self-help activities
+    
+    
+---
+
+# Research design: validity 
+
+**Balance test**: They cannot reject at the 5% level the equality of means of treatment and control groups for any of the 10 primary outcomes
+
+  - Orthogonality shows similar balances
+  
+--
+
+**Attrition issue**: no difference between treatment &amp; control for the pool data
+
+  - Though attrition is higher for the treatment group in Honduras at endline 1
+  
+  - Not much evidence of survey attrition leading to different sample frame
+  
+  - They still report estimates based on bounded sample using attrition rates as robustness
+
+
+---
+
+# Empirical analysis
+
+Given the multi-site nature of the analysis, they estimate the following model:
+
+`$$Y^k_i = \alpha + \beta_1 assignment_i + \beta Z_i^k + T_{country} + U_{shortsurveys} + V_{stratification} + \varepsilon_i$$`
+
+  - `\(Y_i^k\)`: outcome `\(k\)` for household/adult `\(i\)`
+  
+  - `\(assignment_i\)`: indicator for having been randomly selected into the program
+  
+  - `\(Z_i^k\)`: hosuehold's baseline value of the outcome
+  
+  - `\(T_{country}\)`: vector of country dummies
+  
+  - `\(U_{shortsurveys}\)`: dummies for whether the hosuehold was surveyed in a short survey round
+  
+  - `\(V_{stratification}\)`: vector of all variables included in stratification in each country
+
+Question: What impact is being estimated in the language of causal inference?
+
+---
+
+# Clustering standard errors
+
+Question: Should we cluster standard errors `\(\varepsilon_i\)`? if yes, at which level? if no, why?
+
+--
+
+Standard errors are clustered at the level at which randomization took place.
+
+--
+
+  - In Ethiopia, India, Pakistan: randomization at the household level 
+  
+    - standard errors are *not* clustered for HH level results
+    
+    - but clustered at HH level for adult level outcomes
+    
+--
+
+  - In Ghana, Honduras, Peru: 2-stage randomization: village and household
+  
+    - In treatment villages, standard errors are *not* clustered for HH-level results
+    
+    - In control villages, standard errors are clustered at the village level
+
+---
+
+# Key outcomes
+
+Given the nature of the graduation program, they look at many different outcomes.
+
+--
+
+  - This implies that some outcomes might show significant results due to chance.
+
+--
+
+Question: How to account for multiple testing?
+
+--
+
+  - With many outcomes, construct an index for each family of relevant outcomes
+  
+--
+
+  - With many families of outcomes, control for false discovery rate (Anderson)
+  
+    - q-value is the smallest `\(\alpha\)` at which the null is rejected
+    
+---
+
+# Results
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/banerjee_table3_1.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Results
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/banerjee_table3_2.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Results
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/banerjee.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Benefit-cost analysis
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bca.png" style="width: 90%; max-width: 750px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Benefit-cost analysis
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bca2.png" style="width: 90%; max-width: 750px;" /&gt;
+&lt;/div&gt;
+
+---
+
+
+# Plan for next week
+
+- **Monday**: Human capital - Education
+
+  - Duflo, E. (2001). “Schooling and labor market consequences of school construction in Indonesia: Evidence from an unusual policy experiment”. American Economic Review 91.4, pp. 795–813
+  
+  - Jensen, R. (2010). “The (perceived) returns to education and the demand for schooling”. Quarterly Journal of Economics 125.2, pp. 515–548
+  
+  - Adukia, A., S. Asher, and P. Novosad (2020). “Educational investment responses to economic opportunity: evidence from Indian road construction”. American Economic Journal: Applied Economics 12.1, pp. 348–376
+
+- **Wednesday**: Presentation
+  
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt; 
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

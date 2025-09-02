@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Development Economics: Labor and Development</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 3: Difference-in-Differences, Regression Discontinuity
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2025
+]
+
+---
+
+
+# Roadmap
+
+- Quick review of causal inference and treatment effects
+
+- Difference-in-Differences (DiD)
+  
+  - "Canonical" 2x2 model
+  
+  - Recent innovations
+
+- Regression Discontinuity (RD)
+
+  - RD Identification
+  
+  - RD Estimation
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  A review of treatment effects 
+&lt;/div&gt;
+
+---
+
+# A quick review on terminologies
+
+We have come across different treatment effect terminologies. 
+
+  - Intent-to-Treat (ITT), Average Treatment Effect (ATE), Average Treatment Effect on the Treated (ATT), Local Average Treatment Effect (LATE)
+
+--
+
+What is the difference between these terminologies?
+
+--
+
+Let's revisit the working example in the previous lecture.
+
+--
+
+Students are randomly assigned to treatment and control groups ($Z$ is treatment assignment)
+
+  - Some students in the treatment group actually attend the tutoring program ($D$ is treatment status)
+  
+  - But some of them could choose not to attend (non-compliers)
+  
+---
+
+# A quick review on terminologies
+
+**Intent-to-Treat (ITT)**: the "effect of being assigned to treatment group", regardless of whether someone actually takes it.
+
+`$$ITT = E[Y | Z = 1] - E[Y | Z = 0]$$`
+where `\(Z\)` is the assignment to treatment (not necessarily the actual receipt/treatment exposure).
+  
+  - Used in RCT with imperfect compliance.
+  
+  - In our working example, ITT is computed by comparing average test scores between students who are "offered" and "not offered" the opportunity to participate in the tutoring program.
+
+--
+
+**Average Treatment Effects (ATE)**: the "average effect if *everyone* in the population got the treatment versus if *no one* got it."
+
+$$ ATE = E[Y(1) - Y(0)]$$
+  - Policy or program evaluation when the effect is for the whole population.
+  
+  - In our working example, ATE is computed by comparing average test scores if *everyone* attended vs. if *no one* attended the tutoring program. 
+  
+---
+
+# A quick review on terminologies
+
+**Average Treatment on the Treated (ATT)**: the "average effect among those who actually got the treatment."
+$$ ATT = E[Y(1) - Y(0) | D = 1]$$
+  - When interested in the actual recipients (e.g., health insurance effect on those who received health insurance).
+  
+  - In the example, ATT is computed by comparing actual attendees vs. what their test scores would be without tutoring.
+
+  - In a perfect RCT with full compliance (everyone offered tutoring attends, no one outside attends): ATE = ITT = ATT.
+
+--
+
+**Local Average Treatment Effects (LATE)**: the "average effect for the people whose treatment status was changed *because* of the instrument (the compliers)."
+In IV setting: 
+
+`$$LATE = E[Y(1) - Y(0) | Compliers]$$` 
+  - When using instrumental variables (effect of the subgroup whose treatment status was influenced by the instrument).
+  
+  - In our working example, LATE is computed by comparing the effect *only for complier*---those induced to participate in tutoring by being offered the opportunity.
+  
+  - Special case: when there is no always takers, `\(LATE = ATT\)`.
+  
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Difference-in-Differences (DiD)
+&lt;/div&gt;
+
+
+---
+
+# Motivation
+
+In many applications, we want to estimate the effect of a policy across groups.
+
+  - Minimum wage/Unemployment insurance policy on labor market outcomes.
+  
+  - Health insurance policy on health outcomes.
+  
+  - etc. 
+  
+--
+
+However, the policy assignment might not be uncorrelated with group characteristics.
+
+  - That is, there can be level differences across groups before the policy implementation.
+  
+--
+
+How can we identify the causal effect of the policy? 
+
+--
+**Difference-in-Differences (DiD)**
+
+
+---
+
+
+# DiD: Snow (1855)'s cholera study
+
+The idea went back to physician John Snow (1855) with his cholera epidemics study in London.
+
+--
+
+Setting: In 1855 London, cholera was a common occurrence but its cause was unknown.
+
+--
+
+John Snow suspected that cholera was transmitted by contaminated drinking water
+    
+  - as opposed to "bad air", the prevailing theory at the time.
+  
+--
+
+He focused on areas served by Southwark &amp; Vauxhall Company, and Lambeth Water Company 
+  
+  - because these areas experienced particularly high mortality during the 1849 outbreak.
+  
+--
+
+Both companies pumped water from the adjacent segments, downstream of sewage outflow from (dirty) River Thames.
+  
+  - In many cases the companies served neighboring houses. 
+    
+  - which means there is lower possibility that any differences in rates of cholera deaths by water supply company could be explained by differences in neighborhood and socioeconomic factors.
+
+---
+
+# DiD: Snow (1855)'s cholera study
+
+The "policy change": In 1852, Lambeth changed its water intake to a new site upstream relatively free of sewage.
+
+  - whereas Southwark &amp; Vauxhall kept using the same source of water intake.
+
+--
+
+This was what Snow observed on mortality rates (per 100,000) caused by cholera in these areas:
+
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/cholera.png" style="width: 90%; max-width: 900px;" /&gt; &lt;br&gt;
+  Source: Caniglia and Murray (2020)
+&lt;/div&gt;
+
+--
+
+In essence, Snow asked "did the rate of cholera death decrease when the water intake from the Lambeth Company was moved upstream of the sewage outlet compared to **what it would have been if that water intake had remained downstream**?"
+
+--
+
+Which assumptions do we need to conclude that the decrease of 771 in cholera death rates (per 100,000) was caused by the change in water intake to upstream of the sewage outlet?
+
+---
+
+# The canonical 2x2 DID model 
+
+Consider a model with two time periods: `\(t \in \{1, 2\}\)`. 
+
+Consider a binary policy `\(D_{i,t}\)` and we are interested in estimating its impact on outcomes `\(Y_{i,t}\)`.
+
+Consider the potential outcome notation:
+
+  - `\(Y_{i,t}(0,0)\)` is outcome in period `\(t\in\{1, 2\}\)` if unit `\(i\)` is untreated in both periods
+  
+  - `\(Y_{i,t}(0,1)\)` is outcome in period `\(t\in\{1, 2\}\)` if unit `\(i\)` is untreated in period 1, and treated in period 2
+  
+    - For now, with two periods we can simplify to `\(Y_{i,t}(0)\)` and `\(Y_{i,t}(1)\)`
+  
+    - But when we have many periods, we want to account for path of treatments.
+    
+---
+
+# The canonical 2x2 DID model 
+    
+The inherent problem is that `\(D_{i,t}\)` is not randomly assigned.
+
+But we want to estimate the *average treatment effect on the treated* (ATT) in period 2: 
+
+`$$\tau_2 = E[Y_{i, 2}(1) - Y_{i, 2}(0) | D_i = 1]$$`
+
+  - Why ATT? 
+
+--
+
+This estimation is challenging:
+
+  - because the untreated potential outcomes `\(Y_{i,2}(0)\)` are never observed for the treated group `\(D_i=1\)`.
+
+  - This is the fundamental problem of causal inference that we discussed in the last class.
+  
+--
+
+Then how can we identify the ATT? 
+
+--
+
+We need assumptions! **"No causal inference without assumptions."**
+
+---
+
+# The canonical 2x2 DID model: Assumptions 
+
+**Parallel trends**: the average outcome for the treated and untreated populations would have evolved in parallel if treatment had not occurred.
+
+`$$E[Y_{i, 2}(0) - Y_{i, 1}(0) | D_i = 1] = E[Y_{i, 2}(0) - Y_{i, 1}(0) | D_i = 0]$$`
+
+  - In words, absent the policy, units may have different levels, but their changes would be the same.
+    
+  - i.e., we allow for selection bias, but we require that the **bias must be the same in both periods**.
+  
+--
+
+  
+**No-anticipation**: the policy has no effect prior to treatment
+
+`$$Y_{i,1}(0) = Y_{i,1}(1)$$`
+
+A large number of **clusters** for inference.
+
+
+---
+
+# DID estimation
+
+We can estimate DiD using the following regression:
+
+`$$Y_{it} = \beta_0 + \beta_1 TREAT_i + \beta_2 POST_t + \beta_3 (POST_t \times TREAT_i) + \epsilon_{it}$$`
+
+  - `\(TREAT_i = 1\)` if unit `\(i\)` is in the *treated group*, `\(0\)` if *control* group.
+
+  - `\(POST_t  = 1\)` if period `\(t\)` is in the *post period*, `\(0\)` if *before*.
+  
+--
+
+|        | t = 1 (Pre)         | t = 2 (Post)                           | (t=2) − (t=1)     |
+|--------|---------------------|----------------------------------------|-------------------|
+| TREAT = 0  | `\(\beta_0\)`           | `\(\beta_0 + \beta_2\)`                    | `\(\beta_2\)`         |
+| TREAT = 1  | `\(\beta_0 + \beta_1\)` | `\(\beta_0 + \beta_1 + \beta_2 +\beta_3\)`  | `\(\beta_2 +\beta_3\)`         |
+| (TREAT=1) − (TREAT=0) |               |                                        | `\(\beta_3\)`            |
+
+--
+
+More generally, we can write it in the form of a Two-Way Fixed Effects (TWFE) model:
+
+`$$Y_{it} = \alpha_i + \gamma_t + D_{it}\beta + \varepsilon_{it}$$`
+  
+Inference: clustered standard errors are valid as number of clusters grows large
+
+
+---
+
+# Visualizing identification 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/DiD.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+class: inverse
+
+
+There have been a lot of advances in the recent DiD literature.
+
+--
+
+These can be group into 3 categories:
+
+--
+
+  - Multiple periods and staggered treatment timing.
+  
+--
+  
+  - Relaxing or allowing parallel trends to be violated.
+  
+--
+  
+  - Inference with a small number of clusters.
+
+---
+
+# Extension to multiple periods 
+
+Let's consider a policy that occurs all at time `\(t_0\)` (**single timing**).
+
+--
+
+More time periods helps us in several ways:
+
+  - If we have multiple periods **before** the policy implementation, we can partially test the **pre-trends assumption**.
+  
+  - If we have multiple periods **after** the implementation, we can examine the timing of the effect.
+  
+--
+
+We can implement this via a **dynamic TWFE ("event-study") model**: 
+
+`$$Y_{it} = \alpha_i + \gamma_t + \sum_{t = 1, t\neq t_0}^T \delta_tD_{it} + \epsilon_{it}$$`
+
+- All coefficients `\(\delta_t\)` measure the effect *relative* to period `\(t_0\)`. 
+
+--
+
+- Note that for this model, we have a stronger assumption about trends:
+
+  - We assume that `\(Y_{i,t}(d) - Y_{i,t-k}(d) = \gamma_t - \gamma_{t-k}\)` for all `\(k\)` and `\(d\)`
+  
+  - This is testable, we can visualize the pre-trends to support the validity of our DID estimation.
+
+  
+
+---
+
+# Example of pre-trends testing
+
+Carey, Miller, and Wherry (2020) study the impact of Medicaid (health insurance) expansion 
+
+- by comparing US states which expanded Medicaid in 2014 to states that didn't.
+
+--
+
+The authors report results from the "event-study" regression:
+
+`$$Y_{ist} = \alpha_s + \gamma_t + \sum_{r\neq -1} D_s \times 1[t=2014 + r]\beta_r + \epsilon_{ist}$$`
+  
+  - `\(Y_{its}\)` is insurance for person `\(i\)` in year `\(t\)` in state `\(s\)`, and `\(D_s=1\)` if in an expansion state.
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/caseyDID.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+class: inverse, middle
+
+# 
+
+There have been a lot of advances in the recent DiD literature.
+
+
+These can be group into 3 categories:
+
+
+  - Multiple periods and **staggered treatment timing**.
+  
+  
+  - Relaxing or allowing parallel trends to be violated.
+  
+  
+  - Inference with a small number of clusters.
+
+---
+
+# Extension to staggered timing 
+
+In the canonical model we have:
+  
+  - Two periods and a common treatment time
+  
+  - Identification from parallel trends and no anticipation
+  
+  - A large number of clusters for inference 
+
+--
+
+But in many cases, there are **multiple periods** and units adopt treatment at **different times**
+  
+  - This is what we refer to as **staggered timing**
+
+--
+
+If we run the **static TWFE model**:
+
+`$$Y_{it} = \alpha_i + \gamma_t + D_{it}\beta + \varepsilon_{it}$$`
+  - what comparisons are we doing once we have a lot of timing?
+  
+---
+
+# Goodman-Bacon (2021)
+
+Let's consider two staggered treatments and a never-treated group.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/goodman-bacon.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Goodman-Bacon (2021)
+
+TWFE (static) is the weighted average of all four comparisons.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/goodman-bacon2.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+  
+---
+
+# Goodman-Bacon (2021)
+
+TWFE (static) is the weighted average of all four comparisons.
+
+  - **clean comparison**: DiD between treated and not-yet-treated units.
+  
+  - **Forbidden comparison**: DiD between two sets of already-treated units (who began treatment at different times).
+  
+--
+  
+These forbidden comparisons can lead to negative weights: 
+
+  - The "control group" is already treated, so we run into problems if their treatment effects change over time.
+  
+  
+---
+
+# Takeaways from the staggered timing literature
+
+There are no reasons to use the static TWFE in staggered timings.
+
+The *dynamic TWFE ("event-study")* is fine if there is *heterogeneity only in time since treatment*.
+
+  - But it is problematic if the effects vary across units (adoption cohorts)
+  
+    - Sun and Abraham (2021): negative weights, cross-lag contamination
+
+New estimators perform better under treatment effect heterogeneity:
+
+  - de Chaisemartin and d’Haultfoeuille (2020, 2024)
+
+  - Callaway and Sant’anna (2021)
+  
+  - Sun and Abraham (2021)
+  
+  - Borusyak et al. (2024)
+  
+---
+
+# Intuition behind new estimators
+
+Callaway and Sant’anna (2021): 
+
+  - Consider two different "control" groups: never-treated units and not-yet-treated units.
+  
+  - With many different treatment periods `\(t\)` and cohorts `\(g\)`, report a weighted average of `\(ATT(g,t)\)`. 
+  
+Sun and Abraham (2021): use last-to-be-treated units as the comparison group. 
+
+de Chaisemartin and d’Haultfoeuille (2020, 2024): when treatment turns on and off.
+
+  - same as Callaway and Sant’anna (2021) when treatment is staggered.
+  
+Borusyak et al. (2024): 
+
+  - same as Callaway and Sant’anna (2021), except that they make comparisons to the *average of the pre-treatment periods*
+  
+Key takeaways: each approach imposes different assumptions/makes different comparisons.
+
+  - use the one you need, be clear about what the issue is.
+
+
+---
+
+class: inverse, middle
+
+# 
+
+There have been a lot of advances in the recent DiD literature.
+
+
+These can be group into 3 categories:
+
+
+  - Multiple periods and staggered treatment timing.
+  
+  
+  - **Relaxing or allowing parallel trends to be violated**.
+  
+  
+  - Inference with a small number of clusters.
+
+---
+
+# Relaxing the parallel trends assumption
+
+--
+
+Control for (baseline) covariates: 
+
+`$$Y_{it} = \alpha_i + \gamma_t + \sum_{k\neq -1} D_{it}^k \beta_k + (X_i \times D_i \times \gamma_t)\phi +  \varepsilon_{it}$$`
+
+  - In addition to conditional parallel trends, we also impose "overlap condition": for each treated unit with covariates `\(X_i\)`, there are at least some untreated units in the population with the same value of `\(X_i\)`.
+  
+--
+
+There are some caveats:
+
+  - `\(X_i\)` measured prior to the treatment, and therefore not affected by it.
+  
+  - If `\(X_i\)` affected by treatment, we have problem of "bad control" that can introduce bias.
+    
+    - Similar issue if we control for `\(X_{i,t}\)` that can be affected by the treatment.
+  
+  - Control for pre-treatment outcomes only if confident with *conditional unconfoundedness*.
+  
+    - i.e., if treatment is as good as random conditional on lagged outcome and other elements of `\(X_i\)`
+
+---
+
+# Key issues with testing for pre-trends 
+
+Testing for pre-trends is a natural way to assess the plausibility of the parallel trends assumption.
+
+But it also has several limitations.
+
+  - Parallel pre-trends do not necessarily imply parallel (counterfactual) post-treatment trends.
+  
+    - If other policies change at the same time as the one of interest.
+  
+  - Even if there are pre-existing differences in trends, our pretests above may fail to reject because of **low power**.
+
+  - **Pre-testing issues**: Conditioning the analysis on cases without statistically significant pre-trends can distort estimation and inference.
+  
+  
+---
+
+# Pre-trends issue: Low power 
+
+He and Wang (2007) study the impact of placing college grads as village officials in China.
+
+They use an event-study approach, comparing treated to untreated villages:
+
+`$$Y_{it} = \alpha_i + \gamma_t + \sum_{k\neq -1} D_{it}^k \beta_k +  \varepsilon_{it}$$`
+
+They report estimated coefficients `\(\hat{\beta}_k\)` for `\(k\neq -1\)`:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-base.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Pre-trends issue: Low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-base.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+"The estimated coefficients on the leads of treatment ... are **statistically indifferent from 0**. ... We conclude that **the pretreatment trends in the outcomes in both groups of villages are similar**, and villages without CGVOs **can serve as a suitable control group** for villages with CGVOs in the treatment period."   
+
+
+---
+
+# Pre-trends issue: Low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-ZeroDots.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+P-value for `\(H_0: \beta_{pre} =\)` &lt;span style="color: green;"&gt;green dots&lt;/span&gt; (no pre-trend): 0.81
+
+---
+
+# Pre-trends issue: Low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-RedDots.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+P-value for `\(H_0: \beta_{pre} =\)` &lt;span style="color: red;"&gt;red dots&lt;/span&gt;: 0.81
+
+---
+
+# Pre-trends issue: Low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-RedTrend.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+P-value for `\(H_0: \beta_{pre} =\)` &lt;span style="color: red;"&gt;red dots&lt;/span&gt;: 0.81
+
+---
+
+# Pre-trends issue: Low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-BlueDots.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+P-value for `\(H_0: \beta_{pre} =\)` &lt;span style="color: blue;"&gt;blue dots&lt;/span&gt;: 0.81
+
+---
+
+# Pre-trends issue: Low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-BlueTrend.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+P-value for `\(H_0: \beta_{pre} =\)` &lt;span style="color: blue;"&gt;blue dots&lt;/span&gt;: 0.81
+
+--
+
+We can't reject zero pre-trend, but we also can't reject pre-trends that under smooth extrapolations to the post-treatment period would produce substantial bias.
+
+
+---
+
+# More systematic evidence on low-power issues
+
+Roth (2022) simulates results from 12 papers published in *AER, AEJ:Applied* and *AEJ:Policy*
+
+  - Evaluates estimates and CIs under linear violations of parallel trends against which conventional tests have limited power (50 or 80%).
+  
+  - Bias often of magnitude similar to estimated treatment effect, and CI substantially undercover in many cases.
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/Roth2022.png" style="width: 80%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Pre-trend Issue: Distortions from pre-testing
+
+When parallel trends is violated, we will sometimes fail to find a significant pre-trend.
+
+The draws of data where this happens are a selected sample.
+
+  - This is *pre-test bias*.
+  
+Analyzing this selected sample introduces additional statistical issues, and can make things worse.
+
+---
+
+# Pre-trend Issue: Distortions from pre-testing
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/PopulationMeans.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+In population, there is a linear difference in trend with slope 3.
+
+---
+
+# Pre-trend Issue: Distortions from pre-testing
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/DataDraws_Unhighlighted.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+In actual draws of data, there will be noise around this line.
+
+---
+
+# Pre-trend Issue: Distortions from pre-testing
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/DataDraws_Highlighted.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+In some of the draws of the data (blue), the difference between period -1 and 0 will be insignificant.
+
+---
+
+# Pre-trend Issue: Distortions from pre-testing
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/PopulationMeans_PopulationAndInsignificant_Annotated.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+In the insignificant draws, tend to underestimate the difference between treat and control at `\(t=0\)`.
+
+--
+
+Thus, the DID between periods 0 and 1 tends to be particularly large when we get an insignificant pre-trend.
+
+
+---
+
+# So what we need to do with pre-trends?
+
+Examining pre-trend is still important diagnostic.
+
+Incorporate robustness to pre-trends into our analysis.
+
+  - Roth (2022)'s diagnostics of power and distortions from pre-testing
+  
+    - See **pretrends** package (https://github.com/mcaceresb/stata-pretrends#pretrends)
+
+  - Rambachan and Roth (2023)'s testing sensitivity of DID results to pre-trends
+  
+    - See **HonestDiD** package (https://github.com/mcaceresb/stata-honestdid#honestdid)
+
+
+
+---
+
+class: inverse, middle
+
+# 
+
+There have been a lot of advances in the recent DiD literature.
+
+
+These can be group into 3 categories:
+
+
+  - Multiple periods and staggered treatment timing.
+  
+  
+  - Relaxing or allowing parallel trends to be violated.
+  
+  
+  - **Inference with a small number of clusters**.
+
+---
+
+# Inference with a small number of clusters
+
+Suppose you are working with panel data and use DID.
+
+Bertrand, Duflo, and Mullainathan (2004): **cluster on the unit of policy implementation** if possible.
+
+  - Reason: outcomes and treatment tend to be severely autocorrelated within unit.
+  
+  - e.g., if the tax policy is at the industry level, should not cluster at the firm level.
+  
+--
+  
+If there is a **small number of clusters**:
+
+  - **Cluster wild bootstrap** (Cameron et al. 2008), though it requires strong homogeneity assumptions in treatment effects
+
+  - **Permutation test** (Fisher Randomization Tests) as placebo test
+
+    - Idea: randomly assign treatment status, recompute statistic, if we cannot reject the null of no treatment effects *even if treatment had been randomly assigned*, this suggests that there is not strong evidence of an effect in the data without other strong assumptions
+    
+--
+
+See Ruth et al. (2023) for more discussion. 
+
+Andreas Hagemann (https://hgmn.github.io/) has many work on small number of clusters.
+
+---
+
+# DID Checklist
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/didchecklist.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  DiD in practice: The largest insurance program in history: Saving one million lives per year in
+ China &lt;br&gt; by Gruber, Lin, and Yi (2023)
+&lt;/div&gt;
+
+---
+
+# Gruber, Lin, and Yi (2023): Group discussion
+
+- What is the research question? Why is the paper considered a contribution?
+  
+- What are the data sources?
+  
+  - What is the unit of observation?
+    
+  - What are the key variables and how are they constructed?
+  
+- What is the empirical strategy?
+  
+  - What is the main estimating equation?
+    
+  - How does identification work? What are the sources of exogenous variation?
+    
+  - Should we worry about any of the identification assumptions? 
+
+
+---
+
+# Some background
+
+In 1950s, China established Cooperative Medical Scheme (CMS), covering `\(&gt;90\%\)` of rural residents
+
+  - The scheme was collapsed after 1979: coverage declined sharply to almost zero in 1990s
+
+In 2003, China initiated the New Cooperative Medical Scheme (NCMS)
+
+  - The program was administered separately in each of around 2800 counties in China
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_ncms.png" style="width: 80%; max-width: 450px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Research question and empirical challenges
+
+Research question: How does the New Cooperative Medical Scheme (NCMS), which is considered the largest insurance program around the world, affect health outcomes in China?
+
+--
+
+Empirical challenges?
+
+--
+Early-adopting counties had higher agricultural share and average GDP (i.e., stronger economies) than late-adopting counties
+  
+  - which means that simply comparing early-adopting with late-adopting counties would bias the estimates if these different types of counties are on different health trajectories
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_challenge1.png" style="width: 90%; max-width: 450px;" /&gt;
+&lt;/div&gt;
+
+  - Migration?
+  
+--
+Rigorous assignment of agricultural Hukou system determines eligibility for social service and welfare, implying that migration is less of a concern.
+
+---
+
+# Data sources
+
+Research question: How does NCMS affect health outcomes in China?
+
+--
+What could be the unit of analysis?
+
+--
+
+County-level analysis
+
+  - China's 2000 Population Census (share of the population with agricultural Hokou in each county)
+  
+  - China Death Surveillance Point Dataset (DSP) 2004-2010 (Age-adjusted mortality rates and life expectancy at birth)
+  
+  - Others: healthcare supply (healthcare staff and hospital beds) at the county level
+
+Individual-level analysis
+
+  - Chinese Longitudinal Healthy Longevity Survey, individuals aged 65-110 in 1998-2014
+  
+    - Serious illness, limitations in activities of daily living, mental health status, self-reported and interviewer-reported health status 
+
+  - China Health and Nutrition Survey 2000, 2004, 2006, 2009, 2011
+  
+    - Activities of daily living and cognitive ability for individuals above 55 in waves 2000 to 2006, healthcare utilization
+
+---
+
+# Empirical strategy
+
+It is natural to evaluate the phase-in of NCMS using variation in implementation dates across counties, i.e., compare counties that adopted at different times
+
+`$$Y_{ct} = \alpha_1 Post_{ct} + \delta_c + \delta_t + \varepsilon_{ct}$$`
+
+--
+
+But the timing of program adoption was not random: strong correlation between potentially omitted variables with the implementation timing.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_ovb.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Empirical strategy
+
+It is natural to evaluate the phase-in of NCMS using variation in implementation dates across counties, i.e., compare counties that adopted at different times
+
+`$$Y_{ct} = \alpha_1 Post_{ct} + \delta_c + \delta_t + \varepsilon_{ct}$$`
+
+
+But the timing of program adoption was not random: strong correlation between potentially omitted variables with the implementation timing.
+
+--
+
+And there are unparallel pre-trends 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_pt_violated.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Empirical strategy
+
+The authors' solution: compare counties that adopted at the same time but have different levels of agricultural density:
+
+`$$Y_{cpt} = \alpha_0 + \alpha_1 AgriShare_{c,2000} \times Post_{ct} + AgriShare_{c,2000} \times \delta_t + X_{ct}'\alpha + \delta_c + \delta_{pt} + \delta_{t_c^0, t} + \delta_c \times t + \varepsilon_{cpt}$$`
+
+--
+
+Identification assumption: The health outcome gaps between high and low agricultural share counties would have evolved similarly in the absence of the reform, regardless of the time when NCMS was implemented
+
+  - What could make this assumption invalid?
+  
+---
+
+# Conditional parallel pre-trends
+
+Residuals from regressing outcomes on NCMS-timing-by-year FE and county-specific linear trend:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_pt.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Results
+
+NCMS enrollment significantly reduces mortality rates and improves life expectancy
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_event.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+The authors also show these results are robust to heterogeneous treatment effect (de Chaisemartin and D’Haultfoeuille 2022).
+
+---
+
+# Additional results: permutation test
+
+The estimated effects are *rare event*.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_permutation.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Regression Discontinuity (RD)
+&lt;/div&gt;
+
+
+
+
+
+---
+
+# Regression discontinuity (RD)
+
+Regression discontinuity (RD) works in very specific circumstances
+  
+  - and thus, it is the least common in development economics research
+  
+When RD works, it is one of the most credible nonexperimental methods for causal inference and program evaluation
+
+RD requires three components: a score, a cutoff, and a discontinuous treatment assignment rule
+
+  - all the units in the study are assigned a value of the score (a.k.a a running or forcing variable)
+  
+  - and the treatment is assigned only to units whose score value exceeds a known cutoff (also called threshold)
+
+---
+
+# A running variable ("forcing variable") determines treatment 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rd1.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example: student's exam ranking and college admission/enrollment
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rd_example.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example: distance to border and irrigation (spatial RD)
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_border.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Intuition
+
+Suppose we are interested in studying the effect of college enrollment on labor market outcomes.
+
+--
+
+Can we just compare people who are enrolled in colleges with people who are not. 
+--
+Why?
+
+--
+
+If there is a cutoff in college entrance exam ranking that determines admission:
+
+  - then people who fall just on either side of the cutoff should be similar
+  
+  - so we can compare people on either side of the cutoff.
+  
+---
+
+# A few notes
+
+For RD to work, at the cutoff, we need two conditions:
+
+- The probability of treatment should change discontinuously.
+
+- Other variables shouldn't change discontinuously
+  
+  - e.g., gender, parents' education, etc. shouldn't change discontinuously
+      
+--
+
+Because we focus on people around the cutoff:
+
+  - We estimate treatment effects "local" to the cutoff.
+  
+  - and thus, there would be concern with external validity.
+  
+  
+---
+
+# RD estimation
+
+In practice, we can estimate sharp RD in a regression:
+
+`$$Y_i = \alpha + \beta_{sharp} 1\{X_i \geq 0\} + f(X_i) + f(X_i)\times 1\{X_i \geq 0\} + \varepsilon_i$$`
+
+  - `\(X_i\)`: running variable, normalized to be 0 at the cutoff
+
+  - `\(f(X_i)\)`: flexible function of `\(X_i\)` that is allowed to vary above and below the cutoff
+
+--
+
+Fuzzy RD can be estimated with the "first" and "second" stage IV model:
+
+`$$D_i = \theta 1\{X_i \geq 0\} + f(X_i) + f(X_i) \times 1\{X_i \geq 0\} + \varepsilon_i$$`
+`$$Y_i = \beta_{fuzzy}\hat{D}_i + f(X_i) + f(X_i)\times \hat{D}_i + \eta_i$$`
+
+--
+
+It is also common practice to run the "reduced form" regression:
+
+`$$Y_i = \beta_{reduced-form}1\{X_i \geq 0\} + f(X_i) + f(X_i)\times 1\{X_i \geq 0\} + \varepsilon_i$$`
+
+
+---
+
+# RD assumptions
+  
+RD requires that being on either side of the cutoff is as good as random.
+
+--
+
+Manipulation around cutoff can invalidate RD estimates:
+
+  - e.g., if people know their exam score and the cutoff, they can find ways to change their scores to get on the other side (retake the exam)
+  
+--
+
+We want to bolster the credibility of an RD analysis with:
+
+  - A balance test of no RD jump in pre-treatment outcomes. 
+
+  - A density test (McCrary sorting test) of no "bunching" at the cutoff.
+
+
+---
+class: inverse, middle
+
+# Below is a checklist for RD paper
+
+- RD jump visualization
+
+- Balance test 
+
+- Bunching test 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+---
+class: inverse, middle
+
+# Below is a checklist for RD paper
+
+- **RD jump visualization**
+
+- Balance test 
+
+- Bunching test 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+---
+
+# Example: RD jump visualization
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+--
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee1.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example: RD jump visualization
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee2.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example: RD jump visualization
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee22.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example: RD jump visualization
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee222.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# A quick aside on graphical presentation
+
+One of the most powerful aspects of regression discontinuity is the ability to present the results graphically
+ 
+But what is the right approach?
+  
+  - Raw data is rarely informative.
+  
+  - We would plot a version of the scatter plot but focusing on means within binned areas.
+    
+  - RD jump should be clear across different binning strategies. 
+  
+  - See Korting et al. (2024) for discussions on this.
+  
+---
+
+# A quick aside on graphical presentation
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r1.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# A quick aside on graphical presentation
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r2.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# A quick aside on graphical presentation
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r3.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# A quick aside on graphical presentation
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r4.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+class: inverse, middle
+
+# Below is a checklist for RD paper
+
+- RD jump visualization
+
+- **Balance test** 
+
+- Bunching test 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+---
+
+# Example of balance test
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+There is no jump in pre-treatment outcomes.
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee3.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example of balance test
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+There is no jump in pre-treatment outcomes.
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee3.png" style="width: 90%; max-width: 450px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example of balance test
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+There is no jump in pre-treatment outcomes.
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee4.png" style="width: 90%; max-width: 450px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example of balance test
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+There is no jump in pre-treatment outcomes.
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee44.png" style="width: 90%; max-width: 450px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example of balance test
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+There is no jump in pre-treatment outcomes.
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee444.png" style="width: 90%; max-width: 450px;" /&gt;
+&lt;/div&gt;
+
+See Canay and Kamat (2018) for a more complete permutation test (\scriptsize checking whether covariates are approximately identically distributed on each side of the cutoff).
+
+
+
+
+
+---
+
+class: inverse, middle
+
+# Below is a checklist for RD paper
+
+- RD jump visualization
+
+- Balance test 
+
+- **Bunching test** 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+
+---
+
+# A checklist for RD paper: Bunching test
+
+There are two reasons RD might fail:
+
+  - The cutoff is set systematically, such that confounding factors change discontinuously
+  
+  - The running variable is manipulable
+  
+    - e.g., people can retake exam to get scores above their passing grade
+    
+--
+    
+While both of these can be likely to show up as not meet the balance test, manipulation can also be detected by bunching of the running variable.
+
+  - McCrary (2008) checks whether the density of the running variable changes discontinuously.
+  
+  - This can be done by **rddensity** package in Stata.
+  
+---
+
+# Example of bunching test 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_bunching.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+
+
+---
+
+class: inverse, middle
+
+# Below is a checklist for RD paper
+
+- RD jump visualization
+
+- Balance test 
+
+- Bunching test 
+
+- **Robustness** to choice of estimation procedure, kernel, bandwidth
+
+---
+
+# A checklist for RD paper: Robustness
+
+- The actual estimation is subject to many tuning parameters
+
+  - choice of estimation procedure, kernel, bandwidth
+  
+- In practice, use defaults unless you have very good reason not to
+
+  - Local linear regression, but local quadratic/cubic are also reasonable
+  
+  - Triangular (highest weights at the cutoff, linearly lower further away) or uniform kernel (same weights to all)
+  
+  - Optimized bandwidth from estimation procedures in packages (e.g., Cattaneo et al.'s *rdrobust*)
+  
+  - For discrete running variables, use *rdhonest* package
+  
+- Show robustness to different bandwidths/polynomials (table/graph)
+
+---
+
+# Example of robustness
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_robust.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example of robustness
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_robustfig.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Saving lives with indexed disaster funds: evidence from Mexico &lt;br&gt;
+  by del Valle (2024)
+&lt;/div&gt;
+
+---
+
+# del Valle (2024)'s indexed fund: group discussion
+
+- What is the research question? Why is the paper considered a contribution?
+  
+- What are the data sources?
+  
+  - What is the unit of observation?
+    
+  - What are the key variables and how are they constructed?
+  
+- What is the empirical strategy?
+  
+  - What is the main estimating equation?
+    
+  - How does identification work? What are the sources of exogenous variation?
+    
+  - Should we worry about any of the identification assumptions? 
+  
+
+---
+
+# Background: Fonden diaster fund 
+
+In the last century, there have been 10,514 recorded storms, floods, and other water-related disasters,
+and 8.3 million deaths that can be directly attributed to these disasters.
+
+--
+
+One striking feature of the global distribution of deaths from disasters is that it is strongly skewed
+toward developing economies despite disasters not occurring disproportionately in these countries.
+
+--
+
+A possible contributing factor to the larger death toll in developing economies is the **bottlenecks in the
+provision of disaster aid**, which results in delays in the restoration of critical services, including roads,
+safe water, and medical infrastructure.
+
+- reliance on post-disaster financing
+
+- lack of rules and administrative capacity to disburse these resources
+
+
+---
+
+# Background: Fonden diaster fund 
+
+Fonden ensures public infrastructure and low-income housing against natural disasters.
+
+--
+
+It overcomes bottlenecks in disaster aid delivery through a structured response plan.
+
+--
+
+- Pre-disaster funding: ensures funds are available before a disaster through protected budget
+allocation, excess loss reinsurance, catastrophe bonds.
+
+- Rules-based disbursement: enforces a structured process for fund distribution, including:
+
+  - verifying disaster occurrence **using indexes (e.g., above certain rainfall threshold)**
+  
+  - conducting damage assessments, paying reconstruction service providers, auditing reconstruction projects
+
+--
+
+del Valle (2024) studies the impact of this fund on mortality.
+
+
+---
+
+# Data source and variable construction
+
+Mortality data from death certificate records harmonized by Mexico’s national statistical institute INEGI covering the period 2000 to 2017.
+
+- Identifying deaths attributable to disasters is difficult because disasters have the potential to cause deaths directly and indirectly 
+(through several channels). 
+
+- To provide an encompassing measure of the mortality burden caused by disasters, the author follows the medical literature and relies on **postdisaster 
+excess mortality**
+
+- The measure of excess mortality is the municipal-level difference between the mortality rate observed after a disaster and the mortality rate expected in the absence of the 
+disaster (**observed two years before the disaster**).
+
+
+
+---
+
+# Empirical strategy 
+
+`$$Y_{mt} = \alpha + \beta Above_{mt} + g(R_{mt}) + \varepsilon_{mt}$$`
+
+where 
+
+- `\(Y_{mt}\)` is the outcome in municipality `\(m\)` at disaster time `\(t\)`.
+
+- `\(Above = 1\)` if the running variable (rainfall minus threshold) is nonnegative, 0 otherwise.
+
+- The function `\(g(R_{mt})\)` represents a polynomial of order `\(p\)` of the running variable `\(R_{mt}\)` that is fully interacted with the `\(Above_{mt}\)` indicator variable.
+
+---
+
+# RD paper checklist
+
+- RD jump visualization
+
+- Balance test 
+
+- Bunching test 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+
+---
+
+# First-stage RD jump 
+
+The likelihood of receiving Fonden increases from 0.65 just below the threshold to 0.87 just above.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico1.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# ITT (reduced-form) RD jump
+
+Municipalities immediately to the left of the threshold experience roughly 0.79 excess deaths per 1,000 person-years, those eligible for Fonden (immediately 
+to the right) don’t experience excess deaths.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico2.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Summary of results 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico3.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Balance test 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico5.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Bunching test 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico4.png" style="width: 100%; max-width: 900px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Robustness checks: tuning parameters
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico6.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Robustness checks: bandwidths 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico7.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+
+# Plan for next week
+
+- **Monday**: Poverty Traps
+
+  - Chapter Introduction of Barrett, C. B., M. R. Carter, J.-P. Chavas, and M. R. Carter (2019). The economics of poverty traps. University of Chicago Press
+ 
+  - Balboni, C. et al. (2022). "Why do people stay poor?" Quarterly Journal of Economics. 137.2, pp. 785–844
+
+
+- **Wednesday**: Ultra-poor Programs
+
+  - Banerjee, A., E. Duflo, and G. Sharma (2021). "Long-term effects of the targeting the ultra poor program". American Economic Review: Insights 3.4, pp. 471–486
+  
+  - Presentation
+  
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt; 
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

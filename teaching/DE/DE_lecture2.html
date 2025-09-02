@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Development Economics: Labor and Development</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 2: Causal Inference, RCT, IV
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2025
+]
+
+---
+
+
+# Roadmap
+
+- Fundamental problem of causal inference
+
+  - How do we resolve the fundamental problem of causal inference?
+
+- Does randomization "solve" the fundamental problem of causal inference?
+
+- Regression and causality
+
+- Instrumental variables (IV) and Local average treatment effects (LATE)
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Fundamental problem of causal inference
+&lt;/div&gt;
+
+---
+
+# Working example 
+
+Suppose we are interested in studying the effect of tutoring on students' test scores.
+
+--
+
+We have collected data on children who participated in the tutoring, and those who did not.
+
+--
+
+Below is our data tabulation 
+  
+| Group       | Sample Size | Mean Test Scores | Standard Errors |
+|-------------|-------------|------------------|-----------------|
+| Tutoring    | 250         | 7.43             | 0.14            |
+| No Tutoring | 1500        | 8.56             | 0.15            |
+
+--
+
+What can we say about the effect of tutoring on students' test scores?
+
+  - Tutoring lowers students' test scores?
+  
+--
+
+It is possible that tutoring could lower test scores, but what is the problem with this comparison?
+
+--
+
+  - Students who participated in tutoring could have lower academic performance on average to begin with (**selection bias**).
+
+---
+
+# Fundamental problem of causal inference
+
+Let's formalize our example with some notations (Rubin's Causal Model)
+
+--
+
+We have a population `\(I\)` with units `\(i\in I\)` (e.g., school `\(I\)` with students `\(i\)`)
+  
+--
+
+There are two causes: control (no tutoring, 0) and treatment (tutoring, 1) 
+  
+--
+
+We label exposure to a cause as `\(D_i \in \{0, 1\}\)`
+   
+--
+
+Then there are two potential responses/outcomes:
+    
+--
+
+  - Outcome if unit `\(i\)` does not receive treatment: `\(Y_{0i}\)`
+  
+  - Outcome if unit `\(i\)` receives treatment: `\(Y_{1i}\)` 
+
+--
+
+We are interested in the causal effect of treatment (relative to control) on a unit `\(i\)`.
+
+--
+What would it be?
+  
+--
+`\(Y_{1i} - Y_{0i}\)`
+
+
+---
+
+# Fundamental problem of causal inference
+
+Now let's take a closer look at this: `\(Y_{1i} - Y_{0i}\)` 
+
+--
+
+Do you notice something weird here? 
+
+--
+
+We either observe `\(Y_{1i}\)` or `\(Y_{0i}\)`, not both at the same time! 
+
+--
+
+  - Students can *either participate or not participate* in the tutoring program
+  
+  - The same student cannot *attend and not attend* the program *at the same time*
+  
+--
+
+This is the **fundamental problem of causal inference**.
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Then, how could we resolve the fundamental problem of causal inference?   
+&lt;/div&gt;
+
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  We need assumptions! No causal inference without assumptions!
+&lt;/div&gt;
+
+---
+
+# Fundamental problem of causal inference
+
+We will discuss 4 assumptions to resolve the fundamental problem of causal inference.
+
+  - Temporal stability and causal transience
+  
+  - Unit homogeneity 
+  
+  - Independence 
+  
+  - Constant effects 
+  
+---
+
+# Temporal stability and causal transience
+
+**Temporal stability** means that the value `\(Y_{0i}\)` does not depend on **when** the cause "control" occurs.
+
+--
+
+**Causal transience** means that the value `\(Y_{1i}\)` is not affected by prior exposure to the cause "control".
+
+--
+
+When these two assumptions are plausible, we can just sequentially expose `\(i\)` to the cause "control" then "treatment", and measure the outcome `\(Y\)` after each exposure.
+
+--
+
+You can think about "light switch":   
+
+  - Think of `\(Y_{0i}\)` as the brightness of a lamp when the switch is **off**. 
+  
+    - It doesn’t matter **when** you turn it off — the brightness stays the same.
+  
+  - Think of `\(Y_{1i}\)` as the brightness when the switch is **on**.  
+
+    - It’s not affected by whether the light was off for a while before you turned it on.
+    
+--
+
+Do you think these assumptions are plausible if we want to learn about economic problems in real-life settings?
+
+--
+
+  - No, that's why we often refer to them as "scientific solution".
+
+
+---
+
+# Unit homogeneity 
+
+Assume we have two units: `\(i_1\)` and `\(i_2\)`.
+
+--
+
+If we assume `\(Y_{1i_1}\)` = `\(Y_{1i_2}\)` and `\(Y_{0i_1}\)` = `\(Y_{0i_2}\)` for units `\(i_1\)` and `\(i_2\)`
+  
+  - then we can just compare the outcomes of unit `\(i_1\)` with unit `\(i_2\)`
+  
+--
+  
+The causal effect of treatment (relative to control) on unit `\(i_1\)` or `\(i_2\)` would be:
+
+`$$Y_{1i_1} - Y_{0i_1} = Y_{1i_1} - Y_{0i_2} =  Y_{1i_2} - Y_{0i_1}$$`
+
+--
+
+Do you think these assumptions are plausible if we want to learn about economic problems in real-life settings?
+
+--
+
+  - No, this is another "scientific solution".
+  
+
+
+---
+
+# Independence 
+
+The population `\(I\)` is large, and for each unit `\(i\)` we observe `\(D_i\)` and `\(Y_{D_i}\)`
+
+--
+
+The average causal effect is: `\(T = E(Y_{1i}) - E(Y_{0i})\)`
+
+--
+
+However, observed data only gives us `\(E(Y_{1i}|D_i = 1)\)` and `\(E(Y_{0i}|D_i = 0)\)` 
+
+--
+
+Are `\(E(Y_{1i})\)` and `\(E(Y_{1i}|D_i = 1)\)` the same?
+
+--
+No, they are not! 
+
+--
+    
+  - `\(E(Y_{1i})\)` is the average value of `\(Y_1\)` over all units `\(i\)`
+  
+--
+
+  - `\(E(Y_{1i}|D_i = 1)\)` is the average value of `\(Y_1\)` over those units `\(i\)` **exposed to treatment**
+  
+--
+
+  - so if `\(D_i = 1\)` for those units where `\(Y_{1i}\)` is large then `\(E(Y_{1i}|D_i = 1) &gt; E(Y_{1i})\)`
+
+--
+
+**Independence** assumes that exposure to "treatment" or "control" is independent of the potential outcomes `\(Y_0\)` and `\(Y_1\)` 
+
+  - Under *Independence*, we have `\(E(Y_{1i}) = E(Y_{1i}|D_i = 1)\)` and `\(E(Y_{0i}) = E(Y_{0i}|D_i = 0)\)` 
+  
+  - and thus average causal effect: `\(T = E(Y_{1i}|D_i = 1) - E(Y_{0i}|D_i = 0)\)`
+
+
+---
+
+# Constant effect 
+
+Under **independence** assumption, we can recover the average causal effect `\(T\)`.
+
+--
+
+But `\(T\)` is the **average causal effect** and thus might not be informative about the causal effect for **any particular unit** `\(i_0\)`.
+
+--
+
+With **constant effect** assumption: `\(T = Y_{1i} - Y_{0i}\)` for all `\(i\in I\)` 
+
+--
+
+This assumption can be *partially checked* by estimating average treatment effects for different subsets of the population *I*, that is `\(T_1\)` for subset `\(I_1\)`, and `\(T_2\)` for subset `\(I_2\)`, etc.
+
+--
+
+Note that **constant effect** is a weakening version of **unit homogeneity**
+
+  - and with only *constant effect*, it is not sufficient to recover a causal effect based on `\(E(Y_{1i}|D_i=1) - E(Y_{0i}|D_i=0)\)`
+  
+  
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Now that we've discussed the 4 assumptions, do you think randomization can resolve the fundamental problem of causal inference?
+&lt;/div&gt;
+
+
+---
+
+# Treatment effect definition 
+
+Based on previous slides' notations, we can define four "treatment effects":
+
+--
+
+  - Causal effect of treatment (relative to control) for unit `\(i\)`: `\(Y_{1i} - Y_{0i}\)`
+  
+--
+
+  - Average causal effect, a.k.a. *average treatment effect (ATE)*:
+  `\(E(Y_{1i}) - E(Y_{0i})\)`
+  
+--
+
+  - Average causal effect on those who received treatment, a.k.a. *average treatment on the treated (ATT)*: 
+`$$E(Y_{1i}|D_i = 1) - E(Y_{0i}|D_i = 1)$$`
+  
+--
+  
+  - Average causal effect on those who did not receive treatment, a.k.a., *average treatment on the untreated (ATU)*: 
+`$$E(Y_{1i}|D_i = 0) - E(Y_{0i}|D_i = 0)$$`
+  
+  
+---
+
+# Randomization
+
+Recall that the fundamental problem of causal inference is we only observe `\(E(Y_{i}|D_i = 1) - E(Y_{i}|D_i = 0)\)`
+
+  - i.e., we only observe the test scores of students who received and who did not receive tutoring
+
+--
+
+Note that we can rewrite it as
+
+`\(E(Y_{i}|D_i = 1) - E(Y_{i}|D_i = 0) = E(Y_{1i}) - E(Y_{0i}) + E(Y_{0i}|D_i=1) - E(Y_{0i}|D_i=0) + (1-\pi)(ATT - ATU)\)`
+
+where `\(\pi\)` is the share of students receiving the treatment. (Homework: derive this equation.)
+
+--
+
+Let's focus on the right-hand side:
+
+  - `\(E(Y_{1i}) - E(Y_{0i})\)`: average treatment effect
+  
+  - `\(E(Y_{0i}|D_i=1) - E(Y_{0i}|D_i=0)\)`: selection bias 
+  
+  - `\((1-\pi)(ATT - ATU)\)`: heterogeneous treatment effect bias
+
+--
+
+Randomization: selection bias disappears, treatment and control groups have the same distribution of treatment effects.
+  
+--
+
+Thus the observed difference in outcomes is the average treatment effect.
+  
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  However, randomization does not remove all threats to causal inference.
+&lt;/div&gt;
+
+---
+
+# General threats to randomization
+
+- Bad randomization:
+
+  - We can verify if randomization was successful with "balance tests": comparing the baseline characteristics between treatment and control groups.
+
+- Attrition: People drop out during the study. Not a problem if attrition is not correlated with the treatment status.
+  
+  - We can compare attrition rates across groups. If there are difference, we can bound the estimates, e.g., using "Lee bounds" (Lee, 2009, REStud).
+  
+- Hawthorne effects: individuals modify their behavior in response to being observed or receiving attention, rather than due to any specific intervention.       
+
+- The anticipation that an expansion of the program is planned for the control areas in the future as in phased-in design leads individuals to change their behaviors.
+  
+- Spillover effects: the intervention being studied impacts individuals or groups beyond the intended recipients.
+    
+  - We need to take this into consideration when designing RCTs.
+  
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Randomization in practice: The case of unconditional cash transfers to the poor in Kenya &lt;br&gt;
+by Haushofer and Shapiro (2016)
+&lt;/div&gt;
+
+
+---
+
+# Research question
+
+- What is the big research question?
+
+--
+Income change and household wellbeing.
+
+--
+
+- Is there any potential endogeneity in the research question?
+
+--
+
+- Do you think we could use regression adjustments to uncover a causal effect of income on economic and psychological outcomes of poor households?
+
+--
+
+- What is the difference between conditional and unconditional cash transfers? 
+
+---
+
+# Randomization
+
+What is the randomized controlled trial design in the paper?
+
+--
+
+They conducted a **two-stage** randomized control trial.
+
+  - Stage 1: randomly choose treatment vs. control villages.
+  
+  - Stage 2: randomly choose treatment vs. control households within each treatment village.
+  
+--
+
+In other words, we have three groups of households:
+
+  - Group 1: households in the control villages 
+  
+  - Group 2: control households in the treatment villages 
+  
+  - Group 3: treatment households in the treatment villages
+  
+--
+
+Does the **difference between Groups 2 and 3** correctly capture the causal effect of unconditional cash transfers?
+
+--
+Why (not)?
+
+--
+
+What is the disadvantage with this research design?
+
+
+
+---
+
+# Intervention and cross-randomization
+
+Intervention: unconditional cash transfers 
+
+Within the treatment group, they also randomized:
+      
+  - The treatment recipient within the household (wife vs. husband) 
+  
+  - The transfer timing (monthly installments over 9 months vs. one-time lump-sum transfer)
+    
+  - The amount of transfer (USD 404 PPP vs. 1,525)
+  
+--
+
+What is the purpose of these cross randomization?
+
+
+---
+
+# Key outcomes
+
+**Economic outcomes:**
+  
+  - non-durable consumption, value of non-land assets, revenue
+    
+  - health, food security, education, female empowerment
+    
+**Psychological outcomes:**
+  
+  - happiness, life satisfaction, stress, depression, cortisol levels
+  
+Any **concern with the large number of outcomes**?
+
+--
+We need to address **issues of multiple inference**
+
+--
+
+  - Using index variables 
+  
+  - Multiple hypothesis testing: False Discovery Rate (FDR), Familywise Error Rate (FWER)
+  
+  - You will have opportunities to practice this in the problem set
+  
+  
+---
+
+# Validity of the research design
+
+**Balance tests**: comparing household characteristics at baseline.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/baseline.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt; 
+
+
+---
+
+# Validity of the research design
+
+**Attrition analysis**: comparing attrition rates across groups
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/attrition1.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Validity of the research design
+
+**Attrition analysis**: comparing characteristics between attriters and non-attriters
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/attrition2.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
+
+---
+
+# Validity of the research design
+
+**Attrition analysis**: comparing characteristics between treated and non-treated attriters
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/attrition3.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Findings: short-term effects 
+
+Focus on the sample of treatment villages (Group 2 and Group 3)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/effects.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Findings: short-term effects
+
+Focus on spillover vs. pure control households (Group 1 and Group 2)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/effect_spillovers.png" style="width: 90%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Lee bounds 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/leebounds.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
+
+Gentle explanation of Lee bounds: https://blogs.worldbank.org/en/impactevaluations/lee-bounds-in-practice
+
+
+---
+
+# Some concerns about RCTs/Field experiments
+
+**External validity**: RCTs are high on *internal validity*
+  
+  - If RCTs are done properly, the estimated effect is a true causal effect for those in the study
+    
+  - But, its external validity is often low
+  
+    - Would the same program have the same effect if it were implemented elsewhere?
+  
+    - Many reasons why the effects of an RCT may not apply in other contexts (institution, sample)
+  
+  - Replication studies are recommended to prove external validity (Kremer and Holla 2008)
+
+---
+
+# Some concerns about RCTs/Field experiments
+
+**Compliance issues**
+
+  - Let's go back to the tutoring program example at the beginning of the session 
+  
+    - Suppose now we have the resources to conduct an RCT
+    
+    - We cannot force students to participate in the tutoring program, instead, we offer those in the Treatment group the option to participate in the program 
+  
+    - Some students who received the offer participated in the program (G1)
+      
+    - Other students also received the offer but ended up not participating (G2)
+  
+  - If G2 is relatively big, we have low take-up problem
+  
+    - By comparing those who were offered the option to participate in the tutoring program (Treatment) to those who were not (Control), we can correctly identify the average *Intent-to-Treat* effect of the program (ITT)
+  
+    - However, this does not provide information on the *average impact of the program that was made compulsory for all students* (ATE)
+
+
+---
+
+# Some concerns about RCTs/Field experiments
+
+**Equilibrium effects**
+
+  - Program effects found in a small study may not generalize what will happen when the program is scaled up nationwide (Heckman et al. 1999)
+  
+  - For example, training programs for job seekers 
+    
+  - At small scale, training might lead to increased employment rates and improved job quality
+    
+  - When we scale up the program to national level, there might be market saturation
+    
+    - If many are trained in the same skills, there could be an oversupply in certain job markets
+      
+    - This could lead to increased competition \&amp; reduced job prospects for some trained individuals
+
+
+---
+
+class: inverse
+
+
+Randomized controlled trials give us a clean way to estimate causal effects because treatment assignment is independent of all other factors. 
+
+--
+
+But in many economic settings, we cannot randomize—either because it's infeasible, unethical, or simply too expensive. 
+
+--
+
+When we can't run experiments, we often turn to observational data. 
+
+--
+
+Here, we need statistical tools to 'mimic' the balance that randomization would have given us. 
+
+--
+
+Regression is one such tool—it allows us to control for other variables and isolate the relationship between the treatment and the outcome. 
+
+--
+
+But for regression to yield causal interpretations, certain conditions must hold.
+  
+&lt;/div&gt;
+
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Regression and causality
+&lt;/div&gt;
+
+
+---
+
+# Regression and causality
+
+Let's (again) think about the tutoring example at the beginning of our session 
+
+  - Ignore the thought experiment on randomizing students earlier
+  
+--
+
+We start with a causal model: `\(Y_i = \beta S_i + \epsilon_i\)` 
+
+  - where `\(S_i \in \{0, 1\}\)` indicates participating in tutoring, `\(Y_i\)` measures test scores
+  
+  - We are assuming constant treatment effects for now (it is `\(\beta\)` and not `\(\beta_i\)`)
+  
+--
+
+Does `\(\beta\)` give us the causal effect of tutoring on students' test scores?
+
+--
+**Unlikely**! 
+--
+Why?
+
+--
+  
+  - It could be that students who participated in tutoring are low-performing students, so the estimated `\(\hat{\beta}\)` could be smaller than the true effect of the program
+  
+--
+
+  - More formally, `\(cov(S_i, \epsilon_i)\neq 0\)`: **endogeneity**
+  
+
+---
+
+# Regression and causality
+
+Suppose we can proxy for "low-performing" by controlling for students' test scores at baseline `\(U_i\)` that would otherwise be included in `\(\eta_i\)`:
+`\(\epsilon_i = \gamma U_i + \eta_i\)`
+
+--
+
+Let's put the two equations together:
+  `\(Y_i = \beta S_i + \gamma U_i + \eta_i\)`
+
+--
+
+If this is the true causal form, and we do not control for `\(U_i\)`, our estimate of `\(\beta\)` is biased.
+
+--
+
+But there are many variables `\(U_i\)` that could affect the *students' decision to attend the tutoring program* and *their test scores*
+  
+  - e.g., students' motivation, ability, attitude, parental support
+  
+--
+
+We might not control for all of them, which leads to **omitted variable bias (OVB)**
+
+--
+
+The direction of bias depends on the nature of the relationships between `\(U\)`, `\(S\)` and `\(Y\)`
+  
+  $$
+  OVB = \gamma * \delta
+  $$ 
+  
+  - where `\(U_i = \delta S_i + \zeta_i\)`, and `\(Y_i = \beta S_i + \gamma U_i + \eta_i\)`
+  
+--
+
+  - OVB arises **only if** `\(U\)` are correlated with **both** `\(Y\)` and `\(S\)`.
+
+
+---
+
+# Causality through DAGs
+
+Here is a DAG ("directed acyclic graph") that diagrams the issue:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ivFig1.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
+
+--
+
+Then how can we solve this issue?
+
+--
+
+If we can find a **valid instrument**, we can figure out the true effect of `\(S\)` on `\(Y\)`.
+
+
+---
+
+# Instruments and causality 
+
+Here is a DAG ("directed acyclic graph") that shows what an instrument is:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ivFig2.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
+
+where `\(Z\)` is our instrument, and it works through `\(S\)`
+
+
+---
+
+# Requirements for an instrument to be valid
+
+**Instrument relevance**: 
+
+  - The instrument `\(Z\)` must have a clear effect on `\(S\)`.
+  
+  - This requirement is often easy to satisfy and testable.
+ 
+**Independence assumption**:
+
+  - The instrument must not be related to any omitted variables that affect both `\(S\)` and `\(Y\)`.
+
+**Exclusion restriction**:
+
+  - The instrument must not affect `\(Y\)` through any channels other than `\(S\)` (i.e., `\(Z\)` does not have direct effect on `\(Y\)`).
+
+  - This requirement is more difficult to satisfy and not directly testable.
+
+--
+
+Good IVs are hard to find, but there is one that is valid.
+
+
+---
+
+# Random assignment as an IV
+
+Random assignment in an RCT is a valid instrument for treatment:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ivFig3.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
+
+where `\(Z\)` is our instrument:
+
+  - It has clear effect on "treatment" `\(S\)`.
+  
+  - It is not related to any omitted variables that affect both `\(S\)` and `\(Y\)`.
+  
+  - It does not affect `\(Y\)` through any channels other than treatment `\(S\)`.
+
+
+---
+
+# Random assignment as an IV: Tutoring program
+
+We are interested in estimating the effect of tutoring (binary treatment `\(D_i\)`) on test scores `\(Y_i\)`:
+
+$$
+Y_i = \beta D_i + \epsilon_i
+$$
+but we suspect that the decision to participating in tutoring is endogenous.
+
+--
+
+We can randomly offer students some incentives/encouragement to join the program:
+  
+  - `\(Z_i = 1\)` for those who are offered incentives to participate in tutoring (treatment group)
+    
+  - `\(Z_i = 0\)` for those who are not offered (control group) 
+  
+--
+
+We can estimate two effects:
+
+  - Causal effects of the incentives on students' test scores (reduced-form).
+  
+  - Causal effects of the tutoring program on students' test scores (IV).
+  
+---
+
+# IV identification
+
+We can relate our variables with the following two regressions:
+
+$$
+(1) \quad 1st-stage: D_i = \pi Z_i + \sigma_i 
+$$
+               
+$$
+(2) \quad 2nd-stage: Y_i = \beta D_i + \epsilon_i
+$$
+               
+--
+
+Plugging equation (1) to equation (2) yields the reduced-form regression:
+$$
+Y_i =  \rho Z_i + \eta_i, \quad \text{where} \quad \rho = \pi * \beta 
+$$
+
+--
+
+Under the above assumptions, we can identify `\(\beta\)` as `\(\beta_{IV} = \frac{\rho}{\pi}\)`
+
+  - Mechanically, IV is just a way to divide two regression coefficients
+
+--
+
+When `\(Z\)` is a binary instrument, this reduces to the population version of the "Wald estimator"
+
+$$
+\beta_{IV} = \frac{\rho}{\pi} = \frac{E(Y_i|Z_i=1) - E(Y_i|Z_i=0)}{E(D_i|Z_i=1) - E(D_i|Z_i=0)}
+$$
+
+---
+
+# Two-stage Least Squares (2SLS)
+
+In principle, we can estimate the effect of the tutoring program on students' test scores by the 2SLS procedure:
+
+  - First, we estimate the "first-stage" regression, by regress the program participation status on RCT assignment
+   
+$$
+D_i = \pi Z_i + \sigma_i
+$$
+  
+  - Second, we take the *predicted values* for program participation `\(\hat{D}_i\)` and plug them into the "second-stage" regression:
+
+$$
+Y_i = \beta \hat{D}_i + \epsilon_i
+$$
+
+There are some practical caveats:
+
+  - If we include additional covariates `\(X_i\)`, we need to do so in both stages.
+  
+  - If we have `\(D_i\)` and `\(D_i^2\)`, we need to instrument `\(D_i\)` and `\(D_i^2\)` **directly**.
+  
+    - Do not instrument for only `\(D_i\)`, then predict and regressing on `\(\hat{D}_i\)` and `\(\hat{D}_i^2\)`.
+  
+  - By plugging predicted values from first stage into second stage and run OLS, we get wrong standard errors.
+  
+    - Do not do manual 2SLS. Always run 2SLS in one step with (e.g.) `\(ivreg2, r\)`.
+    
+    
+---
+
+# Constant versus heterogeneous treatment effects
+
+If treatment effects are constant, `\(\beta_{IV}\)` identifies the treatment effect.
+
+--
+
+If treatment effects are heterogeneous, `\(\beta_{IV}\)` identifies an effect for a sub-population of interest under (potentially) weak assumptions.
+
+--
+
+  - Let `\(D_{0i}\)` be treatment status if **not encouraged** by the instrument (Z = 0),
+  
+  - and `\(D_{1i}\)` be treatment status if **encouraged** by the instrument (Z = 1).
+  
+--
+
+| **Type**          | `\(D_{0i}\)` | `\(D_{1i}\)` | **Interpretation**                                                                                             |
+| ----------------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| **Never-takers**  | 0        | 0        | Never take the treatment, regardless of instrument assignment.                                                 |
+| **Compliers**     | 0        | 1        | Take the treatment only if encouraged by the instrument.                                                       |
+| **Always-takers** | 1        | 1        | Take the treatment regardless of instrument assignment.                                                        |
+| **Defiers**       | 1        | 0        | Do the opposite of the instrument: take the treatment only when not encouraged. (Ruled out by *monotonicity*.) |
+
+
+
+---
+
+# Local Average Treatment Effects (LATE)
+
+Consider four assumptions:
+
+  - Relevance: `\(Z_i\)` must have a clear effect on treatment assignment `\(D_i\)`
+  
+  - Independence: `\(Z_i\)` is as good as randomly assigned
+  
+    - `\(Z_i\)` is independent of potential outcomes and potential treatment assignments
+    
+  - Exclusion: `\(Z_i\)` has no effect on the outcome `\(Y_i\)` once controlling for treatment assignment `\(D_i\)`
+  
+  - Monotonicity: `\(Z_i\)` does not perversely lead individuals to select out of treatment (no "defiers")
+    - `\(Z_i\)` affects `\(D_i\)` in only one direction
+  
+Imbens and Angrist (1994) show that under these assumptions, IV identifies the *local average treatment effect* (LATE).
+
+
+---
+
+# LATE: Interpretation and Special cases
+
+LATE is interpreted as the **local average treatment effects** for the **group of compliers**.
+
+--
+
+Why? 
+--
+For compliers, the instrument changes their behavior, so we see both their treated and untreated potential outcomes.
+  
+  - For always-takers and never-takers, the instrument doesn’t change anything — so we never observe both potential states for them, and we can’t identify their treatment effect from the IV variation.
+
+--
+
+**Special cases**:
+
+  - Case 1: If there are no "always-takers", the treated group consists entirely of compliers, which means
+  
+    - treated group = compliers only; untreated group = a mix of compliers and never-takers.
+  
+    - since all treated are compliers, LATE = ATT (Average Treatment on the Treated).
+    
+--
+
+  - Case 2: If there are no "never-takers", the untreated group consists entirely of compliers, which means
+  
+    - untreated group = compliers only; treated group = a mix of compliers and always-takers.
+    
+    - since all untreated are compliers, LATE = ATU (Average Treatment on the Untreated)
+
+
+---
+
+# Key issues in IV
+
+We need **instrument relevance**: `\(E(Z_iD_i) \neq 0\)`.
+
+  - When running "just-identified" IV estimation, always check if instruments are weak.
+  
+    - Typically, we use rule of thumb of first-stage `\(F-stat &lt; 10\)` (Staiger and Stock 1997).
+    
+    - In this case, estimates tend to be biased towards the OLS estimates.
+  
+    - Angrist and Kolesar (2022) argue we shouldn't worry too much, because the SE increase tends to be large enough to "cover up" the bias.
+    
+--
+  
+- A more pernicious problem is **many-instrument bias**.
+  
+  - We might be tempted to increase first-stage `\(F-stat\)` by including more instruments.
+  
+  - Intuitively, more flexible first stage tends to fit `\(D_i\)` better - more power in the second stage.
+    
+  - But we can have *overfitting* problem with lots of instruments, which essentially recreates the (endogenous) variation in `\(D_i\)`.
+
+
+---
+
+# Key issues in IV
+
+Which assumption are necessary for:
+
+  - Causal interpretation of the estimated reduced form coefficient, `\(\hat{\rho}\)`?
+  
+  - Causal interpretation of the estimated IV coefficient, `\(\hat{\beta}\)`?
+  
+--
+  
+Randomization of `\(Z_i\)` (which gives *independence*) is not sufficient for a causal interpretation of `\(\hat{\beta}\)`
+
+  - We also need *exclusion restriction*
+  
+  
+--
+  
+We also need *monotonicity* if `\(\hat{\beta}\)` is to correspond to a meaningful population
+
+  - LATE is the effect for group of compliers, but we do not know who the compliers are
+  
+  - Different instruments can give different estimated effects, even if all IVs are valid
+  
+    - External validity
+    
+
+---
+
+# Some practical tips
+
+Aim for few instruments and check F-stat after every regression command
+
+  - Montiel-Olea and Pflueger: *weakivtest* in Stata
+  
+  - Staiger and Stock rule of thumb F&gt;10
+  
+  - More discussions by Lee et al. (2022) for single instrument IV model
+  
+If the F-stat is small
+
+  - Is there a better functional form for the instrument `\(Z_i\)`?
+  
+  - Do interactions with covariates help?
+  
+  - Does changing the covariate set help?
+  
+---
+
+# A note on overidentification test 
+
+When having multiple IVs, some tend to rely on *overidentification test* to argue if their IVs are valid.
+
+--
+
+But these tests are not informative!
+
+  - They tend to have low power, because individual `\(\hat{\beta}_{IV}\)` tend to be noisy.
+  
+  - If they reject, it needs not mean the IVs are invalid, because of treatment effect heterogeneity.
+  
+  - Even with constant effects, rejection does not tell us which `\(\beta_{IV}\)` is correct:
+  
+    - In fact, none of them may be.
+    
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  IV in practice: The Colonial Origins of Comparative Development: An Empirical Investigation &lt;br&gt;
+by Acemoglu, Johnson, and Robinson (2001) 
+&lt;/div&gt;
+
+---
+
+# Research question 
+
+AJR (2001) addresses a big question: how much do institutions affect economic performance?
+
+- What do we mean by institutions?
+
+- Is there any possible endogeneity in the research question?
+
+- Do you think we could use regression adjustments to uncover a causal effect of institutions on economic performance?
+
+  - Why or why not?
+  
+---
+
+# Instrumental variables
+
+Let's have a group discussion on the following 
+
+  - What instrument variable do AJR use?
+
+  - What are the requirements for this instrument to be valid?
+  
+  - Do you think the instrument is valid? Why or why not?
+  
+
+---
+
+# Instrumental variables
+
+What are the requirements for an instrument for institutions (w.r.t. economic performance)?
+
+  - Relevance: must be strongly correlated with institutions
+  
+  - Exclusion: must not be directly correlated with economic growth
+  
+  - Independence: must not be correlated with omitted variables (that are correlated with institutions and econ performance) 
+  
+--
+  
+Can you think of a variable that meets these requirements?
+
+--
+
+AJR argues that mortality of early settlers is a valid IV.
+
+---
+
+# Instrumental variable requirements
+
+**Relevance:**
+  `\(\textit{settler mortality} \rightarrow \textit{settlements} \rightarrow \textit{early institutions} \rightarrow \textit{current institutions} \rightarrow \textit{current econ perf.}\)`
+
+**Exclusion:**
+
+  -  *"...conditional on the controls included in the regression, the mortality rates of European settlers more than 100 years ago have no effect on GDP per capita today, other than their effect through institutional development."* (p. 1371)
+
+**Independence:**
+
+  - *"The validity of our approach [...] is threatened if other factors correlated with the estimates of settler mortality affect income per capita. We adopt two strategies to substantiate that our results are not driven by omitted factors. First, we investigate whether institutions have a comparable effect on income once we control for a number of variables potentially correlated with settler mortality and economic outcomes."* (p. 1372)
+ 
+  - *"Naturally, it is impossible to control for all possible variables that might be correlated with settler mortality and economic outcomes. [..] using a simple overidentification test [...] to detect whether settler mortality has a direct effect on current performance."* (p. 1372)
+
+---
+
+# Data-related questions
+
+Where can you get data on settler mortality?
+
+  - 64 countries
+  
+    - Mortality data of soldiers and laborers come from Curtin (et al.)
+  
+    - For Latin America, mortality data of bishops from Gutierrez (mortality rates calculated based on small sample)
+    
+    - Is this a fair comparison? Does it matter?
+    
+  - Data problems: See Albouy (2012)
+
+---
+
+# Relationship between settler mortality and GDP? 
+
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ajr1.png" style="width: 90%; max-width: 700px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Defining institutions
+
+- What does it mean to have "good" institutions?
+
+- The main one they use is "protection against expropriation risk"
+  
+  - What does this mean?
+
+- Is there measurement error in the institutions variable?
+  
+  - Why does this matter?
+
+---
+
+# Determinants of institutions
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ajr3.png" style="width: 90%; max-width: 700px;" /&gt; 
+&lt;/div&gt;
+
+---
+
+# Institutions and GDP per capita: OLS
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ajr2.png" style="width: 90%; max-width: 700px;" /&gt; 
+&lt;/div&gt;
+
+
+
+---
+
+# OLS results
+
+The	OLS coefficient is around 0.4-0.5, depending on specifications
+
+We think this is biased... but what is the bias?
+  
+  - What could cause OLS to be biased _upwards_?
+  
+  - What could cause OLS to be biased _downwards_?
+  
+What does your intuition say?
+
+---
+
+# Institutions and GDP per capita: 2SLS
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ajr4.png" style="width: 90%; max-width: 700px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Institutions and GDP per capita: 2SLS
+
+The 2SLS coefficient is around 1
+
+  - *"Let us once again compare two 'typical' countries with high and low expropriation risk, Nigeria and Chile (these countries are typical for the IV regression in the sense that they are practically on the regression line). Our 2SLS estimate, 0.94, implies that the 2.24 differences in expropriation risk between these two countries should translate into 206 log point (approximately 7-fold) difference. In practice, the presence of measurement error complicates this interpretation, because some of the difference between Nigeria and Chile's expropriation index may reflect measurement error. Therefore, the 7-fold difference is an upper bound. In any case, the estimates in Table 4 imply a substantial, but not implausibly large, effect of institutional differences on income per capita."* (p.1387)
+
+---
+
+# OLS was biased downwards?
+
+The OLS coefficient is around 0.47 and the 2SLS is more than twice as large
+
+If you believe the 2SLS, this means the OLS results were biased _downwards_
+
+Is this reasonable?
+
+---
+
+# LATE
+
+The intuition behind LATE also applies to continuous variables.
+
+The group of "compliers" is hard to define.
+  
+  - Which countries are "compliers" in this sense?
+  
+A different IV could give a different estimate, even if both IVs are valid!
+  
+  - This makes coefficients somewhat difficult to interpret in terms of external validity.
+
+---
+
+# Casey and Klemp (2021) 
+
+*Historical instruments and contemporary endogenous regressors*
+
+This paper looks at what happens when there is a gap in time between the IV's impact and the measurement of the endogenous variable.
+
+Their argument is that there is a particular violation of the exclusion restriction in these contexts.
+
+  - This is driven by the persistence of the initial effects.
+  
+They derive a way to estimate the true effect (with some assumptions).
+
+
+---
+
+# Casey and Klemp (2021)'s argument
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/casey.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
+
+where `\(Z_H\)`: settler mortality, `\(Y_C\)` income per capita, `\(X\)`: institutional quality
+
+  - *"these institutions (circa 1990) should affect physical and human capital investments at the beginning of the century, and have some effect on current income levels through this channel"* (AJR, p. 1393).
+
+---
+
+# Casey and Klemp (2021)'s replicate AJR 
+
+Casey and Klemp use a different measure of institutional quality (constraints on the executive) but replicate AJR results.
+  
+This is what they found:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/casey1.png" style="width: 90%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
+
+- *"...accounting for the persistence in the endogenous explanatory variable is quantitatively important for the estimation of the long-run effect."* 
+
+- *"...the conventional IV regression overestimates the long-run effect. [...] because institutions are less than perfectly persistent (𝛿 &lt; 1)."*
+
+
+---
+
+class: inverse
+
+# 
+
+Perhaps you have seen many papers using weather variables as instrumental variables.
+  
+The main argument is that weather variation is as good as random.
+
+--
+
+It means the **independence** assumption satisfies.
+
+--
+
+But what about other assumptions?
+
+---
+
+# Mellon (2024)'s Rain, rain, go away
+
+Mellon (2024) argues that the *exclusion restriction* is not valid.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mellon.png" style="width: 90%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Wrapping up IVs
+
+It is really difficult to publish IV papers nowadays, at least in good journals.
+
+The required assumptions are strict.
+
+  - Recent research has improved our tools, making it possible to publish good work with IVs.
+  
+Remember the importance of LATE.
+
+
+
+
+---
+
+# Plan for next week
+
+- **Monday**: Difference-in-Differences
+
+  - Angrist and Pischke (2009): Section 5.2 (pp. 227-243), and Chapter 6 (pp. 251-267)
+
+  - Roth, J., P. H. Sant’Anna, A. Bilinski, and J. Poe (2023). “What’s trending in difference in-differences? A synthesis of the recent econometrics literature”. Journal of Econometrics 235.2, pp. 2218–2244
+  
+  - Gruber, J., M. Lin, and J. Yi (2023). “The largest insurance program in history: Saving one million lives per year in China”. Journal of Public Economics 226, p. 104999
+
+
+- **Wednesday**: Regression Discontinuity 
+
+  - Cattaneo, M. D. and R.Titiunik (2022). “Regression discontinuity designs”. Annual Review  of Economics 14.1, pp. 821–851
+  
+  - Valle, A. del (2024). “Saving lives with indexed disaster funds: evidence from Mexico”. American Economic Journal: Economic Policy 16.2, pp. 442–479
+  
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt; 
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -33,83 +33,82 @@ class: center, middle, inverse, title-slide
 ---
 
 
-# Plan for this week
+class: inverse, middle, center
 
 Poverty remains one of the most pressing challenges in development policy, affecting billions worldwide.
 
---
+---
 
-Understanding **how poverty is measured** helps us grasp its scale, characteristics, and who is most affected.
+class: inverse
 
---
+&lt;iframe src="https://ourworldindata.org/explorers/poverty-explorer?time=earliest&amp;Indicator=Share+in+poverty&amp;Poverty+line=%243+per+day%3A+International+Poverty+Line&amp;Household+survey+data+type=Show+data+from+both+income+and+consumption+surveys&amp;Show+breaks+between+less+comparable+surveys=false&amp;country=BGD~BOL~KEN~MOZ~NGA~ZMB&amp;tab=map&amp;hideControls=true" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
 
-A clear **poverty profile** and **indicators** enable targeted and effective policy interventions.
 
---
+---
 
-Exploring **poverty traps** will reveal why escaping poverty is difficult for many and the role of policy in breaking these cycles.
-
---
+class: inverse
 
 This lecture begins by unpacking the concepts and tools used to measure and analyze poverty critically.
 
+--
 
+Understanding **how poverty is measured** helps us grasp not only its scale and characteristics, but also who is most affected. 
+
+--
+
+From this, we can build a **poverty profile** using appropriate indicators, 
+
+- which in turn enables targeted and effective policy interventions.
+
+--
+
+However, measurement alone is not enough. 
+
+--
+
+By exploring the idea of **poverty traps**, we can see why escaping poverty is so difficult for many and why policy design plays a crucial role in breaking these cycles.
+
+
+---
+
+class: inverse
+
+The main goal is twofold:
+
+- How do we characterize and explain poverty through careful diagnostics and identification of its causal determinants?
+
+- What can be done to reduce poverty using well-designed and targeted policies and programs?
+
+--
+
+To address these questions, we first need agreement on two basic foundations:
+
+--
+
+- The choice of a monetary indicator of well-being that can be used to characterize poverty.
+
+--
+
+- The definition of a poverty line, below which the poor will be identified.
+
+--
+
+Only once these elements are clear can we proceed to analyze patterns, understand mechanisms such as poverty traps, and design policies that are both precise and effective.
+  
 ---
 
 class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
-  Motivation
-&lt;/div&gt; 
-
----
-
-# Motivation
-
-Reducing poverty and hunger is likely to be the most widely shared development objective.
-
---
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/mdg.jpg" style="width: 100%; max-width: 500px;" /&gt; 
-  &lt;img src="figures/sdg.jpg" style="width: 100%; max-width: 550px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Motivation
-
-How do we characterize and explain poverty through diagnostics &amp; identification of causal determinants? 
-
---
-
-What can be done to reduce poverty using well designed and targeted policies and programs?
-
---
-
-To answer these questions, we need to first agree on: 
-
-  - the choice of a monetary indicator of wellbeing that can be used to characterize poverty
-  
-  - a poverty line, below which the poor will be found
-  
-  
----
-
-class: inverse, middle, center
-
-# 
-
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   Poverty Measurement
 &lt;/div&gt; 
 
 
 ---
 
-# Poverty Measurement 
+# Wellbeing indicator
 
 There are two monetary indicators we could use to measure an individual’s level of wellbeing at a particular point of time:
 
@@ -123,13 +122,7 @@ There are two monetary indicators we could use to measure an individual’s leve
   
 --
 
-Which do you think is better indicator of wellbeing?
-
---
-consumption
-
---
-, because:
+Which do you think is better indicator of wellbeing, and why?
 
 --
 
@@ -154,6 +147,10 @@ Consumption is also smoothed across the life cycle:
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/consumption.png" style="width: 100%; max-width: 800px;" /&gt; 
 &lt;/div&gt;
+
+--
+
+Are there any difficulties in using consumption as a proxy for wellbeing?
 
 ---
 
@@ -299,11 +296,13 @@ A few things to note regarding poverty and poverty lines:
 
 # Other poverty lines
 
+--
+
 **Relative poverty line**: based on the mean income/consumption of a population.
 
   - People attach value to their income or consumption in relation to the mean in their country or community of residence. 
   
-  - The relative poverty line can be interpreted as the cost of social inclusion: it is the level of expenditure necessary to participate with dignity in customary social and economic activities. 
+  - The relative poverty line can be interpreted as the *cost of social inclusion*: it is the level of expenditure necessary to participate with dignity in customary social and economic activities. 
   
 --
 
@@ -366,7 +365,9 @@ And draw this poverty profile:
   &lt;img src="figures/poverty_profile.png" style="width: 100%; max-width: 500px;" /&gt; 
 &lt;/div&gt;
 
-We also have a poverty line `\(z\)`. 
+--
+
+We have per capita expenditure level `\(y_i\)` and a poverty line `\(z\)`. 
 
 --
 
@@ -383,17 +384,21 @@ Poverty gap `\(z - y_i\)` for each poor person `\(i &lt; q\)` tells us how much 
 
 Suppose we have a population of 20 people, in which:
 
-  - 10 people have expenditure of 5.
+  - 3 people have expenditure of 5.
   
   - 5 people have expenditure of 6.
   
-  - 3 people have expenditure of 7.
+  - 8 people have expenditure of 8.
   
-  - 2 people have expenditure of 10.
+  - 4 people have expenditure of 10.
   
-Also assume that the poverty line is 5. 
+Also assume that the poverty line is 7. 
 
-Draw the *poverty profile*, and briefly discuss the *poverty gaps* for each group.
+--
+
+Draw the *poverty profile*
+
+- and briefly discuss the *poverty gaps* for each group.
 
 
 ---
@@ -438,15 +443,20 @@ does not tell us how poor the poor are.
 
 Suppose we have a population of 20 people, in which:
 
-  - 10 people have expenditure of 5.
+  - 3 people have expenditure of 5.
   
   - 5 people have expenditure of 6.
   
-  - 3 people have expenditure of 7.
+  - 8 people have expenditure of 8.
   
-  - 2 people have expenditure of 10.
+  - 4 people have expenditure of 10.
   
-Also assume that the poverty line is 5. How can we illustrate the three poverty indicators?
+Also assume that the poverty line is 7. 
+
+--
+
+How can we compute the three poverty indicators?
+
 
 ---
 
@@ -454,7 +464,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   What is the relationship between poverty profile and poverty indicators?
 &lt;/div&gt; 
 
@@ -485,7 +495,11 @@ When poverty profile shifts to the left:
 
 - Poverty incidence/poverty rate `\(P^0\)` is lower.
 
+--
+
 - Poverty gap index `\(P^1\)` is lower.
+
+--
 
 - Poverty severity index `\(P^2\)` is lower.
 
@@ -514,7 +528,11 @@ When profiles intersect at `\(q\)`, but shift to the left below the poverty line
 
 - Poverty incidence/poverty rate `\(P^0\)` remains constant.
 
+--
+
 - Poverty gap index `\(P^1\)` is lower.
+
+--
 
 - Poverty severity index `\(P^2\)` is lower.
 
@@ -543,7 +561,11 @@ When profiles intersect below the poverty line, but &lt;span style="color:green;
 
 - Poverty incidence/poverty rate `\(P^0\)` remains constant.
 
+--
+
 - Poverty gap index `\(P^1\)` remains constant.
+
+--
 
 - Poverty severity index `\(P^2\)` is lower.
 
@@ -872,11 +894,15 @@ Their analysis reveals persistent patterns of poverty where those below the thre
   &lt;img src="figures/povertytrap.png" style="width: 100%; max-width: 400px;" /&gt; 
 &lt;/div&gt;
 
+--
+
 This shows what happened when people received a transfer to boost their productive assets (like livestock).
 
 --
 
   - Notice that for people who started with lower assets in 2007, their assets in 2011 barely increased. 
+  
+--
 
   - But for people who started with more, their assets rose much more quickly. 
 
@@ -887,12 +913,9 @@ The curve bends upward, showing that crossing a certain threshold leads to much 
 
 ---
 
-# "The welfare trap"
+class: inverse, center, middle
 
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/welfare_trap.png" style="width: 100%; max-width: 700px;" /&gt; &lt;br&gt;
-  &lt;a href="https://www.youtube.com/watch?v=D9N7QaIOkG8"&gt;https://https://www.youtube.com/watch?v=D9N7QaIOkG8&lt;/a&gt;
-&lt;/div&gt;
+&lt;iframe width="850" height="500" src="https://www.youtube.com/embed/D9N7QaIOkG8?si=CUVnzu0Sw-dwA6p1&amp;amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
 
 
 ---
@@ -903,14 +926,20 @@ The curve bends upward, showing that crossing a certain threshold leads to much 
 
   - Can you think of other examples of poverty traps besides welfare programs?
   
+--
+
 - How do government benefit programs sometimes unintentionally keep people in poverty?
 
   - What are the challenges of designing programs that support the poor without discouraging work?
   
+--
+
 - How does the concept of vulnerability to poverty apply to people affected by welfare traps?
 
   - Who is most at risk of falling back into poverty if assistance is withdrawn?
   
+--
+
 - How does the poverty measurement (e.g., headcount, poverty gap, severity) help us understand which groups are affected by welfare traps?
 
   - Would changing how we measure poverty help us design better programs?
@@ -953,7 +982,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   Do you have any questions? 
 &lt;/div&gt; 
 
@@ -962,7 +991,7 @@ class: inverse, middle, center
 
 # Plan for next week
 
-Next week, we will learn about data concepts, with a specific focus on poverty-related data.
+This Friday (9/19), we will learn about data concepts, with a specific focus on poverty-related data.
 
 --
 
@@ -980,7 +1009,7 @@ Whenever you have time, please consider watching this introductory video to get 
 
 --
 
-Please note that hands-on practice with Stata will take place during practical lab sessions led by the TA.
+Please note that hands-on practice using Stata will take place during practical lab sessions led by the TA.
 
   
 
@@ -990,7 +1019,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   Thank you!
 &lt;/div&gt; 
 

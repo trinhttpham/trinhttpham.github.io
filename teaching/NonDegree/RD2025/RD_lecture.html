@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>2025 Capacity Building Program for Kurdish Experts of Iraq</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# 2025 Capacity Building Program for Kurdish Experts of Iraq
+]
+.subtitle[
+## Lecture: Regression Discontinuity
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### September 2025
+]
+
+---
+
+
+# Roadmap
+
+- Introductions and expectations
+
+--
+
+- Review of correlation vs. causality
+
+--
+
+- Introduction to regression discontinuity design (RD)
+
+- Regression discontinuity estimation and assumptions
+
+--
+
+- Case study 1: BRIGHT School construction program in Burkina Faso
+
+- Case study 2: Saving lives with indexed disaster funds in Mexico
+
+- Case study 3: National borders and nature conservation in Brazil
+
+--
+
+- Brainstorming: Research idea using RD in the Kurdish context
+
+--
+
+- Hands-on practice: Replicating Kazianga et al. (2013) 
+  
+  - Self-Study with replication package.
+  
+
+---
+
+# About me 
+
+Name: Trinh Pham 
+
+Education: Ph.D. Applied Economics (Cornell University, USA)
+
+Position: Tenure-track Assistant Professor of Economics, KDI School 
+
+Research interests: development, labor, and the environment
+
+
+--
+
+What about you?
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  Quick review: What do we mean by a causal effect? 
+&lt;/div&gt;
+
+
+---
+
+# Correlation vs. Causality 
+
+In the summer, we see increases in both ice cream sales and sunburn rates.
+
+--
+
+Does it mean ice cream sales cause sunburn? 
+
+--
+Why or why not?
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/correlation_causality.webp" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+The underlying omitted factor is the hot weather, leading to increased ice cream consumption and more people going to the beach, thus increasing the risk of sunburn.
+
+--
+
+Our challenge is to find methodologies that could help us establish true causality.
+
+
+---
+
+class: inverse
+
+Let us consider another example. 
+
+--
+
+Suppose we implement a micro-credit program providing loan to entrepreneurs.
+
+--
+
+We want to know if the program has improved business outcomes or not.
+
+
+
+---
+
+# Working example: loan and business profit
+
+The following figure shows how the outcome evolves over time, before the program starts
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-1.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt; 
+  
+---
+
+# Working example: loan and business profit
+
+The following figure shows how the outcome evolves over time, after the program starts
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-2.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt; 
+
+--
+
+Based on this figure, **does the program have: positive impact? negative impact? zero impact?**
+
+
+---
+
+# Working example: loan and business profit
+
+The following figure shows how the outcome evolves over time, after the program starts
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-2.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+**We do not have enough information** to make any statement about the program impact!
+
+---
+
+class: inverse, middle, center
+
+What would have happened had the program not started?
+
+
+---
+
+# Working example: loan and business profit
+
+What would have happened had the program not started? 
+
+--
+Would it be like this?
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-31.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Working example: loan and business profit
+
+What would have happened had the program not started? Would it be like this? or this?
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-41.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Working example: loan and business profit
+
+`$$\text{Impact} = \text{Factual} - \text{Counterfactual}$$`
+
+- the outcome some time after the program has started (**factual**)
+
+- the outcome at the same time point **had the program not started** (**counterfactual**)
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-3.png" style="width: 100%; max-width: 500px;" /&gt;
+  &lt;img src="./figures/counterfactuals-4.png" style="width: 100%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Counterfactual
+
+Getting the factual is easy.
+
+--
+
+However, the counterfactual cannot be observed.
+
+--
+
+We address this challenge by constructing the counterfactual.
+
+--
+
+  - Typically by selecting a group of individuals who did not participate in the program.
+  
+  - This group is usually referred to as the **control group** or **comparison group**.
+  
+--
+
+How to select/construct the comparison group is the key decision in impact evaluation design.
+
+---
+
+class: inverse 
+
+Throughout this program, you have encountered different econometric approaches to measure causal effects.
+
+--
+
+**Randomized Controlled Trials (RCT)**: gold standard, but not always feasible or ethical. 
+
+  - The idea is to construct statistically similar treatment and control *ex-ante*. 
+
+**Difference-in-Differences**: comparing the change in before vs. after outcomes for treated units with the change in before vs. after outcomes for non-treated units.
+
+  - Key identification assumption: the two groups in *parallel trends* (even absent treatment).
+
+**Instrumental Variable (IV)**: used to control non-causal correlations.
+
+  - when participation is endogenous, instrument it with an exogenous factor that influences that program take-up (but otherwise not correlated with the outcome).
+  
+--
+
+This lecture focuses on another quasi-experimental method: **Regression Discontinuity**.
+  
+  
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  Regression Discontinuity (RD): Introduction
+&lt;/div&gt;
+
+
+
+
+
+---
+
+# Regression discontinuity (RD)
+
+Regression discontinuity (RD) works in very specific circumstances.
+  
+--
+
+When RD works, it is one of the most credible non-experimental methods for causal inference and program evaluation.
+
+--
+
+Suppose we are interested in studying the effect of selective college enrollment on labor market outcomes.
+
+--
+
+**Can we just compare people who are enrolled in selective colleges with people who are not**? 
+--
+Why?
+
+--
+
+If there is a **cutoff in college entrance exam score** (e.g., 80) that determines admission:
+
+--
+
+  - then people who fall just on either side of the cutoff should not be so different,
+  
+--
+
+  - so we can compare those just above and below the cutoff.
+  
+--
+
+This is the main idea of regression discontinuity.
+  
+---
+
+# RD components
+
+RD requires **three** components: **a score**, **a cutoff**, and **a discontinuous treatment assignment rule**.
+
+  - all the units in the study are assigned a value of the score (a.k.a a running or forcing variable),
+  
+  - and the treatment is assigned only to units whose score value exceeds a known cutoff (also called threshold).
+  
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rd1.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+--
+
+There are two types of RD: **sharp (treatment jumps from 0 to 1)** vs. **fuzzy (probability of treatment jumps)**.
+
+---
+
+# Example: Exam ranking - college admission/enrollment
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rd_example.png" style="width: 90%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Example: distance to border and irrigation (spatial RD)
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_border.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Example: distance to border and deforestation (spatial RD)
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_forest.png" style="width: 90%; max-width: 400px;" /&gt;
+  &lt;img src="figures/rdd_forest2.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  Regression Discontinuity (RD): Formal Framework
+&lt;/div&gt;
+
+
+---
+
+# RD estimation: sharp RD  
+
+Let `\(X_i\)` be the running variable, normalized to be 0 at the cutoff.
+
+--
+
+- `\(f(X_i)\)` is a flexible function of `\(X_i\)` (linear, quadratic, etc.)
+
+--
+
+In practice, we can estimate **sharp RD** in a regression:
+
+`$$Y_i = \alpha + \beta_{sharp} 1\{X_i \geq 0\} + f(X_i) + f(X_i)\times 1\{X_i \geq 0\} + \varepsilon_i$$`
+
+--
+
+**Fuzzy RD** can be estimated with the "first" and "second" stage IV model:
+
+`$$D_i = \theta 1\{X_i \geq 0\} + f(X_i) + f(X_i) \times 1\{X_i \geq 0\} + \varepsilon_i$$`
+`$$Y_i = \beta_{fuzzy}\hat{D}_i + f(X_i) + f(X_i)\times \hat{D}_i + \eta_i$$`
+
+--
+
+It is also common practice to run the **"reduced form"** regression:
+
+`$$Y_i = \beta_{reduced-form}1\{X_i \geq 0\} + f(X_i) + f(X_i)\times 1\{X_i \geq 0\} + \varepsilon_i$$`
+
+
+---
+
+# RD assumptions
+  
+RD requires that being on either side of the cutoff is **as good as random**.
+
+--
+
+Manipulation around cutoff can invalidate RD estimates:
+
+  - e.g., if people know their exam score and the cutoff, they can find ways to change their scores to get on the other side (retake the exam).
+  
+--
+
+We want to bolster the credibility of an RD analysis with:
+
+  - A balance test of no RD jump in pre-treatment outcomes. 
+
+  - A density test (McCrary sorting test) of no "bunching" at the cutoff.
+
+
+
+
+---
+
+class: inverse, middle
+
+# Checklist for RD paper
+
+- RD jump visualization
+
+- Balance test 
+
+- Bunching test 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+---
+
+class: inverse, middle
+
+# Checklist for RD paper
+
+- **RD jump visualization**
+
+- Balance test 
+
+- Bunching test 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+---
+
+# Checklist: RD jump visualization
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory:
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+--
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee1.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Checklist: RD jump visualization
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee2.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Checklist: RD jump visualization
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee22.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Checklist: RD jump visualization
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+  - `\(X_i\)` vote share margin of victory, `\(D_i = 1\{X_i \geq 0\}\)`: winning election
+
+  - `\(Y_i\)`: subsequent victory (candidacy/vote share) in an election
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee222.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# A quick aside on graphical presentation
+
+One of the most powerful aspects of regression discontinuity is the ability to present the results graphically.
+
+--
+ 
+But what is the right approach?
+
+--
+
+  - Raw data is rarely informative.
+  
+--
+
+  - We would plot a version of the scatter plot but focusing on means within binned areas.
+  
+--
+
+  - RD jump should be clear across different binning strategies. 
+  
+--
+
+  - See Korting et al. (2024) for discussions on this.
+  
+---
+
+# Graphical presentation: Lee (2008) 
+
+This is the raw data.
+
+--
+There seems to be a little jump across the cutoff but not really informative.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r1.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Graphical presentation: Lee (2008) 
+
+This is also the raw data but are averaged by 0.1 percent bin. 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r2.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Graphical presentation: Lee (2008) 
+
+This is also the raw data but are averaged by 0.5 percent bin. 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r3.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Graphical presentation: Lee (2008) 
+
+This is also the raw data but are averaged by 4 percent bin. 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r4.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+class: inverse, middle
+
+# Checklist for RD paper
+
+- RD jump visualization
+
+- **Balance test** 
+
+- Bunching test 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+---
+
+# Checklist: balance test
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory
+
+There is no jump in pre-treatment outcomes.
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee3.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Checklist: balance test
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory.
+  
+There is no jump in pre-treatment outcomes.
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee4.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Checklist: balance test
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory.
+  
+There is no jump in pre-treatment outcomes.
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee44.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Checklist: balance test
+
+Lee (2008) studies the effect of Democrat winning on subsequent victory.
+  
+There is no jump in pre-treatment outcomes.
+  
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee444.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+See Canay and Kamat (2018) for a more complete permutation test (\scriptsize checking whether covariates are approximately identically distributed on each side of the cutoff).
+
+
+
+
+
+---
+
+class: inverse, middle
+
+# Checklist for RD paper
+
+- RD jump visualization
+
+- Balance test 
+
+- **Bunching test** 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+
+---
+
+# Checklist: Bunching test
+
+There are two reasons RD might fail:
+
+  - The cutoff is set systematically, such that confounding factors change discontinuously
+  
+  - The running variable is manipulable
+  
+    - e.g., people can retake exam to get scores above their passing grade
+    
+--
+    
+While both of these can be likely to show up as not meet the balance test, manipulation can also be detected by bunching of the running variable.
+
+  - McCrary (2008) checks whether the density of the running variable changes discontinuously.
+  
+  - This can be done by **rddensity** package in Stata.
+  
+---
+
+# # Checklist: Bunching test
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_bunching.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+
+
+---
+
+class: inverse, middle
+
+# Checklist for RD paper
+
+- RD jump visualization
+
+- Balance test 
+
+- Bunching test 
+
+- **Robustness** to choice of estimation procedure, kernel, bandwidth
+
+---
+
+# Checklist: Robustness
+
+- The actual estimation is subject to many tuning parameters:
+
+  - choice of estimation procedure, kernel, bandwidth.
+  
+--
+
+- In practice, use defaults unless you have very good reason not to:
+
+  - Local linear regression, but local quadratic/cubic are also reasonable
+  
+  - Triangular (highest weights at the cutoff, linearly lower further away) or uniform kernel (same weights to all)
+  
+  - Optimized bandwidth from estimation procedures in packages (e.g., Cattaneo et al.'s *rdrobust*)
+  
+  - For discrete running variables, use *rdhonest* package
+  
+--
+
+- Show robustness to different bandwidths/polynomials (table/graph).
+
+---
+
+# Checklist: Robustness
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_robust.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example of robustness
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_robustfig.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  RD in practice: The Effects of “Girl-Friendly” Schools: Evidence from the BRIGHT School Construction Program in Burkina Faso &lt;br&gt;
+  by Kazianga et al. (2013)
+&lt;/div&gt;
+
+
+
+---
+
+# Background: Education in Burkina Faso
+
+Primary education is officially free for ages 6–12, but families often bear some direct costs (e.g., school supplies). 
+
+--
+
+Enrollment rates remained among the world’s lowest, with significant gender gap.
+
+  - In 2003, net enrollment was 42% for boys and 29% for girls.
+
+--
+
+The Burkinabé Response to Improve Girls’ Chances to Succeed (BRIGHT) program, was introduced to improve education outcomes of children in rural villages.
+
+--
+
+The program started in 2005 and implemented an integrated package of education interventions in 132 rural villages. 
+
+  - placed relatively well-resourced schools with a number of amenities directed at encouraging the enrollment of girls. 
+  
+--
+
+Interestingly, to allocate these schools, the Ministry of Education **scored each of the 293 villages that requested a school** by the villages’ claims of the number of primary school-aged girls that would be likely to attend a school in their village. 
+
+  - then **assigned schools to the highest ranking** villages.
+  
+--
+
+This allows a **regression discontinuity design to study the impact of schools**. 
+
+
+
+---
+
+# Allocation of BRIGHT Schools 
+
+The Ministry of Education designed the allocation process based on a predetermined set of criteria:
+
+--
+
+- Departments nominated 293 villages from 10 provinces and 49 departments, proposing villages with low enrollment levels.
+
+--
+
+- Each village then completed a survey with the assistance of a Ministry staff member.
+
+--
+
+- The Ministry then assigned each village a score based largely on the estimated number of children to be served from the proposed and neighboring villages, giving additional weight to girls.
+
+--
+
+- Within each department, the Ministry ranked the villages and **awarded the top half of the villages** a BRIGHT school. 
+  
+  - If a department proposed an odd number of villages, the median village did not receive a school. 
+  
+  - And for the two departments that only nominated one village, the proposed village was automatically accepted. 
+
+
+---
+
+# Allocation of BRIGHT Schools 
+
+This process generated a set of 138 villages that should have received a BRIGHT school. 
+  
+- However, not all villages selected to receive a school did so because some locations proved inappropriate.
+
+- Likewise, 5 villages not initially selected received one.
+  
+--
+
+This implies a fuzzy RD (treatment does not jump from 0 to 1, but probability of treatment jumps).
+
+--
+
+The authors identify, for each department, the lowest score among villages assigned a BRIGHT School and the highest score among villages not assigned one.
+
+  - They then define the department-specific cutoff (point of discontinuity) as halfway between these two scores.
+
+--
+
+Note that because each department has a different cutoff, the authors normalize the scores by creating a variable `\(Rel\_{Score}_j\)`, calculated as the village's original score minus the cutoff score for its department.
+
+  - This normalization centers the running variable at zero for each department’s cutoff.
+  
+  - This step is crucial for accounting for the varying cutoffs across departments.
+
+
+---
+
+# Empirical strategy 
+
+`$$Y_{ihjk} = \beta_0 + \beta_1 T_j + f(Rel\_{Score}_j) + \delta X_{ihjk} + \gamma Z_k + \varepsilon_{ihjk}$$`
+
+where `\(i\)` is the individual child in household `\(h\)` in village `\(j\)` of department `\(k\)`.
+
+- `\(Y_{ihjk}\)` is the outcome of interest (test score, enrollment, attendance).
+
+- `\(X_{ihjk}\)` is a vector of child and household characteristics.
+
+- `\(Z_k\)` is the department fixed effects.
+
+- `\(T_j = 1(Rel\_{Score}_j \geq 0)\)`: indicator for whether or not a village is at/above the cutoff.
+
+- `\(f(Rel\_{Score}_j)\)` is a polynomial expansion of the running variable.
+
+
+---
+
+# RD paper checklist
+
+- RD jump visualization
+
+- Balance test 
+
+- Bunching test 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+
+---
+
+# First-stage RD jump 
+
+The probability of receiving a BRIGHT school increases sharply from nearly zero just below the relative score cutoff, to greater than 80 percent at the cutoff.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bright1.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Balance test 
+
+Demographic characteristics of the children do not vary discontinuously at zero.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bright2.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Balance test 
+
+Demographic characteristics of the children do not vary discontinuously at zero.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bright2.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Bunching test 
+
+The distribution of villages does not vary discontinuously at zero using the test suggested by McCrary (2008).
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bright3.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# ITT (reduced-form) RD jump: enrollment 
+
+Enrollment increases by about 20 percentage points across the cutoff.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bright4.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Summary of results on enrollment 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bright5.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+The results are robust to different tuning parameters:
+
+  - functional forms (linear, quadratic, cubic), bandwidths. 
+
+
+---
+
+# Summary of results: by gender  
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bright6.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  RD in practice: Saving lives with indexed disaster funds: evidence from Mexico &lt;br&gt;
+  by del Valle (2024)
+&lt;/div&gt;
+
+
+
+---
+
+# Background: Fonden diaster fund 
+
+In the last century, there have been 10,514 recorded storms, floods, and other water-related disasters,
+and 8.3 million deaths that can be directly attributed to these disasters.
+
+--
+
+One striking feature of the global distribution of deaths from disasters is that it is strongly skewed
+toward developing economies despite disasters not occurring disproportionately in these countries.
+
+--
+
+A possible contributing factor to the larger death toll in developing economies is the **bottlenecks in the
+provision of disaster aid**, which results in delays in the restoration of critical services, including roads,
+safe water, and medical infrastructure.
+
+- reliance on post-disaster financing
+
+- lack of rules and administrative capacity to disburse these resources
+
+
+---
+
+# Background: Fonden diaster fund 
+
+Fonden ensures public infrastructure and low-income housing against natural disasters.
+
+--
+
+It overcomes bottlenecks in disaster aid delivery through a structured response plan.
+
+--
+
+- Pre-disaster funding: ensures funds are available before a disaster through protected budget
+allocation, excess loss reinsurance, catastrophe bonds.
+
+--
+
+- Rules-based disbursement: enforces a structured process for fund distribution, including:
+
+  - verifying disaster occurrence **using indexes (e.g., above certain rainfall threshold)**
+  
+  - conducting damage assessments, paying reconstruction service providers, auditing reconstruction projects
+
+--
+
+del Valle (2024) studies the impact of this fund on mortality.
+
+
+
+---
+
+# Empirical strategy 
+
+`$$Y_{mt} = \alpha + \beta Above_{mt} + g(R_{mt}) + \varepsilon_{mt}$$`
+
+where 
+
+- `\(Y_{mt}\)` is the outcome in municipality `\(m\)` at disaster time `\(t\)`.
+
+- `\(Above = 1\)` if the running variable (rainfall minus threshold) is nonnegative, 0 otherwise.
+
+- The function `\(g(R_{mt})\)` represents a polynomial of order `\(p\)` of the running variable `\(R_{mt}\)` that is fully interacted with the `\(Above_{mt}\)` indicator variable.
+
+---
+
+# RD paper checklist
+
+- RD jump visualization
+
+- Balance test 
+
+- Bunching test 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+
+---
+
+# First-stage RD jump 
+
+The likelihood of receiving Fonden increases from 0.65 just below the threshold to 0.87 just above.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico1.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# ITT (reduced-form) RD jump
+
+Municipalities immediately to the left of the threshold experience roughly 0.79 excess deaths per 1,000 person-years, those eligible for Fonden (immediately 
+to the right) don’t experience excess deaths.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico2.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Summary of results 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico3.png" style="width: 100%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Balance test 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico5.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Bunching test 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico4.png" style="width: 100%; max-width: 900px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Robustness checks: tuning parameters
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico6.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Robustness checks: bandwidths 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mexico7.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  RD in practice: National borders and the conservation of nature &lt;br&gt;
+  by Burgess, Costa, and Olken (2023)
+&lt;/div&gt;
+
+
+---
+
+# Background: Deforestation in Brazil
+
+The Amazon rainforest is the largest in the world.
+
+--
+
+Brazil's Forest Code sets legal requirements for landowners in the Amazon to maintain a certain percentage of native forest on their property (e.g., 80%).
+  
+  - If illegally clear beyond the limit, they face heavy fines, land confiscation, or imprisonment. 
+  
+  - This makes illegal deforestation more expensive than sustainable practices.
+  
+--
+
+However, there has been always a gap between *de jure* rules and *de facto* action.
+
+--
+
+Starting in 2005, Brazil increased enforcement of these policies, strengthening fines and increasing enforcement in a variety of ways, including satellites.
+
+--
+
+What is the net effect of this increased enforcement? And is it stable?
+
+--
+
+Burgess, Costa, and Olken (2023) study this by examining what happens **at the border**.
+
+
+---
+
+# The border
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_forest.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# The border
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_forest3.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# The border
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_forest4.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# The border
+
+Idea: comparing deforestation at the border captures the effect of Brazillian state policy
+
+- holding other aspects, like profitability, soil, etc constant.
+ 
+--
+
+The Brazil effect is estimated using an RD design, using distance to the border as running variable.
+
+
+
+---
+
+# Empirical strategy 
+
+`$$Y_{i} = \alpha + \beta Brazil_i + g(DistBorder_i) + \delta X_i + \varepsilon_{i}$$`
+
+where 
+
+- `\(Y_{i}\)` is forest cover or annual forest loss
+
+- The function `\(g(DistBorder_i)\)` represents a (linear) polynomial of distance from the border.
+
+- `\(X_i\)` are geographic controls (slope, distance to water)
+
+---
+
+# Forest cover as of 2000 
+
+Before the policy was implemented, forest cover dropped at the border.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_forest2.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Annual forest loss 2001-2005
+
+During 2001-2005 (e.g., before the enforcement policy), annual forest loss increased significantly.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_forest21.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Annual forest loss 2006-2013
+
+Annual forest loss decreased after the policy implemented in Brazil in 2005.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_forest22.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Annual forest loss 2014-2020
+
+The effects tend to persist even more than a decade later.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_forest23.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Summary of results
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_forest24.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+--
+
+There is a role for state policy to determine the wedge between de jure and de facto conservation policy.
+
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  RD in Practice: Exploring Applications in the Kurdish Context
+&lt;/div&gt; 
+
+
+
+
+---
+
+class: inverse
+
+What are pressing social, economic, or policy issues in your region
+
+- where eligibility or access is determined by a **cutoff, threshold, or score**?
+
+--
+
+Below are some examples to spark ideas:
+
+--
+
+- Education: exam score cutoffs for scholarships, school admission, teacher incentives.
+
+--
+
+- Health: age thresholds for child/maternal health programs, vaccination campaigns.
+
+--
+
+- Social policy: poverty score thresholds for cash transfers, subsidies, food aid.
+
+--
+
+- Infrastructure: eligibility rules for housing or reconstruction support.
+
+
+---
+
+class: inverse
+
+Please choose **two problems** you would like to explore.
+
+--
+
+Use these guiding questions:
+
+- What is the **cutoff or threshold**?
+
+- What is assigned **above vs. below** the threshold?
+
+- What would be the **outcome of interest**? 
+
+- Is there **data (or potential to collect data)** around the cutoff?
+
+--
+
+Activity plan:
+
+- **1 hour**: work individually in small groups to sketch out your RD research idea.
+
+- **30 minutes**: share your ideas with the group (would be helpful to have presentation slides outlining your idea).
+
+- **30 minutes**: we will discuss together and I will provide feedback and suggestions on feasibility.
+
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  Hands-on Practice: Replicating Kazianga et al. (2013)
+&lt;/div&gt; 
+
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+For this exercise, we will use the software **Stata** and the dataset **bright.dta** to conduct the analysis in the spirit of the paper.
+
+--
+
+We will follow the RD checklist in the lecture:
+
+- Show the clear (first stage) RD jump (Figure 1)
+
+- Check the validity of the RD with bunching test (Figure 2) and balance test (Table 2)
+
+- Show the main RD results (Figure 3)
+
+- Show the robustness to difference specification (Table 5)
+
+- Show the RD results for test scores (Figure 4)
+
+- Replicate the heterogeneity analysis by gender (Table 6 Column 1)
+
+--
+
+Replication files are available in the Google Drive. You can also practice RD using the codes.
+
+
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Show the clear (first stage) RD jump (Figure 1)
+
+- The plot shows a village’s probability of receiving a BRIGHT school (selected) as a function of its relative score. 
+
+- Use linear local polynomial estimator with an Epanechnikov kernel and a bandwidth of 25 points, focusing on the narrow range of (−250, 250) and
+estimating the function separately for villages on either side of zero.
+
+- You don’t need to report the fraction of explained variance as in Figure 1.
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Show the clear (first stage) RD jump (Figure 1)
+
+```
+use "bright.dta", clear
+
+lpoly selected rel_score if rel_score &gt;= 0, nograph deg(1) k(ep) bw(25) at(rel_score) gen(pred_above)
+lpoly selected rel_score if rel_score &lt; 0, nograph deg(1) k(ep) bw(25) at(rel_score) gen(pred_below)
+replace pred_above = . if rel_score &lt;= 0
+replace pred_below = . if rel_score &gt; 0
+
+preserve 
+// Generate the bin variable
+gen bin = 25*floor(rel_score/25) 
+
+// Define the range of the data
+drop if abs(rel_score) &gt; 250
+
+// Collapse the "raw data" into bins
+collapse selected pred_*, by(bin)
+
+// Plot graph by bin
+gr tw (scatter selected bin) (line pred_above bin) (line pred_below bin), ///
+	  xline(0) xtitle("Relative score") ytitle("Received a BRIGHT school") ///
+	  sch(modern) legend(off) xlabel(-250(50)250)
+restore 
+
+```
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Show the clear (first stage) RD jump (Figure 1)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rep1.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Check the validity of the RD with bunching test (Figure 2) and balance tests (Table 2)
+
+- For bunching tests, we can use **rddensity**
+
+- For balance tests, estimate the main equation without controlling for child and household
+characteristics. 
+
+  - The outcome `\(Y_{ihjk}\)` would be the child/household characteristics.
+
+`$$Y_{ihjk} = \beta_0 + \beta_1 T_j + f(Rel\_{Score}_j) + \gamma Z_k + \varepsilon_{ihjk}$$`
+
+
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Check the validity of the RD with bunching test (Figure 2)
+
+- For bunching tests, we can use **rddensity**
+
+```
+ssc install rddensity 
+net install lpdensity, from(https://raw.githubusercontent.com/nppackages/lpdensity/master/stata) replace
+rddensity rel_score if village_level == 1, pl plot_range(-250 250) plot_n(10 10) ///
+nohist plotl_estype(point) plotr_estype(point)
+
+```
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rep2.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Check the validity of the RD with balance tests (Table 2)
+
+`$$Y_{ihjk} = \beta_0 + \beta_1 T_j + f(Rel\_{Score}_j) + \gamma Z_k + \varepsilon_{ihjk}$$`
+
+```
+// save list of variables as global macros
+gl children Hh_HeadMale Hh_HeadAge Hh_HeadSchool Hh_NumMembers ///
+            Hh_NumKids Ch_Age Ch_Girl Ch_HeadChild Ch_HeadGrandChild Ch_HeadNephew
+
+gl religion Hh_ReligionMuslin Hh_Animist Hh_Christian Hh_Lang_Fulfude ///
+            Hh_Lang_Gulmachema Hh_Lang_Moore Hh_Ethnicity_Gourmanche Hh_Ethnicity_Mossi Hh_Ethnicity_Peul
+
+gl household Hh_FloorBasic Hh_RoofBasic Hh_Radio Hh_Telmob Hh_Watch Hh_Bike Hh_Cows Hh_Motorbike Hh_Cart
+
+// create the squared term of relative score 
+gen rel_score2 = rel_score^2
+
+// loop over all variables in the global "children"
+foreach var of global children {
+	eststo c`var': reghdfe `var' proj_selected rel_score rel_score2, a(department) cl(clustercode)
+}
+
+// repeat the same for other globals
+// report the results
+esttab c*, keep(proj_selected)
+```
+
+
+
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Show the main RD results (Figure 3)
+
+- The plot shows an individual’s probability of attending school as a function of its relative score. 
+
+- Use linear local polynomial estimator with an Epanechnikov kernel and a bandwidth of 25 points, focusing on the narrow range of (−250, 250) and estimating the function separately for villages on either side of zero.
+
+- You don’t need to report the fraction of explained variance as in Figure 3
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Show the main RD results (Figure 3)
+
+```
+use "bright.dta", clear
+
+lpoly attending rel_score if rel_score &gt;= 0, nograph deg(1) k(ep) bw(25) at(rel_score) gen(pred_above)
+lpoly attending rel_score if rel_score &lt; 0, nograph deg(1) k(ep) bw(25) at(rel_score) gen(pred_below)
+replace pred_above = . if rel_score &lt;= 0
+replace pred_below = . if rel_score &gt; 0
+
+preserve 
+// Generate the bin variable
+gen bin = 25*floor(rel_score/25) 
+
+// Define the range of the data
+drop if abs(rel_score) &gt; 250
+
+// Collapse the "raw data" into bins
+collapse attending pred_*, by(bin)
+
+// Plot graph by bin
+gr tw (scatter attending bin) (line pred_above bin) (line pred_below bin), ///
+	  xline(0) xtitle("Relative score") ytitle("Received a BRIGHT school") ///
+	  sch(modern) legend(off) xlabel(-250(50)250)
+restore 
+
+```
+
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Show the main RD results (Figure 3)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rep3.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Show the robustness to different specifications (Table 5)
+
+```
+// save control variables as global macro 
+
+gl children_controls Hh_HeadMale Hh_HeadAge Hh_HeadSchool Hh_NumMembers ///
+                Hh_NumKids Ch_Girl Ch_HeadChild Ch_HeadGrandChild Ch_HeadNephew"
+
+// generate additional interaction terms 
+cap gen rel_score3 = rel_score^3
+cap gen rel_scorexproj_selected = rel_score * selected 
+cap gen rel_score2xproj_selected = rel_score2 * selected 
+
+// estimation: models (1) - (4)
+est clear 
+eststo c1: reghdfe attending proj_selected rel_score rel_score2 ///
+          $children_nage $religion $household, a(department Ch_Age) cl(clustercode)
+          
+eststo c2: reghdfe attending proj_selected rel_score rel_score2, a(department) cl(clustercode)
+
+eststo c3: reghdfe attending proj_selected rel_score, a(department) cl(clustercode)
+
+eststo c4: reghdfe attending proj_selected rel_score rel_score2 rel_score3 ///
+           $children_nage $religion $household, a(department Ch_Age) cl(clustercode)
+           
+esttab c*, keep(proj_selected) 
+```
+
+---
+
+# Replicating Kazianga et al. (2013)
+
+RD checklist: Show the robustness to different specifications (Table 5)
+
+```
+// save control variables as global macro 
+
+gl children_controls Hh_HeadMale Hh_HeadAge Hh_HeadSchool Hh_NumMembers ///
+                Hh_NumKids Ch_Girl Ch_HeadChild Ch_HeadGrandChild Ch_HeadNephew"
+
+// generate additional interaction terms 
+cap gen rel_score3 = rel_score^3
+cap gen rel_scorexproj_selected = rel_score * selected 
+cap gen rel_score2xproj_selected = rel_score2 * selected 
+
+// estimation: models (5) - (8)
+eststo c5: reghdfe attending proj_selected rel_score rel_score2 rel_scorexproj_selected ///
+           rel_score2xproj_selected $children_nage $religion $household, a(department Ch_Age) cl(clustercode)
+           
+eststo c6: xi: dprobit attending proj_selected rel_score rel_score2 ///
+           $children_nage $religion $household i.Ch_Age i.department, cl(clustercode)
+           
+eststo c7: reghdfe attending proj_selected if abs(rel_score)&lt;40, a(department) cl(clustercode)
+
+eststo c8: reghdfe attending2 proj_selected rel_score rel_score2 ///
+           $children_nage $religion $household, a(department Ch_Age) cl(clustercode)
+
+// report the results    
+esttab c*, keep(proj_selected) 
+```
+
+
+
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  Thank you! &lt;br&gt;&lt;br&gt; Questions can be directed to tpham@kdischool.ac.kr.
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

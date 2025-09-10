@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # Introduction to Development Policy
 ]
 .subtitle[
-## Lecture 3: Stata Basics for Data Analysis
+## Lecture 3: Data Basics
 ]
 .author[
 ### Trinh Pham
@@ -59,7 +59,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   Data Concepts: A Focus on Poverty Data
 &lt;/div&gt; 
 
@@ -68,7 +68,13 @@ class: inverse, middle, center
 
 # Why data?
 
-- Data is essential for **understanding the true scale and nature of poverty**—who is poor, how poor, and where.
+- Data is essential for **understanding the true scale and nature of poverty**:
+
+  - Who is poor? 
+  
+  - How poor are they?
+  
+  - Where do they live?
 
 --
 
@@ -92,13 +98,36 @@ class: inverse, middle, center
 
 ---
 
-# How poverty data are collected?
+# How data are collected?
 
-The primary method is **household surveys**, where selected households are interviewed about income, expenditure, and living conditions.
+The primary method is **household surveys**: selected households are interviewed about their living conditions.
 
 --
 
 Surveys use **sampling methods** to represent the entire population without surveying everyone.
+
+&lt;div style="text-align: center;"&gt;
+&lt;iframe width="780" height="420" src="https://www.youtube.com/embed/pTuj57uXWlk?si=ibRg75_nyvOw1QW_&amp;amp;controls=1&amp;amp;start=6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt; 
+
+
+---
+
+# How data are collected?
+
+The primary method is **household surveys**: selected households are interviewed about their living conditions.
+
+Surveys use **sampling methods** to represent the entire population without surveying everyone.
+
+  - *Stratified sampling*: The population is divided into groups (strata) like regions, urban/rural, or income level. A random sample is drawn from each stratum to ensure diverse representation.
+  
+--
+
+  - *Cluster sampling*: The population is divided into clusters, like enumeration districts or villages, then a random sample of clusters is picked, and all (or a sample of) households within each selected cluster are surveyed.
+  
+--
+
+  - *Multistage sampling*: Combines stratification and clustering, first selecting clusters (e.g., villages), then households within those clusters, sometimes using additional strata for key characteristics.
 
 --
 
@@ -106,22 +135,25 @@ Questions cover topics like food consumption, housing expenses, education, healt
 
 --
 
-Data is often collected based on **specific recall periods** (e.g., last week, last month) to improve accuracy.
+Data is often collected based on **specific recall periods** to improve accuracy.
 
 --
 
 Ensuring data quality involves carefully designing surveys and training enumerators to reduce errors.
 
 
+
 ---
 
 class: inverse, middle
 
-I’d like to ask you some questions—please answer them as best as you can.
+--
+
+Before we proceed, I’d like to ask you some questions—please answer them as best as you can.
 
 --
 
-Over the past 7 days, how many meals did you eat that included rice?
+Yesterday, how many meals did you eat that included rice?
 
 --
 
@@ -129,7 +161,13 @@ Can you estimate the total amount of rice (in cups, bowls, or grams) you consume
 
 --
 
-How do you think your estimate would differ if asked about 30 days instead of 7 days?
+How confident do you feel in your estimates if asked about the last 7 days?
+
+--
+last 30 days?
+
+--
+or even last 12 months?
 
 --
 
@@ -142,7 +180,7 @@ We will look at some specific household survey questionnaires and discuss potent
 # Example of household surveys
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/lsms.png" style="width: 100%; max-width: 700px;" /&gt; &lt;br&gt;
+  &lt;img src="figures/lsms.png" style="width: 100%; max-width: 650px;" /&gt; &lt;br&gt;
   &lt;a href="https://www.worldbank.org/en/programs/lsms"&gt;https://www.worldbank.org/en/programs/lsms&lt;/a&gt;
   &lt;/div&gt; 
   
@@ -156,19 +194,33 @@ Next, I will show you an example: the Malawi Fourth Integrated Household Survey,
 
 --
 
-Let's discuss the following questions:
+Let's form groups of 4-6 students and discuss the following questions:
+
+--
 
 - What information is this survey collecting from households?
 
+--
+
 - Why are there separate columns for purchases, own production, gifts, and other sources?
+
+--
 
 - What challenges arise in accurately reporting how much was consumed or spent?
 
+--
+
 - What problems might occur if respondents forget details about food items or quantities in the past week?
+
+--
 
 - How might using different units (e.g., kilogram, pail, bunch) cause errors or confusion?
 
+--
+
 - Could answers vary depending on who in the household responds?
+
+--
 
 - How might local food customs or sharing affect data accuracy?
 
@@ -188,7 +240,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 26px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   From this example, what do you think are the challenges with this type of surveys?
 &lt;/div&gt; 
 
@@ -204,7 +256,11 @@ class: inverse, middle, center
 
 Yet there is a trade-off: shorter reference periods allow recall over that same period to be less prone to forgetting
 
+--
+
 - but shorter reference provides a poor guide to typical, long-run living standards
+
+--
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/food1.png" style="width: 100%; max-width: 500px;" /&gt; 
@@ -216,6 +272,8 @@ Yet there is a trade-off: shorter reference periods allow recall over that same 
 
 **Seasonality and variability**: Consumption can vary widely by month, day of the month, and day of the week, making single-period surveys less representative.
 
+--
+
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/food2.png" style="width: 100%; max-width: 1200px;" /&gt; 
 &lt;/div&gt; 
@@ -226,19 +284,34 @@ Yet there is a trade-off: shorter reference periods allow recall over that same 
 
 **Respondent understanding**: Complex questionnaires and technical terms may confuse respondents, affecting data quality.
 
-**Measurement errors**: Difficulty in accurately estimating quantities and converting local units to standardized measures (kg, liters).
+--
+
+**Measurement errors**: Difficulty in accurately estimating quantities 
+  
+  - and converting local units to standardized measures (kg, liters).
+
+--
 
 **Social desirability bias**: Respondents may over- or under-report consumption due to perceived expectations or stigma.
 
+--
+
 **Household dynamics**: Differences in intra-household food sharing and multiple respondents can lead to inconsistent answers.
 
-&lt;div&gt;
-  &lt;a href="https://documents1.worldbank.org/curated/en/793601587034078451/pdf/Food-Data-Collection-in-Household-Consumption-and-Expenditure-Surveys-Guidelines-for-Low-and-Middle-Income-Countries.pdf"&gt;https://documents1.worldbank.org/curated/en/793601587034078451/pdf/Food-Data-Collection-in-Household-Consumption-and-Expenditure-Surveys-Guidelines-for-Low-and-Middle-Income-Countries.pdf&lt;/a&gt;
-  &lt;/div&gt; 
+--
+
+- Read more at: &lt;a href="https://documents1.worldbank.org/curated/en/793601587034078451/pdf/Food-Data-Collection-in-Household-Consumption-and-Expenditure-Surveys-Guidelines-for-Low-and-Middle-Income-Countries.pdf"&gt;https://documents1.worldbank.org/curated/en/793601587034078451/pdf/Food-Data-Collection-in-Household-Consumption-and-Expenditure-Surveys-Guidelines-for-Low-and-Middle-Income-Countries.pdf&lt;/a&gt;
+
 
 ---
 
-# These challenges are not unique to food consumption
+class: inverse, middle, center 
+
+These challenges are not unique to food consumption
+
+---
+
+# Malawi Fourth Integrated Household Survey
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/malawi2.png" style="width: 100%; max-width: 1000px;" /&gt; 
@@ -247,7 +320,7 @@ Yet there is a trade-off: shorter reference periods allow recall over that same 
   
 ---
 
-# These challenges are not unique to food consumption
+# Malawi Fourth Integrated Household Survey
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/malawi3.png" style="width: 100%; max-width: 1000px;" /&gt; 
@@ -261,7 +334,7 @@ Household consumption aggregates many components—food, non-food items, durable
 
 --
 
-When each component is subject to measurement errors or reporting challenges, these errors can **accumulate**, potentially magnifying inaccuracies in total consumption estimates.
+When each component is subject to measurement errors or reporting challenges, these **errors can accumulate**, potentially magnifying inaccuracies in total consumption estimates.
 
 --
 
@@ -273,7 +346,7 @@ They provide **critical, detailed information** that underpins poverty measureme
 
 --
 
-Understanding the caveats helps us interpret poverty data with appropriate caution, while valuing its indispensable role in development research.
+**Understanding the caveats** helps us interpret poverty data with appropriate caution, while valuing its indispensable role in development research.
 
 
 ---
@@ -296,10 +369,99 @@ From household-level data, we can compute per capita or per equivalent adult mea
 
 --
 
-This is cleaned survey data from a sample of Mexican households. **What information can you find here?**
+This is cleaned survey data from a sample of Mexican households. 
+
+--
+**What information can you find here?**
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/household_data.png" style="width: 100%; max-width: 1000px;" /&gt; 
+  &lt;img src="figures/household_data.png" style="width: 100%; max-width: 1100px;" /&gt; 
+&lt;/div&gt; 
+
+
+---
+
+# What does the data look like?
+
+The data is at the household level: each row represents a household in a particular year.
+
+- If we can observe the same household in multiple years, we have *panel dataset*
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/household_data.png" style="width: 100%; max-width: 1100px;" /&gt; 
+&lt;/div&gt; 
+
+---
+
+# What does the data look like?
+
+We can see different variables and their classifications: 
+
+- Household_ID: Unique household identification number (for survey purpose)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/household_data.png" style="width: 100%; max-width: 1100px;" /&gt; 
+&lt;/div&gt; 
+
+---
+
+# What does the data look like?
+
+We can see different variables and their classifications: 
+
+- hhsize: household size (continuous, the number of members)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/household_data.png" style="width: 100%; max-width: 1100px;" /&gt; 
+&lt;/div&gt; 
+
+---
+
+# What does the data look like?
+
+We can see different variables and their classifications: 
+
+- inc_pc: per capita income (continuous, in 2004 pesos)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/household_data.png" style="width: 100%; max-width: 1100px;" /&gt; 
+&lt;/div&gt; 
+
+---
+
+# What does the data look like?
+
+We can see different variables and their classifications: 
+
+- hhfemale: whether the household head is female (categorical, 0/1)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/household_data.png" style="width: 100%; max-width: 1100px;" /&gt; 
+&lt;/div&gt; 
+
+
+---
+
+# What does the data look like?
+
+We can see different variables and their classifications: 
+
+- hh_school: highest educational attainment of the household head (categorical)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/household_data.png" style="width: 100%; max-width: 1100px;" /&gt; 
+&lt;/div&gt; 
+
+---
+
+# What does the data look like?
+
+We can see different variables and their classifications: 
+
+- region: geographic region where the household resides (categorical)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/household_data.png" style="width: 100%; max-width: 1100px;" /&gt; 
 &lt;/div&gt; 
 
 
@@ -319,11 +481,17 @@ Recall that we use a **poverty line**—a threshold of consumption needed for ba
 
 --
 
-Based on this classification, we can compute the three key poverty indicators:
+Based on such classification, we can compute the three key poverty indicators:
+
+--
 
 - Headcount Ratio (P0): Proportion of the population below the poverty line.
 
+--
+
 - Poverty Gap (P1): Average shortfall of the poor from the poverty line.
+
+--
 
 - Poverty Severity (P2): Inequality among the poor, emphasizing deeper poverty.
 
@@ -340,7 +508,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   How poverty measures are computed from data?
 &lt;/div&gt;
 
@@ -348,13 +516,11 @@ class: inverse, middle, center
 
 # Poverty measures and household data
 
-The Mexican government introduced two moderate poverty lines, separately for urban and rural households.
+The Mexican government introduced **two moderate poverty lines, separately for urban and rural** households.
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/household_data3.png" style="width: 100%; max-width: 900px;" /&gt; 
 &lt;/div&gt; 
-
---
 
 How to determine whether these households are poor or non-poor?
 
@@ -375,13 +541,13 @@ We can **compare the household consumption per capita with the respective povert
 
 # Poverty measures and household data
 
-The Mexican government introduced two poverty lines, separately for urban and rural households.
+The Mexican government introduced two moderate poverty lines, separately for urban and rural households.
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/household_data4.png" style="width: 100%; max-width: 900px;" /&gt; 
 &lt;/div&gt; 
 
-Households whose consumption per capita is below the poverty line is poor `\((poor = 1)\)`.
+**Households whose consumption per capita is below the poverty line is poor** `\((poor = 1)\)`.
 
 ---
 
@@ -389,9 +555,9 @@ Households whose consumption per capita is below the poverty line is poor `\((po
 
 In our example here, we have **poor** as a simple **poverty indicator variable**:
 
-  - 1 if the household is **poor** (consumption below the poverty line)
+  - 1 if the household is *poor* (consumption below the poverty line)
   
-  - 0 if **non-poor**
+  - 0 if *non-poor* (consumption above the poverty line)
   
 --
 
@@ -437,7 +603,7 @@ All three indicators are computed as means (averages) but over different variabl
 
 --
 
-In the TA sessions, you will learn how to compute other poverty indicators using Stata.
+In the TA sessions and Problem Set 1, you will learn how to compute other poverty indicators using Stata.
 
 
 ---
@@ -446,7 +612,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   Introduction to Stata
 &lt;/div&gt; 
 
@@ -493,13 +659,19 @@ The main components of the Stata interface:
 
 - **Do-file Editor**: Text editor for writing and saving scripts (do-files) for reproducibility.
 
-&lt;div style="text-align: center;"&gt;
-  &lt;a href="https://www.youtube.com/watch?v=gdnDkjoPJTM"&gt;https://www.youtube.com/watch?v=gdnDkjoPJTM&lt;/a&gt;
-&lt;/div&gt; 
-
 --
 
 Navigating these windows efficiently is key to productive Stata use.
+
+
+---
+
+class: inverse 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/stata.png" style="width: 100%; max-width: 1000px;" /&gt; 
+&lt;/div&gt; 
+
 
 ---
 
@@ -519,9 +691,9 @@ Typical workflow steps in Stata:
 
 - **Document**: Write do-files and save log files for reproducibility.
 
-&lt;div style="text-align: center;"&gt;
-  &lt;a href="https://www.youtube.com/watch?v=gdnDkjoPJTM"&gt;https://www.youtube.com/watch?v=gdnDkjoPJTM&lt;/a&gt;
-&lt;/div&gt; 
+--
+
+This is a good resource to learn Stata basics: &lt;a href="https://www.youtube.com/watch?v=gdnDkjoPJTM"&gt;https://www.youtube.com/watch?v=gdnDkjoPJTM&lt;/a&gt;
 
 ---
 
@@ -529,7 +701,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   Do you have any questions? 
 &lt;/div&gt; 
 
@@ -538,14 +710,22 @@ class: inverse, middle, center
 
 # Plan for next week
 
-- **Monday**: Evidence-based Policy
+**Monday**: Evidence-based Policy. Correlation and Regression using Ordinary Least Squares
   
-  - Correlation and regression
+  - Required reading: Stock &amp; Watson *Introduction to Econometrics* - Chapter 4 "Linear Regression with One Regressor" 
+  
+    - You can access the hard copy in the library, or view the soft copy here: &lt;a href="https://library.kdischool.ac.kr/search/media/img/CAT000113329353?metsno=000000120798&amp;fileid=M000000120798_FILE000001"&gt;https://library.kdischool.ac.kr/search/media/img/CAT000113329353?metsno=000000120798&amp;fileid=M000000120798_FILE000001&lt;/a&gt;
   
 
-- **Wednesday**: Correlation vs. Causality
-
-  - Counterfactual thinking
+**Wednesday**: Correlation vs. Causality. Counterfactual thinking.
+  
+  - Required reading: Glewwe and Todd *Impact Evaluation in International Development : Theory, Methods and Practice*
+  
+    - Chapter 3 "The Evaluation Problem" (Pages 31-35)
+    
+    - Chapter 11 "Regression Methods for Nonrandomized Data" (Pages 160-162, Examples 1 &amp; 2)
+    
+    - The book is available here &lt;a href="https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099056007072227384"&gt;https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099056007072227384&lt;/a&gt;
 
   
 
@@ -555,7 +735,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   Thank you!
 &lt;/div&gt; 
 

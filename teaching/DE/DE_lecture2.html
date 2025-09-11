@@ -52,7 +52,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   Fundamental problem of causal inference
 &lt;/div&gt;
 
@@ -159,7 +159,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   Then, how could we resolve the fundamental problem of causal inference?   
 &lt;/div&gt;
 
@@ -171,7 +171,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   We need assumptions! No causal inference without assumptions!
 &lt;/div&gt;
 
@@ -325,7 +325,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   Now that we've discussed the 4 assumptions, do you think randomization can resolve the fundamental problem of causal inference?
 &lt;/div&gt;
 
@@ -342,12 +342,12 @@ Based on previous slides' notations, we can define four "treatment effects":
   
 --
 
-  - Average causal effect, a.k.a. *average treatment effect (ATE)*:
+  - Average causal effect, a.k.a., *average treatment effect (ATE)*:
   `\(E(Y_{1i}) - E(Y_{0i})\)`
   
 --
 
-  - Average causal effect on those who received treatment, a.k.a. *average treatment on the treated (ATT)*: 
+  - Average causal effect on those who received treatment, a.k.a., *average treatment on the treated (ATT)*: 
 `$$E(Y_{1i}|D_i = 1) - E(Y_{0i}|D_i = 1)$$`
   
 --
@@ -397,7 +397,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   However, randomization does not remove all threats to causal inference.
 &lt;/div&gt;
 
@@ -405,20 +405,33 @@ class: inverse, middle, center
 
 # General threats to randomization
 
-- Bad randomization:
+**Bad randomization**:
 
-  - We can verify if randomization was successful with "balance tests": comparing the baseline characteristics between treatment and control groups.
+--
 
-- Attrition: People drop out during the study. Not a problem if attrition is not correlated with the treatment status.
-  
-  - We can compare attrition rates across groups. If there are difference, we can bound the estimates, e.g., using "Lee bounds" (Lee, 2009, REStud).
-  
-- Hawthorne effects: individuals modify their behavior in response to being observed or receiving attention, rather than due to any specific intervention.       
+- We can verify if randomization was successful with "balance tests": comparing the baseline characteristics between treatment and control groups.
 
-- The anticipation that an expansion of the program is planned for the control areas in the future as in phased-in design leads individuals to change their behaviors.
-  
-- Spillover effects: the intervention being studied impacts individuals or groups beyond the intended recipients.
-    
+--
+
+**Attrition**: People drop out during the study. Not a problem if attrition is not correlated with the treatment status.
+
+--
+
+- We can compare attrition rates across groups. If there are difference, we can bound the estimates, e.g., using "Lee bounds" (Lee, 2009, REStud).
+
+--
+
+**Hawthorne effects**: individuals modify their behavior in response to being observed or receiving attention, rather than due to any specific intervention.      
+--
+
+**The anticipation** that an expansion of the program is planned for the control areas in the future as in phased-in design leads individuals to change their behaviors.
+
+--
+
+**Spillover effects**: the intervention being studied impacts individuals or groups beyond the intended recipients.
+
+--
+
   - We need to take this into consideration when designing RCTs.
   
 ---
@@ -427,7 +440,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   Randomization in practice: The case of unconditional cash transfers to the poor in Kenya &lt;br&gt;
 by Haushofer and Shapiro (2016)
 &lt;/div&gt;
@@ -470,7 +483,7 @@ They conducted a **two-stage** randomized control trial.
   
 --
 
-In other words, we have three groups of households:
+In other words, we have **three groups of households**:
 
   - Group 1: households in the control villages 
   
@@ -496,6 +509,8 @@ What is the disadvantage with this research design?
 # Intervention and cross-randomization
 
 Intervention: unconditional cash transfers 
+
+--
 
 Within the treatment group, they also randomized:
       
@@ -620,37 +635,51 @@ Gentle explanation of Lee bounds: https://blogs.worldbank.org/en/impactevaluatio
 
 **External validity**: RCTs are high on *internal validity*
   
-  - If RCTs are done properly, the estimated effect is a true causal effect for those in the study
-    
-  - But, its external validity is often low
+- If RCTs are done properly, the estimated effect is a true causal effect for those in the study
+
+--
+
+- But, its external validity is often low
   
-    - Would the same program have the same effect if it were implemented elsewhere?
+  - Would the same program have the same effect if it were implemented elsewhere?
   
-    - Many reasons why the effects of an RCT may not apply in other contexts (institution, sample)
+  - Many reasons why the effects of an RCT may not apply in other contexts (institution, sample)
   
-  - Replication studies are recommended to prove external validity (Kremer and Holla 2008)
+--
+
+- Replication studies are recommended to prove external validity (Kremer and Holla 2008)
 
 ---
 
 # Some concerns about RCTs/Field experiments
 
-**Compliance issues**
+**Compliance issues**: Back to the tutoring program example at the beginning of the session 
+  
+- Suppose now we have the resources to conduct an RCT
 
-  - Let's go back to the tutoring program example at the beginning of the session 
+--
+
+- We cannot force students to participate in the tutoring program, instead, we offer those in the Treatment group the option to participate in the program 
   
-    - Suppose now we have the resources to conduct an RCT
-    
-    - We cannot force students to participate in the tutoring program, instead, we offer those in the Treatment group the option to participate in the program 
+--
+
+  - Some students who received the offer participated in the program (G1)
+
+--
+
+  - Other students also received the offer but ended up not participating (G2)
+
+--
+
+- If G2 is relatively big, we have low take-up problem
   
-    - Some students who received the offer participated in the program (G1)
-      
-    - Other students also received the offer but ended up not participating (G2)
+--
+
+  - By comparing those who were offered the option to participate in the tutoring program (Treatment) to those who were not (Control), we can correctly identify the average *Intent-to-Treat* effect of the program (ITT)
   
-  - If G2 is relatively big, we have low take-up problem
-  
-    - By comparing those who were offered the option to participate in the tutoring program (Treatment) to those who were not (Control), we can correctly identify the average *Intent-to-Treat* effect of the program (ITT)
-  
-    - However, this does not provide information on the *average impact of the program that was made compulsory for all students* (ATE)
+--
+
+  - However, this does not provide information on the *average impact of the program that was made compulsory for all students* (ATE)
 
 
 ---
@@ -709,7 +738,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   Regression and causality
 &lt;/div&gt;
 
@@ -991,15 +1020,15 @@ If treatment effects are heterogeneous, `\(\beta_{IV}\)` identifies an effect fo
 
 Consider four assumptions:
 
-  - Relevance: `\(Z_i\)` must have a clear effect on treatment assignment `\(D_i\)`
+  - **Relevance**: `\(Z_i\)` must have a clear effect on treatment assignment `\(D_i\)`
   
-  - Independence: `\(Z_i\)` is as good as randomly assigned
+  - **Independence**: `\(Z_i\)` is as good as randomly assigned
   
     - `\(Z_i\)` is independent of potential outcomes and potential treatment assignments
     
-  - Exclusion: `\(Z_i\)` has no effect on the outcome `\(Y_i\)` once controlling for treatment assignment `\(D_i\)`
+  - **Exclusion**: `\(Z_i\)` has no effect on the outcome `\(Y_i\)` once controlling for treatment assignment `\(D_i\)`
   
-  - Monotonicity: `\(Z_i\)` does not perversely lead individuals to select out of treatment (no "defiers")
+  - **Monotonicity**: `\(Z_i\)` does not perversely lead individuals to select out of treatment (no "defiers")
     - `\(Z_i\)` affects `\(D_i\)` in only one direction
   
 Imbens and Angrist (1994) show that under these assumptions, IV identifies the *local average treatment effect* (LATE).
@@ -1135,7 +1164,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   IV in practice: The Colonial Origins of Comparative Development: An Empirical Investigation &lt;br&gt;
 by Acemoglu, Johnson, and Robinson (2001) 
 &lt;/div&gt;
@@ -1431,7 +1460,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   Thank you!
 &lt;/div&gt; 
 

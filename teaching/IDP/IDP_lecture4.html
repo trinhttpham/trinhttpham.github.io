@@ -68,7 +68,7 @@ We need evidence to determine which interventions deliver the greatest impact wi
 --
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="./figures/schooling.png" style="width: 100%; max-width: 600px;" /&gt; &lt;br&gt;
+  &lt;img src="./figures/schooling.png" style="width: 100%; max-width: 500px;" /&gt; &lt;br&gt;
   &lt;a href="https://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty"&gt;https://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty&lt;/a&gt;
 &lt;/div&gt; 
 
@@ -80,7 +80,9 @@ Evidence-based policy refers to the practice of making policy decisions based on
 
 --
 
-Instead of relying on intuition, political opinions, or anecdotes, policymakers use the best available data and research to guide their choices. 
+Instead of relying on intuition, political opinions, or anecdotes, 
+
+- policymakers use the best available data and research to guide their choices. 
 
 --
 
@@ -92,7 +94,11 @@ This approach helps allocate resources efficiently and ensures programs achieve 
 
 --
 
-In the field of development, evidence-based policy is critical because it targets challenges such as poverty, education, and public health, where the costs of ineffective interventions are high. 
+In the field of development, evidence-based policy is critical 
+
+- because it targets challenges such as poverty, education, and public health, 
+
+- where the costs of ineffective interventions are high. 
 
 --
 
@@ -107,31 +113,28 @@ Suppose we are interested in the **relationship between a mother’s education a
 --
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="./figures/correlation.png" style="width: 100%; max-width: 750px;" /&gt; &lt;br&gt;
+  &lt;img src="./figures/correlation.png" style="width: 100%; max-width: 600px;" /&gt; &lt;br&gt;
   &lt;a href="https://www.gapminder.org/tools/#$model$markers$bubble$encoding$x$data$concept=mean_years_in_school_women_of_reproductive_age_15_to_44&amp;source=sg&amp;space@=geo&amp;=time;;&amp;scale$domain:null&amp;zoomed:null&amp;type:null;;&amp;frame$value=2009;;;;;&amp;chart-type=bubbles&amp;url=v2"&gt;Gap Minder&lt;/a&gt;
 &lt;/div&gt; 
 
 --
 
-We observe that, on average, higher levels of maternal education are associated with better child health outcomes.
+We observe that, **on average, higher levels of maternal education are associated with better child health outcomes**.
 
 --
 
 This is a **positive correlation**.
 
---
-
-But does this mean that to improve child health, we should simply focus on programs that increase women’s education?
 
 ---
 
 # The challenge: correlation vs. causation
 
-Does this mean that to improve child health, we should simply focus on programs that increase women’s education?
+**Does this mean that to improve child health, we should simply focus on programs that increase women’s education**?
 
 --
 
-No, we cannot conclude that from just a positive correlation. 
+No, we **cannot** conclude that from just a positive correlation. 
 
 --
 Why not? 
@@ -142,15 +145,23 @@ Because women who are more educated often come from wealthier families.
 
 --
 
-They might also marry educated men and live in environments that support better child health independently of their education.
+They might also marry educated men 
+
+- and live in environments that support better child health **independently** of their education.
 
 --
 
-Here, family wealth, spouse’s education, living conditions are some factors that affect both mother's education and child health but are not accounted for in a simple correlation (**omitted variables**).
+Here, **family wealth, spouse’s education, living conditions** are some factors 
+
+- that affect both mother's education and child health but are not accounted for in a simple correlation 
+
+- they are called **omitted variables**.
 
 --
 
-These **omitted variables** can confound the relationship, making it unclear whether it is the mother’s education itself causing better child health or these other factors.
+These **omitted variables can confound the relationship**, 
+
+- making it unclear whether it is the mother’s education itself causing better child health or these other factors.
 
 --
 
@@ -163,7 +174,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 26px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   Introduction to regression analysis
 &lt;/div&gt; 
 
@@ -176,7 +187,7 @@ Regression analysis allows us to control for these other variables.
 
 --
 
-In a regression model, we can hold constant factors like family wealth, father’s education, and environment, to better isolate the association between maternal education and child health.
+In a regression model, we can **hold constant factors** like family wealth, father’s education, and environment, **to better isolate the association between maternal education and child health**.
 
 --
 
@@ -186,7 +197,7 @@ Now I will be introducing equations and terminologies.
 
 These might look intimidating at first, but please bear with me. 
 
-  - The main goal is to help you familiarize with some mathematical expressions you will encounter later in the course.
+  - The main goal is to **help you familiarize with some mathematical expressions** you will encounter later in the course.
 
 ---
 
@@ -213,7 +224,9 @@ We can run regression on the following model:
 
 --
 
-- Right-hand side is the &lt;span style="color:red; font-weight:bold;"&gt;independent variable&lt;/span&gt; `\((Edu_i)\)` and an error term `\(\varepsilon_i\)`
+- Right-hand side is the &lt;span style="color:red; font-weight:bold;"&gt;independent variable&lt;/span&gt; `\((Edu_i)\)` and an error term `\(\varepsilon_i\)` 
+
+  - we will come back to this error term in a moment.
 
 --
 
@@ -226,17 +239,25 @@ We can run regression on the following model:
 
 `$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$`
 
+--
+
 - How mother education is related to child health is given by `\(\beta_1 = \frac{\partial Y_i}{\partial Edu_i}\)`.
+
+--
 
 - `\(\beta_1\)` tells us how the child health changes as the level of mother education increases by one *unit*.
 
 --
 
-- Note in this equation, we have data on child health `\((Y)\)` and mother education `\((Edu)\)` (recall the animated figure above).
+- Note in this equation, we have data on child health `\((Y)\)` and mother education `\((Edu)\)`. 
+
+  - recall the animated figure above.
 
 --
 
-- And we want to estimate `\(\beta_0\)` and `\(\beta_1\)`. We denote estimate(s) with hat `\(\hat{\beta}_0\)` and `\(\hat{\beta}_1\)`.
+- And we want to estimate `\(\beta_0\)` and `\(\beta_1\)`. 
+
+  - We denote estimate(s) with hat `\(\hat{\beta}_0\)` and `\(\hat{\beta}_1\)`.
 
 --
 
@@ -246,11 +267,15 @@ We can run regression on the following model:
 
 # Regression analysis 
 
-We rely on a tool called Ordinary Least Squares (OLS) to estimate the regression model.
+We rely on a tool called **Ordinary Least Squares (OLS)** to estimate the regression model.
 
 --
 
-The basic idea of OLS is to **find the line (or equation) that best fits the data** by minimizing the sum of the squared differences between the observed values and the values predicted by the model.
+The basic idea of OLS is to **find the line (or equation) that best fits the data**.
+
+--
+
+- by minimizing the **sum of the squared differences between the observed values and the values predicted by the model**.
 
 --
 
@@ -262,8 +287,10 @@ In other words, OLS finds the set of coefficients that make the predicted outcom
 
 `$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$`
 
+This is the graph relating child health to mother education above.
+
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="./figures/correlation.png" style="width: 100%; max-width: 500px;" /&gt; &lt;br&gt;
+  &lt;img src="./figures/correlation.png" style="width: 100%; max-width: 650px;" /&gt; &lt;br&gt;
   &lt;a href="https://www.gapminder.org/tools/#$model$markers$bubble$encoding$x$data$concept=mean_years_in_school_women_of_reproductive_age_15_to_44&amp;source=sg&amp;space@=geo&amp;=time;;&amp;scale$domain:null&amp;zoomed:null&amp;type:null;;&amp;frame$value=2009;;;;;&amp;chart-type=bubbles&amp;url=v2"&gt;Gap Minder&lt;/a&gt;
 &lt;/div&gt; 
 
@@ -276,10 +303,11 @@ In other words, OLS finds the set of coefficients that make the predicted outcom
 
 Let's assume we have a similar dataset for a sample of mother-child.
 
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="./figures/OLS0.png" style="width: 100%; max-width: 500px;" /&gt; &lt;br&gt;
-&lt;/div&gt; 
+--
 
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/OLS0.png" style="width: 100%; max-width: 600px;" /&gt; &lt;br&gt;
+&lt;/div&gt; 
 
 ---
 
@@ -290,7 +318,19 @@ Let's assume we have a similar dataset for a sample of mother-child.
 We can draw different lines through the data. 
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="./figures/OLS2.png" style="width: 100%; max-width: 500px;" /&gt; &lt;br&gt;
+  &lt;img src="./figures/OLS2.png" style="width: 100%; max-width: 600px;" /&gt; &lt;br&gt;
+&lt;/div&gt; 
+
+---
+
+# Regression analysis
+
+`$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$`
+
+We can draw different lines through the data. 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/OLS4.png" style="width: 100%; max-width: 600px;" /&gt; &lt;br&gt;
 &lt;/div&gt; 
 
 
@@ -303,31 +343,7 @@ We can draw different lines through the data.
 We can draw different lines through the data. For any line, compute the difference between the observed data and the line.
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="./figures/OLS3.png" style="width: 100%; max-width: 500px;" /&gt; &lt;br&gt;
-&lt;/div&gt; 
-
----
-
-# Regression analysis
-
-`$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$`
-
-We can draw different lines through the data. For any line, compute the difference between the observed data and the line.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="./figures/OLS4.png" style="width: 100%; max-width: 500px;" /&gt; &lt;br&gt;
-&lt;/div&gt; 
-
----
-
-# Regression analysis
-
-`$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$`
-
-We can draw different lines through the data. For any line, compute the difference between the observed data and the line.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="./figures/OLS5.png" style="width: 100%; max-width: 500px;" /&gt; &lt;br&gt;
+  &lt;img src="./figures/OLS5.png" style="width: 100%; max-width: 600px;" /&gt; &lt;br&gt;
 &lt;/div&gt; 
 
 ---
@@ -339,19 +355,31 @@ We can draw different lines through the data. For any line, compute the differen
 **OLS estimates** give us the line that **minimizes the sum of squared of those differences**.
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="./figures/OLS1.png" style="width: 100%; max-width: 500px;" /&gt; &lt;br&gt;
+  &lt;img src="./figures/OLS1.png" style="width: 100%; max-width: 600px;" /&gt; &lt;br&gt;
+&lt;/div&gt; 
+
+---
+
+# Regression analysis
+
+`$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$`
+
+Our example gives the following estimates: `\(Y_i = 40.87 + 2.12 Edu_i\)`.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/OLS1.png" style="width: 100%; max-width: 600px;" /&gt; &lt;br&gt;
 &lt;/div&gt; 
 
 ---
 
 # Regression analysis 
 
-Our example gives the following estimates: `\(Y_i = 40.87 + 2.12 Edu_i\)`
+`$$Y_i = 40.87 + 2.12 Edu_i$$`
 
-An additional year of education is associated with a 2-year increase in life expectancy at birth.
+An additional year of education is **associated** with a 2.12-year increase in life expectancy at birth.
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="./figures/OLS1.png" style="width: 100%; max-width: 500px;" /&gt; &lt;br&gt;
+  &lt;img src="./figures/OLS1.png" style="width: 100%; max-width: 600px;" /&gt; &lt;br&gt;
 &lt;/div&gt; 
 
 
@@ -359,10 +387,10 @@ An additional year of education is associated with a 2-year increase in life exp
 
 # Regression analysis  
 
-As we discussed, there are many factors that affect child health:
+As we discussed, there are **many factors that affect child health**:
 
 --
-Father education
+father education
 --
 , family background
 --
@@ -375,6 +403,7 @@ Father education
 They are all included in the error term `\(\varepsilon_i\)`:
 
 `$$Y_i = \beta_0 + \beta_1 Edu_i + \varepsilon_i$$`
+--
 
 OLS gives us **unbiased** estimates under certain assumptions (we will come back to this in a few slides).
 
@@ -384,7 +413,7 @@ OLS gives us **unbiased** estimates under certain assumptions (we will come back
 
 --
 
-In words, it means that on average, out estimate `\(\hat{\beta}\)` is exactly equal to the true `\(\beta\)`. 
+In words, it means that **on average, out estimate** `\(\hat{\beta}\)` **is exactly equal to the true** `\(\beta\)`. 
 
 --
 
@@ -403,20 +432,20 @@ The estimated coefficient `\(\hat{\beta}\)` will not exactly be right for the en
 
 &lt;div style="width: 100%; display: table;"&gt;
 
-  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+  &lt;div style="display: table-cell; vertical-align: top; width: 45%; padding-right: 10px;"&gt;
 
     &lt;div style="text-align: center;"&gt;
     &lt;br&gt;&lt;br&gt;
-      &lt;img src="./figures/pop0.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;img src="./figures/pop0.png" style="width: 100%; max-width: 500px;" /&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
 
-  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+  &lt;div style="display: table-cell; vertical-align: top; width: 55%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
   
     &lt;div style="text-align: center;"&gt;
     &lt;br&gt;
-      &lt;img src="./figures/OLS1.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;img src="./figures/OLS1.png" style="width: 90%; max-width: 600px;" /&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
@@ -429,74 +458,75 @@ The estimated coefficient `\(\hat{\beta}\)` will not exactly be right for the en
 
 &lt;div style="width: 100%; display: table;"&gt;
 
-  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
-
-    &lt;div style="text-align: center;"&gt;
-    &lt;br&gt; &lt;br&gt;
-      &lt;img src="./figures/samp1.png" style="width: 90%; max-width: 500px;" /&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-
-  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
-  
-    &lt;div style="text-align: center;"&gt;
-    &lt;br&gt;
-      &lt;img src="./figures/OLSsamp1.png" style="width: 90%; max-width: 500px;" /&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-
-&lt;/div&gt;
-
----
-
-# Population vs. Sample 
-
-&lt;div style="width: 100%; display: table;"&gt;
-
-  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
-
-    &lt;div style="text-align: center;"&gt;
-      &lt;br&gt;
-      &lt;br&gt;
-      &lt;img src="./figures/samp2.png" style="width: 90%; max-width: 500px;" /&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-
-  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
-  
-    &lt;div style="text-align: center;"&gt;
-      &lt;br&gt;
-      &lt;img src="./figures/OLSsamp2.png" style="width: 90%; max-width: 500px;" /&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-
-&lt;/div&gt;
-
-
----
-
-# Population vs. Sample 
-
-&lt;div style="width: 100%; display: table;"&gt;
-
-  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+  &lt;div style="display: table-cell; vertical-align: top; width: 45%; padding-right: 10px;"&gt;
 
     &lt;div style="text-align: center;"&gt;
     &lt;br&gt;&lt;br&gt;
-      &lt;img src="./figures/samp3.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;img src="./figures/samp1.png" style="width: 100%; max-width: 500px;" /&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
 
-  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+  &lt;div style="display: table-cell; vertical-align: top; width: 55%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
   
     &lt;div style="text-align: center;"&gt;
     &lt;br&gt;
-      &lt;img src="./figures/OLSsamp3.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;img src="./figures/OLSsamp1.png" style="width: 90%; max-width: 600px;" /&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+---
+
+# Population vs. Sample 
+
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 45%; padding-right: 10px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+    &lt;br&gt;&lt;br&gt;
+      &lt;img src="./figures/samp2.png" style="width: 100%; max-width: 500px;" /&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 55%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+  
+    &lt;div style="text-align: center;"&gt;
+    &lt;br&gt;
+      &lt;img src="./figures/OLSsamp2.png" style="width: 90%; max-width: 600px;" /&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+---
+
+
+# Population vs. Sample 
+
+&lt;div style="width: 100%; display: table;"&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 45%; padding-right: 10px;"&gt;
+
+    &lt;div style="text-align: center;"&gt;
+    &lt;br&gt;&lt;br&gt;
+      &lt;img src="./figures/samp3.png" style="width: 100%; max-width: 500px;" /&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div style="display: table-cell; vertical-align: top; width: 55%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+  
+    &lt;div style="text-align: center;"&gt;
+    &lt;br&gt;
+      &lt;img src="./figures/OLSsamp3.png" style="width: 90%; max-width: 600px;" /&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
@@ -509,32 +539,31 @@ The estimated coefficient `\(\hat{\beta}\)` will not exactly be right for the en
 
 &lt;div style="width: 100%; display: table;"&gt;
 
-  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+  &lt;div style="display: table-cell; vertical-align: top; width: 45%; padding-right: 10px;"&gt;
 
     &lt;div style="text-align: center;"&gt;
     &lt;br&gt;&lt;br&gt;
-      &lt;img src="./figures/samp4.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;img src="./figures/samp4.png" style="width: 100%; max-width: 500px;" /&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
 
-  &lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
+  &lt;div style="display: table-cell; vertical-align: top; width: 55%; padding-left: 20px; font-size: 1.1em; line-height: 1.4;"&gt;
   
     &lt;div style="text-align: center;"&gt;
     &lt;br&gt;
-      &lt;img src="./figures/OLSsamp4.png" style="width: 90%; max-width: 500px;" /&gt;
+      &lt;img src="./figures/OLSsamp4.png" style="width: 90%; max-width: 600px;" /&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
 
 &lt;/div&gt;
-
 
 ---
 
 class: inverse, middle, center
 
-&lt;div style="font-size: 26px; text-align: center;"&gt;
+&lt;div style="font-size: 24px; text-align: center;"&gt;
   If we are to repeat this 1,000 times (Monte-Carlo simulation)...
 &lt;/div&gt; 
 
@@ -562,6 +591,26 @@ OLS estimates depend on the sample of data we have.
 
 --
 
+But with just one sample, we don't know exactly how close our line is to the true one. 
+
+--
+
+The **confidence interval** is the statistical tool that captures this uncertainty. 
+
+- It gives us a range of slopes (or predictions) that are consistent with the data, and that would, across many samples, include the true value 95% of the time.
+
+--
+
+A confidence interval is a way of saying: 
+
+"we're not certain about the exact number, but here’s a range that, based on our method, is very likely to capture the truth."
+
+
+
+---
+
+# Regression analysis
+
 For OLS estimates to be unbiased and gives us, on average, the causal effect of some `\(X\)` on some `\(Y\)`, we need a few assumptions to hold:
 `$$E[x\varepsilon] = 0 \qquad \text{or} \qquad \text{correlation}(x, \varepsilon) = 0$$` 
 
@@ -571,7 +620,9 @@ In words, we need the variable of interest `\(X\)` to be **uncorrelated** with t
 
 --
 
-If there are other factors in the error term that is correlated with both the outcome and the main variable of interest `\(X\)`, we have **omitted variable bias**.
+If there are other factors in the error term that is correlated with both the outcome and the main variable of interest `\(X\)`, 
+
+- we have **omitted variable bias**.
 
 --
 
@@ -611,15 +662,22 @@ Women from wealthier families, with better living conditions, and supportive env
 
 --
 
-These same factors—family wealth, household environment, and access to healthcare—also directly influence child health independently of the mother’s education.
+**These same factors**—family wealth, household environment, and access to healthcare—**also directly influence child health** independently of the mother’s education.
 
 --
 
-This means that mother’s education is positively correlated with omitted factors that affect child health.
+This means that **mother’s education is positively correlated with omitted factors that affect child health**.
 
 --
 
-Because these omitted variables are part of the error term in a regression model, the assumption of zero correlation between the regressors and the error term is violated.
+Because these omitted variables are part of the error term in a regression model, 
+
+- the assumption of zero correlation between the regressors and the error term is violated.
+
+--
+
+So we don't have unbiased estimate of the mother education impact on child health.
+
 
 ---
 
@@ -639,7 +697,9 @@ Including these variables would certainly help reduce omitted variable bias—**
 
 --
 
-However, in reality, there are *many other unobserved factors influencing both mother’s education and child health* that we cannot easily measure or control for.
+However, in reality, there are **many other unobserved factors**
+
+- **that influence both mother’s education and child health** that we cannot easily measure or control for.
 
 
 ---
@@ -650,7 +710,9 @@ However, in reality, there are *many other unobserved factors influencing both m
 
 --
 
-To make effective policy decisions, **we need to establish causation**—that a change in one factor directly produces a change in another.
+To make effective policy decisions, **we need to establish causation**
+
+- that **a change in one factor directly produces a change in another**.
 
 --
 
@@ -719,15 +781,22 @@ class: inverse, middle, center
   What would have happened had the program not started?
 &lt;/div&gt; 
 
-
 ---
 
 # Working example: loan and business profit
 
 What would have happened had the program not started? 
 
---
-Would it be like this?
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-2.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Working example: loan and business profit
+
+What would have happened had the program not started? Would it be like this?
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="./figures/counterfactuals-31.png" style="width: 100%; max-width: 600px;" /&gt;
@@ -798,21 +867,30 @@ This would be the focus of next-week lectures.
 
 - Evidence-based policy relies on rigorous data and research to guide effective policymaking.
 
+--
+
 - Correlation does not imply causation.
 
   - Strong associations alone cannot prove one variable causes changes in another.
+--
 
 - Omitted Variable Bias (OVB) is a key challenge.
 
   - Leaving out important variables that affect both the cause and effect can lead to biased estimates.
+  
+--
 
-- Controlling for observed confounders helps but has limits.
+- Controlling for observed confounders in regression helps but has limits.
   
   - Including additional variables can reduce bias—only if all key confounders are measured.
+  
+--
 
 - Unobserved factors remain a problem.
 
   - Many influences remain unmeasured or unmeasurable, sustaining potential bias.
+  
+--
 
 - More rigorous **causal inference methods** are necessary to establish credible cause-and-effect relationships.
 
@@ -822,7 +900,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   Do you have any questions? 
 &lt;/div&gt; 
 
@@ -831,15 +909,15 @@ class: inverse, middle, center
 
 # Plan for next week
 
-- **Monday**: Randomized Controlled Trials
+- **Monday**: Impact Evaluation Methods
   
-  - Reading: [JS] Chapter 4, Section on RCT
+  - Reading: [JS] Chapter 4 (Objective &amp; Overview, Challenges of Impact Evaluation, Experimental Design-RCT)
   
 
 
-- **Wednesday**: Difference-in-Differences (DiD)
+- **Wednesday**: Impact Evaluation Methods (continued)
 
-  - Reading: [JS] Chapter 5, Section on DiD
+  - Reading: [JS] Chapter 4 (Difference-in-Differences Method)
 
   
 
@@ -849,7 +927,7 @@ class: inverse, middle, center
 
 # 
 
-&lt;div style="font-size: 28px; text-align: center;"&gt;
+&lt;div style="font-size: 25px; text-align: center;"&gt;
   Thank you!
 &lt;/div&gt; 
 

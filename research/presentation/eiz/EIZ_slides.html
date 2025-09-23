@@ -88,15 +88,15 @@ class: center, middle, inverse, title-slide
 
 --
 
-- Method: staggered DiD design using **de Chaisemartin et al. (2024)**
+- Method: staggered DiD design using **de Chaisemartin and d’Haultfoeuille (dCH, 2020, 2024)**
 
 --
 
-  - Treatment defined by **residence within 10-km of a newly established zone**.
+  - Treatment defined by **residence within 10-km radius of a newly established zone**.
   
 --
   
-  - Motivated by earlier evidence in other settings and ring-based analysis.
+  - Motivated by earlier evidence in other settings and distance-based analysis.
   
   
 ---
@@ -135,7 +135,7 @@ class: center, middle, inverse, title-slide
 
 --
 
-- Comparable rises in per capita consumption across households with regardless of education level.
+- Comparable rises in per capita consumption across households regardless of education level.
 
 
 
@@ -165,6 +165,8 @@ class: center, middle, inverse, title-slide
 
 - Literature: Household diversification typically framed as risk-sharing (Barrett et al., 2001; Dercon, 2002; Rosenzweig &amp; Stark, 1989; Udry, 1996); informality seen as residual sector (Fields, 2011; La Porta &amp; Shleifer, 2014; Maloney, 2004). 
 
+--
+
 - **Contribution**: Demonstrate that limited IZ access spurs **opportunity-driven diversification**—especially via informal nonfarm work—**informality as central to broad-based welfare gains**.
 
 ---
@@ -178,6 +180,8 @@ class: center, middle, inverse, title-slide
 - Literature: Schooling responds to perceived returns and opportunity costs (Atkin, 2016; Jensen, 2010)
 
   - Differential effects depending on types of special economic zones (Lu et al., 2023).
+  
+--
 
 - **Contribution**: Provide evidence that IZ expansion **raises youth schooling and credentials**, underscoring education–labor complementarities in structural transformation.
 
@@ -341,7 +345,7 @@ Event-study model:
 
 - The coefficients `\(\beta_k\)` capture dynamic treatment effects `\(k\)` years relative to **establishment**. 
 
-- Standard errors `\(\varepsilon_{idt}\)` are clustered at the district level to account for temporal correlation.
+- Standard errors `\(\varepsilon_{idt}\)` are clustered at the district level to account for temporal/spatial correlation.
 
 
 ---
@@ -411,9 +415,9 @@ This is also corroborated by results from a distance-based analysis:
 
 - `\(\text{POST}_t\)` is a binary indicator for the post-treatment period.
 - `\(\text{Distance}_{d = b}\)` indicates whether district `\(d\)` falls within distance bin `\(b\)` from the industrial zone. 
-  - `\(b=0\)` represents the zone-hosting district
-  - `\(b=1\)` corresponds to districts within 0-5 km from the zone
-  - `\(b=2\)` represents districts within 5-10 km
+  - `\(b=0\)` represents the zone-hosting district.
+  - `\(b=1\)` corresponds to districts within 0-5 km from the zone.
+  - `\(b=2\)` represents districts within 5-10 km.
   - `\(b=3\)` for districts within 10-15 km, and so on, in 5 km increments up to 45 km for `\(b = 9\)`. 
   - `\(b=5\)` (20-25km) as the reference bin.
   
@@ -525,13 +529,13 @@ Another concern is (mis)alignment of treatment and outcome timing.
 
 --
 
-- Robustness: Split-sample estimation leverages all treatment variation while respecting biennial outcome frequency.
+- Robustness: de Chaisemartin et al. (2024) Split-sample estimation.
 
-  - First sample includes all group-year observations in which the group's treatment status has remained unchanged since the beginning of the panel, as well as observations where the group experienced a **treatment change in a year when outcomes are observed**. 
+  - First sample includes never-treated group-years, and observations where the group experienced a **treatment change in a year when outcomes are observed**. 
   
     - The event-study coefficients capture the effect of treatment exposure over odd-numbered intervals.
     
-  - Second sample includes again the never-treated group-years, along with those in which **treatment changes occurred in years when outcomes are not observed**. 
+  - Second sample includes never-treated group-years, and those in which **treatment changes occurred in years when outcomes are not observed**. 
   
     - The event-study coefficients correspond to even-numbered exposure intervals
 
@@ -605,13 +609,13 @@ This effect is concentrated among young individuals without a high school diplom
 
 # Labor Participation 
 
-There are corresponding increases in both school attendance and degree attainment among young individuals without a high school diploma.
+Corresponding **increases in schooling and degree attainment** among youth (19-24) without a high school diploma.
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/m_worked_s1_age1_edu1.png" style="width: 100%; max-width: 350px;" /&gt;
   &lt;img src="figures/m_school_s1_age1_edu1.png" style="width: 100%; max-width: 350px;" /&gt;
   &lt;img src="figures/degree_s1_age1_edu0.png" style="width: 100%; max-width: 350px;" /&gt;&lt;br&gt;
-  &lt;span style="margin-right: 150px; margin-left: 125px;"&gt;Labor Participation&lt;/span&gt;School Enrollment&lt;span style="margin-right: 125px;margin-left: 150px;"&gt;High School Completion&lt;/span&gt;
+  &lt;span style="margin-right: 160px; margin-left: 125px;"&gt;Labor Participation&lt;/span&gt;School Enrollment&lt;span style="margin-right: 70px;margin-left: 165px;"&gt;High School Completion&lt;/span&gt;
 &lt;/div&gt;
 
 
@@ -619,7 +623,7 @@ There are corresponding increases in both school attendance and degree attainmen
 
 # Labor Participation 
 
-There are some suggestive evidence of decreasing labor participation among older individuals with high school diploma.
+There are some **suggestive evidence of decreasing labor participation among older individuals with high school diploma**.
 
 --
 
@@ -627,7 +631,7 @@ There are some suggestive evidence of decreasing labor participation among older
 
 --
 
-- But rather a voluntary choice among the more educated, increasingly engaged in household chores.
+- But rather a **voluntary choice among the more educated**, increasingly engaged in household chores.
   
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/chores.jpeg" style="width: 100%; max-width: 600px;" /&gt;
@@ -653,7 +657,7 @@ The results can be grouped into four main outcome categories:
 
 # Primary Sector Employment
 
-Gradual and significant decline in agricultural employment as primary economic activity.
+**Gradual and significant decline in agricultural employment as primary economic activity**.
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/w_farm_m_s1_age0_edu0.png" style="width: 100%; max-width: 350px;" /&gt;
@@ -666,7 +670,7 @@ Gradual and significant decline in agricultural employment as primary economic a
 
 # Primary Sector Employment
 
-Significant heterogeneity across educational level.
+**Differential patterns of reallocation across educational levels**.
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/emp1.jpeg" style="width: 100%; max-width: 800px;" /&gt;
@@ -677,17 +681,17 @@ Significant heterogeneity across educational level.
 
 # Secondary Sector Employment 
 
-Among less-educated individuals, the decline in agricultural engagement as secondary job is more pronounced.
+The decline in agricultural engagement as secondary job is more pronounced.
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/emp2.jpeg" style="width: 100%; max-width: 800px;" /&gt;
+  &lt;img src="figures/emp2.jpeg" style="width: 100%; max-width: 700px;" /&gt;
 &lt;/div&gt;
 
 ---
 
 # Hours of Work 
 
-Among less-educated individuals, total agricultural hours decline by 5.5%.
+Total agricultural hours decline by approximately 5.5%.
 
 - Yet conditional hours remain unchanged. 
 
@@ -698,9 +702,11 @@ Among less-educated individuals, total agricultural hours decline by 5.5%.
 
 ---
 
-# Intersectoral Labor Reallocation 
+# Intersectoral Labor Reallocation: Summary 
 
-Adjustment occurs mainly on the extensive margin `\(\rightarrow\)` weaker-attached (esp. secondary job holders) exit agriculture; remaining workers sustain hours.
+Adjustment occurs mainly on the extensive margin. 
+
+- `\(\rightarrow\)` weaker-attached (esp. secondary job holders) exit agriculture; remaining workers sustain hours.
 
 --
 
@@ -712,9 +718,9 @@ By education:
 
 --
 
-These patterns underscore the value of accounting for secondary employment 
+These patterns underscore the value of accounting for secondary employment, 
 
-- and sectoral hours in understanding structural change in settings characterized by multi-activity livelihoods.
+- and sector hours in understanding structural change in settings characterized by multi-activity livelihoods.
 
 ---
 
@@ -767,7 +773,7 @@ Households without a high school graduate tend to increase labor diversification
   &lt;img src="figures/plu1_s1_edu0.png" style="width: 100%; max-width: 350px;" /&gt;
   &lt;img src="figures/plu1_s1_edu1.png" style="width: 100%; max-width: 350px;" /&gt;
   &lt;img src="figures/plu1_s1_edu2.png" style="width: 100%; max-width: 350px;" /&gt;&lt;br&gt;
-  &lt;span style="margin-right: 170px; margin-left: 150px;"&gt;All&lt;/span&gt;Without High School Graduate&lt;span style="margin-right: 100px;margin-left: 130px;"&gt;With High School Graduate&lt;/span&gt;
+  &lt;span style="margin-right: 220px; margin-left: 150px;"&gt;All&lt;/span&gt;Without High School Graduate&lt;span style="margin-right: 50px;margin-left: 100px;"&gt;With High School Graduate&lt;/span&gt;
 &lt;/div&gt;
 
 ---
@@ -789,15 +795,17 @@ IZs increase household labor diversification across members &amp; sectors.
 
 --
 
-But this effect is entirely driven by households without a high school graduate.
+But this effect is **entirely driven by households without a high school graduate**.
 
 --
 
-This suggests that labor diversification serves as a strategic response for those with limited access to stable, high-return formal employment. 
+`\(\rightarrow\)` labor diversification serves as a strategic response for those with limited access to stable, high-return formal employment. 
 
 --
 
-In the absence of educational credentials needed for such jobs, less-educated households rely on sectoral diversification to navigate segmented labor markets.
+In the absence of educational credentials needed for such jobs,
+
+- less-educated households rely on sectoral diversification to navigate segmented labor markets.
 
 
 ---
@@ -821,7 +829,7 @@ The results can be grouped into four main outcome categories:
 
 Given the distinct patterns of labor adjustment observed, the implications for household welfare are not straightforward.
 
-- some members leaving paid employment---whether to pursue education or assume domestic responsibilities---may reduce total income.
+- some members leaving paid employment—whether to pursue education or assume domestic responsibilities—may reduce total income.
 
 - transitions into higher-quality jobs (agriculture to informal or formal non-agricultural work) could improve earnings potential. 
 
@@ -838,20 +846,20 @@ The following focuses on how these shifts in labor allocation impact material we
 
 # Labor Compensation Improvement 
 
-Improvement in labor compensation from wage work and household activities.
+Improved labor compensation **from wage work and household activities**.
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/adj_earnings_w_s1_age0_edu0.png" style="width: 100%; max-width: 350px;" /&gt;
   &lt;img src="figures/adj_earnings_hh_h_s1_age0_edu0.png" style="width: 100%; max-width: 350px;" /&gt;
   &lt;img src="figures/adj_earnings_tot_h_s1_age0_edu0.png" style="width: 100%; max-width: 350px;" /&gt;&lt;br&gt;
-  &lt;span style="margin-right: 170px; margin-left: 150px;"&gt;Wage&lt;/span&gt;Household Activities&lt;span style="margin-right: 100px;margin-left: 130px;"&gt;Total&lt;/span&gt;
+  &lt;span style="margin-right: 200px; margin-left: 120px;"&gt;Wage&lt;/span&gt;Household Activities&lt;span style="margin-right: 90px;margin-left: 200px;"&gt;Total Earnings&lt;/span&gt;
 &lt;/div&gt;  
   
 ---
 
 # Labor Compensation Improvement 
 
-Heterogeneous effects by income sources across education levels.
+**Heterogeneous effects by income sources** across education levels.
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/wage.jpeg" style="width: 100%; max-width: 800px;" /&gt;
@@ -861,13 +869,13 @@ Heterogeneous effects by income sources across education levels.
 
 # Labor Compensation Improvement 
 
-Focusing on individuals reporting positive household-activity income, effects are similar.
+Focusing on individuals reporting positive household-activity income, income growth effects are similar.
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/padj_earnings_hh_h_s1_age0_edu0.png" style="width: 100%; max-width: 350px;" /&gt;
   &lt;img src="figures/padj_earnings_hh_h_s1_age0_edu1.png" style="width: 100%; max-width: 350px;" /&gt;
   &lt;img src="figures/padj_earnings_hh_h_s1_age0_edu2.png" style="width: 100%; max-width: 350px;" /&gt;&lt;br&gt;
-  &lt;span style="margin-right: 170px; margin-left: 150px;"&gt;All&lt;/span&gt;Without High School Diploma&lt;span style="margin-right: 100px;margin-left: 130px;"&gt;With High School Diploma&lt;/span&gt;
+  &lt;span style="margin-right: 220px; margin-left: 180px;"&gt;All&lt;/span&gt;Without High School Diploma&lt;span style="margin-right: 10px;margin-left: 140px;"&gt;With High School Diploma&lt;/span&gt;
 &lt;/div&gt;
 
 --
@@ -876,14 +884,14 @@ Focusing on individuals reporting positive household-activity income, effects ar
 
 --
 
-- extending benefits even to those not directly employed in the industrial zones.
+- **extending benefits even to those not directly employed in the industrial zones**.
 
 
 ---
 
 class: inverse
 
-The results so far underscore the differential pathways through which individuals benefit from industrial zone development.
+The results so far underscore the **differential pathways through which individuals benefit** from industrial zone development.
 
 - Lower-educated workers rely on both wage and informal household-based income.
 
@@ -891,18 +899,20 @@ The results so far underscore the differential pathways through which individual
 
 --
 
-Despite these differential labor responses, the broader effects point to improved household welfare.
+Despite these differential labor responses, **the broader effects point to improved household welfare**.
 
 
 ---
 
 # Household Consumption Improvement 
 
+Comparable improvement in household consumption across households with different education levels.
+
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/adj_expen_pc_m_s1_edu0.png" style="width: 100%; max-width: 350px;" /&gt;
   &lt;img src="figures/adj_expen_pc_m_s1_edu1.png" style="width: 100%; max-width: 350px;" /&gt;
   &lt;img src="figures/adj_expen_pc_m_s1_edu2.png" style="width: 100%; max-width: 350px;" /&gt;&lt;br&gt;
-  &lt;span style="margin-right: 230px; margin-left: 150px;"&gt;All&lt;/span&gt;Without High School Grad&lt;span style="margin-right: 100px;margin-left: 150px;"&gt;With High School Grad&lt;/span&gt;
+  &lt;span style="margin-right: 250px; margin-left: 160px;"&gt;All&lt;/span&gt;Without High School Grad&lt;span style="margin-right: 50px;margin-left: 180px;"&gt;With High School Grad&lt;/span&gt;
 &lt;/div&gt;
 
 ---
@@ -919,21 +929,26 @@ Despite these differential labor responses, the broader effects point to improve
 
 Household welfare gains also extend to improved outcomes for school-age children, particularly adolescents.
 
---
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/child.jpeg" style="width: 100%; max-width: 650px;" /&gt;
+&lt;/div&gt;
 
-- no statistically significant effects are observed for children aged 10 to 14 in terms of labor force participation or school attendance.
 
-- adolescents aged 15 to 18 are significantly less likely to engage in income-generating activities 
+---
 
-  - and more likely to remain enrolled in school following exposure to industrial zones. 
+# Household Consumption Improvement
+
+Household welfare gains also extend to improved outcomes for school-age children, particularly adolescents.
+
+- No significant impacts on very young children (10-14).
+
+- Reduced labor and increased school attendance among adolescents (15-18).
 
 --
 
 Education-related expenditures increase by 25-30% for both age groups relative to pre-treatment levels. 
 
---
-
-These patterns are consistent across households irrespective of educational attainment. 
+- These patterns are consistent across households irrespective of educational attainment. 
 
 --
 
@@ -963,35 +978,29 @@ The results presented so far are robust to:
 
 ---
 
-class: inverse, middle, center
-
-# 
-
-&lt;div style="font-size: 25px; text-align: center;"&gt;
-  Conclusion
-&lt;/div&gt; 
-
----
-
 # Conclusion 
 
-This paper provides new evidence on the labor market and welfare impacts of place-based industrial policy.
+This paper provides new evidence on the labor market dynamics and welfare impacts of place-based industrial policy.
 
 --
 
-- Industrial zones drive labor reallocation, especially among those loosely tied to agriculture.
+- Industrial zones drive labor reallocation out of agriculture, especially among those loosely tied to agriculture.
+
+  - Those remain in agriculture sustain their working hours.
 
 --
 
-- Households—particularly less-educated—adapt by diversifying across formal and informal work.
+- Households—particularly less-educated—diversify across formal and informal work.
 
 --
 
 - Diversification offsets limited access to high-return formal jobs, spreading welfare gains.
 
+  - Income gains are allocated toward human capital investment.
+
 --
 
-These highlight that industrial zones can foster inclusive growth.
+These highlight that industrial zones can foster inclusive growth,
 
 - but need complementary support for agriculture and education.
 
@@ -1010,7 +1019,7 @@ class: inverse, middle, center
 # 
 
 &lt;div style="font-size: 25px; text-align: center;"&gt;
-  Thank you!
+  Thank you. Questions and comments can be directed to tpham@kdischool.ac.kr.
 &lt;/div&gt; 
 
 

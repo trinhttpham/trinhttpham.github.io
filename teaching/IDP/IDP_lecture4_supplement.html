@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to Development Policy</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Introduction to Development Policy
+]
+.subtitle[
+## Lecture 4: Regression and Hypothesis Testing - Supplements
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2025
+]
+
+---
+
+
+class: inverse
+
+When we evaluate whether a policy or program has had an impact, we often begin with a research question. 
+
+- For example: **Did a job training program increase people’s wages?**
+
+--
+
+To answer this, economists and statisticians use hypothesis testing.
+
+--
+
+We need to:
+
+- Step 1: Set up the hypotheses
+
+- Step 2: Use the data to test the hypotheses
+
+---
+
+# The hypotheses
+
+We set up two competing statements:
+
+- Null hypothesis `\((H_0)\)`: The program has no effect on wages.
+
+- Alternative hypothesis `\((H_1)\)`: The program does change wages.
+
+--
+
+**The goal is not to prove the program works.** 
+
+--
+
+Instead, **we test whether the data give us enough reason to reject the idea that it has no effect**.
+
+
+---
+
+# Evidence and Uncertainty
+
+If we collect data, we might find that participants in the program earn, on average, 10% more than non-participants. 
+
+--
+
+But is this difference because of the program, or could it just be due to random chance in the sample?
+
+--
+
+This is where uncertainty matters. 
+
+--
+
+We cannot know 100% for sure, but we can measure how likely it is that such a difference would appear just by chance.
+
+---
+
+# The p-value 
+
+The p-value answers this question: **If the program really had no effect, what is the probability of observing a difference as large as we found (or larger), just by chance?**
+
+--
+
+If the p-value is small (say, less than 0.05), we conclude it would be very unlikely to see this difference by chance alone.
+
+--
+
+Then we reject the null hypothesis and say the program likely had an effect.
+
+--
+
+If the p-value is not small, we cannot reject the null hypothesis. 
+
+- This doesn’t mean the program has zero effect.
+
+- It just means the evidence is not strong enough to make that conclusion.
+
+
+---
+
+# Confidence intervals
+
+Another way to express uncertainty is the confidence interval.
+
+--
+
+Suppose we estimate the impact of the training program as a 10% wage increase.
+
+- and the 95% confidence interval is from 3% to 17%.
+
+--
+
+This means we are fairly confident the true impact lies somewhere between 3% and 17%.
+
+--
+
+If the confidence interval includes zero, that suggests we cannot rule out no effect.
+
+--
+
+Confidence intervals are helpful because they show not only whether something is "statistically significant," but also how big the effect might plausibly be.
+
+
+---
+
+# Summary 
+
+- Hypothesis testing asks: Is there enough evidence to reject the idea of no program impact?
+
+--
+
+- The p-value gives a probability measure of how unusual the data would be if there was no effect.
+
+--
+
+- The confidence interval shows the range of possible true impacts, given the uncertainty.
+
+--
+
+Together, these tools help us make informed statements like:
+
+“The training program increased wages by about 10%, and we are reasonably confident the true effect is positive and between 3% and 17%.”
+
+
+---
+
+# Application to the poverty data 
+
+We are interested in the relationship between household head's education level and the household consumption per capita.
+
+--
+
+We run the following regression in Stata, and get the results.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/reg_poverty.png" style="width: 100%; max-width: 750px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Application to the poverty data
+
+Let us focus on the coefficient on **primary incomplete**.
+
+- The coefficient is 224.8728, with p-value of 0.203.
+
+- The 95% confidence interval is [-121.5601, 571.3056].
+
+- Remember, we interpret this coefficient **relative** to the base/reference group of having **no education**.
+
+--
+
+Here, we can state the hypotheses as:
+
+- Null hypothesis `\((H_0)\)`: There is **no difference** in per capita consumption between households whose heads having primary incomplete education and those without education.
+
+- Alternative hypothesis `\((H_1)\)`: There is **difference** in per capita consumption between households whose heads having primary incomplete education and those without education.
+
+---
+
+# Application to the poverty data
+
+Because the p-value is 0.203, which is greater than 0.05:
+
+- We **cannot reject the null hypothesis** of no difference in consumption between these households at the 5% significance level (or at the 95% confidence level).
+
+  - Note that we don't say "We accept the null hypothesis."
+
+- We can also say "the coefficient is not statistically significant at the 5% significance level."
+
+--
+
+How we should interpret the 95% confidence interval (95% CI)?
+
+- The 95% confidence interval is [-121.5601, 571.3056].
+
+- It means we are using a method that, over repeated samples, will produce this interval that contain the true difference in consumption between households with some incomplete education and those without education about 95% of the time.
+
+- It does **NOT** mean there is 95% chance that the true parameter is inside this particular interval.
+
+- Because our 95% CI contains 0, we are not confident that the consumption difference is real.
+
+ 
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt; 
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

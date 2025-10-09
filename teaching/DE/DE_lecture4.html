@@ -95,7 +95,7 @@ Why it is important to understand poverty traps?
 
 # A simple theoretical framework of poverty traps
 
-- Consider a model of income generation of a household `\(i\)` in time period `\(t\)`
+Consider a model of income generation of a household `\(i\)` in time period `\(t\)`
 
 `$$y_{it}=f_l(\alpha_{it}, k_{it} | N_t)$$`
 
@@ -120,19 +120,27 @@ where:
 
 # A simple theoretical framework of poverty traps
 
-For simplicity, let's consider no financial markets and informal transfers
+For simplicity, let's consider no financial markets and informal transfers.
 
-  - Household income generation: `\(y_{it}=f_l(\alpha_{it}, k_{it} | N_t)\)`
-  
-  - Household consumption: `\(c_{it}\leq k_{it} + y_{it}\)`
-  
-    - Household consumption in each period `\(t\)` cannot exceed their cash on hand (value of productive assets and current income)
+--
+
+- Household income generation: `\(y_{it}=f_l(\alpha_{it}, k_{it} | N_t)\)`
+
+--
+
+- Household consumption: `\(c_{it}\leq k_{it} + y_{it}\)`
+
+  - Household consumption in each period `\(t\)` cannot exceed their cash on hand (value of productive assets and current income)
+
+--
+
+- Productive capital in the next period: `\(k_{it+1}=[k_{it}+y_{it}-c_{it}][1+\delta_0+\delta_1(\theta_{it+1})]\)`
     
-  - Productive capital in the next period: `\(k_{it+1}=[k_{it}+y_{it}-c_{it}][1+\delta_0+\delta_1(\theta_{it+1})]\)`
-    
-    - which is a function of net cash in current period, rate of growth `\((\delta_0)\)` and a random shock `\((\theta_{it})\)` 
-    
-  - For now, human capability `\(\alpha_{it}\)` are fixed at an initial endowment level for each household.
+  - which is a function of net cash in current period, rate of growth `\((\delta_0)\)` and a random shock `\((\theta_{it})\)` 
+
+--
+
+- For now, human capability `\(\alpha_{it}\)` are fixed at an initial endowment level for each household.
   
 ---
 
@@ -258,14 +266,19 @@ Let's allow human capabilities evolve over time:
 
 
 `$$\alpha_{it+1}=[\alpha_{it}][1+\zeta_0(c_{it})+\zeta_1(\theta_{it})]$$`
+--
 
 `\(\zeta_0(c_{it})\)`: change in capabilities based on shock-induced consumption choices
 
   - e.g. reduced educational expenditures for children
-  
+
+--
+
 `\(\zeta_1(\theta_{it})\leq 0\)`: direct destruction of capabilities due to shocks
 
   - e.g. extreme temperature damages brain development, poverty reduces capabilities (e.g. through depression)
+
+--
 
 Either mechanism could lead to a scenario wherein a single shock could push households to chronic poverty if their capacities fall below `\(\alpha_0\)`.
 
@@ -427,7 +440,7 @@ Two equilibrium: different steady states depending on whether you have `\(k_l^*(
 
 # Multiple equilibrium poverty traps: Policy implications
 
-Persistently poor `\(\alpha&lt;\underline{\alpha}\)`
+Persistently poor `\((\alpha&lt;\underline{\alpha})\)`
 
   - Their capacities are too low.
   
@@ -439,7 +452,7 @@ Persistently poor `\(\alpha&lt;\underline{\alpha}\)`
   
 --
 
-"Middle-ability" `\(\underline{\alpha}&lt; \alpha&lt; \bar{\alpha}\)`
+"Middle-ability" `\((\underline{\alpha}&lt; \alpha&lt; \bar{\alpha})\)`
   
   - May be able to pull themselves out of poverty through asset accumulation.
   
@@ -743,13 +756,13 @@ Why can't we rely on observational data to trace out households' capital to iden
 
 # The productive asset transfer
 
-This paper creates an exogenous capital shock (same as Bandiera et al. 2017)
+This paper creates an exogenous capital shock (same as Bandiera et al. 2017).
 
 --
 
-  - One-off transfer (app. $500 worth) of productive assets to randomly selected ultra-poor HHs
+  - One-off transfer (app. $500 worth) of productive assets to randomly selected ultra-poor HHs.
   
-  - All women, 91% chose a cow
+  - All women, 91% chose a cow.
   
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/balboni4.png" style="width: 90%; max-width: 500px;" /&gt;
@@ -935,7 +948,7 @@ Let's look at another poverty intervention.
 
 ---
 
-# Banerjee et al. (2015)'s multisite RCT across six countries 
+# Banerjee et al. (2015)'s multisite RCT 
 
 Background: BRAC runs the "graduation program" targeting the poorest households, providing:
 
@@ -951,7 +964,7 @@ Background: BRAC runs the "graduation program" targeting the poorest households,
 
 --
 
-This paper evaluates the cost-effectiveness of the *same* intervention across a diverse set of contexts.
+This paper evaluates the cost-effectiveness of the **same intervention across a diverse set of contexts**.
 
 ---
 
@@ -967,9 +980,9 @@ This is a multi-site RCT: Ethiopia, Ghana, Honduras, India, Pakistan, Peru
   
   - In Ghana, Honduras, Peru, randomization was at both village and household levels.
   
-    - Similar to Haushofer and Shapiro (2016) to measure spillover effect
+    - Similar to Haushofer and Shapiro (2016) to measure spillover effect.
     
-    - The analysis here ignores the spillovers, include all pure control &amp; spillover households
+    - The analysis here ignores the spillovers, include all pure control &amp; spillover households.
     
 --
 
@@ -1000,17 +1013,17 @@ How do we evaluate the validity of this RCT research design?
 
 **Balance test**: They cannot reject at the 5% level the equality of means of treatment and control groups for any of the 10 primary outcomes
 
-  - Orthogonality shows similar balances
+  - Orthogonality shows similar balances.
   
 --
 
-**Attrition issue**: no difference between treatment &amp; control for the pool data
+**Attrition issue**: no difference between treatment &amp; control for the pool data.
 
-  - Though attrition is higher for the treatment group in Honduras at endline 1
+  - Though attrition is higher for the treatment group in Honduras at endline 1.
   
-  - Not much evidence of survey attrition leading to different sample frame
+  - Not much evidence of survey attrition leading to different sample frame.
   
-  - They still report estimates based on bounded sample using attrition rates as robustness
+  - They still report estimates based on bounded sample using attrition rates as robustness.
 
 
 ---
@@ -1129,17 +1142,19 @@ Question: How to account for multiple testing?
 ---
 
 
-# Plan for next week
+# Plan for make-up class (Friday, 10/17)
 
-- **Monday**: Human capital - Education
-
-  - Duflo, E. (2001). “Schooling and labor market consequences of school construction in Indonesia: Evidence from an unusual policy experiment”. American Economic Review 91.4, pp. 795–813
+- Lecture: Human capital - Education
   
   - Jensen, R. (2010). “The (perceived) returns to education and the demand for schooling”. Quarterly Journal of Economics 125.2, pp. 515–548
   
   - Adukia, A., S. Asher, and P. Novosad (2020). “Educational investment responses to economic opportunity: evidence from Indian road construction”. American Economic Journal: Applied Economics 12.1, pp. 348–376
 
-- **Wednesday**: Presentation
+- Presentations and Discussions
+
+  - Sujin presents &amp; Jiye discusses Duflo (2001)
+  
+  - Aung presents &amp; Afsana discusses Akresh et al. (2023)
   
 ---
 

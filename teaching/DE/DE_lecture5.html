@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Development Economics: Labor and Development</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 5: Human Capital (Education)
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2025
+]
+
+---
+
+
+# Roadmap
+
+- Simple framework of education decision
+  
+- Estimating returns to schooling 
+
+- Education interventions
+
+- Presentation 
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Some trends in education 
+&lt;/div&gt;
+
+
+---
+
+# Some trends in education 
+
+There has been steady increase in primary completion rate across countries.
+
+&lt;iframe src="https://ourworldindata.org/grapher/completion-rate-of-primary-education?tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+  
+  
+---
+
+# Some trends in education 
+
+But schooling is not the same as learning.
+
+  &lt;div style="text-align: center;"&gt;
+    &lt;img src="figures/wdr1.png" style="width: 90%; max-width: 600px;" /&gt;&lt;br&gt;
+    Source: World Bank
+  &lt;/div&gt;
+  
+  
+---
+
+# Some trends in education 
+
+Learning is highly correlated with income, both within...
+  
+  &lt;div style="text-align: center;"&gt;
+    &lt;img src="figures/wdr2.png" style="width: 90%; max-width: 600px;" /&gt;&lt;br&gt;
+    Source: World Bank
+  &lt;/div&gt; 
+  
+  
+---
+
+# Some trends in education 
+
+Learning is highly correlated with income, both within and across countries
+  
+  &lt;div style="text-align: center;"&gt;
+    &lt;img src="figures/wdr3.png" style="width: 90%; max-width: 600px;" /&gt;&lt;br&gt;
+    Source: World Bank
+  &lt;/div&gt;  
+
+
+---
+
+class: inverse 
+
+So, we see that more people are staying in school longer, but that doesn’t automatically mean they’re learning more. 
+
+--
+
+And yet, the learning that does happen is strongly tied to income — richer countries tend to have more learning, and within countries, higher-income individuals tend to achieve more academically.
+
+--
+
+This raises an important question: if education is so valuable, why don’t we see everyone maximizing their learning? 
+
+--
+
+What drives people to invest in education in the first place — and why do those choices differ?
+
+--
+
+To answer that, we need a framework for understanding how individuals make decisions about education.
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  A theoretical framework of education decision 
+&lt;/div&gt;
+
+
+
+---
+
+# A simple theoretical framework of education decision
+
+We assume education is an individual (not a household-level) decision, and it is based on weighing its costs and benefits. 
+
+--
+
+Let us consider a simple model of education decision (Magruder 2009): Individuals live for two periods: youth and adulthood. 
+
+&lt;div style="text-align: center;"&gt;
+    &lt;img src="figures/earnings.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;  
+
+--
+
+  - While in school, students receive intrinsic benefits `\(i\)`, and pay direct costs `\(c\)` (e.g., intuition).
+  
+--
+
+  - If individuals without schooling work, they receive unskilled wage `\(w_0\)`
+  
+  - If individuals with schooling work, they receive skilled wage `\(w_1 &gt; w_0\)`
+  
+
+
+---
+
+# A simple theoretical framework of education decision
+
+  
+Individuals discount future benefits at the rate `\(\delta = \frac{1}{1 + r} &lt;1\)` 
+
+  - Here `\(\delta\)` is the "discount factor", and `\(r\)` is the "discount rate".
+    
+--
+
+Individuals will decide to go to school when young if discounted lifetime benefits are greater with school than without 
+
+`$$\underbrace{i - c + \delta w_1}_{\text{net gain with school}} &gt;  \underbrace{w_0 + \delta w_0}_{\text{net gain without school}}$$`
+
+--
+
+or equivalently if:
+
+`$$\underbrace{i + \delta (w_1 - w_0)}_{\text{intrinsic + wage benefits}} &gt;  \underbrace{c + w_0}_{\text{direct + opp cost}}$$`
+
+---
+
+# A simple theoretical framework of education decision
+
+The private decision to go to school depends on the **five determinants** suggested by this equation. 
+
+`$$\underbrace{i + \delta (w_1 - w_0)}_{\text{intrinsic + wage benefits}} &gt;  \underbrace{c + w_0}_{\text{direct + opp. cost}}$$`
+
+--
+
+**Intrinsic value** of education `\((i)\)`: identity, peer networks, culture
+
+--
+
+**Expected returns** from schooling `\((w_1 - w_0)\)`: availability of employment opportunities, information about returns
+
+--
+
+**Direct cost** of schooling `\((c)\)`: influenced by supply-side aspects of educational services (e.g., distance, free/subsidized education)
+
+--
+
+**Opportunity cost** of schooling `\((w_0)\)`: 
+  
+  - e.g., child labor as a substitute for parent time in producing z-goods (fetching water, collecting firewood, taking care of younger
+ siblings), or on the labor market
+
+--
+
+**Discount factor** `\((\delta = \frac{1}{1 + r})\)`: the higher the discount rate `\(r\)`, the lower the discount factor `\(\delta\)`, and the lower the present value of
+ future benefits `\(w_1 - w_0\)` against which costs are compared
+  
+  
+---
+
+class: inverse
+
+
+
+
+
+This framework shows us that education decisions are shaped by a mix of intrinsic value, costs, opportunity costs, and how people value the future. 
+
+--
+
+But notice that one factor runs like a thread through many of these decisions — the expected returns to schooling.
+
+--
+
+Whether a family decides to keep a child in school often hinges on what they believe education will bring in terms of higher earnings, better jobs, or other tangible benefits. 
+
+--
+
+And those beliefs don’t always match reality.
+
+--
+
+Let’s now zoom in on this idea of ‘returns to education’ — how we measure it, what it actually is in the data, and why it can differ so much across contexts.
+
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Estimating return to schooling 
+&lt;/div&gt;
+
+
+---
+
+# Estimating returns to schooling: econometric issues
+
+Assume we are interested in estimating the return to schooling:
+
+  - i.e., the percentage increase in a person’s earnings (or other measurable outcomes) associated with an additional year of education or a higher qualification, holding other factors constant.
+
+--
+
+We estimate the following equation:
+
+$$ log(y_i) = \alpha + \beta S_i + \varepsilon_i$$ 
+
+--
+
+Does estimating the above equation with OLS yields unbiased estimate of the return to schooling?
+
+--
+Why or why not?
+
+--
+
+Schooling is **not randomly assigned**.
+
+--
+
+People with higher innate ability, stronger family support, better health, or more perseverance tend to both:
+
+  - Stay in school longer
+  
+  - Earn more regardless of schooling
+  
+--
+
+If we don’t control for those unobserved factors `\(U_i\)`, the estimated coefficient on schooling will capture both the true causal effect of schooling and the effect of those omitted variables (**omitted variable bias**).
+
+---
+
+# Estimating returns to schooling: econometric issues
+
+Assume we are interested in estimating the return to schooling:
+
+  - i.e., the percentage increase in a person’s earnings (or other measurable outcomes) associated with an additional year of education or a higher qualification, holding other factors constant.
+
+We estimate the following equation:
+
+$$ log(y_i) = \alpha + \beta S_i + \varepsilon_i$$ 
+
+If we don’t control for those unobserved factors `\(U_i\)`, the estimated coefficient on schooling will capture both the true causal effect of schooling and the effect of those omitted variables (**omitted variable bias**).
+
+--
+
+The OVB formula (see lecture 2): `\(\quad OVB = \gamma * \delta \quad\)`, where `\(U_i = \delta S_i + \zeta_i\)`, and `\(Y_i = \beta S_i + \gamma U_i + \eta_i\)`
+  
+--
+
+  - If the omitted traits are positively correlated with both schooling `\((\delta &gt; 0)\)` and earnings `\((\gamma &gt; 0)\)` then upward bias (we overstate the true causal return).
+
+--
+
+  - If some omitted factors work in the opposite direction (e.g., disadvantaged students who struggle stay in school longer because they have fewer immediate work options), we have downward bias.
+
+
+---
+
+# Instrumental variables for schooling
+
+A standard solution to estimate the return to schooling is to look for supply-side sources of variation in schooling.
+
+--
+
+An **instrumental variable** for schooling must satisfy three conditions:
+
+--
+What are these conditions?
+
+--
+
+  - relevance: IV must affect schooling choices.
+  
+  - independence: IV must not be correlated with the other unobserved traits.
+  
+  - exclusion: IV must not affect (e.g., labor market) outcomes if not through schooling.
+  
+--
+
+Examples of supply-side sources of variation in schooling:
+
+  - Minimum school-leaving age.
+  
+  - Tuition costs.
+  
+  - Geographic proximity of schools.
+  
+
+---
+
+# Card (2001)'s IV estimates of return to schooling
+
+If an instrument induces equal change in schooling for all groups, IV estimates the average return to schooling `\(\bar{\beta}\)`.
+
+--
+
+If not, IV estimate is a weighted average of individual return to schooling.
+
+- Weight equals to the relative size of the induced schooling change.
+
+- This is a Local Average Treatment Effect (LATE) (for the group of compliers).
+
+--
+
+IV estimates can also be biased:
+
+--
+
+  - Upward bias `\((b_{iv}&gt;\bar{\beta})\)` can arise due to "discount rate bias"
+
+    - Marginal return declines with education so those with higher marginal costs (who are more effected by cost reduction) tend to have higher marginal return.
+    
+--
+
+  - Downward bias `\((b_{iv}&lt;\bar{\beta})\)` can arise if people with higher marginal costs of schooling tend to have lower return of schooling.
+
+
+---
+
+# Duflo (2001)'s returns to schooling
+
+Background: school building program in Indonesia in the 1970s: 
+
+  - The program set a target number of primary schools to be built in each of the country's 281 districts, based on the enrollment rate of primary-school age children in the district in 1972.
+  
+--
+
+Duflo (2001) studies the effect of this program on education attainment, earnings, and then estimate the returns to schooling.
+
+  - Idea: the program should have a bigger effect for children who entered school later in 1970s and *no effect* for children who finished primary school before 1974.
+  
+  - Empirically, use interactions of year of  birth with program intensity in the district of birth as instruments for schooling.
+
+
+---
+
+# Duflo (2001)'s returns to schooling
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/duflo.png" style="width: 90%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Duflo (2001)'s returns to schooling
+
+Depending on specifications, IV estimates are somewhat larger in magnitude but also less precise.
+
+  - and none is significantly different from the corresponding OLS estimate.
+
+--
+
+Different interpretations according to Card (2001):
+
+--
+
+  - OLS estimates biased downward because measurement errors, which are then corrected by IVs. 
+  
+    - This is less compelling.
+  
+--
+
+  - Returns to education are heterogeneous across individuals and supply-side based IVs recover returns to education for a subset of individuals with relatively high returns to education.
+  
+    - Under this scenario, both OLS and IV estimates are likely to be upward-biased estimates of the average marginal return to education.
+
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Constraints to schooling and interventions
+&lt;/div&gt;
+
+
+---
+
+# Education interventions
+
+Recall that the private decision to go to school depends on the **five determinants**. 
+
+`$$\underbrace{i + \delta (w_1 - w_0)}_{\text{intrinsic + wage benefits}} &gt;  \underbrace{c + w_0}_{\text{direct + opp. cost}}$$`
+
+**Intrinsic value** of education `\((i)\)`: e.g., identity, peer networks, culture
+
+**Expected returns** from schooling `\((w_1 - w_0)\)`: e.g., employment opportunities, information about returns
+
+**Direct cost** of schooling `\((c)\)`: influenced by supply-side aspects of educational services (e.g., distance, free/subsidized education)
+
+**Opportunity cost** of schooling `\((w_0)\)`: e.g., child labor
+
+**Discount factor** `\((\delta = \frac{1}{1 + r})\)` 
+
+
+---
+
+# Education interventions
+
+**Expected returns** from schooling `\((w_1 - w_0)\)`: 
+
+  - change in school quality: teacher attendance (Duflo et al. 2012), teacher performance/incentives (Glewwe et al. 2010, Muralidharan and Sundararaman 2011)
+  
+  - beliefs about returns to education (Jensen 2010); beliefs about students' performance (Dizon-Ross 2019)
+
+**Direct cost** of schooling `\((c)\)`: 
+
+  - school uniform (Duflo et al., 2015, Evans and Ngatia 2021)
+  
+  - textbooks (Glewwe et al. 2009), scholarship (Kremer et al. 2009), tuition (Lucas and Mbiti 2012)
+  
+  - (conditional/unconditional) cash transfers literature
+  
+  - distance to school: school construction (Duflo 2001), bicycles (Muralidharan and Prakash 2017)
+
+**Opportunity cost** of schooling `\((w_0)\)`
+
+  - labor market opportunities and technology (Shah and Steinberg 2017, Ashraf et al. 2020, Adukia et al. 2020)
+
+
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Does road construction affect education? Adukia et al. (2020)
+&lt;/div&gt;
+
+
+---
+
+# Adukia et al. (2020): group discussion
+
+- What is the research question? Why is the paper considered a contribution?
+
+- Theoretically, how do new road connections affect schooling?
+  
+- What are the data sources?
+  
+  - What is the unit of observation?
+    
+  - What are the key variables and how are they constructed?
+  
+- What is the empirical strategy?
+  
+  - What is the main estimating equation?
+    
+  - How does identification work? What are the sources of exogenous variation?
+    
+  - Should we worry about any of the identification assumptions? 
+
+---
+
+# Road construction in India
+
+Background: India's national rural road construction program (PMGSY) built high quality roads to 115,000 villages across the country between 2001 and 2015.
+
+  - These connected over 30 million rural households to nearby towns.
+
+--
+
+Theoretically, how do new road connections affect schooling?
+
+--
+Ambiguous impacts.
+
+--
+
+  - They may increase the returns to education, thus increasing education.
+  
+--
+  
+  - They may increase the opportunity cost of schooling, thus decreasing education.
+  
+--
+  
+  - They may also have important income/liquidity effects.
+  
+--
+
+Adukia et al. (2020) study the impact of this program on educational outcomes.
+
+---
+
+# Road construction in India 
+
+Empirical challenges: road placement is endogenous.
+
+--
+
+Empirical solution:
+
+  - Exploit the timing of road completion in each village.
+  
+  - Exploit the program rule that caused villages above specific village population thresholds to be targeted for road construction.
+  
+---
+
+# Research design 1: Difference-in-Differences  
+
+Static TWFE and event-study TWFE:
+
+`$$Y_{i,s,t} = \beta ROAD_{i,s,t} + \gamma_{s,t} + \eta_i + \varepsilon_{i,s,t}$$`
+
+`$$Y_{i,s,t} = \sum_{\tau \in (-5, +5), \tau \neq 1}\zeta_{\tau}(1(t = t_{i,s}^{treatment} + \tau)) + \gamma_{s,t} + \eta_i + \varepsilon_{i,s,t}$$`
+
+--
+
+where 
+
+- `\(Y_{i,s,t}\)` is the outcome variable measured in village `\(i\)` and state `\(s\)` in year `\(t\)`.
+
+- `\(ROAD_{i,s,t}\)` is indicator fow whether the village has been connectedby a paved road by year `\(t\)`.
+
+- `\(\gamma_{s,t}\)` is state-year fixed effects, `\(\eta_i\)` is village fixed effects.
+
+- `\(\tau\)` is the number of years before or after road construction in the village.
+
+- Error term `\(\varepsilon_{i,s,t}\)` clustered at the village level to account for serial correlation in the dependent variable.
+
+--
+
+What is(are) the **identifying assumption(s)** with this research design? 
+
+--
+
+From the recent DiD innovations, does it make sense to run a static TWFE model?
+
+---
+
+# DID results: static TWFE model
+
+`$$Y_{i,s,t} = \beta ROAD_{i,s,t} + \gamma_{s,t} + \eta_i + \varepsilon_{i,s,t}$$`
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/road_table.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# DID results: event-study model
+
+`$$Y_{i,s,t} = \sum_{\tau \in (-5, +5), \tau \neq 1}\zeta_{\tau}(1(t = t_{i,s}^{treatment} + \tau)) + \gamma_{s,t} + \eta_i + \varepsilon_{i,s,t}$$`
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/road1.png" style="width: 90%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Research design 2: Regression Discontinuity 
+
+Below is the description of the road construction.
+
+--
+
+Which **RD design** is appropriate in this setting? Why? 
+
+--
+
+*Under PMGSY road construction guidelines, states were instructed to first target villages with populations greater than 1,000 in the population census, and then villages with population greater than 500*
+
+*Only some states followed these guidelines, however, and even then, states followed the guidelines to different degrees because there were often several conflicting guidelines.* 
+
+*In states where there were few unconnected villages with populations over 1,000, they tended to use the 500-person threshold immediately.*
+
+*In most states, construction proceeded in villages both above and below the population threshold simultaneously, but there were more villages treated above the threshold, and these were treated sooner.*
+
+*Population above a guideline threshold is therefore an imperfect predictor of treatment status.*
+
+
+
+
+---
+
+# Fuzzy RD 
+
+Recall that fuzzy RD can be estimated with the "first" and "second" stage IV model:
+
+`$$D_i = \theta 1\{X_i \geq 0\} + f(X_i) + f(X_i) \times 1\{X_i \geq 0\} + \varepsilon_i$$`
+`$$Y_i = \beta_{fuzzy}\hat{D}_i + f(X_i) + f(X_i)\times \hat{D}_i + \eta_i$$`
+
+--
+
+It is also common practice to run the "reduced form" regression:
+
+`$$Y_i = \beta_{reduced-form}1\{X_i \geq 0\} + f(X_i) + f(X_i)\times 1\{X_i \geq 0\} + \varepsilon_i$$`
+
+--
+
+For an RD paper, recall the checklist:
+
+- RD jump visualization
+
+- Balance test 
+
+- Bunching test 
+
+- Robustness to choice of estimation procedure, kernel, bandwidth
+
+---
+
+# Fuzzy RD: first-stage jump
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/road2.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# RD validity: balance test 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/road5.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# RD validity: bunching test 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/road4.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# RD validity: robustness 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/road7.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Fuzzy RD: reduced form 
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/road3.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+
+
+---
+
+# Heterogeneity vary across population
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/road6.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Smallest impacts** in districts where road connections are expected to raise the **opportunity cost the most**
+
+  - Opportunity cost proxied by district-level urban-rural wage gap.
+
+--
+
+**Largest impacts** in districts where road connections are expected to raise the **skill premium the most**
+
+  - Skill premium estimated from a Mincerian wage regression.
+
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Do perceived returns affect education? Jensen (2010)
+&lt;/div&gt;
+
+
+---
+
+# Perceived returns and schooling
+
+Background:
+
+  - Dominican Republic: 85% completion rate for primary school (8th grade) but only 30% completion rate for high school
+
+  - At baseline, students were asked about perceived wages for those who had completed primary school vs. those who had completed high school
+
+    - Perceived returns were about 2% per year (or 9% increase in wages if moving from 8th grade to 12th grade)
+    
+--
+    
+Jensen (2010) conducted an RCT
+
+  - Students at random set of schools were informed about the "true" returns (10% per year, or 40% for going from 8th grade to high school)
+
+    - These "true" returns are obtained from a Mincerian wage regression (any problem with this?)
+
+  - Students were found to update their beliefs.
+  
+---
+
+# Perceived returns and schooling
+
+Jensen found that **correcting beliefs increased average education by 0.2 years** of schooling (column 3).
+
+  - But the effects are heterogeneous across wealth groups, suggesting credit constraints (columns 7 vs. 11).
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/jensen.png" style="width: 95%; max-width: 850px;" /&gt;
+&lt;/div&gt;
+
+
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  What happens if parents mis-perceive costs and returns?
+&lt;/div&gt;
+
+---
+# Parents' misperceptions
+
+In Malawi, parents have distorted beliefs about their children ability.
+  
+  &lt;div style="text-align: center;"&gt;
+    &lt;img src="figures/ross1.png" style="width: 95%; max-width: 600px;" /&gt;
+  &lt;/div&gt;
+
+--
+
+  - Panel A: the absolute difference between true score and baseline beliefs is 20 points.
+
+--
+
+  - Panel B: if parents were correct, we would expect a 45 degree line relationship, but:
+  
+--
+
+    - they **overestimate low-performing** children, and **underestimate high-performing** children.
+
+---
+
+# Parents' misperceptions
+
+As a result, they pick the wrong workbooks for their children.
+  
+&lt;div style="text-align: center;"&gt;
+&lt;br&gt;
+  &lt;img src="figures/ross2.png" style="width: 95%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Parents' misperceptions
+
+Dizon-Ross (2019) studies how correcting such misconceptions can influence their education investment.
+
+--
+
+RCT: Treatment households were provided information about their children's achievement--school report card with detailed explanation.
+
+- Examples of school report card: existing (left) vs. new (right)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ross5.png" style="width: 95%; max-width: 900px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Parents' misperceptions
+
+Providing information **aligns beliefs better with students' test scores**..
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ross3.png" style="width: 95%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Parents' misperceptions
+
+Providing information aligns beliefs better with students' test scores and helps parents **make better education investments**.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ross4.png" style="width: 95%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+Many more interesting results (e.g., invest more in better performing children among siblings).
+
+
+  
+---
+
+
+# Plan for next week
+
+- **Monday**: Human capital - Health 
+  
+  - Miguel, E. and M. Kremer (2004). "Worms: identifying impacts on education and health in the presence of treatment externalities". Econometrica 72.1, pp. 159–217
+  
+  - Karing, A. (2024). "Social signaling and childhood immunization: A field experiment in Sierra Leone". Quarterly Journal of Economics
+
+- **Wednesday**: Presentations and Discussions
+  
+  
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 28px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt; 
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Development Economics: Labor and Development</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 8: Urban Labor Markets
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2025
+]
+
+---
+
+
+&lt;iframe src="https://ourworldindata.org/grapher/unemployment-rate?tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Roadmap
+  
+The statistics we've just seen highlight the persistent challenge of (urban) unemployment in many countries.
+
+--
+
+In today's lecture, we will explore why these patterns emerge—by examining both theoretical models and empirical evidence.
+
+--
+
+We will start with the Harris-Todaro model, which offers a framework to understand rural-urban migration and labor market dynamics in developing economies. 
+
+--
+
+We will then review recent empirical research on signaling, training, and their roles in shaping urban employment outcomes.
+
+--
+
+Our goal is to connect observed unemployment statistics with deeper insights from economic theory and real-world data, equipping us to analyze labor market policies with rigor and nuance.
+
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  The Harris-Todaro model 
+&lt;/div&gt; 
+
+
+---
+
+# Background 
+
+The Harris-Todaro model, developed in 1970, is a foundation economic model used to explain rural-urban migration in developing countries
+
+- by focusing on expected income rather than just wage differentials. 
+
+--
+
+The model assumes migrants decide to move based on the expected urban wage:
+
+- which accounts for both the urban wage level and the probability of finding employment in the urban sector. 
+
+--
+
+Migration continues as long as the expected urban wage exceeds rural income
+
+- even if urban unemployment is high, explaining persistent migration despite visible urban job scarcity.
+
+---
+
+# Setup 
+
+The economy consists of two sectors: rural (agriculture) and urban (formal manufacturing/services).
+
+--
+
+**Urban sector employment constraint**: The urban sector has a fixed number of formal jobs, `\(E_U\)`:
+
+- which does not immediately adjust with labor supply increases.
+
+--
+
+**Urban labor supply**: The total number of workers in the urban labor market is the existing urban employment plus migrants:
+
+`$$N_U + N_M$$` 
+
+--
+
+**Probability of getting a formal job**: Because urban formal jobs `\(E_U\)` are fixed, the probability that any urban worker (including a migrant) obtains a formal job is:
+
+`$$p = \frac{E_U}{N_U + N_M}$$`
+
+- This reflects competition for limited urban jobs.
+
+
+---
+
+# Setup 
+
+**Expected urban wage**: Migrants evaluate the expected wage in the urban sector based on the probability `\(p\)`. 
+
+- If formal employment is found (with probability `\(p\)`), wage is `\(w_U\)`.
+
+- Otherwise, with probability `\((1-p)\)`, they earn informal sector wages `\(w_I\)` or zero.
+
+`$$\text{expected urban income} = p \times w_U + (1-p)w_I$$` 
+
+--
+
+**Migration decision rule**: Workers migrate from rural to urban if and only if the expected urban income exceeds rural income:
+
+`$$pw_U + (1-p)w_I &gt; w_R$$`
+
+--
+
+**Equilibrium**: Migration continues until workers are indifferent between staying rural or migrating:
+
+`$$pw_U + (1-p)w_I = w_R$$`
+
+--
+
+Given the fixed number of formal jobs and growing urban labor supply, urban employment rate `\(u\)` is:
+
+`$$u = 1 - p = 1 - \frac{E_U}{N_U + N_M}$$`
+
+---
+
+# Policy implications 
+
+How should developing countries react to the spread of urban slums?
+
+--
+
+Create new jobs in the urban formal sector? 
+
+--
+Not the right solution.
+
+--
+
+- The policy can increase both the number of migrants and the number of unemployed.
+  
+--
+
+Reduce the gap between urban and rural wages?
+
+--
+
+- Lower urban wage: e.g., resist excessive union power when there is too much unemployment.
+
+--
+
+- Push rural wage: e.g., rural development programs, land reform, better technology and institutions 
+
+  - goal is to improve productivity in agriculture, and decentralize employment toward rural areas in order to create a thriving rural non-farm economy.
+
+---
+
+class: inverse 
+
+The Harris-Todaro model explains persistent urban unemployment due to rural-urban migration and fixed formal-sector jobs.
+
+--
+
+However, urban labor markets also face other important frictions that influence unemployment and job matching efficiency.
+
+--
+
+One of the most critical frictions is informational frictions:
+
+--
+
+- Poor or asymmetric information about worker skills and productivity.
+
+--
+
+- Difficulty for firms to evaluate applicants and for workers to signal their abilities.
+
+--
+
+- Leads to mismatches, longer job search times, and unemployment or underemployment despite available jobs.
+
+
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  Informational frictions
+&lt;/div&gt; 
+
+---
+
+# Signaling 
+
+
+- Job search is a big labor topic in developed countries
+
+  - It has been recently examined in developing country settings
+  
+- Are frictions such as limited information a big part of the challenge?
+
+
+---
+
+# Setup 
+
+Consider two types of workers: high productivity `\(\theta_H\)` and low productivity `\(\theta_L &lt;\theta_H\)`.
+
+--
+
+Probability of high type is `\(\lambda\)`, and of low type is `\(1 - \lambda\)`.
+
+--
+
+Firms cannot observe `\(\theta\)` directly but observe a costly signal `\(s\)` chosen by workers.
+
+--
+
+Cost of signaling for worker of type `\(\theta\)` is `\(c(s, \theta)\)`, decreasing in productivity:
+
+`$$c(s, \theta_H) &lt; c(s, \theta_L) \quad \forall s &gt; 0$$`
+
+- e.g., education is less costly for high-productivity workers.
+
+---
+
+# Setup 
+
+Model timing:
+
+- Worker chooses signal level `\(s \geq 0\)`
+
+- Firms observe `\(s\)` and form beliefs about worker productivity.
+
+- Firms offer wage `\(w(s)\)`, based on expected productivity conditional on `\(s\)`.
+
+- Worker receives wage and pays signaling cost.
+
+--
+
+Firms' expected wage:
+
+`$$w(s) = E[\theta|s] = P_H(s)\theta_H + (1-P_H(s))\theta_L$$`
+where `\(P_H(s)\)` is the probability worker is high type given `\(s\)`.
+
+--
+
+Workers' utility: `\(U(s,\theta) = w(s) - c(s, \theta)\)`
+
+Workers maximize utility by choosing `\(s\)`.
+
+---
+
+# Equilibirum 
+
+Separating equilibrium conditions:
+
+- High-productivity workers choose `\(s = s_H &gt;0\)`
+
+- Low-productivity workers choose `\(s = 0\)` (no signal).
+
+- Firms infer that `\(s = s_H\)` `\(\rightarrow\)` high type, and `\(s = 0\)` `\(\rightarrow\)` low type.
+
+--
+
+Thus,
+
+- For high type:
+
+`$$U(s_H, \theta_H) \geq U(0, \theta_H) \Rightarrow w(s_H) - c(s_H, \theta_H) \geq w(0)$$`
+
+- For low type:
+`$$U(0, \theta_L) \geq U(s_H, \theta_L) \Rightarrow w(0) \geq w(s_H) - c(s_H, \theta_L)$$`
+
+--
+
+These are  incentive comparability constraints ensuring truthful signaling.
+
+---
+
+# Intuition for Urban Labor Markets
+
+Only high-productivity workers find it worthwhile to pay the signaling cost.
+
+--
+
+Firms reward signals, allowing better screening despite imperfect information.
+
+--
+
+Informational frictions generate wage differentials and can exclude low-productivity workers from higher-paying jobs, causing inefficiencies and unemployment.
+
+--
+
+This model provides a theoretical foundation on how information asymmetries and costly signaling mechanisms shape worker-firm matching and wage determination in urban labor markets.
+
+--
+
+But how do these signaling strategies play out in real-world developing country contexts, especially urban labor markets characterized by informational frictions?
+
+--
+
+Carranza et al. (2022, AER) investigate this empirically, analyzing how signaling through education affects job outcomes among urban workers under imperfect information.
+
+
+---
+
+
+# Carranza et al. (2022) 
+
+**Job Search and Hiring with Limited Information about Workseekers’ Skills**
+
+--
+
+Information frictions are likely:
+
+  - Young workseekers have no work experience.
+
+  - Workseekers report grades, but grades are weakly correlated with skills.
+  
+--
+    
+Wrong hires are costly to firms
+
+  - Reservation and legal minimum wages exist: high compliance in the formal sector.
+  
+  - Employment rates are low, especially for youths.
+
+--
+
+Carranza et al. (2022) conducted RCTs to study how to credibly signal jobseekers' skills.
+
+
+---
+
+# The intervention
+
+**Treatment 1**: Workseekers receive **job search counseling, obtain skill assessment and receive World Bank branded certificate** 
+
+- To give credible signaling that workseekers can easily share with prospective employers
+
+--
+
+**Treatment 2**: Similar to (1) but workseekers receive **private unbranded certificate**
+
+  - To see if people are learning information about themselves (as opposed to signaling)
+
+--
+
+**Treatment 3**: Run an **audit experiment, creating job applications with and without certificate**
+
+  - To test if employer-side limited information
+
+--
+
+**Control**: Workseekers receive job search counseling but do not obtain any certificate
+
+---
+
+# Public certificate
+
+ &lt;div style="text-align: center;"&gt;
+    &lt;img src="figures/jobsignal1.png" style="width: 90%; max-width: 500px;" /&gt;
+  &lt;/div&gt;  
+
+---
+
+# Private certificate
+
+&lt;div style="text-align: center;"&gt;
+    &lt;img src="figures/jobsignal2.png" style="width: 90%; max-width: 500px;" /&gt;
+  &lt;/div&gt;  
+
+
+---
+
+# Results 
+
+Public certificate has positive impacts on labor market outcomes
+
+&lt;div style="text-align: center;"&gt;
+    &lt;img src="figures/jobsignal3.png" style="width: 90%; max-width: 700px;" /&gt;
+  &lt;/div&gt;  
+  
+
+---
+
+# Results 
+
+More information improves the value of firm-worker matches
+
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/jobsignal4.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;  
+  
+- If more information only increases job-finding rates, we would have observed large and positive treatment effects from 66-71 percentiles where the marginally employed workseekers went from zero to positive but low earnings, and zero for all other percentiles
+
+---
+
+# Results 
+
+Private versus public certificate: own assessment
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/jobsignal5.png" style="width: 90%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Results 
+
+Private versus public certificate: labor market outcomes
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/jobsignal6.png" style="width: 90%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Results 
+
+Private versus public certificate: labor market outcomes
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/jobsignal7.png" style="width: 90%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+class: inverse 
+
+- The treatment effects of the public and private certification interventions are evidence that both firms and workseekers face limited information 
+
+  - and that providing more information leads to quantitatively important improvements in labor market outcomes
+  
+--
+
+- These might reflect both firm- and worker-side learning
+
+--
+
+- To directly test if there exists limited information from the firm side, they run an audit experiment
+
+
+---
+
+# Audit study
+
+What is an audit study?
+
+--
+
+- Often used to investigate discrimination or other hidden behaviors by simulating a situation in which we can control for all observable factors except the characteristics of interest
+
+--
+
+- Involved sending out "test" individuals ("auditor") with similar characteristics but varying only the variable of interest
+
+--
+
+Some examples:
+
+  - Bertrand and Mullainathan (2004) compare employers' responses to similar fake resumes with blacker-sounding and whiter-sounding first names to study racial discrimination
+  
+
+---
+
+# Carranza et al. (2022)'s audit study
+
+They invite candidates to send them resume, they then forward resume on behalf of candidates to prospective employers
+
+--
+
+Three-stage randomization:
+
+  - Generate multiple applications per candidate, randomly assign half to treatment (public certificate) and half to control (no certificate)
+    
+  - Randomize vacancies to receive either one or three applications with certificates
+    
+  - Randomly match applications to vacancies, subject to the target number of treated and control applications and constraint that no candidate's application is sent to the same vacancy more than once
+  
+  
+---
+
+# Audit study: Results
+
+More informative applications lead to higher callback and interview invitation rates in a *low-information* environment
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/jobsignal8.png" style="width: 90%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+---
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  Presentations and Discussions
+&lt;/div&gt; 
+
+
+
+
+---
+
+
+
+# Plan for next week
+
+Monday: Labor markets and structural transformation
+
+  - Required readings: Donovan et al. (2023), Feng et al. (2024), Porzio et al. (2022)
+
+ 
+Wednesday: The role of agriculture in structural transformation
+
+  - Required readings: Bustos et al. (2016)
+  
+  - Presentations and Discussions
+  
+---
+
+
+class: inverse, middle, center
+
+# 
+
+&lt;div style="font-size: 25px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt; 
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

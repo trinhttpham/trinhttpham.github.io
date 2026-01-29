@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to Development Policy</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Introduction to Development Policy
+]
+.subtitle[
+## Lecture 8: Human Capital (Health)
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Spring 2026
+]
+
+---
+
+
+# Opening question
+
+In rural India, public health clinics are **free**.
+
+--
+
+Yet most people **pay out of pocket** to see private doctors.
+
+--
+
+Here's the puzzle:
+
+--
+
+.pull-left[
+**Public clinics**
+- Free services
+- Government-funded
+- Should serve the poor
+]
+
+.pull-right[
+**Private "doctors"**
+- Charge fees
+- 82% have no medical training
+- Often prescribe unnecessary drugs
+]
+
+&lt;style&gt;
+.pull-left { width: 45%; margin-left: 2.5%; }
+.pull-right { width: 45%; margin-right: 2.5%; }
+&lt;/style&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Why would poor families pay for unqualified private care when free public care exists?**
+]
+
+--
+
+Today we'll explore what's broken in health systems and what works to fix them.
+
+---
+
+# Today's roadmap
+
+**Session 1: Understanding Health**
+
+--
+
+- What is health and how do we measure it?
+- Health indicators across countries
+- Supply-side determinants: The Udaipur case study
+
+--
+
+&lt;br&gt;
+
+**Session 2: Policy Interventions**
+
+--
+
+- Supply-side solutions (community monitoring, incentives)
+- Demand-side determinants and barriers
+- Evidence: Deworming in Kenya
+
+---
+
+class: inverse, middle, center
+
+# Session 1
+
+&lt;div style="font-size: 22px; margin-top: 10px;"&gt;
+Understanding Health
+&lt;/div&gt;
+
+---
+
+# What is health?
+
+Health is a form of human capital — but it's complex and multidimensional.
+
+--
+
+**WHO definition:** 
+
+&gt; "A state of complete physical, mental, and social wellbeing and not merely the absence of disease and infirmity."
+
+--
+
+&lt;br&gt;
+
+This means:
+- Health is more than just "not being sick"
+- It includes mental and social dimensions
+- It's difficult to measure with a single indicator
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**We need multiple indicators** to characterize the health status of a population.
+]
+
+---
+
+# Why is health under-provided?
+
+Like education, markets alone fail to provide enough health services.
+
+--
+
+**Positive externalities**
+- Vaccinating one person protects others (herd immunity)
+- Treating infectious diseases reduces spread
+- Healthier workers → more productive economy
+
+--
+
+**Public good characteristics**
+- Disease control benefits everyone
+- Knowledge about health is non-rivalrous
+
+--
+
+**Market failures**
+- Private providers may not serve poor/remote areas
+- Information asymmetries between doctors and patients
+- Credit constraints prevent investment in health
+
+--
+
+**Strong case for government intervention** — but as we'll see, public systems often fail too.
+
+---
+
+class: inverse, middle, center
+
+# Health Indicators
+
+&lt;div style="font-size: 20px; margin-top: 10px;"&gt;
+How do we measure population health?
+&lt;/div&gt;
+
+---
+
+# Life expectancy at birth
+
+**Definition:** Average number of years a newborn is expected to live, assuming current mortality rates continue.
+
+--
+
+This is the most commonly used indicator of overall population health.
+
+--
+
+**Limitations:**
+- Doesn't measure quality of life during those years
+- Doesn't capture the WHO definition of "wellbeing"
+
+--
+
+&lt;br&gt;
+
+Life expectancy has increased dramatically worldwide — but huge disparities remain.
+
+---
+
+# Life expectancy: Global patterns
+
+&lt;iframe src="https://ourworldindata.org/explorers/population-and-demography?tab=map&amp;time=1978&amp;hideControls=true&amp;indicator=Life+expectancy&amp;Sex=Both+sexes&amp;Age=Under+1+year&amp;Projection+scenario=High&amp;country=CHN~IND~USA~IDN~PAK~NGA~BRA~JPN" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Health-adjusted life expectancy (HALE)
+
+**HALE** accounts for quality, not just quantity of life: `\(HALE = \text{Life expectancy} - \text{Years lost to disability and disease}\)`
+
+&lt;iframe src="https://ourworldindata.org/grapher/healthy-life-expectancy-at-birth?time=latest&amp;tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Infant mortality rate
+
+**IMR**: infants are most vulnerable to health conditions. IMR responds quickly to changes in health environment.
+
+--
+
+&lt;iframe src="https://ourworldindata.org/grapher/infant-mortality?tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Burden of disease (DALYs)
+
+**DALYs** (Disability-Adjusted Life Years) measure years of "good" life lost due to: premature death and living with disability or illness
+
+&lt;iframe src="https://ourworldindata.org/grapher/dalys-rate-from-all-causes?tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Burden of disease: Driven by child health
+
+The global decrease in disease burden is mostly driven by improvements in **child health**.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/burden_age.png" style="width: 100%; max-width: 650px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Burden of disease: Different causes by income
+
+.pull-left[
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/burden_lic.png" style="width: 100%; max-width: 500px;" /&gt;&lt;br&gt;
+  &lt;small&gt;Low-income countries&lt;/small&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/burden_hic.png" style="width: 100%; max-width: 500px;" /&gt;&lt;br&gt;
+  &lt;small&gt;High-income countries&lt;/small&gt;
+&lt;/div&gt;
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Policy implication:** Health priorities differ by development level.
+]
+
+---
+
+# Hunger and malnutrition indicators
+
+| Indicator | What it measures | Notes |
+|-----------|------------------|-------|
+| **Daily calorie intake** | Food consumption | Based on recall/diaries |
+| **Micronutrient deficiencies** | Iron, zinc, vitamin A levels | Requires blood tests; "hidden hunger" |
+| **Stunting** | Height-for-age | Reflects long-term/early malnutrition |
+| **Wasting** | Weight-for-height | Reflects current nutritional status |
+| **BMI** | Weight/height² | General nutritional status |
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Multiple indicators needed** — someone can have adequate calories but still suffer micronutrient deficiencies.
+]
+
+---
+
+# Summary: Health indicators
+
+| Indicator | What it captures | Limitation |
+|-----------|------------------|------------|
+| **Life expectancy** | Overall mortality | Not quality of life |
+| **HALE** | Healthy years lived | Complex to calculate |
+| **Infant mortality** | Health system quality | Only captures one age group |
+| **DALYs** | Disease burden | Data-intensive |
+| **Anthropometrics** | Nutritional status | Doesn't capture all health dimensions |
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**No single perfect measure** — use multiple indicators for a complete picture.
+]
+
+---
+
+class: inverse, middle, center
+
+# Supply-Side Determinants
+
+&lt;div style="font-size: 20px; margin-top: 10px;"&gt;
+Why do health systems fail?
+&lt;/div&gt;
+
+---
+
+# Supply-side challenges in developing countries
+
+Health systems in poor countries face major obstacles:
+
+--
+
+**Resource constraints**
+- Weak fiscal resources for public health
+- Low availability of qualified medical personnel
+- Inadequate infrastructure (clinics, equipment)
+
+--
+
+**Personnel problems**
+- Difficulty attracting qualified doctors to rural areas
+- High absenteeism among public health workers
+- Low motivation and accountability
+
+--
+
+**Targeting challenges**
+- Difficulty ensuring free services reach the poor
+- Elite capture of public resources
+
+--
+
+Let's examine a detailed case study from India.
+
+---
+
+# Case study: Health care in rural Rajasthan
+
+**Study:** Banerjee, Deaton, and Duflo (2004)
+
+**Setting:** Udaipur district, one of the poorest in India
+- Large tribal population
+- Unusually high female illiteracy
+- 100 villages, ~1000 households surveyed
+
+--
+
+**Research questions:**
+1. What is the health status of rural populations?
+2. How do people access health care?
+3. Why don't people use free public facilities?
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Although the data are from 2002-2003, the lessons remain highly relevant today.**
+]
+
+---
+
+# Finding 1: Health status is poor
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/health1.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Key findings:**
+- **BMI:** 88% of women and 93% of men have BMI below 21 (average = 18)
+- **Respiratory problems:** Average peak flow of 316 ml (below 350 indicates difficulty)
+- **Anemia:** 56% of women and 51% of men are anemic
+
+---
+
+# Finding 2: People rarely use public facilities
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/health2.png" style="width: 100%; max-width: 450px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Key findings:**
+- Households visit health facilities about once every two months
+- **Most visits are to private facilities**, not public ones
+- Surprisingly, **the poor use public facilities even less** than the non-poor
+
+---
+
+# Finding 3: Health is a major expense
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/health3.png" style="width: 100%; max-width: 650px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Key finding:** A high share of household budget goes to health — **even among the poorest families**.
+
+---
+
+# The puzzle
+
+**Why don't people use the free public health system?**
+
+--
+
+On paper, India has an ideal public health structure:
+
+| Level | Coverage | Services |
+|-------|----------|----------|
+| **Sub-center** | 1 per 3,000 people | Nurse provides preventive care, referrals |
+| **Primary Health Center (PHC)** | 1 per 50,000 people | Basic treatment |
+| **Community/District Hospital** | Regional | Serious cases |
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**This looks good on paper — but what's the reality?**
+]
+
+---
+
+# Reality: Massive absenteeism
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/health5.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Shocking findings:**
+- **56% of sub-centers** had doors closed when surveyors visited
+- **45%** had no personnel found at all
+- Even at larger facilities, **78%** had at least one medical staff missing
+
+---
+
+# Reality: Private sector is unregulated
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/health4.png" style="width: 100%; max-width: 650px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Among private "doctors" surveyed:**
+- **8%** had not graduated from class 10 (high school)
+- **18%** had no medical or paramedical training
+- **82%** had no medical training whatsoever
+
+---
+
+# The vicious cycle
+
+**Why are public facilities empty and staff absent?**
+
+--
+
+Two reinforcing explanations:
+
+--
+
+**1. Patients are discouraged by absenteeism**
+- If nurses are often absent, why bother going?
+- Patients switch to private providers (even if unqualified)
+
+--
+
+**2. Staff are discouraged by low patient numbers**
+- If few patients come, why show up?
+- No accountability, no consequences for absence
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**These two problems reinforce each other** — creating a downward spiral in public health care quality.
+]
+
+---
+
+# Session 1 summary
+
+--
+
+**Health is multidimensional** — we need multiple indicators (life expectancy, infant mortality, DALYs, nutrition measures).
+
+--
+
+**Health systems are under-provided** due to externalities, public good characteristics, and market failures.
+
+--
+
+**Supply-side challenges** in developing countries include resource constraints, personnel problems, and weak accountability.
+
+--
+
+**The Udaipur case study** reveals:
+- Poor health status despite available public facilities
+- Massive absenteeism in public clinics
+- People pay for unqualified private care instead
+- A vicious cycle of low demand and low supply quality
+
+--
+
+&lt;br&gt;
+
+**Next:** What can be done to fix these problems?
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+class: inverse, middle, center
+
+# Session 2
+
+&lt;div style="font-size: 22px; margin-top: 10px;"&gt;
+Policy Interventions
+&lt;/div&gt;
+
+---
+
+class: inverse, middle, center
+
+# Supply-Side Solutions
+
+&lt;div style="font-size: 20px; margin-top: 10px;"&gt;
+Can we fix public health care?
+&lt;/div&gt;
+
+---
+
+# Solution: Community monitoring in Uganda
+
+**The problem:** Uganda's health centers had 47% staff absence rate in 2004.
+
+--
+
+**The intervention:** Björkman and Svensson (2009) tested a grassroots approach
+
+--
+
+**How it worked:**
+
+1. **Household survey** — collected data on experiences with public health facilities
+
+2. **Community meeting** — shared survey results with villagers
+
+3. **Health center meeting** — shared results with health workers
+
+4. **Interface meeting** — community and health workers create joint action plan
+
+5. **Ongoing monitoring** — community members monitor facility performance
+
+---
+
+# Uganda: Study design
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/monitoring.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Design:** Randomized controlled trial comparing communities with vs. without the intervention.
+
+---
+
+# Uganda: Results on process
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/monitoring2.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Finding:** Treatment communities became significantly more involved in monitoring health workers.
+
+---
+
+# Uganda: Results on outcomes
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/monitoring3.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Findings:** In treatment communities:
+- Health workers were more present
+- Health utilization improved
+- **Health outcomes improved** (including child mortality)
+
+---
+
+# Other supply-side interventions that work
+
+Evidence from NGOs and research shows these interventions are effective:
+
+--
+
+| Intervention | What it does |
+|--------------|--------------|
+| **Community health workers** | Bring basic services to villages |
+| **Small incentives for vaccination** | Increase immunization rates |
+| **Subsidized bed nets** | Reduce malaria transmission |
+| **Water purification** | Improve sanitation cheaply |
+| **Micronutrient supplementation** | Address hidden hunger |
+| **School-based deworming** | Treat children at scale |
+| **Family planning education** | Preventive care |
+
+---
+
+# Pay-for-performance incentives
+
+**The idea:** Reward health workers based on outcomes, not just showing up.
+
+--
+
+**Example: Rwanda (2005)**
+
+The Ministry of Health introduced bonuses for primary healthcare facilities based on:
+- Percentage of children vaccinated
+- Percentage of births delivered at the facility
+- Appropriate emergency transfers during delivery
+
+--
+
+**Results:** (Gertler and Vermeersch, 2013)
+- 38% average increase in staff compensation
+- **20% increase in service provision**
+- Significant improvements in child health
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Incentives can work** — but they need to be well-designed and monitored.
+]
+
+---
+
+class: inverse, middle, center
+
+# Demand-Side Determinants
+
+&lt;div style="font-size: 20px; margin-top: 10px;"&gt;
+Why don't people seek health care?
+&lt;/div&gt;
+
+---
+
+# Demand-side barriers to health
+
+Even when services exist, people may not use them due to:
+
+--
+
+| Barrier | Example |
+|---------|---------|
+| **Poverty** | Can't afford transport to clinic |
+| **Price sensitivity** | Small fees deter use |
+| **Credit constraints** | Can't pay now, even if it saves money later |
+| **Information gaps** | Don't know benefits of prevention |
+| **Externalities** | Don't consider benefits to others |
+
+---
+
+# Demand is very sensitive to price
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/demand.png" style="width: 100%; max-width: 450px;" /&gt;&lt;br&gt;
+  &lt;small&gt;Source: &lt;a href="https://www.povertyactionlab.org/policy-insight/impact-price-take-and-use-preventive-health-products"&gt;J-PAL Policy Insight&lt;/a&gt;&lt;/small&gt;
+&lt;/div&gt;
+
+--
+
+**Key finding:** Purchase rates of preventive health products **drop off quickly** as prices increase — even small prices dramatically reduce uptake.
+
+---
+
+# Information campaigns alone aren't enough
+
+**Common assumption:** If people knew the benefits of health products, they would buy them.
+
+--
+
+**Evidence:** Information campaigns about bed nets, water treatment, etc. do increase knowledge — but have limited effect on behavior when prices are positive.
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Knowing something is good for you isn't enough** if you can't afford it or face other barriers.
+]
+
+--
+
+&lt;br&gt;
+
+**Policy implication:** Subsidies or free provision may be necessary for preventive health products.
+
+---
+
+# Case study: Deworming in Kenya
+
+**The problem:** Helminth infections (intestinal worms) are widespread in developing countries.
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/children.png" style="width: 100%; max-width: 700px;" /&gt;&lt;br&gt;
+  &lt;small&gt;Children requiring preventive treatment for soil-transmitted helminths (2022)&lt;/small&gt;
+&lt;/div&gt;
+
+---
+
+# Why deworming matters
+
+**Private benefits:**
+- Chronic infection weakens immune system
+- Causes lethargy and low productivity
+- Poor school performance
+
+--
+
+**Social benefits (externalities):**
+- Worms spread through feces and contaminated water
+- When many people are dewormed, overall infection rates fall
+- Benefits even those who weren't treated
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Deworming has large positive externalities** — treating one child helps protect others.
+]
+
+---
+
+# Kenya deworming study
+
+**Study:** Miguel and Kremer (2004)
+
+**Design:** Randomized at the school level
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/worm1.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+--
+
+- **1998:** Group 1 receives free deworming; Groups 2 &amp; 3 are controls
+- **1999:** Groups 1 &amp; 2 receive deworming; Group 3 is control
+
+---
+
+# Kenya: Results
+
+**Direct effects on treated children:**
+- Significant reduction in moderate-heavy helminth infection
+- Significant reduction in schistosomiasis infection
+- Improved health and school attendance
+
+--
+
+**Spillover effects (externalities):**
+
+| Group | Effect |
+|-------|--------|
+| Untreated children in **treatment schools** | Also saw health improvements |
+| Children in **nearby control schools** | Also saw some health improvements |
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**The externalities are substantial** — deworming benefits spread beyond those directly treated.
+]
+
+---
+
+# Should health products be free?
+
+**Concerns about subsidies/free provision:**
+
+--
+
+| Concern | Evidence |
+|---------|----------|
+| "People won't value free things" | Studies show bed nets are used similarly whether free or purchased |
+| "Price anchoring" — people won't pay later | Dupas (2010): Short-term subsidies don't reduce long-term demand |
+| "Overuse leads to drug resistance" | Cohen et al. (2015): Poor diagnostics, not subsidies, drive overuse |
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Evidence supports subsidies and free provision** for preventive health products — concerns about misuse are largely unfounded.
+]
+
+---
+
+# Main takeaways
+
+**Health is complex** — it encompasses physical, mental, and social wellbeing, requiring multiple indicators to measure.
+
+--
+
+**Health services are under-provided** due to externalities and public good characteristics that cause market failures.
+
+--
+
+**Supply-side challenges** include absenteeism, lack of accountability, and difficulty reaching the poor (as shown in Udaipur).
+
+--
+
+**Supply-side solutions** that work include community monitoring, pay-for-performance incentives, and direct service provision.
+
+--
+
+**Demand-side barriers** include poverty, price sensitivity, credit constraints, and information gaps.
+
+--
+
+**Demand for preventive health is very price-sensitive** — even small fees dramatically reduce uptake.
+
+--
+
+**Subsidies and free provision work** — concerns about misuse are not supported by evidence.
+
+--
+
+**Externalities matter** — interventions like deworming benefit not just recipients but entire communities.
+
+---
+
+# Discussion questions
+
+1. Why do you think people in Udaipur preferred unqualified private doctors over free public clinics?
+
+--
+
+2. Should preventive health products (bed nets, deworming pills) be provided for free, or should there be a small charge? What are the trade-offs?
+
+--
+
+3. How might community monitoring work differently in different cultural contexts?
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+# For next week
+
+**Topic:** Labor Markets in Developing Countries
+
+--
+
+**Reading:** 
+- Breza and Kaur (2025, Annual Review of Economics)
+
+--
+
+**We will cover:**
+- How do labor markets work in developing countries?
+- Wage rigidity and unemployment
+- Policy implications
+
+---
+
+class: inverse, middle, center
+
+# Thank you!
+
+&lt;div style="font-size: 20px; margin-top: 30px;"&gt;
+See you next week for Labor Markets.
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

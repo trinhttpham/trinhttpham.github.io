@@ -33,333 +33,269 @@ class: center, middle, inverse, title-slide
 ---
 
 
-class: inverse, middle, center
+# Opening question
 
-Poverty remains one of the most pressing challenges in development policy, affecting billions worldwide.
+.center[
+### Think about this:
+]
+
+Two countries have the same **poverty rate** (20% of people below the poverty line).
+
+- In Country A, most poor people are just slightly below the line.
+- In Country B, most poor people are far below the line.
+
+--
+
+&lt;br&gt;
+
+.center[
+.content-box-green[
+Are these two countries equally poor? How would you compare them?
+]
+]
+
+--
+
+&lt;br&gt;
+.center[
+.content-box-green[
+This lecture will give you the tools to answer this question.
+]
+]
+
+
+
+
 
 ---
 
-class: inverse
-
-&lt;iframe src="https://ourworldindata.org/explorers/poverty-explorer?time=earliest&amp;Indicator=Share+in+poverty&amp;Poverty+line=%243+per+day%3A+International+Poverty+Line&amp;Household+survey+data+type=Show+data+from+both+income+and+consumption+surveys&amp;Show+breaks+between+less+comparable+surveys=false&amp;country=BGD~BOL~KEN~MOZ~NGA~ZMB&amp;tab=map&amp;hideControls=true" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
-
-
----
-
-class: inverse
-
-This lecture begins by unpacking the concepts and tools used to measure and analyze poverty critically.
+# Today's roadmap
 
 --
 
-Understanding **how poverty is measured** helps us grasp not only its scale and characteristics, but also who is most affected. 
+**1. Measuring wellbeing**: Why do we use consumption rather than income?
 
 --
 
-From this, we can build a **poverty profile** using appropriate indicators, 
-
-- which in turn enables targeted and effective policy interventions.
+**2. Poverty lines**: How do we decide who is poor?
 
 --
 
-However, measurement alone is not enough. 
+**3. Poverty indicators**: How do we summarize poverty in a population?
 
 --
 
-By exploring the idea of **poverty traps**, we can see why escaping poverty is so difficult for many and why policy design plays a crucial role in breaking these cycles.
-
-
----
-
-class: inverse
-
-The main goal is twofold:
-
-- How do we characterize and explain poverty through careful diagnostics and identification of its causal determinants?
-
-- What can be done to reduce poverty using well-designed and targeted policies and programs?
+**4. Vulnerability**: Who is at risk of falling into poverty?
 
 --
 
-To address these questions, we first need agreement on two basic foundations:
+**5. Poverty traps**: Why is escaping poverty so difficult for some?
 
---
-
-- The choice of a monetary indicator of well-being that can be used to characterize poverty.
-
---
-
-- The definition of a poverty line, below which the poor will be identified.
-
---
-
-Only once these elements are clear can we proceed to analyze patterns, understand mechanisms such as poverty traps, and design policies that are both precise and effective.
-  
 ---
 
 class: inverse, middle, center
 
-# 
-
-&lt;div style="font-size: 25px; text-align: center;"&gt;
-  Poverty Measurement
-&lt;/div&gt; 
-
+# Measuring Wellbeing
 
 ---
 
-# Wellbeing indicator
+# Income vs. Consumption
 
-There are two monetary indicators we could use to measure an individual’s level of wellbeing at a particular point of time:
-
---
-
-  - income per capita 
-  
---
-
-  - consumption expenditure per capita
-  
---
-
-Which do you think is better indicator of wellbeing, and why?
+There are two monetary indicators we could use to measure wellbeing:
 
 --
 
-  - Consumption is closer to wellbeing as it creates utility, while income *per se* does not.
-  
+- **Income per capita**
+
 --
 
-  - Consumption is easier to measure and more likely to be constant across time ("consumption smoothing").
-  
+- **Consumption expenditure per capita**
+
+--
+
+&lt;br&gt;
+
+Which do you think is a better indicator of wellbeing, and why?
+
 ---
 
-# Consumption vs. Income 
+# Why consumption is preferred
 
-Individuals attempt to smooth consumption across years when income fluctuates. 
+**Consumption is closer to wellbeing**
+
+- Consumption creates utility directly; income *per se* does not.
 
 --
 
-Consumption is also smoothed across the life cycle:
+**Consumption is more stable over time**
 
-  - exceeding income in youth, falling behind income at working age, and exceeding income again in old age.
+- People try to "smooth" consumption even when income fluctuates (across seasons, years, and the life cycle).
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/consumption.png" style="width: 100%; max-width: 800px;" /&gt; 
+  &lt;img src="figures/consumption.png" style="width: 100%; max-width: 700px;" /&gt; 
 &lt;/div&gt;
 
+---
+
+# Challenges in measuring consumption
+
+While consumption is preferred, it comes with practical difficulties:
+
 --
 
-Are there any difficulties in using consumption as a proxy for wellbeing?
+**Data limitations**
+- Data is collected at the household level, not individual level
+- Recall errors: How accurately can you report food spending last week?
+
+--
+
+**Comparability issues**
+- Preferences vary: same expenditure may reflect different tastes, not different welfare
+- Durable goods require special treatment (depreciation, lifespan)
+
+--
+
+**Smoothing ability**
+- Households differ in their ability to smooth consumption
+- This creates differences unrelated to underlying welfare
 
 ---
 
-# Difficulties in using consumption 
+# Adjusting for household size
 
-Information on consumption expenditures is generally **not available for individuals** but for households.
-
---
-
-**Measurement errors**: How you would answer questions about how much you spent 
-
-  - food during the last week, utilities during the last month, durable goods during the last year
-  
---
-
-**Preference**: consumption expenditures vary with tastes
-
-  - difficult to make inter-personal comparisons of wellbeing.
-  
---
-
-**Durable goods expenditure**: required different information to estimate 
-
-  - price of asset, lifespan, depreciation rate, opportunity cost of capital.
-  
---
-
-**Consumption smoothing ability**: households are differentially able to smooth consumption
-
-  - creating differences in consumption across households by ability to smooth.
-  
----
-
-# Household vs. Individual wellbeing
-
-Due to data limitations, consumption is often measured at the household level rather than individual level. 
+Due to data limitations, consumption is measured at the household level.
 
 --
 
-To calculate per capita consumption, we need to adjust for *differences in household demographics.* 
+To calculate individual-level consumption, we adjust for **differences in household composition**.
 
 --
 
-Let `\(n^{*}\)` be the number of "equivalent adults" in the household. 
+Let `\(n^{*}\)` be the number of "equivalent adults" in the household: `\(n^{*} = \sum_k w_k n_k\)`
 
 --
 
-For each category `\(k\)`, the number of individuals is multiplied by a relative weight for that category `\(w_k\)`.
-
-`$$n^{*} = \sum_k w_k n_k$$`
-  
-  - In OECD scale, adult males are given weight 1, adult females: 0.7, children: 0.5.  
-
-  - In WB LSMS scale, adults above 17: 1, children 13-17: 0.5, children 7-12: 0.3, children 0-6: 0.2.
-
-
-Example: a household with 1 adult male, 1 adult female, 1 child of 7 years old, and 2 children of 2 years old:
+| Scale | Adult male | Adult female | Child |
+|-------|------------|--------------|-------|
+| OECD | 1.0 | 0.7 | 0.5 |
+| World Bank LSMS | 1.0 (17+) | 1.0 (17+) | 0.2–0.5 (by age) |
 
 --
 
-  - In OECD scale, the number of equivalent adults would be: `\(1*1 + 0.7*1 + 0.5*1 + 0.5*2 = 3.2\)`.
-
-  - In WB LSMS scale, the number of equivalent adults would be: `\(1*1 + 1*1 + 0.3*1 + 0.2*2 = 2.7\)`.
-  
----
-
-class: inverse
-
-
-Now that we have agreed upon measures of wellbeing, how can we separate the poor from the non-poor? 
+**Example:** A household with 1 adult male, 1 adult female, and 2 young children (OECD scale):
 
 --
 
-We need poverty lines.
+- `\(n^{*} = 1 + 0.7 + 0.5 \times 2 = 2.7\)` equivalent adults
+
+--
+
+If total household consumption is $270
+
+--
+
+- **Per capita consumption** = $270 ÷ 4 = $67.50
+- **Per adult equivalent consumption** = $270 ÷ 2.7 = $100
 
 
 ---
 
-# Poverty lines 
+class: inverse, middle, center
 
-We need to choose a threshold level `\(z\)` ("poverty line") of `\(y\)` (income/consumption) to decide who is poor and non-poor.
+# Poverty Lines
 
---
+---
 
-This is quite difficult because there is no agreement on the definition of poverty, or on what would be a threshold for a given poverty concept.
+# What is a poverty line?
 
---
-
-A few things to note regarding poverty and poverty lines:
+A poverty line is a threshold level `\(z\)` of income or consumption below which someone is considered poor.
 
 --
 
-  - Any statement about poverty is **relative to the choice of a poverty line**; no possible absolute statement about poverty. 
-  
+&lt;br&gt;
+
+A few important points:
+
 --
 
-  - Because no agreement on a single poverty line, **it is often best to use several clearly defined alternative poverty lines**.
-  
+- Any statement about poverty is **relative to the choice of poverty line** — there is no single "correct" line.
+
 --
 
-  - **Consistency should be maintained in the definition of a poverty line** when comparisons are made across time, geography, or subsets of a population.
-  
-    - If the poverty line changes too much or is defined differently, it becomes hard to tell if poverty has really increased or decreased, or if differences between places or groups are real or just due to different measurement methods.
-    
-    - Poverty lines are sometimes adjusted carefully to reflect changes in prices and the cost of living. 
+- Because there's no agreement, **it's often best to use several alternative poverty lines**.
+
+--
+
+- **Consistency matters**: when comparing across time or geography, keep the definition stable.
+
+---
+
+# Types of poverty lines
+
+--
+
+**Nutrition-based (absolute) poverty line**
+
+- Expenditure needed to achieve minimum caloric intake, plus basic non-food needs.
+
+--
+
+**Relative poverty line**
+
+- Based on mean or median income/consumption in a population (e.g., 50% of median income).
+- Reflects the "cost of social inclusion."
+
+--
+
+**Subjective poverty line**
+
+- Based on what people themselves consider the minimum needed to get by.
+
+--
+
+**International poverty line**
+
+- Used by the World Bank for cross-country comparisons.
+- Currently $3/day (extreme poverty) in international 2021 prices.
 
 
 ---
 
-# Example: Nutrition-based poverty line
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/nutrition_line.png" style="width: 100%; max-width: 600px;" /&gt; 
-&lt;/div&gt;
-
-- Left Panel: The calorie expenditure function relates calories purchased to a level of food expenditure.
-
---
-
-  - Decreasing returns because consumers buy more expensive sources of calories as expenditure rises.
-  
---
-
-- Right Panel: The Engel curve traces the level of food expenditure as income (or total expenditure) rises.
-
-
----
-
-# Example: Nutrition-based poverty line
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/nutrition_line.png" style="width: 100%; max-width: 600px;" /&gt; 
-&lt;/div&gt;
-
-- Normal poverty line `\(z\)`: expenditure level necessary to consume the recommended minimum calorie intake and non-food expenditures normally associated with that of food.
-
---
-
-- Absolute poverty line `\(z_{abs}\)`: monetary cost of the recommended minimum calorie intake. 
-
-
----
-
-# Other poverty lines
-
---
-
-**Relative poverty line**: based on the mean income/consumption of a population.
-
-  - People attach value to their income or consumption in relation to the mean in their country or community of residence. 
-  
-  - The relative poverty line can be interpreted as the *cost of social inclusion*: it is the level of expenditure necessary to participate with dignity in customary social and economic activities. 
-  
---
-
-**Subjective poverty line**: based on stated preferences.
-
-  - "What expenditure do you consider to be absolutely minimal?" 
-  
-  - Those with actual expenditure lower than the stated subj. minimum would be considered poor.
-  
---
-
-**International poverty line**: used for international comparisons by the World Bank in the World Development Indicators. 
-
-
----
-
-# Poverty lines in different countries
-
+# Poverty lines vary across countries
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/poverty_line.png" style="width: 100%; max-width: 600px;" /&gt; 
 &lt;/div&gt;
 
+National poverty lines tend to increase with average income — richer countries set higher thresholds.
+
+---
+
+# Example: extreme poverty, international poverty line
+
+&lt;iframe src="https://ourworldindata.org/grapher/share-of-population-in-extreme-poverty?tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Example: poor population, national poverty lines
+
+&lt;iframe src="https://ourworldindata.org/grapher/share-of-population-living-in-poverty-by-national-poverty-lines?tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
 
 ---
 
 class: inverse, middle, center
 
-Now that we have established a poverty line, how do we characterize or describe the poverty situation?
-
---
-
-We use **poverty profile** and **poverty indicators**.
-
+# Poverty Indicators
 
 ---
 
-# Poverty profile
+# The poverty profile
 
-Suppose we have a household survey that gives us the per capita expenditure level `\(y_i, i = 1, …, n\)` for each of the `\(n\)` members of a representative sample of the population. 
-
---
-
-We can rank these `\(n\)` individuals by increasing level of expenditure, from the poorest to the richest.
+Suppose we have survey data on per capita expenditure `\(y_i\)` for each person `\(i = 1, ..., n\)`.
 
 --
 
-And draw this poverty profile:
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
-
----
-
-# Poverty profile 
+We can rank everyone from poorest to richest and draw a **poverty profile**:
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/poverty_profile.png" style="width: 100%; max-width: 500px;" /&gt; 
@@ -367,1116 +303,558 @@ And draw this poverty profile:
 
 --
 
-We have per capita expenditure level `\(y_i\)` and a poverty line `\(z\)`. 
-
---
-
-If we compare `\(y_i\)` to `\(z\)`, we find that `\(q\)` individuals have `\(y_i &lt; z\)`, i.e., are in poverty.
-
---
-
-Poverty gap `\(z - y_i\)` for each poor person `\(i &lt; q\)` tells us how much expenditure the individual needs to get out of poverty.
-
+- `\(q\)` individuals have `\(y_i &lt; z\)` (they are poor)
+- The **poverty gap** `\((z - y_i)\)` shows how much each poor person needs to escape poverty
 
 ---
 
-# Poverty profile: group discussion
+# Group exercise: Draw a poverty profile
 
-Suppose we have a population of 20 people, in which:
+Suppose we have a population of 20 people:
 
-  - 3 people have expenditure of 5.
-  
-  - 5 people have expenditure of 6.
-  
-  - 8 people have expenditure of 8.
-  
-  - 4 people have expenditure of 10.
-  
-Also assume that the poverty line is 7. 
+| Expenditure | Number of people |
+|-------------|------------------|
+| 5 | 3 |
+| 6 | 5 |
+| 8 | 8 |
+| 10 | 4 |
+
+The poverty line is **z = 7**.
 
 --
 
-Draw the *poverty profile*
+&lt;br&gt;
 
-- and briefly discuss the *poverty gaps* for each group.
-
+**Task:** Draw the poverty profile and identify:
+- How many people are poor?
+- What are the poverty gaps for each group?
 
 ---
 
-# Poverty indicators
+# FGT poverty indicators
 
-Poverty profile can be summarized with a few scalars that are easy to measure and communicate.
-
---
-
-Foster, Greer, and Thorbecke (FGT) proposed the following formula (don’t worry if it looks a bit intimidating at first!)
+Poverty profiles can be summarized with numbers. The most widely used are the **Foster-Greer-Thorbecke (FGT)** indicators.
 
 --
 
-`$$P^{\alpha} = \frac{1}{n}\sum_{i=1}^{q}(\frac{z - y_i}{z})^{\alpha}$$`
+`$$P^{\alpha} = \frac{1}{n}\sum_{i=1}^{q}\left(\frac{z - y_i}{z}\right)^{\alpha}$$`
 
-where `\(n\)` is the population, `\(q\)` is number of people below the poverty line `\(z\)`, and `\(y_i\)` is their expenditure.
-
---
-
-- `\(\alpha = 0, P^0 = \frac{q}{n}\)`: headcount ratio (incidence of poverty, poverty rate): 
---
-does not tell us how poor the poor are.
+.small[Don't worry about the formula — what matters is what each version tells us.]
 
 --
 
-- `\(\alpha = 1, P^1 = \frac{\sum_{i=1}^q(z-y_i)}{nz}\)`: poverty gap index (depth of poverty)
-
-  - If we can perfectly target the poor, `\(\sum_{i=1}^q(z-y_i)\)` is the cost of eliminating poverty.
-  - If not, `\(nz\)` is the cost of eliminating poverty.
+| `\(\alpha\)` | Name | What it measures |
+|----------|------|------------------|
+| 0 | **Headcount ratio** `\((P^0)\)` | Share of population in poverty |
+| 1 | **Poverty gap index** `\((P^1)\)` | Average depth of poverty |
+| 2 | **Severity index** `\((P^2)\)` | Gives more weight to the poorest |
 
 --
 
-- `\(\alpha = 2, P^2 = \frac{1}{n}\sum_{i=1}^{q}(\frac{z - y_i}{z})^{2}\)`: severity of poverty index (inequality of poverty)
+&lt;br&gt;
 
-  - This gives greater weight to expenditure deficits further away from the poverty line.
-
+.content-box-yellow[
+**Back to our opening question:** `\(P^0\)` alone can't distinguish Country A from Country B. We need `\(P^1\)` and `\(P^2\)`.
+]
 
 ---
 
-# Poverty indicators: illustration
+# Computing poverty indicators: Example
 
-Suppose we have a population of 20 people, in which:
+Using our earlier example (poverty line `\(z = 7\)`):
 
-  - 3 people have expenditure of 5.
-  
-  - 5 people have expenditure of 6.
-  
-  - 8 people have expenditure of 8.
-  
-  - 4 people have expenditure of 10.
-  
-Also assume that the poverty line is 7. 
+| Expenditure | Number of people | Poor? | Poverty gap |
+|-------------|------------------|-------|-------------|
+| 5 | 3 | Yes | 2 |
+| 6 | 5 | Yes | 1 |
+| 8 | 8 | No | — |
+| 10 | 4 | No | — |
 
 --
 
-How can we compute the three poverty indicators?
+**Headcount ratio**: `\(P^0 = \frac{q}{n} = \frac{8}{20} = 0.40\)` (40% are poor)
 
+--
+
+**Poverty gap index**: `\(P^1 = \frac{1}{n}\sum_{i=1}^{q}\frac{z - y_i}{z} = \frac{1}{20}\left[3 \times \frac{2}{7} + 5 \times \frac{1}{7}\right] = \frac{1}{20} \times \frac{11}{7} = 0.079\)`
+
+--
+
+**Severity index**: `\(P^2 = \frac{1}{n}\sum_{i=1}^{q}\left(\frac{z - y_i}{z}\right)^2 = \frac{1}{20}\left[3 \times \left(\frac{2}{7}\right)^2 + 5 \times \left(\frac{1}{7}\right)^2\right] = 0.026\)`
+
+---
+
+# How poverty indicators change
+
+When the poverty profile shifts **left** (everyone gets richer):
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/poverty_profile2.png" style="width: 100%; max-width: 550px;" /&gt; 
+&lt;/div&gt;
+
+--
+
+- `\(P^0\)` (headcount) decreases ✓
+- `\(P^1\)` (poverty gap) decreases ✓
+- `\(P^2\)` (severity) decreases ✓
+
+---
+
+# How poverty indicators change
+
+When profiles intersect at `\(q\)` but shift left **below** the poverty line:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/poverty_profile3.png" style="width: 100%; max-width: 550px;" /&gt; 
+&lt;/div&gt;
+
+--
+
+- `\(P^0\)` (headcount) stays the same
+- `\(P^1\)` (poverty gap) decreases ✓
+- `\(P^2\)` (severity) decreases ✓
+
+---
+
+# How poverty indicators change
+
+When the &lt;span style="color:green; font-weight:bold;"&gt;green area&lt;/span&gt; equals the &lt;span style="color:blue; font-weight:bold;"&gt;blue area&lt;/span&gt;:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/poverty_profile4.png" style="width: 100%; max-width: 550px;" /&gt; 
+&lt;/div&gt;
+
+--
+
+- `\(P^0\)` (headcount) stays the same
+- `\(P^1\)` (poverty gap) stays the same
+- `\(P^2\)` (severity) decreases ✓ (because the poorest are better off)
+
+---
+
+# Policy implications: Whom to target?
+
+With a limited budget, whom should we target to **minimize each indicator**?
+
+--
+
+&lt;br&gt;
+
+| Goal | Target |
+|------|--------|
+| Minimize `\(P^0\)` (headcount) | The **least poor** — those closest to the poverty line |
+| Minimize `\(P^1\)` (poverty gap) | No general rule — a dollar reduces the gap equally for anyone |
+| Minimize `\(P^2\)` (severity) | The **poorest** — those furthest below the line |
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Key insight:** Different poverty goals lead to different targeting strategies.
+]
 
 ---
 
 class: inverse, middle, center
 
-# 
-
-&lt;div style="font-size: 25px; text-align: center;"&gt;
-  What is the relationship between poverty profile and poverty indicators?
-&lt;/div&gt; 
-
-
-
+# Multidimensional Poverty
 
 ---
 
-# Poverty profile and indicators
+# Beyond monetary poverty
 
-When poverty profile shifts to the left:
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile1.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Poverty profile and indicators
-
-When poverty profile shifts to the left:
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile2.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
+Income and consumption are correlated with other dimensions of wellbeing — but the correlation is imperfect.
 
 --
 
-- Poverty incidence/poverty rate `\(P^0\)` is lower.
-
---
-
-- Poverty gap index `\(P^1\)` is lower.
-
---
-
-- Poverty severity index `\(P^2\)` is lower.
-
-
----
-
-# Poverty profile and indicators
-
-When profiles intersect at `\(q\)`, but shift to the left below the poverty line:
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile1.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Poverty profile and indicators
-
-When profiles intersect at `\(q\)`, but shift to the left below the poverty line:
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile3.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
---
-
-- Poverty incidence/poverty rate `\(P^0\)` remains constant.
-
---
-
-- Poverty gap index `\(P^1\)` is lower.
-
---
-
-- Poverty severity index `\(P^2\)` is lower.
-
-
----
-
-# Poverty profile and indicators
-
-When profiles intersect below the poverty line, but &lt;span style="color:green; font-weight:bold;"&gt;the green area&lt;/span&gt; is equal to &lt;span style="color:blue; font-weight:bold;"&gt;the blue area&lt;/span&gt;:
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile1.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Poverty profile and indicators
-
-When profiles intersect below the poverty line, but &lt;span style="color:green; font-weight:bold;"&gt;the green area&lt;/span&gt; is equal to &lt;span style="color:blue; font-weight:bold;"&gt;the blue area&lt;/span&gt;:
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile4.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
---
-
-- Poverty incidence/poverty rate `\(P^0\)` remains constant.
-
---
-
-- Poverty gap index `\(P^1\)` remains constant.
-
---
-
-- Poverty severity index `\(P^2\)` is lower.
-
-
----
-
-class: inverse
-
-Now that we have a poverty profile of the population, let's have some thought experiments on whom we should target to minimize the three poverty indicators.
-
---
-
-In particular, whom should we target to minimize:
-
-  - the poverty rate `\(P^0\)`
-  
-  - the poverty gap index `\(P^1\)`
-  
-  - the poverty severity index (i.e., poverty inequality) `\(P^2\)`
-
-
----
-
-# Policy implications: poverty reduction
-
-With a given budget, whom should we target to **minimize the poverty rate** `\(P^0\)`?
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile51.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
----
-
-
-# Policy implications: poverty reduction
-
-With a given budget, whom should we target to **minimize the poverty rate** `\(P^0\)`?
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile52.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
---
-
-To minimize the poverty rate, i.e., reduce the number of poor people
-
-  - we start **spending on the least poor** until &lt;span style="color:green; font-weight:bold;"&gt;the budget&lt;/span&gt; is exhausted.
-
----
-
-# Policy implications: poverty reduction
-
-With a given budget, whom should we target to **minimize the poverty gap index** `\(P^1\)`?
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile51.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Policy implications: poverty reduction
-
-With a given budget, whom should we target to **minimize the poverty gap index** `\(P^1\)`?
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile51.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
---
-
-Because a dollar-of-poverty gap is the same across all poor, there is no general rule.
-
-
----
-
-# Policy implications: poverty reduction
-
-With a given budget, whom should we target to **minimize the poverty severity index** `\(P^2\)`?
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile51.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Policy implications: poverty reduction
-
-With a given budget, whom should we target to **minimize the poverty severity index** `\(P^2\)`?
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poverty_profile5.png" style="width: 100%; max-width: 500px;" /&gt; 
-&lt;/div&gt;
-
---
-
-To minimize the poverty severity index, i.e., reduce the inequality of poverty
-
-  - We start spending on the poorest until the &lt;span style="color:blue; font-weight:bold;"&gt;the budget&lt;/span&gt; is exhausted.
-
-
-
----
-
-class: inverse
-
-So far, we have focused on monetary poverty — the extent to which people have very low income or consumption levels.
-
---
-
-This is because income/consumption is correlated with other important aspects of well-being, including health, nutrition, education, leisure time, and access to basic facilities like electricity and clean drinking water. 
-
---
-
-However, this correlation is not perfect. 
-
---
-
-Income/consumption alone offers us an incomplete picture of poverty.
-
---
-
-For this reason, when trying to understand and monitor poverty, it is important to look beyond income and consumption to other important dimensions in people’s lives.
-
---
-
-We use **multidimensional poverty index**.
-
-
----
-
-# Multidimensional poverty
+The **Multidimensional Poverty Index (MPI)** captures deprivation across three dimensions:
 
 &lt;div style="text-align: center;"&gt;
   &lt;img src="figures/mpi_dimensions_indicators.png" style="width: 100%; max-width: 500px;" /&gt;&lt;br&gt;
-  See more at: &lt;a href="https://ourworldindata.org/multidimensional-poverty-index"&gt;https://ourworldindata.org/multidimensional-poverty-index&lt;/a&gt;
+  &lt;a href="https://ourworldindata.org/multidimensional-poverty-index"&gt;ourworldindata.org/multidimensional-poverty-index&lt;/a&gt;
 &lt;/div&gt;
 
-- A household falling below the threshold set for the indicator is described as being “deprived” in that measure.
+--
 
-- Individuals are classified as living in multidimensional poverty (“MPI-poor”) if their household is deprived in at least one-third of the weighted indicators.
-
-
----
-
-# Multidimensional poverty
-
-&lt;iframe src="https://ourworldindata.org/grapher/share-multi-poverty?tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
-
+A household is **MPI-poor** if deprived in at least one-third of the weighted indicators.
 
 ---
 
-# Multidimensional poverty
-
-&lt;iframe src="https://ourworldindata.org/grapher/intensity-of-multidimensional-poverty?tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
-
----
-
-# Multidimensional poverty index
+# Multidimensional poverty across the world
 
 &lt;iframe src="https://ourworldindata.org/grapher/multidimensional-poverty-index-mpi?tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
 
-The Multidimensional Poverty Index is computed by multiplying the share and the intensity of multidimensional poverty.
+---
+
+class: inverse, middle, center
+
+# Vulnerability to Poverty
 
 ---
 
-class: inverse
+# Why vulnerability matters
 
-Note that poverty is a dynamic condition and we may observe high mobility in and out of it: 
-
---
-
-  - some people fall into poverty,
-  
---
-  
-  - some escape from poverty,
-  
---
-  
-  - and others are *forever trapped* in poverty (we will come back to this point later).
-  
---
-
-For this reason, the overall poverty rate may be misleading. 
+So far, we've measured poverty using **past and present** data.
 
 --
 
-We may have had no change in poverty rate `\(P^0\)` over a certain period of time and yet many people may have moved into and out of poverty during the period.
+But governments also need to know who is **at risk of becoming poor in the future**.
 
 --
 
-Shocks can significantly impact a household’s expenditure level, affecting its vulnerability to poverty.
-
+This allows for **prevention** — supporting households before they fall into poverty.
 
 ---
 
-# Shocks and poverty
+# Defining vulnerability
 
-Shocks can be broadly categorized into two groups:
-
---
-
-  - **Idiosyncratic shocks**: affect only a single household or individual 
-    - e.g., illness, job loss, or the death of a household member
+Vulnerability is a probabilistic statement about the future:
 
 --
 
-  - **Covariate shocks**: impact entire communities, regions, or even countries 
-    - e.g, drought and flood, recession, policy changes, political cycles
+`$$v_{it} = \Pr(y_{i, t+1} &lt; z)$$`
+
+"What is the probability that my future expenditure falls below the poverty line?"
 
 --
 
-Do you think people use the same ways to cope with different kinds of shocks (coping mechanisms)?
+&lt;br&gt;
 
---
+| Vulnerability level | Definition |
+|---------------------|------------|
+| Highly vulnerable | `\(v_{it} \geq 0.5\)` |
+| Moderately vulnerable | `\(v_{it} \geq P^0\)` (the poverty rate) |
 
-Different types of shocks have different risk coping mechanisms:
-
---
-
-  - Idiosyncratic shocks can often be managed locally through informal mutual insurance networks 
-  
-    - e.g., community savings groups or extended family support
-    
---
-
-  - Covariate shocks are harder to insure locally and often require external interventions
-  
-    - e.g., government safety nets, international aid
-    
----
-
-class: inverse
-
-So far, we’ve focused on measuring poverty—using statistics to understand who is poor based on past and present data.
-
---
-
-However, governments and development agencies need to know who is **at risk of becoming poor in the future**, not just who is poor today.
-
---
-
-That will allow governments and policymakers to design **prevention strategies**—not just responses—so they can support those at risk before poverty happens.
-
---
-
-This means asking: Who are the households or individuals **vulnerable to poverty**?
-
-
----
-
-# Vulnerability to poverty
-
-Vulnerability to poverty is a probabilistic statement about the future.
-
---
-
-"What is the likelihood that my future expenditures will fall below the poverty line?"
-
---
-
-Household `\(i\)`'s vulnerability can be expressed as `\(v_{it} = \Pr(y_{i, t+1} &lt; z)\)`
-
-  - A household is vulnerable if its level of vulnerability, `\(v_{it}\)`, is greater than a given vulnerability line, `\(\alpha\)`.
-  
---
-
-Important vulnerability thresholds are `\(\alpha = 0.5\)` and `\(\alpha = P^0\)`.
-
-  - Vulnerable households: `\(v_{it} \geq \alpha\)`
-  
-  - Highly vulnerable households: `\(v_{it} \geq 0.5\)`
-  
-  - Moderately vulnerable households: `\(v_{it} \geq P^0\)`
-  
-  
 ---
 
 # Types of poverty
 
-Using the concept of vulnerability to poverty, we can classify people into 4 categories:
+Using vulnerability, we can classify people into four categories:
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/poor_type.png" style="width: 100%; max-width: 700px;" /&gt; 
+  &lt;img src="figures/poor_type.png" style="width: 100%; max-width: 650px;" /&gt; 
 &lt;/div&gt;
-
-- The **transitory poor** have expenditures above the poverty line on average, but sometimes fall below it. 
-
-  - normally non-poor HHs that are vulnerable to poverty can fall into it as a consequence of a shock.
-  
---
-
-- The **chronic poor** have expenditures that are on average below the poverty line, but sometimes exceed it.
 
 --
 
-- The **persistent poor** are those who are always below the poverty line.
+- **Transitory poor**: Usually above the line, but sometimes fall below due to shocks
 
+- **Chronic poor**: Usually below the line, but sometimes escape temporarily
 
-
-
+- **Persistent poor**: Always below the poverty line
 
 ---
 
-class: inverse
+# Shocks and coping mechanisms
 
-Having explored poverty measurement and coping strategies, it is important to understand the different ways people and economies can escape poverty. 
+Shocks can push households into poverty. They come in two types:
 
 --
 
-There are two contrasting perspectives on how people can escape poverty.
+**Idiosyncratic shocks** — affect individual households
+- Illness, job loss, death of a family member
+- Can often be managed through informal networks (family, community savings)
 
 --
 
-- No Poverty Trap: 
-
-  - Individuals can gradually accumulate assets and increase their income step by step.
-  
-  - Over time, they can cross the poverty line without external intervention.
-  
---
-
-- Poverty Trap:
-
-  - Individuals require a big push (e.g., cash transfers or significant support) to escape poverty.
-  
-  - If their assets fall below a critical threshold, they risk becoming worse off over time.
-
---
-
-The following figures illustrate these two perspectives.
-
----
-
-# Graphical illustration
-
-We start by illustrating how future income (vertical axis) relates to current income (horizontal axis). 
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-01.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-The 45° line shows all points where an individual’s current income is the same as their future income. 
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-02.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-For example, this point represents a case where both current and future income are 50.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-03.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-We also have a &lt;span style="color:green; font-weight:bold;"&gt;poverty line&lt;/span&gt;.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-04.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Now let us consider this &lt;span style="color:orange; font-weight:bold;"&gt;orange curve&lt;/span&gt;.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-05.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-It illustrates how future income in year `\(t+1\)` changes based on current income in year `\(t\)`.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-06.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Suppose this is your income level in 2025.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-07.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Using the &lt;span style="color:orange;"&gt;orange curve&lt;/span&gt;, we can find your 2026 income.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-08.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-The 45° line allows us to identify the income in 2026 along the horizontal axis.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-09.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-The 45° line allows us to identify the income in 2026 along the horizontal axis.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-10.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-With the same logic, we can use the &lt;span style="color:orange;"&gt;orange curve&lt;/span&gt; to find your 2027 income.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-11.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-With the same logic, we can use the &lt;span style="color:orange;"&gt;orange curve&lt;/span&gt; to find your 2027 income.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-12.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-And similarly, the 2028 income.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-13.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-And similarly, the 2028 income.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-14.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
-
----
-
-# Graphical illustration
-
-According to this model, income grows steadily over time, reaching above the poverty line by 2028.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-14.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-This is the case of **no poverty trap**.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-14.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
-
-
-
+**Covariate shocks** — affect entire communities or regions
+- Drought, flood, recession, policy changes
+- Harder to insure locally; require external support (government, aid)
 
 ---
 
 class: inverse, middle, center
 
-# 
-
-&lt;div style="font-size: 25px; text-align: center;"&gt;
-  Now, let us consider a different case.
-&lt;/div&gt; 
+# Poverty Traps
 
 ---
 
-# Graphical illustration
-
-The income path is an S-curved: it lies below the 45° line at low income level, and above the 45° line at higher income level.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-15.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
-
-
----
-
-# Graphical illustration
-
-Suppose this is your income in 2025.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-16.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
-
----
-
-# Graphical illustration
-
-Using the same logic as above, you can identify your 2026 income.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-17.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Using the same logic as above, you can identify your 2026 income.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-18.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Using the same logic as above, you can identify your 2027 income.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-19.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
-
----
-
-# Graphical illustration
-
-You notice that your income tends to decrease over time.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-19.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
-
----
-
-# Graphical illustration
-
-If your 2025 income starts at this position.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-20.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Then this is your income in 2026.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-21.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-and your income in 2027.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-23.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Again, your income tends to decrease over time, and approach &lt;span style="color:red;"&gt;the red dot&lt;/span&gt;. 
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-24.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-&lt;span style="color:red;"&gt;The red dot&lt;/span&gt; is referred to as a low (stable) equilibrium.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-25.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-It is **stable** equilibrium because once you get there, you can never move to a different position.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-25.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
-
-
-
-
-
-
----
-
-# Graphical illustration
-
-Now suppose this is your 2025 income.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-26.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Then this is your income in 2026.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-27.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-and your income in 2027.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-29.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Over time, your income tends to increase, and approach &lt;span style="color:red;"&gt;the red dot&lt;/span&gt;. 
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-30.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-&lt;span style="color:red;"&gt;The red dot&lt;/span&gt; is referred to as a high (stable) equilibrium.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-31.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-This is **stable**: small deviations above or below it will naturally bring your income back to this level.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-32.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-class: inverse, middle, center
-
-# 
-
-&lt;div style="font-size: 25px; text-align: center;"&gt;
-  So, What determines escaping poverty and reaching the high equilibrium?
-&lt;/div&gt; 
-
-
----
-
-# Graphical illustration
-
-There is a critical level of assets, income, or capital needed to escape the low-equilibrium trap.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-34.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Above this threshold, you are on a trajectory toward the high equilibrium and can escape poverty.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-35.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Below this threshold, you stay on the low-equilibrium path, where poverty persists.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-37.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
-
----
-
-# Graphical illustration
-
-Between the low and high equilibrium lies a critical point called the **unstable equilibrium**.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-38.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
----
-
-# Graphical illustration
-
-Unstable equilibrium is the tipping point: slightly below, you fall back to poverty; slightly above, you move toward high income.
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/supplement_poverty_trap-38.png" style="width: 100%; max-width: 650px;" /&gt; 
-&lt;/div&gt;
-
-
----
-
-# Poverty trap
-
-This S-curve represents the idea of poverty trap.
+# Two views on escaping poverty
 
 --
 
-And Balboni et al. (2022), through a randomized controlled trial, proves that **poverty trap does exist**.
+**View 1: Gradual progress (no poverty trap)**
+
+- People can slowly accumulate assets and increase income over time.
+- Eventually, they cross the poverty line without major intervention.
+
+--
+
+**View 2: Poverty trap**
+
+- People need a "big push" to escape poverty.
+- Below a critical threshold, they remain stuck or fall further behind.
+
+--
+
+&lt;br&gt;
+
+Let's illustrate these two views graphically.
 
 ---
 
-# Balboni et al. (2022)
+# Setting up the diagram
 
-They attempted to distinguish two views on "Why are the world's poor employed but have low earnings?"
-
---
-
-  - View 1: the poor have the same opportunities as everyone else, there are traits that make them unsuitable for other occupations
-  
-    - i.e., there is no poverty traps and thus even with "big push" policies, they will return to where they started
-  
---
-
-  - View 2: the poor face different opportunities and take low-earning jobs because they are born poor
-  
-    - i.e., there are poverty traps and "big push" policies could elevate them out of poverty forever
-    
---
-
-The authors show that poverty is not just about low income but also about obstacles that prevent people from moving past a critical threshold.
+We plot **future income** (vertical axis) against **current income** (horizontal axis).
 
 --
-
-What they did was to provide a transfer to boost people's productive assets.
-
-  - People can specify what they wanted, but most of them chose livestock.
-
----
-
-# Balboni et al. (2022)
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/povertytrap.png" style="width: 100%; max-width: 400px;" /&gt; 
+  &lt;img src="figures/supplement_poverty_trap-01.png" style="width: 100%; max-width: 600px;" /&gt; 
 &lt;/div&gt;
 
+---
+
+# Setting up the diagram
+
+
+The **45° line** shows where current income equals future income (no change).
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-04.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Case 1: No poverty trap
+
+The &lt;span style="color:orange; font-weight:bold;"&gt;orange curve&lt;/span&gt; shows how future income depends on current income.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-06.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+---
+
+# Case 1: No poverty trap
+
+The curve is **always above** the 45° line → income always grows. Starting below the poverty line, you gradually rise above it.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-06.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Case 1: No poverty trap
+
+Starting from a low income in 2025, we can trace the path forward:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-14.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+---
+
+# Case 1: No poverty trap
+
+Starting from a low income in 2025, we can trace the path forward. Income grows steadily over time — **no trap**.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-14.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+
+
+
+---
+
+# Case 2: Poverty trap (S-curve)
+
+Now consider an **S-shaped curve**: below the 45° line at low income, above it at higher income.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-15.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+---
+
+# Case 2: Starting with low income
+
+If you start with low income in 2025:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-19.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Case 2: Starting with low income
+
+If you start with low income in 2025. Income **decreases** over time, converging to a **low equilibrium** — you're trapped.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-19.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Case 2: Starting with higher income
+
+If you start above a critical threshold:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-30.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+---
+
+# Case 2: Starting with higher income
+
+If you start above a critical threshold. Income **increases** over time, converging to a **high equilibrium** — you escape poverty.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-30.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+
+
+---
+
+# The critical threshold
+
+- **Below the threshold**: Fall back to low equilibrium (poverty trap)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-38.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+---
+
+# The critical threshold
+
+- **Above the threshold**: Rise to high equilibrium (escape poverty)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-38.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+---
+
+# The critical threshold
+
+- The threshold itself is an **unstable equilibrium** — a tipping point
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supplement_poverty_trap-38.png" style="width: 100%; max-width: 600px;" /&gt; 
+&lt;/div&gt;
+
+
+---
+
+# Evidence: Do poverty traps exist?
+
+**Balboni et al. (2022)** ran an experiment in Bangladesh to test this.
+
 --
 
-This figure represents productive assets after receiving transfers in 2007, and in 2011 (4 years after the intervention).
+**What they did:** Gave poor households a large asset transfer (mostly livestock) and tracked them for years.
 
 --
 
-  - Notice that for people who started with lower assets in 2007, their assets in 2011 barely increased. 
-  
---
+**What they found:**
 
-  - But for people who started with a little bit more, their assets rose much more quickly. 
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/povertytrap.png" style="width: 100%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
 
---
+---
 
-The curve bends upward, showing that crossing a certain threshold leads to much faster progress—a sign of a “poverty trap.”
+# Evidence: Do poverty traps exist?
+
+- Households starting **just below** a threshold saw little asset growth
+
+- Households starting **just above** saw rapid growth
+
+The S-curve is real. Poverty traps exist, and "big push" interventions can help people cross the threshold.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/povertytrap.png" style="width: 100%; max-width: 500px;" /&gt; 
+&lt;/div&gt;
 
 
 ---
 
 # Main takeaways
 
-- Poverty is multidimensional, but measuring it through income or consumption relative to a clearly defined poverty line helps quantify who is poor and how deep poverty is.
+--
+
+- **Consumption** is preferred over income for measuring wellbeing, but comes with measurement challenges.
 
 --
 
-- The FGT poverty indicators `\((P^0, P^1, P^2)\)` capture different aspects of poverty—from simply counting the poor to measuring the depth and severity of poverty.
+- **Poverty lines** are necessary but somewhat arbitrary — consistency and transparency matter.
 
 --
 
-- People face different coping mechanisms depending on the types of shocks they encounter; understanding these is key for designing effective support.
+- **FGT indicators** `\((P^0, P^1, P^2)\)` capture different aspects: incidence, depth, and severity.
 
 --
 
-- There are two main perspectives on escaping poverty:
-
-  - The poverty trap model that requires a "big push" investment to cross a threshold.
-  
-  - The gradual progress model with steady accumulation of assets and income.
-  
---
-
-- Empirical evidence (e.g., Balboni et al. 2022) supports the existence of poverty traps, showing that significant barriers keep people locked in poverty unless these thresholds are overcome.
+- **Vulnerability** helps identify who is at risk, enabling prevention rather than just response.
 
 --
 
-- Policy implications: Breaking poverty traps requires targeted, substantial interventions rather than only incremental steps.
+- **Poverty traps** explain why some people remain stuck — escaping requires crossing a critical threshold.
 
+--
 
+- **Policy implication:** Breaking poverty traps may require substantial, targeted interventions — not just incremental support.
 
 ---
 
 class: inverse, middle, center
 
-# 
-
-&lt;div style="font-size: 25px; text-align: center;"&gt;
-  Do you have any questions? 
-&lt;/div&gt; 
-
+# Questions?
 
 ---
 
-# Plan for next week
+# For next week
 
-Next week, we will learn about data concepts, with a specific focus on poverty-related data.
-
---
-
-Required reading: Executive Summary and Introduction of the following World Bank document on food data collection in household surveys:
-
-&lt;div style="text-align: center;"&gt; &lt;a href="https://documents1.worldbank.org/curated/en/793601587034078451/pdf/Food-Data-Collection-in-Household-Consumption-and-Expenditure-Surveys-Guidelines-for-Low-and-Middle-Income-Countries.pdf"&gt;https://documents1.worldbank.org/curated/en/793601587034078451/pdf/Food-Data-Collection-in-Household-Consumption-and-Expenditure-Surveys-Guidelines-for-Low-and-Middle-Income-Countries.pdf&lt;/a&gt; &lt;/div&gt;
-
-You don’t need to read every detail but try to familiarize yourself with the main concepts and challenges.
+**Topic:** Data concepts and poverty measurement in practice
 
 --
 
-Whenever you have time, please consider watching this introductory video to get familiar with basic terminology, statistics, and the software we will be using in this class:
+**Required reading:** Executive Summary and Introduction of the World Bank document on food data collection:
 
-&lt;div style="text-align: center;"&gt; &lt;a href="https://www.youtube.com/watch?v=gdnDkjoPJTM"&gt;https://www.youtube.com/watch?v=gdnDkjoPJTM&lt;/a&gt; &lt;/div&gt;
+.center[
+&lt;a href="https://documents1.worldbank.org/curated/en/793601587034078451/pdf/Food-Data-Collection-in-Household-Consumption-and-Expenditure-Surveys-Guidelines-for-Low-and-Middle-Income-Countries.pdf"&gt;World Bank: Food Data Collection Guidelines&lt;/a&gt;
+]
+
+- You don't need every detail — focus on main concepts and challenges.
 
 --
 
-Please note that hands-on practice using Stata will take place during practical lab sessions led by the TA.
+**Optional video:** Introduction to Stata and basic statistics:
 
-  
+.center[
+&lt;a href="https://www.youtube.com/watch?v=gdnDkjoPJTM"&gt;youtube.com/watch?v=gdnDkjoPJTM&lt;/a&gt;
+]
+
+--
+
+&lt;br&gt;
+
+**Note:** Please bring your laptop with Stata installed on Wednesday.
+
+.center[
+&lt;a href="https://www.ekdis.ac.kr/mod/page/view.php?id=41638"&gt;Check Here on How to Install Stata&lt;/a&gt;
+]
 
 ---
 
 class: inverse, middle, center
 
-# 
+# Thank you!
 
-&lt;div style="font-size: 25px; text-align: center;"&gt;
-  Thank you!
-&lt;/div&gt; 
-
-
-
-
-
-
-
-
-
+&lt;div style="font-size: 20px; margin-top: 30px;"&gt;
+See you next week for Data Concepts.
+&lt;/div&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

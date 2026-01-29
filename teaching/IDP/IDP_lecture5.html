@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to Development Policy</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Introduction to Development Policy
+]
+.subtitle[
+## Lecture 5: Impact Evaluation Methods
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Spring 2026
+]
+
+---
+
+
+# Opening question
+
+A government wants to reduce poverty through a job training program.
+
+--
+
+After the program, they find that **participants earn 20% more** than non-participants.
+
+--
+
+&lt;br&gt;
+
+.center[
+### Can they conclude the program worked?
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Think about:** What other explanations might there be for this difference?
+]
+
+---
+
+# The challenge we face
+
+From last week, we know that simple comparisons can be misleading:
+
+--
+
+- **Selection bias**: Maybe more motivated people signed up
+
+--
+
+- **Omitted variables**: Maybe participants were already more educated
+
+--
+
+- **Reverse causality**: Maybe higher earners had more time for training
+
+--
+
+&lt;br&gt;
+
+This week we'll learn **rigorous methods** to establish true causality.
+
+---
+
+# This week's roadmap
+
+**Session 1: Randomized Controlled Trials (RCTs)**
+
+- Why impact evaluation matters
+- The "gold standard" approach
+- How RCTs work in practice
+- Limitations and ethical considerations
+
+--
+
+&lt;br&gt;
+
+**Session 2: Difference-in-Differences (DiD)**
+
+- When RCTs aren't possible
+- The DiD approach
+- Key assumptions
+- Real-world application: Indonesia school construction
+
+---
+
+class: inverse, middle, center
+
+# Session 1
+
+&lt;div style="font-size: 22px; margin-top: 10px;"&gt;
+Randomized Controlled Trials (RCTs)
+&lt;/div&gt;
+
+---
+
+# Why impact evaluation matters
+
+Every year, governments and donors spend billions on development programs.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/oecd_oda.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+--
+
+Many more programs go unfunded due to limited resources.
+
+--
+
+**We need to know:** What works? What doesn't? What deserves more funding?
+
+---
+
+# Objectives of impact evaluation
+
+--
+
+**Accountability**
+
+- Did the program achieve its goals?
+- Can we justify the costs?
+- What can be attributed to this program vs. other factors?
+
+--
+
+**Learning and improvement**
+
+- What's working well? What needs adjustment?
+- Should we scale up, redesign, or cancel?
+
+--
+
+**Building knowledge**
+
+- Results become a **public good** — others can learn from them
+- Helps the entire development community make better decisions
+
+---
+
+# Quick recap: The counterfactual
+
+`$$\text{Impact} = \text{What happened} - \text{What would have happened}$$`
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/counterfactuals-3.png" style="width: 45%; max-width: 450px;" /&gt;
+  &lt;img src="figures/counterfactuals-4.png" style="width: 45%; max-width: 450px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**The problem:** We can never observe the counterfactual directly.
+
+**The solution:** Construct a valid **comparison group**.
+
+---
+
+# Four explanations for correlation
+
+When we observe that X (education) and Y (income) are correlated:
+
+--
+
+| Explanation | Direction | Example |
+|-------------|-----------|---------|
+| **Causality** | X → Y | Education increases skills → higher income |
+| **Reverse causality** | Y → X | Higher income → can afford more education |
+| **Simultaneity** | X ↔ Y | Both affect each other over time |
+| **Omitted variable** | Z → X and Z → Y | Ability affects both education and income |
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Goal of impact evaluation:** Rule out alternative explanations and isolate the true causal effect.
+]
+
+---
+
+# Overview of impact evaluation methods
+
+| Method | Approach | Key requirement |
+|--------|----------|-----------------|
+| **RCT** | Random assignment to treatment/control | Feasibility, ethics |
+| **Difference-in-Differences** | Compare changes over time | Parallel trends |
+| **Regression Discontinuity** | Compare around eligibility threshold | (Sharp) cutoff |
+| **Instrumental Variables** | Use exogenous variation | Valid instrument |
+
+--
+
+&lt;br&gt;
+
+**This week's focus:** RCTs (Session 1) and Difference-in-Differences (Session 2)
+
+---
+
+class: inverse, middle, center
+
+# What is an RCT?
+
+---
+
+# The "gold standard"
+
+RCTs originated in medicine as a rigorous way to test treatments.
+
+--
+
+**Key idea:** Randomly assign people to treatment or control groups.
+
+--
+
+&lt;br&gt;
+
+**Why randomization works:**
+
+- Creates two groups that are **statistically identical** on average
+- Any differences in outcomes can be attributed to the treatment
+- Eliminates selection bias and controls for both observed AND unobserved factors
+
+--
+
+&lt;br&gt;
+
+We will watch a video. As you do, think about:
+
+1. What makes RCTs different from other evaluation methods?
+2. Why is random assignment so important?
+3. When might RCTs be difficult or unethical?
+
+---
+
+# Video: Understanding RCTs
+
+&lt;div style="text-align: center;"&gt;
+  &lt;iframe width="800" height="500" src="https://www.youtube.com/embed/Wy7qpJeozec?si=qJjYT26zw-b6btMi&amp;amp;start=20" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+---
+
+# Key features of RCTs
+
+**Random assignment**
+
+- Ensures treatment and control groups are comparable
+- Differences between groups are due to chance, not systematic factors
+
+--
+
+&lt;br&gt;
+
+**Control group as counterfactual**
+
+- Shows what would have happened without the intervention
+- Allows direct comparison with treatment group
+
+--
+
+&lt;br&gt;
+
+**Simple estimation**
+
+- Impact = Average outcome (treatment) − Average outcome (control)
+- No need to control for confounders — randomization handles this
+
+---
+
+# RCT estimation
+
+With proper randomization, we can estimate the treatment effect using a simple regression:
+
+`$$\large Y_{i} = \beta_0 + \beta_1 TREAT_i + \varepsilon_i$$` 
+
+--
+
+| Term | Meaning |
+|------|---------|
+| `\(Y_i\)` | Outcome for person `\(i\)` |
+| `\(TREAT_i\)` | = 1 if treated, = 0 if control |
+| `\(\beta_1\)` | **Treatment effect** (what we want!) |
+
+--
+
+&lt;br&gt;
+
+.center[
+**Interpretation:** 
+
+`\(\beta_1\)` is the average difference in outcomes between treatment and control groups — the causal effect of the program.
+]
+
+---
+
+# Enhancing precision
+
+We can improve our estimates by adding controls:
+
+--
+
+**Control for baseline outcome** (if available):
+
+`$$Y_{i} = \beta_0 + \beta_1 TREAT_i + \beta_2 Y_{0i} + \varepsilon_i$$`
+
+--
+
+**Control for other baseline characteristics:**
+
+`$$Y_{i} = \beta_0 + \beta_1 TREAT_i + \beta_2 Z_{0i} + \varepsilon_i$$`
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Note:** These controls improve precision but aren't required for unbiased estimates — randomization already ensures that.
+]
+
+---
+
+class: inverse, middle, center
+
+# When are RCTs feasible?
+
+---
+
+# Video: Feasibility and ethics
+
+&lt;div style="text-align: center;"&gt;
+  &lt;iframe width="800" height="500" src="https://www.youtube.com/embed/Wy7qpJeozec?si=qJjYT26zw-b6btMi&amp;amp;start=215" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+---
+
+# When RCTs are practical
+
+**Common scenario:** Program wants to reach many people, but budget constraints prevent treating everyone at once.
+
+--
+
+**Solution:** Use a lottery to fairly decide who receives treatment first.
+
+--
+
+&lt;br&gt;
+
+**Examples of feasible RCT settings:**
+
+- Pilot programs with limited initial rollout
+- Programs that will eventually reach everyone (phased implementation)
+- Oversubscribed programs where demand exceeds supply
+
+---
+
+# Ethical considerations
+
+**Core principles:**
+
+--
+
+**1. Do no harm**
+- Participants should not be worse off than without the study
+- No deception or intentional harm
+
+--
+
+**2. Voluntary participation**
+- Participants can opt out or withdraw at any time
+- Informed consent required
+
+--
+
+**3. Institutional oversight**
+- Studies reviewed by Institutional Review Board (IRB)
+- Ensures ethical compliance
+
+---
+
+# Threats to RCT validity
+
+&lt;div style="text-align: center;"&gt;
+  &lt;iframe width="800" height="500" src="https://www.youtube.com/embed/Wy7qpJeozec?si=qJjYT26zw-b6btMi&amp;amp;start=304" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+---
+
+# Common threats and solutions
+
+&lt;br&gt;
+
+
+| Threat | Problem | Solution |
+|--------|---------|----------|
+| **Bad randomization** | Groups not actually comparable | Balance tests, stratified randomization |
+| **Attrition** | People drop out | Compare dropout rates, use bounds |
+| **Spillovers** | Treatment affects control group | Design to prevent contamination |
+| **Hawthorne effects** | Behavior changes from being observed | Blind evaluation when possible |
+
+---
+
+# RCT in practice: PROGRESA (Mexico)
+
+**Program:** Conditional cash transfers to poor rural families
+
+--
+
+**Conditions:**
+- Children must attend school
+- Families must visit health clinics regularly
+
+--
+
+**Goal:** Break intergenerational poverty cycle through human capital investment
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/progresa2.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Limitations of RCTs
+
+--
+
+**External validity**
+- Results may not apply in other contexts
+- Different institutions, populations, or implementation may yield different effects
+- Replication studies help address this
+
+--
+
+**Compliance issues**
+- Can't force people to participate
+- Low take-up means we measure "intent to treat," not full treatment effect
+
+--
+
+**Equilibrium effects**
+- Small-scale results may not hold at scale
+- Example: Job training helps a few people, but if everyone is trained, competition increases
+
+---
+
+# Session 1 summary
+
+--
+
+**RCTs are the "gold standard"** because randomization creates comparable groups and eliminates selection bias.
+
+--
+
+**Simple estimation:** Compare average outcomes between treatment and control groups.
+
+--
+
+**Not always feasible:** Ethical, practical, or cost constraints may prevent randomization.
+
+--
+
+**Threats exist:** Bad randomization, attrition, spillovers can undermine validity.
+
+--
+
+&lt;br&gt;
+
+**Next:** What do we do when RCTs aren't possible?
+
+---
+
+class: inverse, middle, center
+
+# Questions on RCTs?
+
+---
+
+class: inverse, middle, center
+
+# Session 2
+
+&lt;div style="font-size: 22px; margin-top: 10px;"&gt;
+Difference-in-Differences (DiD)
+&lt;/div&gt;
+
+---
+
+# When RCTs aren't possible
+
+Many important policies can't be randomly assigned:
+
+--
+
+- Minimum wage increases
+- Health insurance expansions
+- Education policy changes
+- Infrastructure investments
+
+--
+
+&lt;br&gt;
+
+**We still want to evaluate their impact.**
+
+--
+
+**Difference-in-Differences (DiD)** is a powerful method for these situations.
+
+---
+
+# The DiD idea
+
+**Compare changes over time** between:
+
+- A group that received treatment
+- A group that didn't
+
+--
+
+&lt;br&gt;
+
+**Key insight:** By comparing *changes*, we control for pre-existing differences between groups.
+
+--
+
+&lt;br&gt;
+
+Let's see this with an example...
+
+---
+
+# Example: School construction
+
+Suppose some regions built new schools, others didn't. We observe average years of schooling before and after the program.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/dd_page-0001.jpg" style="width: 100%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Before the program
+
+This is how school attainment looked in treated regions before construction.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/dd_page-0002.jpg" style="width: 100%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# After the program
+
+School attainment in treated regions after construction.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/dd_page-0003.jpg" style="width: 100%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Can we conclude the program worked?** Not yet — we need a comparison!
+
+---
+
+# Adding the control group
+
+Now we observe regions that didn't receive new schools.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/dd_page-0005.jpg" style="width: 100%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+--
+
+Notice: Both groups followed **similar trends** before the program.
+
+---
+
+# Constructing the counterfactual
+
+If trends would have continued similarly, treated regions would have looked like this:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/dd_page-0006.jpg" style="width: 100%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Measuring the impact
+
+The difference between **factual** and **counterfactual** is the program impact:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/dd_page-0008.jpg" style="width: 100%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Why "Difference-in-Differences"?
+
+**First difference:** Change in control group (before → after)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/dd_page-0010.jpg" style="width: 100%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Why "Difference-in-Differences"?
+
+**Second difference:** Change in treatment group (before → after)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/dd_page-0011.jpg" style="width: 100%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# The DiD estimate
+
+**DiD = (Change in treatment) − (Change in control)**
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/dd_page-0012.jpg" style="width: 100%; max-width: 800px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# The key assumption: Parallel trends
+
+.content-box-green[
+**Parallel trends assumption:** In the absence of treatment, both groups would have followed the same trend over time.
+]
+
+--
+
+&lt;br&gt;
+
+**This is critical!** If trends would have diverged anyway, DiD gives wrong answers.
+
+--
+
+**How do we check?**
+- Look at pre-treatment trends — are they parallel?
+- We can't prove the assumption, but we can see if it's plausible
+
+---
+
+# DiD estimation
+
+We estimate DiD using this regression:
+
+`$$\large Y_{it} = \beta_0 + \beta_1 TREAT_i + \beta_2 POST_t + \beta_3 (TREAT_i \times POST_t) + \varepsilon_{it}$$`
+
+--
+
+| Term | Meaning |
+|------|---------|
+| `\(TREAT_i\)` | = 1 if in treatment group |
+| `\(POST_t\)` | = 1 if after program started |
+| `\(TREAT_i \times POST_t\)` | = 1 if treated AND after program |
+| `\(\beta_3\)` | **The DiD estimate** (what we want!) |
+
+---
+
+# Understanding the regression
+
+Let's see what this equation predicts for each group:
+
+`$$\large Y_{it} = \beta_0 + \beta_1 TREAT_i + \beta_2 POST_t + \beta_3 (TREAT_i \times POST_t) + \varepsilon_{it}$$`
+
+--
+
+| Group | Time | Predicted outcome |
+|-------|------|-------------------|
+| Control | Before | `\(\beta_0\)` |
+| Control | After | `\(\beta_0 + \beta_2\)` |
+| Treatment | Before | `\(\beta_0 + \beta_1\)` |
+| Treatment | After | `\(\beta_0 + \beta_1 + \beta_2 + \beta_3\)` |
+
+--
+
+&lt;br&gt;
+
+**DiD calculation:**
+
+`$$[(\beta_0 + \beta_1 + \beta_2 + \beta_3) - (\beta_0 + \beta_1)] - [(\beta_0 + \beta_2) - \beta_0] = \beta_3$$`
+
+---
+
+# DiD in practice: Indonesia school construction
+
+**Context:** 1974-1978, Indonesia built **61,000 new primary schools** using oil boom revenues.
+
+--
+
+**Question:** Did school construction increase education and wages?
+
+--
+
+&lt;br&gt;
+
+**Challenge:** There's no "control group" in the usual sense — every region got some new schools!
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**So how can we evaluate this program?**
+]
+
+---
+
+# The key insight: Not everyone could benefit
+
+Think about it: **Who benefits from new primary schools?**
+
+--
+
+&lt;br&gt;
+
+.pull-left[
+**Kids who were young enough to attend:**
+- Ages 2-6 in 1974
+- They would go to primary school *during* the construction period
+- ✅ **Could benefit** from new schools
+]
+
+--
+
+.pull-right[
+**Kids who were already too old:**
+- Ages 12-17 in 1974
+- Already finished or past primary school
+- ❌ **Could NOT benefit** from new schools
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**This gives us our comparison groups!**
+]
+
+---
+
+# The Duflo (2001) strategy
+
+| Group | Who are they? | Role in DiD |
+|-------|---------------|-------------|
+| **"Treatment"** | Young cohort (ages 2-6 in 1974) | Could benefit from new schools |
+| **"Control"** | Older cohort (ages 12-17 in 1974) | Too old to benefit |
+
+--
+
+&lt;br&gt;
+
+**But wait — we also have regional variation:**
+
+- Some regions built **many** schools (high construction)
+- Other regions built **few** schools (low construction)
+
+--
+
+&lt;br&gt;
+
+**The DiD:** Compare the *difference* between young and old cohorts across high vs. low construction regions.
+
+---
+
+# Setting up the 2×2 comparison
+
+|  | **Low construction regions** | **High construction regions** |
+|--|------------------------------|-------------------------------|
+| **Older cohort** (couldn't benefit) | Baseline | Baseline |
+| **Younger cohort** (could benefit) | Small improvement | **Large improvement** |
+
+--
+
+&lt;br&gt;
+
+**DiD logic:**
+- In LOW construction regions: young people do a bit better than old (general trend)
+- In HIGH construction regions: young people do **much** better than old
+- The **extra** improvement in high regions = **effect of schools**
+
+---
+
+# Checking parallel trends
+
+Before we trust this, we need to check: Were trends similar before the program?
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_duflo.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+--
+
+For cohorts who were **too old to benefit** (born before 1962), trends are parallel across regions. ✓
+
+---
+
+# The DiD calculation
+
+What happens after the program?
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_duflo2.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# The DiD calculation
+
+| | Low construction | High construction | Difference |
+|--|------------------|-------------------|------------|
+| **Old cohort** (control) | 9.40 years | 9.76 years | +0.36 |
+| **Young cohort** (treated) | 8.02 years | 8.49 years | +0.47 |
+| **Change** | | | **+0.11** |
+
+
+--
+
+&lt;br&gt;
+
+**Interpretation:** The school construction program increased education by about **0.11 additional years** of schooling.
+
+---
+
+# Why this works
+
+.pull-left[
+**What we're doing:**
+
+Comparing how much *more* education young people got (vs. older people) in regions that built many schools vs. few schools.
+]
+
+.pull-right[
+**What this controls for:**
+
+- Pre-existing regional differences ✓
+- General improvements over time ✓
+- Cohort-specific trends ✓
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**The only thing left:** The effect of having more schools available when you were school-age.
+]
+
+---
+
+# The key assumption: Parallel trends
+
+.content-box-yellow[
+**Parallel trends assumption:** 
+
+Without the school construction, the gap between young and old cohorts would have been the **same** in high and low construction regions.
+]
+
+--
+
+&lt;br&gt;
+
+**Is this plausible?**
+
+- We checked: cohorts too old to benefit show parallel trends ✓
+- Regions weren't selected based on expected education growth
+- No other major programs targeted young children in high-construction regions
+
+--
+
+&lt;br&gt;
+
+**We can't prove it, but we can show it's reasonable.**
+
+---
+
+# Summary: The Duflo DiD
+
+| Element | In this study |
+|---------|---------------|
+| **Treatment group** | Young cohort in high-construction regions |
+| **Control groups** | (1) Older cohort, (2) Low-construction regions |
+| **Before/After** | Proxied by birth cohort (old = before, young = after) |
+| **Key assumption** | Without new schools, young-old gap would be same across regions |
+| **Result** | +0.11 years of schooling from the program |
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**This is a clever use of DiD** — when you can't observe "before" and "after" directly, you can sometimes use cohorts who could vs. couldn't benefit from a program.
+]
+
+---
+
+# Recent advances in DiD
+
+The DiD literature has advanced significantly in recent years.
+
+--
+
+**Key insight:** Standard DiD works well with:
+- Single treatment period (everyone treated at same time)
+- Homogeneous treatment effects
+
+--
+
+**Complications arise with:**
+- Staggered adoption (units treated at different times)
+- Heterogeneous effects (treatment affects units differently)
+
+--
+
+New methods (Callaway &amp; Sant'Anna, Sun &amp; Abraham, etc.) address these issues.
+
+---
+
+# Main takeaways
+
+--
+
+**RCTs (Randomized Controlled Trials)**
+- Gold standard: randomization creates comparable groups
+- Eliminates selection bias and confounding
+- Not always feasible or ethical
+
+--
+
+**Difference-in-Differences (DiD)**
+- Compares changes over time between treated and untreated groups
+- Key assumption: parallel trends
+- Powerful when RCTs aren't possible
+
+--
+
+**Both methods** aim to construct credible counterfactuals — what would have happened without the program.
+
+--
+
+**Choosing the right method** depends on context, feasibility, ethics, and data availability.
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+# For next week
+
+**Monday: Social Assistance Policies**
+
+- Reading: de Janvry &amp; Sadoulet, Chapter 14
+
+--
+
+&lt;br&gt;
+
+**Wednesday: Impacts of Social Assistance Programs**
+
+- Reading: de Janvry &amp; Sadoulet, Chapter 14
+
+---
+
+class: inverse, middle, center
+
+# Thank you!
+
+&lt;div style="font-size: 20px; margin-top: 30px;"&gt;
+See you next week for Social Assistance Policies.
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

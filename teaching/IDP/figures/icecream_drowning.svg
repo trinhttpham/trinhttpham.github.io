@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">Correlation ≠ Causation</text>
+  
+  <!-- Ice Cream (Left) -->
+  <g transform="translate(120, 180)">
+    <!-- Cone -->
+    <polygon points="0,60 60,60 30,140" fill="#D2691E" stroke="#8B4513" stroke-width="2"/>
+    <!-- Cone pattern -->
+    <line x1="10" y1="70" x2="25" y2="130" stroke="#8B4513" stroke-width="1"/>
+    <line x1="50" y1="70" x2="35" y2="130" stroke="#8B4513" stroke-width="1"/>
+    <line x1="5" y1="80" x2="55" y2="80" stroke="#8B4513" stroke-width="1"/>
+    <line x1="12" y1="100" x2="48" y2="100" stroke="#8B4513" stroke-width="1"/>
+    <!-- Ice cream scoops -->
+    <ellipse cx="30" cy="45" rx="35" ry="30" fill="#FFB6C1" stroke="#FF69B4" stroke-width="2"/>
+    <ellipse cx="30" cy="15" rx="30" ry="25" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
+    <!-- Sprinkles -->
+    <rect x="15" y="5" width="4" height="8" fill="#FF6347" transform="rotate(20 17 9)"/>
+    <rect x="35" y="8" width="4" height="8" fill="#32CD32" transform="rotate(-15 37 12)"/>
+    <rect x="25" y="35" width="4" height="8" fill="#FFD700" transform="rotate(10 27 39)"/>
+    <rect x="45" y="40" width="4" height="8" fill="#9370DB" transform="rotate(-25 47 44)"/>
+  </g>
+  <text x="150" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">Ice Cream Sales</text>
+  <text x="150" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#666">📈 Go UP</text>
+  
+  <!-- Drowning (Right) -->
+  <g transform="translate(580, 180)">
+    <!-- Water -->
+    <ellipse cx="0" cy="80" rx="70" ry="25" fill="#4682B4" opacity="0.6"/>
+    <!-- Waves -->
+    <path d="M-60,70 Q-45,60 -30,70 Q-15,80 0,70 Q15,60 30,70 Q45,80 60,70" fill="none" stroke="#1E90FF" stroke-width="3"/>
+    <path d="M-50,85 Q-35,75 -20,85 Q-5,95 10,85 Q25,75 40,85" fill="none" stroke="#1E90FF" stroke-width="2"/>
+    <!-- Person -->
+    <!-- Head -->
+    <circle cx="0" cy="30" r="20" fill="#FFDAB9" stroke="#DEB887" stroke-width="2"/>
+    <!-- Eyes (worried) -->
+    <circle cx="-7" cy="25" r="3" fill="#333"/>
+    <circle cx="7" cy="25" r="3" fill="#333"/>
+    <!-- Worried eyebrows -->
+    <line x1="-12" y1="18" x2="-4" y2="21" stroke="#333" stroke-width="2"/>
+    <line x1="12" y1="18" x2="4" y2="21" stroke="#333" stroke-width="2"/>
+    <!-- Open mouth (distress) -->
+    <ellipse cx="0" cy="38" rx="6" ry="4" fill="#333"/>
+    <!-- Arms reaching up -->
+    <line x1="-15" y1="50" x2="-35" y2="20" stroke="#FFDAB9" stroke-width="8" stroke-linecap="round"/>
+    <line x1="15" y1="50" x2="35" y2="25" stroke="#FFDAB9" stroke-width="8" stroke-linecap="round"/>
+    <!-- Hands -->
+    <circle cx="-35" cy="18" r="6" fill="#FFDAB9" stroke="#DEB887" stroke-width="1"/>
+    <circle cx="35" cy="23" r="6" fill="#FFDAB9" stroke="#DEB887" stroke-width="1"/>
+    <!-- Water splashes -->
+    <path d="M-45,65 Q-48,55 -42,58" fill="none" stroke="#87CEEB" stroke-width="2"/>
+    <path d="M45,60 Q50,50 43,55" fill="none" stroke="#87CEEB" stroke-width="2"/>
+    <circle cx="-30" cy="60" r="3" fill="#87CEEB"/>
+    <circle cx="25" cy="55" r="2" fill="#87CEEB"/>
+  </g>
+  <text x="580" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">Drowning Deaths</text>
+  <text x="580" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#666">📈 Go UP</text>
+  
+  <!-- Correlation Arrow (with X) -->
+  <g transform="translate(400, 260)">
+    <line x1="-120" y1="0" x2="120" y2="0" stroke="#E74C3C" stroke-width="4" stroke-dasharray="10,5"/>
+    <polygon points="120,0 105,-10 105,10" fill="#E74C3C"/>
+    <polygon points="-120,0 -105,-10 -105,10" fill="#E74C3C"/>
+    <!-- X mark -->
+    <circle cx="0" cy="0" r="20" fill="white" stroke="#E74C3C" stroke-width="3"/>
+    <line x1="-10" y1="-10" x2="10" y2="10" stroke="#E74C3C" stroke-width="4"/>
+    <line x1="10" y1="-10" x2="-10" y2="10" stroke="#E74C3C" stroke-width="4"/>
+  </g>
+  <text x="400" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#E74C3C" font-weight="bold">NOT causation!</text>
+  
+  <!-- Sun (Confounder) at top center -->
+  <g transform="translate(400, 130)">
+    <!-- Sun rays -->
+    <line x1="0" y1="-55" x2="0" y2="-75" stroke="#FFD700" stroke-width="4"/>
+    <line x1="40" y1="-40" x2="55" y2="-55" stroke="#FFD700" stroke-width="4"/>
+    <line x1="-40" y1="-40" x2="-55" y2="-55" stroke="#FFD700" stroke-width="4"/>
+    <line x1="55" y1="0" x2="75" y2="0" stroke="#FFD700" stroke-width="4"/>
+    <line x1="-55" y1="0" x2="-75" y2="0" stroke="#FFD700" stroke-width="4"/>
+    <line x1="40" y1="40" x2="55" y2="55" stroke="#FFD700" stroke-width="4"/>
+    <line x1="-40" y1="40" x2="-55" y2="55" stroke="#FFD700" stroke-width="4"/>
+    <!-- Sun body -->
+    <circle cx="0" cy="0" r="45" fill="#FFD700" stroke="#FFA500" stroke-width="3"/>
+    <!-- Sun face -->
+    <circle cx="-12" cy="-8" r="5" fill="#FFA500"/>
+    <circle cx="12" cy="-8" r="5" fill="#FFA500"/>
+    <path d="M-15,12 Q0,28 15,12" fill="none" stroke="#FFA500" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Confounder label -->
+  <text x="400" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFA500">☀️ HOT WEATHER ☀️</text>
+  <text x="400" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">(The Confounder)</text>
+  
+  <!-- Causal arrows from sun -->
+  <!-- Arrow to ice cream -->
+  <path d="M330,160 Q250,170 180,190" fill="none" stroke="#2ECC71" stroke-width="3"/>
+  <polygon points="180,190 195,195 190,180" fill="#2ECC71"/>
+  <text x="240" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2ECC71" font-weight="bold">causes</text>
+  
+  <!-- Arrow to drowning -->
+  <path d="M470,160 Q550,170 600,190" fill="none" stroke="#2ECC71" stroke-width="3"/>
+  <polygon points="600,190 585,180 590,195" fill="#2ECC71"/>
+  <text x="550" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2ECC71" font-weight="bold">causes</text>
+  
+  <!-- Bottom explanation -->
+  <rect x="150" y="410" width="500" height="70" rx="10" fill="#E8F6F3" stroke="#1ABC9C" stroke-width="2"/>
+  <text x="400" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">
+    <tspan font-weight="bold">Hot weather</tspan> causes BOTH more ice cream sales AND more swimming
+  </text>
+  <text x="400" y="458" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">
+    (which leads to more drownings). Ice cream doesn't cause drowning!
+  </text>
+  
+</svg>

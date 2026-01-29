@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to Development Policy</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Introduction to Development Policy
+]
+.subtitle[
+## Lecture 7: Human Capital (Education)
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Spring 2026
+]
+
+---
+
+
+# Opening question
+
+A 14-year-old girl in rural Mexico faces a choice:
+
+--
+
+.pull-left[
+**Option A: Stay in school**
+- Continue to 9th grade
+- No immediate income
+- Maybe get a better job later?
+]
+
+.pull-right[
+**Option B: Work in a factory**
+- Earn $5/day starting now
+- Help family pay bills immediately
+- But what about the future?
+]
+
+&lt;style&gt;
+.pull-left { width: 45%; margin-left: 2.5%; }
+.pull-right { width: 45%; margin-right: 2.5%; }
+&lt;/style&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**What would influence her decision? What could policy do to keep her in school?**
+]
+
+--
+
+&lt;br&gt;
+
+Today we'll explore why children drop out and what works to keep them in school.
+
+---
+
+# Today's roadmap
+
+**Session 1: Understanding Education**
+
+--
+
+- Why is education under-provided?
+- How do we measure educational outcomes?
+- What determines whether children go to school?
+
+--
+
+&lt;br&gt;
+
+**Session 2: Policy Interventions**
+
+--
+
+- Supply-side interventions (building schools, improving teachers)
+- Demand-side interventions (cash transfers, information)
+- Evidence on what works
+
+---
+
+class: inverse, middle, center
+
+# Session 1
+
+&lt;div style="font-size: 22px; margin-top: 10px;"&gt;
+Understanding Education
+&lt;/div&gt;
+
+---
+
+# Why does education matter?
+
+Education is important for two reasons:
+
+--
+
+**1. Intrinsic value**
+
+- Education is a basic human need
+- People value learning for its own sake
+
+--
+
+**2. Instrumental value**
+
+- Education increases productivity and wages
+- More educated workers → economic growth
+- Better health, civic participation, innovation
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Key insight:** Education benefits not just individuals but society as a whole.
+]
+
+---
+
+# Why is education under-provided?
+
+If education is so valuable, why don't markets provide enough of it?
+
+--
+
+**Positive externalities**: Education benefits society (innovation, health, civic participation)
+
+- But individuals only consider their *private* benefits when deciding
+- Result: People invest less in education than what's best for society
+
+--
+
+**Credit constraints**: Education requires upfront costs but pays off later
+
+- Poor families can't borrow against future earnings
+- Result: Talented poor children can't afford school
+
+--
+
+**Information problems**: Families may not know the true returns to education
+- Result: Under-investment due to underestimating benefits
+
+--
+
+.content-box-yellow[
+**This creates a strong case for government intervention** — subsidies, public schools, information campaigns.
+]
+
+---
+
+class: inverse, middle, center
+
+# Education Indicators
+
+&lt;div style="font-size: 20px; margin-top: 10px;"&gt;
+How do we measure educational outcomes?
+&lt;/div&gt;
+
+---
+
+# Gross Enrollment Rate (GER)
+
+**GER** measures total enrollment relative to the school-age population:
+
+`$$GER = \frac{\text{Total children enrolled at a level}}{\text{Children of official age for that level}} \times 100\%$$`
+
+--
+
+&lt;br&gt;
+
+**Can GER be greater than 100%?**
+
+--
+
+Yes! This happens when:
+- Older students repeat grades
+- Students start school late
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**A GER above 100% is often NOT a good sign** — it may indicate high grade repetition rates.
+]
+
+---
+
+# GER: Global disparities
+
+&lt;iframe src="https://ourworldindata.org/grapher/gross-enrollment-ratio-in-primary-education?tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# GER: Gender gaps
+
+&lt;iframe src="https://ourworldindata.org/grapher/gender-gap-education-levels?tab=line" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Net Enrollment Rate (NER)
+
+**NER** is more precise — it counts only children of the correct age:
+
+`$$NER = \frac{\text{Children of official age enrolled at that level}}{\text{Total children of official age}} \times 100\%$$`
+
+--
+
+&lt;br&gt;
+
+**Can NER be greater than 100%?**
+
+--
+
+No — by definition, the numerator can't exceed the denominator.
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**NER is generally a better indicator** of whether children are in school at the right time.
+]
+
+---
+
+# NER: Visualizing enrollment by age
+
+NER can be shown as school-enrollment pyramids:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/nepal.png" style="width: 100%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**What this shows:** The proportion of children at each age enrolled in each level of schooling in Nepal.
+
+---
+
+# NER: Global disparities
+
+&lt;iframe src="https://ourworldindata.org/grapher/total-net-enrollment-rate-in-primary-education?time=2024&amp;tab=map" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# NER: Gender gaps in pre-primary
+
+&lt;iframe src="https://ourworldindata.org/grapher/net-enrollment-pre-primary-boys-vs-girls?tab=chart" loading="lazy" style="width: 100%; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Other important indicators
+
+**Out-of-school children:** Number of children not enrolled at all
+
+&lt;iframe src="https://ourworldindata.org/grapher/girls-and-boys-of-primary-school-age-who-are-out-of-school?tab=chart" loading="lazy" style="width: 100%; height: 420px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Educational attainment
+
+**Years of schooling:** Average completed years for adults over 25
+
+&lt;iframe src="https://ourworldindata.org/grapher/average-years-of-schooling?tab=map" loading="lazy" style="width: 100%; height: 450px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Completion rates
+
+**Grade completion rate:** Share of children who actually finish a given level
+
+&lt;iframe src="https://ourworldindata.org/grapher/completion-rate-of-primary-education?tab=map" loading="lazy" style="width: 100%; height: 450px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Quality vs. quantity
+
+**Learning outcomes:** Do children actually learn in school?
+
+&lt;iframe src="https://ourworldindata.org/grapher/quality-vs-quantity-of-schooling?tab=chart" loading="lazy" style="width: 100%; height: 450px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+
+---
+
+# Summary: Education indicators
+
+| Indicator | What it measures | Limitation |
+|-----------|------------------|------------|
+| **GER** | Total enrollment / age-group population | Can exceed 100% (grade repetition) |
+| **NER** | Correct-age enrollment / age-group | Misses over-age students |
+| **Out-of-school** | Children not enrolled | Doesn't capture dropouts |
+| **Attainment** | Years of schooling completed | Doesn't measure learning |
+| **Completion rate** | Who finishes each level | Doesn't measure learning |
+| **Test scores** | Actual learning | Hard to compare across contexts |
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Key insight:** Enrollment ≠ Attendance ≠ Learning. We need multiple indicators.
+]
+
+---
+
+class: inverse, middle, center
+
+# What Determines Schooling?
+
+&lt;div style="font-size: 20px; margin-top: 10px;"&gt;
+Why do some children go to school while others don't?
+&lt;/div&gt;
+
+---
+
+# The schooling decision
+
+Going to school is a decision about **weighing costs and benefits**.
+
+--
+
+&lt;br&gt;
+
+.pull-left[
+**Benefits of school:**
+
+- Enjoyment of learning
+- Higher wages in the future
+- Better job opportunities
+- Social connections
+]
+
+.pull-right[
+**Costs of school:**
+
+- Tuition, books, uniforms
+- Transportation
+- Lost income from not working
+- Time that could help family
+]
+
+&lt;style&gt;
+.pull-left { width: 45%; margin-left: 2.5%; }
+.pull-right { width: 45%; margin-right: 2.5%; }
+&lt;/style&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Simple rule:** Children go to school when **benefits &gt; costs**.
+]
+
+---
+
+# Why don't some children attend school?
+
+**The costs are too high:**
+- School fees, supplies, transport are unaffordable
+- Family needs the child's labor or income
+
+--
+
+**The benefits seem too low:**
+- Poor school quality → limited learning
+- Few job opportunities even with education
+- Parents don't know the true returns to schooling
+
+--
+
+**Other barriers:**
+- Schools are too far away
+- Safety concerns (especially for girls)
+- Cultural norms against educating girls
+- Health problems, disabilities
+
+--
+
+.content-box-yellow[
+**Policy can address each of these barriers** — that's what we'll explore in Session 2.
+]
+
+---
+
+# Returns to schooling: What's the payoff?
+
+**Returns to schooling** = How much more you earn with additional education
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/return.png" style="width: 100%; max-width: 650px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**What this table shows:** Each additional year of schooling increases wages by about 10% on average. 
+
+- Returns are often higher for women than men.
+
+---
+
+# Returns vary by education level
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/return2.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**What this shows:** Returns to education by level (primary, secondary, tertiary) and gender. 
+
+- Tertiary education has the highest returns (15-17%), but secondary has lower returns (7-9%).
+
+---
+
+# Returns vary by region
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/return3.png" style="width: 100%; max-width: 750px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Key patterns:**
+- Returns are generally **higher in developing regions** (Sub-Saharan Africa, Latin America)
+- **Primary education** has very high returns in low-income regions (14-16%)
+- **Women often have higher returns** than men at most levels
+
+---
+
+# Why returns to schooling matter for policy
+
+If returns are high but enrollment is low, something is preventing children from going to school.
+
+--
+
+**Possible barriers:**
+
+| Barrier | Policy response |
+|---------|-----------------|
+| Families don't know returns are high | Information campaigns |
+| Can't afford school costs | Subsidies, free schooling |
+| Need child's income now | Cash transfers |
+| No schools nearby | Build more schools |
+| Schools are low quality | Teacher training, incentives |
+
+--
+
+.content-box-green[
+**This is the framework for Session 2:** Matching policies to barriers.
+]
+
+---
+
+# Session 1 summary
+
+--
+
+**Education is under-provided** because of externalities, credit constraints, and information problems.
+
+--
+
+**Multiple indicators** measure education: enrollment (GER, NER), completion, attainment, and learning.
+
+--
+
+**Schooling decisions** weigh benefits (future wages, enjoyment) against costs (fees, lost income).
+
+--
+
+**Returns to schooling are high** — about 10% per year on average — but many children still don't attend.
+
+--
+
+**Policy can help** by reducing costs, increasing benefits, or removing barriers.
+
+--
+
+&lt;br&gt;
+
+**Next:** What specific policies work?
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+class: inverse, middle, center
+
+# Session 2
+
+&lt;div style="font-size: 22px; margin-top: 10px;"&gt;
+Policy Interventions
+&lt;/div&gt;
+
+---
+
+# Two types of interventions
+
+Policies to improve education can be classified as:
+
+--
+
+&lt;br&gt;
+
+.pull-left[
+**Supply-side interventions**
+
+Increase the availability or quality of schools:
+- Build more schools
+- Hire more teachers
+- Improve teacher quality
+- Provide textbooks/materials
+]
+
+.pull-right[
+**Demand-side interventions**
+
+Increase families' willingness/ability to send children:
+- Reduce school costs
+- Cash transfers
+- Provide information about returns
+- Address opportunity costs
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Both matter** — the best approach depends on what barriers exist in a given context.
+]
+
+---
+
+class: inverse, middle, center
+
+# Supply-Side Interventions
+
+---
+
+# Supply-side factors
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supply1.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Supply-side factors (continued)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/supply2.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Evidence: School construction in Indonesia
+
+**Recall from Lecture 5:** Duflo (2001) studied Indonesia's massive school construction program (1974-1979).
+
+--
+
+**The program:** One new primary school for every 500 children aged 5-14.
+
+--
+
+**The challenge:** More schools were built in poorer districts — can't simply compare high vs. low construction areas.
+
+--
+
+**The solution:** Difference-in-Differences
+
+- Compare younger cohorts (who benefited) vs. older cohorts (who didn't)
+- Across high-construction vs. low-construction regions
+
+--
+
+**Finding:** The program increased education by about **0.11 years** on average.
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Building schools works** — but the effect was modest. What else might help?
+]
+
+---
+
+# Evidence: Teacher incentives in India
+
+**The problem:** Teacher absenteeism is chronic in many developing countries.
+
+--
+
+**The question:** Can performance-based pay improve teacher effort and student learning?
+
+--
+
+**Study:** Muralidharan and Sundararaman (2011) — RCT in rural India
+
+--
+
+**Design:** Schools randomly assigned to:
+
+| Group | Intervention |
+|-------|--------------|
+| **Individual incentives** | Teacher bonus based on *own students'* test score improvement |
+| **Group incentives** | Teacher bonus based on *all teachers'* improvement in the school |
+| **Control** | No bonus (status quo) |
+
+---
+
+# Results: Teacher incentives
+
+**What happened?**
+
+--
+
+**Teacher behavior changed:**
+- Teachers worked longer hours
+- Spent more time actually teaching
+- Gave more individual attention to students
+
+--
+
+**Student learning improved:**
+- Both incentive schemes raised test scores
+- Individual incentives were slightly more effective than group incentives
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Teacher incentives can work** — but they need to be well-designed and monitored.
+]
+
+---
+
+class: inverse, middle, center
+
+# Demand-Side Interventions
+
+---
+
+# Demand-side barrier: Opportunity costs
+
+**Study:** [Atkin (2016) — Mexico](https://www.aeaweb.org/articles?id=10.1257/aer.20120901)
+
+--
+
+**Question:** What happens to schooling when factory jobs become available?
+
+
+--
+
+**Method:** Use variation in the **timing of factory openings across commuting zones**.
+
+--
+
+**Finding:** For every 25 new factory jobs created, **one student dropped out** at grade 9 instead of continuing to grade 12.
+
+--
+
+&lt;br&gt; 
+
+.content-box-yellow[
+**When work opportunities improve, some children leave school** — the opportunity cost of staying in school increased.
+]
+
+--
+
+&lt;br&gt; 
+
+**Policy implication:** Cash transfers can offset this by compensating families for lost income.
+
+---
+
+# Demand-side barrier: Misperceptions about returns
+
+**Study:** [Jensen (2010) — Dominican Republic](https://academic.oup.com/qje/article/125/2/515/1882172)
+
+--
+
+**The puzzle:**
+- 85% of students complete primary school (8th grade)
+- But only 30% complete high school
+
+--
+
+**Why?** Jensen surveyed students about their beliefs:
+
+| | Students believed | Actual returns |
+|--|-------------------|----------------|
+| **Return per year of school** | ~2% | ~10% |
+| **Gain from 8th → 12th grade** | ~9% higher wages | ~40% higher wages |
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Students dramatically underestimated the benefits of staying in school.**
+]
+
+---
+
+# Can information change behavior?
+
+**Jensen's experiment:**
+
+--
+
+| Group | Intervention |
+|-------|--------------|
+| **Treatment** | Students told the "true" returns (~10% per year) |
+| **Control** | No information (status quo) |
+
+--
+
+**Results:**
+- Correcting beliefs increased average education by **0.2 years**
+
+--
+
+**But the effects varied:**
+- **Wealthier students:** Responded to information, stayed in school longer
+- **Poorer students:** No change — they already knew school was valuable but couldn't afford it
+
+--
+
+.content-box-green[
+**Information helps, but only when families can act on it.** Poor families also need financial support.
+]
+
+---
+
+# Demand-side solution: Cash transfers
+
+**Recall from Lecture 6:** Conditional Cash Transfers (CCTs) pay families to send children to school.
+
+--
+
+**Mexico's PROGRESA program:**
+- Pays poor rural mothers if children attend school (≤3 absences/month)
+- Transfers increase with grade level (higher opportunity cost for older children)
+- Girls receive larger transfers than boys
+
+--
+
+**Why this design makes sense:**
+
+| Design feature | Rationale |
+|----------------|-----------|
+| Transfers increase by grade | Offset higher opportunity costs for older children |
+| Target poor households | They face the largest cost barriers |
+| Focus on rural areas | Lower expected returns to education |
+| Higher transfers for girls | Parents may undervalue girls' education |
+
+---
+
+# PROGRESA: Results
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/progresa.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Main finding:** PROGRESA significantly increased secondary school enrollment, especially for girls.
+
+---
+
+# PROGRESA: Heterogeneous effects
+
+The impact of PROGRESA varied across families:
+
+--
+
+**Larger effects when:**
+- Schools were closer (lower direct costs)
+- Parents were more educated (valued education more)
+
+--
+
+**Smaller effects when:**
+- Fathers worked in farming (lower expected returns to education)
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Cash transfers work best when other barriers are also low** — they're most effective when combined with accessible, quality schools.
+]
+
+---
+
+# Comparing interventions
+
+&lt;br&gt;
+
+| Intervention | What it addresses | Evidence |
+|--------------|-------------------|----------|
+| **Build schools** | Access/distance | Works, but modest effects |
+| **Teacher incentives** | Quality | Can improve learning |
+| **Information campaigns** | Misperceptions | Helps those who can afford school |
+| **Cash transfers** | Cost barriers | Strong effects on enrollment |
+| **Free uniforms/supplies** | Direct costs | Can increase attendance |
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**No single intervention is always best** — the right approach depends on what barriers exist locally.
+]
+
+---
+
+# The policy design process
+
+**Step 1:** Diagnose the problem
+- Why aren't children in school in this context?
+- Is it cost? Distance? Quality? Beliefs?
+
+--
+
+**Step 2:** Match intervention to barrier
+- Cost barrier → Cash transfers, subsidies
+- Distance barrier → Build schools
+- Quality barrier → Teacher training, incentives
+- Information barrier → Campaigns about returns
+
+--
+
+**Step 3:** Evaluate impact
+- Use rigorous methods (RCTs, DiD) to measure what works
+- Adjust based on evidence
+
+--
+
+.content-box-yellow[
+**This is evidence-based policy** — the approach we've been learning throughout this course.
+]
+
+---
+
+# Main takeaways
+
+--
+
+**Education is under-provided** due to externalities, credit constraints, and information problems — justifying government intervention.
+
+--
+
+**Multiple indicators** measure education (enrollment, completion, learning), and they don't always move together.
+
+--
+
+**Schooling decisions** balance benefits (future wages) against costs (fees, opportunity costs).
+
+--
+
+**Supply-side interventions** (schools, teachers) increase availability and quality.
+
+--
+
+**Demand-side interventions** (cash transfers, information) help families overcome barriers.
+
+--
+
+**Context matters** — the best policy depends on what barriers exist locally.
+
+--
+
+**Rigorous evaluation** is essential to know what works.
+
+---
+
+# Discussion questions
+
+1. In your country, what do you think is the main barrier to education — cost, distance, quality, or something else?
+
+--
+
+2. Should cash transfers for education be conditional (require attendance) or unconditional? What are the trade-offs?
+
+--
+
+3. How should policymakers balance investing in school quantity (more schools) vs. quality (better teachers)?
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+# For next week
+
+**Topic:** Health in Developing Countries
+
+--
+
+**Reading:** 
+- [JS] Chapter 17
+- Banerjee, Deaton &amp; Duflo (2004) — uploaded on course website
+
+--
+
+**We will cover:**
+- What determines health outcomes?
+- Impacts of health interventions
+- Similarities and differences with education policy
+
+---
+
+class: inverse, middle, center
+
+# Thank you!
+
+&lt;div style="font-size: 20px; margin-top: 30px;"&gt;
+See you next week for Health Policy.
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

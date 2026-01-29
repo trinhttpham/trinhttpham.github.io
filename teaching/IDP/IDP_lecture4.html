@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to Development Policy</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Introduction to Development Policy
+]
+.subtitle[
+## Lecture 4: Evidence-Based Policy and Causal Inference
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Spring 2026
+]
+
+---
+
+
+# Opening question
+
+Suppose a policymaker asks you: **How can we increase school attendance in our village?**
+
+--
+
+Which intervention would you recommend?
+
+.pull-left[
+- Hiring additional teachers
+- Providing school meals
+- Supplying school uniforms
+- Offering student scholarships
+]
+
+.pull-right[
+- Giving iron supplements
+- Administering deworming pills
+- Conditional cash transfers
+- Information about returns to education
+]
+
+&lt;style&gt;
+.pull-left { width: 45%; margin-left: 2.5%; }
+.pull-right { width: 45%; margin-right: 2.5%; }
+table { font-size: 20px; width: 85%; }
+th, td { padding: 10px 15px; }
+&lt;/style&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+How would you decide? What evidence would you need?
+]
+
+---
+
+# The surprising answer
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/schooling.png" style="width: 100%; max-width: 500px;" /&gt; &lt;br&gt;
+  .small[Source: &lt;a href="https://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty"&gt;Esther Duflo, TED Talk&lt;/a&gt;]
+&lt;/div&gt;
+
+--
+
+**Deworming** — one of the cheapest interventions — had among the largest impacts per dollar spent.
+
+--
+
+Without rigorous evidence, we might have chosen a more expensive, less effective option.
+
+---
+
+# What is evidence-based policy?
+
+Evidence-based policy means making decisions based on **rigorous research**, not just intuition or anecdotes.
+
+--
+
+**Why does this matter?**
+
+- Resources are limited — we need to know what works best
+- Good intentions don't guarantee good outcomes
+- Some programs that "sound good" don't actually work
+
+--
+
+**Key tools:**
+
+- Household surveys and data collection
+- Randomized controlled trials (RCTs)
+- Careful statistical analysis
+
+--
+
+&lt;br&gt;
+
+Today's lecture focuses on a critical challenge: **How do we know if something actually works?**
+
+---
+
+# This week's roadmap
+
+**Today**
+
+- Correlation vs. causation — Why simple comparisons can mislead us
+- Introduction to regression — A tool to examine relationships in data
+- The limits of regression — Why correlation still isn't causation
+
+--
+
+&lt;br&gt;
+
+**Wednesday**
+
+- Counterfactual thinking — The key to measuring true impact
+- Statistical significance — How do we know if results are real?
+- Reading regression output — Practice with Stata
+
+---
+
+class: inverse, middle, center
+
+# Correlation vs. Causation
+
+---
+
+# A motivating example
+
+Suppose we want to know: **Does a mother's education improve her child's health?**
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/correlation.png" style="width: 100%; max-width: 650px;" /&gt; &lt;br&gt;
+  .small[Source: &lt;a href="https://www.gapminder.org"&gt;Gapminder&lt;/a&gt;]
+&lt;/div&gt;
+
+--
+
+We observe a **positive correlation**: countries where women have more education also have healthier children.
+
+---
+
+# Can we conclude causation?
+
+**Does this mean we should invest in women's education to improve child health?**
+
+--
+
+Not so fast! Think about what else might be going on:
+
+--
+
+- Women with more education often come from **wealthier families**
+
+--
+
+- They may marry **more educated men**
+
+--
+
+- They likely live in areas with **better healthcare and sanitation**
+
+--
+
+&lt;br&gt;
+
+These factors affect **both** mother's education **and** child health.
+
+--
+
+.content-box-yellow[
+**Key term:** Variables that affect both the cause and the outcome are called **confounders** or **omitted variables**.
+]
+
+---
+
+# The confounding problem
+
+Think of it this way:
+
+--
+
+**Family wealth** influences:
+- How much education the mother receives (wealthier families can afford more schooling)
+- How healthy the child is (through better nutrition, healthcare, housing)
+
+--
+
+&lt;br&gt;
+
+So when we see educated mothers with healthy children, we can't tell if it's because of:
+
+- The education itself, **OR**
+- The wealth that enabled both
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**This is the core problem:** We see a relationship, but we don't know what's actually causing what.
+]
+
+---
+
+# Another example: Ice cream and drowning
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/icecream_drowning.svg" style="width: 100%; max-width: 900px;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Group discussion (5 minutes)
+
+Think of other examples where correlation might be mistaken for causation:
+
+--
+
+.pull-left[
+**Some possibilities:**
+
+- Countries with more hospitals have higher death rates
+
+- Students who use tutors get lower grades
+
+- People who exercise more weigh more
+]
+
+.pull-right[
+&lt;div style="background: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid #4caf50;"&gt;
+&lt;p style="font-weight: bold; margin-bottom: 10px;"&gt;💡 Ask yourself:&lt;/p&gt;
+&lt;p&gt;What's the potential confounder that affects both variables?&lt;/p&gt;
+&lt;/div&gt;
+]
+
+&lt;style&gt;
+.pull-left { width: 60%; margin-left: 2.5%; }
+.pull-right { width: 35%; margin-right: 2.5%; }
+&lt;/style&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+---
+
+class: inverse, middle, center
+
+# Introduction to Regression
+
+---
+
+# What is regression?
+
+Regression is a statistical tool that helps us **examine relationships between variables**.
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/OLS0.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+Each dot represents one mother-child pair. Can we draw a line through these points?
+
+---
+
+# What is regression?
+
+**Basic idea:** Find the line that best summarizes the relationship in the data.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/OLS0.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+
+
+---
+
+# Finding the best-fitting line
+
+We could draw many different lines through the data...
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/OLS4.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+Which line is "best"?
+
+---
+
+# The regression approach
+
+For any line, we can measure how far each point is from the line.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/OLS5.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Regression finds the line that minimizes these distances** (specifically, the sum of squared distances).
+
+---
+
+# The regression line
+
+This method is called **Ordinary Least Squares (OLS)** — it gives us the "best-fitting" line.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/OLS1.png" style="width: 100%; max-width: 550px;" /&gt;
+&lt;/div&gt;
+
+--
+
+This line has an equation: **Child Health = 40.9 + 2.1 × Mother's Education**
+
+---
+
+# Interpreting the regression
+
+**Child Health = 40.9 + 2.1 × Mother's Education**
+
+--
+
+What does this tell us?
+
+--
+
+- **40.9** is the starting point (predicted life expectancy when mother's education = 0)
+
+--
+
+- **2.1** is the **slope** — for each additional year of mother's education, child health is **associated with** a 2.1 unit increase
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Important language:** We say "associated with," not "causes." 
+
+- **The regression shows us the relationship in the data, but doesn't prove causation.**
+]
+
+---
+
+# The regression equation
+
+Let's introduce some notation (don't worry — we'll keep it simple):
+
+`$$\large Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$$`
+
+--
+
+| Symbol | Meaning | In our example |
+|--------|---------|----------------|
+| `\(Y_i\)` | Outcome for person `\(i\)` | Child health |
+| `\(X_i\)` | Variable of interest for person `\(i\)` | Mother's education |
+| `\(\beta_0\)` | Intercept (starting point) | 40.9 |
+| `\(\beta_1\)` | Slope (relationship) | 2.1 |
+| `\(\varepsilon_i\)` | Everything else affecting `\(Y\)` | Family wealth, genetics, etc. |
+
+--
+
+&lt;br&gt;
+
+The subscript `\(i\)` just means "for each person in our data."
+
+---
+
+# The error term
+
+Let's take a closer look:
+
+`$$\large Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$$`
+
+--
+
+The **error term** `\(\varepsilon_i\)` captures everything that affects child health **other than** mother's education:
+
+--
+
+- Family wealth
+- Father's education
+- Genetics
+- Access to healthcare
+- Neighborhood environment
+- ... and many other factors
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Key insight:** All those confounders we worried about? They're hiding in the error term.
+]
+
+---
+
+# Why regression helps (a little)
+
+One advantage of regression: we can **control for other factors**.
+
+--
+
+Instead of just:
+
+`$$\text{Child Health}_i = \beta_0 + \beta_1 \times \text{Mother's Education}_i + \varepsilon_i$$`
+
+--
+
+We can add more variables:
+
+`$$\text{Child Health}_i = \beta_0 + \beta_1 \times \text{Mother's Education}_i + \beta_2 \times \text{Wealth}_i + \beta_3 \times \text{Father's Education}_i + \varepsilon_i$$`
+
+--
+
+&lt;br&gt;
+
+This asks: 
+
+*"What is the relationship between mother's education and child health, **holding wealth and father's education constant**?"*
+
+---
+
+# Controlling for variables: Intuition
+
+**Without controls:**
+
+"Educated mothers have healthier children."
+
+(But is it education or wealth?)
+
+--
+
+**With wealth controls:**
+
+"Among families with **similar wealth levels**, educated mothers still have healthier children."
+
+--
+
+&lt;br&gt;
+
+By comparing "apples to apples," we get closer to isolating the effect of education.
+
+--
+
+But there's a catch...
+
+---
+
+class: inverse, middle, center
+
+# The Limits of Regression
+
+---
+
+# Why can't we just control for everything?
+
+Regression with controls helps, but it **cannot prove causation**. Here's why:
+
+--
+
+**Problem 1: We can only control for things we can measure**
+
+- What about parenting style? Motivation? Genetics?
+- These affect both education and child health, but we can't easily measure them
+
+--
+
+**Problem 2: We can only control for things we think of**
+
+- There may be important factors we haven't even considered
+
+--
+
+**Problem 3: Some factors are impossible to separate**
+
+- Mother's education and her health knowledge are deeply intertwined
+- Which one is actually driving the result?
+
+---
+
+# The omitted variable bias problem
+
+When important variables are left in the error term, our estimates can be **biased**.
+
+--
+
+**Biased** means: our estimate of the relationship is systematically wrong.
+
+--
+
+&lt;br&gt;
+
+**Example:**
+
+- True effect of mother's education on child health: **1.0**
+- But wealthy families have both more education AND healthier children
+- Our regression estimate: **2.1** (too high!)
+
+--
+
+&lt;br&gt;
+
+The extra 1.1 is picking up the effect of wealth, not just education.
+
+--
+
+This is called **omitted variable bias**.
+
+---
+
+# When is omitted variable bias a problem?
+
+Omitted variable bias occurs when:
+
+--
+
+**1.** The omitted variable affects the outcome (child health)
+
+**AND**
+
+**2.** The omitted variable is correlated with our variable of interest (mother's education)
+
+--
+
+&lt;br&gt;
+
+| Omitted variable | Affects child health? | Correlated with mom's education? | Bias? |
+|------------------|----------------------|----------------------------------|-------|
+| Family wealth | Yes | Yes | **Yes** |
+| Child's blood type | No | No | No |
+| Local weather | Maybe slightly | No | Minimal |
+
+---
+
+# The bottom line on regression
+
+.pull-left[
+**What regression CAN do:**
+
+- Describe relationships in data
+- Control for **observed** confounders
+- Give us better estimates than simple comparisons
+- Identify patterns worth investigating
+]
+
+.pull-right[
+**What regression CANNOT do:**
+
+- Prove causation
+- Control for **unobserved** confounders
+- Tell us what would happen if we changed something
+- Replace careful research design
+]
+
+&lt;style&gt;
+.pull-left { width: 45%; margin-left: 2.5%; }
+.pull-right { width: 45%; margin-right: 2.5%; }
+table { font-size: 20px; width: 85%; }
+th, td { padding: 10px 15px; }
+&lt;/style&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**To establish causation, we need different tools** — which we'll explore on Wednesday and next week.
+]
+
+---
+
+# Today's recap
+
+--
+
+**1. Evidence-based policy** requires rigorous evidence, not just intuition.
+
+--
+
+**2. Correlation ≠ Causation.** Relationships in data don't prove one thing causes another.
+
+--
+
+**3. Confounders** are variables that affect both the cause and outcome, creating misleading associations.
+
+--
+
+**4. Regression** helps us examine relationships and control for some confounders.
+
+--
+
+**5. But regression has limits** — we can't control for things we can't measure or don't think of.
+
+--
+
+&lt;br&gt;
+
+**Next session:** How do we actually establish causation? Counterfactual thinking and statistical significance.
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+
+---
+
+class: inverse, middle, center
+
+# Counterfactual Thinking and Statistical Significance
+
+---
+
+# Quick recap from Monday
+
+--
+
+**The problem:** We want to know if X causes Y, but...
+
+--
+
+- Simple correlations can be misleading (confounders!)
+- Regression helps control for **observed** factors
+- But we can't control for everything
+
+--
+
+&lt;br&gt;
+
+**Today's question:** If regression isn't enough, how DO we establish causation?
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Key insight:** We need to think about what would have happened WITHOUT the intervention.
+]
+
+---
+
+class: inverse, middle, center
+
+# Counterfactual Thinking
+
+---
+
+# A new example: Microloans for entrepreneurs
+
+Suppose we provide small loans to women entrepreneurs to help them grow their businesses.
+
+--
+
+**Question:** Did the loan program increase business profits?
+
+
+---
+
+# A new example: Microloans for entrepreneurs
+
+
+Here's what profits looked like **before** the program started.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-1.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+
+
+---
+
+# After the program
+
+Profits are higher after the program. **Success?**
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-2.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+Can we conclude the program worked?
+
+
+
+
+---
+
+# The key question
+
+To know if the program worked, we need to ask:
+
+--
+
+&lt;br&gt;
+
+.center[
+### What would have happened WITHOUT the program?
+]
+
+--
+
+&lt;br&gt;
+
+This is called the **counterfactual** — the outcome that would have occurred in the absence of the intervention.
+
+--
+
+&lt;br&gt;
+
+The counterfactual is the **missing piece** that lets us measure true impact.
+
+---
+
+# The counterfactual problem
+
+We can't observe the counterfactual directly. 
+--
+**Maybe profits would have looked like this (green line)**:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-41.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+In this case, the program had a **positive impact** — profits rose more than they would have otherwise.
+
+---
+
+# The counterfactual problem
+
+Or **maybe like this (green line)**?
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/counterfactuals-31.png" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+In this case, profits would have risen even more — the program had **negative impact**.
+
+
+---
+
+# The fundamental formula
+
+
+`$$\text{Program Impact} = \text{What happened} - \text{What would have happened}$$`
+
+--
+
+`$$\text{Impact} = \text{Factual} - \text{Counterfactual}$$`
+
+--
+
+&lt;br&gt;
+
+| Scenario | What happened | Counterfactual | Impact |
+|----------|---------------|----------------|--------|
+| Program works | Profits = 150 | Would have been 100 | **+50** |
+| Program doesn't work | Profits = 150 | Would have been 150 | **0** |
+
+--
+
+&lt;br&gt;
+
+**The challenge:** We can never observe the counterfactual directly — we have to **construct** it.
+
+---
+
+# Constructing counterfactuals
+
+Since we can't observe what would have happened, we need a **comparison group**.
+
+--
+
+| Term | Meaning |
+|------|---------|
+| **Treatment group** | People who received the program |
+| **Control group** | Similar people who didn't receive the program |
+
+--
+
+&lt;br&gt;
+
+The control group serves as our **estimate of the counterfactual**.
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**The key challenge:** The control group must be truly comparable to the treatment group.
+]
+
+---
+
+# Why comparison groups can fail
+
+**Example:** A job training program
+
+--
+
+**Treatment group:** People who signed up for training
+
+**Control group:** People who didn't sign up
+
+--
+
+&lt;br&gt;
+
+**Problem:** People who sign up might be:
+- More motivated
+- More educated
+- More likely to succeed anyway
+
+--
+
+&lt;br&gt;
+
+These differences mean the control group is **not a valid counterfactual**.
+
+---
+
+# The selection problem
+
+This is called **selection bias** — the treatment and control groups differ in ways that affect the outcome.
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="./figures/selection_bias.svg" style="width: 100%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Next week:** We'll learn methods that solve this problem (RCTs, Difference-in-Differences).
+
+---
+
+# Counterfactual thinking: Summary
+
+--
+
+**1.** Impact = What happened − What would have happened without the program
+
+--
+
+**2.** The counterfactual cannot be observed directly
+
+--
+
+**3.** We use comparison groups to estimate the counterfactual
+
+--
+
+**4.** The comparison group must be truly comparable (no selection bias)
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**This is the foundation of impact evaluation.** Everything else is about constructing valid comparison groups.
+]
+
+---
+
+class: inverse, middle, center
+
+# Statistical Significance
+
+&lt;div style="font-size: 20px; margin-top: 10px;"&gt;
+How do we know if our results are real?
+&lt;/div&gt;
+
+---
+
+# A new challenge
+
+Suppose we find that program participants earn **$500 more** than non-participants.
+
+--
+
+**Question:** Is this difference real, or could it be due to random chance?
+
+--
+
+&lt;br&gt;
+
+**Analogy:** Flip a coin 10 times and get 7 heads.
+
+- Does this prove the coin is unfair?
+- Or could it just be luck?
+
+--
+
+&lt;br&gt;
+
+Statistical tools help us distinguish **real effects** from **random noise**.
+
+---
+
+# Two competing explanations
+
+When we find a difference in our data, there are two possibilities:
+
+--
+
+**Possibility 1: No real effect**
+- The difference we see is just random chance
+- A different sample might show a different result
+
+--
+
+**Possibility 2: Real effect**
+- The difference reflects a genuine impact
+- We would see similar results with different samples
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Statistical significance** helps us decide which explanation is more plausible.
+]
+
+---
+
+# The null hypothesis
+
+We start by assuming there is **no effect** — this is the **null hypothesis**.
+
+--
+
+Then we ask: *If there truly was no effect, how likely would we see a difference this large just by chance?*
+
+--
+
+&lt;br&gt;
+
+| Term | Plain English |
+|------|---------------|
+| **Null hypothesis** | "The program has no effect" |
+| **Alternative hypothesis** | "The program does have an effect" |
+
+--
+
+&lt;br&gt;
+
+Our goal: Decide whether the evidence is strong enough to **reject** the null hypothesis.
+
+---
+
+# The p-value explained
+
+The **p-value** answers this question:
+
+--
+
+.center[
+*If the program truly had no effect, what's the probability of seeing a difference as large as what we found?*
+]
+
+--
+
+&lt;br&gt;
+
+**Example:**
+- We find participants earn $500 more
+- The p-value is 0.03 (3%)
+
+--
+
+**Interpretation:** If training had no real effect, there's only a 3% chance we'd see a $500 difference by random chance.
+
+--
+
+Since 3% is small, we conclude the difference is probably **real**, not just luck.
+
+---
+
+# Decision rules
+
+By convention, researchers use these cutoffs:
+
+--
+
+| P-value | Interpretation |
+|---------|----------------|
+| p &lt; 0.01 | Highly significant (strong evidence) |
+| p &lt; 0.05 | Statistically significant |
+| p &lt; 0.10 | Marginally significant (weak evidence) |
+| p ≥ 0.10 | Not statistically significant |
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Important:** "Not significant" does NOT mean "no effect." 
+
+It means we don't have enough evidence to be confident there is an effect.
+]
+
+---
+
+# Confidence intervals
+
+Another way to express uncertainty is the **confidence interval**.
+
+--
+
+**Example:**
+- Estimated impact: $500 per month
+- 95% confidence interval: $150 to $850
+
+--
+
+&lt;br&gt;
+
+**What this means:**
+- Our best estimate is $500
+- Given uncertainty in our data, the true effect is probably between $150 and $850
+- We're fairly confident the true effect falls in this range
+
+---
+
+# Interpreting confidence intervals
+
+**Key insight:** If the confidence interval **includes zero**, we cannot be confident the effect is real.
+
+--
+
+&lt;br&gt;
+
+| 95% Confidence Interval | Interpretation |
+|-------------------------|----------------|
+| $150 to $850 | Effect is likely positive (doesn't include 0) ✓ |
+| −$100 to $800 | Could be positive, zero, or negative ✗ |
+
+--
+
+&lt;br&gt;
+
+Confidence intervals show us:
+
+1. **Whether** the effect is statistically significant (does it include 0?)
+2. **How large** the effect might plausibly be
+
+---
+
+class: inverse, middle, center
+
+# Reading Regression Output
+
+&lt;div style="font-size: 20px; margin-top: 10px;"&gt;
+Putting it all together with Stata
+&lt;/div&gt;
+
+---
+
+# Example: Education and consumption
+
+**Research question:** Does household head's education level affect consumption?
+
+--
+
+We run a regression in Stata:
+```stata
+regress cons_pc i.hh_school
+```
+
+--
+
+&lt;br&gt;
+
+This compares consumption across education levels, using "no education" as the reference group.
+
+---
+
+# Stata output
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/reg_poverty.png" style="width: 100%; max-width: 700px;" /&gt; 
+&lt;/div&gt;
+
+--
+
+Let's learn to read this step by step.
+
+---
+
+# Reading the output: Coefficients
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/reg_poverty.png" style="width: 100%; max-width: 700px;" /&gt; 
+&lt;/div&gt;
+
+**Coefficient** = The estimated difference compared to the reference group (no education)
+
+--
+
+- "Primary incomplete": 224.9 higher consumption than no education
+- "Primary complete": 594.8 higher consumption than no education
+
+---
+
+# Reading the output: P-values
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/reg_poverty.png" style="width: 100%; max-width: 700px;" /&gt; 
+&lt;/div&gt;
+
+**P&gt;|t|** = The p-value
+
+--
+
+- "Primary incomplete": p = 0.203 (not significant at the 10% level)
+- "Primary complete": p = 0.001 (highly significant)
+
+---
+
+# Reading the output: Confidence intervals
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/reg_poverty.png" style="width: 100%; max-width: 700px;" /&gt; 
+&lt;/div&gt;
+
+**[95% Conf. Interval]** = Range of plausible values
+
+--
+
+- "Primary incomplete": [−121.6, 571.3] — includes zero!
+- "Secondary complete": [246.3,943.2] — does not include zero
+
+---
+
+# Putting it together
+
+| Education level | Coefficient | P-value | 95% CI | Significant? |
+|-----------------|-------------|---------|--------|--------------|
+| Primary incomplete | 224.9 | 0.203 | [−121.6, 571.3] | No |
+| Primary complete | 594.8 | 0.001 | [246.3, 943.2] | Yes |
+| Lower secondary | 1498.9 | 0.000 | [1,143.2, 1,854.5 ] | Yes |
+| Upper secondary | 2069.4 | 0.000 | [1,623.4, 2,515.4] | Yes |
+
+--
+
+&lt;br&gt;
+
+**Interpretation:**
+- Completing primary school or higher is associated with significantly higher consumption
+- Incomplete primary education shows no statistically significant difference from no education
+
+
+---
+
+# Writing up results
+
+**Bad:** "Education increases consumption."
+
+--
+
+**Better:** "Completing secondary education is associated with 594.8 pesos higher per capita consumption compared to no education (p &lt; 0.001, 95% CI: 246.3 to 943.2)."
+
+--
+
+&lt;br&gt;
+
+**Key elements:**
+- Specific comparison (secondary vs. no education)
+- Effect size (594.8 pesos)
+- Statistical significance (p &lt; 0.001)
+- Uncertainty (confidence interval)
+- Careful language ("associated with," not "causes")
+
+---
+
+# Common mistakes to avoid
+
+.content-box-yellow[
+- **Wrong:** "P-value of 0.03 means there's a 3% chance the program doesn't work."
+- **Right:** "If there was no effect, there's only a 3% chance of seeing results this extreme."
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+- **Wrong:** "Not significant means no effect."
+- **Right:** "We don't have enough evidence to be confident there's an effect."
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+- **Wrong:** "Significant means the effect is large and important."
+- **Right:** "Significant means we're confident the effect isn't zero — but it could still be small."
+]
+
+---
+
+# Main takeaways
+
+--
+
+**1. Evidence-based policy** uses rigorous research to guide decisions, not just intuition.
+
+--
+
+**2. Correlation ≠ Causation.** Confounders can create misleading relationships.
+
+--
+
+**3. Regression** helps examine relationships and control for observed factors, but cannot prove causation.
+
+--
+
+**4. Counterfactual thinking** is essential: Impact = What happened − What would have happened.
+
+--
+
+**5. Comparison groups** help estimate the counterfactual, but must be truly comparable.
+
+--
+
+**6. Statistical significance** (p-values, confidence intervals) tells us if results are likely real or just noise.
+
+---
+
+# Looking ahead
+
+**The big question remains:** How do we construct valid comparison groups?
+
+--
+
+&lt;br&gt;
+
+**Next week — Impact Evaluation Methods:**
+
+| Method | Basic idea |
+|--------|------------|
+| **Randomized Controlled Trials (RCTs)** | Randomly assign treatment to create comparable groups |
+| **Difference-in-Differences** | Compare changes over time between groups |
+
+--
+
+&lt;br&gt;
+
+These methods give us the tools to establish **causation**, not just correlation.
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+# For next week
+
+**Monday: Randomized Controlled Trials (RCTs)**
+
+- Reading: de Janvry &amp; Sadoulet, Chapter 4
+  - Focus on: Objectives, Challenges of Impact Evaluation, Experimental Design
+
+--
+
+&lt;br&gt;
+
+**Wednesday: Difference-in-Differences**
+
+- Reading: de Janvry &amp; Sadoulet, Chapter 4
+  - Focus on: Difference-in-Differences Method
+
+---
+
+class: inverse, middle, center
+
+# Thank you!
+
+&lt;div style="font-size: 20px; margin-top: 30px;"&gt;
+See you next week for Impact Evaluation Methods.
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

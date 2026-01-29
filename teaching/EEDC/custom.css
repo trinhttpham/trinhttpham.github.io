@@ -1,0 +1,90 @@
+/* Custom CSS for Development Policy Lectures */
+/* Place this file in the same folder as your .Rmd lecture files */
+
+/* Content boxes for highlighting key points */
+.content-box-green {
+  background-color: #d4edda;
+  border-left: 5px solid #28a745;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.content-box-yellow {
+  background-color: #fff3cd;
+  border-left: 5px solid #ffc107;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.content-box-blue {
+  background-color: #d1ecf1;
+  border-left: 5px solid #17a2b8;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.content-box-red {
+  background-color: #f8d7da;
+  border-left: 5px solid #dc3545;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+/* Pull left and right for side-by-side content */
+.pull-left {
+  width: 45%;
+  margin-left: 2.5%;
+  float: left;
+}
+
+.pull-right {
+  width: 45%;
+  margin-right: 2.5%;
+  float: right;
+}
+
+/* Clear floats */
+.clear {
+  clear: both;
+}
+
+/* Small text for notes and sources */
+.small {
+  font-size: 0.8em;
+}
+
+/* Centered content */
+.center {
+  text-align: center;
+}
+
+/* Table styling improvements */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+/* Blockquote styling */
+blockquote {
+  border-left: 4px solid #6c757d;
+  padding-left: 15px;
+  margin: 15px 0;
+  font-style: italic;
+  color: #555;
+}

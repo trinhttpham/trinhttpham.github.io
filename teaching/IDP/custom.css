@@ -88,3 +88,7 @@ blockquote {
   font-style: italic;
   color: #555;
 }
+
+body, .remark-slide-content {
+  font-family: 'Fira Sans', sans-serif !important;
+}

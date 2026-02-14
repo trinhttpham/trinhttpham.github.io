@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Environmental Economics in Developing Countries</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Environmental Economics in Developing Countries
+]
+.subtitle[
+## Lecture 3: Policy Instruments
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Spring 2026
+]
+
+---
+
+
+
+
+# Quick recap from last week
+
+--
+
+**Market failures:** Externalities cause markets to produce wrong quantities
+
+- Negative externality → too much (pollution)
+- Positive externality → too little (vaccination)
+
+--
+
+**Private solutions:** Coase theorem requires:
+
+- Well-defined property rights
+- Low transaction costs
+- Few parties
+
+--
+
+.content-box-yellow[
+**Problem:** For most environmental issues, these conditions don't hold.
+]
+
+--
+
+**Today:** What can governments do?
+
+---
+
+# This week's questions
+
+--
+
+### 1. What policy tools are available?
+
+Standards, taxes, cap-and-trade, and more
+
+--
+
+### 2. How do they work?
+
+The economics behind each approach
+
+--
+
+### 3. Which is best?
+
+Cost-effectiveness, innovation, and practical considerations
+
+---
+
+# Working example: Coal-fired power plants
+
+.pull-left[
+Coal power is a major source of harmful air pollutants.
+
+
+These pollutants impose costs on society not reflected in electricity prices.
+
+
+**Negative production externality:**
+
+- Too much coal-generated electricity
+- Too much pollution
+
+We'll use this example throughout to compare policy instruments.
+]
+
+.pull-right[
+&lt;img src="figures/coal.jpg" style="width: 100%;" /&gt;
+
+&lt;p style="font-size: 15px; color: #666;"&gt;
+Video: &lt;a href="https://www.youtube.com/watch?v=xajjmbJrfEM"&gt;How coal power plants work&lt;/a&gt;
+&lt;/p&gt;
+]
+
+---
+
+# Policy options at a glance
+
+&lt;table style="width: 95%; margin: 20px auto; border-collapse: collapse; text-align: center; font-size: 0.9em;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Policy&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;How it works&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Government controls...&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Technology standard&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Require specific equipment&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Technology&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Performance standard&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Set emission limits&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Quantity (per firm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Emission tax&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Charge per unit of pollution&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Price&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Cap-and-trade&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Limit total + allow trading&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Quantity (total)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+&lt;br&gt;
+
+.center[
+**Key question:** Which achieves the goal at lowest cost?
+]
+
+---
+
+# Think about it
+
+If you were a regulator trying to reduce pollution from coal plants, which would you choose?
+
+--
+
+&lt;br&gt;
+
+**A.** Require all plants to install scrubbers (technology standard)
+
+**B.** Set a maximum emission level for each plant (performance standard)
+
+**C.** Charge a tax per ton of pollution (emission tax)
+
+**D.** Set a total cap and let plants trade permits (cap-and-trade)
+
+--
+
+&lt;br&gt;
+
+.center[
+*Discuss with your neighbor: What are the pros and cons of each?*
+]
+
+---
+
+class: inverse, middle, center
+
+# Part 1: Model Setup
+
+&lt;div style="font-size: 24px; margin-top: 20px;"&gt;
+Understanding the key tradeoff
+&lt;/div&gt;
+
+
+
+---
+
+# The key tradeoff
+
+**Pollution involves two types of costs:**
+
+--
+
+### 1. Cost of pollution
+
+Health damage, environmental harm, reduced quality of life
+
+--
+
+### 2. Cost of reducing pollution
+
+Expensive equipment, changes to production, lower output
+
+--
+
+&lt;br&gt;
+
+.center[
+.content-box-yellow[
+**Policy goal:** Find the right balance between these two costs
+]
+]
+
+---
+
+# Two curves we need
+
+### Marginal Damage (MD)
+
+How much harm does one more unit of pollution cause?
+
+- Usually **increases** with pollution level
+- More pollution → more damage per unit
+
+--
+
+### Marginal Abatement Cost (MAC)
+
+How much does it cost to reduce pollution by one more unit?
+
+- Usually **increases** as we reduce more
+- First reductions are cheap; last reductions are expensive
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Efficient level:** Where MAC = MD (balance the two costs)
+]
+
+---
+
+# Graphical setup
+
+.pull-left[
+&lt;img src="figures/setup-08.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+**MAC curve** slopes downward (in emissions)
+
+- Higher emissions = lower abatement cost
+- Reducing the last unit is cheap
+- Reducing to zero is very expensive
+
+&lt;br&gt;
+
+**MD curve** slopes upward
+
+- More emissions = more damage
+- Each additional unit causes more harm
+
+&lt;br&gt;
+
+**E*** is the efficient level where MAC = MD
+]
+
+---
+
+# What happens without regulation?
+
+.pull-left[
+&lt;img src="figures/setup-07.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+**Firm's perspective:**
+
+- Benefit of emitting = MAC (avoided abatement cost)
+- Cost of emitting = **Zero** (they don't pay for damage)
+
+&lt;br&gt;
+
+**Result:** Firm emits at E₀ (maximum)
+
+
+&lt;br&gt;
+
+.content-box-yellow[
+Without regulation, firms emit too much because they don't bear the cost of pollution.
+]
+]
+
+---
+
+# The deadweight loss
+
+.pull-left[
+&lt;img src="figures/setup-09.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+
+But! **Society's perspective:** 
+
+- Benefit of emitting (to the firm) = MAC = avoided abatement cost
+- Cost of emitting (to society) = MD = damage caused
+
+
+For each unit between E* and E₀
+
+- Damage (MD) &gt; Benefit (MAC)
+- These units shouldn't be emitted
+
+The triangle between E\* and E₀ is the **deadweight loss**.
+
+**Our goal:** Design policies that move emissions from E₀ to E\*
+]
+
+
+
+---
+
+class: inverse, middle, center
+
+# Part 2: Technology Standards
+
+&lt;div style="font-size: 24px; margin-top: 20px;"&gt;
+Command-and-control regulation
+&lt;/div&gt;
+
+
+---
+
+# Technology standards
+
+**Definition:** Government requires firms to use a specific pollution control technology.
+
+--
+
+Also called "command-and-control" because the government:
+- **Commands** what technology to use
+- **Controls** the method of compliance
+
+--
+
+&lt;br&gt;
+
+**Example:** All coal plants must install scrubbers to remove sulfur dioxide.
+
+---
+
+# Example: Scrubbers for coal plants
+
+.pull-left[
+&lt;img src="figures/scrubbers.png" style="width: 100%;" /&gt;
+
+&lt;p style="font-size: 15px;"&gt;Source: University of Kentucky Center for Applied Energy Research&lt;/p&gt;
+]
+
+.pull-right[
+**How scrubbers work:**
+
+- Trap sulfurous gases from exhaust
+- Convert them to less harmful substances
+- Can remove 90%+ of sulfur dioxide
+
+&lt;br&gt;
+
+**Video:** [How scrubbers work](https://youtu.be/P1CpdRZNtxs)
+]
+
+&lt;style&gt;
+.pull-left { width: 60%; margin-left: 2.5%; }
+.pull-right { width: 40%; margin-right: 2.5%; }
+&lt;/style&gt;
+
+
+---
+
+# Technology standards: Pros and cons
+
+.pull-left[
+### Advantages
+
+✅ Simple to understand and enforce
+
+✅ Low administrative costs
+
+✅ Certainty about technology used
+
+✅ Can be implemented quickly
+]
+
+--
+
+.pull-right[
+### Disadvantages
+
+❌ One size doesn't fit all
+
+❌ No flexibility for firms
+
+❌ May not be cheapest way to reduce pollution
+
+❌ Discourages innovation (why develop better tech if you must use this one?)
+]
+
+&lt;style&gt;
+.pull-left { width: 45%; margin-left: 2.5%; }
+.pull-right { width: 45%; margin-right: 2.5%; }
+&lt;/style&gt;
+
+---
+
+# The problem with technology standards
+
+Different firms have different situations:
+
+--
+
+- **Firm A:** Old plant, installing scrubber costs $10 million
+
+- **Firm B:** New plant, installing scrubber costs $5 million
+
+- **Firm C:** Could switch to low-sulfur coal for $3 million (same result!)
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Technology standards force all firms to use the same method, even when cheaper alternatives exist.**
+]
+
+---
+
+class: inverse, middle, center
+
+# Part 3: Performance Standards
+
+&lt;div style="font-size: 24px; margin-top: 20px;"&gt;
+Setting emission limits
+&lt;/div&gt;
+
+
+
+---
+
+# Performance standards
+
+**Definition:** Government sets a maximum amount of pollution each firm can emit.
+
+--
+
+Unlike technology standards, firms can choose **how** to meet the limit.
+
+--
+
+&lt;br&gt;
+
+**Examples:**
+
+- Maximum tons of SO₂ per year
+- Maximum grams of NOx per mile driven
+- Maximum pollution per unit of output
+
+---
+
+# Performance standards: Graphical
+
+.pull-left[
+&lt;img src="figures/setup-11.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+**Optimal standard:** Set limit at E* (where MAC = MD)
+
+Think of it as:
+- Zero tax on emissions up to E*
+- Infinite tax on emissions beyond E*
+
+Firms will emit exactly E*:
+- More → illegal
+- Less → unnecessary cost
+
+&lt;br&gt;
+
+**Orange area** = firm's total abatement cost
+]
+
+---
+
+# Example: Vehicle emission standards
+
+.pull-left[
+&lt;img src="figures/standards.png" style="width: 85%;" /&gt;
+
+&lt;p style="font-size: 15px;"&gt;Source: EPA&lt;/p&gt;
+]
+
+.pull-right[
+EPA sets "bins" for vehicle emissions.
+
+Each vehicle model must meet one of these standards.
+
+**Example: Bin 50**
+- Max 0.05 g/mile NOx + NMOG
+- Max 1.7 g/mile CO
+- Max 0.003 g/mile PM
+- Max 0.004 HCHO
+
+&lt;br&gt;
+
+**Automakers choose how to meet the standard** (engine design, catalytic converters, etc.)
+]
+
+---
+
+# Vehicle emissions have fallen dramatically
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/emission.png" style="width: 70%;" /&gt;
+&lt;/div&gt;
+
+&lt;p style="font-size: 15px; text-align: center;"&gt;Source: EPA — Smog standards have been strengthened over time&lt;/p&gt;
+
+---
+
+# Performance standards: Pros and cons
+
+.pull-left[
+### Advantages
+
+✅ More flexible than technology standards
+
+✅ Firms can find cheapest way to comply
+
+✅ Clear emission targets
+
+✅ Relatively easy to enforce
+]
+
+--
+
+.pull-right[
+### Disadvantages
+
+❌ Still not cost-effective across firms
+
+❌ No incentive to do better than required
+
+❌ Doesn't equalize MAC across firms
+
+❌ May create "hot spots" if location matters
+]
+
+---
+
+class: inverse, middle, center
+
+# Part 4: Emission Taxes
+
+
+&lt;div style="font-size: 24px; margin-top: 20px;"&gt;
+Putting a price on pollution
+&lt;/div&gt;
+
+
+---
+
+# Emission taxes: The basic idea
+
+--
+
+**Without tax:** Polluting is free → firms pollute too much
+
+--
+
+**With tax:** Polluting costs money → firms think twice
+
+--
+
+&lt;br&gt;
+
+.center[
+.content-box-green[
+**Emission tax = a price tag on pollution**
+
+Each ton of pollution costs the firm `\(\tau\)` dollars
+]
+]
+
+--
+
+&lt;br&gt;
+
+This forces firms to ask: **"Is this pollution worth paying for?"**
+
+---
+
+# How firms respond to a tax
+
+Imagine you're a factory manager. For each unit of pollution, you have two choices:
+
+--
+
+&lt;br&gt;
+
+&lt;table style="width: 80%; margin: 20px auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Option&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Cost&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Pollute&lt;/strong&gt; (and pay the tax)&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;&amp;tau; (the tax)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Abate&lt;/strong&gt; (reduce pollution)&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;MAC (abatement cost)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+&lt;br&gt;
+
+**You choose whichever is cheaper:**
+
+- If MAC &lt; `\(\tau\)` → Abate (it's cheaper than paying tax)
+
+- If MAC &gt; `\(\tau\)` → Pollute and pay tax (it's cheaper than abating)
+
+---
+
+# Example: A coal plant facing a $50/ton tax
+
+&lt;table style="width: 90%; margin: 20px auto; border-collapse: collapse; text-align: center; font-size: 0.9em;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Pollution unit&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Cost to abate (MAC)&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Tax if pollute&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Firm's choice&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;1st ton&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;$10&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;$50&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc; background: #e8f5e9;"&gt;Abate ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;2nd ton&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;$25&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;$50&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc; background: #e8f5e9;"&gt;Abate ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;3rd ton&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;$45&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;$50&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc; background: #e8f5e9;"&gt;Abate ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;4th ton&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;$55&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;$50&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc; background: #ffebee;"&gt;Pollute &amp; pay tax ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;5th ton&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;$80&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;$50&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc; background: #ffebee;"&gt;Pollute &amp; pay tax ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+**Result:** Firm abates the first 3 tons, pays tax on the rest.
+
+---
+
+# The firm's rule
+
+.center[
+### Keep abating until MAC = `\(\tau\)`
+]
+
+--
+
+&lt;br&gt;
+
+.pull-left[
+**When MAC &lt; `\(\tau\)`:**
+
+Abating costs less than the tax
+
+→ Abate more
+]
+
+.pull-right[
+**When MAC &gt; `\(\tau\)`:**
+
+Tax costs less than abating
+
+→ Stop abating, pay tax
+]
+
+--
+
+&lt;br&gt;
+
+.center[
+.content-box-yellow[
+**At the stopping point: MAC = `\(\tau\)`**
+
+The firm abates until the cost of one more reduction equals the tax.
+]
+]
+
+---
+
+# Graphically
+
+.pull-left[
+&lt;img src="figures/setup-12.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+&lt;br&gt;
+
+The firm emits where **MAC = `\(\tau\)`**
+
+&lt;br&gt;
+
+To the left of this point: MAC &gt; `\(\tau\)` 
+
+→ Cheaper to pay tax
+
+&lt;br&gt;
+
+To the right of this point: MAC &lt; `\(\tau\)` 
+
+→ Cheaper to abate
+
+]
+
+---
+
+# What's the right tax rate?
+
+
+.pull-left[
+&lt;img src="figures/setup-14.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+
+**Goal:** Get firms to emit the efficient amount (E\*)
+
+**Solution:** Set `\(\tau\)` = MD at E\*
+
+If `\(\tau\)` = MD at E\*, then:
+
+- Firm sets MAC = `\(\tau\)`
+- This means MAC = MD
+- Firm chooses E\* !
+
+&lt;br&gt;
+
+.content-box-green[
+**The tax makes firms "internalize" the damage they cause.**
+]
+]
+
+
+
+---
+
+# Example: Sweden's carbon tax
+
+.pull-left[
+&lt;img src="figures/sweden_carbontax.png" style="width: 90%;" /&gt;
+]
+
+.pull-right[
+**Introduced in 1991**
+
+- Started low, increased gradually
+- Now ~$130 per ton CO₂
+- One of the highest in the world
+
+
+**Results:**
+- CO₂ emissions down 25% since 1990
+- Economy grew 75% in same period
+
+&lt;br&gt;
+
+Gradual increase allowed businesses and households to adapt over time.
+]
+
+---
+
+# Emission taxes: Pros and cons
+
+.pull-left[
+### Advantages
+
+✅ Cost-effective (firms equalize MACs)
+
+✅ Strong incentive for innovation
+
+✅ Generates government revenue
+
+✅ Flexible for firms
+]
+
+--
+
+.pull-right[
+### Disadvantages
+
+❌ Uncertain emission outcome
+
+❌ Politically difficult ("new tax")
+
+❌ Need to know MD to set optimal tax
+
+❌ May create hot spots
+]
+
+---
+
+class: inverse, middle, center
+
+# Part 5: Cap-and-Trade
+
+&lt;div style="font-size: 24px; margin-top: 20px;"&gt;
+Creating a market for pollution
+&lt;/div&gt;
+
+
+
+
+---
+
+# Cap-and-trade
+
+**How it works:**
+
+--
+
+**Step 1: Cap**
+
+- Government sets a total limit on pollution for all firms combined
+
+--
+
+**Step 2: Allocate**
+
+- Government distributes "allowances" (permits) to firms
+
+- Each allowance = right to emit 1 unit
+
+--
+
+**Step 3: Trade**
+
+- Firms can buy and sell allowances
+
+- At year end, must have enough allowances to cover emissions
+
+
+---
+
+# The trading logic
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/cap1.png" style="width: 55%;" /&gt;
+&lt;/div&gt;
+
+--
+
+- **Low-cost firms:** Reduce more, sell extra permits
+
+- **High-cost firms:** Reduce less, buy permits
+
+---
+
+
+# Example: EU Emissions Trading System
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/euets_cap.png" style="width: 60%;" /&gt;
+&lt;/div&gt;
+
+&lt;div style="text-align: center; margin: 10px 0 20px 0;"&gt;
+&lt;a href="https://audiovisual.ec.europa.eu/corporateplayer/index.html?video=I-256989&amp;language=EN" style="font-size: 0.9em;"&gt;📺 Video: How EU ETS works&lt;/a&gt;
+&lt;/div&gt;
+
+.pull-left[
+### World's largest carbon market
+
+- Launched in 2005
+- Covers power, industry, aviation
+- ~40% of EU emissions
+]
+
+.pull-right[
+### Results by 2023
+
+- Emissions down **47%** vs 2005
+- Cap decreases each year
+- Price reached **€100/ton** in 2023
+]
+
+
+
+
+
+
+---
+
+# Carbon prices under EU ETS
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/euets_price.png" style="width: 55%;" /&gt;
+&lt;/div&gt;
+
+Price fluctuates based on supply and demand for allowances.
+
+
+---
+
+# Cap-and-trade systems worldwide
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/captrade.png" style="width: 75%;" /&gt;
+&lt;p style="font-size: 11px; color: #666; margin-top: 5px;"&gt;Source: International Carbon Action Partnership&lt;/p&gt;
+&lt;p style="font-size: 0.85em; margin-top: 10px;"&gt;
+🔗 &lt;a href="https://icapcarbonaction.com/en/ets"&gt;Interactive ETS Map&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+
+---
+
+# Cap-and-trade: Pros and cons
+
+.pull-left[
+### Advantages
+
+✅ Cost-effective (trading equalizes MACs)
+
+✅ Certainty about total emissions
+
+✅ Creates market incentives
+
+✅ Can distribute permits for free (politically easier)
+]
+
+--
+
+.pull-right[
+### Disadvantages
+
+❌ Price uncertainty
+
+❌ Complex to set up
+
+❌ May create hot spots
+
+❌ Requires monitoring and verification
+]
+
+---
+
+class: inverse, middle, center
+
+# Part 6: Comparing Policy Instruments
+
+&lt;div style="font-size: 24px; margin-top: 20px;"&gt;
+Which is best?
+&lt;/div&gt;
+
+
+
+---
+
+# Why cost-effectiveness matters
+
+Suppose we want to reduce pollution by **100 tons total**.
+
+--
+
+**Two firms:**
+- **Firm A:** Can reduce cheaply (modern equipment)
+- **Firm B:** Expensive to reduce (old plant)
+
+--
+
+&lt;br&gt;
+
+**Question:** Should both firms reduce by 50 tons?
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**No!** It's cheaper overall if Firm A reduces more and Firm B reduces less.
+]
+
+---
+
+# The cost-effective rule
+
+.center[
+### Equalize marginal abatement costs across all firms
+]
+
+--
+
+&lt;br&gt;
+
+**Example:**
+
+If Firm A's MAC = $50/ton and Firm B's MAC = $150/ton...
+
+--
+
+- Firm A should reduce more (it's cheap for them)
+- Firm B should reduce less (it's expensive for them)
+- Keep shifting until MACs are equal
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Which policies achieve this automatically?**
+]
+
+---
+
+# Visualizing cost-effectiveness
+
+.pull-left[
+&lt;img src="figures/CE3.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+Two firms, total abatement = 100 tons
+
+- **Firm A:** Low MAC (cheap to abate)
+- **Firm B:** High MAC (expensive to abate)
+
+
+&lt;br&gt;
+
+Horizontal axis shows different ways to split the 100 tons between firms.
+]
+
+---
+
+# Equal allocation is NOT cost-effective
+
+.pull-left[
+&lt;img src="figures/CE2.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+**If both reduce 50 tons:**
+
+- Firm A's cost = area **a**
+- Firm B's cost = area **b + c**
+
+&lt;br&gt;
+
+**Total cost = a + b + c**
+
+&lt;br&gt;
+
+Can we do better?
+]
+
+---
+
+# Cost-effective allocation
+
+.pull-left[
+&lt;img src="figures/CE.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+**Equalize MACs:**
+
+- Firm A reduces 60 tons
+- Firm B reduces 40 tons
+
+&lt;br&gt;
+
+**Total cost = a + b**
+
+&lt;br&gt;
+
+.content-box-green[
+**Savings = area c**
+
+By having the low-cost firm do more!
+]
+]
+
+---
+
+# Which policies are cost-effective?
+
+&lt;br&gt;
+
+&lt;table style="width: 90%; margin: 20px auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Policy&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Cost-effective?&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Why?&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Technology standard&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;❌ No&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Doesn't even minimize cost per firm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Performance standard&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;❌ No&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Equal limits ≠ equal MACs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background: #e8f5e9;"&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Emission tax&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;✅ Yes&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;All firms set MAC = tax&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background: #e8f5e9;"&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Cap-and-trade&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;✅ Yes&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Trading equalizes MACs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# How cap-and-trade achieves cost-effectiveness
+
+### Setup
+
+- **Each firm** produces **75 tons** of pollution without regulation
+
+- **Total pollution** without regulation: **150 tons**
+
+- Government wants to limit total pollution to **50 tons**
+
+- Government issues **50 permits** (1 permit = right to emit 1 ton)
+
+- Each firm receives **25 permits**
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Each firm can only emit 25 tons** (because they only have 25 permits)
+
+This means each firm must **abate 50 tons** (reduce from 75 to 25)
+]
+
+---
+
+# Starting point: Before trading
+
+.pull-left[
+&lt;img src="figures/CE2_1.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+
+**Each firm has 25 permits**
+
+| | Firm A | Firm B |
+|---|---|---|
+| Without regulation | 75 tons | 75 tons |
+| Permits received | 25 | 25 |
+| Allowed emissions | 25 tons | 25 tons |
+| Must abate | 50 tons | 50 tons |
+| MAC at 50 tons | **$100** | **$150** |
+
+&lt;br&gt;
+
+Firm B's abatement is more expensive!
+
+Is there a better way?
+]
+
+---
+
+# The trade opportunity
+
+.pull-left[
+&lt;img src="figures/CE2_1.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+**Firm A** (low cost):
+
+- MAC = $100 to abate one more ton
+- Would accept **&gt; $100** to sell a permit
+
+&lt;br&gt;
+
+**Firm B** (high cost):
+
+- MAC = $150 to abate one more ton
+- Would pay **&lt; $150** to buy a permit and avoid abating
+
+&lt;br&gt;
+
+.content-box-green[
+**Both gain if permit trades between $100 and $150!**
+
+These are the "gains from trade."
+]
+]
+
+---
+
+# After one trade
+
+.pull-left[
+&lt;img src="figures/CE2_1.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+**Firm A sells 1 permit to Firm  B for ~$125:**
+
+| | Firm A | Firm B |
+|---|---|---|
+| Permits | 25 → 24 | 25 → 26 |
+| Emissions | 25 → 24 | 25 → 26 |
+| Must abate | 50 → 51 tons | 50 → 49 tons |
+
+**Firm A:** Abates 1 extra ton (costs ~$100)
+- Receives ~$125 from B → **Net gain!**
+
+**Firm B:** Abates 1 less ton (saves ~$150)
+- Pays ~$125 to A → **Net gain!**
+]
+
+---
+
+# Trading continues until MACs equalize
+
+.pull-left[
+&lt;img src="figures/CE.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+Firms keep trading as long as their MACs differ.
+
+| | Firm A | Firm B |
+|---|---|---|
+| Permits | 15 | 35 |
+| Emissions | 15 tons | 35 tons |
+| Abatement | 60 tons | 40 tons |
+
+- A sold **10 permits** to B
+- Total emissions still = **50 tons** ✓ 
+- But achieved at **lower total cost!**
+
+.content-box-green[
+**Trading finds the cost-effective allocation.**
+]
+]
+
+---
+
+# Key insight: Initial allocation doesn't matter!
+
+What if we started differently?
+
+&lt;table style="width: 90%; margin: 20px auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 12px 20px; border: 1px solid #ccc; width: 35%;"&gt;&lt;/th&gt;
+&lt;th style="padding: 12px 20px; border: 1px solid #ccc; width: 32.5%;"&gt;Firm A gets 10 permits&lt;/th&gt;
+&lt;th style="padding: 12px 20px; border: 1px solid #ccc; width: 32.5%;"&gt;Firm B gets 40 permits&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc; text-align: left;"&gt;Initial abatement&lt;/td&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc;"&gt;65 tons&lt;/td&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc;"&gt;35 tons&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc; text-align: left;"&gt;Initial MAC&lt;/td&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc;"&gt;Higher&lt;/td&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc;"&gt;Lower&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc; text-align: left;"&gt;Trade direction&lt;/td&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc;"&gt;A &lt;strong&gt;buys&lt;/strong&gt; from B&lt;/td&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc;"&gt;B &lt;strong&gt;sells&lt;/strong&gt; to A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background: #e8f5e9;"&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc; text-align: left;"&gt;&lt;strong&gt;Final abatement&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc;"&gt;&lt;strong&gt;60 tons&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px 20px; border: 1px solid #ccc;"&gt;&lt;strong&gt;40 tons&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+.content-box-yellow[
+**Same final result!**
+
+**No matter how permits are initially allocated, trading leads to the cost-effective outcome.**
+- (This is a version of the Coase theorem!)
+]
+
+
+---
+
+class: inverse, middle, center
+
+# Part 7: Innovation Incentives
+
+&lt;div style="font-size: 24px; margin-top: 20px;"&gt;
+Which policies promote new technology?
+&lt;/div&gt;
+
+
+
+---
+
+# Why innovation matters
+
+Cost-effectiveness is about today.
+
+But we also want policies that encourage **better technology tomorrow**.
+
+--
+
+&lt;br&gt;
+
+**Question:** Which policies give firms stronger incentives to develop cheaper pollution control technologies?
+
+---
+
+# Why does tax promote more innovation?
+
+.pull-left[
+&lt;img src="figures/techadoption.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+Suppose new technology reduces MAC from MC₀ to MC₁.
+
+&lt;br&gt;
+
+**Under performance standard:**
+
+Firm must abate X_STD — no more, no less.
+
+New tech makes this cheaper.
+
+**Savings = area a** (lower abatement cost)
+
+]
+
+---
+
+# Why does tax promote more innovation?
+
+.pull-left[
+&lt;img src="figures/techadoption.png" style="width: 95%;" /&gt;
+]
+
+.pull-right[
+Suppose new technology reduces MAC from MC₀ to MC₁.
+
+&lt;br&gt;
+
+**Under tax:**
+
+Firm chooses how much to abate.
+
+With cheaper tech, firm will **abate more** (up to X_TAX).
+
+Why? Because abating is now cheaper than paying tax!
+
+**Savings = area a + area b**
+
+- Area **a**: Lower abatement cost (same as standard)
+- Area **b**: Lower tax bill (emits less → pays less tax)
+
+]
+
+---
+
+# The key difference
+
+&lt;table style="width: 85%; margin: 20px auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Performance Standard&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Tax&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; text-align: left;"&gt;Abatement after new tech&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Same (X_STD)&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;More (X_TAX)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; text-align: left;"&gt;Source of savings&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Cheaper abatement only&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Cheaper abatement + lower tax&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background: #e8f5e9;"&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; text-align: left;"&gt;&lt;strong&gt;Total savings&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Area a&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Area a + b&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+&lt;br&gt;
+
+.center[
+.content-box-green[
+**Tax gives firms a bigger reward for innovation → stronger incentive to develop new technology**
+]
+]
+
+---
+
+
+
+# Tax vs. cap-and-trade for innovation
+
+**Tax:** Price is fixed
+
+- Innovation incentive stays constant
+- Always profitable to find cheaper abatement
+
+--
+
+**Cap-and-trade:** Price adjusts
+
+- As firms adopt new tech, permit price falls
+- Lower price = weaker incentive for others to innovate
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+Both market-based policies beat command-and-control, but tax may have a slight edge for innovation.
+]
+
+---
+
+class: inverse, middle, center
+
+# Part 8: Other Considerations
+
+&lt;div style="font-size: 24px; margin-top: 20px;"&gt;
+Hot spots, monitoring, and practical issues
+&lt;/div&gt;
+
+
+
+
+---
+
+# The hot spot problem
+
+So far, we assumed **all pollution is equally harmful**.
+
+This is called the "uniform mixing assumption."
+
+--
+
+&lt;br&gt;
+
+**But is this realistic?**
+
+--
+
+- CO₂: Yes — climate effect doesn't depend on where it's emitted
+
+- SO₂, NOx: No — local air quality depends on location
+
+- Water pollution: Definitely no — very location-specific
+
+
+---
+
+# The hot spot problem
+
+.pull-left[
+&lt;img src="figures/india_pm2_5.png" style="width: 95%;" /&gt;
+
+&lt;p style="font-size: 10px; color: #666;"&gt;PM2.5 concentration in India. Red = high pollution.&lt;br&gt;Source: NASA&lt;/p&gt;
+]
+
+.pull-right[
+**Not all pollution is equally harmful.**
+
+Look at the map:
+- Delhi: 101 µg/m³ (20x WHO guideline)
+- Rural Rajasthan: much lower
+
+&lt;br&gt;
+
+**Cap-and-trade assumes 1 ton = 1 ton everywhere.**
+
+**If a factory in rural Rajasthan sells permits to a factory in Delhi:**
+
+- Total pollution unchanged
+- **But 30 million more people breathe it!**
+
+]
+
+
+---
+
+# When to use which policy?
+
+&lt;br&gt;
+
+&lt;table style="width: 95%; margin: 20px auto; border-collapse: collapse; text-align: center; font-size: 0.9em;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Situation&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Best policy&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Why&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Climate change (CO₂)&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Tax or cap-and-trade&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Uniform mixing, need flexibility&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Local air pollution&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Standards (with location rules)&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Location matters, avoid hot spots&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Vehicle emissions&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Technology/performance standards&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Millions of sources, hard to monitor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Large industrial plants&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Cap-and-trade or tax&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Few sources, easy to monitor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+&lt;br&gt;
+
+.center[
+**No single policy is best for everything!**
+]
+
+---
+
+# Monitoring and enforcement
+
+Policies differ in how easy they are to monitor:
+
+--
+
+**Easy to monitor:**
+- Technology standards (is the scrubber installed?)
+- Fuel inputs (what coal are you using?)
+
+--
+
+**Harder to monitor:**
+- Actual emissions (need continuous measurement)
+- Trading compliance (need accurate reporting)
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+This explains why command-and-control is still common for vehicles and households — monitoring actual emissions from millions of sources is impractical.
+]
+
+---
+
+# Summary: How do policies compare?
+
+&lt;br&gt;
+
+&lt;table style="width: 95%; margin: 20px auto; border-collapse: collapse; text-align: center; font-size: 0.85em;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Policy&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Cost-effective?&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Promotes innovation?&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Easy to monitor?&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Avoids hot spots?&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Technology standard&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;❌&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;❌&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;✅&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Performance standard&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;❌&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;⚠️&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;✅&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Emission tax&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;✅&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;✅&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;⚠️&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Cap-and-trade&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;✅&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;⚠️&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;⚠️&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# Key takeaways
+
+--
+
+### 1. Market-based policies (tax, cap-and-trade) are cost-effective
+
+They let the market find the cheapest way to reduce pollution.
+
+--
+
+### 2. But cost-effectiveness isn't everything
+
+Location, monitoring costs, and political feasibility all matter.
+
+--
+
+### 3. Match the policy to the problem
+
+- Global pollutants → market-based
+- Local pollutants → may need location-specific rules
+- Many small sources → standards may be more practical
+
+---
+
+# Next week
+
+**Topic:** Evidence and Policy Evaluation
+
+--
+
+&lt;br&gt;
+
+How do we know if environmental policies actually work?
+
+- Why simple before/after comparisons can mislead us
+
+- Randomized controlled trials and natural experiments
+
+- How to read and critically assess empirical research
+
+--
+
+&lt;br&gt;
+
+**Readings**: 
+
+- ["Quasi-experimental and experimental approaches to environmental economics" by Michael Greenstone and Ted Gayer](https://www.sciencedirect.com/science/article/abs/pii/S0095069608000831)
+
+- ["RESEARCH HIGHLIGHTS Can Pollution Markets Work in Developing Countries? Experimental Evidence from India" by Michael Greenstone, Rohini Pande, Nicholas Ryan, and Anant Sudarshan](https://climate.uchicago.edu/wp-content/uploads/2025/05/Can-Pollution-Markets-Work-in-Developing-Countries_-Experimental-Evidence-from-India.pdf)
+
+
+
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+class: inverse, middle, center
+
+# Thank you!
+
+&lt;div style="font-size: 20px; margin-top: 30px;"&gt;
+See you next week for Evidence and Policy Evaluation.
+&lt;/div&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

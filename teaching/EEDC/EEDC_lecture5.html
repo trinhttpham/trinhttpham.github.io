@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Environmental Economics in Developing Countries</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Environmental Economics in Developing Countries
+]
+.subtitle[
+## Week 5: Non-Market Valuation
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Spring 2026
+]
+
+---
+
+
+
+
+# Where are we in the course?
+
+&lt;table style="width: 90%; margin: 30px auto; border-collapse: collapse; text-align: left; font-size: 0.95em;"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc; width: 15%;"&gt;&lt;strong&gt;Weeks 1-2&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;What's the problem?&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Market failures, externalities&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Week 3&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;What are the solutions?&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Taxes, standards, cap-and-trade&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Week 4&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Do the solutions work?&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;RCTs, causal inference&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background: #e8f5e9;"&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Week 5&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;strong&gt;How do we know if benefits &gt; costs?&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Non-market valuation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Weeks 6-9&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;What does the evidence say?&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Conservation, pollution, climate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;br&gt;
+
+.center[
+**This Week:** How do we measure the value of things that aren't bought and sold?
+]
+
+---
+
+# Why valuation matters
+
+Recall from Week 3: To design good policies, we need to compare **costs** and **benefits**.
+
+--
+
+
+**Some benefits are easy to measure:**
+
+- Revenue from timber sales
+- Savings from reduced fuel use
+- Medical costs avoided
+
+--
+
+**But many environmental benefits are not traded in markets:**
+
+- Clean air
+- Biodiversity
+- Beautiful landscapes
+- Stable climate
+
+--
+
+.content-box-yellow[
+**The problem:** If we can't measure these benefits, they often get valued at **zero** in policy decisions.
+]
+
+---
+
+# A concrete example
+
+**Policy question:** Should Kenya subsidize energy-efficient cookstoves?
+
+--
+
+&lt;br&gt;
+
+.pull-left[
+**Costs (easy to measure):**
+
+- Stove manufacturing cost
+- Subsidy cost to government
+- Distribution costs
+]
+
+--
+
+.pull-right[
+**Benefits (harder to measure):**
+
+- Reduced charcoal spending
+- Less indoor air pollution → better health
+- Less deforestation → climate benefits
+- Time saved cooking
+]
+
+--
+
+&lt;br&gt;
+
+.center[
+To answer this, we need to know: **How much do households value these stoves?**
+
+This is called **willingness to pay (WTP)**.
+]
+
+---
+
+# Two approaches to measuring WTP
+
+&lt;br&gt;
+
+&lt;table style="width: 90%; margin: 20px auto; border-collapse: collapse; text-align: center; font-size: 0.95em;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f5f5f5;"&gt;
+&lt;th style="padding: 15px; border: 1px solid #ddd;"&gt;&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ddd;"&gt;Revealed Preference&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ddd;"&gt;Stated Preference&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ddd; text-align: left;"&gt;&lt;strong&gt;Approach&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ddd;"&gt;Watch what people &lt;strong&gt;do&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ddd;"&gt;Ask what people &lt;strong&gt;would pay&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ddd; text-align: left;"&gt;&lt;strong&gt;Data&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ddd;"&gt;Actual market behavior&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ddd;"&gt;Survey responses&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ddd; text-align: left;"&gt;&lt;strong&gt;Examples&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ddd;"&gt;Hedonic pricing, travel cost&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ddd;"&gt;Contingent valuation, choice experiments&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+&lt;br&gt;
+
+.center[
+Both have strengths and weaknesses. Let's look at each.
+]
+
+---
+
+class: inverse, middle, center
+
+# Revealed Preference Methods
+
+"Watch what people do"
+
+---
+
+# Revealed preference: The intuition
+
+People's **choices** reveal how much they value things.
+
+--
+
+&lt;br&gt;
+
+**Example: How much do people value clean air?**
+
+--
+
+We can't observe people buying "clean air" directly.
+
+--
+
+But we can observe people paying **more for houses** in less polluted areas.
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Key idea:** Environmental quality is "bundled" with other goods (houses, vacations). 
+
+We can use market prices for those goods to infer the value of environmental quality.
+]
+
+---
+
+# Hedonic pricing method
+
+**Hedonic pricing** uses regression to isolate the environmental component of a good's price.
+
+--
+
+&lt;br&gt;
+
+**Example:** Two identical houses, except one is near a polluted factory.
+
+- House A (clean area): $300,000
+- House B (polluted area): $250,000
+
+--
+
+The $50,000 difference reflects the value of clean air (all else equal).
+
+--
+
+&lt;br&gt;
+
+**But "all else" is rarely equal.** Houses differ in many ways:
+
+- Size, age, number of rooms
+- School quality, crime rates
+- Distance to city center
+
+---
+
+# Hedonic pricing: Using regression
+
+This is where **regression** (Week 4) comes in.
+
+--
+
+&lt;br&gt;
+
+`$$\text{House Price} = \beta_0 + \beta_1 \text{Pollution} + \beta_2 \text{Rooms} + \beta_3 \text{Size} + \beta_4 \text{Crime} + \beta_5 \text{Schools} + \varepsilon$$`
+
+--
+
+&lt;br&gt;
+
+The coefficient `\(\beta_1\)` tells us: 
+
+&gt; "Holding all else constant, how much less are people willing to pay for a house when pollution increases by one unit?"
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**This is why we learned about regression in Week 4** — it lets us "control for" other factors to isolate the effect of environmental quality.
+]
+
+---
+
+# Hedonic pricing: A caution
+
+Recall from Week 4: Regression only controls for **measured** variables.
+
+--
+
+&lt;br&gt;
+
+`$$\text{House Price} = \beta_0 + \beta_1 \text{Pollution} + \beta_2 \text{Rooms} + \beta_3 \text{Size} + \beta_4 \text{Crime} + \beta_5 \text{Schools} + \varepsilon$$`
+
+--
+
+&lt;br&gt;
+
+**What if something affects both pollution AND house prices, but we can't measure it?**
+
+- Neighborhood "desirability" 
+- Future development plans
+- Historical discrimination in housing markets
+
+--
+
+
+.content-box-yellow[
+**The coefficient `\(\beta_1\)` may be biased.** 
+
+Hedonic pricing shows correlation, but not necessarily the causal effect of pollution on prices.
+]
+
+
+---
+
+# Travel cost method
+
+**Travel cost** infers the value of a recreational site from how much people spend to visit it.
+
+--
+
+&lt;br&gt;
+
+**Example:** How much is a national park worth?
+
+--
+
+People don't pay the "true" value of the park — just the entrance fee.
+
+--
+
+But they also spend money on:
+- Transportation (gas, flights)
+- Time (opportunity cost)
+- Accommodation
+
+--
+
+&lt;br&gt;
+
+People who travel farther reveal higher WTP for the park.
+
+By analyzing visitation patterns, we can construct a **demand curve** for the park.
+
+---
+
+# Revealed preference: Limitations
+
+--
+
+**1. Need observable behavior**
+
+- Can only value things people actually choose
+- Can't value things that don't exist yet (e.g., new park, future policy)
+
+--
+
+**2. Hard to isolate preferences**
+
+- Many factors affect choices simultaneously
+- Need lots of data and careful controls
+
+--
+
+**3. Only captures "use value"**
+
+- Hedonic: Only people who live near the amenity
+- Travel cost: Only people who visit
+- Doesn't capture value from people who never visit but still care
+
+--
+
+.content-box-yellow[
+**What if we want to value something that isn't reflected in market behavior?**
+]
+
+---
+
+class: inverse, middle, center
+
+# Stated Preference Methods
+
+"Ask what people would pay"
+
+---
+
+# Stated preference: The intuition
+
+If we can't observe what people do, we can **ask** them.
+
+--
+
+&lt;br&gt;
+
+**Contingent valuation:** Create a hypothetical market and ask people their WTP.
+
+--
+
+&lt;br&gt;
+
+**Example questions:**
+
+&gt; "What is the maximum you would pay per month for a 50% reduction in air pollution?"
+
+--
+
+&gt; "Would you pay $20/month for cleaner air in your neighborhood?"
+
+--
+
+&lt;br&gt;
+
+This can value things that don't exist yet or have no market.
+
+---
+
+# Stated preference: The problem
+
+**People may not tell the truth.**
+
+--
+
+&lt;br&gt;
+
+&lt;table style="width: 95%; margin: 20px auto; border-collapse: collapse; text-align: left; font-size: 0.9em;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f5f5f5;"&gt;
+&lt;th style="padding: 12px; border: 1px solid #ddd;"&gt;Bias&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ddd;"&gt;Problem&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;&lt;strong&gt;Strategic bias&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Overstate WTP to influence policy; understate to avoid paying&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;&lt;strong&gt;Hypothetical bias&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Easy to say "yes" when you don't actually have to pay&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;&lt;strong&gt;Information bias&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Respondents unfamiliar with what they're valuing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;&lt;strong&gt;Starting-point bias&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Responses anchored by suggested amounts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**The core problem:** In a hypothetical scenario, there's no cost to lying or exaggerating.
+]
+
+---
+
+# The challenge
+
+&lt;br&gt;
+
+.pull-left[
+### Revealed Preference
+
+✓ Based on real choices
+
+✗ Need observable behavior
+
+✗ Can't value hypotheticals
+]
+
+.pull-right[
+### Stated Preference
+
+✓ Can value anything
+
+✗ People may not tell the truth
+
+✗ Hypothetical ≠ real
+]
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+.center[
+**Is there a way to combine the best of both?**
+
+Ask people their WTP, but make it **real** so they have incentives to tell the truth?
+]
+
+---
+
+class: inverse, middle, center
+
+# The BDM Method
+
+A solution that combines stated preferences with real incentives
+
+---
+
+# BDM: Becker-DeGroot-Marschak method
+
+**The idea:** Create a real market where telling the truth is the best strategy.
+
+--
+
+**How it works:**
+
+1. Ask the respondent: "What is the maximum you would pay for this stove?"
+
+--
+
+2. Draw a random price from a predetermined range (unknown to respondent)
+
+--
+
+3. **If WTP ≥ random price:** Respondent buys at the random price
+
+--
+
+4. **If WTP &lt; random price:** No sale
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Key insight:** The respondent's stated WTP determines *whether* they buy, but not *what price* they pay. 
+- So there's no benefit to lying.
+]
+
+---
+
+# Why is BDM "incentive compatible"?
+
+**What if you overstate your WTP?**
+
+--
+
+- Say you'd pay $50, but you really value it at just $30
+
+--
+- Random price drawn: $40
+
+--
+- You have to buy at $40 — but it's only worth $30 to you
+
+--
+- **You lose $10**
+
+--
+
+&lt;br&gt;
+
+**What if you understate your WTP?**
+
+--
+- Say you'd pay $20, but you really value it at $30
+
+--
+- Random price drawn: $25
+
+--
+- You don't get to buy — even though you would have gained
+
+--
+- **You miss out on $5 of value**
+
+--
+
+.content-box-green[
+**Best strategy:** State your true WTP. Then you buy if and only if the price is below your true value.
+]
+
+---
+
+# BDM: Two purposes
+
+The BDM mechanism serves **two purposes**:
+
+--
+
+&lt;br&gt;
+
+**1. Incentive-compatible WTP elicitation**
+
+Because the price is fixed *before* you state your WTP, it's in your best interest to tell the truth.
+
+--
+
+**2. Random assignment for causal inference**
+
+Because the prices are randomly drawn, adoption is random (conditional on WTP).
+
+This allows researchers to estimate the **causal effect** of adoption — just like an RCT!
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+BDM creates randomization, which allows causal inference.
+]
+
+
+---
+
+class: inverse, middle, center
+
+# Group Activity
+
+---
+
+# Group Activity: Berkouwer &amp; Dean (2022)
+
+[See This Blog Post for Berkouwer and Dean (2022)](https://energyathaas.wordpress.com/2019/10/21/closing-the-energy-efficiency-gap-for-low-income-households/)
+
+**Instructions:** Discuss in groups of 3-4 (10 minutes). Be prepared to share.
+
+&lt;br&gt;
+
+**1.** What is the main research question?
+
+**2.** Why did the researchers use BDM instead of just asking "What would you pay?"
+
+**4.** What did they find about WTP compared to market price?
+
+**5.** Why might WTP be so low, even though the stoves save money?
+
+---
+
+class: inverse, middle, center
+
+# Application: Cookstoves in Kenya
+
+Berkouwer &amp; Dean (2022)
+
+---
+
+# Context: Cooking in Kenya
+
+&lt;br&gt;
+
+.pull-left[
+**The problem:**
+
+- 67% of Kenyan households use biomass (wood, charcoal) for cooking
+
+- Traditional stoves are inefficient
+
+- Consequences:
+  - Indoor air pollution → health problems
+  - High fuel costs for poor households
+  - Deforestation → climate change
+]
+
+.pull-right[
+&lt;img src="figures/stove.png" style="width: 90%;" /&gt;
+
+.center[*Traditional charcoal jiko (left)*]
+]
+
+---
+
+# The energy-efficient alternative
+
+&lt;br&gt;
+
+.pull-left[
+**Jikokoa stove:**
+
+- Uses 39% less charcoal than traditional jiko
+
+- Less smoke → better health
+
+- Saves money on fuel over time
+
+- But costs ~$40 (about 1 week's income for many households)
+
+&lt;br&gt;
+
+**Policy question:** Should the government subsidize these stoves?
+]
+
+.pull-right[
+&lt;img src="figures/stove.png" style="width: 90%;" /&gt;
+
+.center[*Jikokoa energy-efficient stove (right)*]
+]
+
+---
+
+# Research questions
+
+&lt;br&gt;
+
+[Berkouwer &amp; Dean (2022)](https://www.aeaweb.org/articles?id=10.1257/aer.20210766) ask:
+
+&lt;br&gt;
+
+**1. What is households' willingness to pay for the efficient stove?**
+
+- Is WTP higher or lower than the market price?
+- How much subsidy would be needed for widespread adoption?
+
+--
+
+&lt;br&gt;
+
+**2. What is the causal effect of stove adoption on charcoal spending?**
+
+- Do households actually save money?
+- How much?
+
+---
+
+# Study design
+
+**Sample:** 1,000 households in Nairobi, Kenya
+
+--
+
+**Method:** BDM mechanism to elicit WTP
+
+- **Step 1:** Surveyor shows the stove, explains benefits
+
+- **Step 2:** Ask: "What is the maximum you would pay?"
+
+- **Step 3:** Respondent draws a random price from a bag
+
+- **Step 4:** If WTP ≥ price drawn → purchase at that price
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+Prices ranged from 0 to 500 Kenyan shillings (market price ~$40 = 4,000 KSh)
+]
+
+
+---
+
+# Key findings on WTP
+
+.pull-left[
+
+**1. Average WTP is well below market price**
+
+- Mean WTP: ~800 KSh ($8)
+- Market price: ~4,000 KSh ($40)
+
+
+**2. Very few would buy at market price**
+
+- Only ~5% of households have WTP ≥ market price
+
+
+**3. Demand is highly price-sensitive**
+
+- At 50% subsidy: ~25% would adopt
+- At 75% subsidy: ~60% would adopt
+]
+
+.pull-right[
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/wtp.png" style="width: 80%;" /&gt;
+&lt;/div&gt;
+]
+
+&lt;style&gt;
+.pull-left { width: 45%; margin-left: 2.5%; }
+.pull-right { width: 45%; margin-right: 2.5%; }
+&lt;/style&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+--
+
+.content-box-yellow[
+**Policy implication:** Without subsidies, adoption will remain very low — even though the stoves save money over time.
+]
+
+---
+
+# Why is WTP so low?
+
+The stoves **pay for themselves** in fuel savings within a few months.
+
+So why don't households want to buy them?
+
+--
+
+&lt;br&gt;
+
+**Possible explanations:**
+
+1. **Credit constraints** — Can't afford $40 upfront, even if it saves money later
+
+2. **Present bias** — Value today's money more than future savings
+
+3. **Uncertainty** — Not sure the savings will materialize
+
+4. **Inattention** — Don't fully process the savings calculation
+
+--
+
+&lt;br&gt;
+
+Berkouwer &amp; Dean test these explanations (especially credit constraints) using their experimental design.
+
+
+---
+
+# Credit constraints matter
+
+.pull-left[
+
+**When households can pay in installments (credit), WTP increases significantly.**
+
+- Gray line: Must pay full price upfront → lower WTP
+- Blue/Orange lines: Can pay weekly or monthly → higher WTP
+
+]
+
+.pull-right[
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/wtp2.png" style="width: 80%;" /&gt;
+&lt;/div&gt;
+]
+
+&lt;style&gt;
+.pull-left { width: 45%; margin-left: 2.5%; }
+.pull-right { width: 45%; margin-right: 2.5%; }
+&lt;/style&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+--
+
+.content-box-green[
+**Implication:** Low WTP isn't just about low valuation — many households *want* the stove but **can't afford** the upfront cost. Credit access could increase adoption without subsidies.
+]
+
+
+---
+
+# Causal effect of adoption on charcoal spending
+
+**Recall:** BDM creates random assignment (conditional on WTP).
+
+--
+
+Among households with the same WTP, some randomly got low prices (adopted) and others got high prices (didn't adopt).
+
+--
+
+&lt;br&gt;
+
+**This allows causal inference:**
+
+Comparing adopters vs. non-adopters with similar WTP → effect of adoption
+
+--
+
+&lt;br&gt;
+
+**Finding:** Households that adopted the stove reduced charcoal spending by **~40%**.
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+The randomization from BDM lets us make causal claims, just like the Gujarat RCT.
+]
+
+---
+
+# Summary: Why this study matters
+
+&lt;br&gt;
+
+**1. Methodological innovation**
+
+- BDM provides incentive-compatible WTP estimates
+- Also creates random assignment for causal inference
+
+--
+
+**2. Policy-relevant findings**
+
+- WTP is far below market price → subsidies needed
+- But stoves do save money → subsidies are cost-effective
+
+--
+
+**3. Broader implications**
+
+- Many "beneficial" technologies have low adoption
+- Understanding WTP helps design better policies
+- Credit constraints may be a key barrier
+
+---
+
+# Valuation methods: Summary
+
+&lt;table style="width: 95%; margin: 20px auto; border-collapse: collapse; text-align: center; font-size: 0.85em;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f5f5f5;"&gt;
+&lt;th style="padding: 12px; border: 1px solid #ddd;"&gt;Method&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ddd;"&gt;Approach&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ddd;"&gt;Strength&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ddd;"&gt;Weakness&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;&lt;strong&gt;Hedonic pricing&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;House prices &amp; pollution&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Real behavior&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Only existing amenities&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;&lt;strong&gt;Travel cost&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Visitation patterns&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Real behavior&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Only recreational sites&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;&lt;strong&gt;Contingent valuation&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Survey: "Would you pay $X?"&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Can value anything&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Hypothetical bias&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;&lt;strong&gt;BDM&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Real purchase + random price&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Incentive compatible&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ddd;"&gt;Need actual product&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# Looking ahead
+
+**Next week: Economics of Conservation**
+
+- How do we protect forests and biodiversity?
+
+--
+
+**Connection to this week:**
+
+- Conservation programs need to know the **value** of ecosystem services
+- And the **WTP** of landowners to participate
+
+--
+
+**Readings**: **(Introduction &amp; Results Only)
+
+- [Jayachandran et al. (2017) "Cash for carbon: A randomized trial of payments for ecosystem services to reduce deforestation"](https://www.science.org/doi/10.1126/science.aan0568)
+
+- [Izquierdo-Tort, Jayachandran &amp; Saavedra (2024) "Redesigning payments for ecosystem services to increase cost-effectiveness"](https://www.nature.com/articles/s41467-024-53643-1)
+
+- **[Burgess et al. (2012) "The Political Economy of Deforestation in the Tropics"](https://academic.oup.com/qje/article/127/4/1707/1844248)
+
+
+---
+
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+class: inverse, middle, center
+
+# Thank you!
+
+See you next week for Economics of Conservation.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

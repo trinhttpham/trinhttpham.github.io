@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Environmental Economics in Developing Countries</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Environmental Economics in Developing Countries
+]
+.subtitle[
+## Lecture 4: Policy Evaluation
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Spring 2026
+]
+
+---
+
+
+
+
+# Where are we in the course?
+
+&lt;table style="width: 90%; margin: 30px auto; border-collapse: collapse; text-align: left; font-size: 0.95em;"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc; width: 15%;"&gt;&lt;strong&gt;Weeks 1-2&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;What's the problem?&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Market failures, externalities, public goods&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Week 3&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;What are the solutions?&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Taxes, standards, cap-and-trade&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background: #e8f5e9;"&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Week 4&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Do the solutions actually work?&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Evidence and evaluation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Weeks 5-10&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;What does the evidence say?&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Valuation, conservation, pollution, climate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;br&gt;
+
+.center[
+**This Week:** How do we know if environmental policies actually work?
+]
+
+---
+
+# Recall from last week
+
+**Cap-and-trade** is theoretically cost-effective.
+
+.pull-left[
+**The theory:**
+
+- Set a cap on total emissions
+- Let firms trade permits
+- Same environmental outcome, lower total cost
+]
+
+.pull-right[
+**The evidence?**
+
+- EU ETS: Emissions down 47% since 2005
+- US SO₂ program: Success in the 1990s
+- But these are rich countries with strong institutions...
+]
+
+--
+
+&lt;br&gt;
+
+.center[
+
+**Can cap-and-trade work in developing countries?**
+
+Skeptics worried about weak enforcement, corruption, firms cheating...
+
+**How would we actually test this?**
+]
+
+---
+
+# A naive approach
+
+**Idea:** Compare pollution levels in places with cap-and-trade vs. places without.
+
+&lt;br&gt;
+
+.pull-left[
+**Region A:** Has cap-and-trade
+
+Average pollution: 50 units
+]
+
+.pull-right[
+**Region B:** No cap-and-trade
+
+Average pollution: 80 units
+]
+
+&lt;style&gt;
+.pull-left { width: 45%; margin-left: 2.5%; }
+.pull-right { width: 45%; margin-right: 2.5%; }
+&lt;/style&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+--
+
+&lt;br&gt;
+
+.center[
+*"Cap-and-trade reduced pollution by 30 units!"*
+]
+
+--
+
+&lt;br&gt;
+
+.center[
+**Is this a fair comparison?** 
+]
+
+--
+
+.center[
+What if Region A was already cleaner, richer, or had better enforcement — even before adopting cap-and-trade?
+
+]
+
+
+---
+
+# The problem: Selection bias
+
+.center[
+### Places that choose to adopt a policy are already different from places that don't.
+]
+
+--
+
+**Examples:**
+
+- Countries with carbon taxes were already environmentally conscious
+- Firms in voluntary green programs were already cleaner
+- People who buy EVs already cared about the environment
+
+--
+
+**The problem:** We can't tell if lower pollution is due to:
+
+- The policy itself, **OR**
+- *Pre-existing differences between the groups*
+
+--
+
+&lt;br&gt;
+
+.center[
+**We need to compare "apples to apples."**
+]
+
+---
+
+# One tool: Regression
+
+**Regression** lets us "control for" other factors.
+
+--
+
+**Without controls:** Cap-and-trade plants emit less... but they're also larger and newer.
+
+$$ Pollution = \beta_0 + \beta_1 CapAndTrade + \varepsilon $$
+
+--
+
+**With controls:** Compare cap-and-trade vs. traditional plants **of the same size, age, and industry**.
+
+$$ Pollution = \beta_0 + \beta_1 CapAndTrade + \beta_2Size + \beta_3 Age + \beta_4 Industry + \varepsilon $$
+
+--
+
+Now we're comparing *apples to apples* — at least for the variables we measured.
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**The limitation:** We can only control for what we can measure.
+
+What about **management quality? Political connections? Willingness to comply?**
+
+If these differ between groups, our estimate does not capture the "causal effect" of cap-and-trade!
+]
+
+---
+
+# Potential solution: Randomization
+
+**Problem:** Groups that adopt policies are systematically different.
+
+**Solution:** **Randomly assign** who gets the policy.
+
+--
+
+&lt;br&gt;
+
+.pull-left[
+**Without randomization:**
+
+Groups differ in measured AND unmeasured ways
+
+→ Can't isolate policy effect
+]
+
+.pull-right[
+**With randomization:**
+
+Groups are identical on average — in ALL ways
+
+→ Any difference = policy effect
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Randomization balances everything** — even factors we can't measure or don't know about.
+]
+
+---
+
+# Randomized Controlled Trial (RCT)
+
+&lt;div style="text-align: center;"&gt;
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/Wy7qpJeozec?si=jc0V4ccGV7Lh3mNE&amp;amp;start=20" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+.center[
+Same idea as medical trials: randomly assign patients to treatment vs. placebo.
+]
+
+
+---
+
+class: inverse, middle, center
+
+# Case Study: Gujarat's Cap-and-Trade Experiment
+
+The world's first RCT of emissions trading
+
+
+---
+
+# Group activity: Analyzing the Gujarat Study
+
+Instructions: Read the [EPIC Research Highlights document](https://climate.uchicago.edu/wp-content/uploads/2025/05/Can-Pollution-Markets-Work-in-Developing-Countries_-Experimental-Evidence-from-India.pdf) and answer these questions in your group (15 minutes).
+
+**Part 1: Understanding the Study**
+- Why has India struggled to reduce industrial pollution using traditional (command-and-control) regulations?
+- Fill in the study design:
+
+| | Treatment | Control |
+|---|---|---|
+| Number of plants | | |
+| Regulation type | | |
+| How assigned? | | |
+
+- Why did the researchers randomly assign plants to treatment and control groups, instead of letting plants choose?
+
+---
+
+# Group activity: Analyzing the Gujarat Study
+
+Instructions: Read the [EPIC Research Highlights document](https://climate.uchicago.edu/wp-content/uploads/2025/05/Can-Pollution-Markets-Work-in-Developing-Countries_-Experimental-Evidence-from-India.pdf) and answer these questions in your group (15 minutes).
+
+
+**Part 2: Evaluating the Results**
+
+- What happened to emissions in the market plants vs. command-and-control plants over the trading periods?
+.center[
+&lt;img src="figures/indian_ets1.png" style="width: 50%;" /&gt;
+]
+
+---
+
+# Group activity: Analyzing the Gujarat Study
+
+Instructions: Read the [EPIC Research Highlights document](https://climate.uchicago.edu/wp-content/uploads/2025/05/Can-Pollution-Markets-Work-in-Developing-Countries_-Experimental-Evidence-from-India.pdf) and answer these questions in your group (15 minutes).
+
+
+**Part 2: Evaluating the Results**
+
+- Why is the "Market Cost" curve lower than the "Command and Control" curve? 
+
+.center[
+&lt;img src="figures/indian_ets2.png" style="width: 50%;" /&gt;
+]
+
+---
+
+# The setting: Surat, Gujarat, India
+
+.pull-left[
+&lt;img src="figures/surat_map.png" style="width: 90%;" /&gt;
+]
+
+.pull-right[
+**Surat:**: Population: 8+ million
+- Major industrial hub (textiles, diamonds, chemicals)
+- Hundreds of coal-burning plants
+- Severe air pollution
+
+**The challenge:**
+
+Traditional "command-and-control" regulations weren't working — only 66% compliance.
+
+- mandated to install abatement equipment 
+- sporadically inspected in person by government regulators and auditors to check that plants meet limits on the concentration of pollution emissions
+]
+
+---
+
+# The research question
+
+.center[
+### Can a cap-and-trade market reduce industrial air pollution in India?
+]
+
+--
+
+&lt;br&gt;
+
+**The researchers:** Michael Greenstone (Chicago), Rohini Pande (Yale), Nicholas Ryan (Yale), Anant Sudarshan (Warwick)
+
+--
+
+**Partner:** Gujarat Pollution Control Board (GPCB)
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Key innovation:** They didn't just implement the policy — they **randomly assigned** which plants participated.
+]
+
+
+---
+
+# The experimental design
+
+**Step 1:** Identify 318 large coal-burning plants in Surat
+
+--
+
+**Step 2:** All plants required to install continuous emissions monitors
+
+--
+
+**Step 3:** **Randomly assign** plants to two groups:
+
+&lt;table style="width: 85%; margin: 20px auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Treatment Group&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Control Group&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; text-align: left;"&gt;Number of plants&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;162&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;156&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; text-align: left;"&gt;Regulation type&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; background: #e3f2fd;"&gt;&lt;strong&gt;Cap-and-trade market&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Traditional command-and-control&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+**Step 4:** Run the market for 10 compliance periods (Sept 2019 – April 2021)
+
+**Step 5:** Compare outcomes between the two groups
+
+[Read More](https://egc.yale.edu/research/can-pollution-markets-work-developing-countries-experimental-evidence-india)
+
+
+---
+
+# Plants are randomly assigned to two groups 
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/surat_map.png" style="width: 40%;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# How the cap-and-trade market worked
+
+.pull-left[
+**For treatment plants:**
+
+1. Government set a **cap** on total emissions
+
+2. Distributed **permits** to plants (80% free, 20% auctioned)
+
+3. Plants could **trade** permits with each other
+
+4. At end of each period: must hold enough permits to cover emissions
+
+5. **Fines** for plants without enough permits
+]
+
+.pull-right[
+**For control plants:**
+
+Traditional regulations:
+
+- Fixed emission limits per plant
+- Periodic inspections
+- Fines for violations
+
+&lt;br&gt;
+
+(Same as before the experiment)
+]
+
+---
+
+# Why randomization matters here
+
+.pull-left[
+**Without randomization:**
+
+Maybe the "good" plants volunteered for cap-and-trade, and they would have been cleaner anyway.
+
+We couldn't separate:
+- Effect of cap-and-trade
+- Effect of being a "good" plant
+]
+
+--
+
+.pull-right[
+**With randomization:**
+
+Both groups have the same mix of:
+- Clean and dirty plants
+- Well-managed and poorly-managed
+- Large and small
+- Old and new technology
+
+&lt;br&gt;
+
+.content-box-green[
+Any difference = effect of cap-and-trade
+]
+]
+
+---
+
+# The results
+
+&lt;table style="width: 90%; margin: 20px auto; border-collapse: collapse; text-align: center; font-size: 0.95em;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Outcome&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Cap-and-Trade&lt;/th&gt;
+&lt;th style="padding: 15px; border: 1px solid #ccc;"&gt;Traditional Regulation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; text-align: left;"&gt;Emissions reduction&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; background: #e8f5e9;"&gt;&lt;strong&gt;20-30% lower&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Baseline&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; text-align: left;"&gt;Compliance rate&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; background: #e8f5e9;"&gt;&lt;strong&gt;99%&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;66%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; text-align: left;"&gt;Cost to industry&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc; background: #e8f5e9;"&gt;&lt;strong&gt;Lower&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 12px; border: 1px solid #ccc;"&gt;Higher&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+&lt;br&gt;
+
+.center[
+### A "win-win-win": Less pollution, lower costs, better compliance
+]
+
+---
+
+# Why is this finding credible?
+
+--
+
+**1. Randomization eliminates selection bias**
+
+- Treatment and control plants were comparable at baseline
+- Any difference in outcomes is due to the policy
+
+--
+
+**2. Large sample size**
+
+- 318 plants is enough to detect meaningful effects
+
+--
+
+**3. Objective measurement**
+
+- Continuous emissions monitors — not self-reported data
+
+--
+
+**4. Pre-registered design**
+
+- Researchers committed to the analysis plan before seeing results
+
+---
+
+# What the researchers said
+
+&lt;br&gt;
+
+&gt; "The exciting part of the emissions trading scheme that we did for particulate matter, aside from reducing emissions, is that it provides a **proof of concept** that even in a setting with lower state capacity, a compliance market can work, and often will outperform the command-and-control approach."
+
+.right[— Rohini Pande, Yale University]
+
+--
+
+&lt;br&gt;
+
+&gt; "The market delivered a rare **win-win-win** by reducing pollution, decreasing abatement costs, and raising government's success at enforcing the law. And it did all this in a setting where there was great skepticism that pollution markets could work."
+
+.right[— Michael Greenstone, University of Chicago]
+
+---
+
+# Policy impact
+
+**Since the experiment ended:**
+
+--
+
+- Gujarat expanded cap-and-trade to **all plants** originally in the control group
+
+--
+
+- Launched a **second market** in Ahmedabad (Gujarat's largest city)
+
+--
+
+- Gujarat announced India's **first carbon trading market** (for CO₂)
+
+--
+
+- Other Indian states (Maharashtra) developing similar markets
+
+--
+
+- Research team advising **other countries** on market-based policies
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**This is the power of rigorous evidence:** One well-designed study changed policy across India.
+]
+
+---
+
+class: inverse, middle, center
+
+# When Randomization Isn't Possible
+
+---
+
+# RCTs aren't always feasible
+
+**Ethical concerns:**
+
+- Can't randomly expose people to pollution
+- Can't deny beneficial programs to some communities
+
+--
+
+**Practical constraints:**
+
+- Some policies apply to everyone (national laws)
+- Takes years to see effects
+- Very expensive to implement
+
+--
+
+**Political constraints:**
+
+- Governments may not agree to randomize
+- "Why should my district be the control group?"
+
+--
+
+.content-box-yellow[
+**We need other methods to learn from policies that weren't randomly assigned.**
+]
+
+---
+
+# Alternative approaches (brief overview)
+
+When we can't randomize, researchers look for situations where nature or policy creates **"as-if random"** variation.
+
+--
+
+&lt;br&gt;
+
+&lt;table style="width: 95%; margin: 20px auto; border-collapse: collapse; text-align: center; font-size: 0.9em;"&gt;
+&lt;thead&gt;
+&lt;tr style="background: #f0f0f0;"&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Method&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Key idea&lt;/th&gt;
+&lt;th style="padding: 12px; border: 1px solid #ccc;"&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Difference-in-Differences&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Compare changes over time between groups&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Deforestation before/after policy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Regression Discontinuity&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Compare units just above vs. below a cutoff&lt;/td&gt;
+&lt;td style="padding: 10px; border: 1px solid #ccc;"&gt;Huai River heating policy in China&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+&lt;br&gt;
+
+We'll see examples of these methods in later weeks.
+
+---
+
+# Difference-in-Differences: The intuition
+
+**Setting:** A policy is implemented in some places (treatment group) but not others (control group).
+
+--
+
+**Problem:** The places are different to begin with.
+
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/did0.png" style="width: 70%;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Difference-in-Differences: The intuition
+
+**After the policy, there is an increase in pollution in the treatment group.**
+
+Does this mean the policy **fails**?
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/did1.png" style="width: 70%;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Difference-in-Differences: The intuition
+
+Does this mean the policy fails?
+
+**After the policy, there is an increase in pollution in the control group too!**
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/did2.png" style="width: 70%;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Difference-in-Differences: The intuition
+
+If we believe they would have moved together without the policy, 
+
+then we can compare the **change** in outcomes, not the levels.
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/did3.png" style="width: 70%;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Difference-in-Differences: The intuition
+
+We can compare the **change** in outcomes, not the levels.
+
+The difference between what happened (treatment) and what would have happened (grey line) is the impact of the policy.
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/did.png" style="width: 70%;" /&gt;
+&lt;/div&gt;
+
+
+---
+
+# Difference-in-Differences: Application
+
+### The US Clean Water Act (1972)
+
+Before the Act, US waterways were severely polluted — factories and cities dumped waste directly into rivers and lakes.
+
+--
+
+**What the Act did:**
+
+- Set limits on pollution discharged into waterways
+- Required factories and municipalities to treat wastewater
+- Federal government provided **$650 billion** (in 2014 dollars) in grants to build treatment plants
+
+--
+
+**The scale:** The single largest federal investment in US infrastructure at the time.
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**The policy question:** Did this massive spending actually improve water quality? And was it worth the cost?
+]
+
+
+---
+
+# Clean Water Act (Keiser &amp; Shapiro 2018)
+
+**Question:** Did the US Clean Water Act improve water quality?
+
+--
+
+**The challenge:** Can't just compare before vs. after — other things changed too (technology, economic growth, other regulations)
+
+--
+
+**DiD setup:**
+
+| | Treatment | Control |
+|---|---|---|
+| **Who?** | Waterways receiving large federal grants for wastewater treatment | Waterways receiving little or no grants |
+| **Before** | Water quality before grants arrived | Water quality before |
+| **After** | Water quality after infrastructure built | Water quality after |
+
+--
+
+**DiD logic:** Both groups are affected by national trends. 
+
+The *extra* improvement in high-grant areas = effect of the Clean Water Act funding.
+
+---
+
+# Clean Water Act: Results
+
+**Finding:** The Act substantially improved water quality — but the costs were very high relative to the measured benefits.
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/cleanwater.png" style="width: 50%;" /&gt;
+&lt;/div&gt;
+
+--
+
+.content-box-yellow[
+DiD helps us measure whether that spending actually improves outcomes — without needing an RCT.
+]
+
+
+
+---
+
+# Regression Discontinuity: The intuition
+
+**Setting:** A policy is assigned based on a cutoff (e.g., above/below a threshold).
+
+--
+
+**Key insight:** Units just above and just below the cutoff are almost identical.
+
+--
+
+.pull-left[
+**Example: Huai River, China**
+
+- Free coal heating **north** of the river
+- No free heating **south** of the river
+- Cities just north vs. just south are otherwise similar
+]
+
+.pull-right[
+&lt;img src="figures/chen1.png" style="width: 70%;" /&gt;
+]
+
+---
+
+# Regression Discontinuity: The intuition
+
+**Setting:** A policy is assigned based on a cutoff (e.g., above/below a threshold).
+
+
+
+**Key insight:** Units just above and just below the cutoff are almost identical.
+
+
+
+.pull-left[
+**Example: Huai River, China**
+
+- Free coal heating **north** of the river
+- No free heating **south** of the river
+- Cities just north vs. just south are otherwise similar
+]
+
+.pull-right[
+&lt;img src="figures/chen2.png" style="width: 70%;" /&gt;
+]
+
+---
+
+# Regression Discontinuity: The intuition
+
+**Setting:** A policy is assigned based on a cutoff (e.g., above/below a threshold).
+
+
+
+**Key insight:** Units just above and just below the cutoff are almost identical.
+
+
+
+.pull-left[
+**Example: Huai River, China**
+
+- Free coal heating **north** of the river
+- No free heating **south** of the river
+- Cities just north vs. just south are otherwise similar
+]
+
+.pull-right[
+&lt;img src="figures/chen3.png" style="width: 70%;" /&gt;
+]
+
+
+---
+
+class: inverse, middle, center
+
+# How to Read Research Critically
+
+---
+
+# A simple framework
+
+When you read an empirical study, ask these questions:
+
+--
+
+### 1. What is the research question?
+
+What causal effect are they trying to estimate?
+
+--
+
+### 2. How did they assign treatment?
+
+RCT? Natural experiment? Simple comparison?
+
+--
+
+### 3. Is the comparison group valid?
+
+Are treatment and control groups truly comparable?
+
+--
+
+### 4. What did they find?
+
+Effect size, not just "statistically significant"
+
+---
+
+# Applying the framework: Gujarat study
+
+&lt;br&gt;
+
+| Question | Answer |
+|----------|--------|
+| **Research question** | Does cap-and-trade reduce emissions in India? |
+| **Treatment assignment** | Randomized (RCT) |
+| **Comparison group** | Plants under traditional regulation |
+| **Valid comparison?** | Yes — randomization ensures comparability |
+| **Findings** | 20-30% emission reduction, 99% compliance |
+
+---
+
+# Applying the framework: A weaker study
+
+Suppose someone claims: *"Countries with carbon taxes have lower emissions."*
+
+--
+
+&lt;br&gt;
+
+| Question | Answer |
+|----------|--------|
+| **Research question** | Do carbon taxes reduce emissions? |
+| **Treatment assignment** | Countries chose to adopt (not random) |
+| **Comparison group** | Countries without carbon taxes |
+| **Valid comparison?** | **No** — countries that adopt taxes are different |
+| **Concern** | Selection bias — maybe these countries would have reduced emissions anyway |
+
+---
+
+# The hierarchy of evidence
+
+&lt;br&gt;
+
+&lt;table style="width: 80%; margin: 20px auto; border-collapse: collapse; text-align: left;"&gt;
+&lt;tbody&gt;
+&lt;tr style="background: #c8e6c9;"&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc; width: 30%;"&gt;&lt;strong&gt;Strongest&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Randomized Controlled Trial (RCT)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background: #dcedc8;"&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;↓&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Natural experiments (DiD, RD)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background: #f0f4c3;"&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;↓&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Observational studies with controls&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background: #ffecb3;"&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;↓&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Simple before/after comparisons&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background: #ffccbc;"&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;&lt;strong&gt;Weakest&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="padding: 15px; border: 1px solid #ccc;"&gt;Anecdotes and case studies&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+&lt;br&gt;
+
+.center[
+Not all evidence is created equal!
+]
+
+---
+
+# Common mistakes to watch for
+
+--
+
+### 1. Confusing correlation with causation
+
+*"Countries with more windmills have higher life expectancy"* → Windmills don't cause longevity!
+
+--
+
+### 2. Selection bias
+
+The places/people that adopt a policy are different from those that don't.
+
+--
+
+### 3. Reverse causality
+
+Maybe Y causes X, not the other way around.
+
+*"Richer countries have less pollution"* → Does wealth reduce pollution, or does clean environment enable growth?
+
+--
+
+### 4. Cherry-picking
+
+Showing only results that support the conclusion.
+
+---
+
+# Key takeaways
+
+--
+
+### 1. Simple comparisons can be misleading
+
+Selection bias means we can't just compare treatment vs. control groups.
+
+--
+
+### 2. Randomization is the gold standard
+
+RCTs eliminate selection bias by making groups comparable.
+
+--
+
+### 3. The Gujarat study shows RCTs can work for environmental policy
+
+Cap-and-trade reduced emissions 20-30% — and we know it's causal.
+
+--
+
+### 4. When RCTs aren't possible, we use natural experiments
+
+But we should be more cautious about the conclusions.
+
+---
+
+# Looking ahead
+
+**The rest of this course** will examine evidence on environmental impacts and policies:
+
+| Week | Topic | Key study method |
+|------|-------|------------------|
+| 5 | Non-market valuation | RCT (cookstoves in Kenya) |
+| 6 | Conservation | RCT (payments in Uganda), DiD (deforestation) |
+| 7 | Pollution | RCT (auditing in India), RD (water monitoring) |
+| 8-9 | Climate change | Various methods |
+
+--
+
+&lt;br&gt;
+
+**For each study, we'll ask:**
+- How was treatment assigned?
+- Is the comparison valid?
+- How confident can we be in the findings?
+
+---
+
+# Next week
+
+**Topic:** Non-Market Valuation
+
+--
+
+&lt;br&gt;
+
+How do we measure the value of things that aren't bought and sold?
+
+- What is clean air worth?
+- How much would people pay for an energy-efficient cookstove?
+
+--
+
+&lt;br&gt;
+
+**Reading:** [Berkouwer &amp; Dean (2022) "Credit, Attention, and Externalities in the Adoption of Energy Efficient Technologies by Low-Income Households"](https://www.aeaweb.org/articles?id=10.1257/aer.20210766)
+
+- Another RCT
+- Focus on: research question, experimental design, key findings
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+class: inverse, middle, center
+
+# Thank you!
+
+&lt;div style="font-size: 20px; margin-top: 30px;"&gt;
+See you next week for Non-Market Valuation.
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

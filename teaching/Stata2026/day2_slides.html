@@ -606,6 +606,10 @@ div.dense { font-size: 0.85em; }
 table { font-size: 0.85em; border-collapse: collapse; }
 th { border-bottom: 2px solid #23373B; padding: 0.25em 0.8em; text-align: left; }
 td { border-bottom: 1px solid #D5D5D5; padding: 0.25em 0.8em; }
+
+div.toolstable table { width: 100%; }
+div.toolstable td:first-child, div.toolstable th:first-child { width: 34%; }
+div.toolstable td:nth-child(2), div.toolstable th:nth-child(2) { white-space: nowrap; }
 .bigclaim { font-size: 1.45em; font-weight: bold; text-align: center; margin-top: 1.2em; color: #EB811B; }
 blockquote {
 border-left: 4px solid #EB811B;
@@ -1079,8 +1083,8 @@ effect.</li>
 <p>It is the same idea, protected from the ways the simple version
 fails.</p>
 </div>
-<div id="the-rule-to-leave-with" class="slide section level2">
-<h1>The rule to leave with</h1>
+<div id="the-rule-to-leave-with" class="slide section level2 toolstable">
+<h1 class="toolstable">The rule to leave with</h1>
 <blockquote>
 <p>Units adopt at <strong>different times</strong> → do not report
 static TWFE as the headline. Use an estimator that respects who is a
@@ -1122,7 +1126,7 @@ still correct, and you need none of this.</p>
 <td><code>honestdid</code> (Rambachan &amp; Roth)</td>
 </tr>
 <tr class="even">
-<td>treatment switches on <strong>and off</strong></td>
+<td>treatment turns on <strong>and off</strong> again</td>
 <td><code>did_multiplegt_dyn</code> (de Chaisemartin &amp;
 D’Haultfœuille)</td>
 </tr>
@@ -1148,7 +1152,8 @@ Econometrics</em> — the estimator behind <code>csdid</code>.</li>
 sensitivity analysis, not pre-testing.</li>
 <li><strong>de Chaisemartin &amp; D’Haultfœuille</strong>, <em>AER</em>
 (2020) + <em>REStat</em> (2024) — treatments that switch on <strong>and
-off</strong>; their command is <code>did_multiplegt_dyn</code>.</li>
+off</strong>, or change in steps (not just 0/1); their command is
+<code>did_multiplegt_dyn</code>.</li>
 <li><strong>Callaway, Goodman-Bacon &amp; Sant’Anna</strong>,
 <em>AER</em> (forthcoming) — DiD with a <strong>continuous</strong>
 treatment: a dose, not a switch.</li>
@@ -1196,10 +1201,10 @@ the <code>r(111)</code> error. Then fix it with
 <code>agg(simple)</code>. Better to meet this error today than at
 midnight.</li>
 <li><strong>Run the whole thing</strong> <em>(optional, for your own
-time)</em>. Delete everything in <code>results/</code> and
-<code>rmd/figures/</code>, run <code>master.do</code>, and confirm it
-all comes back identical. (Expected exception: <code>.rtf</code> files
-embed the time they were written.)</li>
+time)</em>. Delete everything in <code>output/</code>, run
+<code>master.do</code>, and confirm it all comes back identical.
+(Expected exception: <code>.rtf</code> files embed the time they were
+written.)</li>
 </ol>
 </div>
 <div id="this-block-and-the-certificate" class="slide section level2">

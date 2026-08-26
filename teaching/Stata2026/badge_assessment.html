@@ -1599,26 +1599,32 @@ work.</p>
 </blockquote>
 <div id="before-you-start" class="section level1">
 <h1>Before you start</h1>
-<p><strong>Work on your own.</strong> One do-file, run top to bottom,
-that writes a log. Put your name in a <code>display</code> line at the
-top so the log identifies you:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">capture</span> <span class="fu">log</span> <span class="kw">close</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>* point <span class="kw">this</span> <span class="fu">at</span> your copy <span class="kw">of</span> the workshop folder (<span class="kw">as</span> <span class="kw">in</span> master.<span class="kw">do</span>):</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="kw">global</span> root <span class="st">&quot;C:/path/to/did-workshop&quot;</span></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="kw">global</span> raw  <span class="st">&quot;${root}/data/raw&quot;</span></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">log</span> <span class="kw">using</span> <span class="st">&quot;badge_yourlastname.log&quot;</span>, <span class="kw">replace</span> <span class="bn">text</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="kw">display</span> <span class="st">&quot;Badge assessment — Lastname, Firstname&quot;</span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>* ... your answers, one section per question, written answers <span class="kw">as</span> comments ...</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="fu">log</span> <span class="kw">close</span></span></code></pre></div>
-<p>The paths follow the same scheme as <code>master.do</code>, so if you
-have run the workshop do-files you already have this set up — just reuse
-your <code>global root</code>.</p>
+<p><strong>Work on your own.</strong> We give you a starter do-file to
+write in — <code>programs/badge_assessment.do</code> in the badge
+package. It already sets the paths, opens a log, and checks your
+packages; you write your answers in the block marked <em>“CONTINUE YOUR
+WORK FROM HERE,”</em> one clearly-labelled section per question, with
+your written answers as comments.</p>
+<p>Two edits before you run it:</p>
+<ol style="list-style-type: decimal">
+<li><strong><code>global root</code></strong> — the one path to set,
+pointing at your copy of the badge folder. If it sits where the starter
+expects, you need not touch it.</li>
+<li><strong>The log filename</strong> — in the <code>log using</code>
+line, replace <code>yourfullname</code> with <strong>your own full
+name</strong>, so your log is saved as
+<code>badge_yourfullname_&lt;date&gt;.log</code>. That filename is how
+we know the work is yours.</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">global</span> root <span class="st">&quot;p:/.../did-workshop-eKdis-badge&quot;</span>                          <span class="co">// 1. your folder</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">log</span> <span class="kw">using</span> <span class="st">&quot;${root}/logs/badge_yourfullname_`stamp&#39;.log&quot;</span>, <span class="kw">replace</span> <span class="bn">text</span>  <span class="co">// 2. your full name</span></span></code></pre></div>
 <p><strong>What to submit.</strong> Send three things (email or the
 shared drive, as announced in class):</p>
 <ol style="list-style-type: decimal">
-<li>the do-file — <code>badge_yourlastname.do</code> — that runs top to
+<li>the do-file — <code>badge_assessment.do</code> — that runs top to
 bottom without error;</li>
-<li>the log it writes — <code>badge_yourlastname.log</code>;</li>
+<li>the log it writes —
+<code>badge_yourfullname_&lt;date&gt;.log</code>;</li>
 <li>any figures it produces — the <code>.png</code> from Question 5 (and
 any others you make).</li>
 </ol>
@@ -1760,8 +1766,8 @@ posts the aggregate ATT so <code>eststo</code> can grab it.
 <ul class="task-list">
 <li><label><input type="checkbox"></input>The do-file runs top to bottom with
 no error, starting from <code>data/raw/</code>.</label></li>
-<li><label><input type="checkbox"></input>The first line names you in a
-<code>display</code>.</label></li>
+<li><label><input type="checkbox"></input>Your log is named with your full
+name: <code>badge_yourfullname_&lt;date&gt;.log</code>.</label></li>
 <li><label><input type="checkbox"></input>Q1: panel is strongly balanced; N
 and T reported.</label></li>
 <li><label><input type="checkbox"></input>Q2: hand-computed 2×2 equals the

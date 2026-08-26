@@ -1740,21 +1740,21 @@ wrong.</p>
 </div>
 <div id="q5-present-it-event-study-and-a-table" class="section level1">
 <h1>Q5 — Present it: event study and a table</h1>
-<p><strong>Sample:</strong> for the event study, the 2007 cohort and the
-never-treated districts, all years (the Q3 sample). The table simply
-collects the estimates you already produced in Q3 and Q4 — nothing new
-to estimate.</p>
+<p><strong>Sample:</strong> for the event study, the 2013 cohort and the
+never-treated districts, all years.</p>
+<p>The table simply collects the estimates you already produced in Q3
+and Q4 — nothing new to estimate.</p>
 <p>Two deliverables, the way results actually leave a project.</p>
 <p><strong>(a) An event study.</strong> Estimate the dynamic effects
-around 2007 adoption, plot the leads and lags against a zero reference
+around 2013 adoption, plot the leads and lags against a zero reference
 line, and export the figure as <code>badge_eventstudy.png</code>.</p>
 <p><strong>(b) A table.</strong> Collect your Q3 TWFE estimate and your
 Q4 <code>csdid</code> estimate into a single <code>esttab</code> table,
 and submit the table file.</p>
 <div class="hint">
 <strong>Result to check.</strong> The <strong>pre-period</strong> leads
-(before 2007) should sit <strong>near zero</strong>; the effect appears
-only from 2007 on. If <code>csdid</code> refuses to store for
+(before 2013) should sit <strong>near zero</strong>; the effect appears
+only from 2013 on. If <code>csdid</code> refuses to store for
 <code>esttab</code> with an <strong><code>r(111)</code></strong> error,
 that is the <code>agg(simple)</code> gotcha from Day 2 — the option
 posts the aggregate ATT so <code>eststo</code> can grab it.

@@ -13,6 +13,34 @@
   margin-bottom: 0;
 }
 
+/* Group a topic line with the bullet list right under it, on all slides:
+   the paragraph keeps its distance from the previous block but sits close
+   to its own bullets. */
+.remark-slide-content p:has(+ ul),
+.remark-slide-content p:has(+ ol) {
+  margin-bottom: 0.15em;
+}
+.remark-slide-content p + ul,
+.remark-slide-content p + ol {
+  margin-top: 0.15em;
+}
+
+/* Keep bullet spacing stable across incremental reveals ("--"): revealing
+   the next bullet turns a tight list into a loose one (items wrapped in
+   <p> with their own margins), which makes lines shift between steps.
+   Zero those inner margins and space items with a fixed li margin instead. */
+.remark-slide-content li > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.remark-slide-content li {
+  margin-bottom: 0.4em;
+}
+.remark-slide-content ul + ul,
+.remark-slide-content ol + ol {
+  margin-top: 0.15em;
+}
+
 /* Compact topic + bullet lists (add "class: tight" to a slide): small gap
    between a heading line and its bullets, clear gap between blocks */
 .tight p {

@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#333">The Selection Bias Problem</text>
+  
+  <!-- Subtitle -->
+  <text x="450" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#666">Why simple comparisons can be misleading</text>
+  
+  <!-- Left side: Treatment Group -->
+  <g transform="translate(200, 100)">
+    <!-- Box -->
+    <rect x="-130" y="0" width="260" height="300" rx="15" fill="#E8F5E9" stroke="#4CAF50" stroke-width="3"/>
+    
+    <!-- Header -->
+    <rect x="-130" y="0" width="260" height="55" rx="15" fill="#4CAF50"/>
+    <rect x="-130" y="30" width="260" height="25" fill="#4CAF50"/>
+    <text x="0" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">TREATMENT GROUP</text>
+    <text x="0" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">(Signed up for training)</text>
+    
+    <!-- People icons - motivated, educated -->
+    <!-- Person 1 -->
+    <g transform="translate(-65, 110)">
+      <circle cx="0" cy="0" r="25" fill="#FFDAB9" stroke="#DEB887" stroke-width="2"/>
+      <circle cx="-7" cy="-5" r="3" fill="#333"/>
+      <circle cx="7" cy="-5" r="3" fill="#333"/>
+      <path d="M-8,8 Q0,16 8,8" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+      <!-- Graduation cap -->
+      <rect x="-15" y="-32" width="30" height="6" fill="#333"/>
+      <polygon points="0,-32 -18,-26 0,-20 18,-26" fill="#333"/>
+      <line x1="15" y1="-26" x2="18" y2="-16" stroke="#FFD700" stroke-width="2"/>
+      <circle cx="18" cy="-14" r="3" fill="#FFD700"/>
+    </g>
+    
+    <!-- Person 2 -->
+    <g transform="translate(0, 110)">
+      <circle cx="0" cy="0" r="25" fill="#FFDAB9" stroke="#DEB887" stroke-width="2"/>
+      <circle cx="-7" cy="-5" r="3" fill="#333"/>
+      <circle cx="7" cy="-5" r="3" fill="#333"/>
+      <path d="M-8,8 Q0,16 8,8" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+      <!-- Star (motivated) -->
+      <polygon points="0,-38 4,-28 15,-28 7,-21 10,-11 0,-17 -10,-11 -7,-21 -15,-28 -4,-28" fill="#FFD700" stroke="#FFA500" stroke-width="1"/>
+    </g>
+    
+    <!-- Person 3 -->
+    <g transform="translate(65, 110)">
+      <circle cx="0" cy="0" r="25" fill="#FFDAB9" stroke="#DEB887" stroke-width="2"/>
+      <circle cx="-7" cy="-5" r="3" fill="#333"/>
+      <circle cx="7" cy="-5" r="3" fill="#333"/>
+      <path d="M-8,8 Q0,16 8,8" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+      <!-- Briefcase (professional) -->
+      <rect x="-12" y="-42" width="24" height="16" rx="2" fill="#8B4513" stroke="#5D3A1A" stroke-width="1"/>
+      <rect x="-6" y="-47" width="12" height="6" rx="1" fill="none" stroke="#5D3A1A" stroke-width="2"/>
+    </g>
+    
+    <!-- Characteristics -->
+    <text x="0" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#2E7D32" font-weight="bold">Characteristics:</text>
+    <text x="0" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">✓ More motivated</text>
+    <text x="0" y="218" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">✓ More educated</text>
+    <text x="0" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">✓ Better networks</text>
+    <text x="0" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">✓ Likely to succeed anyway</text>
+  </g>
+  
+  <!-- Right side: Control Group -->
+  <g transform="translate(700, 100)">
+    <!-- Box -->
+    <rect x="-130" y="0" width="260" height="300" rx="15" fill="#FFEBEE" stroke="#E57373" stroke-width="3"/>
+    
+    <!-- Header -->
+    <rect x="-130" y="0" width="260" height="55" rx="15" fill="#E57373"/>
+    <rect x="-130" y="30" width="260" height="25" fill="#E57373"/>
+    <text x="0" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">CONTROL GROUP</text>
+    <text x="0" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">(Didn't sign up)</text>
+    
+    <!-- People icons - less motivated -->
+    <!-- Person 1 -->
+    <g transform="translate(-65, 110)">
+      <circle cx="0" cy="0" r="25" fill="#FFDAB9" stroke="#DEB887" stroke-width="2"/>
+      <circle cx="-7" cy="-5" r="3" fill="#333"/>
+      <circle cx="7" cy="-5" r="3" fill="#333"/>
+      <path d="M-7,10 L7,10" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Person 2 -->
+    <g transform="translate(0, 110)">
+      <circle cx="0" cy="0" r="25" fill="#FFDAB9" stroke="#DEB887" stroke-width="2"/>
+      <circle cx="-7" cy="-5" r="3" fill="#333"/>
+      <circle cx="7" cy="-5" r="3" fill="#333"/>
+      <path d="M-8,12 Q0,6 8,12" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Person 3 -->
+    <g transform="translate(65, 110)">
+      <circle cx="0" cy="0" r="25" fill="#FFDAB9" stroke="#DEB887" stroke-width="2"/>
+      <circle cx="-7" cy="-5" r="3" fill="#333"/>
+      <circle cx="7" cy="-5" r="3" fill="#333"/>
+      <path d="M-7,10 L7,10" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+      <!-- Question mark -->
+      <text x="0" y="-32" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#999">?</text>
+    </g>
+    
+    <!-- Characteristics -->
+    <text x="0" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#C62828" font-weight="bold">Characteristics:</text>
+    <text x="0" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">✗ Less motivated</text>
+    <text x="0" y="218" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">✗ Less educated</text>
+    <text x="0" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">✗ Fewer opportunities</text>
+    <text x="0" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">✗ Different baseline prospects</text>
+  </g>
+  
+  <!-- Middle: Comparison arrow with X -->
+  <g transform="translate(450, 250)">
+    <!-- Arrow line -->
+    <line x1="-110" y1="0" x2="110" y2="0" stroke="#9E9E9E" stroke-width="4" stroke-dasharray="10,5"/>
+    <polygon points="-110,0 -95,-10 -95,10" fill="#9E9E9E"/>
+    <polygon points="110,0 95,-10 95,10" fill="#9E9E9E"/>
+    
+    <!-- Warning X -->
+    <circle cx="0" cy="0" r="28" fill="white" stroke="#F44336" stroke-width="4"/>
+    <line x1="-14" y1="-14" x2="14" y2="14" stroke="#F44336" stroke-width="5"/>
+    <line x1="14" y1="-14" x2="-14" y2="14" stroke="#F44336" stroke-width="5"/>
+  </g>
+  
+  <!-- Warning label -->
+  <text x="450" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#F44336" font-weight="bold">NOT a valid comparison!</text>
+  
+  <!-- Bottom explanation box -->
+  <rect x="70" y="430" width="760" height="130" rx="15" fill="#FFF3E0" stroke="#FF9800" stroke-width="3"/>
+  
+  <!-- Warning icon -->
+  <g transform="translate(120, 495)">
+    <polygon points="0,-25 22,18 -22,18" fill="#FF9800" stroke="#F57C00" stroke-width="2"/>
+    <text x="0" y="8" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">!</text>
+  </g>
+  
+  <!-- Explanation text -->
+  <text x="470" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#E65100">Selection Bias</text>
+  <text x="470" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">People who choose to participate are systematically different from those who don't.</text>
+  <text x="470" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">If participants earn more, we can't tell if it's because of the program</text>
+  <text x="470" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">or because motivated people would have earned more anyway.</text>
+  
+</svg>

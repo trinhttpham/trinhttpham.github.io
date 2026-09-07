@@ -18,10 +18,20 @@
    to its own bullets. */
 .remark-slide-content p:has(+ ul),
 .remark-slide-content p:has(+ ol) {
-  margin-bottom: 0.15em;
+  margin-bottom: 0.3em;
 }
 .remark-slide-content p + ul,
 .remark-slide-content p + ol {
+  margin-top: 0.3em;
+}
+
+/* Roadmap-style slides keep the tighter topic-to-bullets coupling */
+.remark-slide-content.tight p:has(+ ul),
+.remark-slide-content.tight p:has(+ ol) {
+  margin-bottom: 0.15em;
+}
+.remark-slide-content.tight p + ul,
+.remark-slide-content.tight p + ol {
   margin-top: 0.15em;
 }
 
@@ -52,6 +62,36 @@
 }
 .tight li {
   margin-bottom: 0.1em;
+}
+
+/* Roomier bullet lists (add "class: spaced" to a slide): larger gap between
+   bullets, including bullets revealed one by one with "--" */
+.remark-slide-content.spaced li {
+  margin-bottom: 0.9em;
+}
+.remark-slide-content.spaced ul + ul,
+.remark-slide-content.spaced ol + ol {
+  margin-top: 0.9em;
+}
+.remark-slide-content.spaced p:has(+ ul),
+.remark-slide-content.spaced p:has(+ ol) {
+  margin-bottom: 0.7em;
+}
+.remark-slide-content.spaced p + ul,
+.remark-slide-content.spaced p + ol {
+  margin-top: 0.7em;
+}
+
+/* Wider right-hand tip box (add "class: tipwide" to a slide) so a short
+   sentence in the box stays on one line; scoped with three classes to beat
+   the generic .pull-left/.pull-right rules from in-document style blocks */
+.remark-slide-content.tipwide .pull-left {
+  width: 44%;
+  margin-left: 0;
+}
+.remark-slide-content.tipwide .pull-right {
+  width: 53%;
+  margin-right: 0;
 }
 
 /* Content boxes for highlighting key points */

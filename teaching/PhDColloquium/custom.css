@@ -1,5 +1,6 @@
 /* Small additions on top of the metropolis theme (Fall 2026) */
 .remark-slide-content { font-size: 22px; }
+.remark-slide-content.compact { font-size: 19px; }
 .remark-slide-content h1 { font-size: 40px; }
 .small { font-size: 80%; }
 .tiny { font-size: 65%; }
@@ -8,15 +9,17 @@
 .center-img { text-align: center; }
 .pull-left { width: 48%; float: left; }
 .pull-right { width: 48%; float: right; }
+.fig-left { width: 58%; float: left; }
+.fig-right { width: 40%; float: right; }
 .week { color: #23373b; background: #eef2f3; border-left: 4px solid #23373b; padding: 4px 10px; font-size: 85%; display: inline-block; margin-top: 6px; }
 .remark-code { font-size: 70%; }
 
 /* Visual hierarchy: top-level bullets breathe; nested bullets are visibly secondary */
 .remark-slide-content > ul > li { margin-bottom: 0.4em; }
-.remark-slide-content ul ul { font-size: 87%; color: #526165; }
+.remark-slide-content ul ul { font-size: 87%; }
 .remark-slide-content ul ul > li { margin-top: 0.2em; margin-bottom: 0.2em; }
 /* One-line main point of a slide */
-.takeaway { background: #eef2f3; border-left: 4px solid #EB811B; padding: 8px 14px; font-weight: bold; margin-top: 14px; }
+.takeaway { background: #eef2f3; border-left: 4px solid #EB811B; padding: 8px 14px; font-weight: bold; margin-top: 14px; font-size: 108%; clear: both; display: block; }
 /* Skippable elaboration (quotes, asides) */
 .detail { font-size: 82%; color: #6c757d; }
 /* Discussion-question box (matches the IDP content-box-green style) */

@@ -70,7 +70,9 @@ class: inverse, middle, center
 
 # From "development" to a number
 
-- Development is many things: **health, education, agency, the environment** — with trade-offs among them
+- Development is many things: **economic, social, political, and environmental** — with trade-offs among them
+
+  - incomes and jobs; health and education; voice, rights, and institutions; a livable environment
 
 --
 
@@ -104,7 +106,7 @@ Across countries, income lines up with nearly every other outcome we care about:
 
 Each bubble is a country in 2022. Ask: what do you notice at the left end of the curve?
 
-This is the Preston curve: very steep at low incomes, nearly flat at high incomes. The same doubling of income "buys" many more years of life in Malawi than in Denmark. Points for discussion: (1) income is not everything — development is also health, education, agency, the environment — but income correlates with nearly all of it, which is why poverty lines are drawn in income/consumption terms; (2) the scatter around the curve at low incomes is huge — countries at the same income differ by 15+ years of life expectancy, so income is far from the whole story. And of course these are correlations, not causal effects — that distinction is the subject of Weeks 2-3. This course is mostly about producing and interpreting such measures at the micro level.
+This is the Preston curve: very steep at low incomes, nearly flat at high incomes. The same doubling of income "buys" many more years of life in Malawi than in Denmark. Points for discussion: (1) income is not everything — development is also social, political, and environmental — but income correlates with nearly all of it, which is why poverty lines are drawn in income/consumption terms; (2) the scatter around the curve at low incomes is huge — countries at the same income differ by 15+ years of life expectancy, so income is far from the whole story. And of course these are correlations, not causal effects — that distinction is the subject of Weeks 2-3. This course is mostly about producing and interpreting such measures at the micro level.
 
 ---
 
@@ -641,6 +643,38 @@ The program directors asked an AI model to summarize 1,972 NBER working papers a
 
 ---
 
+class: compact
+
+# Even methods you know keep changing: DiD
+
+Staggered rollouts are now everywhere — and the standard estimator for them turned out to be biased:
+
+.fig-left[
+&lt;img src="figures/goodmanbacon_fig2.png" style="width: 90%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1016/j.jeconom.2021.03.014"&gt;Goodman-Bacon (2021)&lt;/a&gt;, Figure 2: the four 2x2 comparisons inside TWFE.]
+]
+
+.fig-right[
+- With **staggered adoption**, TWFE averages all four 2x2 comparisons — including **Panel D**: late-treated vs. **already-treated** units
+
+- When effects **grow over time**, Panel D biases the estimate
+
+- New estimators fix this: &lt;a href="https://doi.org/10.1016/j.jeconom.2020.12.001"&gt;Callaway and Sant'Anna (2021)&lt;/a&gt;, &lt;a href="https://doi.org/10.1016/j.jeconom.2020.09.006"&gt;Sun and Abraham (2021)&lt;/a&gt;, among others
+
+- Guide: &lt;a href="https://doi.org/10.1257/jel.20251650"&gt;Baker et al. (2026)&lt;/a&gt;, *JEL* (**Week 3**)
+]
+
+--
+
+.takeaway[This course gives you the foundations of these methods; keeping up with their refinements is part of doing research]
+
+???
+
+If asked for the intuition: with staggered adoption, the TWFE coefficient is a weighted average of many 2x2 comparisons, and some compare newly treated units with already-treated ones; when effects grow over time, those comparisons enter with perverse (even negative) weights. "Among others" includes de Chaisemartin and D'Haultfoeuille (2020, AER) and Borusyak, Jaravel, and Spiess (2024, REStud). We come back to all of this in Week 3.
+
+---
+
 # What the field stopped doing
 
 --
@@ -1029,11 +1063,19 @@ The dashed circle marks the region we zoom into; in the lens, the dashed line is
 
 --
 
-- **Top general interest and field journals**: *AEJ: Applied*, *AEJ: Economic Policy*, *REStat*, *Economic Journal*, *JEEA*, *Journal of Development Economics*, *Journal of Public Economics*, *Journal of Labor Economics*, *JEEM* and *JAERE* (environment)
+- **Top general interest and field journals**: *AEJ: Applied*, *AEJ: Economic Policy*, *REStat*, *Economic Journal*, *JEEA*, *Journal of Development Economics*, *Journal of Public Economics*, *Journal of Labor Economics*, *Journal of Human Resources*, *JEEM* and *JAERE* (environment)
 
 --
 
 - **Reviews**: *Journal of Economic Literature*, *Journal of Economic Perspectives*, *Annual Review of Economics*
+
+--
+
+.takeaway[Reading these journals teaches you the common language of the profession: which questions matter, which frameworks and methods are standard, what evidence persuades, how arguments are made]
+
+???
+
+This is not a claim that everything in a top journal is correct, superior, or more important than work published elsewhere — plenty of important economics appears outside these outlets. The point is that these papers show you the mainstream conversation: the questions economists consider important, the frameworks they use, what evidence they find persuasive, and how they communicate arguments. The underlying theory and methods are usually ones you have already met in coursework, which is what makes them readable and worth imitating.
 
 ---
 
@@ -1067,7 +1109,7 @@ The dashed circle marks the region we zoom into; in the lens, the dashed line is
 
 --
 
-  - the effect of schooling on wages; of unemployment insurance on jobs; of cash transfers on enrollment
+  - the effect of schooling on earnings; of public works on village wages; of cash transfers on child schooling
 
 --
 
@@ -1089,15 +1131,21 @@ From &lt;a href="https://shapiro.scholars.harvard.edu/sites/g/files/omnuum7731/f
 
 --
 
-- **The question has an answer.** "What is the effect of a price ceiling on the quantity of ketchup sold?" has one — we may not know it, but it exists. "What is the nature of firm and consumer behavior in the ketchup industry?" does not
+- **1. The question has an answer**
+
+  - "The effect of a price ceiling on ketchup sales" has one; "the nature of behavior in the ketchup industry" does not
 
 --
 
-- **The answer is not obvious** — we cannot already get it from logic, common sense, or existing evidence. "Would selling ketchup only on Tuesdays improve consumer welfare?" has an answer, but we can guess it
+- **2. The answer is not obvious** — the finding is interesting whichever way it comes out
+
+  - "Does selling ketchup only on Tuesdays hurt consumers?" has an answer, but we can already guess it
 
 --
 
-- **The answer is actionable.** If we knew it, a policymaker, firm, or NGO would do something differently. Uniform wholesale pricing of ketchup: real policy, actionable. Ketchup teleportation: hypothetical
+- **3. The answer is actionable**
+
+  - If we knew it, someone — a policymaker, a firm, an NGO — would do something differently
 
 --
 
@@ -1105,7 +1153,7 @@ Test your question against all three **before** worrying about data or identific
 
 ???
 
-The examples are Shapiro's, originally written for PhD students in industrial organization. "Actionable" is the "why should people care" test from the writing-a-dissertation slide, applied to the answer rather than the topic. And "has an answer" is the deepest of the three — the next slides show questions that look causal but have no answer at all: fundamentally unidentified questions.
+The examples are Shapiro's, originally written for PhD students in industrial organization. Fuller versions: "What is the effect of a price ceiling on the quantity of ketchup sold?" — we may not know the answer, but it exists; "What is the nature of firm and consumer behavior in the ketchup industry?" has none. On actionable: uniform wholesale pricing of ketchup is a real policy, so the answer would change someone's decision; ketchup teleportation is hypothetical. "Actionable" is the "why should people care" test from the writing-a-dissertation slide, applied to the answer rather than the topic. And "has an answer" is the deepest of the three — the next slides show questions that look causal but have no answer at all: fundamentally unidentified questions.
 
 ---
 
@@ -1298,6 +1346,20 @@ A question can be well-posed, non-obvious, and actionable — and still not be *
 
 ---
 
+# Read the paper yourself
+
+- Reading published papers is how you learn to write one: study **how** the argument is built
+
+--
+
+- Read the paper — **not an AI summary**. The point is to practice reading, not to know the conclusion
+
+--
+
+- Every week: one comment or question per required reading, and the papers you present and discuss
+
+---
+
 # How to read a paper: seven questions
 
 1. **Question and contribution**: what is new?
@@ -1314,15 +1376,19 @@ A question can be well-posed, non-obvious, and actionable — and still not be *
 
 7. **Broader lessons**: external validity, policy, one idea for you
 
+--
+
+**Referee reports** are part of the job — these questions are their skeleton; your discussion is the practice
+
 ???
 
-This is the structure of the weekly comments, of a good discussion, and of your own proposal. The sub-questions are in the syllabus.
+This is the structure of the weekly comments, of a good discussion, and of your own proposal. The sub-questions are in the syllabus. Questions 1, 2, 5, and 6 are where most useful feedback lives — point discussants there.
 
 ---
 
 # How to present a paper: the skeleton
 
-A 30-minute conference-style talk, 15-20 slides:
+Your 30-minute presentation, built from **seven components — not seven slides**:
 
 1. **Motivation and question**: one slide
 
@@ -1338,9 +1404,13 @@ A 30-minute conference-style talk, 15-20 slides:
 
 7. **Takeaways**
 
+--
+
+Longer talks expand the components; early-stage talks end with the **questions you want feedback on**
+
 ???
 
-Based on Shapiro, "How to give an applied micro talk". In Week 2 I will present Haushofer and Shapiro (2016) this way and then take it apart with you; in Week 3 each of you will do a 5-minute, 3-slide version.
+Based on Shapiro, "How to give an applied micro talk". A 30-minute talk usually runs 15-25 slides: allocate them across the components according to the time you have. The most common mistake is spending 15 minutes on background before saying what the paper does — components 1 and 2 fix that. In Week 2 I will present Haushofer and Shapiro (2016) this way and take it apart with you; in Week 3 each of you will do a 5-minute, 3-slide version.
 
 ---
 
@@ -1360,6 +1430,10 @@ Based on Shapiro, "How to give an applied micro talk". In Week 2 I will present 
 
 - Read papers for **how** they tell their story, not only what they find
 
+--
+
+- Short guides: &lt;a href="https://www.johnhcochrane.com/research-all/writing-tips-for-phd-studentsnbsp"&gt;Cochrane, Writing Tips for Ph.D. Students&lt;/a&gt;; &lt;a href="https://www.cgdev.org/blog/how-write-introduction-your-development-economics-paper"&gt;Evans, How to Write the Introduction&lt;/a&gt;
+
 ---
 
 # Presenting your own work
@@ -1369,6 +1443,10 @@ Based on Shapiro, "How to give an applied micro talk". In Week 2 I will present 
 --
 
 - Prepare three versions: **1 minute**, **5 minutes**, **15-20 minutes**
+
+--
+
+  - The longer versions (**30, 60, 90 minutes** — a seminar or job talk) are built from the same skeleton, expanded
 
 --
 
@@ -1403,7 +1481,7 @@ class: inverse, middle, center
 
 --
 
-Comments in the Google Doc by **Thursday 14:00**. Sign-up sheet: preferences due before the Week 3 lecture.
+Comments in the &lt;a href="https://docs.google.com/document/d/1-IlEMbnN1wn0kxUqh20z_R09_dYt2VL6O8uBI_rgAgc/edit?usp=sharing"&gt;Google Doc&lt;/a&gt; by **Thursday 14:00**. &lt;a href="https://docs.google.com/spreadsheets/d/1JYnioDWK2cD7upc2n16BE7V-OCPEn9Uc/edit?usp=sharing&amp;ouid=108702181455633968747&amp;rtpof=true&amp;sd=true"&gt;Sign-up sheet&lt;/a&gt;: preferences due before the Week 3 lecture.
 
 
 ---

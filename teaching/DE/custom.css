@@ -32,3 +32,7 @@
 
 /* Metropolis adds an 80px top border to every slide; balance it on inverse (divider) slides so "middle" is truly centered */
 .remark-slide-content.inverse:not(.title-slide) { border-bottom: 80px solid #23373B; }
+/* Slides with many short bullets revealed one at a time: keep them from spreading out */
+.remark-slide-content.tight ul { margin: 0.15em 0; }
+.remark-slide-content.tight > ul > li { margin-bottom: 0.15em; }
+.remark-slide-content.tight p { margin: 0.4em 0; }

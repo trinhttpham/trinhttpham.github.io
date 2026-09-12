@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>DELD - Lecture 2</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 2: Causal Inference, RCT, IV &amp; LATE
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2026
+]
+
+---
+
+
+# Roadmap
+
+- Fundamental problem of causal inference
+
+  - How do we resolve the fundamental problem of causal inference?
+
+- Does randomization "solve" the fundamental problem of causal inference?
+
+- RCT in practice: Haushofer and Shapiro (2016), via the **seven components of a talk**
+
+- Regression: with an experiment, and without one
+
+- Instrumental variables (IV) and Local average treatment effects (LATE), with AJR (2001)
+
+???
+
+Reminder to give at the start: reading comments are due in the Google Doc by Thursday 14:00 every week, and the presentation sign-up sheet closes before next week's lecture.
+
+---
+
+name: fp
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Fundamental problem of causal inference
+&lt;/div&gt;
+
+---
+
+# Working example
+
+Suppose we are interested in studying the effect of tutoring on students' test scores.
+
+--
+
+We have collected data on children who participated in the tutoring, and those who did not.
+
+--
+
+Below is our data tabulation
+
+| Group       | Sample Size | Mean Test Scores | Standard Errors |
+|-------------|-------------|------------------|-----------------|
+| Tutoring    | 250         | 7.43             | 0.14            |
+| No Tutoring | 1500        | 8.56             | 0.15            |
+
+--
+
+What can we say about the effect of tutoring on students' test scores?
+
+  - Tutoring lowers students' test scores?
+
+--
+
+Tutoring could lower scores — but what is the problem with this comparison?
+
+--
+
+  - Tutoring students may have been weaker to begin with (**selection bias**)
+
+---
+
+# Fundamental problem of causal inference
+
+Let's formalize our example with some notations (Rubin's Causal Model)
+
+--
+
+We have a population `\(I\)` with units `\(i\in I\)` (e.g., school `\(I\)` with students `\(i\)`)
+
+--
+
+There are two causes: control (no tutoring, 0) and treatment (tutoring, 1)
+
+--
+
+We label exposure to a cause as `\(D_i \in \{0, 1\}\)`
+
+--
+
+Then there are two potential responses/outcomes:
+
+--
+
+  - Outcome if unit `\(i\)` does not receive treatment: `\(Y_{0i}\)`
+
+  - Outcome if unit `\(i\)` receives treatment: `\(Y_{1i}\)`
+
+--
+
+We are interested in the causal effect of treatment (relative to control) on a unit `\(i\)`.
+
+--
+What would it be?
+
+--
+`\(Y_{1i} - Y_{0i}\)`
+
+.source[&lt;a href="https://doi.org/10.1080/01621459.1986.10478354"&gt;Holland (1986), Statistics and causal inference, JASA&lt;/a&gt;.]
+
+---
+
+# Fundamental problem of causal inference
+
+Now let's take a closer look at this: `\(Y_{1i} - Y_{0i}\)`
+
+--
+
+Do you notice something weird here?
+
+--
+
+We either observe `\(Y_{1i}\)` or `\(Y_{0i}\)`, not both at the same time!
+
+--
+
+  - Students can *either participate or not participate* in the tutoring program
+
+  - The same student cannot *attend and not attend* the program *at the same time*
+
+--
+
+This is the **fundamental problem of causal inference**.
+
+
+---
+
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Then, how could we resolve the fundamental problem of causal inference?
+&lt;/div&gt;
+
+
+
+---
+
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  We need assumptions! No causal inference without assumptions!
+&lt;/div&gt;
+
+---
+
+# Fundamental problem of causal inference
+
+We will discuss **four assumptions** that resolve the fundamental problem of causal inference:
+
+  1. Temporal stability and causal transience
+
+  2. Unit homogeneity
+
+  3. Independence
+
+  4. Constant effects
+
+---
+
+# Assumption 1: Temporal stability and causal transience
+
+**Temporal stability**: `\(Y_{0i}\)` does not depend on **when** the cause "control" occurs.
+
+--
+
+**Causal transience**: `\(Y_{1i}\)` is not affected by prior exposure to the cause "control".
+
+--
+
+If both hold, expose the *same* unit to control, then treatment, and measure `\(Y\)` each time.
+
+--
+
+Think of a **light switch**:
+
+  - `\(Y_{0i}\)` = brightness with the switch **off**: the same whenever you turn it off
+
+  - `\(Y_{1i}\)` = brightness with the switch **on**: unaffected by how long it was off before
+
+--
+
+Plausible for economic problems in real-life settings?
+
+--
+
+.takeaway[No — people remember, learn, and change. This is why these are called "scientific solutions".]
+
+
+---
+
+# Assumption 2: Unit homogeneity
+
+Assume we have two units: `\(i_1\)` and `\(i_2\)`.
+
+--
+
+If we assume `\(Y_{1i_1}\)` = `\(Y_{1i_2}\)` and `\(Y_{0i_1}\)` = `\(Y_{0i_2}\)` for units `\(i_1\)` and `\(i_2\)`
+
+  - then we can just compare the outcomes of unit `\(i_1\)` with unit `\(i_2\)`
+
+--
+
+The causal effect of treatment (relative to control) on unit `\(i_1\)` or `\(i_2\)` would be:
+
+`$$Y_{1i_1} - Y_{0i_1} = Y_{1i_1} - Y_{0i_2} =  Y_{1i_2} - Y_{0i_1}$$`
+
+--
+
+Plausible for economic problems in real-life settings?
+
+--
+
+.takeaway[No — no two households, firms, or countries are identical: another "scientific solution".]
+
+
+
+---
+
+# Assumption 3: Independence
+
+The population `\(I\)` is large, and for each unit `\(i\)` we observe `\(D_i\)` and `\(Y_{D_i}\)`
+
+--
+
+The average causal effect is `\(T = E(Y_{1i}) - E(Y_{0i})\)`; but the data only give us `\(E(Y_{1i}|D_i = 1)\)` and `\(E(Y_{0i}|D_i = 0)\)`
+
+--
+
+Are `\(E(Y_{1i})\)` and `\(E(Y_{1i}|D_i = 1)\)` the same? **No**:
+
+  - `\(E(Y_{1i}|D_i = 1)\)` averages only over the **treated** — if units with large `\(Y_{1i}\)` select into treatment, then `\(E(Y_{1i}|D_i = 1) &gt; E(Y_{1i})\)`
+
+--
+
+**Independence**: exposure to treatment or control is independent of `\(Y_0\)` and `\(Y_1\)`
+
+  - then `\(E(Y_{1i}) = E(Y_{1i}|D_i = 1)\)` and `\(E(Y_{0i}) = E(Y_{0i}|D_i = 0)\)`
+
+--
+
+&lt;div class="takeaway"&gt;Under independence, the naive comparison of group means recovers \(T\).&lt;/div&gt;
+
+
+---
+
+# Assumption 4: Constant effect
+
+Under **independence** assumption, we can recover the average causal effect `\(T\)`.
+
+--
+
+But `\(T\)` is an **average**: it need not describe the effect for **any particular unit** `\(i_0\)`.
+
+--
+
+With **constant effect** assumption: `\(T = Y_{1i} - Y_{0i}\)` for all `\(i\in I\)`
+
+--
+
+*Partially checkable*: estimate the effect on subsets `\(I_1\)`, `\(I_2\)`, ... and compare
+
+--
+
+&lt;div class="takeaway"&gt;Constant effect is a weaker version of unit homogeneity — but on its own it is &lt;em&gt;not&lt;/em&gt; sufficient to recover a causal effect from \(E(Y_{1i}|D_i=1) - E(Y_{0i}|D_i=0)\)&lt;/div&gt;
+
+
+---
+
+name: rand
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  With these four assumptions in hand: can randomization resolve the fundamental problem?
+&lt;/div&gt;
+
+
+---
+
+# Treatment effect definition
+
+Based on previous slides' notations, we can define four "treatment effects":
+
+--
+
+  - Causal effect of treatment (relative to control) for unit `\(i\)`: `\(Y_{1i} - Y_{0i}\)`
+
+--
+
+  - Average causal effect, a.k.a., *average treatment effect (ATE)*:
+  `\(E(Y_{1i}) - E(Y_{0i})\)`
+
+--
+
+  - Average causal effect on those who received treatment, a.k.a., *average treatment on the treated (ATT)*:
+`$$E(Y_{1i}|D_i = 1) - E(Y_{0i}|D_i = 1)$$`
+
+--
+
+  - Average causal effect on those who did not receive treatment, a.k.a., *average treatment on the untreated (ATU)*:
+`$$E(Y_{1i}|D_i = 0) - E(Y_{0i}|D_i = 0)$$`
+
+
+---
+
+# Randomization
+
+Recall that the fundamental problem of causal inference is we only observe `\(E(Y_{i}|D_i = 1) - E(Y_{i}|D_i = 0)\)`
+
+--
+
+Note that we can rewrite it as
+
+$$
+`\begin{aligned}
+E(Y_{i}|D_i = 1) - E(Y_{i}|D_i = 0) = \;&amp; E(Y_{1i}) - E(Y_{0i}) \\
+&amp; + E(Y_{0i}|D_i=1) - E(Y_{0i}|D_i=0) \\
+&amp; + (1-\pi)(ATT - ATU)
+\end{aligned}`
+$$
+
+where `\(\pi\)` is the share of students receiving the treatment. (Homework: derive this equation.)
+
+--
+
+  - `\(E(Y_{1i}) - E(Y_{0i})\)`: average treatment effect
+
+  - `\(E(Y_{0i}|D_i=1) - E(Y_{0i}|D_i=0)\)`: selection bias
+
+  - `\((1-\pi)(ATT - ATU)\)`: heterogeneous treatment effect bias
+
+--
+
+.takeaway[Random **assignment** eliminates both bias terms: the difference in means is the sample ATE]
+
+For the *population* ATE, the sample must also be drawn at random — sampling, then assignment.
+
+???
+
+Why both terms die under random assignment: selection bias because D is independent of Y0; the last term because gains (Y1 − Y0) are also independent of D, so ATT = ATU = ATE within the sample. The subtlety worth pausing on: every expectation here is over the study population I. Random assignment buys internal validity — the ATE for whoever is in the experiment. If the study sample is selected (volunteers, one county, thatched-roof households), that is the sample ATE, not the population ATE; equating the two needs random sampling into the study as well. This is exactly the external-validity concern coming later in the lecture.
+
+---
+
+name: hs
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Randomization in practice: The case of unconditional cash transfers to the poor in Kenya &lt;br&gt;
+by &lt;a href="https://doi.org/10.1093/qje/qjw025" style="color: #EB811B;"&gt;Haushofer and Shapiro (2016), QJE&lt;/a&gt;
+&lt;/div&gt;
+
+--
+
+&lt;div style="font-size: 22px; margin-top: 1.2em; text-align: center;"&gt;
+I will present the paper following the seven components of a conference talk, &lt;br&gt; pausing at each component to examine it the way a careful reader would.
+&lt;/div&gt;
+
+???
+
+This delivers the promise from Week 1: the presentation skeleton (motivation &amp; question; what we do &amp; find; setting &amp; data; design; main result; threats; takeaways), performed once before students have to do it themselves in Weeks 4-10.
+
+---
+
+# The seven components of a conference talk
+
+From &lt;a href="https://shapiro.scholars.harvard.edu/sites/g/files/omnuum7731/files/shapiro/files/applied_micro_slides.pdf"&gt;Shapiro, How to Give an Applied Micro Talk&lt;/a&gt;:
+
+1. **Motivation and question**
+
+2. **What we do and what we find** — *state the main finding up front*
+
+3. **Setting and data**
+
+4. **Research design** — estimand, identifying assumption, why plausible — and its **validity checks**
+
+5. **The main result** — one figure or table
+
+6. **Threats and robustness** — the discussant's objections, answered
+
+7. **Takeaways**
+
+--
+
+**Seven components, not seven slides** — depending on the time slot, a full talk runs 15-25 slides.
+
+--
+
+.takeaway[We now walk through Haushofer and Shapiro (2016) component by component.]
+
+???
+
+Shapiro's advice worth repeating aloud: a talk is not a mystery novel — state the question fast and give the answer early; the audience will remember one result, so choose it. When students prepare their own 30-minute presentations, they should allocate slides across the components according to the time available.
+
+---
+
+# 1. Motivation and question
+
+- Classic anti-poverty transfers bundle **conditions**: school attendance, clinic visits
+
+--
+
+- GiveDirectly does the opposite: **unconditional, large, one-off** — just send money
+
+--
+
+**Question: how do poor households respond to large unconditional cash transfers?**
+
+  - Invest or "waste" it? Does welfare improve? Does transfer *design* (who, when, how much) matter?
+
+--
+
+.discuss[
+**Discussion**
+
+- Is the research question (income and well-being) endogenous? Could regression adjustments fix it?
+- Why do policymakers attach conditions — and what is the case for dropping them?
+]
+
+???
+
+Motivation numbers if asked: hundreds of millions live below the international poverty line; conditional cash transfers (Progresa-style) dominated policy before the unconditional wave.
+
+**Discussion answers.** (1) Yes, deeply endogenous: income is chosen and co-determined with well-being. Richer households differ in ability, health, networks and the shocks they have faced, and causality also runs backwards — depression and stress lower earnings. Controls only address what we observe, and the plausible confounders here (ability, mental health, local prices, unobserved shocks) are exactly the unobserved ones, so regression adjustment cannot fix it. Hence an experiment. (2) Conditions are attached because policymakers believe households underinvest in children's schooling and health (externalities, present bias, intra-household disagreement), because conditionality makes transfers politically saleable in terms of "deservingness", and because it can screen recipients. The case for dropping them: monitoring is expensive, conditions exclude precisely the households least able to comply, they assume the planner knows better than the household, and the evidence — including this paper — shows unconditional transfers are largely invested rather than wasted.
+
+---
+
+# 2. What we do and what we find
+
+- **What we do**: an RCT of GiveDirectly transfers in Kenya, randomized at **village and household** level
+
+--
+
+- Cross-randomized: **recipient** (wife/husband), **timing** (monthly/lump sum), **amount** ($404/$1,525 PPP)
+
+--
+
+- **What we find** at nine months: monthly consumption rises **$158 → $193 PPP**
+
+  - plus gains in assets, food security, revenue, and psychological well-being; no cortisol effect
+
+--
+
+- **Design matters** — the three cross-randomizations:
+
+  - **amount**: larger transfers do more — assets, well-being (joint `\(p &lt; 0.01\)`)
+  - **timing**: lump sum → assets; monthly → food security (joint `\(p = 0.04\)`)
+  - **recipient** (wife vs. husband): no detectable difference (joint `\(p = 0.11\)`)
+
+???
+
+Numbers from the paper's abstract and Table II. Point out that this one slide is the whole paper — if the talk stopped here, the audience would already know what they learned. On the cross-randomizations: the bracketed values in Table II are FWER-adjusted p-values, so the female-recipient effects on psychological well-being (+0.14 SD) and empowerment (+0.17 SD) are starred raw but do not survive correction — a live example of the multiple-inference problem on the next slide. Large transfers add about $279 in assets and 0.26 SD of well-being. Lump sums buy durable assets while monthly flows improve food security, which the authors read as evidence of savings and credit constraints.
+
+---
+
+# 3. Setting and data
+
+- Rural Siaya county, Kenya; eligible = living in a **thatched-roof** house (a poverty proxy)
+
+--
+
+- Transfers delivered via **M-Pesa** mobile money by the NGO GiveDirectly
+
+--
+
+- Baseline and endline surveys **~9 months** apart: consumption, assets, income, health, education
+
+--
+
+- Unusual measurement: **psychological well-being** scales and **salivary cortisol**
+
+???
+
+The well-being scales cover happiness, life satisfaction, stress, and depression; cortisol is a biomarker of stress — a rare objective measure in an economics RCT.
+
+---
+
+# 3. Setting and data — outcomes and multiple inference
+
+**Economic outcomes:**
+
+  - non-durable consumption, value of non-land assets, revenue
+
+  - health, food security, education, female empowerment
+
+**Psychological outcomes:**
+
+  - happiness, life satisfaction, stress, depression, cortisol levels
+
+--
+
+.discuss[
+**Discussion** — any concern with the large number of outcomes?
+]
+
+--
+
+We must address **multiple inference**:
+
+  - index variables; multiple hypothesis testing (FDR, FWER) — you will practice this in the problem set
+
+???
+
+**Discussion answers.** With eight index families and dozens of underlying variables, testing each at 5% guarantees false positives, and it leaves room to report only what turned out significant. Three responses, all used here: pre-specified **index variables** that aggregate correlated outcomes (fewer tests and more power, at the cost of masking a single moving component); **FWER** corrections, which control the probability of any false rejection and are conservative; and **FDR**, which controls the expected share of false discoveries and keeps more power. Haushofer and Shapiro report FWER-adjusted values in brackets in Table II, so you can read the raw and the adjusted result side by side. The modern complement is a pre-analysis plan that fixes the outcome list before the data arrive.
+
+---
+
+# 4. Research design
+
+A **two-stage** RCT: Stage 1 randomizes **60 of 120 villages**; Stage 2, **households** within them
+
+--
+
+Three groups of households:
+
+  - Group 1: pure control villages — surveyed at **endline only**
+  - Group 2: control households in treatment villages
+  - Group 3: treatment households in treatment villages
+
+--
+
+Village by village: baseline → transfers a few weeks later → endline, **~9 months** on
+
+--
+
+.discuss[
+**Discussion**
+
+- Which comparison identifies the treatment effect? Does it fully capture it? Why (not)?
+- Why cross-randomize the **recipient**, the **timing**, and the **amount**?
+]
+
+--
+
+- Treatment effect: G3 vs. G2 (within villages); **spillovers**: G2 vs. G1 (across villages)
+
+???
+
+Timeline: baseline ran Apr–Nov 2011, transfer rollout Jun 2011–Jan 2013, endline Aug–Dec 2012. The calendar windows overlap because villages entered in a randomized order — within any given village the sequence is census, baseline, then the transfer announcement a few weeks later, so no household was surveyed at baseline after its own transfer. Figure I of the paper: 120 villages with the highest share of thatched roofs were selected from 302 in Rarieda; 60 were randomly assigned to treatment. Villages average about 100 households; 19% were surveyed and 9% received transfers. Of the 1,008 eligible baseline households in treatment villages, half were randomly assigned to receive transfers (503 treatment, 505 spillover); endline retained 471 and 469. Pure control villages were censused and surveyed only at endline (432 households), so the thatched-roof criterion was applied to them about a year later — a potential bias in the across-village comparison that the authors bound in Section IV.B. If transfers spill over to Group 2 (jealousy, local prices, informal sharing), Group 3 minus Group 2 mixes the direct effect with the (negative of the) spillover: the design buys a spillover estimate at the price of a contaminated within-village comparison. The cross-randomizations turn design parameters (who receives, when, how much) into estimable treatment effects.
+
+**Discussion answers.** (1) The within-village comparison, Group 3 vs. Group 2, identifies the effect of receiving a transfer *given that your village was selected*; village fixed effects absorb anything common to the village, and this is the comparison the paper uses. It does not capture the full effect if transfers spill over onto Group 2: then G3 − G2 equals the direct effect minus the spillover, so with negative spillovers the within-village estimate overstates what the programme does relative to no programme at all. The across-village comparison G2 vs. G1 is what estimates the spillover; G3 vs. G1 would give the total effect but is contaminated because pure control villages were sampled and surveyed only at endline, a year after the eligibility screen was applied elsewhere. (2) Cross-randomization turns design parameters into experimental variation, so the paper can answer *how* to give money — to whom, in what rhythm, how much — not just whether. It is nearly free (same households, same surveys) and orthogonal to the main treatment, so it does not threaten the headline estimate; the price is power, since some arms are small (137 large-transfer households).
+---
+
+# 4. Research design — sample and timeline
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/hs_figure1.png" style="max-height: 460px; width: auto; max-width: 100%;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjw025"&gt;Haushofer and Shapiro (2016)&lt;/a&gt;, Figure I. Numbers with slashes are baseline/endline households.]
+
+???
+
+Read it top down: 120 study villages, 60 randomly assigned to transfers; within those, 1,008 eligible baseline households were split into 503 treatment and 505 spillover; pure control villages (432 households) were censused and surveyed only at endline, April–June 2012. Endline covers 1,372 households. The bottom boxes show how thin some cross-randomization cells are: 137 households received large transfers, 173 monthly transfers — which is why those comparisons are less precisely estimated than the main effect.
+
+---
+
+# 4. Research design — validity: balance tests
+
+Before looking at results: did randomization produce comparable groups at baseline?
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/baseline.png" style="width: 90%; max-width: 470px;" /&gt;
+&lt;/div&gt;
+
+---
+
+class: compact, tight
+
+# 5. The main result
+
+&lt;div style="float: right; width: 46%; margin: 0 0 8px 3%;"&gt;
+  &lt;img src="figures/effects.png" style="width: 100%;" /&gt;
+&lt;/div&gt;
+
+Group 3 vs. Group 2, within treatment villages:
+
+--
+
+&lt;div style="margin-bottom: 8px;"&gt;&lt;b&gt;Average effect&lt;/b&gt; (col. 2)&lt;/div&gt;
+
+- Assets **+&amp;#36;302** (control mean &amp;#36;495)
+
+--
+
+- Consumption **+&amp;#36;36/month** (mean &amp;#36;158)
+
+--
+
+- Food security, well-being **+0.26 SD**
+
+--
+
+- Health, education, empowerment: **none**
+
+--
+
+&lt;div style="margin-top: 26px; margin-bottom: 8px;"&gt;&lt;b&gt;Differences across arms&lt;/b&gt; (cols. 3-5)&lt;/div&gt;
+
+- **Large**: more of everything (joint *p* &lt; 0.01)
+
+--
+
+- **Monthly**: food security up, assets down (*p* = 0.04)
+
+--
+
+- **Recipient**: no detectable difference (*p* = 0.11)
+
+???
+
+Control means for scale: assets &amp;#36;495, nondurable expenditure &amp;#36;158/month, revenue &amp;#36;49/month — so transfers raise assets by about 60% and monthly consumption by about 23%; revenue also rises (+&amp;#36;16/month). Bracketed values are FWER-adjusted p-values; the significant average effects survive correction. On the arms: large transfers add &amp;#36;279 in assets and 0.26 SD of well-being; lump sums buy durable assets (the monthly coefficient on assets is −&amp;#36;92) while monthly flows raise food security by 0.26 SD; the female-recipient effects on well-being (+0.14 SD) and empowerment (+0.17 SD) are starred raw but do not survive correction, and the joint test is insignificant.
+---
+
+# 5. The main result — spillovers
+
+Spillover vs. pure control households (Group 2 vs. Group 1):
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/effect_spillovers.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+&lt;div class="takeaway"&gt;No overall spillover effect (joint \(p \ge 0.11\)) — only female empowerment differs (+0.21 SD)&lt;/div&gt;
+
+???
+
+Point estimates are small and mostly negative: nondurable expenditure is marginally lower (−$12/month, significant at 10% with controls), which would be consistent with some resource sharing, but nothing survives as a joint effect. Columns (3) and (4) restrict to thatched-roof households; columns (5) and (6) test whether the two samples give the same answer. Reading these as "no spillovers" is what justifies using Group 2 as the within-village control on the previous slide.
+---
+
+# 6. Threats and robustness — attrition
+
+Comparing attrition rates across groups:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/attrition1.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+&lt;a href="https://blogs.worldbank.org/en/impactevaluations/you-are-not-testing-for-attrition-correctly--guest-post-by-jacob?CID=WBW_AL_BlogNotification_EN_EXT"&gt;"You are not testing for attrition correctly"&lt;/a&gt; — World Bank Development Impact blog
+
+---
+
+# 6. Threats and robustness — attrition
+
+Comparing characteristics between attriters and non-attriters:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/attrition2.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# 6. Threats and robustness — attrition
+
+Comparing characteristics between treated and non-treated attriters:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/attrition3.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# 6. Threats and robustness — Lee bounds
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/leebounds.png" style="width: 90%; max-width: 480px;" /&gt;
+&lt;/div&gt;
+
+A gentle explanation of Lee bounds: &lt;a href="https://blogs.worldbank.org/en/impactevaluations/lee-bounds-in-practice"&gt;World Bank Development Impact blog, "Lee bounds in practice"&lt;/a&gt;
+
+.detail[**Intuition**: differential attrition makes the survivors incomparable. Assuming attrition runs only one way, trim the less-attrited group by the excess share — cutting its *highest* outcomes gives the lower bound, its *lowest* outcomes the upper bound.]
+
+???
+
+Here attrition was slightly higher in the control group, so the bounds are tight and both ends stay significant for assets, expenditure, food security and well-being — which is why the authors treat attrition as a minor concern. The bounds are for the effect on households that would have responded under either assignment.
+---
+
+# 7. Takeaways
+
+- **What we found** at nine months: assets **+&amp;#36;302**, consumption **+&amp;#36;36/month**
+
+  - food security and psychological well-being **+0.26 SD**; no sign of "wasteful" spending
+  - no effect on health, education, or female empowerment
+
+--
+
+- **Design matters**: the amount drives the gains; lump sums become **assets**, monthly flows buy **food security**
+
+  - recipient gender: no detectable difference
+
+--
+
+- **Spillovers**: no detectable effect on untreated neighbours in treatment villages
+
+--
+
+- **Caution**: nine months, one setting — long-run and general-equilibrium effects come in **Week 4**
+
+???
+
+This slide mirrors slide 2: a talk should end where it began, so the audience leaves with the same three or four sentences. The caution matters — Egger et al. (2022) later study the same GiveDirectly programme at scale in Kenya and find large general-equilibrium effects, and Week 4 returns to whether such gains persist.
+---
+
+name: threats
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Randomization does not remove all threats to causal inference.
+&lt;/div&gt;
+
+---
+
+# Threats inside the experiment
+
+- **Bad randomization** → balance tests *(as we just saw)*
+
+--
+
+- **Attrition** → equal attrition rates are **neither necessary nor sufficient** for unbiasedness
+
+  - test baseline balance **among respondents *and* among attritors**, jointly (`ssc install attregtest`)
+  - then bound what remains with &lt;a href="https://doi.org/10.1111/j.1467-937X.2009.00536.x"&gt;Lee bounds (2009)&lt;/a&gt;
+
+--
+
+- **Hawthorne effects**: behavior changes because people are observed, not treated
+
+--
+
+- **Anticipation**: control areas expecting the program later change behavior today
+
+--
+
+- **Spillovers**: effects beyond the recipients — HS's two-stage design *measures* them
+
+.source[On attrition testing: &lt;a href="https://doi.org/10.3368/jhr.0920-11190r2"&gt;Ghanem, Hirshleifer, and Ortiz-Becerra (2026)&lt;/a&gt;, *JHR*; &lt;a href="https://blogs.worldbank.org/en/impactevaluations/you-are-not-testing-for-attrition-correctly--guest-post-by-jacob"&gt;Development Impact blog&lt;/a&gt;.]
+
+???
+
+Ghanem, Hirshleifer and Ortiz-Becerra review 96 published field experiments: 79% test only whether attrition rates differ across arms, and 61% test only whether respondents are balanced at baseline — "half of the correct test". Equal rates are neither necessary nor sufficient: rates can differ while the estimate is fine, and identical rates can hide serious bias. Run one regression on the baseline outcome over the full baseline sample, Y0 = a + bT·Treat + bA·Attrite + bTA·Treat×Attrite + strata fixed effects, clustering at the unit of randomization. The respondent test (internal validity for respondents) is the joint bT = bTA = 0; adding bA = 0 gives the representativeness test for the whole study population. Balance among attritors matters because program-induced responders can be a negligible share of treated respondents but a large share of the small control-attritor group — testing respondents alone is badly underpowered. Prefer strata fixed effects to fully interacted within-strata tests, which over-reject under clustering. Haushofer and Shapiro do the rate comparison and both attriter comparisons, which is closer to the correct test than most papers.
+---
+
+# Concerns about RCTs: external validity
+
+**External validity**: RCTs are high on *internal validity*
+
+- If RCTs are done properly, the estimated effect is a true causal effect for those in the study
+
+--
+
+- But, its external validity is often low
+
+  - Would the same program have the same effect if it were implemented elsewhere?
+
+  - Many reasons why the effects of an RCT may not apply in other contexts (institution, sample)
+
+--
+
+- One answer: replication across contexts (Week 1's graduation programs, 7 countries)
+
+---
+
+# Concerns about RCTs: equilibrium effects
+
+**Equilibrium effects**
+
+- Effects from a small study may not survive nationwide scale-up (&lt;a href="https://doi.org/10.1016/S1573-4463(99)03012-6"&gt;Heckman, LaLonde, and Smith 1999&lt;/a&gt;)
+
+--
+
+- Example — job training:
+
+  - at small scale: trainees find better jobs
+
+  - at national scale: everyone has the same skills — oversupply, competition, lower returns
+
+--
+
+.takeaway[A program that works for 500 people can fail for 5 million: prices, wages, and markets adjust.]
+
+???
+
+This connects to Theme 3 from Week 1 (microdata for macro questions): experiments at scale, like Egger et al. in Kenya, now measure these general-equilibrium effects instead of assuming them away.
+
+---
+
+# Regression when treatment is randomized
+
+The effects we just read off Table II come from a regression:
+
+`$$Y_{hv} = \alpha + \beta T_{hv} + X_{hv}'\gamma + \delta_v + \varepsilon_{hv}$$`
+
+--
+
+- `\(\beta\)` is causal **by design** — but it is the effect of *being assigned*: an **ITT**
+
+--
+
+- Covariates `\(X_{hv}\)` buy **precision**, not identification
+
+--
+
+- `\(\delta_v\)`: **fixed effects** for the unit randomization was blocked on (here, villages)
+
+--
+
+- Standard errors **clustered at the unit of randomization** (here, the household)
+
+--
+
+&lt;div class="takeaway"&gt;In an experiment, regression is the arithmetic; the design is what makes \(\beta\) causal&lt;/div&gt;
+
+???
+
+Subscripts: household h in village v; the paper adds an individual subscript for outcomes measured on a respondent rather than the household. Haushofer and Shapiro estimate exactly this, restricting the sample to treatment and spillover households so the comparison is within village. In their words: "Due primarily to registration issues with M-Pesa, 18 treatment households had not received transfers at the time of the endline, and thus only 485 of the 503 treatment households were in fact treated. We deal with this issue by using an intent-to-treat approach, and consider all households assigned to receive a transfer as the treatment group." Take-up here is 96%, so the ITT and the ATE are close — but the distinction is exactly what returns when we reach compliance and IV. Point out too that adding covariates cannot rescue a broken design and cannot spoil a good one: under randomization they only shrink the standard error.
+---
+
+class: inverse
+
+Now take the same equation and remove the randomization.
+
+--
+
+The arithmetic does not change: we still regress `\(Y\)` on `\(D\)`.
+
+--
+
+But `\(D\)` is now chosen — by households, by governments, by circumstance.
+
+--
+
+What exactly breaks? And what would we have to assume instead?
+---
+
+name: reg
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Regression and causality
+&lt;/div&gt;
+
+
+---
+
+# Regression and causality
+
+Let's (again) think about the tutoring example at the beginning of our session
+
+  - Ignore the thought experiment on randomizing students earlier
+
+--
+
+We start with a causal model: `\(Y_i = \beta S_i + \epsilon_i\)`
+
+  - where `\(S_i \in \{0, 1\}\)` indicates participating in tutoring, `\(Y_i\)` measures test scores
+
+  - We are assuming constant treatment effects for now (it is `\(\beta\)` and not `\(\beta_i\)`)
+
+--
+
+Does `\(\beta\)` give us the causal effect of tutoring on students' test scores?
+
+--
+**Unlikely**!
+
+--
+
+Why?
+
+--
+
+  - Tutoring students may be low-performing, so `\(\hat{\beta}\)` understates the true effect
+
+--
+
+  - More formally, `\(cov(S_i, \epsilon_i)\neq 0\)`: **endogeneity**
+
+
+---
+
+# Regression and causality
+
+Suppose baseline test scores `\(U_i\)` proxy for "low-performing", pulled out of the error:
+`\(\epsilon_i = \gamma U_i + \eta_i\)`
+
+--
+
+Let's put the two equations together:
+  `\(Y_i = \beta S_i + \gamma U_i + \eta_i\)`
+
+--
+
+If this is the true causal form, and we do not control for `\(U_i\)`, our estimate of `\(\beta\)` is biased.
+
+--
+
+But many `\(U_i\)` affect both *attending tutoring* and *test scores*: motivation, ability, parental support
+
+  - We cannot control for all of them — **omitted variable bias (OVB)**
+
+--
+
+The direction of bias: `\(OVB = \gamma * \delta\)`
+
+  - where `\(U_i = \delta S_i + \zeta_i\)`, and `\(Y_i = \beta S_i + \gamma U_i + \eta_i\)`
+
+--
+
+&lt;div class="takeaway"&gt;OVB arises &lt;b&gt;only if&lt;/b&gt; \(U\) is correlated with &lt;b&gt;both&lt;/b&gt; \(S\) and \(Y\).&lt;/div&gt;
+
+
+---
+
+name: iv
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Instrumental variables and LATE
+&lt;/div&gt;
+
+---
+
+# Causality through DAGs
+
+Here is a DAG ("directed acyclic graph") that diagrams the issue:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ivFig1.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+--
+
+Then how can we solve this issue?
+
+--
+
+If we can find a **valid instrument**, we can figure out the true effect of `\(S\)` on `\(Y\)`.
+
+
+---
+
+# Instruments and causality
+
+Here is a DAG ("directed acyclic graph") that shows what an instrument is:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ivFig2.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+where `\(Z\)` is our instrument, and it works through `\(S\)`
+
+
+---
+
+# Requirements for an instrument to be valid
+
+**Instrument relevance**:
+
+  - `\(Z\)` must have a clear effect on `\(S\)` — easy to satisfy, and testable
+
+**Independence assumption**:
+
+  - `\(Z\)` must be unrelated to omitted variables affecting both `\(S\)` and `\(Y\)`
+
+**Exclusion restriction**:
+
+  - `\(Z\)` must affect `\(Y\)` *only* through `\(S\)` — no direct effect
+
+  - harder to satisfy, and not directly testable
+
+--
+
+Good IVs are hard to find — but one is valid **by construction**: random assignment.
+
+
+---
+
+# Compliance: even in an experiment, take-up is imperfect
+
+**Back to the tutoring example** — suppose we now run an RCT
+
+--
+
+- We cannot *force* participation; we can only **offer** it to the treatment group
+
+  - some of the offered participate, others do not (**low take-up**)
+
+--
+
+- Offered vs. not offered gives the **Intent-to-Treat (ITT)**: the effect of the *offer*
+
+--
+
+.takeaway[With imperfect take-up, the RCT gives the ITT — not the ATE of a compulsory program]
+
+--
+
+Can we still recover the effect for those who actually participate? That is what an instrument does.
+
+
+---
+
+# Random assignment as an IV
+
+Random assignment in an RCT is a valid instrument for treatment:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ivFig3.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+where `\(Z\)` is our instrument:
+
+  - It has clear effect on "treatment" `\(S\)`.
+
+  - It is not related to any omitted variables that affect both `\(S\)` and `\(Y\)`.
+
+  - It does not affect `\(Y\)` through any channels other than treatment `\(S\)`.
+
+
+---
+
+# Random assignment as an IV: Tutoring program
+
+We are interested in estimating the effect of tutoring (binary treatment `\(D_i\)`) on test scores `\(Y_i\)`:
+
+$$
+Y_i = \beta D_i + \epsilon_i
+$$
+but we suspect that the decision to participating in tutoring is endogenous.
+
+--
+
+We can randomly offer students some incentives/encouragement to join the program:
+
+  - `\(Z_i = 1\)` for those who are offered incentives to participate in tutoring (treatment group)
+
+  - `\(Z_i = 0\)` for those who are not offered (control group)
+
+--
+
+We can estimate two effects:
+
+  - Causal effects of the incentives on students' test scores (reduced-form).
+
+  - Causal effects of the tutoring program on students' test scores (IV).
+
+---
+
+# IV identification
+
+We can relate our variables with the following two regressions:
+
+$$
+(1) \quad 1st-stage: D_i = \pi Z_i + \sigma_i
+$$
+
+$$
+(2) \quad 2nd-stage: Y_i = \beta D_i + \epsilon_i
+$$
+
+--
+
+Plugging equation (1) to equation (2) yields the reduced-form regression:
+$$
+Y_i =  \rho Z_i + \eta_i, \quad \text{where} \quad \rho = \pi * \beta
+$$
+
+--
+
+Under the above assumptions, we can identify `\(\beta\)` as `\(\beta_{IV} = \frac{\rho}{\pi}\)`
+
+  - Mechanically, IV is just a way to divide two regression coefficients
+
+--
+
+When `\(Z\)` is a binary instrument, this reduces to the population version of the "Wald estimator"
+
+$$
+\beta_{IV} = \frac{\rho}{\pi} = \frac{E(Y_i|Z_i=1) - E(Y_i|Z_i=0)}{E(D_i|Z_i=1) - E(D_i|Z_i=0)}
+$$
+
+---
+
+# Two-stage Least Squares (2SLS)
+
+We can estimate the effect of tutoring on test scores by **2SLS**:
+
+  - First, we estimate the "first-stage" regression, by regress the program participation status on RCT assignment
+
+$$
+D_i = \pi Z_i + \sigma_i
+$$
+
+  - Second, we take the *predicted values* for program participation `\(\hat{D}_i\)` and plug them into the "second-stage" regression:
+
+$$
+Y_i = \beta \hat{D}_i + \epsilon_i
+$$
+
+Practical caveats:
+
+  - Additional covariates `\(X_i\)` must appear in **both** stages.
+
+  - With `\(D_i\)` and `\(D_i^2\)`, instrument **both directly** — never predict `\(\hat{D}_i\)` and then square it.
+
+.takeaway[Never run 2SLS by hand: plugged-in predictions give wrong standard errors. Use `ivreg2, r`.]
+
+
+---
+
+# Constant versus heterogeneous treatment effects
+
+If treatment effects are constant, `\(\beta_{IV}\)` identifies the treatment effect.
+
+--
+
+If effects are heterogeneous, `\(\beta_{IV}\)` identifies the effect for one sub-population
+
+--
+
+  - Let `\(D_{0i}\)` be treatment status if **not encouraged** by the instrument (Z = 0),
+
+  - and `\(D_{1i}\)` be treatment status if **encouraged** by the instrument (Z = 1).
+
+--
+
+| **Type**          | `\(D_{0i}\)` | `\(D_{1i}\)` | **Interpretation**                                                                                             |
+| ----------------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| **Never-takers**  | 0        | 0        | Never take the treatment, regardless of instrument assignment.                                                 |
+| **Compliers**     | 0        | 1        | Take the treatment only if encouraged by the instrument.                                                       |
+| **Always-takers** | 1        | 1        | Take the treatment regardless of instrument assignment.                                                        |
+| **Defiers**       | 1        | 0        | Do the opposite of the instrument: take the treatment only when not encouraged. (Ruled out by *monotonicity*.) |
+
+
+
+---
+
+# Local Average Treatment Effects (LATE)
+
+Consider four assumptions:
+
+  - **Relevance**: `\(Z_i\)` must have a clear effect on treatment assignment `\(D_i\)`
+
+  - **Independence**: `\(Z_i\)` is as good as randomly assigned
+
+    - `\(Z_i\)` is independent of potential outcomes and potential treatment assignments
+
+  - **Exclusion**: `\(Z_i\)` has no effect on the outcome `\(Y_i\)` once controlling for treatment assignment `\(D_i\)`
+
+  - **Monotonicity**: `\(Z_i\)` does not perversely lead individuals to select out of treatment (no "defiers")
+    - `\(Z_i\)` affects `\(D_i\)` in only one direction
+
+&lt;a href="https://doi.org/10.2307/2951620"&gt;Imbens and Angrist (1994)&lt;/a&gt;: under these assumptions, IV identifies the *LATE*.
+
+
+---
+
+# LATE: Interpretation and Special cases
+
+LATE is interpreted as the **local average treatment effects** for the **group of compliers**.
+
+--
+
+Why?
+
+--
+
+For compliers the instrument changes behavior, so we see both potential outcomes.
+
+  - Always- and never-takers do not respond, so their effects are never identified
+
+--
+
+**Special cases**:
+
+  - No **always-takers** → everyone treated is a complier → **LATE = ATT**
+
+  - No **never-takers** → everyone untreated is a complier → **LATE = ATU**
+
+???
+
+Case 1 in full: with no always-takers, the treated group consists entirely of compliers (the untreated group mixes compliers and never-takers) — since all treated are compliers, LATE equals the average treatment effect on the treated. Case 2 mirrors it: with no never-takers, all the untreated are compliers, so LATE equals the average treatment effect on the untreated.
+
+
+---
+
+# Weak instruments: the old rule of thumb
+
+We need **instrument relevance**: `\(E(Z_iD_i) \neq 0\)`.
+
+--
+
+  - When instruments are weak, IV estimates are biased **toward OLS**, and standard errors understate the true uncertainty.
+
+--
+
+  - The classic rule of thumb: worry if the first-stage `\(F &lt; 10\)` (&lt;a href="https://doi.org/10.2307/2171753"&gt;Staiger and Stock 1997&lt;/a&gt;).
+
+--
+
+A more pernicious problem is **many-instrument bias**.
+
+  - We might be tempted to increase the first-stage `\(F\)` by including more instruments.
+
+  - Intuitively, a more flexible first stage fits `\(D_i\)` better — more power in the second stage.
+
+  - But with lots of instruments we get *overfitting*, which essentially recreates the (endogenous) variation in `\(D_i\)`.
+
+---
+
+# Weak instruments: the modern view
+
+Three recent papers on the Week 2 reading list revise this conventional practice:
+
+--
+
+- &lt;a href="https://doi.org/10.1257/aer.20211063"&gt;Lee, McCrary, Moreira, and Porter (2022, AER)&lt;/a&gt;: a valid 5% `\(t\)`-test needs first-stage `\(F \gtrsim\)` **105**, not 10
+
+  - otherwise, use their adjusted (*tF*) critical values
+
+--
+
+- &lt;a href="https://doi.org/10.1146/annurev-economics-092123-111021"&gt;Keane and Neal (2024, ARE)&lt;/a&gt;: *screening* on `\(F\)` distorts inference
+
+  - report **Anderson-Rubin** confidence sets — valid however weak the instrument
+
+--
+
+- &lt;a href="https://doi.org/10.1146/annurev-economics-080218-025643"&gt;Andrews, Stock, and Sun (2019, ARE)&lt;/a&gt;: survey of the modern toolkit
+
+--
+
+- &lt;a href="https://doi.org/10.1016/j.jeconom.2022.12.012"&gt;Angrist and Kolesár (2024)&lt;/a&gt;: for just-ID IV, conventional intervals are rarely badly misleading
+
+--
+
+.takeaway[Practice: one strong instrument; report the first-stage F *and* an Anderson-Rubin set]
+
+???
+
+The Staiger-Stock F&gt;10 rule was designed to limit bias to 10% of the OLS bias, not to make t-tests valid. Lee et al. show that at F=10 the true size of a nominal 5% test can be up to about 15%. Anderson-Rubin inverts the reduced form, so its validity does not depend on the first stage at all — that is why Keane-Neal and Andrews-Stock-Sun both push it as the default. In Stata: `weakivtest` for the effective first-stage F, and `ivreg2`'s AR option for Anderson-Rubin confidence sets.
+
+---
+
+# Key issues in IV
+
+Which assumptions are necessary for:
+
+  - Causal interpretation of the estimated reduced form coefficient, `\(\hat{\rho}\)`?
+
+  - Causal interpretation of the estimated IV coefficient, `\(\hat{\beta}\)`?
+
+--
+
+Randomization of `\(Z_i\)` (which gives *independence*) is not sufficient for a causal interpretation of `\(\hat{\beta}\)`
+
+  - We also need *exclusion restriction*
+
+
+--
+
+We also need *monotonicity* if `\(\hat{\beta}\)` is to correspond to a meaningful population
+
+  - LATE is the effect for group of compliers, but we do not know who the compliers are
+
+  - Different instruments can give different estimated effects, even if all IVs are valid
+
+    - External validity
+
+
+---
+
+# A note on overidentification test
+
+With multiple IVs, some rely on an *overidentification test* to argue validity.
+
+--
+
+But these tests are not informative!
+
+  - They tend to have low power, because individual `\(\hat{\beta}_{IV}\)` tend to be noisy.
+
+  - If they reject, it needs not mean the IVs are invalid, because of treatment effect heterogeneity.
+
+  - Even with constant effects, rejection does not tell us which `\(\beta_{IV}\)` is correct:
+
+    - In fact, none of them may be.
+
+---
+
+name: ajr
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  IV in practice: The Colonial Origins of Comparative Development: An Empirical Investigation &lt;br&gt;
+by &lt;a href="https://doi.org/10.1257/aer.91.5.1369" style="color: #EB811B;"&gt;Acemoglu, Johnson, and Robinson (2001), AER&lt;/a&gt;
+&lt;/div&gt;
+
+--
+
+&lt;div style="font-size: 22px; margin-top: 1.2em; text-align: center;"&gt;
+The same seven components — this time for a paper with no experiment. &lt;br&gt;
+On each slide: what the paper says, then what we ask of it.
+&lt;/div&gt;
+
+---
+
+# 1. Motivation and question
+
+*"What are the fundamental causes of the large differences in income per capita across countries?"*
+
+--
+
+- Institutions obviously matter somehow: **North vs. South Korea**, East vs. West Germany
+
+--
+
+- But we lack reliable estimates: *"rich economies choose or can afford better institutions"*, and countries differ in ways that move **both** institutions and income
+
+--
+
+**Question**: how much do institutions actually cause income per capita?
+
+--
+
+.discuss[
+**Discussion**
+
+- What do we mean by "institutions"? What would you measure?
+- What would a regression of income on institutions deliver, and why is that not the answer?
+]
+
+--
+
+A regression gives only a correlation — reverse causality, omitted variables, measurement error
+
+???
+
+Opening question, the Korea/Germany comparison and the quoted sentence are AJR's own (p. 1369). Their fuller statement: "It is quite likely that rich economies choose or can afford better institutions. Perhaps more important, economies that are different for a variety of reasons will differ both in their institutions and in their income per capita." That is reverse causality and omitted-variable bias, stated by the authors themselves — plus measurement error, which they return to when comparing OLS with 2SLS. The Korea example also lands here because Week 1 showed the Henderson, Storeygard and Weil night-lights image of the peninsula: one border, one geography, two sets of institutions.
+
+**Short answers.** *What are institutions?* The rules that protect property and constrain rulers — here, expropriation risk; alternatives are constraints on the executive, rule of law, contract enforcement. *What does the regression give?* A correlation, 0.52, not a causal effect: rich countries can afford (and are rated as having) better institutions; geography, disease and human capital move both; and the index is measured with error. Note that AJR make the first two points themselves, in the quoted sentence, before the instrument appears.
+
+---
+
+# 2. What we do and what we find
+
+- **What we do**: instrument today's institutions with **settler mortality**, in 64 former colonies
+
+--
+
+- The theory: high mortality → few settlers → **extractive institutions** → institutions that persist to today
+
+--
+
+- **What we find**: 2SLS effect of institutions on income is **0.94** (0.16), about twice the OLS estimate of **0.52**
+
+--
+
+- And **geography drops out**: conditional on institutions, Africa and latitude no longer predict lower income
+
+???
+
+The abstract: "Exploiting differences in European mortality rates as an instrument for current institutions, we estimate large effects of institutions on income per capita. Once the effect of institutions is controlled for, countries in Africa or those closer to the equator do not have lower incomes." Give the punchline here, as in any talk; the rest of the presentation earns it. Two cautions on the geography claim. It is contested: Sachs and co-authors argue malaria ecology affects income directly, not only through institutions. And it is a different exercise from the Africa result on the 2SLS slide — here an Africa dummy is *added* to the regression and turns out insignificant; there African countries are *dropped* from the sample and the estimate halves. Adding a dummy asks whether Africa is poor beyond its institutions; dropping the observations asks how much of the identifying variation Africa supplies.
+
+---
+
+# 3. Setting and data
+
+- **64 former colonies**; outcome is **log GDP per capita in 1995** (PPP)
+
+--
+
+- Institutions = average **protection against expropriation risk**, 1985–95, scored 0–10 (Political Risk Services)
+
+--
+
+- Settler mortality is assembled from colonial-era records of **soldiers, labourers and bishops**
+
+--
+
+.discuss[
+**Discussion**
+
+- Does expropriation risk in 1985-95 measure "institutions"? What does mismeasurement do?
+- &lt;a href="https://doi.org/10.1257/aer.102.6.3059"&gt;Albouy (2012)&lt;/a&gt;: 36 of the 64 rates are assigned from *other* countries
+- and the rest mix soldiers in barracks with soldiers on campaign — noise, or worse?
+]
+
+--
+
+Worse than noise: campaign rates cluster in poor countries, so the error can *create* a first stage
+
+???
+
+**Short answers.** *Does the index measure institutions?* Only partly: it is an investor-facing perception score for 1985–95, a century after the instrument acts. Classical error in it attenuates OLS — the authors' own explanation for OLS below 2SLS — while error that flatters rich countries would bias OLS up instead. *Noise, or worse?* Worse. The 36 imputed rates make the instrument noisy, but the deeper problem is that campaign rates, which are much higher, are used disproportionately in poor, high-expropriation-risk countries. That is error correlated with the outcome, which can manufacture a first stage rather than merely weaken it.
+
+Albouy's Comment makes two distinct charges. First, only 28 of the 64 countries have a mortality rate originating within their own borders; the other 36 are assigned by conjecture about which countries shared a disease environment (six of them rest on a misreading of former colonial names for Mali, sixteen on thin bishop data from Latin America). Sharing rates across countries at minimum requires clustered standard errors, which by itself "noticeably reduces the significance of the results", and dropping the 36 conjectured rates shrinks the point estimates substantially. Second, the rates are not settlers' at all: they are mostly nineteenth-century soldiers, some in barracks at peace and some on campaign, and campaign mortality is far higher. Crucially, campaign rates are used more often in countries with higher expropriation risk and lower GDP — so the measurement error lines up with the outcome, "artificially favoring the article's hypothesis". With both corrections the first-stage relationship "virtually disappears". AJR's published reply (2012) contests the coding and the sample restrictions. That is the answer to the third question: this is not classical noise, which would only attenuate; it is error correlated with the outcome, which can manufacture the result.
+---
+
+# 4. Research design: the instrument
+
+How the paper defends each of the three conditions:
+
+--
+
+**Relevance** — the theory, in their own diagram:
+
+  `\(\textit{settler mortality} \rightarrow \textit{settlements} \rightarrow \textit{early institutions} \rightarrow \textit{current institutions} \rightarrow \textit{current econ perf.}\)`
+
+--
+
+**Independence:**
+
+.detail[*"The validity of our approach [...] is threatened if other factors correlated with the estimates of settler mortality affect income per capita. We adopt two strategies to substantiate that our results are not driven by omitted factors."* (p. 1372)]
+
+--
+
+**Exclusion:**
+
+.detail[*"...the mortality rates of European settlers more than 100 years ago have no effect on GDP per capita today, other than their effect through institutional development."* (p. 1371)]
+
+--
+
+.discuss[
+**Discussion** — of the three conditions, which is the least convincing here, and how would you make that case?
+]
+
+--
+
+**Exclusion** — disease, human capital and persistence reach income without passing through institutions
+
+???
+
+The three conditions are the ones from the earlier slide: relevance, independence, exclusion. The paper's second defence of exclusion is an overidentification test — "Naturally, it is impossible to control for all possible variables that might be correlated with settler mortality and economic outcomes. [...] using a simple overidentification test [...] to detect whether settler mortality has a direct effect on current performance" (p. 1372) — worth reading against our earlier slide arguing that such tests are not informative, since instruments that share a suspect channel will pass together.
+
+**Short answers.** *Least convincing: exclusion.* Relevance is visible in Figure 3, and independence is defensible — the disease environment was not chosen. But that defence is exactly what loads the problem onto exclusion, in three ways: the disease environment still affects health and productivity today (Sachs); settlers brought human capital and technology, not only institutions (Glaeser et al. 2004); and institutions persist, so mortality also reaches income through *past* institutions and the capital they built (Casey and Klemp, later in this section). Note the paper's own defence — an overidentification test — cannot settle it, because instruments sharing the suspect channel fail together.
+---
+
+# 4. Research design — the first stage
+
+&lt;div style="float: right; width: 47%; margin: 0 0 8px 3%;"&gt;
+  &lt;img src="figures/ajr_fig3.png" style="width: 100%;" /&gt;
+&lt;/div&gt;
+
+Does settler mortality predict institutions today?
+
+--
+
+- Coefficient **−0.61** (0.13); settler mortality alone explains **27%** of today's variation in institutions
+
+--
+
+.discuss[
+**Discussion**
+
+- The first-stage *t* is about 4.7, so *F* is about 22: fine by Staiger-Stock — but what did Lee et al. (2022) require?
+]
+
+--
+
+Lee et al. (2022): *F* above about 105 for a valid 5% test — so this interval is wider than reported
+
+???
+
+The first stage is Panel B of Table 4. F around 22 comfortably clears the old rule of thumb of 10, but is far below the roughly 105 that Lee, McCrary, Moreira and Porter require for a conventional 5% t-test, so their tF adjustment would widen the confidence interval. This is the point of the weak-instrument slides earlier: the famous IV papers were written before that literature.
+
+**Short answers.** Lee, McCrary, Moreira and Porter require a first-stage F of roughly **105** for a conventional 5% t-test on a just-identified IV, not 10. At F ≈ 22 the usual critical value is too small, so their tF adjustment widens the interval: the point estimate stands, the reported precision does not. The robust alternative is an Anderson–Rubin confidence set, valid at any first-stage strength. The general lesson: the canonical IV papers predate this literature, so re-reading them with modern inference is a legitimate exercise.
+
+---
+
+# 4. Research design — do early institutions persist?
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ajr3.png" style="width: 90%; max-width: 640px;" /&gt;
+&lt;/div&gt;
+
+.detail[Dependent variable: protection against expropriation risk **today**. Institutions in 1900 predict it (cols. 1–6); European settlement in 1900 explains about 30% of it (col. 7, R² = 0.3), and settler mortality alone 27% (col. 9).]
+
+???
+
+Only Panel A is shown. Reading the columns: (1)–(2) constraints on the executive in 1900, (3)–(4) democracy in 1900, (5)–(6) constraints in the first year of independence, (7)–(8) the European share of the population in 1900, (9)–(10) log settler mortality; the even-numbered columns add latitude. Panel B of the same table, not reproduced here, completes the chain upstream: settlement patterns explain around 50 percent of the variation in early institutions, and settlements are themselves related to mortality. The point for the design is persistence — institutions set up a century ago still shape an index measured in 1985–95 — which is what licenses instrumenting a modern regressor with a colonial-era variable. Columns (9)–(10) are also the first stage in disguise.
+---
+
+# 5. The main result — OLS
+
+&lt;div style="float: right; width: 45%; margin: 0 0 8px 3%;"&gt;
+  &lt;img src="figures/ajr_fig2.png" style="width: 100%;" /&gt;
+&lt;/div&gt;
+
+Better institutions go with higher income:
+
+--
+
+- OLS coefficient **0.52** (0.06); **0.47** with latitude, **0.48** dropping Africa
+
+--
+
+.discuss[
+**Discussion**
+
+- What would bias this **upwards**? What would bias it **downwards**?
+]
+
+--
+
+- **Up**: reverse causality and omitted variables
+
+- **Down**: measurement error — the authors' own explanation
+
+???
+
+Table 2 reports these OLS regressions. The relationship is tight and survives the obvious controls — which is exactly why the paper needs an instrument: a strong correlation is not the estimate we want.
+
+**Short answers.** *Upwards*: reverse causality (rich countries buy better institutions), omitted variables that raise both (favourable geography, human capital, colonial identity), and a rating halo in perception data. *Downwards*: classical measurement error in the index, which attenuates toward zero — and this is the authors' preferred explanation for why 2SLS is nearly twice as large. Ask for a show of hands before turning to Table 4: most students predict upward bias, which is what makes the 2SLS result land.
+
+---
+
+# 5. The main result — the reduced form
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/ajr1.png" style="width: 90%; max-width: 620px;" /&gt;
+&lt;/div&gt;
+
+.detail[Figure 1. Countries whose settlers died in large numbers are poorer today — the IV estimate is this slope divided by the first-stage slope.]
+
+---
+
+# 5. The main result — 2SLS
+
+&lt;div style="float: right; width: 56%; margin: 0 0 8px 3%;"&gt;
+  &lt;img src="figures/ajr4.png" style="width: 100%;" /&gt;
+&lt;/div&gt;
+
+- 2SLS: **0.94** (0.16) — roughly **twice** the OLS estimate
+
+--
+
+- **1.00** adding latitude; **1.28** dropping the neo-Europes; **0.58** dropping Africa
+
+--
+
+.discuss[
+**Discussion**
+
+- Why is 2SLS **larger** than OLS? Which stories would do that?
+- The estimate halves when Africa is dropped — what does that tell you?
+]
+
+--
+
+Attenuation, LATE, or a failed exclusion restriction — and Africa supplies much of the variation
+
+???
+
+Candidate explanations for 2SLS above OLS: classical measurement error in the institutions index attenuates OLS; and LATE — the compliers may have larger effects. The authors make the first argument themselves in footnote 19: using constraints on the executive as an alternative institutions measure gives 0.87 (0.16), which they read as measurement error being "of the right order of magnitude to explain the difference between the OLS and 2SLS estimates". On Africa: the effect is identified off a smaller, less dispersed sample once Africa is removed, and it is also where much of the mortality variation lies.
+
+**Short answers.** *Why larger?* Three candidates, pointing in opposite directions: attenuation in OLS from measurement error (AJR's footnote 19 — an alternative institutions measure gives 0.87, "of the right order of magnitude"); LATE, if the complier countries genuinely have larger effects; or a failed exclusion restriction inflating 2SLS, which is Casey and Klemp's claim. The first two say trust 2SLS, the third says do not. *Africa?* Dropping it halves the estimate to 0.58, so much of the identification is the contrast between high-mortality African colonies and the low-mortality neo-Europes — and anything else separating those groups (disease burden, the slave trade, pre-colonial states) travels with the instrument.
+
+---
+
+# 6. Threats and robustness — who are the compliers?
+
+- The LATE logic carries over to a **continuous** treatment
+
+--
+
+- Compliers = the countries whose institutions were actually shaped by settler mortality
+
+--
+
+- A different valid instrument could give a different number
+
+--
+
+.discuss[
+**Discussion** — which countries do you think are the compliers? What does that do to external validity?
+]
+
+--
+
+Colonies where mortality tipped settlement versus extraction — unnamed, so the population is too
+
+???
+
+**Short answers.** Compliers are the colonies where the disease environment plausibly tipped the choice between settlement and extraction — much of tropical Africa and parts of Asia and the Caribbean at one end, the neo-Europes at the other. Countries whose institutions were set by other forces, such as strong pre-colonial states, contribute little. Since we cannot name them, we cannot say whom 0.94 describes, and it is certainly not the return to an institutional reform in a middle-income country today. This is also why other valid instruments for institutions — legal origin, ethnolinguistic fractionalization — deliver different numbers without any of them being wrong.
+
+---
+
+# 6. Threats and robustness — persistence
+
+&lt;div style="float: right; width: 40%; margin: 0 0 8px 3%;"&gt;
+  &lt;img src="figures/casey.png" style="width: 100%;" /&gt;
+&lt;/div&gt;
+
+*&lt;a href="https://doi.org/10.1016/j.jdeveco.2020.102586"&gt;Casey and Klemp (2021)&lt;/a&gt;*: what if the instrument acts long **before** the endogenous variable is measured?
+
+--
+
+- Today's institutions are a persistent descendant of early institutions
+
+--
+
+- So settler mortality also reaches income through **past** institutions and the capital they built — a violation of exclusion
+
+&lt;div class="detail"&gt;\(Z_H\): settler mortality; \(X_H\), \(X_C\): institutions then and now; \(Y_C\): income today; \(A_C\): an unobserved alternative channel, such as capital. (H = historical, C = contemporary.)&lt;/div&gt;
+
+???
+
+AJR themselves name the channel (p. 1393): "these institutions (circa 1990) should affect physical and human capital investments at the beginning of the century, and have some effect on current income levels through this channel." In Casey and Klemp's notation, subscript H is the historical period and C the contemporary one; the A_C variable is an unobserved "alternative channel" - they suggest physical or human capital - through which the historical instrument can reach today's income without passing through today's institutions. The 2024 Nobel scientific background endorses this argument in its footnote 16: if colonial institutions have an independent effect on growth, "the estimate on contemporary institutions is likely biased upwards", because the effect of colonial institutions is ascribed to contemporary ones. (The document cites them as "Casey and Kemp".)
+
+---
+
+# 6. Threats and robustness — persistence
+
+With a different institutions measure (executive constraints), they replicate AJR and re-estimate:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/casey1.png" style="width: 90%; max-width: 470px;" /&gt;
+&lt;/div&gt;
+
+.detail[*"...the conventional IV regression overestimates the long-run effect. [...] because institutions are less than perfectly persistent."*]
+
+---
+
+# 7. Takeaways
+
+- **Institutions matter a lot** for long-run income: 2SLS is large and survives many controls
+
+--
+
+- Rests on an untestable **exclusion restriction**: mortality acts on income *only* via institutions
+
+--
+
+- And on a **contested data series**: only 28 of 64 countries have mortality from their own borders
+
+--
+
+- It is a **LATE** for compliers we cannot name, and it shrinks once persistence is modelled
+
+--
+
+- Even the 2024 prize citation takes the IV estimate &lt;a href="https://www.nobelprize.org/uploads/2024/10/advanced-economicsciencesprize2024.pdf"&gt;"with a grain of salt"&lt;/a&gt;
+
+--
+
+.takeaway[The design is the contribution — and it is where the debate has stayed ever since]
+
+---
+
+class: inverse
+
+Perhaps you have seen many papers using weather variables as instrumental variables.
+
+The main argument is that weather variation is as good as random.
+
+--
+
+It means the **independence** assumption satisfies.
+
+--
+
+But what about other assumptions?
+
+---
+
+# Mellon (2025): Rain, rain, go away
+
+&lt;a href="https://doi.org/10.1111/ajps.12894"&gt;Mellon (2025, AJPS)&lt;/a&gt;: **194 variables** linked to weather, each a potential *exclusion* violation
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/mellon.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+???
+
+The logic: if rainfall affects protest turnout, conflict, mood, agricultural income, migration, and 190 other things, then a weather IV for any one channel violates exclusion through the others. Published version of the paper formerly circulated as Mellon (2024).
+
+---
+
+# Wrapping up IVs
+
+It is really difficult to publish IV papers nowadays, at least in good journals.
+
+The required assumptions are strict.
+
+  - Recent research has improved our tools, making it possible to publish good work with IVs.
+
+Remember the importance of LATE.
+
+--
+
+Part of the **toolkit shift** from Week 1: richer data, more transparent designs — next week.
+
+
+---
+
+# Plan for next week
+
+**Week 3: DiD, RD, and inference issues**
+
+- &lt;a href="https://www.mostlyharmlesseconometrics.com/"&gt;Angrist and Pischke (2009)&lt;/a&gt;: Section 5.2 (pp. 227-243) and Chapter 6 (pp. 251-267)
+
+- &lt;a href="https://doi.org/10.1257/jel.20251650"&gt;Baker et al. (2026)&lt;/a&gt;, *JEL* — the DiD practitioner's guide
+
+- &lt;a href="https://doi.org/10.1016/j.jpubeco.2023.104999"&gt;Gruber, Lin, and Yi (2023)&lt;/a&gt;, *JPubE* — DiD in practice
+
+- &lt;a href="https://doi.org/10.1086/730204"&gt;Burlig and Preonas (2024)&lt;/a&gt;, *JPE* — RD in practice
+
+--
+
+Comments in the &lt;a href="https://docs.google.com/document/d/1-IlEMbnN1wn0kxUqh20z_R09_dYt2VL6O8uBI_rgAgc/edit?usp=sharing"&gt;Google Doc&lt;/a&gt; by **Thursday 14:00**.
+
+--
+
+**&lt;a href="https://docs.google.com/spreadsheets/d/1JYnioDWK2cD7upc2n16BE7V-OCPEn9Uc/edit?usp=sharing&amp;ouid=108702181455633968747&amp;rtpof=true&amp;sd=true"&gt;Sign-up sheet&lt;/a&gt; closes before next week's class** — we finalize the schedule in Week 3.
+
+
+---
+
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<div id="toc-menu">
+  <button id="toc-btn" type="button">&#9776;&nbsp; Contents</button>
+  <div id="toc-list">
+    <a href="#fp">Fundamental problem of causal inference</a>
+    <a href="#rand">Randomization and treatment effects</a>
+    <a href="#hs">RCT in practice: Haushofer and Shapiro (2016)</a>
+    <a href="#threats">What randomization does not fix</a>
+    <a href="#reg">Regression, with and without an experiment</a>
+    <a href="#iv">Instrumental variables and LATE</a>
+    <a href="#ajr">IV in practice: Acemoglu, Johnson, and Robinson (2001)</a>
+  </div>
+</div>
+<div id="progress-bar"></div>
+<style>
+#toc-menu { position: fixed; bottom: 10px; left: 14px; z-index: 300; }
+#toc-btn { background: rgba(35, 55, 59, 0.75); color: #fafafa; border: none; border-radius: 4px;
+  padding: 5px 12px; font-size: 13px; font-family: inherit; cursor: pointer; }
+#toc-btn:hover { background: #EB811B; }
+#toc-list { display: none; position: absolute; bottom: 34px; left: 0; width: 400px;
+  background: #ffffff; border: 1px solid #d9dee0; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18); padding: 6px 0; }
+#toc-menu.open #toc-list { display: block; }
+#toc-list a { display: block; padding: 8px 16px; font-size: 14px; color: #23373B;
+  text-decoration: none; line-height: 1.35; }
+#toc-list a:hover { background: #eef2f3; color: #EB811B; }
+#progress-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background: #EB811B; z-index: 300; transition: width 0.2s; }
+@media print { #toc-menu, #progress-bar { display: none; } }
+</style>
+<script>
+(function() {
+  var menu = document.getElementById('toc-menu');
+  var btn = document.getElementById('toc-btn');
+  btn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('open'); });
+  document.getElementById('toc-list').addEventListener('click', function() { menu.classList.remove('open'); });
+  document.addEventListener('click', function(e) { if (!menu.contains(e.target)) { menu.classList.remove('open'); } });
+  function init() {
+    if (typeof slideshow === 'undefined') { setTimeout(init, 150); return; }
+    var bar = document.getElementById('progress-bar');
+    var n = slideshow.getSlideCount();
+    slideshow.on('showSlide', function(slide) {
+      bar.style.width = (100 * (slide.getSlideIndex() + 1) / n) + '%';
+    });
+    bar.style.width = (100 * (slideshow.getCurrentSlideIndex() + 1) / n) + '%';
+  }
+  init();
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

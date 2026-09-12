@@ -64,6 +64,19 @@
   margin-bottom: 0.1em;
 }
 
+/* Vocabulary slides (add "class: vocab"): group headers stay close to their
+   lists, but terms get breathing room so the slide doesn't read as a wall */
+.remark-slide-content.vocab p {
+  margin: 1.2em 0 0.25em 0;
+}
+.remark-slide-content.vocab ul {
+  margin-top: 0.25em;
+  margin-bottom: 0;
+}
+.remark-slide-content.vocab li {
+  margin-bottom: 0.55em;
+}
+
 /* Roomier bullet lists (add "class: spaced" to a slide): larger gap between
    bullets, including bullets revealed one by one with "--" */
 .remark-slide-content.spaced li {

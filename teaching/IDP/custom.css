@@ -145,6 +145,13 @@
   clear: both;
 }
 
+/* remark's default.css forces anything after .pull-right below both columns
+   (.pull-right + * { clear: both }). Allow a later .pull-left block — e.g.
+   bullets revealed with "--" — to keep stacking in the left column. */
+.remark-slide-content .pull-right + .pull-left {
+  clear: left;
+}
+
 /* Small text for notes and sources */
 .small {
   font-size: 0.8em;

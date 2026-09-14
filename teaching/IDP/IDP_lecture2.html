@@ -163,6 +163,8 @@ While consumption is preferred, it comes with practical difficulties:
 
 ---
 
+class: compact
+
 # Adjusting for household size
 
 Due to data limitations, consumption is measured at the household level.
@@ -177,14 +179,16 @@ Let `\(n^{*}\)` be the number of "equivalent adults" in the household: `\(n^{*} 
 
 --
 
-| Scale | Adult male | Adult female | Child |
-|-------|------------|--------------|-------|
+| Scale | First adult | Each additional adult | Each child |
+|-------|-------------|-----------------------|------------|
 | OECD | 1.0 | 0.7 | 0.5 |
 | World Bank LSMS | 1.0 (17+) | 1.0 (17+) | 0.2–0.5 (by age) |
 
+.small[*Note:* The textbook (Ch. 5) describes the OECD weights by gender; the OECD's own definition is by position — first adult vs. additional adults.]
+
 --
 
-**Example:** A household with 1 adult male, 1 adult female, and 2 young children (OECD scale):
+**Example:** A household with 2 adults and 2 young children (OECD scale):
 
 --
 
@@ -383,7 +387,7 @@ Using our earlier example (poverty line `\(z = 7\)`):
 
 --
 
-**Severity index**: `\(P^2 = \frac{1}{n}\sum_{i=1}^{q}\left(\frac{z - y_i}{z}\right)^2 = \frac{1}{20}\left[3 \times \left(\frac{2}{7}\right)^2 + 5 \times \left(\frac{1}{7}\right)^2\right] = 0.026\)`
+**Severity index**: `\(P^2 = \frac{1}{n}\sum_{i=1}^{q}\left(\frac{z - y_i}{z}\right)^2 = \frac{1}{20}\left[3 \times \left(\frac{2}{7}\right)^2 + 5 \times \left(\frac{1}{7}\right)^2\right] = \frac{1}{20} \times \frac{17}{49} = 0.017\)`
 
 ---
 
@@ -393,7 +397,7 @@ Using our earlier example (poverty line `\(z = 7\)`):
 
 --
 
-But what does `\(P^1 = 0.079\)` mean? Is `\(P^2 = 0.026\)` large or small?
+But what does `\(P^1 = 0.079\)` mean? Is `\(P^2 = 0.017\)` large or small?
 
 --
 

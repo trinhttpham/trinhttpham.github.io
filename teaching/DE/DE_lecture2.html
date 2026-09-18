@@ -257,11 +257,19 @@ The population `\(I\)` is large, and for each unit `\(i\)` we observe `\(D_i\)` 
 
 --
 
-The average causal effect is `\(T = E(Y_{1i}) - E(Y_{0i})\)`; but the data only give us `\(E(Y_{1i}|D_i = 1)\)` and `\(E(Y_{0i}|D_i = 0)\)`
+The average causal effect is `\(T = E(Y_{1i}) - E(Y_{0i})\)`
 
 --
 
-Are `\(E(Y_{1i})\)` and `\(E(Y_{1i}|D_i = 1)\)` the same? **No**:
+But the data only give us `\(E(Y_{1i}|D_i = 1)\)` and `\(E(Y_{0i}|D_i = 0)\)`
+
+--
+
+Are `\(E(Y_{1i})\)` and `\(E(Y_{1i}|D_i = 1)\)` the same?
+
+--
+
+**No**:
 
   - `\(E(Y_{1i}|D_i = 1)\)` averages only over the **treated** — if units with large `\(Y_{1i}\)` select into treatment, then `\(E(Y_{1i}|D_i = 1) &gt; E(Y_{1i})\)`
 
@@ -280,15 +288,15 @@ Are `\(E(Y_{1i})\)` and `\(E(Y_{1i}|D_i = 1)\)` the same? **No**:
 
 # Assumption 4: Constant effect
 
-Under **independence** assumption, we can recover the average causal effect `\(T\)`.
+Under the **independence** assumption, we can recover the average causal effect `\(T\)`.
 
 --
 
-But `\(T\)` is an **average**: it need not describe the effect for **any particular unit** `\(i_0\)`.
+But `\(T\)` is an **average**: it need not describe the effect for **any particular unit**.
 
 --
 
-With **constant effect** assumption: `\(T = Y_{1i} - Y_{0i}\)` for all `\(i\in I\)`
+Under the **constant effect** assumption: `\(T = Y_{1i} - Y_{0i}\)` for all `\(i\in I\)`
 
 --
 
@@ -337,6 +345,8 @@ Based on previous slides' notations, we can define four "treatment effects":
 
 ---
 
+class: compact
+
 # Randomization
 
 Recall that the fundamental problem of causal inference is we only observe `\(E(Y_{i}|D_i = 1) - E(Y_{i}|D_i = 0)\)`
@@ -365,13 +375,17 @@ where `\(\pi\)` is the share of students receiving the treatment. (Homework: der
 
 --
 
-.takeaway[Random **assignment** eliminates both bias terms: the difference in means is the sample ATE]
+.takeaway[Random **assignment** makes both bias terms zero *in expectation* — not in any one sample]
 
-For the *population* ATE, the sample must also be drawn at random — sampling, then assignment.
+So the difference in means is **unbiased** for the ATE — chance imbalance is why we still test balance.
+
+And for the *population* ATE, the sample must also be drawn at random — sampling, then assignment.
 
 ???
 
 Why both terms die under random assignment: selection bias because D is independent of Y0; the last term because gains (Y1 − Y0) are also independent of D, so ATT = ATU = ATE within the sample. The subtlety worth pausing on: every expectation here is over the study population I. Random assignment buys internal validity — the ATE for whoever is in the experiment. If the study sample is selected (volunteers, one county, thatched-roof households), that is the sample ATE, not the population ATE; equating the two needs random sampling into the study as well. This is exactly the external-validity concern coming later in the lecture.
+
+Two further points if pressed. First, on precision: the decomposition is written in population expectations, where the equality is exact. The object students actually compute is the difference in sample means, which is unbiased for the ATE but differs from it in any finite sample by chance imbalance. That is the entire reason balance tests exist, and saying so here makes the balance-test slide later read as a consequence rather than a contradiction. Second, the two "bias" terms are not the same kind of object: selection bias is an identification failure, whereas (1-pi)(ATT - ATU) is an estimand mismatch — the wedge between ATT and ATE — and it is only bias if the ATE is what you want. Target the ATT and that term is not bias at all. Next week's difference-in-differences deliberately targets the ATT, so the distinction returns.
 
 ---
 
@@ -884,9 +898,9 @@ Let's (again) think about the tutoring example at the beginning of our session
 
 --
 
-We start with a causal model: `\(Y_i = \beta S_i + \epsilon_i\)`
+We start with a causal model: `\(Y_i = \beta D_i + \epsilon_i\)`
 
-  - where `\(S_i \in \{0, 1\}\)` indicates participating in tutoring, `\(Y_i\)` measures test scores
+  - where `\(D_i \in \{0, 1\}\)` indicates participating in tutoring, `\(Y_i\)` measures test scores
 
   - We are assuming constant treatment effects for now (it is `\(\beta\)` and not `\(\beta_i\)`)
 
@@ -907,7 +921,7 @@ Why?
 
 --
 
-  - More formally, `\(cov(S_i, \epsilon_i)\neq 0\)`: **endogeneity**
+  - More formally, `\(cov(D_i, \epsilon_i)\neq 0\)`: **endogeneity**
 
 
 ---
@@ -920,7 +934,7 @@ Suppose baseline test scores `\(U_i\)` proxy for "low-performing", pulled out of
 --
 
 Let's put the two equations together:
-  `\(Y_i = \beta S_i + \gamma U_i + \eta_i\)`
+  `\(Y_i = \beta D_i + \gamma U_i + \eta_i\)`
 
 --
 
@@ -936,11 +950,11 @@ But many `\(U_i\)` affect both *attending tutoring* and *test scores*: motivatio
 
 The direction of bias: `\(OVB = \gamma * \delta\)`
 
-  - where `\(U_i = \delta S_i + \zeta_i\)`, and `\(Y_i = \beta S_i + \gamma U_i + \eta_i\)`
+  - where `\(U_i = \delta D_i + \zeta_i\)`, and `\(Y_i = \beta D_i + \gamma U_i + \eta_i\)`
 
 --
 
-&lt;div class="takeaway"&gt;OVB arises &lt;b&gt;only if&lt;/b&gt; \(U\) is correlated with &lt;b&gt;both&lt;/b&gt; \(S\) and \(Y\).&lt;/div&gt;
+&lt;div class="takeaway"&gt;OVB arises &lt;b&gt;only if&lt;/b&gt; \(U\) is correlated with &lt;b&gt;both&lt;/b&gt; \(D\) and \(Y\).&lt;/div&gt;
 
 
 ---
@@ -959,7 +973,21 @@ class: inverse, middle, center
 Here is a DAG ("directed acyclic graph") that diagrams the issue:
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/ivFig1.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;svg viewBox="0 0 1280 520" style="width: 90%; max-width: 560px;"&gt;
+&lt;g font-family="inherit" font-size="86" fill="#23373B" text-anchor="middle"&gt;
+&lt;text x="640" y="95"&gt;D&lt;/text&gt;&lt;text x="1200" y="95"&gt;Y&lt;/text&gt;&lt;text x="915" y="470"&gt;U&lt;/text&gt;
+&lt;/g&gt;
+&lt;g stroke="#23373B" fill="none"&gt;
+&lt;line x1="700" y1="68" x2="1140" y2="68" stroke-width="5"/&gt;
+&lt;line x1="885" y1="405" x2="676" y2="112" stroke-width="4" stroke-dasharray="20,14"/&gt;
+&lt;line x1="950" y1="405" x2="1168" y2="112" stroke-width="4" stroke-dasharray="20,14"/&gt;
+&lt;/g&gt;
+&lt;g fill="#23373B"&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(1140,68)"/&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(676,112) rotate(-125.5)"/&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(1168,112) rotate(-53.4)"/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
 &lt;/div&gt;
 
 --
@@ -968,7 +996,7 @@ Then how can we solve this issue?
 
 --
 
-If we can find a **valid instrument**, we can figure out the true effect of `\(S\)` on `\(Y\)`.
+If we can find a **valid instrument**, we can figure out the true effect of `\(D\)` on `\(Y\)`.
 
 
 ---
@@ -978,10 +1006,26 @@ If we can find a **valid instrument**, we can figure out the true effect of `\(S
 Here is a DAG ("directed acyclic graph") that shows what an instrument is:
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/ivFig2.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;svg viewBox="0 0 1280 520" style="width: 90%; max-width: 560px;"&gt;
+&lt;g font-family="inherit" font-size="86" fill="#23373B" text-anchor="middle"&gt;
+&lt;text x="75" y="95"&gt;Z&lt;/text&gt;&lt;text x="640" y="95"&gt;D&lt;/text&gt;&lt;text x="1200" y="95"&gt;Y&lt;/text&gt;&lt;text x="915" y="470"&gt;U&lt;/text&gt;
+&lt;/g&gt;
+&lt;g stroke="#23373B" fill="none"&gt;
+&lt;line x1="130" y1="68" x2="600" y2="68" stroke-width="5"/&gt;
+&lt;line x1="700" y1="68" x2="1140" y2="68" stroke-width="5"/&gt;
+&lt;line x1="885" y1="405" x2="676" y2="112" stroke-width="4" stroke-dasharray="20,14"/&gt;
+&lt;line x1="950" y1="405" x2="1168" y2="112" stroke-width="4" stroke-dasharray="20,14"/&gt;
+&lt;/g&gt;
+&lt;g fill="#23373B"&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(600,68)"/&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(1140,68)"/&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(676,112) rotate(-125.5)"/&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(1168,112) rotate(-53.4)"/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
 &lt;/div&gt;
 
-where `\(Z\)` is our instrument, and it works through `\(S\)`
+where `\(Z\)` is our instrument, and it works through `\(D\)`
 
 
 ---
@@ -990,15 +1034,15 @@ where `\(Z\)` is our instrument, and it works through `\(S\)`
 
 **Instrument relevance**:
 
-  - `\(Z\)` must have a clear effect on `\(S\)` — easy to satisfy, and testable
+  - `\(Z\)` must have a clear effect on `\(D\)` — easy to satisfy, and testable
 
 **Independence assumption**:
 
-  - `\(Z\)` must be unrelated to omitted variables affecting both `\(S\)` and `\(Y\)`
+  - `\(Z\)` must be unrelated to omitted variables affecting both `\(D\)` and `\(Y\)`
 
 **Exclusion restriction**:
 
-  - `\(Z\)` must affect `\(Y\)` *only* through `\(S\)` — no direct effect
+  - `\(Z\)` must affect `\(Y\)` *only* through `\(D\)` — no direct effect
 
   - harder to satisfy, and not directly testable
 
@@ -1034,21 +1078,55 @@ Can we still recover the effect for those who actually participate? That is what
 
 ---
 
+class: tight
+
 # Random assignment as an IV
 
 Random assignment in an RCT is a valid instrument for treatment:
 
 &lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/ivFig3.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;svg viewBox="0 0 1280 640" style="width: 94%; max-width: 600px;"&gt;
+&lt;g font-family="inherit" font-size="86" fill="#23373B" text-anchor="middle"&gt;
+&lt;text x="75" y="155"&gt;Z&lt;/text&gt;&lt;text x="640" y="155"&gt;D&lt;/text&gt;&lt;text x="1200" y="155"&gt;Y&lt;/text&gt;&lt;text x="915" y="545"&gt;U&lt;/text&gt;
+&lt;/g&gt;
+&lt;g stroke="#23373B" fill="none"&gt;
+&lt;line x1="130" y1="128" x2="600" y2="128" stroke-width="5"/&gt;
+&lt;line x1="700" y1="128" x2="1140" y2="128" stroke-width="5"/&gt;
+&lt;line x1="885" y1="480" x2="676" y2="182" stroke-width="4" stroke-dasharray="20,14"/&gt;
+&lt;line x1="950" y1="480" x2="1168" y2="182" stroke-width="4" stroke-dasharray="20,14"/&gt;
+&lt;/g&gt;
+&lt;g fill="#23373B"&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(600,128)"/&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(1140,128)"/&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(676,182) rotate(-125)"/&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(1168,182) rotate(-54)"/&gt;
+&lt;/g&gt;
+&lt;g stroke="#e8000d" fill="none" stroke-width="5" stroke-dasharray="22,14"&gt;
+&lt;path d="M 110 105 Q 650 -30 1190 108"/&gt;
+&lt;line x1="110" y1="200" x2="855" y2="518"/&gt;
+&lt;/g&gt;
+&lt;g fill="#e8000d"&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(1190,108) rotate(15)"/&gt;
+&lt;polygon points="0,0 -30,-14 -30,14" transform="translate(855,518) rotate(23)"/&gt;
+&lt;/g&gt;
+&lt;g stroke="#e8000d" stroke-width="7" stroke-linecap="round"&gt;
+&lt;line x1="630" y1="18" x2="670" y2="58"/&gt;&lt;line x1="670" y1="18" x2="630" y2="58"/&gt;
+&lt;line x1="462" y1="330" x2="502" y2="370"/&gt;&lt;line x1="502" y1="330" x2="462" y2="370"/&gt;
+&lt;/g&gt;
+&lt;g font-family="inherit" font-size="30" fill="#1f3fa8" text-anchor="middle"&gt;
+&lt;text x="600" y="205"&gt;Treatment&lt;/text&gt;
+&lt;text x="915" y="592"&gt;Omitted&lt;/text&gt;&lt;text x="915" y="628"&gt;variables&lt;/text&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
 &lt;/div&gt;
 
 where `\(Z\)` is our instrument:
 
-  - It has clear effect on "treatment" `\(S\)`.
+  - It has clear effect on "treatment" `\(D\)`.
 
-  - It is not related to any omitted variables that affect both `\(S\)` and `\(Y\)`.
+  - It is not related to any omitted variables that affect both `\(D\)` and `\(Y\)`.
 
-  - It does not affect `\(Y\)` through any channels other than treatment `\(S\)`.
+  - It does not affect `\(Y\)` through any channels other than treatment `\(D\)`.
 
 
 ---

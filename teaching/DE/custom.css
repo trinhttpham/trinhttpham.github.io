@@ -36,3 +36,12 @@
 .remark-slide-content.tight ul { margin: 0.15em 0; }
 .remark-slide-content.tight > ul > li { margin-bottom: 0.15em; }
 .remark-slide-content.tight p { margin: 0.4em 0; }
+/* Transition slides: highlight the current section in the progress-bar orange */
+.remark-slide-content.inverse strong { color: #EB811B; }
+/* Text-left / figure-right layout for step-by-step figure slides */
+.col-text { width: 44%; float: left; }
+.col-fig { width: 55%; float: right; }
+/* Step-by-step figure slides: space between the main ideas, and before the takeaway */
+.remark-slide-content.steps .col-text p { margin: 1.1em 0 0.3em; }
+.remark-slide-content.steps .col-text p:first-child { margin-top: 0; }
+.remark-slide-content.steps .col-text { padding-bottom: 28px; }

@@ -1,0 +1,2696 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>DELD - Lecture 3</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 3: DiD, RD, and Inference Issues
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2026
+]
+
+---
+
+
+# Roadmap
+
+- A quick review of treatment effects: ITT, ATE, ATT, and LATE
+
+- Difference-in-Differences (DiD)
+
+  - the canonical 2x2 model, and what changed in the recent literature
+
+  - inference issues: why we cluster, at what level, and what to do with few clusters
+
+  - DiD in practice: &lt;a href="https://doi.org/10.1016/j.jpubeco.2023.104999"&gt;Gruber, Lin, and Yi (2023)&lt;/a&gt;
+
+- Regression Discontinuity (RD)
+
+  - identification, estimation, and a checklist for RD papers
+
+  - RD in practice: &lt;a href="https://doi.org/10.1086/730204"&gt;Burlig and Preonas (2024)&lt;/a&gt;
+
+???
+
+Reminders at the start: reading comments in the Google Doc are due Thursday 14:00 every week; the presentation sign-up sheet closes this week and the schedule is finalized today.
+
+---
+
+name: review
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  A review of treatment effects
+&lt;/div&gt;
+
+---
+
+# A quick review of treatment effects
+
+Recall the tutoring experiment:
+
+- `\(Z\)` is **assignment** to the tutoring program (randomized); `\(D\)` is **attendance** (chosen)
+
+--
+
+**Intent-to-Treat (ITT)**: the effect of being *assigned* to treatment, regardless of take-up
+
+`$$ITT = E[Y \mid Z = 1] - E[Y \mid Z = 0]$$`
+
+--
+
+- what an RCT with imperfect compliance estimates: compare students *offered* vs. *not offered* tutoring
+
+--
+
+**Average Treatment Effect (ATE)**: the average effect if *everyone* versus *no one* were treated
+
+`$$ATE = E[Y(1) - Y(0)]$$`
+
+--
+
+- the policy parameter when the program would cover the entire population
+
+---
+
+# A quick review of treatment effects
+
+**Average Treatment Effect on the Treated (ATT)**: the average effect among those actually treated
+
+`$$ATT = E[Y(1) - Y(0) \mid D = 1]$$`
+
+--
+
+- the relevant parameter when we care about actual recipients (e.g., of health insurance)
+
+--
+
+**Local Average Treatment Effect (LATE)**: the average effect among **compliers**
+
+`$$LATE = E[Y(1) - Y(0) \mid \text{compliers}]$$`
+
+--
+
+- what IV estimates: the effect for those whose treatment status is moved by the instrument
+
+- special cases: full compliance gives `\(ATE = ITT = ATT\)`; no always-takers gives `\(LATE = ATT\)`
+
+--
+
+.discuss[
+**Discussion** — which effect did Haushofer and Shapiro's regression estimate? And AJR's 2SLS?
+]
+
+--
+
+**HS**: an ITT — the effect of assignment; **AJR**: a LATE-type average — for countries moved by settler mortality
+
+???
+
+Full answers. Haushofer and Shapiro regress outcomes on treatment assignment, so the coefficient is an ITT; with 485 of 503 assigned households actually paid, it is numerically close to the effect of the transfer itself, but conceptually it remains the effect of being assigned. AJR's 2SLS recovers, under heterogeneous effects, the effect of institutions for "complier" colonies — those whose institutional path was shifted by settler mortality — which is why we discussed whose effect the estimate represents.
+
+---
+
+name: did
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Difference-in-Differences (DiD)
+&lt;/div&gt;
+
+---
+
+# Motivation
+
+In many applications, we want the effect of a policy that applies to some groups and not others.
+
+--
+
+- a minimum-wage or unemployment-insurance reform on labor market outcomes
+
+- a health-insurance expansion on health outcomes
+
+--
+
+The problem: policy adoption is rarely unrelated to group characteristics.
+
+--
+
+- adopting and non-adopting groups can differ in **levels** even before the policy
+
+--
+
+**Compare changes rather than levels** — this is the idea of Difference-in-Differences
+
+???
+
+Why comparing changes works: if pre-existing differences are stable over time, they difference out when we compare each group with its own past. The treated group's change nets out its level; the control group's change nets out common shocks. What remains is the effect of the policy — provided the two groups would otherwise have changed by the same amount, which is the assumption we formalize shortly.
+
+---
+
+# DiD: Snow (1855)'s cholera study
+
+The idea goes back to physician &lt;a href="https://www.ph.ucla.edu/epi/snow/snowbook.html"&gt;John Snow (1855)&lt;/a&gt; and the London cholera epidemics.
+
+--
+
+**Setting**: in 1850s London, cholera was common but its cause was unknown.
+
+--
+
+- Snow suspected contaminated drinking water — against "bad air", the prevailing theory at the time
+
+--
+
+He focused on areas served by two companies, **Southwark &amp; Vauxhall** and **Lambeth**,
+
+- which had experienced particularly high mortality during the 1849 outbreak
+
+--
+
+- both pumped water from adjacent segments of the Thames, downstream of the sewage outflow
+
+--
+
+- in many cases the two companies served **neighboring houses**,
+
+--
+
+  - so differences in cholera deaths across companies are unlikely to reflect neighborhood factors
+
+---
+
+# DiD: Snow (1855)'s cholera study
+
+**The change**: in 1852 Lambeth moved its intake upstream of the sewage; Southwark &amp; Vauxhall did not
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/cholera.png" style="width: 80%; max-width: 820px;" /&gt;
+&lt;/div&gt;
+
+.source[Source: &lt;a href="https://doi.org/10.1007/s40471-020-00245-2"&gt;Caniglia and Murray (2020)&lt;/a&gt;.]
+
+--
+
+.discuss[
+**Discussion** — what must we assume to say the move *caused* the drop of 771 deaths per 100,000?
+]
+
+--
+
+**Absent the change**, deaths in Lambeth areas would have moved like those in Southwark &amp; Vauxhall areas
+
+???
+
+Snow's own framing: did cholera deaths fall relative to what they would have been had the intake remained downstream? The counterfactual is unobservable; the Southwark &amp; Vauxhall areas serve as the control group that traces it out. The needed assumption is parallel trends: absent the intake change, the two sets of areas would have experienced the same change in death rates. Level differences between the areas are fine — they difference out. Sign trap in the figure: its middle row ("Difference-in-difference, Lambeth versus Southwark &amp; Vauxhall", 502 and 1273) is Southwark MINUS Lambeth, so a student computing 1273 - 502 gets +771; the -771 is Lambeth's change minus Southwark's change, (193 - 847) - (1466 - 1349). Same magnitude, opposite sign — say it before someone asks.
+
+---
+
+# The canonical 2x2 DiD model
+
+Consider two time periods `\(t \in \{1, 2\}\)`, a binary policy `\(D_{i,t}\)`, and outcomes `\(Y_{i,t}\)`.
+
+--
+
+Potential-outcome notation:
+
+- `\(Y_{i,t}(0,0)\)`: outcome in period `\(t\)` if unit `\(i\)` is untreated in both periods
+
+--
+
+- `\(Y_{i,t}(0,1)\)`: outcome in period `\(t\)` if unit `\(i\)` is untreated in period 1 and treated in period 2
+
+--
+
+  - with two periods we can simplify to `\(Y_{i,t}(0)\)` and `\(Y_{i,t}(1)\)`
+
+  - with many periods, we would need to track the entire **path** of treatments
+
+---
+
+# The canonical 2x2 DiD model
+
+The inherent problem: `\(D_{i,t}\)` is not randomly assigned.
+
+--
+
+Our target is the **average treatment effect on the treated (ATT)** in period 2:
+
+`$$\tau_2 = E[Y_{i, 2}(1) - Y_{i, 2}(0) \mid D_i = 1]$$`
+
+--
+
+.discuss[
+**Discussion** — why is the natural estimand here the ATT, rather than the ATE?
+]
+
+--
+
+- DiD fills in one missing outcome: the treated's **untreated** `\(Y_{i,2}(0)\)`, using the controls' trend
+- the ATE also needs the controls' **treated** outcome `\(Y_{i,2}(1)\)` — which the design never shows
+- and adopters may gain more than non-adopters, so their effect need not carry over (ATT ≠ ATU)
+
+--
+
+And estimation is challenging:
+
+- `\(Y_{i,2}(0)\)` is never observed for the treated group — the fundamental problem of causal inference
+
+--
+
+**"No causal inference without assumptions."**
+
+???
+
+Full answer on ATT vs. ATE. The ATE averages Y(1) - Y(0) over everyone, so it needs two missing outcomes: Y_2(0) for the treated and Y_2(1) for the controls. DiD supplies only the first — parallel trends is an assumption about untreated outcomes, so the controls' change stands in for the treated group's untreated change. Nothing in the design shows how the controls would have fared if treated; getting there needs an extra assumption, such as homogeneous effects or parallel trends in treated outcomes too. And the ATT need not equal the ATU: if units adopt because they expect to gain (selection on gains, Lecture 2), the effect on adopters overstates what the policy would do elsewhere. Moreover, for a policy already targeted at a specific group, the effect on those actually treated is usually the object of policy interest.
+
+---
+
+# The canonical 2x2 DiD model: assumptions
+
+**Parallel trends**: absent treatment, treated and untreated outcomes would move in parallel
+
+`$$E[Y_{i, 2}(0) - Y_{i, 1}(0) \mid D_i = 1] = E[Y_{i, 2}(0) - Y_{i, 1}(0) \mid D_i = 0]$$`
+
+--
+
+.discuss[
+**Discussion** — does DiD allow for selection bias? How does that compare with an RCT?
+]
+
+--
+
+- **Yes, in levels**: the groups may differ, but their untreated **changes** would be the same
+
+- the bias must be **constant over time**; an RCT removes it altogether, in expectation
+
+--
+
+**No anticipation**: the policy has no effect before it is implemented
+
+`$$Y_{i,1}(0) = Y_{i,1}(1) \text{ for treated units}$$`
+
+--
+
+**For inference**: many independent **clusters** in both groups
+
+--
+
+.takeaway[DiD trades random assignment for a weaker assumption: selection in levels, but not in trends]
+
+???
+
+Full answer to the discussion. In an RCT, random assignment makes the selection-bias term from Lecture 2 zero in every period: E[Y(0)|D=1] = E[Y(0)|D=0], so even the simple post-period comparison is valid. DiD asks for less: the gap E[Y(0)|D=1] - E[Y(0)|D=0] may be nonzero, provided it would have stayed the same over time — the second difference removes it rather than assuming it away. In Snow's case, Lambeth areas could have had lower cholera than Southwark and Vauxhall areas to begin with; what matters is that, absent the intake move, the gap would not have changed. Randomization implies parallel trends (in expectation), which is why parallel trends is the weaker assumption. What DiD cannot handle is selection on trends — the classic example is the Ashenfelter dip, where people enrol in job training after a temporary fall in earnings, so their earnings would have rebounded anyway.
+
+---
+
+# DiD estimation
+
+We can estimate the 2x2 DiD in a single regression:
+
+`$$Y_{it} = \beta_0 + \beta_1 TREAT_i + \beta_2 POST_t + \beta_3 (POST_t \times TREAT_i) + \epsilon_{it}$$`
+
+- `\(TREAT_i = 1\)` if unit `\(i\)` is in the treated group; `\(POST_t = 1\)` if period `\(t\)` is post-policy
+
+--
+
+|        | t = 1 (Pre)         | t = 2 (Post)                           | (t=2) − (t=1)     |
+|--------|---------------------|----------------------------------------|-------------------|
+| TREAT = 0  | `\(\beta_0\)`           | `\(\beta_0 + \beta_2\)`                    | `\(\beta_2\)`         |
+| TREAT = 1  | `\(\beta_0 + \beta_1\)` | `\(\beta_0 + \beta_1 + \beta_2 +\beta_3\)`  | `\(\beta_2 +\beta_3\)`         |
+| (TREAT=1) − (TREAT=0) |               |                                        | `\(\beta_3\)`            |
+
+--
+
+More generally, we can write it as a **Two-Way Fixed Effects (TWFE)** model:
+
+`$$Y_{it} = \alpha_i + \gamma_t + D_{it}\beta + \varepsilon_{it}$$`
+
+--
+
+**Inference**: clustered SEs need many clusters in *both* the treated and comparison groups
+
+---
+
+# Visualizing identification
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_framework.png" style="width: 96%; max-width: 830px;" /&gt;
+&lt;/div&gt;
+
+---
+
+name: adv
+class: inverse, middle
+
+Recent advances in DiD: &lt;a href="https://doi.org/10.1016/j.jeconom.2023.03.008"&gt;Roth et al. (2023)&lt;/a&gt; synthesize them; &lt;a href="https://doi.org/10.1257/jel.20251650"&gt;Baker et al. (2026)&lt;/a&gt; turn them into a practitioner's guide.
+
+--
+
+Following Roth et al., three categories:
+
+--
+
+- Multiple periods and staggered treatment timing.
+
+--
+
+- Relaxing or allowing violations of parallel trends.
+
+--
+
+- Alternative frameworks for inference (few clusters, design-based).
+
+???
+
+This is the Lecture 1 point in action — "even methods you know keep changing." The Goodman-Bacon figure you saw in Week 1 belongs to the first category; today we work through all three.
+
+---
+
+# Extension to multiple periods
+
+Start with a policy adopted by all treated units at the same date `\(t_0\)` (**common timing**).
+
+--
+
+More time periods help us in two ways:
+
+- multiple periods **before** the policy allow a partial test of the **pre-trends assumption**
+
+- multiple periods **after** the policy trace out the **timing** of the effect
+
+--
+
+We can implement this via a **dynamic TWFE ("event-study") model**:
+
+`$$Y_{it} = \alpha_i + \gamma_t + \sum_{s \neq t_0 - 1} \delta_s \, D_i \times 1[t = s] + \epsilon_{it}$$`
+
+- `\(D_i = 1\)` if treated; `\(\delta_s\)`: the treated–control gap in period `\(s\)`, *relative* to period `\(t_0 - 1\)`
+
+--
+
+- the assumption is stronger: parallel trends must hold across **all** periods, not just two
+
+  - `\(E[Y_{i,t}(0) - Y_{i,t-k}(0) \mid D_i = 1] = E[Y_{i,t}(0) - Y_{i,t-k}(0) \mid D_i = 0]\)` for all `\(t\)` and `\(k\)`
+
+  - the pre-period part is testable: visualize the pre-trends to support the design
+
+---
+
+# Example of pre-trends testing
+
+&lt;a href="https://doi.org/10.1257/app.20190176"&gt;Carey, Miller, and Wherry (2020)&lt;/a&gt; study spillovers of the ACA Medicaid expansions onto Medicare patients
+
+- first, they check coverage: states that expanded in 2014 or 2015 vs. states that did not (ACS, 2008–2015)
+
+--
+
+They estimate an event study:
+
+`$$Y_{ist} = \alpha_s + \gamma_t + \sum_{y\neq -1} D_s \times 1[t - t^*_s = y]\beta_y + \epsilon_{ist}$$`
+
+- `\(Y_{ist}\)`: Medicaid coverage or uninsurance of adult `\(i\)`; `\(D_s = 1\)` for expansion states; `\(t^*_s\)`: expansion year
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/caseyDID.png" style="width: 82%; max-width: 660px;" /&gt;
+&lt;/div&gt;
+
+---
+
+class: inverse, middle
+
+Recent advances in DiD fall into three categories:
+
+- Multiple periods and **staggered treatment timing**.
+
+- Relaxing or allowing violations of parallel trends.
+
+- Alternative frameworks for inference (few clusters, design-based).
+
+---
+
+# Extension to staggered timing
+
+In the canonical model we have:
+
+- two periods and a common treatment date
+
+- identification from parallel trends and no anticipation
+
+- a large number of clusters for inference
+
+--
+
+But in many applications there are **multiple periods**, and units adopt at **different times**.
+
+- **staggered timing**: rollouts, phase-ins, state-by-state adoption
+
+--
+
+Suppose we simply run the **static TWFE** model:
+
+`$$Y_{it} = \alpha_i + \gamma_t + D_{it}\beta + \varepsilon_{it}$$`
+
+--
+
+.discuss[
+**Discussion** — with many different adoption dates, which comparisons is this regression actually making?
+]
+
+???
+
+The answer is on the next slides: TWFE is a weighted average of all 2x2 comparisons in the data — including comparisons that use already-treated units as controls. Goodman-Bacon (2021) is the decomposition that made this transparent.
+
+---
+
+# Goodman-Bacon (2021)
+
+Consider two staggered treatments and a never-treated group.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/goodman-bacon.png" style="width: 82%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1016/j.jeconom.2021.03.014"&gt;Goodman-Bacon (2021)&lt;/a&gt;.]
+
+---
+
+# Goodman-Bacon (2021)
+
+TWFE (static) is the weighted average of all four comparisons.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/goodman-bacon2.png" style="width: 95%; max-width: 720px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Goodman-Bacon (2021)
+
+TWFE (static) is the weighted average of all four comparisons.
+
+- **clean (A, B, C)**: controls untreated in the window — never-treated (A, B) or not-yet-treated (C)
+
+- **forbidden (D)**: late adopters vs. the *already-treated* early group as the control
+
+--
+
+Every comparison gets a **positive** weight, but D **subtracts** the early group's own treatment effects:
+
+- when effects change over time, some treatment effects enter with **negative weights**
+
+--
+
+.takeaway[Static TWFE with staggered adoption mixes clean and forbidden comparisons — the sign can flip]
+
+---
+
+class: compact
+
+# New estimators for staggered timing
+
+Two verdicts on TWFE:
+
+- **static TWFE**: avoid unless effects are homogeneous — it mixes clean and forbidden comparisons
+
+- **dynamic TWFE** (event study): fine only if effects vary with *time since treatment*, not across cohorts
+
+  - &lt;a href="https://doi.org/10.1016/j.jeconom.2020.09.006"&gt;Sun and Abraham (2021)&lt;/a&gt;: otherwise, contamination across leads and lags
+
+--
+
+The heterogeneity-robust estimators differ mainly in their **comparison group**:
+
+- &lt;a href="https://doi.org/10.1016/j.jeconom.2020.12.001"&gt;Callaway and Sant'Anna (2021)&lt;/a&gt;: `\(ATT(g,t)\)` building blocks; never- or not-yet-treated controls
+
+- &lt;a href="https://doi.org/10.1016/j.jeconom.2020.09.006"&gt;Sun and Abraham (2021)&lt;/a&gt;: interaction-weighted; never-treated or last-to-be-treated as the comparison
+
+- &lt;a href="https://doi.org/10.1257/aer.20181169"&gt;de Chaisemartin and d'Haultfoeuille (2020&lt;/a&gt;, &lt;a href="https://doi.org/10.1162/rest_a_01414"&gt;2024)&lt;/a&gt;: allow treatment to turn on and off, or be non-binary
+
+- &lt;a href="https://doi.org/10.1093/restud/rdae007"&gt;Borusyak, Jaravel, and Spiess (2024)&lt;/a&gt;: imputation; compares with the *average* of pre-periods
+
+--
+
+.takeaway[Pick the estimator whose assumptions fit your setting — see &lt;a href="https://doi.org/10.1257/jel.20251650"&gt;Baker et al. (2026)&lt;/a&gt;]
+
+---
+
+# DiD with a continuous treatment: two questions
+
+Many "treatments" are **doses** — hours of power, an exposure share — not a 0/1 switch.
+
+Two questions, two parameters (&lt;a href="https://www.aeaweb.org/articles?id=10.1257/aer.20240137"&gt;Callaway, Goodman-Bacon, and Sant'Anna, forthcoming *AER*&lt;/a&gt;):
+
+--
+
+- **Did the program work at all?** `\(ATT(d \mid d)\)` — dose `\(d\)` versus zero, for units that got `\(d\)`: a **level**
+  - `\(ATT(d \mid d) = E[Y_{2}(d) - Y_{2}(0) \mid D = d]\)`
+
+- **Should we raise the dose?** `\(ACRT(d \mid d)\)`, the **average causal response on the treated**: a **slope**
+  - `\(ACRT(d \mid d) = \partial E[Y_{2}(l) \mid D = d] / \partial l\)` at `\(l = d\)`
+  - how much the outcome of units that got `\(d\)` would rise if their dose went up a little
+
+--
+
+- They can point opposite ways: every `\(ATT\)` large and positive while some `\(ACRT\)`s are zero or negative
+
+--
+
+- Summaries average over the **treated dose distribution**: `\(ATT^{loc} = E[ATT(D \mid D) \mid D &gt; 0]\)`
+
+--
+
+.takeaway[Decide which question you are answering before you estimate anything]
+
+???
+
+ATT(d|d) is the average effect of dose d versus ZERO dose among the units that actually received d — the paper calls these "level treatment effect parameters". ACRT(d|d) — the average causal response on the treated — is the derivative of that group's dose-response curve at d: what a small increase in the dose would do for them. Their warning, which is why the distinction matters: confusing a large ATT for an ACRT leads you to conclude that raising everyone's dose would have large effects; confusing a small ACRT for an ATT leads you to call a program ineffective when it simply has small effects at the margin. For GLY: "did NCMS reduce mortality?" is a level question; "would more agricultural exposure reduce it more?" is a slope question. The summaries: ATT^loc averages ATT(d|d) over the treated dose distribution; ACRT^glob averages ACRT(d) — the slope for the whole treated population — over the same distribution. The "loc"/"glob" superscripts mark whether the effect of dose d is for the units that got d (local) or for all treated units (global).
+
+---
+
+class: compact
+
+# Comparing doses: causal response plus selection bias
+
+With an untreated group, parallel trends identifies the **level**, where `\(\Delta Y\)` is the outcome change:
+
+`$$ATT(d \mid d) = E[\Delta Y \mid D = d] - E[\Delta Y \mid D = 0]$$`
+
+--
+
+But comparing two dose groups `\(h &gt; l\)` mixes two things (CGS, Theorem 3.2):
+
+`$$E[\Delta Y \mid D = h] - E[\Delta Y \mid D = l] = \underbrace{E[Y_{2}(h) - Y_{2}(l) \mid D = h]}_{\text{causal effect of } h \text{ vs. } l} + \underbrace{ATT(l \mid h) - ATT(l \mid l)}_{\text{selection bias}}$$`
+
+--
+
+- selection bias: would high-dose units gain **more from the same dose** `\(l\)` than low-dose units do?
+
+- ordinary parallel trends is silent on this: it restricts only **untreated** outcomes
+
+--
+
+- **strong parallel trends** removes it: every dose group would respond to each dose as all treated do
+
+  - pre-trends cannot test it: before treatment, we observe only untreated outcomes
+
+--
+
+.takeaway[Comparing doses mixes the causal response with selection on gains — recall ATT vs. ATU]
+
+???
+
+This is the heart of the paper. Walk through the two terms. The first is what we want: for the high-dose group, the effect of getting h rather than l. The second is selection on gains: the effect of the SAME dose l for the high-dose group versus the low-dose group. If units that chose (or were assigned) high doses are those who benefit most, the second term is positive and the comparison overstates the causal response. This is the Lecture 2 decomposition again: there, the difference in means was ATT plus selection bias; here, the difference across doses is the causal response plus a selection term in treatment effects. Link to the discussion we just had on parallel trends: DiD allows selection in levels (a constant gap in untreated outcomes); with doses we additionally need no selection on gains across dose groups. Strong parallel trends says ATT(l|h) = ATT(l|l) = ATT(l) — the average effect of each dose is the same for every dose group — which is an assumption on TREATED potential outcomes. Because pre-treatment periods only show untreated outcomes, a flat pre-trend supports ordinary PT but says nothing about strong PT. For GLY (no county has zero agricultural share, their Remark 3.1): the comparison with the lowest-share counties is ATT(d|d) - ATT(dL|dL), which already mixes the effect of more exposure with selection bias; reading alpha_1 as the effect of more exposure needs strong parallel trends.
+
+---
+
+class: compact, tight, steps
+
+# Selection bias across doses, in a picture
+
+.col-text[
+**Setup** — two dose groups:
+
+- group *d* got a low dose; group *d′* a higher one
+- each curve: a group's average effect of dose *l*
+- the groups can respond differently
+]
+
+&lt;div class="col-fig"&gt;
+&lt;svg viewBox="0 0 600 370" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="120" y1="330" x2="505" y2="330" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(515,330)" fill="#23373B"/&gt;
+&lt;line x1="120" y1="330" x2="120" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(120,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="520" y="358" font-size="17" text-anchor="end" fill="#23373B"&gt;dose &lt;tspan font-style="italic"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="132" y="24" font-size="17" fill="#23373B"&gt;ATT&lt;/text&gt;
+&lt;text x="260" y="356" font-size="18" font-style="italic" text-anchor="middle" fill="#23373B"&gt;d&lt;/text&gt;
+&lt;text x="410" y="356" font-size="18" font-style="italic" text-anchor="middle" fill="#23373B"&gt;d&amp;#8242;&lt;/text&gt;
+&lt;polyline points="120,330 125,207 140,183 155,166 170,153 185,142 200,133 215,125 230,118 245,111 260,105 275,99 290,94 305,89 320,84 335,80 350,75 365,71 380,67 395,64 410,60 425,57 440,53 455,50 470,47 485,44" fill="none" stroke="#4A6B8A" stroke-width="2.5"/&gt;
+&lt;polyline points="120,330 125,302 140,290 155,281 170,273 185,266 200,260 215,255 230,250 245,245 260,240 275,236 290,231 305,227 320,224 335,220 350,216 365,213 380,209 395,206 410,203 425,200 440,197 455,194 470,191 485,188" fill="none" stroke="#9DB3C6" stroke-width="2.5"/&gt;
+&lt;text x="492" y="48" font-size="17" fill="#4A6B8A"&gt;group &lt;tspan font-style="italic"&gt;d&amp;#8242;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="492" y="192" font-size="17" fill="#7D96AB"&gt;group &lt;tspan font-style="italic"&gt;d&lt;/tspan&gt;&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from &lt;a href="https://www.aeaweb.org/articles?id=10.1257/aer.20240137"&gt;Callaway, Goodman-Bacon, and Sant'Anna&lt;/a&gt;, Figure 3.&lt;/div&gt;
+&lt;/div&gt;
+
+???
+
+Step 1 of 4. Two groups of units: group d received a low dose d, group d′ a higher dose d′ = d + 1. Each curve shows one group's average effect as a function of the dose l — what that group would gain from dose l compared with no treatment, ATT(l | group). There are two curves because the groups can respond differently: here the high-dose group's curve lies above at every dose.
+
+---
+
+count: false
+class: compact, tight, steps
+
+# Selection bias across doses, in a picture
+
+.col-text[
+**Setup** — two dose groups:
+
+- group *d* got a low dose; group *d′* a higher one
+- each curve: a group's average effect of dose *l*
+- the groups can respond differently
+
+**We observe** only the two circled points:
+
+- each group at the dose it actually got
+- comparing them gives the &lt;b style="color:#EB811B"&gt;dotted line&lt;/b&gt;
+]
+
+&lt;div class="col-fig"&gt;
+&lt;svg viewBox="0 0 600 370" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="120" y1="330" x2="505" y2="330" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(515,330)" fill="#23373B"/&gt;
+&lt;line x1="120" y1="330" x2="120" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(120,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="520" y="358" font-size="17" text-anchor="end" fill="#23373B"&gt;dose &lt;tspan font-style="italic"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="132" y="24" font-size="17" fill="#23373B"&gt;ATT&lt;/text&gt;
+&lt;text x="260" y="356" font-size="18" font-style="italic" text-anchor="middle" fill="#23373B"&gt;d&lt;/text&gt;
+&lt;text x="410" y="356" font-size="18" font-style="italic" text-anchor="middle" fill="#23373B"&gt;d&amp;#8242;&lt;/text&gt;
+&lt;polyline points="120,330 125,207 140,183 155,166 170,153 185,142 200,133 215,125 230,118 245,111 260,105 275,99 290,94 305,89 320,84 335,80 350,75 365,71 380,67 395,64 410,60 425,57 440,53 455,50 470,47 485,44" fill="none" stroke="#4A6B8A" stroke-width="2.5"/&gt;
+&lt;polyline points="120,330 125,302 140,290 155,281 170,273 185,266 200,260 215,255 230,250 245,245 260,240 275,236 290,231 305,227 320,224 335,220 350,216 365,213 380,209 395,206 410,203 425,200 440,197 455,194 470,191 485,188" fill="none" stroke="#9DB3C6" stroke-width="2.5"/&gt;
+&lt;text x="492" y="48" font-size="17" fill="#4A6B8A"&gt;group &lt;tspan font-style="italic"&gt;d&amp;#8242;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="492" y="192" font-size="17" fill="#7D96AB"&gt;group &lt;tspan font-style="italic"&gt;d&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="120" y1="240" x2="260" y2="240" stroke="#999" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="120" y1="60" x2="410" y2="60" stroke="#999" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;text x="112" y="245" font-size="15" text-anchor="end" fill="#23373B" font-style="italic"&gt;ATT(d|d)&lt;/text&gt;
+&lt;text x="112" y="65" font-size="15" text-anchor="end" fill="#23373B" font-style="italic"&gt;ATT(d&amp;#8242;|d&amp;#8242;)&lt;/text&gt;
+&lt;line x1="260" y1="240" x2="410" y2="60" stroke="#EB811B" stroke-width="3.5" stroke-dasharray="9 6"/&gt;
+&lt;circle cx="260" cy="240" r="7" fill="#23373B"/&gt;
+&lt;circle cx="410" cy="60" r="7" fill="#23373B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from &lt;a href="https://www.aeaweb.org/articles?id=10.1257/aer.20240137"&gt;Callaway, Goodman-Bacon, and Sant'Anna&lt;/a&gt;, Figure 3.&lt;/div&gt;
+&lt;/div&gt;
+
+???
+
+Step 2 of 4. Under ordinary parallel trends we recover exactly two points: the low-dose group at its dose, ATT(d|d), on the lower curve, and the high-dose group at its dose, ATT(d′|d′), on the upper curve. Comparing the two groups' outcome changes gives the dotted line joining them; its slope is the naive "effect of one more unit of dose".
+
+---
+
+count: false
+class: compact, tight, steps
+
+# Selection bias across doses, in a picture
+
+.col-text[
+**Setup** — two dose groups:
+
+- group *d* got a low dose; group *d′* a higher one
+- each curve: a group's average effect of dose *l*
+- the groups can respond differently
+
+**We observe** only the two circled points:
+
+- each group at the dose it actually got
+- comparing them gives the &lt;b style="color:#EB811B"&gt;dotted line&lt;/b&gt;
+
+**We want** the effect of the extra dose for group *d′*:
+
+- its move along its own curve: the &lt;b style="color:#1B7F79"&gt;solid segment&lt;/b&gt;
+]
+
+&lt;div class="col-fig"&gt;
+&lt;svg viewBox="0 0 600 370" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="120" y1="330" x2="505" y2="330" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(515,330)" fill="#23373B"/&gt;
+&lt;line x1="120" y1="330" x2="120" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(120,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="520" y="358" font-size="17" text-anchor="end" fill="#23373B"&gt;dose &lt;tspan font-style="italic"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="132" y="24" font-size="17" fill="#23373B"&gt;ATT&lt;/text&gt;
+&lt;text x="260" y="356" font-size="18" font-style="italic" text-anchor="middle" fill="#23373B"&gt;d&lt;/text&gt;
+&lt;text x="410" y="356" font-size="18" font-style="italic" text-anchor="middle" fill="#23373B"&gt;d&amp;#8242;&lt;/text&gt;
+&lt;polyline points="120,330 125,207 140,183 155,166 170,153 185,142 200,133 215,125 230,118 245,111 260,105 275,99 290,94 305,89 320,84 335,80 350,75 365,71 380,67 395,64 410,60 425,57 440,53 455,50 470,47 485,44" fill="none" stroke="#4A6B8A" stroke-width="2.5"/&gt;
+&lt;polyline points="120,330 125,302 140,290 155,281 170,273 185,266 200,260 215,255 230,250 245,245 260,240 275,236 290,231 305,227 320,224 335,220 350,216 365,213 380,209 395,206 410,203 425,200 440,197 455,194 470,191 485,188" fill="none" stroke="#9DB3C6" stroke-width="2.5"/&gt;
+&lt;text x="492" y="48" font-size="17" fill="#4A6B8A"&gt;group &lt;tspan font-style="italic"&gt;d&amp;#8242;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="492" y="192" font-size="17" fill="#7D96AB"&gt;group &lt;tspan font-style="italic"&gt;d&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="120" y1="240" x2="260" y2="240" stroke="#999" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="120" y1="60" x2="410" y2="60" stroke="#999" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;text x="112" y="245" font-size="15" text-anchor="end" fill="#23373B" font-style="italic"&gt;ATT(d|d)&lt;/text&gt;
+&lt;text x="112" y="65" font-size="15" text-anchor="end" fill="#23373B" font-style="italic"&gt;ATT(d&amp;#8242;|d&amp;#8242;)&lt;/text&gt;
+&lt;line x1="260" y1="240" x2="410" y2="60" stroke="#EB811B" stroke-width="3.5" stroke-dasharray="9 6"/&gt;
+&lt;circle cx="260" cy="240" r="7" fill="#23373B"/&gt;
+&lt;circle cx="410" cy="60" r="7" fill="#23373B"/&gt;
+&lt;line x1="120" y1="105" x2="260" y2="105" stroke="#999" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;text x="112" y="110" font-size="15" text-anchor="end" fill="#23373B" font-style="italic"&gt;ATT(d|d&amp;#8242;)&lt;/text&gt;
+&lt;polyline points="260,105 275,99 290,94 305,89 320,84 335,80 350,75 365,71 380,67 395,64 410,60" fill="none" stroke="#1B7F79" stroke-width="6"/&gt;
+&lt;circle cx="260" cy="105" r="7" fill="#FAFAFA" stroke="#1B7F79" stroke-width="3"/&gt;
+&lt;circle cx="260" cy="240" r="7" fill="#23373B"/&gt;
+&lt;circle cx="410" cy="60" r="7" fill="#23373B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from &lt;a href="https://www.aeaweb.org/articles?id=10.1257/aer.20240137"&gt;Callaway, Goodman-Bacon, and Sant'Anna&lt;/a&gt;, Figure 3.&lt;/div&gt;
+&lt;/div&gt;
+
+???
+
+Step 3 of 4. The causal response we want for the high-dose group, ACRT(d′|d′), is the effect of moving THEM from dose d to dose d′ — along their own (upper) curve. Its starting point, ATT(d|d′), is drawn hollow because it is never observed: no unit in group d′ received dose d.
+
+---
+
+count: false
+class: compact, tight, steps
+
+# Selection bias across doses, in a picture
+
+.col-text[
+**Setup** — two dose groups:
+
+- group *d* got a low dose; group *d′* a higher one
+- each curve: a group's average effect of dose *l*
+- the groups can respond differently
+
+**We observe** only the two circled points:
+
+- each group at the dose it actually got
+- comparing them gives the &lt;b style="color:#EB811B"&gt;dotted line&lt;/b&gt;
+
+**We want** the effect of the extra dose for group *d′*:
+
+- its move along its own curve: the &lt;b style="color:#1B7F79"&gt;solid segment&lt;/b&gt;
+
+**They differ** by the &lt;b style="color:#C0392B"&gt;gap between the curves&lt;/b&gt; at *d*:
+
+- how much more group *d′* gains from the **same** dose
+- this is **selection bias** — and it is never observed
+]
+
+&lt;div class="col-fig"&gt;
+&lt;svg viewBox="0 0 600 370" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="120" y1="330" x2="505" y2="330" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(515,330)" fill="#23373B"/&gt;
+&lt;line x1="120" y1="330" x2="120" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(120,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="520" y="358" font-size="17" text-anchor="end" fill="#23373B"&gt;dose &lt;tspan font-style="italic"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="132" y="24" font-size="17" fill="#23373B"&gt;ATT&lt;/text&gt;
+&lt;text x="260" y="356" font-size="18" font-style="italic" text-anchor="middle" fill="#23373B"&gt;d&lt;/text&gt;
+&lt;text x="410" y="356" font-size="18" font-style="italic" text-anchor="middle" fill="#23373B"&gt;d&amp;#8242;&lt;/text&gt;
+&lt;polyline points="120,330 125,207 140,183 155,166 170,153 185,142 200,133 215,125 230,118 245,111 260,105 275,99 290,94 305,89 320,84 335,80 350,75 365,71 380,67 395,64 410,60 425,57 440,53 455,50 470,47 485,44" fill="none" stroke="#4A6B8A" stroke-width="2.5"/&gt;
+&lt;polyline points="120,330 125,302 140,290 155,281 170,273 185,266 200,260 215,255 230,250 245,245 260,240 275,236 290,231 305,227 320,224 335,220 350,216 365,213 380,209 395,206 410,203 425,200 440,197 455,194 470,191 485,188" fill="none" stroke="#9DB3C6" stroke-width="2.5"/&gt;
+&lt;text x="492" y="48" font-size="17" fill="#4A6B8A"&gt;group &lt;tspan font-style="italic"&gt;d&amp;#8242;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="492" y="192" font-size="17" fill="#7D96AB"&gt;group &lt;tspan font-style="italic"&gt;d&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="120" y1="240" x2="260" y2="240" stroke="#999" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="120" y1="60" x2="410" y2="60" stroke="#999" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;text x="112" y="245" font-size="15" text-anchor="end" fill="#23373B" font-style="italic"&gt;ATT(d|d)&lt;/text&gt;
+&lt;text x="112" y="65" font-size="15" text-anchor="end" fill="#23373B" font-style="italic"&gt;ATT(d&amp;#8242;|d&amp;#8242;)&lt;/text&gt;
+&lt;line x1="260" y1="240" x2="410" y2="60" stroke="#EB811B" stroke-width="3.5" stroke-dasharray="9 6"/&gt;
+&lt;circle cx="260" cy="240" r="7" fill="#23373B"/&gt;
+&lt;circle cx="410" cy="60" r="7" fill="#23373B"/&gt;
+&lt;line x1="120" y1="105" x2="260" y2="105" stroke="#999" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;text x="112" y="110" font-size="15" text-anchor="end" fill="#23373B" font-style="italic"&gt;ATT(d|d&amp;#8242;)&lt;/text&gt;
+&lt;polyline points="260,105 275,99 290,94 305,89 320,84 335,80 350,75 365,71 380,67 395,64 410,60" fill="none" stroke="#1B7F79" stroke-width="6"/&gt;
+&lt;circle cx="260" cy="105" r="7" fill="#FAFAFA" stroke="#1B7F79" stroke-width="3"/&gt;
+&lt;line x1="236" y1="105" x2="236" y2="240" stroke="#C0392B" stroke-width="3.5"/&gt;
+&lt;line x1="228" y1="105" x2="244" y2="105" stroke="#C0392B" stroke-width="3.5"/&gt;
+&lt;line x1="228" y1="240" x2="244" y2="240" stroke="#C0392B" stroke-width="3.5"/&gt;
+&lt;circle cx="260" cy="240" r="7" fill="#23373B"/&gt;
+&lt;circle cx="410" cy="60" r="7" fill="#23373B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from &lt;a href="https://www.aeaweb.org/articles?id=10.1257/aer.20240137"&gt;Callaway, Goodman-Bacon, and Sant'Anna&lt;/a&gt;, Figure 3.&lt;/div&gt;
+&lt;/div&gt;
+
+.takeaway[Strong parallel trends puts both groups on one curve — the gap vanishes, and the dotted line is causal]
+
+???
+
+Step 4 of 4. This is Theorem 3.2 drawn for two doses. The dotted line starts on the lower curve and ends on the upper one, so it picks up the extra unit of dose plus the jump between the curves at dose d: [ATT(d′|d′) − ATT(d|d)] / (d′ − d) = ACRT(d′|d′) + [ATT(d|d′) − ATT(d|d)]. The bracketed term — the vertical gap at the lower dose — is how much more the high-dose group would gain from the same dose: selection on gains, the dose analogue of ATT ≠ ATU from Lecture 2. It cannot be corrected for, because the high-dose group is never observed at the low dose. Strong parallel trends assumes ATT(l|d) = ATT(l|d′) for every l — one curve for everyone — so the gap is zero and the across-group comparison is the causal slope.
+
+---
+
+# What does TWFE estimate with a dose?
+
+TWFE, `\(Y_{it} = \theta_t + \eta_i + \beta^{twfe} D_i \times Post_t + v_{it}\)`, reports **one slope** for all doses.
+
+--
+
+CGS (Theorem 3.4) show that this slope averages the **slopes at each dose**:
+
+`$$\beta^{twfe} = \sum_{l} \underbrace{w(l)}_{\text{weight}} \times \underbrace{ACRT(l \mid l)}_{\text{slope at dose } l} \; + \; \text{selection bias}$$`
+
+--
+
+- **selection bias**: the term from the last slide — strong parallel trends removes it
+
+--
+
+- **the weights**: positive and summing to one, but set by the regression, not by us
+
+  - they peak at the mean dose instead of following the dose distribution
+  - they shift when untreated units are added or dropped
+
+--
+
+.takeaway[Even under strong parallel trends, TWFE's slope is an average with weights nobody chose]
+
+???
+
+The equation is schematic — the paper's version is an integral over doses plus a term for the jump from zero to the lowest dose. This is their "causal response decomposition" (Theorem 3.4a); it is the reading that matters for the Medicare example, where TWFE is compared with the dose-weighted average of the same slopes.
+
+Technical detail for questions, from CGS Theorem 3.4 and Table 1. The levels decomposition (Theorem 3.4b) is a second reading of the same coefficient, left off the slide to keep one story.
+
+Their Table 1 gives the weights. As slopes (Theorem 3.4a): weight on dose l is (E[D | D &gt;= l] - E[D]) P(D &gt;= l) / Var(D) — non-negative and integrating to one (this builds on Yitzhaki 1996), largest at the mean dose, and it depends on the whole dose distribution including the untreated mass. Under strong parallel trends the selection-bias term vanishes, so TWFE is then "weakly causal", but it still averages the slopes with weights nobody chose.
+
+The untreated group's weight in the levels decomposition is w_0^lev = -E[D] P(D = 0) / Var(D), so the positive weights above the mean exactly offset the negative weights below it plus the untreated weight: beta^twfe is not an average level effect at all. It behaves like a Wald ratio (their Equation 3.1): a distance-weighted comparison of above-mean with below-mean units, divided by their weighted dose gap — so it also changes with the units of D (recode the dose from 0-1 to 0-100 and TWFE falls a hundredfold, while ATT^loc does not move). The scaled-levels decomposition, ATT(l|l)/l as building blocks, has weights that sum to one but are still negative below the mean; the scaled 2x2 decomposition has positive weights, but each 2x2 comparison mixes causal effects with selection bias. The randomized-dose remark matters for students who will run dose-response regressions on experimental data: the problem is summarizing a nonlinear, heterogeneous dose-response with one linear coefficient, not DiD as such.
+
+---
+
+class: compact, tight
+
+# The Medicare example: what did the reform do?
+
+&lt;a href="https://doi.org/10.1086/595014"&gt;Acemoglu and Finkelstein (2008)&lt;/a&gt;: before 1983, Medicare paid a share of hospitals' labor **and** capital costs
+
+--
+
+- in 1983, its new payment system dropped the labor subsidy but **kept the capital subsidy**
+
+- dose = a hospital's **Medicare share**: the higher it is, the cheaper capital became relative to labor
+
+- outcome: the **capital–labor ratio** (measured by the depreciation share)
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/cgs_att_medicare.png" style="width: 40%; max-width: 420px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://www.aeaweb.org/articles?id=10.1257/aer.20240137"&gt;Callaway, Goodman-Bacon, and Sant'Anna&lt;/a&gt;, Figure 5: the effect at each dose, with the dose histogram (yellow). The axis label "Medicaid" is a typo in the paper.]
+
+--
+
+- **Levels**: positive for 96% of treated hospitals; on average **+0.80** (s.e. 0.05), about 18% of the 1983 mean
+
+- **Slopes**: the curve rises, then flattens and falls — most hospitals sit where more exposure adds little
+
+???
+
+The setting: before 1983, Medicare reimbursed each hospital for a share of its labor and capital costs equal to its Medicare patient share, so relative input prices were undistorted. The Prospective Payment System ended the labor subsidy but kept the capital subsidy, so capital became cheaper relative to labor — and more so the higher the hospital's Medicare share. That is why the Medicare share is a dose, and why theory predicts more exposure means more capital-intensive hospitals. CGS use 5,881 hospitals, averaging 1980-83 as "pre" and 1984-86 as "post".
+
+Read the figure in two steps, matching our two questions. Levels: the curve is ATT(m|m), the effect of the reform at each dose for hospitals with that dose, estimated nonparametrically with honest uniform bands. It is significantly positive for doses between 0.05 and 0.78, which contain 96 percent of treated hospitals; the average over treated hospitals, ATT^loc, is 0.80 (s.e. 0.05), about 18 percent of the 1983 mean depreciation share of 4.5. So the reform worked, confirming AF, and this only needs ordinary parallel trends — a binary DiD of treated versus untreated hospitals gives it. Slopes: the curve rises steeply at low doses and then flattens and declines; the yellow histogram shows most hospitals are in the flat-to-declining region. Its derivative — the ACRT, if strong parallel trends holds — is positive at low doses and negative above m = 0.41, where 71 percent of treated hospitals are, although the uniform band for the slope covers zero everywhere. Note the axis label reads "Medicaid"; the dose is the Medicare inpatient share, as in the text of the paper.
+
+---
+
+class: compact, tight
+
+# The Medicare example: what does TWFE say?
+
+TWFE summarizes all of this in **one slope**: **1.14** per unit of Medicare share
+
+--
+
+- average the same slopes over where hospitals actually are: **−0.08** (s.e. 0.19)
+
+- same slopes, different answers — the whole gap comes from the **weights**:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/cgs_twfe_weights.png" style="width: 40%; max-width: 420px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://www.aeaweb.org/articles?id=10.1257/aer.20240137"&gt;Callaway, Goodman-Bacon, and Sant'Anna&lt;/a&gt;, Figure 7. Solid: where treated hospitals are; dotted: TWFE's weights on slopes; dashed: its weights on levels (not needed here).]
+
+--
+
+- most hospitals (solid) have doses of 0.4–0.6, where the effect curve is flat or falling
+
+- TWFE's weights (dotted) lean on low doses, where the curve is steep — hence its large slope
+
+- drop the untreated hospitals: the slopes are unchanged, yet TWFE falls by **78%**
+
+--
+
+- caveat: reading the slopes causally needs strong parallel trends, which the authors doubt here
+
+--
+
+.takeaway[The reform raised capital use — but TWFE's 1.14 is not the average effect of more exposure]
+
+???
+
+The logic in order. (1) Theorem 3.4 says TWFE is an average of the slopes at each dose with the regression's own weights. (2) Averaging the SAME estimated slopes (Figure 9 in the paper) with the dose distribution gives ACRT^glob = -0.08 (s.e. 0.19); with TWFE's weights it gives 1.14. In the authors' words, "the difference between these estimates is fully driven by differences in the weighting scheme." (3) Why so different: look at the figure. Below the mean dose the dotted TWFE weights are several times the solid density — TWFE leans on low doses, where the dose-response on the previous slide is steep; most hospitals sit at 0.4-0.6, where the curve is flat or falling. (4) The 78 percent drop when untreated hospitals are removed is the tell: the slopes do not change, only the weights. So 1.14 is not "what one more unit of exposure does for the typical hospital". (5) Caveat, and it is the authors' own: negative slopes at high doses contradict the simple production model, and pre-trends reject in 1981, which casts doubt on strong parallel trends; so the slope estimates should be read cautiously. The robust conclusions are the level effect (the reform raised capital intensity) and the negative one (TWFE's slope is not an interpretable summary). An aside if asked: Acemoglu and Finkelstein themselves read their coefficient (1.129) as a level effect for the average hospital, 1.129 x 0.38 = 0.42; CGS show TWFE happens to land near ATT^loc only because two biases offset, and recoding the dose from 0-1 to 0-100 divides TWFE by 100 while ATT^loc does not change.
+
+---
+
+# Continuous DiD in practice: what should researchers do?
+
+- **Name the target first**: a level or a slope? They need different assumptions
+
+--
+
+- **Level summary**: a binary DiD with `\(1\{D_i &gt; 0\}\)` as the treatment gives `\(ATT^{loc}\)` under parallel trends
+
+- **Dose-response**: estimate `\(E[\Delta Y \mid D = d]\)` flexibly (data-driven splines), minus the untreated change
+  - report uniform confidence bands, and event-study versions to inspect pre-trends
+
+--
+
+- **Slopes**: differentiate that curve and average over the dose distribution to get `\(ACRT^{glob}\)` — needs strong PT
+  - check the implied slopes against theory: in the Medicare case, negative slopes cast doubt on strong PT
+
+--
+
+- **No untreated units?** Comparing with the lowest dose needs strong PT — as in Gruber, Lin, and Yi
+
+--
+
+- all of this is in the R package &lt;a href="https://cran.r-project.org/package=contdid"&gt;**contdid**&lt;/a&gt;: `cont_did()` with `target_parameter = "level"` or `"slope"`
+
+--
+
+.takeaway[Choose the parameter, then the assumption, then the estimator — not TWFE by default]
+
+???
+
+Source: Callaway, Goodman-Bacon, and Sant'Anna, "Difference-in-Differences with a Continuous Treatment", forthcoming in the American Economic Review (10.1257/aer.20240137; accepted draft dated 4 May 2026, in the Week 3 readings folder). Their approach is "forward engineering": state the target parameter and the assumption first, then build the estimator — the opposite of running TWFE and asking afterwards what it means. The recipe, from their Section 4. (1) Level summary: under ordinary parallel trends, ATT^loc = E[dY | D &gt; 0] - E[dY | D = 0], so regress the outcome change on a dummy for any positive dose — a plain binary DiD, valid for continuous or multi-valued doses. (2) The dose-response curve ATT(d|d): estimate E[dY | D = d] among treated units with a flexible regression — they adapt the data-driven sieve (B-spline) estimator of Chen, Christensen, and Kankanala (2025), which also delivers honest uniform confidence bands — and subtract the untreated mean change. With a few discrete doses this is just a regression on dose dummies. (3) Slopes: the derivative of that curve gives ACRT(d); averaging it over the treated dose density gives ACRT^glob. This needs strong parallel trends; under ordinary parallel trends, do NOT read derivatives of the estimated ATT curve as causal responses. (4) Event-study versions of both summaries are available and are how you inspect pre-trends — but remember pre-trends cannot distinguish PT from strong PT. (5) Treat implausible slopes as evidence: in the Medicare case, negative ACRTs at most doses contradict the production model and cast doubt on strong PT, so they caution against interpreting the slopes. Without untreated units (their Remark 3.1), compare with the lowest-dose group; then even the level contrast ATT(d|d) - ATT(dL|dL) mixes in selection, so causal readings need strong PT — this is GLY's situation. Software: the R package contdid (CRAN) implements all of this: cont_did(yname, tname, idname, dname, gname, data, target_parameter = "level" or "slope", aggregation = "dose" or "eventstudy", treatment_type = "continuous" or "discrete", control_group), with ggcont_did() for plots; it handles staggered adoption. It is young (version 0.1.x), so check results against a simple binary DiD. Related Stata/R tools from de Chaisemartin and co-authors target different parameters: did_multiplegt_stat for continuous treatments with "stayers", and did_had (R: DIDHAD) for heterogeneous-adoption designs where every unit gets some dose.
+
+---
+
+class: compact
+
+# Software for heterogeneity-robust DiD
+
+| Method | R | Stata |
+|:-------|:--|:------|
+| &lt;a href="https://doi.org/10.1016/j.jeconom.2020.12.001"&gt;Callaway and Sant'Anna (2021)&lt;/a&gt; | `did` | `csdid` |
+| &lt;a href="https://doi.org/10.1016/j.jeconom.2020.09.006"&gt;Sun and Abraham (2021)&lt;/a&gt; | `fixest` (`sunab()`) | `eventstudyinteract` |
+| &lt;a href="https://doi.org/10.1162/rest_a_01414"&gt;de Chaisemartin and d'Haultfoeuille (2024)&lt;/a&gt; | `DIDmultiplegtDYN` | `did_multiplegt_dyn` |
+| &lt;a href="https://doi.org/10.1093/restud/rdae007"&gt;Borusyak, Jaravel, and Spiess (2024)&lt;/a&gt; | `didimputation` | `did_imputation` |
+| Continuous dose: &lt;a href="https://www.aeaweb.org/articles?id=10.1257/aer.20240137"&gt;Callaway, Goodman-Bacon, and Sant'Anna&lt;/a&gt; | `contdid` | — |
+| Dose with no untreated units: de Chaisemartin et al. | `DIDHAD` | `did_had` |
+| Diagnostics: &lt;a href="https://doi.org/10.1016/j.jeconom.2021.03.014"&gt;Goodman-Bacon (2021)&lt;/a&gt; decomposition | `bacondecomp` | `bacondecomp` |
+| Covariates: &lt;a href="https://doi.org/10.1016/j.jeconom.2020.06.003"&gt;Sant'Anna and Zhao (2020)&lt;/a&gt; doubly robust | `DRDID` | `drdid` |
+| Sensitivity: &lt;a href="https://doi.org/10.1093/restud/rdad018"&gt;Rambachan and Roth (2023)&lt;/a&gt; | `HonestDiD` | `honestdid` |
+
+.source[Based on &lt;a href="https://doi.org/10.1016/j.jeconom.2023.03.008"&gt;Roth et al. (2023)&lt;/a&gt;, Table 2, and &lt;a href="https://asjadnaqvi.github.io/DiD/"&gt;Asjad Naqvi's DiD repository&lt;/a&gt;, which keeps a longer, current list.]
+
+--
+
+.takeaway[The estimators are one command away — the hard part is choosing the comparison and the parameter]
+
+???
+
+Names follow Roth et al. Table 2; the newer ones (contdid, DIDHAD/did_had, DIDmultiplegtDYN) were checked on CRAN and the authors' pages in September 2026. Practical notes. Callaway-Sant'Anna: did in R (by the authors), csdid in Stata (Rios-Avila, Callaway, and Sant'Anna); Stata 18 and later also has built-in hdidregress/xthdidregress. Sun-Abraham: in R, the sunab() function inside fixest's feols is the easiest route. de Chaisemartin-d'Haultfoeuille: did_multiplegt_dyn replaces their older did_multiplegt and handles non-binary treatments that switch on and off; their twowayfeweights command computes the TWFE weights diagnostic. Borusyak-Jaravel-Spiess: did_imputation (Stata, by Borusyak); didimputation in R (Kyle Butts). Two estimators not on our earlier slide but common in applied work: Gardner's two-stage did2s (R and Stata) and Wooldridge's extended TWFE (etwfe in R, jwdid in Stata). A good habit for students: run two or three of these on the same data and check they agree before trusting any one of them — they differ mainly in the comparison group and in how pre-periods are used.
+
+---
+
+class: inverse, middle
+
+Recent advances in DiD fall into three categories:
+
+- Multiple periods and staggered treatment timing.
+
+- **Relaxing or allowing violations of parallel trends**.
+
+- Alternative frameworks for inference (few clusters, design-based).
+
+---
+
+class: tight
+
+# Relaxing parallel trends: conditioning on covariates
+
+Parallel trends may be plausible only **conditional on covariates**:
+
+`$$Y_{it} = \alpha_i + \gamma_t + \sum_{k\neq -1} D_{it}^k \beta_k + (X_i \times \gamma_t)'\phi + \varepsilon_{it}$$`
+
+- we also need **overlap**: treated units must have untreated counterparts with similar `\(X_i\)`
+
+- but this regression is consistent only if effects do not vary with `\(X_i\)`
+  - prefer doubly robust DiD (&lt;a href="https://doi.org/10.1016/j.jeconom.2020.06.003"&gt;Sant'Anna and Zhao 2020&lt;/a&gt;)
+
+--
+
+Caveats:
+
+- `\(X_i\)` must be measured **before** treatment, so that it cannot be affected by it
+
+- controlling for a variable affected by treatment is the **bad control** problem — it introduces bias
+
+  - the same issue arises with time-varying controls `\(X_{i,t}\)` that respond to treatment
+
+--
+
+- control for pre-treatment **outcomes** only if treatment is as good as random given them
+  - that is *conditional unconfoundedness* — a selection-on-observables design, not DiD
+
+---
+
+# Key issues with testing for pre-trends
+
+Pre-trend tests are the natural check on parallel trends — but they have limits.
+
+--
+
+- Parallel **pre**-trends do not imply parallel **counterfactual post**-trends
+
+  - for example, if other policies change at the same time as the one of interest
+
+--
+
+- Even with real differences in trends, pre-tests may fail to reject because of **low power**
+
+--
+
+- **Pre-testing distortions**: conditioning on passing the pre-test is itself a selection of the data
+  - it can distort both estimation and inference
+
+---
+
+# Pre-trends issue: low power
+
+&lt;a href="https://doi.org/10.1257/app.20160079"&gt;He and Wang (2017)&lt;/a&gt; study the impact of placing college graduates as village officials in China.
+
+--
+
+They use an event-study approach, comparing treated to untreated villages:
+
+`$$Y_{it} = \alpha_i + \gamma_t + \sum_{k\neq -1} D_{it}^k \beta_k +  \varepsilon_{it}$$`
+
+--
+
+They report estimated coefficients `\(\hat{\beta}_k\)` for `\(k\neq -1\)`:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-base.png" style="width: 82%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Pre-trends issue: low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-base.png" style="width: 82%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+.detail["The estimated coefficients on the leads of treatment ... are **statistically indifferent from 0**.
+... We conclude that **the pretreatment trends in the outcomes in both groups of villages are similar**,
+and villages without CGVOs **can serve as a suitable control group** for villages with CGVOs in the treatment period."]
+
+---
+
+# Pre-trends issue: low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-ZeroDots.png" style="width: 82%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+P-value for `\(H_0: \beta_{pre} =\)` &lt;span style="color: green;"&gt;green dots&lt;/span&gt; (no pre-trend): 0.81
+
+---
+
+# Pre-trends issue: low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-RedDots.png" style="width: 82%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+P-value for `\(H_0: \beta_{pre} =\)` &lt;span style="color: red;"&gt;red dots&lt;/span&gt;: 0.81
+
+---
+
+# Pre-trends issue: low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-RedTrend.png" style="width: 82%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+P-value for `\(H_0: \beta_{pre} =\)` &lt;span style="color: red;"&gt;red dots&lt;/span&gt;: 0.81
+
+---
+
+# Pre-trends issue: low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-BlueDots.png" style="width: 82%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+P-value for `\(H_0: \beta_{pre} =\)` &lt;span style="color: blue;"&gt;blue dots&lt;/span&gt;: 0.81
+
+---
+
+# Pre-trends issue: low power
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/HeAndWang-BlueTrend.png" style="width: 82%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+P-value for `\(H_0: \beta_{pre} =\)` &lt;span style="color: blue;"&gt;blue dots&lt;/span&gt;: 0.81
+
+--
+
+We **cannot reject a zero pre-trend**.
+
+But we also **cannot reject pre-trends that would cause substantial bias** if they continued.
+
+---
+
+# More systematic evidence on low power
+
+.fig-left[
+&lt;a href="https://doi.org/10.1257/aeri.20210236"&gt;Roth (2022)&lt;/a&gt; simulates results from 12 papers
+published in *AER*, *AEJ: Applied*, and *AEJ: Policy*.
+
+- he imposes linear trend violations that pre-tests would detect only 50% or 80% of the time
+
+- the implied bias is often as large as the estimated treatment effect, and confidence intervals
+substantially undercover
+]
+
+.fig-right[
+&lt;img src="figures/Roth2022.png" style="width: 100%;" /&gt;
+]
+
+---
+
+# Pre-trends issue: distortions from pre-testing
+
+When parallel trends is violated, we will sometimes fail to find a significant pre-trend.
+
+--
+
+The draws of data where this happens are a **selected sample**.
+
+- this is *pre-test bias*
+
+--
+
+Analyzing only this selected sample can make things worse.
+
+---
+
+# Pre-trends issue: distortions from pre-testing
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/PopulationMeans.png" style="width: 92%; max-width: 620px;" /&gt;
+&lt;/div&gt;
+
+In the population, the treatment has **no effect**, but there is a linear difference in trends with slope 3.
+
+---
+
+# Pre-trends issue: distortions from pre-testing
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/DataDraws_Unhighlighted.png" style="width: 92%; max-width: 620px;" /&gt;
+&lt;/div&gt;
+
+In actual draws of the data, there is noise around this line.
+
+---
+
+# Pre-trends issue: distortions from pre-testing
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/DataDraws_Highlighted.png" style="width: 92%; max-width: 620px;" /&gt;
+&lt;/div&gt;
+
+In some draws (blue), the difference between periods −1 and 0 happens to be insignificant.
+
+---
+
+# Pre-trends issue: distortions from pre-testing
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/PopulationMeans_PopulationAndInsignificant_Annotated.png" style="width: 92%; max-width: 620px;" /&gt;
+&lt;/div&gt;
+
+The insignificant draws tend to **underestimate** the treated-control gap at `\(t=0\)`,
+
+--
+
+so the DiD between periods 0 and 1 tends to be **particularly large** exactly when the pre-test passes.
+
+---
+
+# So what should we do about pre-trends?
+
+Examining pre-trends remains an important diagnostic — but do not stop at an eyeball test.
+
+--
+
+Incorporate robustness to violations of parallel trends into the analysis:
+
+- &lt;a href="https://doi.org/10.1257/aeri.20210236"&gt;Roth (2022)&lt;/a&gt;: check the **power** of your pre-test against violations that would matter for your estimate
+
+  - see the &lt;a href="https://github.com/mcaceresb/stata-pretrends#pretrends"&gt;**pretrends**&lt;/a&gt; package
+
+--
+
+- &lt;a href="https://doi.org/10.1093/restud/rdad018"&gt;Rambachan and Roth (2023)&lt;/a&gt;: report how conclusions change under limited violations
+of parallel trends
+
+  - see the &lt;a href="https://github.com/mcaceresb/stata-honestdid#honestdid"&gt;**HonestDiD**&lt;/a&gt; package
+
+--
+
+.takeaway[An insignificant pre-test is weak evidence of parallel trends — report power and sensitivity]
+
+---
+
+name: inf
+class: inverse, middle
+
+Recent advances in DiD fall into three categories:
+
+- Multiple periods and staggered treatment timing.
+
+- Relaxing or allowing violations of parallel trends.
+
+- **Alternative frameworks for inference** (few clusters, design-based).
+
+---
+
+class: compact
+
+# Clustering: whether, and at what level
+
+The usual rationale: units in the same village, state, or industry co-move, so residuals are correlated.
+
+--
+
+But residual correlation is not itself a reason to cluster.
+&lt;a href="https://doi.org/10.1093/qje/qjac038"&gt;Abadie et al. (2023)&lt;/a&gt;: cluster by **design**, for one of two reasons:
+
+- a **sampling** reason: you drew clusters (villages), not individuals, from the population
+
+- an **assignment** reason: treatment was assigned at the cluster level
+
+--
+
+And cluster at the level where **treatment varies**:
+
+- &lt;a href="https://doi.org/10.1162/003355304772839588"&gt;Bertrand, Duflo, and Mullainathan (2004)&lt;/a&gt;: the level of policy variation — not the firm when policy is set by industry
+
+- in experiments, the level of **randomization**
+  - paired or small-strata designs: at the **pair** (&lt;a href="https://doi.org/10.1257/app.20210252"&gt;de Chaisemartin and Ramirez-Cuellar 2024&lt;/a&gt;)
+
+--
+
+.takeaway[Cluster by design: where the sample was drawn and where treatment varies]
+
+---
+
+# Inference with a small number of clusters
+
+Cluster-robust standard errors are an asymptotic device: they need many treated **and** many untreated clusters.
+
+--
+
+- with few clusters — above all, few **treated** clusters — conventional clustered SEs can severely over-reject
+
+--
+
+Options with few clusters:
+
+--
+
+- **cluster wild bootstrap** (&lt;a href="https://doi.org/10.1162/rest.90.3.414"&gt;Cameron, Gelbach, and Miller 2008&lt;/a&gt;): unreliable with few *treated* clusters
+
+  - and valid only under homogeneous effects (&lt;a href="https://doi.org/10.1162/rest_a_00887"&gt;Canay, Santos, and Shaikh 2021&lt;/a&gt;)
+
+--
+
+- **permutation (Fisher) tests**: re-assign treatment across clusters; how extreme is the real estimate?
+  - valid only if treatment could as plausibly have gone to any cluster
+
+--
+
+Guides: &lt;a href="https://doi.org/10.3368/jhr.50.2.317"&gt;Cameron and Miller (2015)&lt;/a&gt;;
+&lt;a href="https://doi.org/10.1016/j.jeconom.2022.04.001"&gt;MacKinnon, Nielsen, and Webb (2023)&lt;/a&gt;;
+&lt;a href="https://hgmn.github.io/"&gt;Andreas Hagemann&lt;/a&gt;'s work.
+
+---
+
+# A checklist for DiD practitioners
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/didchecklist.png" style="width: 84%; max-width: 750px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1016/j.jeconom.2023.03.008"&gt;Roth, Sant'Anna, Bilinski, and Poe (2023)&lt;/a&gt;, Table 1.]
+
+---
+
+name: gly
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  DiD in practice: "The largest insurance program in history: &lt;br&gt;
+  Saving one million lives per year in China" &lt;br&gt;
+  by &lt;a href="https://doi.org/10.1016/j.jpubeco.2023.104999"&gt;Gruber, Lin, and Yi (2023)&lt;/a&gt;
+&lt;/div&gt;
+
+---
+
+class: compact
+
+# GLY (2023): motivation and question
+
+.fig-left[
+**Motivation**: in the 1950s, China's Cooperative Medical Scheme covered over 90% of rural residents.
+
+- it collapsed after 1979; rural insurance coverage was near zero through the 1990s
+
+In 2003, China launched the **New Cooperative Medical Scheme (NCMS)**:
+
+- administered county by county (about 2,800 counties); by 2010 it enrolled **88% of rural China**
+
+- about **800 million people** — the largest insurance expansion in modern history
+]
+
+.fig-right[
+&lt;img src="figures/did_ncms.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1016/j.jpubeco.2023.104999"&gt;Gruber, Lin, and Yi (2023)&lt;/a&gt;.]
+]
+
+--
+
+&lt;div style="clear: both; padding-top: 10px;"&gt;&lt;b&gt;The question&lt;/b&gt;: did NCMS improve health — and by how much?&lt;/div&gt;
+
+---
+
+# GLY (2023): what they do, and what they find
+
+**What they do**: combine aggregate county mortality data with individual survey data,
+
+- exploiting **when** counties adopted NCMS and **where** it mattered more (agricultural share)
+
+--
+
+**What they find**:
+
+- by 2010, NCMS reduced mortality rates by **12%** and raised life expectancy by **2.7%**
+
+--
+
+- among the enrolled, mortality fell by about **19%**
+
+--
+
+- since 2008, the program saves **more than one million lives per year**
+
+--
+
+- it explains **78%** of China's life-expectancy gains between 2003 and 2010
+
+--
+
+- the cost per life saved is about **66,000 RMB (US$9,800)** — far below values of a statistical life
+
+--
+
+.takeaway[Enormous mortality benefits, at remarkably low cost]
+
+---
+
+# GLY (2023): setting and data
+
+.discuss[
+**Discussion** — what is the unit of observation? What are the key variables, and how are they constructed?
+]
+
+--
+
+**County-level analysis** (intent-to-treat):
+
+- China 2000 Population Census: share of the population with agricultural *Hukou* in each county
+
+- Death Surveillance Points data 2004–2010: age-adjusted mortality rates, life expectancy at birth
+
+--
+
+**Individual-level analysis** (treatment on the treated):
+
+- Chinese Longitudinal Healthy Longevity Survey: ages 65–110, 1998–2014
+
+- China Health and Nutrition Survey 2000–2011: health status, utilization, out-of-pocket spending
+
+--
+
+**What about migration?** Eligibility is tied to agricultural *Hukou*, so sorting across counties
+is limited.
+
+???
+
+Unit of observation: county-year in the aggregate analysis; individual-year in the survey analysis. The key treatment variable combines county adoption timing with the 2000 agricultural population share — exposure is proportional to the eligible share. Mortality outcomes are age-adjusted death rates and life expectancy from the Death Surveillance Points system.
+
+---
+
+# GLY (2023): why not a simple DiD?
+
+The natural design: compare counties that adopted NCMS at different times
+
+`$$Y_{ct} = \alpha_1 Post_{ct} + \delta_c + \delta_t + \varepsilon_{ct}$$`
+
+--
+
+But adoption timing was **not random** — it is strongly correlated with county characteristics:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_ovb.png" style="width: 80%; max-width: 640px;" /&gt;
+&lt;/div&gt;
+
+--
+
+- comparing early with late adopters is biased if these counties sit on different health trajectories
+
+---
+
+# GLY (2023): ...and the pre-trends are visibly not parallel
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_pt_violated.png" style="width: 82%; max-width: 660px;" /&gt;
+&lt;/div&gt;
+
+--
+
+.discuss[
+**Discussion** — which of the fixes we just saw could rescue this design? What variation is left?
+]
+
+--
+
+**Use a second dimension**: compare counties adopting at the *same* time but with different *exposure*
+
+???
+
+Full answer: conditioning on covariates alone is unlikely to fix trends this divergent, and heterogeneity-robust estimators fix the comparison, not the trend violation. The authors' solution is a triple-difference logic: within a set of counties that adopt in the same year, compare high- versus low-agricultural-share counties, so that adoption timing itself is absorbed by fixed effects.
+
+---
+
+# GLY (2023): the solution — exposure by timing
+
+Compare counties that adopted at the **same time** but differ in **agricultural share** (exposure):
+
+`$$\begin{aligned}
+Y_{cpt} = {} &amp; \alpha_0 + \alpha_1\, AgriShare_{c,2000} \times Post_{ct} \\
+&amp; + AgriShare_{c,2000} \times \delta_t + X_{ct}'\alpha + \delta_c + \delta_{pt} + \delta_{t_c^0, t} + \delta_c \times t + \varepsilon_{cpt}
+\end{aligned}$$`
+
+--
+
+**Identification assumption**: absent the reform, high- and low-share counties would have trended alike
+
+- within each adoption cohort, whatever its timing
+
+--
+
+- exposure is a **dose** and no county has zero share — so the assumption above is not enough:
+  - high- vs. low-share comparisons mix the effect of more exposure with selection bias
+  - reading `\(\alpha_1\)` as that effect needs **strong parallel trends**
+
+--
+
+.discuss[
+**Discussion** — what could make this assumption fail?
+]
+
+--
+
+**Anything trending differently in agricultural counties** — e.g., other rural policies on the same schedule
+
+???
+
+Full answer: concurrent rural policies (the 2004–2006 agricultural tax abolition, rural infrastructure programs) that follow NCMS timing and bind more in high-agricultural-share counties; differential exposure to growth or health-care supply expansions; or mean reversion in health outcomes correlated with agricultural share. The timing-by-year fixed effects absorb anything common to an adoption cohort; what remains is the differential trend by exposure.
+
+---
+
+# GLY (2023): validity — conditional parallel trends
+
+Residuals from regressing outcomes on NCMS-timing-by-year effects and county-specific trends:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_pt.png" style="width: 94%; max-width: 780px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**After conditioning**, high- and low-exposure counties track each other before adoption.
+
+---
+
+# GLY (2023): main results
+
+NCMS enrollment significantly reduces mortality rates and improves life expectancy:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_event.png" style="width: 94%; max-width: 780px;" /&gt;
+&lt;/div&gt;
+
+--
+
+- robust to &lt;a href="https://doi.org/10.1257/aer.20181169"&gt;de Chaisemartin and d'Haultfoeuille&lt;/a&gt;'s heterogeneity-robust estimator
+
+---
+
+# GLY (2023): inference — a permutation test
+
+The estimated effects are a *rare event* under the null:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/did_permutation.png" style="width: 94%; max-width: 780px;" /&gt;
+&lt;/div&gt;
+
+--
+
+- re-assign the NCMS rollout at random, re-estimate, and see where the actual estimate falls
+
+---
+
+# GLY (2023): takeaways
+
+- **Design**: when adoption timing is endogenous, find a second dimension of variation
+
+  - here, exposure (agricultural share) by timing
+
+--
+
+- **Validity**: show the threat honestly (raw pre-trends are not parallel), then show the fix works
+
+--
+
+- **Inference**: cluster where the policy varies; add a permutation test when in doubt
+
+--
+
+- **Magnitudes**: translate coefficients into policy quantities — lives saved per year, cost per life saved
+
+---
+
+name: rd
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Regression Discontinuity (RD)
+&lt;/div&gt;
+
+---
+
+# Regression discontinuity (RD)
+
+RD applies only in specific settings — but there, it is among the most credible designs.
+
+--
+
+Suppose we are interested in the effect of selective college enrollment on labor market outcomes.
+
+--
+
+**Can we just compare people enrolled in selective colleges with people who are not?**
+
+--
+
+No: **selection** — those who enroll differ from those who do not.
+
+--
+
+But suppose a **cutoff in the entrance exam score** (say, 80) determines admission:
+
+--
+
+- people who fall just on either side of the cutoff should not be so different,
+
+--
+
+- so we can compare outcomes just above and just below the cutoff.
+
+---
+
+# RD components
+
+.fig-left[
+RD requires **three** components: **a score**, **a cutoff**, and a **discontinuous assignment rule**.
+
+- every unit has a value of the score (the running or forcing variable)
+
+- treatment is assigned only to units whose score exceeds a known cutoff (threshold)
+
+Two types of RD: **sharp** (treatment jumps from 0 to 1) vs. **fuzzy** (the *probability* of
+treatment jumps).
+]
+
+.fig-right[
+&lt;img src="figures/rd1.png" style="width: 100%;" /&gt;
+]
+
+---
+
+# Example: exam ranking and college admission
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rd_example.png" style="width: 90%; max-width: 780px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example: distance to an irrigation boundary (spatial RD)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_border.png" style="width: 84%; max-width: 660px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20210059"&gt;Jones, Kondylis, Loeser, and Magruder (2022)&lt;/a&gt;, Figure 2.]
+
+---
+
+# Example: distance to border and deforestation (spatial RD)
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/rdd_forest.png" style="width: 38%; max-width: 380px;" /&gt;
+  &lt;img src="figures/rdd_forest2.png" style="width: 48%; max-width: 480px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# RD: a local effect
+
+Identification comes only from units **near the cutoff**:
+
+- we estimate the average treatment effect **at the cutoff** — for compliers at the cutoff in a fuzzy RD
+
+--
+
+- it says nothing about effects away from the cutoff; units outside the bandwidth get zero weight
+
+--
+
+- external validity is therefore a real concern
+
+--
+
+.takeaway[RD buys internal validity at the cutoff at the price of external validity away from it]
+
+---
+
+class: compact
+
+# RD estimation
+
+**Sharp RD** — one regression, with `\(Z_i = 1\{X_i \geq c\}\)` the cutoff indicator:
+
+`$$Y_i = \beta_0 + \beta_1 Z_i + f(X_i) + \varepsilon_i$$`
+
+- `\(X_i\)`: running variable; `\(c\)`: cutoff; `\(\beta_1\)`: the RD estimate — the jump in `\(Y\)` at `\(c\)`
+
+- `\(f(X_i)\)`: flexible polynomial in `\((X_i - c)\)`, separate slopes each side; sharp design: `\(D_i = Z_i\)`
+
+--
+
+**Fuzzy RD** — treatment `\(D_i\)` is not fixed by the cutoff, so instrument `\(D_i\)` with `\(Z_i\)`:
+
+`$$D_i = \gamma_0 + \gamma_1 Z_i + f(X_i) + \nu_i \quad \text{(first stage)}$$`
+`$$Y_i = \beta_0 + \beta_1 \hat{D}_i + f(X_i) + \eta_i \quad \text{(second stage)}$$`
+
+--
+
+Equivalently, run the **reduced form** and divide by the **first stage**:
+
+`$$Y_i = \pi_0 + \pi_1 Z_i + f(X_i) + \varepsilon_i, \qquad \beta_1 = \pi_1 / \gamma_1 \ \text{ (the Wald / LATE ratio)}$$`
+
+---
+
+# RD assumptions
+
+RD requires **continuous average potential outcomes** in the score at the cutoff: only treatment jumps
+
+&lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.004"&gt;Lee (2008)&lt;/a&gt;: if units cannot *precisely* control their score, treatment is as good as randomized near the cutoff.
+
+--
+
+Manipulation around the cutoff can invalidate RD estimates:
+
+- if people can *precisely* control their score around a known cutoff, they sort across it (e.g., retake the exam)
+
+--
+
+Two credibility checks:
+
+- a **balance test**: no RD jump in pre-treatment covariates and outcomes
+
+--
+
+- a **density test** (&lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.005"&gt;McCrary 2008&lt;/a&gt;): no "bunching" of the running variable at the cutoff
+
+---
+
+class: inverse, middle
+
+A checklist for RD papers:
+
+- RD jump visualization
+
+- Balance test
+
+- Bunching test
+
+- Robustness to the choice of estimation procedure, kernel, bandwidth
+
+---
+
+class: inverse, middle
+
+A checklist for RD papers:
+
+- **RD jump visualization**
+
+- Balance test
+
+- Bunching test
+
+- Robustness to the choice of estimation procedure, kernel, bandwidth
+
+---
+
+# Example: RD jump visualization
+
+&lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.004"&gt;Lee (2008)&lt;/a&gt; studies the effect of a Democrat winning on subsequent electoral victory.
+
+- `\(X_i\)`: vote-share margin of victory; `\(D_i = 1\{X_i \geq 0\}\)`: winning the election
+
+- `\(Y_i\)`: subsequent victory (candidacy/vote share) in the next election
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee1.png" style="width: 78%; max-width: 480px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example: RD jump visualization
+
+&lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.004"&gt;Lee (2008)&lt;/a&gt; studies the effect of a Democrat winning on subsequent electoral victory.
+
+- `\(X_i\)`: vote-share margin of victory; `\(D_i = 1\{X_i \geq 0\}\)`: winning the election
+
+- `\(Y_i\)`: subsequent victory (candidacy/vote share) in the next election
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee2.png" style="width: 78%; max-width: 480px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example: RD jump visualization
+
+&lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.004"&gt;Lee (2008)&lt;/a&gt; studies the effect of a Democrat winning on subsequent electoral victory.
+
+- `\(X_i\)`: vote-share margin of victory; `\(D_i = 1\{X_i \geq 0\}\)`: winning the election
+
+- `\(Y_i\)`: subsequent victory (candidacy/vote share) in the next election
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee22.png" style="width: 78%; max-width: 480px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example: RD jump visualization
+
+&lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.004"&gt;Lee (2008)&lt;/a&gt; studies the effect of a Democrat winning on subsequent electoral victory.
+
+- `\(X_i\)`: vote-share margin of victory; `\(D_i = 1\{X_i \geq 0\}\)`: winning the election
+
+- `\(Y_i\)`: subsequent victory (candidacy/vote share) in the next election
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee222.png" style="width: 78%; max-width: 480px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# A quick aside on graphical presentation
+
+One of the most powerful aspects of RD is the ability to present the result graphically.
+
+--
+
+But what is the right approach?
+
+--
+
+- raw data are rarely informative
+
+--
+
+- plot **means within bins** of the running variable
+
+--
+
+- the RD jump should be visible across different binning choices
+
+--
+
+- &lt;a href="https://doi.org/10.1093/qje/qjad011"&gt;Korting et al. (2023)&lt;/a&gt;: in experiments, bin width and fit lines drive what readers see
+  - start with small bins and no fit line
+
+---
+
+# Graphical presentation: Lee (2008)
+
+The raw data: there may be a small jump at the cutoff, but it is hard to see.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r1.png" style="width: 82%; max-width: 530px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Graphical presentation: Lee (2008)
+
+The same data, averaged within 0.1 percentage-point bins of the margin.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r2.png" style="width: 82%; max-width: 530px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Graphical presentation: Lee (2008)
+
+The same data, averaged within 0.5 percentage-point bins, Lee's own choice.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r3.png" style="width: 82%; max-width: 530px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Graphical presentation: Lee (2008)
+
+The same data, averaged within 4 percentage-point bins.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_r4.png" style="width: 82%; max-width: 530px;" /&gt;
+&lt;/div&gt;
+
+---
+
+class: inverse, middle
+
+A checklist for RD papers:
+
+- RD jump visualization
+
+- **Balance test**
+
+- Bunching test
+
+- Robustness to the choice of estimation procedure, kernel, bandwidth
+
+---
+
+# Example of a balance test
+
+&lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.004"&gt;Lee (2008)&lt;/a&gt;: there should be **no jump in pre-treatment outcomes** at the cutoff.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee3.png" style="width: 74%; max-width: 440px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example of a balance test
+
+&lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.004"&gt;Lee (2008)&lt;/a&gt;: there should be **no jump in pre-treatment outcomes** at the cutoff.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee4.png" style="width: 74%; max-width: 440px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example of a balance test
+
+&lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.004"&gt;Lee (2008)&lt;/a&gt;: there should be **no jump in pre-treatment outcomes** at the cutoff.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee44.png" style="width: 74%; max-width: 440px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Example of a balance test
+
+&lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.004"&gt;Lee (2008)&lt;/a&gt;: there should be **no jump in pre-treatment outcomes** at the cutoff.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee444.png" style="width: 74%; max-width: 440px;" /&gt;
+&lt;/div&gt;
+
+.detail[See &lt;a href="https://doi.org/10.1093/restud/rdx062"&gt;Canay and Kamat (2018)&lt;/a&gt; for a permutation test of equal covariate distributions at the cutoff.]
+
+---
+
+class: inverse, middle
+
+A checklist for RD papers:
+
+- RD jump visualization
+
+- Balance test
+
+- **Bunching test**
+
+- Robustness to the choice of estimation procedure, kernel, bandwidth
+
+---
+
+# A checklist for RD papers: bunching test
+
+There are two reasons an RD might fail:
+
+- the cutoff is set systematically, so that confounding factors change discontinuously
+
+--
+
+- the running variable is **manipulable**
+
+  - e.g., students retake an exam until they clear the passing grade
+
+--
+
+The balance test catches sorting and pre-existing jumps — but not another policy at the same cutoff.
+
+Manipulation can also show up as **bunching** of the running variable:
+
+- &lt;a href="https://doi.org/10.1016/j.jeconom.2007.05.005"&gt;McCrary (2008)&lt;/a&gt;: test whether the *density* of the running variable jumps at the cutoff
+
+- an improved test (&lt;a href="https://doi.org/10.1080/01621459.2019.1635480"&gt;Cattaneo, Jansson, and Ma 2020&lt;/a&gt;) is in the &lt;a href="https://rdpackages.github.io/rddensity/"&gt;**rddensity**&lt;/a&gt; package for Stata and R
+
+---
+
+# Example of a bunching test
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_bunching.png" style="width: 84%; max-width: 530px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/jel.48.2.281"&gt;Lee and Lemieux (2010)&lt;/a&gt;, Figure 16: density of the Democratic vote-share margin.]
+
+---
+
+class: inverse, middle
+
+A checklist for RD papers:
+
+- RD jump visualization
+
+- Balance test
+
+- Bunching test
+
+- **Robustness** to the choice of estimation procedure, kernel, bandwidth
+
+---
+
+# A checklist for RD papers: robustness
+
+Estimation involves several tuning parameters:
+
+- the estimation procedure, the kernel, and the bandwidth
+
+--
+
+Use the defaults unless you have a good reason not to:
+
+- local linear regression (local quadratic or cubic are also reasonable)
+
+--
+
+- a triangular kernel (highest weight at the cutoff) or a uniform kernel (equal weights)
+
+--
+
+- optimized bandwidths from established procedures — &lt;a href="https://rdpackages.github.io/rdrobust/"&gt;**rdrobust**&lt;/a&gt; by Cattaneo and coauthors
+
+--
+
+- for discrete running variables, the &lt;a href="https://github.com/kolesarm/RDHonest"&gt;**RDHonest**&lt;/a&gt; package
+
+--
+
+Then show robustness to different bandwidths and polynomials, in a table or a figure.
+
+---
+
+# Example of robustness
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_robust.png" style="width: 92%; max-width: 580px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/jel.48.2.281"&gt;Lee and Lemieux (2010)&lt;/a&gt;, Table 2.]
+
+---
+
+# Example of robustness
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/lee_robustfig.png" style="width: 94%; max-width: 620px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/jel.48.2.281"&gt;Lee and Lemieux (2010)&lt;/a&gt;, Figure 18.]
+
+---
+
+name: bp
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  RD in practice: "Out of the darkness and into the light? &lt;br&gt;
+  Development effects of rural electrification" &lt;br&gt;
+  by &lt;a href="https://doi.org/10.1086/730204"&gt;Burlig and Preonas (2024)&lt;/a&gt;
+&lt;/div&gt;
+
+---
+
+# Burlig and Preonas (2024): motivation and question
+
+Nearly **1 billion people** still lack electricity; universal access is projected to cost
+**US$49 billion per year**.
+
+--
+
+Does "last-mile" electrification cause economic development? The evidence is **mixed**:
+
+- seminal studies find large positive effects
+(&lt;a href="https://doi.org/10.1257/aer.101.7.3078"&gt;Dinkelman 2011&lt;/a&gt;; &lt;a href="https://doi.org/10.1257/app.5.2.200"&gt;Lipscomb, Mobarak, and Barham 2013&lt;/a&gt;)
+
+--
+
+- a Kenyan experiment finds rural electrification **welfare-reducing** (&lt;a href="https://doi.org/10.1086/705417"&gt;Lee, Miguel, and Wolfram 2020&lt;/a&gt;)
+
+--
+
+**The setting**: India's flagship program **RGGVY**, launched in 2005, reached over **400,000 villages**.
+
+- by 2011: US$5.45 billion in funds, 17.5 million households newly connected to the grid
+
+--
+
+**The question**: what did village electrification do to electricity access — and to the village economy?
+
+---
+
+# Burlig and Preonas (2024): what they do, and what they find
+
+**What they do**: two complementary designs
+
+- an **RD**: under the first wave, villages were eligible only with a habitation of **300+ people**
+(2001 Census)
+
+- a **DiD**: districts were treated in two waves (10th vs. 11th Five-Year Plan)
+
+--
+
+**What they find**:
+
+- RGGVY **meaningfully expanded electricity access**: connections, hours of supply, household use
+
+--
+
+- but after 3–5 years, economic effects are **precise zeros**: consumption, labor, firms, schooling
+
+--
+
+- scaling up, "full electrification" **reduces welfare in small villages**
+  - but yields a **33% internal rate of return** in large ones
+
+--
+
+.takeaway[The punchline is a null — and because it is precisely estimated, it is just as informative]
+
+---
+
+# Burlig and Preonas (2024): a cutoff you can believe in
+
+Under the 10th Plan, a village was eligible only if a constituent habitation exceeded **300 people**.
+
+- the running variable: **2001 Census** village population
+  - single-habitation villages, so village and habitation population coincide
+
+--
+
+.discuss[
+**Discussion** — eligibility used 2001 populations; RGGVY was announced in 2005. Why does that matter?
+]
+
+--
+
+**No manipulation**: populations were recorded four years before anyone knew a 300-person rule would exist.
+
+--
+
+- unlike exam retaking, nobody could sort across the cutoff
+
+--
+
+- and no other Indian program uses a 300-person threshold (PMGSY roads use 500 and 1,000)
+
+???
+
+Full answer: manipulation requires that agents know the rule and can adjust the running variable. Both fail here — the census predates the program's announcement by four years, and population counts cannot be revised retroactively. This is the cleanest possible answer to the McCrary concern, and the density test below confirms it. The 500/1,000 thresholds of other programs also mean the 300 cutoff is not contaminated by other policies.
+
+---
+
+# Burlig and Preonas (2024): sharp or fuzzy?
+
+The paper calls its design a **sharp RD** — yet power access rises only ~4 pp at the cutoff.
+
+Both are true: "sharp" and "fuzzy" refer to **what we call the treatment**:
+
+--
+
+- treatment = **eligibility**: `\(Z_v\)` jumps from 0 to 1 at 300 *by rule* → a **sharp** RD, and `\(\beta_1\)` is an **ITT**
+
+--
+
+- treatment = **electrification**: it rises only ~4 pp at 300 → a **fuzzy** RD; instrument it with `\(Z_v\)` → a **LATE**
+
+--
+
+As in an RCT with imperfect compliance: an ITT for assignment, IV for compliers.
+
+--
+
+.takeaway[Eligibility is sharp (an ITT), take-up is fuzzy (a LATE) — the same cutoff delivers both]
+
+---
+
+# Burlig and Preonas (2024): empirical strategy
+
+The generic RD equation, with **population** as the running variable and eligibility at 300:
+
+`$$Y_v = \beta_0 + \beta_1 Z_v + \beta_2(P_v - 300) + \beta_3(P_v - 300)Z_v + \theta W_v + \eta_s + \varepsilon_v$$`
+
+- `\(P_v\)`: 2001 village population (the running variable `\(X\)`); `\(Z_v = 1\{P_v \geq 300\}\)`: eligibility
+- `\(W_v\)`: covariates; `\(\eta_s\)`: state FE — estimated with **rdrobust** in a bandwidth around 300
+
+--
+
+Eligibility is not full electrification, so they run this **same equation twice** — the fuzzy-RD logic:
+
+- **first stage**: outcome = electricity access — did eligibility electrify villages?
+
+- **reduced form**: outcome = economic outcomes — did eligibility change the village economy?
+
+- **2SLS**: reduced form `\(\div\)` first stage `\(=\)` the effect of *electrification* itself (a LATE)
+
+---
+
+# Burlig and Preonas (2024): first stage — electrification
+
+Outcome = electricity access: does eligibility raise power access at the cutoff?
+
+.fig-left[
+&lt;img src="figures/bp_rd_firststage.png" style="width: 96%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1086/730204"&gt;Burlig and Preonas (2024)&lt;/a&gt;, Figure 4.]
+]
+
+.fig-right[
+- villages with **commercial power: +4.3 pp** (a 10% increase)
+
+- commercial power supply rose by **0.56 hours per day**
+
+- all-sector power access rose by **3.8 pp** (9%)
+
+- **1 in 7** unconnected households electrified; use **+4 kWh/month**
+]
+
+---
+
+# Burlig and Preonas (2024): effects emerge over time
+
+RD estimates of nighttime brightness, estimated separately by year:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bp_brightness.png" style="width: 58%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+- **null effects before RGGVY's 2005 announcement** — exactly what the design predicts
+
+--
+
+- brightness rises steadily once funds arrive, statistically significant from 2008
+
+---
+
+# Burlig and Preonas (2024): reduced form — precise zeros
+
+Outcome = economic outcomes: consumption, poverty, employment, firms, schooling.
+
+.fig-left[
+&lt;img src="figures/bp_rd_outcomes.png" style="width: 74%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1086/730204"&gt;Burlig and Preonas (2024)&lt;/a&gt;, Figure 7.]
+]
+
+.fig-right[
+- **consumption per capita**: a null; gains above **2% of the mean** rejected
+
+- no effects on poverty, employment, firms, or schooling
+
+- panel D: population is **smooth** at the cutoff — no migration response
+]
+
+&lt;div class="takeaway"&gt;A precise zero is a finding: power arrived, but the village economy looked the same&lt;/div&gt;
+
+---
+
+# Burlig and Preonas (2024): the rest of the checklist
+
+**Bunching**: the density of the running variable is smooth at 300 — as the census timing implies.
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bp_density.png" style="width: 68%; max-width: 680px;" /&gt;
+&lt;/div&gt;
+
+--
+
+**Balance**: pre-RGGVY covariates are smooth across the cutoff.
+
+--
+
+**Falsification**: no jump in 11th-Plan or multi-habitation villages, where the rule does not cleanly apply
+
+--
+
+**Robustness**: stable across kernels, bandwidths, polynomials, and standard-error choices.
+
+---
+
+# Burlig and Preonas (2024): from eligibility to electrification
+
+The first stage and the reduced form both estimate effects of **eligibility**.
+
+The **reduced form** `\(\div\)` the **first stage** gives the effect of **electrification** — the fuzzy-RD 2SLS.
+
+--
+
+- a 10-hour increase in daily commercial power: an insignificant *decrease* in expenditure
+  - gains larger than **25%** are rejected
+
+--
+
+.discuss[
+**Discussion** — the estimate is a LATE for villages near 300 people. A weakness, or part of the answer?
+]
+
+--
+
+**Both**: it limits extrapolation — and the 300-person margin is exactly where last-mile money goes
+
+???
+
+Full answer: the LATE critique from Lecture 2 applies with full force — effects at the 300-person cutoff need not extrapolate to larger villages, and indeed they do not. But the policy question is precisely about extending grids to the smallest unelectrified places, so the local estimate is the policy-relevant one. The authors then turn the limitation into a result by estimating how effects scale with village size.
+
+---
+
+# Burlig and Preonas (2024): two designs, two populations
+
+The RD answers only for villages **near 300 people**.
+
+To reach the rest, they add a **DiD** — 10th- vs 11th-Plan districts:
+
+`$$Y_{dt} = \gamma\,(\text{10th-Plan}_d \times \text{Post}_t) + \eta_d + \delta_t + \theta_{dt} + \varepsilon_{dt}$$`
+
+- `\(\eta_d, \delta_t\)`: district and year FE; `\(\theta_{dt}\)`: state and expenditure-quantile trends; `\(\gamma\)`: the ITT of eligibility
+
+--
+
+- **RD**: ~10,000 villages near the cutoff — weak assumptions, but effects **local to 300 people**
+
+- **DiD**: nearly **all of rural India**, villages of every size — but needs **parallel trends** across
+adoption waves
+
+--
+
+.takeaway[Credibility vs. reach — comparing the local RD with the broad DiD shows how size matters]
+
+---
+
+# Burlig and Preonas (2024): DiD pre-trends
+
+The DiD needs parallel trends across adoption waves — they show an event study:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/bp_dd_eventstudy.png" style="width: 60%; max-width: 640px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1086/730204"&gt;Burlig and Preonas (2024)&lt;/a&gt;, Figure 6: village nighttime brightness — 10th- vs 11th-Plan districts (A), all districts (B).]
+
+--
+
+- **before funds arrive**: coefficients indistinguishable from zero — no differential pre-trend
+
+--
+
+- **after**: brightness rises by 0.18–0.37 units within 4–5 years — the DiD analogue of the RD-by-year result
+
+--
+
+- NSS pre-period checks (2000 vs. 2005) are null for expenditure and electricity use; only TV ownership differs
+
+???
+
+Table 1, Panel B reports the NSS pretrend estimates for 10th- versus 11th-Plan districts (2000 to 2005, with state-specific linear trends): all indistinguishable from zero except TV ownership (-0.025, p &lt; .05), which if anything has 10th-Plan districts trending away from TV ownership — the opposite of what a spurious-positive story needs. Recall the caveat from the pre-trends section: an insignificant pre-trend does not prove parallel counterfactual trends (low power, Roth 2022). Here the RD supplies an independent check on the same brightness outcome, which is the real reason to trust the pair.
+
+---
+
+class: compact
+
+# Burlig and Preonas (2024): the DiD-IV
+
+In the RD, the cutoff `\(Z_v\)` instrumented electrification; in the DiD, the **rollout interaction** does:
+
+`$$E_{dt} = \phi\,(\text{10th-Plan}_d \times \text{Post}_t) + \eta_d + \delta_t + \theta_{dt} + \nu_{dt} \quad \text{(first stage)}$$`
+`$$Y_{dt} = \beta\,\hat{E}_{dt} + \eta_d + \delta_t + \theta_{dt} + u_{dt} \quad \text{(second stage)}$$`
+
+- `\(E_{dt}\)`: share of households with any electricity (NSS); `\(Y_{dt}\)`: expenditure per capita; `\(\beta = \gamma / \phi\)`
+
+--
+
+- first stage: the rollout raised household electricity access by **4.8 pp**, with `\(F = 11.9\)`
+
+  - it passes the old `\(F \geq 10\)` rule of thumb — a threshold now considered far too generous
+
+--
+
+- `\(\beta\)` rescales the ITT into a **"full electrification"** effect — a 0 to 100% change in household access
+
+--
+
+.takeaway[RD-IV and DiD-IV: reduced form over first stage — they differ only in the instrument]
+
+---
+
+# Burlig and Preonas (2024): village size changes the answer
+
+.fig-left[
+&lt;img src="figures/bp_hetero.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1086/730204"&gt;Burlig and Preonas (2024)&lt;/a&gt;, Figure 8.]
+]
+
+.fig-right[
+- small villages: nulls everywhere, even where treatment was most intense
+
+- larger villages: expenditure **+6–9%**; firm growth only above ~3,000 people
+
+- 20-year IRR of "full electrification": **0%** at 300 people, **13%** at 1,000, **33%** at 2,000
+]
+
+&lt;div class="takeaway"&gt;Scale reconciles the literature: electrification pays off in large villages, not small ones&lt;/div&gt;
+
+---
+
+# Burlig and Preonas (2024): takeaways
+
+- **Design**: a policy rule plus a pre-determined running variable makes an RD you can believe in
+
+--
+
+- **Checklist**: the paper shows the jump, balance, no bunching, and robustness
+
+--
+
+- **Precise nulls are results**: rejecting a 2% gain teaches more than an imprecise positive estimate
+
+--
+
+- **External validity**: the RD is local to the cutoff
+  - pairing it with a DiD across all village sizes turns that limit into the policy answer
+
+--
+
+.takeaway[Credibility comes from the rule, the density, and honesty about what is local]
+
+---
+
+# Wrapping up
+
+**Last week**: randomization — and instrumental variables when experiments are impossible.
+
+--
+
+**Today**: the two workhorses for policy variation, and the inference that goes with them.
+
+--
+
+- **DiD**: parallel trends is an assumption about counterfactuals — test it, but also stress-test it
+
+--
+
+- **RD**: a rule plus a pre-determined score can be as good as an experiment, locally
+
+--
+
+- **Inference**: cluster by design, and treat a small number of clusters as a first-order problem
+
+--
+
+.takeaway[The toolkit is complete; from next week, we put it to work on questions in development]
+
+---
+
+# Plan for next week
+
+**Week 4: Poverty traps and ultra-poor programs**
+
+- &lt;a href="https://doi.org/10.7208/chicago/9780226574448.001.0001"&gt;Barrett, Carter, and Chavas (2019)&lt;/a&gt;: Introduction
+
+- &lt;a href="https://doi.org/10.1093/qje/qjab045"&gt;Balboni, Bandiera, Burgess, Ghatak, and Heil (2022)&lt;/a&gt;, *QJE* — why do people stay poor?
+
+- &lt;a href="https://www.nber.org/papers/w35253"&gt;Karlan, Raswan, and Udry (2026)&lt;/a&gt;, NBER WP — re-examining the evidence for poverty traps
+
+  - and the authors' reply: &lt;a href="https://www.nber.org/data-appendix/w35253/povertyTraps_reply.pdf"&gt;Balboni, Bandiera, Burgess, Ghatak, and Heil (2026)&lt;/a&gt;
+
+--
+
+Comments in the &lt;a href="https://docs.google.com/document/d/1-IlEMbnN1wn0kxUqh20z_R09_dYt2VL6O8uBI_rgAgc/edit?usp=sharing"&gt;Google Doc&lt;/a&gt; by **Thursday 14:00**.
+
+--
+
+**Student presentations begin**: the schedule from the &lt;a href="https://docs.google.com/spreadsheets/d/1JYnioDWK2cD7upc2n16BE7V-OCPEn9Uc/edit?usp=sharing&amp;ouid=108702181455633968747&amp;rtpof=true&amp;sd=true"&gt;sign-up sheet&lt;/a&gt; is now final — check your week.
+
+---
+
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<div id="toc-menu">
+  <button id="toc-btn" type="button">&#9776;&nbsp; Contents</button>
+  <div id="toc-list">
+    <a href="#review">A review of treatment effects</a>
+    <a href="#did">Difference-in-Differences</a>
+    <a href="#adv">Recent advances in DiD</a>
+    <a href="#inf">Inference: clustering and few clusters</a>
+    <a href="#gly">DiD in practice: Gruber, Lin, and Yi (2023)</a>
+    <a href="#rd">Regression Discontinuity</a>
+    <a href="#bp">RD in practice: Burlig and Preonas (2024)</a>
+  </div>
+</div>
+<div id="progress-bar"></div>
+<style>
+#toc-menu { position: fixed; bottom: 10px; left: 14px; z-index: 300; }
+#toc-btn { background: rgba(35, 55, 59, 0.75); color: #fafafa; border: none; border-radius: 4px;
+  padding: 5px 12px; font-size: 13px; font-family: inherit; cursor: pointer; }
+#toc-btn:hover { background: #EB811B; }
+#toc-list { display: none; position: absolute; bottom: 34px; left: 0; width: 400px;
+  background: #ffffff; border: 1px solid #d9dee0; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18); padding: 6px 0; }
+#toc-menu.open #toc-list { display: block; }
+#toc-list a { display: block; padding: 8px 16px; font-size: 14px; color: #23373B;
+  text-decoration: none; line-height: 1.35; }
+#toc-list a:hover { background: #eef2f3; color: #EB811B; }
+#progress-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background: #EB811B; z-index: 300; transition: width 0.2s; }
+@media print { #toc-menu, #progress-bar { display: none; } }
+</style>
+<script>
+(function() {
+  var menu = document.getElementById('toc-menu');
+  var btn = document.getElementById('toc-btn');
+  btn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('open'); });
+  document.getElementById('toc-list').addEventListener('click', function() { menu.classList.remove('open'); });
+  document.addEventListener('click', function(e) { if (!menu.contains(e.target)) { menu.classList.remove('open'); } });
+  function init() {
+    if (typeof slideshow === 'undefined') { setTimeout(init, 150); return; }
+    var bar = document.getElementById('progress-bar');
+    var n = slideshow.getSlideCount();
+    slideshow.on('showSlide', function(slide) {
+      bar.style.width = (100 * (slide.getSlideIndex() + 1) / n) + '%';
+    });
+    bar.style.width = (100 * (slideshow.getCurrentSlideIndex() + 1) / n) + '%';
+  }
+  init();
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

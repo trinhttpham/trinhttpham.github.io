@@ -35,8 +35,6 @@ class: center, middle, inverse, title-slide
 
 # Roadmap
 
-- A quick review of treatment effects: ITT, ATE, ATT, and LATE
-
 - Difference-in-Differences (DiD)
 
   - the canonical 2x2 model, and what changed in the recent literature
@@ -55,80 +53,7 @@ class: center, middle, inverse, title-slide
 
 Reminders at the start: reading comments in the Google Doc are due Thursday 14:00 every week; the presentation sign-up sheet closes this week and the schedule is finalized today.
 
----
-
-name: review
-class: inverse, middle, center
-
-&lt;div style="font-size: 26px; text-align: center;"&gt;
-  A review of treatment effects
-&lt;/div&gt;
-
----
-
-# A quick review of treatment effects
-
-Recall the tutoring experiment:
-
-- `\(Z\)` is **assignment** to the tutoring program (randomized); `\(D\)` is **attendance** (chosen)
-
---
-
-**Intent-to-Treat (ITT)**: the effect of being *assigned* to treatment, regardless of take-up
-
-`$$ITT = E[Y \mid Z = 1] - E[Y \mid Z = 0]$$`
-
---
-
-- what an RCT with imperfect compliance estimates: compare students *offered* vs. *not offered* tutoring
-
---
-
-**Average Treatment Effect (ATE)**: the average effect if *everyone* versus *no one* were treated
-
-`$$ATE = E[Y(1) - Y(0)]$$`
-
---
-
-- the policy parameter when the program would cover the entire population
-
----
-
-# A quick review of treatment effects
-
-**Average Treatment Effect on the Treated (ATT)**: the average effect among those actually treated
-
-`$$ATT = E[Y(1) - Y(0) \mid D = 1]$$`
-
---
-
-- the relevant parameter when we care about actual recipients (e.g., of health insurance)
-
---
-
-**Local Average Treatment Effect (LATE)**: the average effect among **compliers**
-
-`$$LATE = E[Y(1) - Y(0) \mid \text{compliers}]$$`
-
---
-
-- what IV estimates: the effect for those whose treatment status is moved by the instrument
-
-- special cases: full compliance gives `\(ATE = ITT = ATT\)`; no always-takers gives `\(LATE = ATT\)`
-
---
-
-.discuss[
-**Discussion** — which effect did Haushofer and Shapiro's regression estimate? And AJR's 2SLS?
-]
-
---
-
-**HS**: an ITT — the effect of assignment; **AJR**: a LATE-type average — for countries moved by settler mortality
-
-???
-
-Full answers. Haushofer and Shapiro regress outcomes on treatment assignment, so the coefficient is an ITT; with 485 of 503 assigned households actually paid, it is numerically close to the effect of the transfer itself, but conceptually it remains the effect of being assigned. AJR's 2SLS recovers, under heterogeneous effects, the effect of institutions for "complier" colonies — those whose institutional path was shifted by settler mortality — which is why we discussed whose effect the estimate represents.
+Link to Lecture 2: every design today estimates one of last week's objects, an ITT, an ATT, or a LATE.
 
 ---
 
@@ -2617,7 +2542,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 <div id="toc-menu">
   <button id="toc-btn" type="button">&#9776;&nbsp; Contents</button>
   <div id="toc-list">
-    <a href="#review">A review of treatment effects</a>
     <a href="#did">Difference-in-Differences</a>
     <a href="#adv">Recent advances in DiD</a>
     <a href="#inf">Inference: clustering and few clusters</a>

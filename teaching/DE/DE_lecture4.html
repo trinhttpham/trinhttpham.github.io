@@ -1,0 +1,2507 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>DELD - Lecture 4</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 4: Poverty Traps and Ultra-poor Programs
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2026
+]
+
+---
+
+
+# Roadmap
+
+- Poverty traps: a framework (&lt;a href="https://doi.org/10.7208/chicago/9780226574448.001.0001"&gt;Barrett, Carter, and Chavas 2019&lt;/a&gt;)
+
+  - what are poverty traps, and why does it matter whether they exist?
+
+- Evidence: &lt;a href="https://doi.org/10.1093/qje/qjab045"&gt;Balboni, Bandiera, Burgess, Ghatak, and Heil (2022)&lt;/a&gt;
+
+- A re-examination: &lt;a href="https://www.nber.org/papers/w35253"&gt;Karlan, Raswan, and Udry (2026)&lt;/a&gt;, and the authors' reply
+
+- Second half: presentations and discussions
+
+???
+
+The first half is the lecture on the required readings; the second half is the first round of student presentations and discussions.
+
+---
+
+name: pt
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Poverty traps: a framework
+&lt;/div&gt;
+
+---
+
+# What are poverty traps?
+
+Poverty traps are, at their core, about **asset accumulation**:
+
+- assets `\(\rightarrow\)` investment `\(\rightarrow\)` productivity `\(\rightarrow\)` earning potential
+
+--
+
+Why does it matter whether poverty traps exist?
+
+--
+
+- if poverty is **transitory** (temporary adverse shocks), short-term income or consumption support may suffice
+
+--
+
+- if a **trap** makes poverty **chronic**, a one-time "big push" past a threshold can have large, persistent effects
+
+  - migration can lift some people out of a trap, but its cost can itself keep the poor in place (&lt;a href="https://doi.org/10.1257/jep.28.3.127"&gt;Kraay and McKenzie 2014&lt;/a&gt;)
+
+???
+
+The policy stakes are the reason the empirical debate later today matters: if traps exist, a one-time transfer can permanently change a household's trajectory; if they do not, the same transfer raises assets temporarily and households drift back toward where they started, so ongoing support is the relevant policy.
+
+---
+
+# A simple framework (Barrett, Carter, and Chavas 2019)
+
+Income of household `\(i\)` in period `\(t\)`:
+
+`$$y_{it}=f_l(\alpha_{it}, k_{it} \mid N_t)$$`
+
+--
+
+- `\(k_{it}\)`: **tangible productive assets** — land, livestock, machinery, money, other capital
+
+--
+
+- `\(\alpha_{it}\)`: **human capabilities** — skills, human capital, perceived self-efficacy
+
+--
+
+- `\(N_t\)`: **natural capital** — raises the productivity of assets and capabilities
+
+--
+
+- capabilities and tangible assets are **complements** in production
+
+---
+
+# A simple framework: constraints
+
+Assume no financial markets and no informal transfers.
+
+--
+
+- **Consumption**: `\(c_{it}\leq k_{it} + y_{it}\)` — no more than cash on hand (productive assets plus current income)
+
+--
+
+- **Capital next period**: `\(k_{it+1}=[k_{it}+y_{it}-c_{it}][1+\delta_0+\delta_1(\theta_{it+1})]\)`
+
+  - `\(\delta_0\)`: natural growth of assets if `\(\delta_0&gt;0\)`, e.g., herd reproduction; depreciation if `\(\delta_0&lt;0\)`
+
+  - `\(\delta_1(\theta_{it+1}) \leq 0\)`: asset loss driven by a random shock `\(\theta_{it+1}\)`
+
+--
+
+- For now, capabilities are fixed at each household's initial endowment: `\(\alpha_{it} = \alpha_i\)`
+
+---
+
+class: compact
+
+# Putting the pieces together
+
+Household `\(i\)` solves:
+
+`$$\max_{c_{it},k_{it}} \; E_\theta\sum_{t=0}^\infty\beta^tu(c_{it})$$`
+
+--
+
+subject to:
+
+$$
+`\begin{align*}
+c_{it} &amp;\leq k_{it} + y_{it} \\
+y_{it} &amp;= f_l(\alpha_{it}, k_{it}, \theta_{it} \mid N_t) \\
+k_{it+1} &amp;= [k_{it}+y_{it}-c_{it}][1+\delta_0+\delta_1(\theta_{it+1})] \\
+\alpha_{it+1} &amp;= \alpha_{it} = \alpha_i \\
+k_{it} &amp;\geq 0
+\end{align*}`
+$$
+
+--
+
+**Solving it, in four steps** (details in the appendix):
+
+1. each period, split cash on hand between consuming today and saving for tomorrow
+2. at the optimum, the utility cost of saving today equals its discounted return tomorrow
+3. capital stops changing when its marginal return equals the required return `\(\rho\)`: this gives `\(k^*_l(\alpha)\)`, rising in `\(\alpha\)`
+   - `\(\rho\)` reflects impatience, net of the natural growth of capital
+4. the capability level at which steady-state income equals the poverty line is `\(\alpha_0\)`
+
+---
+
+# Single-equilibrium chronic poverty
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polygon points="82,60 110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209 548,209 548,358 82,358" fill="#EB811B" fill-opacity="0.12"/&gt;
+&lt;text x="150" y="335" font-size="18" fill="#B35F0E"&gt;poor&lt;/text&gt;
+&lt;text x="470" y="80" font-size="18" fill="#23373B"&gt;not poor&lt;/text&gt;
+&lt;polyline points="110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209" fill="none" stroke="#EB811B" stroke-width="3.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="222" font-size="16" fill="#EB811B"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="100" y1="300" x2="540" y2="140" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="548" y="140" font-size="16" fill="#9AA5A8"&gt;k*(&amp;#945;)&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.1.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;The &lt;span style="color:#B35F0E;"&gt;&lt;strong&gt;poverty locus&lt;/strong&gt;&lt;/span&gt; \( y^p(\alpha, k \mid N_t) \): the combinations of \(\alpha\) and \(k\) that yield income equal to the poverty line.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;southwest of the locus, households are poor; northeast, they are not&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Single-equilibrium chronic poverty
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polygon points="82,60 110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209 548,209 548,358 82,358" fill="#EB811B" fill-opacity="0.06"/&gt;
+&lt;polyline points="110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209" fill="none" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="222" font-size="16" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="100" y1="300" x2="540" y2="140" stroke="#1B7F79" stroke-width="3.5"/&gt;
+&lt;text x="548" y="140" font-size="16" fill="#1B7F79"&gt;k*(&amp;#945;)&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.1.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;The &lt;span style="color:#B35F0E;"&gt;&lt;strong&gt;poverty locus&lt;/strong&gt;&lt;/span&gt; \( y^p(\alpha, k \mid N_t) \): the combinations of \(\alpha\) and \(k\) that yield income equal to the poverty line.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;southwest of the locus, households are poor; northeast, they are not&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;Steady-state capital&lt;/strong&gt;&lt;/span&gt; \( k^*_l(\alpha \mid N_t) \): increasing in \(\alpha\) (derived in the appendix).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Single-equilibrium chronic poverty
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polygon points="82,60 110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209 548,209 548,358 82,358" fill="#EB811B" fill-opacity="0.06"/&gt;
+&lt;polyline points="110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209" fill="none" stroke="#EB811B" stroke-width="2.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="222" font-size="16" fill="#EB811B"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="100" y1="300" x2="540" y2="140" stroke="#1B7F79" stroke-width="2.5"/&gt;
+&lt;text x="548" y="140" font-size="16" fill="#1B7F79"&gt;k*(&amp;#945;)&lt;/text&gt;
+&lt;line x1="398" y1="192" x2="398" y2="360" stroke="#C0392B" stroke-width="2" stroke-dasharray="5 4"/&gt;
+&lt;circle cx="398" cy="192" r="7" fill="#C0392B"/&gt;
+&lt;text x="398" y="384" font-size="19" text-anchor="middle" fill="#C0392B"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.1.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;The &lt;span style="color:#B35F0E;"&gt;&lt;strong&gt;poverty locus&lt;/strong&gt;&lt;/span&gt; \( y^p(\alpha, k \mid N_t) \): the combinations of \(\alpha\) and \(k\) that yield income equal to the poverty line.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;southwest of the locus, households are poor; northeast, they are not&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;Steady-state capital&lt;/strong&gt;&lt;/span&gt; \( k^*_l(\alpha \mid N_t) \): increasing in \(\alpha\) (derived in the appendix).&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#C0392B;"&gt;&lt;strong&gt;\( \alpha_0 \)&lt;/strong&gt;&lt;/span&gt;: where the steady-state curve crosses the poverty locus.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Single-equilibrium chronic poverty
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polygon points="82,60 110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209 548,209 548,358 82,358" fill="#EB811B" fill-opacity="0.06"/&gt;
+&lt;polyline points="110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209" fill="none" stroke="#EB811B" stroke-width="2" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="222" font-size="16" fill="#EB811B"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="100" y1="300" x2="540" y2="140" stroke="#1B7F79" stroke-width="2"/&gt;
+&lt;text x="548" y="140" font-size="16" fill="#1B7F79"&gt;k*(&amp;#945;)&lt;/text&gt;
+&lt;line x1="398" y1="192" x2="398" y2="360" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="5 4"/&gt;
+&lt;text x="398" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;circle cx="470" cy="165" r="7" fill="#1B7F79"/&gt;
+&lt;line x1="470" y1="172" x2="470" y2="262" stroke="#C0392B" stroke-width="3" stroke-dasharray="7 5"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(470,275) rotate(90)" fill="#C0392B"/&gt;
+&lt;text x="458" y="250" font-size="16" text-anchor="end" fill="#C0392B"&gt;shock&lt;/text&gt;
+&lt;line x1="490" y1="268" x2="490" y2="175" stroke="#1B7F79" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(490,164) rotate(-90)" fill="#1B7F79"/&gt;
+&lt;text x="500" y="250" font-size="16" fill="#1B7F79"&gt;saves back&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.1.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;Households with \(\alpha_i &gt; \alpha_0\): a &lt;span style="color:#C0392B;"&gt;shock&lt;/span&gt; that reduces \(k\) makes them &lt;strong&gt;at most temporarily poor&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;they &lt;span style="color:#1B7F79;"&gt;save and move back&lt;/span&gt; to their non-poor steady state&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Single-equilibrium chronic poverty
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polygon points="82,60 110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209 548,209 548,358 82,358" fill="#EB811B" fill-opacity="0.06"/&gt;
+&lt;polyline points="110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209" fill="none" stroke="#EB811B" stroke-width="2" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="222" font-size="16" fill="#EB811B"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="100" y1="300" x2="540" y2="140" stroke="#1B7F79" stroke-width="2"/&gt;
+&lt;text x="548" y="140" font-size="16" fill="#1B7F79"&gt;k*(&amp;#945;)&lt;/text&gt;
+&lt;line x1="398" y1="192" x2="398" y2="360" stroke="#C0392B" stroke-width="2" stroke-dasharray="5 4"/&gt;
+&lt;circle cx="398" cy="192" r="7" fill="#C0392B"/&gt;
+&lt;text x="398" y="384" font-size="19" text-anchor="middle" fill="#C0392B"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;line x1="100" y1="300" x2="398" y2="192" stroke="#C0392B" stroke-width="6"/&gt;
+&lt;text x="120" y="330" font-size="17" fill="#C0392B"&gt;chronically poor: k* is below the locus&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.1.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;Households with \(\alpha_i &gt; \alpha_0\): a &lt;span style="color:#C0392B;"&gt;shock&lt;/span&gt; that reduces \(k\) makes them &lt;strong&gt;at most temporarily poor&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;they &lt;span style="color:#1B7F79;"&gt;save and move back&lt;/span&gt; to their non-poor steady state&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Households with \(\alpha_i &lt; \alpha_0\) are &lt;span style="color:#C0392B;"&gt;&lt;strong&gt;chronically poor&lt;/strong&gt;&lt;/span&gt;, with or without shocks&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;their steady state lies below the poverty locus: a one-time transfer of cash or assets cannot lift them out&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Single-equilibrium chronic poverty
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polygon points="82,60 110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209 548,209 548,358 82,358" fill="#EB811B" fill-opacity="0.06"/&gt;
+&lt;polyline points="110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209" fill="none" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="222" font-size="16" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="100" y1="300" x2="540" y2="140" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="548" y="140" font-size="16" fill="#9AA5A8"&gt;k*(&amp;#945;)&lt;/text&gt;
+&lt;line x1="398" y1="192" x2="398" y2="360" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="5 4"/&gt;
+&lt;text x="398" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;polyline points="110,40 125,58 140,73 155,86 170,97 185,107 200,115 215,122 230,129 245,135 260,140 275,145 290,149 305,153 320,157 335,160 350,163 365,166 380,169 395,171 410,173 425,175 440,178 455,179 470,181 485,183 500,184 515,186 530,187 545,189" fill="none" stroke="#EB811B" stroke-width="3" stroke-dasharray="8 5"/&gt;
+&lt;line x1="100" y1="315" x2="540" y2="155" stroke="#1B7F79" stroke-width="3" stroke-dasharray="3 4"/&gt;
+&lt;line x1="468" y1="181" x2="468" y2="360" stroke="#C0392B" stroke-width="2" stroke-dasharray="5 4"/&gt;
+&lt;circle cx="468" cy="181" r="7" fill="#C0392B"/&gt;
+&lt;text x="468" y="384" font-size="19" text-anchor="middle" fill="#C0392B"&gt;&amp;#945;&amp;#8320;&amp;#8242;&lt;/text&gt;
+&lt;line x1="410" y1="372" x2="446" y2="372" stroke="#C0392B" stroke-width="2.5"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(456,372)" fill="#C0392B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.1.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;If technology becomes less productive:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the locus \(y^p\) shifts up, steady-state capital \(k^*_l\) shifts down&lt;/li&gt;
+&lt;li&gt;\(\alpha_0\) moves right: more households are chronically poor &amp;mdash; a &lt;em&gt;geographic&lt;/em&gt; poverty trap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Single-equilibrium chronic poverty
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polygon points="82,60 110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209 548,209 548,358 82,358" fill="#EB811B" fill-opacity="0.06"/&gt;
+&lt;polyline points="110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209" fill="none" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="222" font-size="16" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="100" y1="300" x2="540" y2="140" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="548" y="140" font-size="16" fill="#9AA5A8"&gt;k*(&amp;#945;)&lt;/text&gt;
+&lt;line x1="398" y1="192" x2="398" y2="360" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="5 4"/&gt;
+&lt;text x="398" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;polyline points="110,40 125,58 140,73 155,86 170,97 185,107 200,115 215,122 230,129 245,135 260,140 275,145 290,149 305,153 320,157 335,160 350,163 365,166 380,169 395,171 410,173 425,175 440,178 455,179 470,181 485,183 500,184 515,186 530,187 545,189" fill="none" stroke="#EB811B" stroke-width="3" stroke-dasharray="8 5"/&gt;
+&lt;line x1="100" y1="315" x2="540" y2="155" stroke="#1B7F79" stroke-width="3" stroke-dasharray="3 4"/&gt;
+&lt;line x1="468" y1="181" x2="468" y2="360" stroke="#C0392B" stroke-width="2" stroke-dasharray="5 4"/&gt;
+&lt;circle cx="468" cy="181" r="7" fill="#C0392B"/&gt;
+&lt;text x="468" y="384" font-size="19" text-anchor="middle" fill="#C0392B"&gt;&amp;#945;&amp;#8320;&amp;#8242;&lt;/text&gt;
+&lt;line x1="410" y1="372" x2="446" y2="372" stroke="#C0392B" stroke-width="2.5"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(456,372)" fill="#C0392B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.1.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;If technology becomes less productive:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the locus \(y^p\) shifts up, steady-state capital \(k^*_l\) shifts down&lt;/li&gt;
+&lt;li&gt;\(\alpha_0\) moves right: more households are chronically poor &amp;mdash; a &lt;em&gt;geographic&lt;/em&gt; poverty trap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A shock to natural capital \(N_t\) that does not recover has the same effect.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Single-equilibrium chronic poverty
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polygon points="82,60 110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209 548,209 548,358 82,358" fill="#EB811B" fill-opacity="0.06"/&gt;
+&lt;polyline points="110,60 125,78 140,93 155,106 170,117 185,127 200,135 215,142 230,149 245,155 260,160 275,165 290,169 305,173 320,177 335,180 350,183 365,186 380,189 395,191 410,193 425,195 440,198 455,199 470,201 485,203 500,204 515,206 530,207 545,209" fill="none" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="222" font-size="16" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="100" y1="300" x2="540" y2="140" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="548" y="140" font-size="16" fill="#9AA5A8"&gt;k*(&amp;#945;)&lt;/text&gt;
+&lt;line x1="398" y1="192" x2="398" y2="360" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="5 4"/&gt;
+&lt;text x="398" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;polyline points="110,40 125,58 140,73 155,86 170,97 185,107 200,115 215,122 230,129 245,135 260,140 275,145 290,149 305,153 320,157 335,160 350,163 365,166 380,169 395,171 410,173 425,175 440,178 455,179 470,181 485,183 500,184 515,186 530,187 545,189" fill="none" stroke="#EB811B" stroke-width="3" stroke-dasharray="8 5"/&gt;
+&lt;line x1="100" y1="315" x2="540" y2="155" stroke="#1B7F79" stroke-width="3" stroke-dasharray="3 4"/&gt;
+&lt;line x1="468" y1="181" x2="468" y2="360" stroke="#C0392B" stroke-width="2" stroke-dasharray="5 4"/&gt;
+&lt;circle cx="468" cy="181" r="7" fill="#C0392B"/&gt;
+&lt;text x="468" y="384" font-size="19" text-anchor="middle" fill="#C0392B"&gt;&amp;#945;&amp;#8320;&amp;#8242;&lt;/text&gt;
+&lt;line x1="410" y1="372" x2="446" y2="372" stroke="#C0392B" stroke-width="2.5"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(456,372)" fill="#C0392B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.1.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;If technology becomes less productive:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the locus \(y^p\) shifts up, steady-state capital \(k^*_l\) shifts down&lt;/li&gt;
+&lt;li&gt;\(\alpha_0\) moves right: more households are chronically poor &amp;mdash; a &lt;em&gt;geographic&lt;/em&gt; poverty trap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A shock to natural capital \(N_t\) that does not recover has the same effect.&lt;/p&gt;
+&lt;p&gt;Shocks can also &lt;strong&gt;lower capabilities&lt;/strong&gt; &amp;mdash; next slide.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+???
+
+The diagram is redrawn from Barrett, Carter, and Chavas (2019), Figure I.1, so that each step can highlight the piece being discussed; the curves are schematic. Order of steps: the poverty locus and the poor region; the steady-state curve (derived in the appendix); their crossing at alpha_0; a household above alpha_0 hit by a shock and saving its way back; the stretch of the steady-state curve below alpha_0, where households are chronically poor; and the effect of a less productive technology, which shifts the locus up and the steady-state curve down, moving alpha_0 to the right.
+
+---
+
+# When capabilities change
+
+Let capabilities evolve over time:
+
+`$$\alpha_{it+1}=\alpha_{it}\,[1+\xi_0(c_{it})+\xi_1(\theta_{it})]$$`
+
+--
+
+- `\(\xi_0(c_{it}) &lt; 0\)` when shocks force consumption cuts: capabilities deteriorate through these choices
+
+  - e.g., cutting children's schooling or nutrition after a bad harvest
+
+--
+
+- `\(\xi_1(\theta_{it}) \leq 0\)`: direct destruction of capabilities by shocks
+
+  - e.g., temperature spikes damage the brain development of the unborn; an economic shock induces depression
+
+--
+
+&lt;div class="takeaway"&gt;A single shock can push a household's capabilities below \(\alpha_0\) — and into chronic poverty&lt;/div&gt;
+
+---
+
+# A richer framework: two technologies
+
+Financial markets are still missing.
+
+--
+
+Households can choose between two technologies:
+
+- a low-productivity technology `\(f_l\)`, and a high-productivity technology `\(f_h\)`
+
+- `\(f_h\)` has fixed costs or a minimum project size: `\(f_h &gt; f_l\)` only when `\(k &gt; \hat{k}\)`
+
+--
+
+Income is the better of the two:
+
+`$$y_{it} = \max \left[\, f_l(\alpha_{it}, k_{it} \mid N_t), \; f_h(\alpha_{it}, k_{it} \mid N_t) \,\right]$$`
+
+--
+
+- the fixed cost makes the technology set non-convex: output is not concave in `\(k\)`
+
+- a household can end at a **low** or a **high** steady state
+
+  - which one depends on its starting capital and capabilities (appendix)
+
+---
+
+# Non-convex technology and poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polyline points="95,179 110,201 125,219 140,234 155,247 170,258 185,268 200,276 215,283 230,290 245,296 260,301 275,306 290,310 305,314 320,318 335,321 350,324 365,327 380,329 395,332 410,334 425,336 440,338 455,340 470,342 485,344 500,345 515,347 530,348 545,350" fill="none" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="346" font-size="15" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="90" y1="335" x2="420" y2="300" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="426" y="318" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="205" y1="120" x2="540" y2="70" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="546" y="72" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;h&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="200" y1="360" x2="200" y2="30" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;line x1="420" y1="360" x2="420" y2="30" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;text x="200" y="384" font-size="19" text-anchor="middle" fill="#C0392B"&gt;&lt;tspan text-decoration="underline"&gt;&amp;#945;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="420" y="384" font-size="19" text-anchor="middle" fill="#C0392B"&gt;&amp;#945;&amp;#772;&lt;/text&gt;
+&lt;line x1="300" y1="313" x2="300" y2="360" stroke="#7A8588" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="300" cy="313" r="5" fill="#7A8588"/&gt;
+&lt;text x="300" y="384" font-size="19" text-anchor="middle" fill="#7A8588"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;Same axes as before: the dashed curve is the poverty locus \(y^p\); \(k^*_l\), \(k^*_h\) are the low- and high-technology steady states; \(k^*_l\) crosses \(y^p\) at \(\alpha_0\).&lt;/p&gt;
+&lt;p&gt;The model generates two critical capability levels, &lt;span style="color:#C0392B;"&gt;\(\underline{\alpha}\) and \(\bar{\alpha}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Non-convex technology and poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polyline points="95,179 110,201 125,219 140,234 155,247 170,258 185,268 200,276 215,283 230,290 245,296 260,301 275,306 290,310 305,314 320,318 335,321 350,324 365,327 380,329 395,332 410,334 425,336 440,338 455,340 470,342 485,344 500,345 515,347 530,348 545,350" fill="none" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="346" font-size="15" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="90" y1="335" x2="420" y2="300" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="426" y="318" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="205" y1="120" x2="540" y2="70" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="546" y="72" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;h&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="200" y1="360" x2="200" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;line x1="420" y1="360" x2="420" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;text x="200" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&lt;tspan text-decoration="underline"&gt;&amp;#945;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="420" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&amp;#945;&amp;#772;&lt;/text&gt;
+&lt;line x1="300" y1="313" x2="300" y2="360" stroke="#7A8588" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="300" cy="313" r="5" fill="#7A8588"/&gt;
+&lt;text x="300" y="384" font-size="19" text-anchor="middle" fill="#7A8588"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;rect x="420" y="24" width="128" height="336" fill="#2E8B57" fill-opacity="0.12"/&gt;
+&lt;circle cx="480" cy="330" r="6" fill="#2E8B57"/&gt;
+&lt;line x1="480" y1="330" x2="480" y2="92" stroke="#2E8B57" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(480,82) rotate(-90)" fill="#2E8B57"/&gt;
+&lt;circle cx="500" cy="200" r="6" fill="#2E8B57"/&gt;
+&lt;line x1="500" y1="200" x2="500" y2="90" stroke="#2E8B57" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(500,80) rotate(-90)" fill="#2E8B57"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;Same axes as before: the dashed curve is the poverty locus \(y^p\); \(k^*_l\), \(k^*_h\) are the low- and high-technology steady states; \(k^*_l\) crosses \(y^p\) at \(\alpha_0\).&lt;/p&gt;
+&lt;p&gt;The model generates two critical capability levels, &lt;span style="color:#C0392B;"&gt;\(\underline{\alpha}\) and \(\bar{\alpha}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#2E8B57;"&gt;&lt;strong&gt;Above \(\bar{\alpha}\)&lt;/strong&gt;&lt;/span&gt;: saving toward the high equilibrium \(k^*_h\) always pays, whatever their initial \(k_i\) &amp;mdash; no poverty trap.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Non-convex technology and poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;polyline points="95,179 110,201 125,219 140,234 155,247 170,258 185,268 200,276 215,283 230,290 245,296 260,301 275,306 290,310 305,314 320,318 335,321 350,324 365,327 380,329 395,332 410,334 425,336 440,338 455,340 470,342 485,344 500,345 515,347 530,348 545,350" fill="none" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="346" font-size="15" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="90" y1="335" x2="420" y2="300" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="426" y="318" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="205" y1="120" x2="540" y2="70" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="546" y="72" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;h&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="200" y1="360" x2="200" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;line x1="420" y1="360" x2="420" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;text x="200" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&lt;tspan text-decoration="underline"&gt;&amp;#945;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="420" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&amp;#945;&amp;#772;&lt;/text&gt;
+&lt;line x1="300" y1="313" x2="300" y2="360" stroke="#7A8588" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="300" cy="313" r="5" fill="#7A8588"/&gt;
+&lt;text x="300" y="384" font-size="19" text-anchor="middle" fill="#7A8588"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;rect x="420" y="24" width="128" height="336" fill="#2E8B57" fill-opacity="0.12"/&gt;
+&lt;circle cx="480" cy="330" r="6" fill="#2E8B57"/&gt;
+&lt;line x1="480" y1="330" x2="480" y2="92" stroke="#2E8B57" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(480,82) rotate(-90)" fill="#2E8B57"/&gt;
+&lt;circle cx="500" cy="200" r="6" fill="#2E8B57"/&gt;
+&lt;line x1="500" y1="200" x2="500" y2="90" stroke="#2E8B57" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(500,80) rotate(-90)" fill="#2E8B57"/&gt;
+&lt;rect x="82" y="24" width="118" height="336" fill="#C0392B" fill-opacity="0.12"/&gt;
+&lt;circle cx="140" cy="80" r="6" fill="#C0392B"/&gt;
+&lt;line x1="140" y1="80" x2="140" y2="308" stroke="#C0392B" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(140,318) rotate(90)" fill="#C0392B"/&gt;
+&lt;circle cx="170" cy="220" r="6" fill="#C0392B"/&gt;
+&lt;line x1="170" y1="220" x2="170" y2="305" stroke="#C0392B" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(170,315) rotate(90)" fill="#C0392B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;Same axes as before: the dashed curve is the poverty locus \(y^p\); \(k^*_l\), \(k^*_h\) are the low- and high-technology steady states; \(k^*_l\) crosses \(y^p\) at \(\alpha_0\).&lt;/p&gt;
+&lt;p&gt;The model generates two critical capability levels, &lt;span style="color:#C0392B;"&gt;\(\underline{\alpha}\) and \(\bar{\alpha}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#2E8B57;"&gt;&lt;strong&gt;Above \(\bar{\alpha}\)&lt;/strong&gt;&lt;/span&gt;: saving toward the high equilibrium \(k^*_h\) always pays, whatever their initial \(k_i\) &amp;mdash; no poverty trap.&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#C0392B;"&gt;&lt;strong&gt;Below \(\underline{\alpha}\)&lt;/strong&gt;&lt;/span&gt;: saving toward \(k^*_h\) never pays; households move to \(k^*_l\), whatever their initial \(k_i\) &amp;mdash; a &lt;strong&gt;single-equilibrium&lt;/strong&gt; poverty trap.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Non-convex technology and poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;rect x="200" y="24" width="220" height="336" fill="#1B7F79" fill-opacity="0.08"/&gt;
+&lt;polyline points="95,179 110,201 125,219 140,234 155,247 170,258 185,268 200,276 215,283 230,290 245,296 260,301 275,306 290,310 305,314 320,318 335,321 350,324 365,327 380,329 395,332 410,334 425,336 440,338 455,340 470,342 485,344 500,345 515,347 530,348 545,350" fill="none" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="346" font-size="15" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="90" y1="335" x2="420" y2="300" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="426" y="318" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="205" y1="120" x2="540" y2="70" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="546" y="72" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;h&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="200" y1="360" x2="200" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;line x1="420" y1="360" x2="420" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;text x="200" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&lt;tspan text-decoration="underline"&gt;&amp;#945;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="420" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&amp;#945;&amp;#772;&lt;/text&gt;
+&lt;line x1="300" y1="313" x2="300" y2="360" stroke="#7A8588" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="300" cy="313" r="5" fill="#7A8588"/&gt;
+&lt;text x="300" y="384" font-size="19" text-anchor="middle" fill="#7A8588"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;polyline points="200,25 205,120 215,180 235,222 270,250 320,272 370,288 405,296 418,330 420,352" fill="none" stroke="#1B7F79" stroke-width="3.5" stroke-dasharray="3 4"/&gt;
+&lt;line x1="420" y1="352" x2="545" y2="352" stroke="#1B7F79" stroke-width="3.5" stroke-dasharray="3 4"/&gt;
+&lt;text x="262" y="238" font-size="15" fill="#1B7F79"&gt;M(&amp;#945;, k)&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;The middle group, \(\underline{\alpha} &lt; \alpha &lt; \bar{\alpha}\), splits at the downward-sloping &lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;Micawber frontier&lt;/strong&gt;&lt;/span&gt; \(M(\alpha, k)\), the capital level below which saving toward \(k^*_h\) does not pay:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Non-convex technology and poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;rect x="200" y="24" width="220" height="336" fill="#1B7F79" fill-opacity="0.08"/&gt;
+&lt;polyline points="95,179 110,201 125,219 140,234 155,247 170,258 185,268 200,276 215,283 230,290 245,296 260,301 275,306 290,310 305,314 320,318 335,321 350,324 365,327 380,329 395,332 410,334 425,336 440,338 455,340 470,342 485,344 500,345 515,347 530,348 545,350" fill="none" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="346" font-size="15" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="90" y1="335" x2="420" y2="300" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="426" y="318" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="205" y1="120" x2="540" y2="70" stroke="#1B7F79" stroke-width="3"/&gt;
+&lt;text x="546" y="72" font-size="15" fill="#1B7F79"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;h&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="200" y1="360" x2="200" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;line x1="420" y1="360" x2="420" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;text x="200" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&lt;tspan text-decoration="underline"&gt;&amp;#945;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="420" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&amp;#945;&amp;#772;&lt;/text&gt;
+&lt;line x1="300" y1="313" x2="300" y2="360" stroke="#7A8588" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="300" cy="313" r="5" fill="#7A8588"/&gt;
+&lt;text x="300" y="384" font-size="19" text-anchor="middle" fill="#7A8588"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;polyline points="200,25 205,120 215,180 235,222 270,250 320,272 370,288 405,296 418,330 420,352" fill="none" stroke="#1B7F79" stroke-width="3" stroke-dasharray="3 4"/&gt;
+&lt;line x1="420" y1="352" x2="545" y2="352" stroke="#1B7F79" stroke-width="3" stroke-dasharray="3 4"/&gt;
+&lt;text x="262" y="238" font-size="15" fill="#1B7F79"&gt;M(&amp;#945;, k)&lt;/text&gt;
+&lt;circle cx="300" cy="190" r="6" fill="#1B7F79"/&gt;
+&lt;line x1="300" y1="190" x2="300" y2="120" stroke="#1B7F79" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(300,110) rotate(-90)" fill="#1B7F79"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;The middle group, \(\underline{\alpha} &lt; \alpha &lt; \bar{\alpha}\), splits at the downward-sloping &lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;Micawber frontier&lt;/strong&gt;&lt;/span&gt; \(M(\alpha, k)\), the capital level below which saving toward \(k^*_h\) does not pay:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color:#1B7F79;"&gt;above it&lt;/span&gt;, households accumulate toward \(k^*_h\); with shocks, the chance of reaching it rises with their distance above \(M\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Non-convex technology and poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;rect x="200" y="24" width="220" height="336" fill="#1B7F79" fill-opacity="0.08"/&gt;
+&lt;polyline points="95,179 110,201 125,219 140,234 155,247 170,258 185,268 200,276 215,283 230,290 245,296 260,301 275,306 290,310 305,314 320,318 335,321 350,324 365,327 380,329 395,332 410,334 425,336 440,338 455,340 470,342 485,344 500,345 515,347 530,348 545,350" fill="none" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="346" font-size="15" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="90" y1="335" x2="420" y2="300" stroke="#EB811B" stroke-width="3"/&gt;
+&lt;text x="426" y="318" font-size="15" fill="#EB811B"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="205" y1="120" x2="540" y2="70" stroke="#1B7F79" stroke-width="3"/&gt;
+&lt;text x="546" y="72" font-size="15" fill="#1B7F79"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;h&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="200" y1="360" x2="200" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;line x1="420" y1="360" x2="420" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;text x="200" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&lt;tspan text-decoration="underline"&gt;&amp;#945;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="420" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&amp;#945;&amp;#772;&lt;/text&gt;
+&lt;line x1="300" y1="313" x2="300" y2="360" stroke="#7A8588" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="300" cy="313" r="5" fill="#7A8588"/&gt;
+&lt;text x="300" y="384" font-size="19" text-anchor="middle" fill="#7A8588"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;polyline points="200,25 205,120 215,180 235,222 270,250 320,272 370,288 405,296 418,330 420,352" fill="none" stroke="#1B7F79" stroke-width="3" stroke-dasharray="3 4"/&gt;
+&lt;line x1="420" y1="352" x2="545" y2="352" stroke="#1B7F79" stroke-width="3" stroke-dasharray="3 4"/&gt;
+&lt;text x="262" y="238" font-size="15" fill="#1B7F79"&gt;M(&amp;#945;, k)&lt;/text&gt;
+&lt;circle cx="300" cy="190" r="6" fill="#1B7F79"/&gt;
+&lt;line x1="300" y1="190" x2="300" y2="120" stroke="#1B7F79" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(300,110) rotate(-90)" fill="#1B7F79"/&gt;
+&lt;circle cx="262" cy="268" r="6" fill="#EB811B"/&gt;
+&lt;line x1="262" y1="268" x2="262" y2="297" stroke="#EB811B" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(262,307) rotate(90)" fill="#EB811B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;The middle group, \(\underline{\alpha} &lt; \alpha &lt; \bar{\alpha}\), splits at the downward-sloping &lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;Micawber frontier&lt;/strong&gt;&lt;/span&gt; \(M(\alpha, k)\), the capital level below which saving toward \(k^*_h\) does not pay:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color:#1B7F79;"&gt;above it&lt;/span&gt;, households accumulate toward \(k^*_h\); with shocks, the chance of reaching it rises with their distance above \(M\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color:#EB811B;"&gt;below it&lt;/span&gt;, or pushed below it by a shock, they settle at \(k^*_l\): poor if \(\alpha &lt; \alpha_0\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Non-convex technology and poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;rect x="200" y="24" width="220" height="336" fill="#1B7F79" fill-opacity="0.08"/&gt;
+&lt;polyline points="95,179 110,201 125,219 140,234 155,247 170,258 185,268 200,276 215,283 230,290 245,296 260,301 275,306 290,310 305,314 320,318 335,321 350,324 365,327 380,329 395,332 410,334 425,336 440,338 455,340 470,342 485,344 500,345 515,347 530,348 545,350" fill="none" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="346" font-size="15" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="90" y1="335" x2="420" y2="300" stroke="#EB811B" stroke-width="3"/&gt;
+&lt;text x="426" y="318" font-size="15" fill="#EB811B"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="205" y1="120" x2="540" y2="70" stroke="#1B7F79" stroke-width="3"/&gt;
+&lt;text x="546" y="72" font-size="15" fill="#1B7F79"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;h&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="200" y1="360" x2="200" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;line x1="420" y1="360" x2="420" y2="30" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;text x="200" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&lt;tspan text-decoration="underline"&gt;&amp;#945;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="420" y="384" font-size="19" text-anchor="middle" fill="#9AA5A8"&gt;&amp;#945;&amp;#772;&lt;/text&gt;
+&lt;line x1="300" y1="313" x2="300" y2="360" stroke="#7A8588" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="300" cy="313" r="5" fill="#7A8588"/&gt;
+&lt;text x="300" y="384" font-size="19" text-anchor="middle" fill="#7A8588"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;polyline points="200,25 205,120 215,180 235,222 270,250 320,272 370,288 405,296 418,330 420,352" fill="none" stroke="#1B7F79" stroke-width="3" stroke-dasharray="3 4"/&gt;
+&lt;line x1="420" y1="352" x2="545" y2="352" stroke="#1B7F79" stroke-width="3" stroke-dasharray="3 4"/&gt;
+&lt;text x="262" y="238" font-size="15" fill="#1B7F79"&gt;M(&amp;#945;, k)&lt;/text&gt;
+&lt;circle cx="300" cy="190" r="6" fill="#1B7F79"/&gt;
+&lt;line x1="300" y1="190" x2="300" y2="120" stroke="#1B7F79" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(300,110) rotate(-90)" fill="#1B7F79"/&gt;
+&lt;circle cx="262" cy="268" r="6" fill="#EB811B"/&gt;
+&lt;line x1="262" y1="268" x2="262" y2="297" stroke="#EB811B" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(262,307) rotate(90)" fill="#EB811B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;The middle group, \(\underline{\alpha} &lt; \alpha &lt; \bar{\alpha}\), splits at the downward-sloping &lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;Micawber frontier&lt;/strong&gt;&lt;/span&gt; \(M(\alpha, k)\), the capital level below which saving toward \(k^*_h\) does not pay:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color:#1B7F79;"&gt;above it&lt;/span&gt;, households accumulate toward \(k^*_h\); with shocks, the chance of reaching it rises with their distance above \(M\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color:#EB811B;"&gt;below it&lt;/span&gt;, or pushed below it by a shock, they settle at \(k^*_l\): poor if \(\alpha &lt; \alpha_0\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;They face a &lt;strong&gt;multiple-equilibrium&lt;/strong&gt; poverty trap.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Policy implications
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;rect x="82" y="24" width="118" height="336" fill="#C0392B" fill-opacity="0.14"/&gt;
+&lt;rect x="200" y="24" width="220" height="336" fill="#1B7F79" fill-opacity="0.1"/&gt;
+&lt;rect x="420" y="24" width="128" height="336" fill="#2E8B57" fill-opacity="0.14"/&gt;
+&lt;polyline points="95,179 110,201 125,219 140,234 155,247 170,258 185,268 200,276 215,283 230,290 245,296 260,301 275,306 290,310 305,314 320,318 335,321 350,324 365,327 380,329 395,332 410,334 425,336 440,338 455,340 470,342 485,344 500,345 515,347 530,348 545,350" fill="none" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="346" font-size="15" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="90" y1="335" x2="420" y2="300" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="426" y="318" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="205" y1="120" x2="540" y2="70" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="546" y="72" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;h&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="200" y1="360" x2="200" y2="30" stroke="#23373B" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;line x1="420" y1="360" x2="420" y2="30" stroke="#23373B" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;text x="200" y="384" font-size="19" text-anchor="middle" fill="#23373B"&gt;&lt;tspan text-decoration="underline"&gt;&amp;#945;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="420" y="384" font-size="19" text-anchor="middle" fill="#23373B"&gt;&amp;#945;&amp;#772;&lt;/text&gt;
+&lt;line x1="300" y1="313" x2="300" y2="360" stroke="#7A8588" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="300" cy="313" r="5" fill="#7A8588"/&gt;
+&lt;text x="300" y="384" font-size="19" text-anchor="middle" fill="#7A8588"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;polyline points="200,25 205,120 215,180 235,222 270,250 320,272 370,288 405,296 418,330 420,352" fill="none" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="3 4"/&gt;
+&lt;line x1="420" y1="352" x2="545" y2="352" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="3 4"/&gt;
+&lt;text x="262" y="238" font-size="15" fill="#9AA5A8"&gt;M(&amp;#945;, k)&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;Three groups:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color:#C0392B;"&gt;low capabilities&lt;/span&gt;: \(\alpha&lt;\underline{\alpha}\)&lt;/li&gt;
+&lt;li&gt;&lt;span style="color:#1B7F79;"&gt;middle capabilities&lt;/span&gt;: \(\underline{\alpha}&lt; \alpha&lt; \bar{\alpha}\)&lt;/li&gt;
+&lt;li&gt;&lt;span style="color:#2E8B57;"&gt;high capabilities&lt;/span&gt;: \(\alpha&gt;\bar{\alpha}\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Policy implications
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="555" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(565,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;human capabilities, &amp;#945;&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;productive capital, k&lt;/text&gt;
+&lt;rect x="82" y="24" width="118" height="336" fill="#C0392B" fill-opacity="0.14"/&gt;
+&lt;rect x="200" y="24" width="220" height="336" fill="#1B7F79" fill-opacity="0.1"/&gt;
+&lt;rect x="420" y="24" width="128" height="336" fill="#2E8B57" fill-opacity="0.14"/&gt;
+&lt;polyline points="95,179 110,201 125,219 140,234 155,247 170,258 185,268 200,276 215,283 230,290 245,296 260,301 275,306 290,310 305,314 320,318 335,321 350,324 365,327 380,329 395,332 410,334 425,336 440,338 455,340 470,342 485,344 500,345 515,347 530,348 545,350" fill="none" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="8 5"/&gt;
+&lt;text x="548" y="346" font-size="15" fill="#9AA5A8"&gt;y&amp;#7510;&lt;/text&gt;
+&lt;line x1="90" y1="335" x2="420" y2="300" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="426" y="318" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;l&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="205" y1="120" x2="540" y2="70" stroke="#9AA5A8" stroke-width="2"/&gt;
+&lt;text x="546" y="72" font-size="15" fill="#9AA5A8"&gt;k*&lt;tspan baseline-shift="sub" font-size="13"&gt;h&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="200" y1="360" x2="200" y2="30" stroke="#23373B" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;line x1="420" y1="360" x2="420" y2="30" stroke="#23373B" stroke-width="1.5" stroke-dasharray="2 5"/&gt;
+&lt;text x="200" y="384" font-size="19" text-anchor="middle" fill="#23373B"&gt;&lt;tspan text-decoration="underline"&gt;&amp;#945;&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="420" y="384" font-size="19" text-anchor="middle" fill="#23373B"&gt;&amp;#945;&amp;#772;&lt;/text&gt;
+&lt;line x1="300" y1="313" x2="300" y2="360" stroke="#7A8588" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="300" cy="313" r="5" fill="#7A8588"/&gt;
+&lt;text x="300" y="384" font-size="19" text-anchor="middle" fill="#7A8588"&gt;&amp;#945;&amp;#8320;&lt;/text&gt;
+&lt;polyline points="200,25 205,120 215,180 235,222 270,250 320,272 370,288 405,296 418,330 420,352" fill="none" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="3 4"/&gt;
+&lt;line x1="420" y1="352" x2="545" y2="352" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="3 4"/&gt;
+&lt;text x="262" y="238" font-size="15" fill="#9AA5A8"&gt;M(&amp;#945;, k)&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Redrawn from Barrett, Carter, and Chavas (2019), Figure I.2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;Three groups:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color:#C0392B;"&gt;low capabilities&lt;/span&gt;: \(\alpha&lt;\underline{\alpha}\)&lt;/li&gt;
+&lt;li&gt;&lt;span style="color:#1B7F79;"&gt;middle capabilities&lt;/span&gt;: \(\underline{\alpha}&lt; \alpha&lt; \bar{\alpha}\)&lt;/li&gt;
+&lt;li&gt;&lt;span style="color:#2E8B57;"&gt;high capabilities&lt;/span&gt;: \(\alpha&gt;\bar{\alpha}\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="discuss"&gt;&lt;strong&gt;Discussion&lt;/strong&gt; &amp;mdash; which groups should policy focus on, and with what kinds of policies?&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Policy implications
+
+**Low capabilities** `\((\alpha&lt;\underline{\alpha})\)`: persistently poor, whatever their starting capital
+
+- they need **ongoing** transfers to supplement their earnings — unless their capabilities can be raised
+
+--
+
+**Middle capabilities** `\((\underline{\alpha}&lt; \alpha&lt; \bar{\alpha})\)`: may escape through asset accumulation
+
+- policies that relax their constraints (e.g., microfinance) can help them cross the Micawber frontier
+
+  - if the binding constraint is skills or psychology, credit alone will not help
+
+  - so the effects of microfinance and microenterprise programs vary across households
+
+---
+
+# With a fixed budget, whom should we help?
+
+&lt;a href="https://doi.org/10.7208/chicago/9780226574448.003.0006"&gt;Ikegami, Carter, Barrett, and Janzen (2019)&lt;/a&gt;: the **social protection paradox**
+
+- shifting some of a fixed budget to the **vulnerable non-poor** after shocks lowers medium-term poverty
+
+  - it stops the vulnerable from falling into chronic poverty
+
+  - but poverty is higher in the short term, since less goes to the currently poor
+
+  - the result assumes that households do not anticipate the transfers
+
+--
+
+Identifying the **root cause** of a trap matters:
+
+- if credit and insurance market failures bind, fixing them brings indirect, general-equilibrium benefits
+
+  - these can far exceed the direct effects of small-scale interventions
+
+--
+
+- e.g., BRAC's asset transfers to poor women in Bangladesh (&lt;a href="https://doi.org/10.1093/qje/qjx003"&gt;Bandiera et al. 2017&lt;/a&gt;)
+
+  - raised the low-skill wages of non-participants
+
+---
+
+name: bbbgh
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Evidence: Balboni, Bandiera, Burgess, Ghatak, and Heil (2022)
+&lt;/div&gt;
+
+---
+
+# Types of intervention
+
+- **"Big push"** interventions
+
+  - a one-time boost of capital or support to help households escape the low equilibrium
+
+--
+
+- **Multifaceted** interventions, a.k.a. **graduation programs**
+
+  - combine support for immediate needs with long-term livelihood support (asset transfers, training, savings)
+
+  - pioneered by BRAC in Bangladesh
+
+---
+
+# &lt;a href="https://doi.org/10.1093/qje/qjab045"&gt;Balboni et al. (2022)&lt;/a&gt;: "Why do people stay poor?"
+
+Why are the world's poor employed, yet earn so little?
+
+--
+
+Two views, with different implications:
+
+--
+
+- **View 1**: the poor have the same opportunities, but traits that suit them only to low-earning work
+
+  - no trap: after a "big push", they drift back to where they started
+
+--
+
+- **View 2**: the poor face different opportunities, and take low-earning jobs because they are born poor
+
+  - their initial wealth, not their abilities or traits, keeps them in low-earning work
+
+  - a trap: a "big push" can lift them out of poverty permanently
+
+--
+
+The paper sets out to distinguish these two views.
+
+---
+
+# Theoretical framework: the intuition
+
+Next year's assets = the assets you keep + what you save from this year's earnings:
+
+`$$K_{i,t+1} = \Phi_i(K_{i,t}) = \underbrace{(1-\delta)\,K_{i,t}}_{\text{assets kept}} \; + \; \underbrace{s_i \, A_{i,v} \, f(K_{i,t})}_{\text{new savings}}$$`
+
+--
+
+- **earnings**, `\(A_{i,v} f(K_{i,t})\)`: depend on your assets `\(K\)` (a cow, land) and your productivity `\(A_{i,v}\)`
+
+  - `\(A_{i,v}\)` combines individual traits (skills, health) and village traits (markets, infrastructure)
+
+- `\(s_i\)`: the share of earnings you save; `\(\delta\)`: the share of assets lost each year — a cow ages, tools wear out
+
+--
+
+- assets stop changing — a **steady state** — when new savings just replace what is lost: `\(s_i A_{i,v} f(K_i^*) = \delta K_i^*\)`
+
+--
+
+.discuss[**Discussion** — does each household have one steady state, or two, depending on where it starts?]
+
+???
+
+Notation: K and A_{i,v} here play roughly the roles of k and alpha in the Barrett, Carter, and Chavas framework. The paper writes the general transition equation as K_{i,t+1} = Phi_i(K_{i,t}) and uses the savings form above as a special case, in a world without credit or rental markets: households can grow their assets only out of their own earnings. A_{i,v} collects individual traits (skills, health) and village traits (markets, infrastructure) that make the same assets more or less productive. Plotting next year's assets against this year's gives the transition curve; wherever it meets the 45-degree line, assets stop changing. The next slides ask how many such points there are, and which are stable.
+
+---
+
+# A quick aside on stable and unstable equilibria
+
+Each figure shows a possible path of adjustment for a variable such as income or assets, `\(y_{t+1} = f(y_t)\)`
+
+- Which point is an equilibrium? Is it stable, unstable, or more complicated?
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/transition1.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# A quick aside on stable and unstable equilibria
+
+Each figure shows a possible path of adjustment for a variable such as income or assets, `\(y_{t+1} = f(y_t)\)`
+
+- Which point is an equilibrium? Is it stable, unstable, or more complicated?
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/transition2.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# A quick aside on stable and unstable equilibria
+
+Each figure shows a possible path of adjustment for a variable such as income or assets, `\(y_{t+1} = f(y_t)\)`
+
+- Which point is an equilibrium? Is it stable, unstable, or more complicated?
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/transition3.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Balboni et al. (2022): asset dynamics
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 30%; padding-right: 10px;"&gt;
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni1.png" style="width: 90%; max-width: 300px;" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 70%; padding-left: 10px;"&gt;
+&lt;p&gt;&lt;strong&gt;Case 1: no poverty trap&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the transition curve crosses the 45-degree line &lt;strong&gt;once&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;each household converges to its own steady state, set by \(A_{i,v}\) and \(s_i\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Balboni et al. (2022): asset dynamics
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 30%; padding-right: 10px;"&gt;
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni1.png" style="width: 90%; max-width: 300px;" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 70%; padding-left: 10px;"&gt;
+&lt;p&gt;&lt;strong&gt;Case 1: no poverty trap&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the transition curve crosses the 45-degree line &lt;strong&gt;once&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;each household converges to its own steady state, set by \(A_{i,v}\) and \(s_i\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;the poor are poor because of &lt;strong&gt;low productivity&lt;/strong&gt;, not low assets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Balboni et al. (2022): asset dynamics
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 30%; padding-right: 10px;"&gt;
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni1.png" style="width: 90%; max-width: 300px;" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 70%; padding-left: 10px;"&gt;
+&lt;p&gt;&lt;strong&gt;Case 1: no poverty trap&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the transition curve crosses the 45-degree line &lt;strong&gt;once&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;each household converges to its own steady state, set by \(A_{i,v}\) and \(s_i\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;the poor are poor because of &lt;strong&gt;low productivity&lt;/strong&gt;, not low assets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Case 1 arises, for example, when:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;savings, productivity, and depreciation do not change with wealth&lt;/li&gt;
+&lt;li&gt;returns to capital diminish&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Balboni et al. (2022): asset dynamics
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 30%; padding-right: 10px;"&gt;
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni2.png" style="width: 90%; max-width: 300px;" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 70%; padding-left: 10px;"&gt;
+&lt;p&gt;&lt;strong&gt;Case 2: a poverty trap (S-shaped curve)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the curve crosses the 45-degree line &lt;strong&gt;three times&lt;/strong&gt;: \(K_P^*\), \(\hat{K}\), \(K_R^*\)&lt;/li&gt;
+&lt;li&gt;\(K_P^*\) and \(K_R^*\) are stable; \(\hat{K}\) is unstable: the &lt;strong&gt;threshold&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Balboni et al. (2022): asset dynamics
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 30%; padding-right: 10px;"&gt;
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni2.png" style="width: 90%; max-width: 300px;" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 70%; padding-left: 10px;"&gt;
+&lt;p&gt;&lt;strong&gt;Case 2: a poverty trap (S-shaped curve)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the curve crosses the 45-degree line &lt;strong&gt;three times&lt;/strong&gt;: \(K_P^*\), \(\hat{K}\), \(K_R^*\)&lt;/li&gt;
+&lt;li&gt;\(K_P^*\) and \(K_R^*\) are stable; \(\hat{K}\) is unstable: the &lt;strong&gt;threshold&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;households starting below \(\hat{K}\) drift down to \(K_P^*\); those above grow to \(K_R^*\)&lt;/li&gt;
+&lt;li&gt;the poor are poor because of &lt;strong&gt;low initial assets&lt;/strong&gt;: same \(A_{i,v}\) and \(s_i\) as the rich, lower starting \(K\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Balboni et al. (2022): asset dynamics
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 30%; padding-right: 10px;"&gt;
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni2.png" style="width: 90%; max-width: 300px;" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 70%; padding-left: 10px;"&gt;
+&lt;p&gt;&lt;strong&gt;Case 2: a poverty trap (S-shaped curve)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the curve crosses the 45-degree line &lt;strong&gt;three times&lt;/strong&gt;: \(K_P^*\), \(\hat{K}\), \(K_R^*\)&lt;/li&gt;
+&lt;li&gt;\(K_P^*\) and \(K_R^*\) are stable; \(\hat{K}\) is unstable: the &lt;strong&gt;threshold&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;households starting below \(\hat{K}\) drift down to \(K_P^*\); those above grow to \(K_R^*\)&lt;/li&gt;
+&lt;li&gt;the poor are poor because of &lt;strong&gt;low initial assets&lt;/strong&gt;: same \(A_{i,v}\) and \(s_i\) as the rich, lower starting \(K\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Case 2 can arise when:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;returns to capital &lt;strong&gt;rise&lt;/strong&gt; with scale, or&lt;/li&gt;
+&lt;li&gt;the savings rate rises with assets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Balboni et al. (2022): asset dynamics
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 30%; padding-right: 10px;"&gt;
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni3.png" style="width: 90%; max-width: 300px;" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 70%; padding-left: 10px;"&gt;
+&lt;p&gt;&lt;strong&gt;Case 3: a poverty trap with two technologies&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a more profitable occupation needs a large, lumpy investment of size \(\hat{K}\)&lt;/li&gt;
+&lt;li&gt;the curve &lt;strong&gt;jumps&lt;/strong&gt; at \(\hat{K}\): two stable steady states, \(K_P^*\) and \(K_R^*\), and none between them&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Balboni et al. (2022): asset dynamics
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 30%; padding-right: 10px;"&gt;
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni3.png" style="width: 90%; max-width: 300px;" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 70%; padding-left: 10px;"&gt;
+&lt;p&gt;&lt;strong&gt;Case 3: a poverty trap with two technologies&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a more profitable occupation needs a large, lumpy investment of size \(\hat{K}\)&lt;/li&gt;
+&lt;li&gt;the curve &lt;strong&gt;jumps&lt;/strong&gt; at \(\hat{K}\): two stable steady states, \(K_P^*\) and \(K_R^*\), and none between them&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;households below \(\hat{K}\) cannot afford the switch, so they cannot reach \(K_R^*\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Balboni et al. (2022): asset dynamics
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 30%; padding-right: 10px;"&gt;
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni3.png" style="width: 90%; max-width: 300px;" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 70%; padding-left: 10px;"&gt;
+&lt;p&gt;&lt;strong&gt;Case 3: a poverty trap with two technologies&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a more profitable occupation needs a large, lumpy investment of size \(\hat{K}\)&lt;/li&gt;
+&lt;li&gt;the curve &lt;strong&gt;jumps&lt;/strong&gt; at \(\hat{K}\): two stable steady states, \(K_P^*\) and \(K_R^*\), and none between them&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;households below \(\hat{K}\) cannot afford the switch, so they cannot reach \(K_R^*\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In data, Cases 2 and 3 are hard to tell apart — both predict a threshold.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Testing for poverty traps
+
+**Test 1**: if the **transition equation** `\(\Phi_i(K_{i,t})\)` is globally concave, there cannot be multiple stable equilibria
+
+- a nonparametric shape test (&lt;a href="https://arxiv.org/abs/1909.01675"&gt;Komarova and Hidalgo 2019&lt;/a&gt;) rejects global concavity at the 1% level
+
+--
+
+**Test 2**: a poverty trap exists if and only if there is a **threshold** level of capital `\(\hat{K}\)`
+
+- those below `\(\hat{K}\)` converge to a low stable steady state
+
+- those above `\(\hat{K}\)` converge to a high stable steady state
+
+--
+
+The general idea: track the evolution of assets over time, across initial asset levels
+
+---
+
+# Testing for poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 560 440" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="70" y1="400" x2="520" y2="400" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(530,400)" fill="#23373B"/&gt;
+&lt;line x1="70" y1="400" x2="70" y2="24" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(70,14) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="545" y="388" font-size="17" text-anchor="end" fill="#23373B"&gt;assets this year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="82" y="24" font-size="17" fill="#23373B"&gt;assets next year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t+1&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="70" y1="400" x2="440" y2="30" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="6 5"/&gt;
+&lt;text x="446" y="30" font-size="15" fill="#9AA5A8"&gt;45&amp;#176;&lt;/text&gt;
+&lt;polyline points="80,339.6 85,339.6 90,339.5 95,339.4 100,339.3 105,339.1 110,338.9 115,338.7 120,338.5 125,338.2 130,337.8 135,337.4 140,336.9 145,336.3 150,335.6 155,334.8 160,333.8 165,332.6 170,331.2 175,329.6 180,327.6 185,325.3 190,322.7 195,319.5 200,315.9 205,311.6 210,306.8 215,301.2 220,294.9 225,287.8 230,279.9 235,271.1 240,261.6 245,251.3 250,240.3 255,228.9 260,217 265,205 270,193 275,181.1 280,169.7 285,158.7 290,148.4 295,138.9 300,130.1 305,122.2 310,115.1 315,108.8 320,103.2 325,98.4 330,94.1 335,90.5 340,87.3 345,84.7 350,82.4 355,80.4 360,78.8 365,77.4 370,76.2 375,75.2 380,74.4 385,73.7 390,73.1 395,72.6 400,72.2 405,71.8 410,71.5 415,71.3 420,71.1 425,70.9 430,70.7 435,70.6 440,70.5" fill="none" stroke="#1B7F79" stroke-width="3.5" stroke-opacity="1"/&gt;
+&lt;text x="448" y="76" font-size="16" fill="#1B7F79" fill-opacity="1"&gt;&amp;#934;(K)&lt;/text&gt;
+&lt;line x1="132.5" y1="337.5" x2="132.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="265" y1="205" x2="265" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="397.5" y1="72.5" x2="397.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="132.5" cy="337.5" r="6" fill="#23373B"/&gt;
+&lt;circle cx="265" cy="205" r="6" fill="#FAFAFA" stroke="#23373B" stroke-width="2.5"/&gt;
+&lt;circle cx="397.5" cy="72.5" r="6" fill="#23373B"/&gt;
+&lt;text x="132.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;P&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="265" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K&amp;#770;&lt;/text&gt;
+&lt;text x="397.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;R&lt;/tspan&gt;&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Schematic illustration.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 10px;"&gt;
+&lt;p&gt;Why can't we trace out the transition equation from observational data alone?&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Testing for poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 560 440" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="70" y1="400" x2="520" y2="400" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(530,400)" fill="#23373B"/&gt;
+&lt;line x1="70" y1="400" x2="70" y2="24" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(70,14) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="545" y="388" font-size="17" text-anchor="end" fill="#23373B"&gt;assets this year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="82" y="24" font-size="17" fill="#23373B"&gt;assets next year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t+1&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="70" y1="400" x2="440" y2="30" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="6 5"/&gt;
+&lt;text x="446" y="30" font-size="15" fill="#9AA5A8"&gt;45&amp;#176;&lt;/text&gt;
+&lt;polyline points="80,339.6 85,339.6 90,339.5 95,339.4 100,339.3 105,339.1 110,338.9 115,338.7 120,338.5 125,338.2 130,337.8 135,337.4 140,336.9 145,336.3 150,335.6 155,334.8 160,333.8 165,332.6 170,331.2 175,329.6 180,327.6 185,325.3 190,322.7 195,319.5 200,315.9 205,311.6 210,306.8 215,301.2 220,294.9 225,287.8 230,279.9 235,271.1 240,261.6 245,251.3 250,240.3 255,228.9 260,217 265,205 270,193 275,181.1 280,169.7 285,158.7 290,148.4 295,138.9 300,130.1 305,122.2 310,115.1 315,108.8 320,103.2 325,98.4 330,94.1 335,90.5 340,87.3 345,84.7 350,82.4 355,80.4 360,78.8 365,77.4 370,76.2 375,75.2 380,74.4 385,73.7 390,73.1 395,72.6 400,72.2 405,71.8 410,71.5 415,71.3 420,71.1 425,70.9 430,70.7 435,70.6 440,70.5" fill="none" stroke="#1B7F79" stroke-width="3.5" stroke-opacity="1"/&gt;
+&lt;text x="448" y="76" font-size="16" fill="#1B7F79" fill-opacity="1"&gt;&amp;#934;(K)&lt;/text&gt;
+&lt;line x1="132.5" y1="337.5" x2="132.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="265" y1="205" x2="265" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="397.5" y1="72.5" x2="397.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="132.5" cy="337.5" r="6" fill="#23373B"/&gt;
+&lt;circle cx="265" cy="205" r="6" fill="#FAFAFA" stroke="#23373B" stroke-width="2.5"/&gt;
+&lt;circle cx="397.5" cy="72.5" r="6" fill="#23373B"/&gt;
+&lt;text x="132.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;P&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="265" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K&amp;#770;&lt;/text&gt;
+&lt;text x="397.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;R&lt;/tspan&gt;&lt;/text&gt;&lt;rect x="225" y="40" width="80" height="360" fill="#EB811B" fill-opacity="0.08"/&gt;
+&lt;text x="265" y="56" font-size="15" text-anchor="middle" fill="#B35F0E"&gt;few households&lt;/text&gt;&lt;circle cx="118" cy="336" r="5" fill="#23373B"/&gt;
+&lt;circle cx="124" cy="342" r="5" fill="#23373B"/&gt;
+&lt;circle cx="129" cy="333" r="5" fill="#23373B"/&gt;
+&lt;circle cx="135" cy="341" r="5" fill="#23373B"/&gt;
+&lt;circle cx="141" cy="333" r="5" fill="#23373B"/&gt;
+&lt;circle cx="147" cy="339" r="5" fill="#23373B"/&gt;
+&lt;circle cx="153" cy="332" r="5" fill="#23373B"/&gt;
+&lt;circle cx="382" cy="78" r="5" fill="#23373B"/&gt;
+&lt;circle cx="388" cy="69" r="5" fill="#23373B"/&gt;
+&lt;circle cx="394" cy="76" r="5" fill="#23373B"/&gt;
+&lt;circle cx="400" cy="68" r="5" fill="#23373B"/&gt;
+&lt;circle cx="407" cy="75" r="5" fill="#23373B"/&gt;
+&lt;circle cx="414" cy="67" r="5" fill="#23373B"/&gt;&lt;circle cx="256" cy="226.5" r="5" fill="#7A8588"/&gt;
+&lt;circle cx="274" cy="183.5" r="5" fill="#7A8588"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Schematic illustration.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 10px;"&gt;
+&lt;p&gt;Why can't we trace out the transition equation from observational data alone?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;households sit near stable steady states and move away from the unstable threshold, so few are seen near it&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Testing for poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 560 440" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="70" y1="400" x2="520" y2="400" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(530,400)" fill="#23373B"/&gt;
+&lt;line x1="70" y1="400" x2="70" y2="24" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(70,14) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="545" y="388" font-size="17" text-anchor="end" fill="#23373B"&gt;assets this year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="82" y="24" font-size="17" fill="#23373B"&gt;assets next year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t+1&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="70" y1="400" x2="440" y2="30" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="6 5"/&gt;
+&lt;text x="446" y="30" font-size="15" fill="#9AA5A8"&gt;45&amp;#176;&lt;/text&gt;
+&lt;polyline points="80,339.6 85,339.6 90,339.5 95,339.4 100,339.3 105,339.1 110,338.9 115,338.7 120,338.5 125,338.2 130,337.8 135,337.4 140,336.9 145,336.3 150,335.6 155,334.8 160,333.8 165,332.6 170,331.2 175,329.6 180,327.6 185,325.3 190,322.7 195,319.5 200,315.9 205,311.6 210,306.8 215,301.2 220,294.9 225,287.8 230,279.9 235,271.1 240,261.6 245,251.3 250,240.3 255,228.9 260,217 265,205 270,193 275,181.1 280,169.7 285,158.7 290,148.4 295,138.9 300,130.1 305,122.2 310,115.1 315,108.8 320,103.2 325,98.4 330,94.1 335,90.5 340,87.3 345,84.7 350,82.4 355,80.4 360,78.8 365,77.4 370,76.2 375,75.2 380,74.4 385,73.7 390,73.1 395,72.6 400,72.2 405,71.8 410,71.5 415,71.3 420,71.1 425,70.9 430,70.7 435,70.6 440,70.5" fill="none" stroke="#1B7F79" stroke-width="3.5" stroke-opacity="1"/&gt;
+&lt;text x="448" y="76" font-size="16" fill="#1B7F79" fill-opacity="1"&gt;&amp;#934;(K)&lt;/text&gt;
+&lt;line x1="132.5" y1="337.5" x2="132.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="265" y1="205" x2="265" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="397.5" y1="72.5" x2="397.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="132.5" cy="337.5" r="6" fill="#23373B"/&gt;
+&lt;circle cx="265" cy="205" r="6" fill="#FAFAFA" stroke="#23373B" stroke-width="2.5"/&gt;
+&lt;circle cx="397.5" cy="72.5" r="6" fill="#23373B"/&gt;
+&lt;text x="132.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;P&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="265" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K&amp;#770;&lt;/text&gt;
+&lt;text x="397.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;R&lt;/tspan&gt;&lt;/text&gt;&lt;rect x="225" y="40" width="80" height="360" fill="#EB811B" fill-opacity="0.08"/&gt;
+&lt;text x="265" y="56" font-size="15" text-anchor="middle" fill="#B35F0E"&gt;few households&lt;/text&gt;&lt;circle cx="118" cy="336" r="5" fill="#23373B"/&gt;
+&lt;circle cx="124" cy="342" r="5" fill="#23373B"/&gt;
+&lt;circle cx="129" cy="333" r="5" fill="#23373B"/&gt;
+&lt;circle cx="135" cy="341" r="5" fill="#23373B"/&gt;
+&lt;circle cx="141" cy="333" r="5" fill="#23373B"/&gt;
+&lt;circle cx="147" cy="339" r="5" fill="#23373B"/&gt;
+&lt;circle cx="153" cy="332" r="5" fill="#23373B"/&gt;
+&lt;circle cx="382" cy="78" r="5" fill="#23373B"/&gt;
+&lt;circle cx="388" cy="69" r="5" fill="#23373B"/&gt;
+&lt;circle cx="394" cy="76" r="5" fill="#23373B"/&gt;
+&lt;circle cx="400" cy="68" r="5" fill="#23373B"/&gt;
+&lt;circle cx="407" cy="75" r="5" fill="#23373B"/&gt;
+&lt;circle cx="414" cy="67" r="5" fill="#23373B"/&gt;&lt;circle cx="256" cy="226.5" r="5" fill="#7A8588"/&gt;
+&lt;circle cx="274" cy="183.5" r="5" fill="#7A8588"/&gt;&lt;line x1="108" y1="365" x2="160" y2="365" stroke="#C0392B" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(170,365)" fill="#C0392B"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(98,365) rotate(180)" fill="#C0392B"/&gt;
+&lt;text x="152" y="392" font-size="15" text-anchor="middle" fill="#C0392B"&gt;typical shocks&lt;/text&gt;
+&lt;line x1="372" y1="104" x2="424" y2="104" stroke="#C0392B" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(434,104)" fill="#C0392B"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(362,104) rotate(180)" fill="#C0392B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Schematic illustration.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 10px;"&gt;
+&lt;p&gt;Why can't we trace out the transition equation from observational data alone?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;households sit near stable steady states and move away from the unstable threshold, so few are seen near it&lt;/li&gt;
+&lt;li&gt;asset changes large enough to cross it are rare: 5.9% of the control group in &lt;a href="https://doi.org/10.1093/qje/qjab045"&gt;Balboni et al. (2022)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Testing for poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 560 440" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="70" y1="400" x2="520" y2="400" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(530,400)" fill="#23373B"/&gt;
+&lt;line x1="70" y1="400" x2="70" y2="24" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(70,14) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="545" y="388" font-size="17" text-anchor="end" fill="#23373B"&gt;assets this year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="82" y="24" font-size="17" fill="#23373B"&gt;assets next year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t+1&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="70" y1="400" x2="440" y2="30" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="6 5"/&gt;
+&lt;text x="446" y="30" font-size="15" fill="#9AA5A8"&gt;45&amp;#176;&lt;/text&gt;
+&lt;polyline points="80,339.6 85,339.6 90,339.5 95,339.4 100,339.3 105,339.1 110,338.9 115,338.7 120,338.5 125,338.2 130,337.8 135,337.4 140,336.9 145,336.3 150,335.6 155,334.8 160,333.8 165,332.6 170,331.2 175,329.6 180,327.6 185,325.3 190,322.7 195,319.5 200,315.9 205,311.6 210,306.8 215,301.2 220,294.9 225,287.8 230,279.9 235,271.1 240,261.6 245,251.3 250,240.3 255,228.9 260,217 265,205 270,193 275,181.1 280,169.7 285,158.7 290,148.4 295,138.9 300,130.1 305,122.2 310,115.1 315,108.8 320,103.2 325,98.4 330,94.1 335,90.5 340,87.3 345,84.7 350,82.4 355,80.4 360,78.8 365,77.4 370,76.2 375,75.2 380,74.4 385,73.7 390,73.1 395,72.6 400,72.2 405,71.8 410,71.5 415,71.3 420,71.1 425,70.9 430,70.7 435,70.6 440,70.5" fill="none" stroke="#1B7F79" stroke-width="3.5" stroke-opacity="1"/&gt;
+&lt;text x="448" y="76" font-size="16" fill="#1B7F79" fill-opacity="1"&gt;&amp;#934;(K)&lt;/text&gt;
+&lt;line x1="132.5" y1="337.5" x2="132.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="265" y1="205" x2="265" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="397.5" y1="72.5" x2="397.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="132.5" cy="337.5" r="6" fill="#23373B"/&gt;
+&lt;circle cx="265" cy="205" r="6" fill="#FAFAFA" stroke="#23373B" stroke-width="2.5"/&gt;
+&lt;circle cx="397.5" cy="72.5" r="6" fill="#23373B"/&gt;
+&lt;text x="132.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;P&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="265" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K&amp;#770;&lt;/text&gt;
+&lt;text x="397.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;R&lt;/tspan&gt;&lt;/text&gt;&lt;rect x="225" y="40" width="80" height="360" fill="#EB811B" fill-opacity="0.08"/&gt;
+&lt;text x="265" y="56" font-size="15" text-anchor="middle" fill="#B35F0E"&gt;few households&lt;/text&gt;&lt;circle cx="118" cy="336" r="5" fill="#23373B"/&gt;
+&lt;circle cx="124" cy="342" r="5" fill="#23373B"/&gt;
+&lt;circle cx="129" cy="333" r="5" fill="#23373B"/&gt;
+&lt;circle cx="135" cy="341" r="5" fill="#23373B"/&gt;
+&lt;circle cx="141" cy="333" r="5" fill="#23373B"/&gt;
+&lt;circle cx="147" cy="339" r="5" fill="#23373B"/&gt;
+&lt;circle cx="153" cy="332" r="5" fill="#23373B"/&gt;
+&lt;circle cx="382" cy="78" r="5" fill="#23373B"/&gt;
+&lt;circle cx="388" cy="69" r="5" fill="#23373B"/&gt;
+&lt;circle cx="394" cy="76" r="5" fill="#23373B"/&gt;
+&lt;circle cx="400" cy="68" r="5" fill="#23373B"/&gt;
+&lt;circle cx="407" cy="75" r="5" fill="#23373B"/&gt;
+&lt;circle cx="414" cy="67" r="5" fill="#23373B"/&gt;&lt;circle cx="256" cy="226.5" r="7" fill="#EB811B"/&gt;
+&lt;circle cx="274" cy="183.5" r="7" fill="#EB811B"/&gt;
+&lt;text x="284" y="240" font-size="15" fill="#B35F0E"&gt;who crossed, and why?&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Schematic illustration.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 10px;"&gt;
+&lt;p&gt;Why can't we trace out the transition equation from observational data alone?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;households sit near stable steady states and move away from the unstable threshold, so few are seen near it&lt;/li&gt;
+&lt;li&gt;asset changes large enough to cross it are rare: 5.9% of the control group in &lt;a href="https://doi.org/10.1093/qje/qjab045"&gt;Balboni et al. (2022)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;those who do cross are selected: their paths also reflect differences in \(A_{i,v}\) and \(s_i\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Testing for poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 560 440" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="70" y1="400" x2="520" y2="400" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(530,400)" fill="#23373B"/&gt;
+&lt;line x1="70" y1="400" x2="70" y2="24" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(70,14) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="545" y="388" font-size="17" text-anchor="end" fill="#23373B"&gt;assets this year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="82" y="24" font-size="17" fill="#23373B"&gt;assets next year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t+1&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="70" y1="400" x2="440" y2="30" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="6 5"/&gt;
+&lt;text x="446" y="30" font-size="15" fill="#9AA5A8"&gt;45&amp;#176;&lt;/text&gt;
+&lt;polyline points="80,339.6 85,339.6 90,339.5 95,339.4 100,339.3 105,339.1 110,338.9 115,338.7 120,338.5 125,338.2 130,337.8 135,337.4 140,336.9 145,336.3 150,335.6 155,334.8 160,333.8 165,332.6 170,331.2 175,329.6 180,327.6 185,325.3 190,322.7 195,319.5 200,315.9 205,311.6 210,306.8 215,301.2 220,294.9 225,287.8 230,279.9 235,271.1 240,261.6 245,251.3 250,240.3 255,228.9 260,217 265,205 270,193 275,181.1 280,169.7 285,158.7 290,148.4 295,138.9 300,130.1 305,122.2 310,115.1 315,108.8 320,103.2 325,98.4 330,94.1 335,90.5 340,87.3 345,84.7 350,82.4 355,80.4 360,78.8 365,77.4 370,76.2 375,75.2 380,74.4 385,73.7 390,73.1 395,72.6 400,72.2 405,71.8 410,71.5 415,71.3 420,71.1 425,70.9 430,70.7 435,70.6 440,70.5" fill="none" stroke="#1B7F79" stroke-width="3.5" stroke-opacity="0.3"/&gt;
+&lt;text x="448" y="76" font-size="16" fill="#1B7F79" fill-opacity="0.3"&gt;&amp;#934;(K)&lt;/text&gt;
+&lt;line x1="132.5" y1="337.5" x2="132.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="265" y1="205" x2="265" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="397.5" y1="72.5" x2="397.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="132.5" cy="337.5" r="6" fill="#23373B"/&gt;
+&lt;circle cx="265" cy="205" r="6" fill="#FAFAFA" stroke="#23373B" stroke-width="2.5"/&gt;
+&lt;circle cx="397.5" cy="72.5" r="6" fill="#23373B"/&gt;
+&lt;text x="132.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;P&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="265" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K&amp;#770;&lt;/text&gt;
+&lt;text x="397.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;R&lt;/tspan&gt;&lt;/text&gt;&lt;circle cx="118" cy="336" r="5" fill="#23373B"/&gt;
+&lt;circle cx="124" cy="342" r="5" fill="#23373B"/&gt;
+&lt;circle cx="129" cy="333" r="5" fill="#23373B"/&gt;
+&lt;circle cx="135" cy="341" r="5" fill="#23373B"/&gt;
+&lt;circle cx="141" cy="333" r="5" fill="#23373B"/&gt;
+&lt;circle cx="147" cy="339" r="5" fill="#23373B"/&gt;
+&lt;circle cx="153" cy="332" r="5" fill="#23373B"/&gt;
+&lt;circle cx="382" cy="78" r="5" fill="#23373B"/&gt;
+&lt;circle cx="388" cy="69" r="5" fill="#23373B"/&gt;
+&lt;circle cx="394" cy="76" r="5" fill="#23373B"/&gt;
+&lt;circle cx="400" cy="68" r="5" fill="#23373B"/&gt;
+&lt;circle cx="407" cy="75" r="5" fill="#23373B"/&gt;
+&lt;circle cx="414" cy="67" r="5" fill="#23373B"/&gt;&lt;polyline points="80,375 90,364.6 100,356.7 110,350 120,344.1 130,338.8 140,333.9 150,329.3 160,325 170,320.9 180,317.1 190,313.4 200,309.9 210,306.5 220,303.2 230,300 240,296.9 250,293.9 260,291 270,288.2 280,285.4 290,282.7 300,280.1 310,277.5 320,275 330,272.5 340,270.1 350,267.7 360,265.4 370,263.1 380,260.8 390,258.6 400,256.4 410,254.2 420,252.1 430,250 440,247.9" fill="none" stroke="#C0392B" stroke-width="2.5" stroke-dasharray="7 5"/&gt;
+&lt;text x="446" y="252" font-size="15" fill="#C0392B"&gt;low-A type&lt;/text&gt;
+&lt;polyline points="80,342.8 90,319.1 100,300.9 110,285.5 120,272 130,259.8 140,248.6 150,238.1 160,228.3 170,219 180,210.2 190,201.8 200,193.7 210,185.9 220,178.4 230,171.1 240,164 250,157.2 260,150.6 270,144.1 280,137.8 290,131.6 300,125.5 310,119.6 320,113.9 330,108.2 340,102.6 350,97.2 360,91.8 370,86.6 380,81.4 390,76.3 400,71.3 410,66.3 420,61.4 430,56.6 440,51.9" fill="none" stroke="#2E8B57" stroke-width="2.5" stroke-dasharray="7 5"/&gt;
+&lt;text x="446" y="56" font-size="15" fill="#2E8B57"&gt;high-A type&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Schematic illustration.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 10px;"&gt;
+&lt;p&gt;Why can't we trace out the transition equation from observational data alone?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;households sit near stable steady states and move away from the unstable threshold, so few are seen near it&lt;/li&gt;
+&lt;li&gt;asset changes large enough to cross it are rare: 5.9% of the control group in &lt;a href="https://doi.org/10.1093/qje/qjab045"&gt;Balboni et al. (2022)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;those who do cross are selected: their paths also reflect differences in \(A_{i,v}\) and \(s_i\)&lt;/li&gt;
+&lt;li&gt;a bimodal distribution of assets fits both views: one S-curve, or two types of household&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Testing for poverty traps
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 560 440" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="70" y1="400" x2="520" y2="400" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(530,400)" fill="#23373B"/&gt;
+&lt;line x1="70" y1="400" x2="70" y2="24" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(70,14) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="545" y="388" font-size="17" text-anchor="end" fill="#23373B"&gt;assets this year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="82" y="24" font-size="17" fill="#23373B"&gt;assets next year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t+1&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="70" y1="400" x2="440" y2="30" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="6 5"/&gt;
+&lt;text x="446" y="30" font-size="15" fill="#9AA5A8"&gt;45&amp;#176;&lt;/text&gt;
+&lt;polyline points="80,339.6 85,339.6 90,339.5 95,339.4 100,339.3 105,339.1 110,338.9 115,338.7 120,338.5 125,338.2 130,337.8 135,337.4 140,336.9 145,336.3 150,335.6 155,334.8 160,333.8 165,332.6 170,331.2 175,329.6 180,327.6 185,325.3 190,322.7 195,319.5 200,315.9 205,311.6 210,306.8 215,301.2 220,294.9 225,287.8 230,279.9 235,271.1 240,261.6 245,251.3 250,240.3 255,228.9 260,217 265,205 270,193 275,181.1 280,169.7 285,158.7 290,148.4 295,138.9 300,130.1 305,122.2 310,115.1 315,108.8 320,103.2 325,98.4 330,94.1 335,90.5 340,87.3 345,84.7 350,82.4 355,80.4 360,78.8 365,77.4 370,76.2 375,75.2 380,74.4 385,73.7 390,73.1 395,72.6 400,72.2 405,71.8 410,71.5 415,71.3 420,71.1 425,70.9 430,70.7 435,70.6 440,70.5" fill="none" stroke="#1B7F79" stroke-width="3.5" stroke-opacity="1"/&gt;
+&lt;text x="448" y="76" font-size="16" fill="#1B7F79" fill-opacity="1"&gt;&amp;#934;(K)&lt;/text&gt;
+&lt;line x1="132.5" y1="337.5" x2="132.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="265" y1="205" x2="265" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="397.5" y1="72.5" x2="397.5" y2="400" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="132.5" cy="337.5" r="6" fill="#23373B"/&gt;
+&lt;circle cx="265" cy="205" r="6" fill="#FAFAFA" stroke="#23373B" stroke-width="2.5"/&gt;
+&lt;circle cx="397.5" cy="72.5" r="6" fill="#23373B"/&gt;
+&lt;text x="132.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;P&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="265" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K&amp;#770;&lt;/text&gt;
+&lt;text x="397.5" y="424" font-size="17" text-anchor="middle" fill="#23373B"&gt;K*&lt;tspan baseline-shift="sub" font-size="13"&gt;R&lt;/tspan&gt;&lt;/text&gt;&lt;rect x="225" y="40" width="80" height="360" fill="#EB811B" fill-opacity="0.08"/&gt;
+&lt;text x="265" y="56" font-size="15" text-anchor="middle" fill="#B35F0E"&gt;few households&lt;/text&gt;&lt;circle cx="118" cy="336" r="5" fill="#23373B"/&gt;
+&lt;circle cx="124" cy="342" r="5" fill="#23373B"/&gt;
+&lt;circle cx="129" cy="333" r="5" fill="#23373B"/&gt;
+&lt;circle cx="135" cy="341" r="5" fill="#23373B"/&gt;
+&lt;circle cx="141" cy="333" r="5" fill="#23373B"/&gt;
+&lt;circle cx="147" cy="339" r="5" fill="#23373B"/&gt;
+&lt;circle cx="153" cy="332" r="5" fill="#23373B"/&gt;
+&lt;circle cx="382" cy="78" r="5" fill="#23373B"/&gt;
+&lt;circle cx="388" cy="69" r="5" fill="#23373B"/&gt;
+&lt;circle cx="394" cy="76" r="5" fill="#23373B"/&gt;
+&lt;circle cx="400" cy="68" r="5" fill="#23373B"/&gt;
+&lt;circle cx="407" cy="75" r="5" fill="#23373B"/&gt;
+&lt;circle cx="414" cy="67" r="5" fill="#23373B"/&gt;&lt;line x1="160" y1="362" x2="222" y2="362" stroke="#C0392B" stroke-width="4"/&gt;
+&lt;polygon points="0,0 -14,-8 -14,8" transform="translate(234,362)" fill="#C0392B"/&gt;
+&lt;text x="197" y="386" font-size="15" text-anchor="middle" fill="#C0392B"&gt;large shock&lt;/text&gt;
+&lt;circle cx="240" cy="261.6" r="5.5" fill="#EB811B"/&gt;
+&lt;circle cx="248" cy="244.8" r="5.5" fill="#EB811B"/&gt;
+&lt;circle cx="256" cy="226.5" r="5.5" fill="#EB811B"/&gt;
+&lt;circle cx="274" cy="183.5" r="5.5" fill="#EB811B"/&gt;
+&lt;circle cx="282" cy="165.2" r="5.5" fill="#EB811B"/&gt;
+&lt;circle cx="290" cy="148.4" r="5.5" fill="#EB811B"/&gt;
+&lt;line x1="226" y1="262" x2="206" y2="290" stroke="#23373B" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(200,298) rotate(125.5)" fill="#23373B"/&gt;
+&lt;line x1="304" y1="146" x2="322" y2="122" stroke="#23373B" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(328,114) rotate(-53)" fill="#23373B"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Schematic illustration.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 10px;"&gt;
+&lt;p&gt;Why can't we trace out the transition equation from observational data alone?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;households sit near stable steady states and move away from the unstable threshold, so few are seen near it&lt;/li&gt;
+&lt;li&gt;asset changes large enough to cross it are rare: 5.9% of the control group in &lt;a href="https://doi.org/10.1093/qje/qjab045"&gt;Balboni et al. (2022)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;those who do cross are selected: their paths also reflect differences in \(A_{i,v}\) and \(s_i\)&lt;/li&gt;
+&lt;li&gt;a bimodal distribution of assets fits both views: one S-curve, or two types of household&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;What is needed&lt;/strong&gt;: a large shock, unrelated to household traits, that places households near the threshold.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+???
+
+Analogy: marbles resting in two bowls separated by a ridge. Where the marbles rest tells you where the bowls are, not whether there is a ridge between them; two separate tables, each with one bowl, would look the same. To find the ridge, place marbles near the top and watch which way they roll. Second bullet: the paper reports that asset changes of the same magnitude as the BRAC transfer occur for only 5.9% of control households, over both the two-year and the four-year horizon. Fourth bullet: identical households on an S-shaped transition equation produce a bimodal distribution, but so do two types of households, each with a concave transition equation and its own steady state (Balboni et al. 2022, pp. 802-803).
+---
+
+# The productive asset transfer
+
+A large, randomized asset shock: BRAC's ultra-poor program in Bangladesh
+
+- the same program and data as &lt;a href="https://doi.org/10.1093/qje/qjx003"&gt;Bandiera et al. (2017)&lt;/a&gt;
+
+--
+
+- a one-off transfer of productive assets worth about **9,045 BDT (US$490, 2007 PPP)**
+
+  - plus training and consumption support
+
+- beneficiaries are ultra-poor women; **91%** chose a cow
+
+---
+
+# Baseline assets after the transfer
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni4.png" style="width: 90%; max-width: 440px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjab045"&gt;Balboni et al. (2022)&lt;/a&gt;, Figure I, Panel B.]
+
+- the transfer moves over 3,000 treated households from the low mode into the trough of the distribution
+
+--
+
+.takeaway[A randomized transfer places households near the threshold: we can watch which way they move]
+
+---
+
+# Poverty traps in the short run
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/povertytrap.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+--
+
+Treatment villages (Panel A): an S-shaped transition, `\(\hat{K} \approx\)` **9,309 BDT (US$504, 2007 PPP)**, about the price of a cow
+
+--
+
+- those who cannot get above the threshold end up in the low-asset mode
+
+--
+
+- those lifted above the threshold move toward the high-asset mode
+
+---
+
+# Short-term responses to the asset transfer
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/table1.png" style="width: 90%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+Column 1 of Table II: `\(\Delta k_i = \gamma + \beta_0 I[k_{i,1}&gt; \hat{k}] + \varepsilon_{i}\)`, the log change in assets from 2007 to 2011
+
+- beneficiaries still below `\(\hat{k}\)` after the transfer lose about **14%** of their assets over four years
+
+- those above `\(\hat{k}\)` grow their assets by about **16%**
+
+---
+
+class: inverse, middle, center
+
+Is the poverty threshold the same for everyone?
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(K_{i,t+1} = (1-\delta)K_{i,t} + s_i A_{i,v}f(K_{i,t})\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`
+
+The authors let the threshold differ across subsamples with low and high proxies for `\(A_{i,v}\)` and `\(s_i\)`:
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/het1.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(K_{i,t+1} = (1-\delta)K_{i,t} + s_i A_{i,v}f(K_{i,t})\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`
+
+The authors let the threshold differ across subsamples with low and high proxies for `\(A_{i,v}\)` and `\(s_i\)`:
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/het2.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(K_{i,t+1} = (1-\delta)K_{i,t} + s_i A_{i,v}f(K_{i,t})\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`
+
+The authors let the threshold differ across subsamples with low and high proxies for `\(A_{i,v}\)` and `\(s_i\)`:
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/het3.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(K_{i,t+1} = (1-\delta)K_{i,t} + s_i A_{i,v}f(K_{i,t})\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`
+
+The authors let the threshold differ across subsamples with low and high proxies for `\(A_{i,v}\)` and `\(s_i\)`:
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/het4.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(K_{i,t+1} = (1-\delta)K_{i,t} + s_i A_{i,v}f(K_{i,t})\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`
+
+The authors let the threshold differ across subsamples with low and high proxies for `\(A_{i,v}\)` and `\(s_i\)`:
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/het5.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds
+
+Recall the transition equation: `\(K_{i,t+1} = (1-\delta)K_{i,t} + s_i A_{i,v}f(K_{i,t})\)`
+
+- asset accumulation also depends on `\(A_{i,v}\)` and `\(s_i\)`
+
+The authors let the threshold differ across subsamples with low and high proxies for `\(A_{i,v}\)` and `\(s_i\)`:
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/het6.png" style="width: 90%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Heterogeneous poverty thresholds: what they find
+
+The threshold is **not** the same for everyone:
+
+- **lower** for households with higher village earnings potential, some education, or a higher savings rate
+
+- **higher** for households reporting mental anxiety
+
+- no difference by BMI or by non-business assets
+
+--
+
+.takeaway[Traps can be household-specific: the same transfer can lift one household out and leave another behind]
+
+---
+
+# Poverty traps in the long run
+
+`$$Y_{i,t} = \beta_0I[k_{i,1}&gt;\hat{k}] + \sum_t \beta_{1,t} I[k_{i,1}&gt;\hat{k}]S_t + \sum_t\beta_{2,t}S_t + \eta_{i,t}$$`
+
+- `\(S_t\)`: follow-up survey rounds — 2009, 2011, 2014, and 2018 (2007, just after the transfer, is the base)
+
+- subdistrict fixed effects
+
+--
+
+What does `\(\beta_{1,t}\)` tell us?
+
+--
+
+- the extra above-vs-below gap at date `\(t\)`, relative to the gap just after the transfer
+
+---
+
+# Poverty traps in the long run
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/balboni_did.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+--
+
+- **assets**: by 2018, the above-vs-below asset gap is about 10,000 BDT (US$542) wider than in 2007
+
+--
+
+- **consumption**: the above-vs-below gap is negative at first, then positive and significant by 2018
+
+  - they forgo current consumption to invest in assets that pay off years later
+
+--
+
+- **misallocation** (structural model): 98% rely only on wage labor; without credit constraints, 2% would
+
+---
+
+# Graduation programs: the average effects
+
+&lt;a href="https://doi.org/10.1126/science.1260799"&gt;Banerjee et al. (2015)&lt;/a&gt;: BRAC's graduation program, tested by RCT in six countries
+
+- Ethiopia, Ghana, Honduras, India, Pakistan, Peru
+
+- a productive asset, temporary consumption support, training, home visits, savings, and health services
+
+--
+
+- large, lasting average effects: all 10 outcome indices improve; 8 of 10 remain significant at the second endline
+
+- benefits exceed costs in five of six sites — not in Honduras, where many of the transferred chickens died
+
+--
+
+.takeaway[The program works on average — but does it work by pushing households past a threshold?]
+
+???
+
+This paper is a reference, not a required reading; the slide gives the context needed for Karlan, Raswan, and Udry, who re-test the poverty-trap threshold in these six sites. Details if asked: three sites randomized households within villages (Ethiopia, India, Pakistan) and three randomized villages and then households (Ghana, Honduras, Peru); compliance was full except in India, where 52 percent of the treatment group took part, so estimates are intent-to-treat. Benefit-cost ratios range from 133 percent (Ghana) to 433 percent (India); Honduras is -198 percent.
+
+---
+name: kru
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  A re-examination: Karlan, Raswan, and Udry (2026)
+&lt;/div&gt;
+
+---
+
+# &lt;a href="https://www.nber.org/papers/w35253"&gt;Karlan, Raswan, and Udry (2026)&lt;/a&gt;: the question
+
+"The Sisyphean pursuit of evidence for poverty traps"
+
+- is the Balboni et al. threshold robust — and does it appear elsewhere?
+
+--
+
+Three steps:
+
+- **seven other graduation programs**: the six Banerjee et al. sites, plus another BRAC program in Bangladesh
+
+- **the Balboni et al. data again**: the log transformation, and geography
+
+- **representative panels**: rural households in Bangladesh (8 years) and Ghana (12 years)
+
+--
+
+They confirm the program's large average effects — the question is whether there is a **threshold**.
+
+???
+
+The title's metaphor, in their footnote 3: the pursuit fails "not for lack of effort or skill but because the problem is unlikely achievable by structure" — and they stress it implies nothing about the character of any researcher.
+
+---
+
+# The log transformation
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/kru_transforms.png" style="width: 62%; max-width: 640px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://www.nber.org/papers/w35253"&gt;Karlan, Raswan, and Udry (2026)&lt;/a&gt;, Figure 2(a): the 2007–2011 transition function under five transformations; the gray dashed line is the 45-degree line.]
+
+--
+
+- Balboni et al. use `\(\log(\text{assets}/1000+1)\)`, because 8.4% of households report zero assets
+
+- of the five transformations, only this one crosses the 45-degree line from below
+
+- in levels, the curve lies above the 45-degree line: average assets grow at every starting level
+
+---
+
+# Cows or places?
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/kru_cowprice.png" style="width: 70%; max-width: 760px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://www.nber.org/papers/w35253"&gt;Karlan, Raswan, and Udry (2026)&lt;/a&gt;, Figure 2(b)–(c): the same transition functions within low- and high-cow-price branches.]
+
+--
+
+- the **local cow price** explains four times as much of who lands above `\(\hat{K}\)` as pre-transfer assets
+
+- within low- or high-cow-price branches, the S-shape disappears
+
+---
+
+# Cows or places?
+
+High-cow-price branches differ in other ways:
+
+- less exposure to **river erosion**, more NGO activity, more electricity, more educated household heads
+
+- 75% of low-cow-price branches face river erosion, against 42% of high-cow-price branches
+
+--
+
+Controlling for river erosion over time:
+
+- the long-run gains above the threshold are no longer significant for cows, productive assets, and earnings
+
+- they remain for consumption and hours worked
+
+--
+
+.takeaway[The apparent threshold may reflect **where** households live, not how many assets they start with]
+
+---
+
+# Other programs and national panels
+
+**Seven other graduation programs** (eight samples with Balboni et al.):
+
+- in none do they find convincing evidence of a transition function crossing the 45-degree line from below
+
+- binary tests find a sharp rise in the share with growing assets only in the Balboni et al. data
+
+--
+
+**Representative panels** (Bangladesh, Ghana):
+
+- no S-shape; in Ghana, convergence to a single steady state
+
+--
+
+Their conclusion: this is **not** evidence against poverty traps — direct validation is "extremely challenging"
+
+- the way forward: map local investments' costs, returns, and indivisibilities; vary **transfer sizes**
+
+---
+
+# The authors' reply
+
+&lt;a href="https://www.nber.org/data-appendix/w35253/povertyTraps_reply.pdf"&gt;Balboni, Bandiera, Burgess, Ghatak, and Heil (2026)&lt;/a&gt;:
+
+"Why do people stay poor? A research agenda for poverty traps"
+
+--
+
+- three reasons for poverty can **coexist**: transitory misfortune, persistent disadvantage, and a poverty trap
+
+- with heterogeneous households, a pooled S-shape is "neither necessary nor sufficient" for a trap
+
+--
+
+- levels estimate the transition for the mean-productivity household; logs, for the median one
+
+  - assuming log productivity is symmetric and independent of assets
+
+- the Arunachalam–Shenoy tests that Karlan et al. run reject convergence in both cow-price areas
+
+- divergence persists and widens over eleven years, suggesting some households were trapped
+
+--
+
+- the agenda: move beyond "do traps exist?" to **who** is trapped — with long-run data from past RCTs
+
+???
+
+Levels versus logs: this is the reply's Section 3 and appendix. With A_i independent of assets and log A_i symmetric, a local linear regression in levels recovers the transition equation of the mean productivity type, and one in logs that of the median type. Implication: since A_i is then right-skewed, the mean exceeds the median, so the levels curve sits higher. Their footnote 3 adds that replacing the arbitrary +1 inside the log with a floor (the lowest-value asset owned by poor households in the same subdistrict) gives a transition equation very similar to the 2022 one, crossing the 45-degree line from below. On the cow-price split, the reply also points to the control-village evidence in the 2022 paper. The reply cites Jee (2025): 27 randomized cash and asset-transfer experiments, nearly 75,000 households in 17 countries; increasing returns in roughly half of the studies, and even where a trap exists only a share of households, those with low productivity, is trapped.
+
+---
+
+# Why a pooled S-shape can mislead
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 560 440" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="70" y1="400" x2="520" y2="400" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(530,400)" fill="#23373B"/&gt;
+&lt;line x1="70" y1="400" x2="70" y2="24" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(70,14) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="545" y="388" font-size="17" text-anchor="end" fill="#23373B"&gt;assets this year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="82" y="24" font-size="17" fill="#23373B"&gt;assets next year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t+1&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="70" y1="400" x2="440" y2="30" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="6 5"/&gt;
+&lt;text x="446" y="30" font-size="15" fill="#9AA5A8"&gt;45&amp;#176;&lt;/text&gt;
+&lt;polyline points="80,350 100,330 120,310 140,290 160,270 180,250 200,230 220,210 240,190 260,170 280,150 300,130 320,110 340,90 360,70" fill="none" stroke="#2E8B57" stroke-width="3"/&gt;
+&lt;text x="285" y="118" font-size="15" text-anchor="end" fill="#2E8B57"&gt;high-A households&lt;/text&gt;
+&lt;polyline points="120,390 140,370 160,350 180,330 200,310 220,290 240,270 260,250 280,230 300,210 320,190 340,170 360,150 380,130 400,110 420,90 440,70" fill="none" stroke="#C0392B" stroke-width="3"/&gt;
+&lt;text x="330" y="250" font-size="15" fill="#C0392B"&gt;low-A households&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Schematic of the argument in &lt;a href="https://www.nber.org/data-appendix/w35253/povertyTraps_reply.pdf"&gt;Balboni et al. (2026)&lt;/a&gt;, Section 2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 10px;"&gt;
+&lt;p&gt;Two types of household, and &lt;strong&gt;no trap&lt;/strong&gt; for either:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color:#2E8B57;"&gt;high productivity&lt;/span&gt;: assets grow at every level&lt;/li&gt;
+&lt;li&gt;&lt;span style="color:#C0392B;"&gt;low productivity&lt;/span&gt;: assets shrink at every level&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+
+# Why a pooled S-shape can mislead
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 560 440" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="70" y1="400" x2="520" y2="400" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(530,400)" fill="#23373B"/&gt;
+&lt;line x1="70" y1="400" x2="70" y2="24" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(70,14) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="545" y="388" font-size="17" text-anchor="end" fill="#23373B"&gt;assets this year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="82" y="24" font-size="17" fill="#23373B"&gt;assets next year, K&lt;tspan baseline-shift="sub" font-size="13"&gt;t+1&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="70" y1="400" x2="440" y2="30" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="6 5"/&gt;
+&lt;text x="446" y="30" font-size="15" fill="#9AA5A8"&gt;45&amp;#176;&lt;/text&gt;
+&lt;polyline points="80,350 100,330 120,310 140,290 160,270 180,250 200,230 220,210 240,190 260,170 280,150 300,130 320,110 340,90 360,70" fill="none" stroke="#2E8B57" stroke-width="2" stroke-opacity="0.45"/&gt;
+&lt;text x="285" y="118" font-size="15" text-anchor="end" fill="#2E8B57"&gt;high-A households&lt;/text&gt;
+&lt;polyline points="120,390 140,370 160,350 180,330 200,310 220,290 240,270 260,250 280,230 300,210 320,190 340,170 360,150 380,130 400,110 420,90 440,70" fill="none" stroke="#C0392B" stroke-width="2" stroke-opacity="0.45"/&gt;
+&lt;text x="330" y="250" font-size="15" fill="#C0392B"&gt;low-A households&lt;/text&gt;
+&lt;polyline points="120,389.4 125,384.3 130,379.1 135,374 140,368.8 145,363.6 150,358.3 155,353 160,347.7 165,342.2 170,336.8 175,331.2 180,325.6 185,319.8 190,313.9 195,307.9 200,301.8 205,295.5 210,289 215,282.3 220,275.4 225,268.3 230,261 235,253.5 240,245.8 245,237.9 250,229.8 255,221.6 260,213.3 265,205 270,196.7 275,188.4 280,180.2 285,172.1 290,164.2 295,156.5 300,149 305,141.7 310,134.6 315,127.7 320,121 325,114.5 330,108.2 335,102.1 340,96.1 345,90.2 350,84.4 355,78.8 360,73.2" fill="none" stroke="#EB811B" stroke-width="4"/&gt;
+&lt;circle cx="265" cy="205" r="6" fill="#FAFAFA" stroke="#EB811B" stroke-width="2.5"/&gt;
+&lt;text x="160" y="424" font-size="14" text-anchor="middle" fill="#7A8588"&gt;mostly low-A households&lt;/text&gt;
+&lt;text x="350" y="424" font-size="14" text-anchor="middle" fill="#7A8588"&gt;mostly high-A households&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Schematic of the argument in &lt;a href="https://www.nber.org/data-appendix/w35253/povertyTraps_reply.pdf"&gt;Balboni et al. (2026)&lt;/a&gt;, Section 2.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 50%; padding-left: 10px;"&gt;
+&lt;p&gt;Two types of household, and &lt;strong&gt;no trap&lt;/strong&gt; for either:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color:#2E8B57;"&gt;high productivity&lt;/span&gt;: assets grow at every level&lt;/li&gt;
+&lt;li&gt;&lt;span style="color:#C0392B;"&gt;low productivity&lt;/span&gt;: assets shrink at every level&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If low types are over-represented at low wealth, the &lt;span style="color:#EB811B;"&gt;&lt;strong&gt;pooled curve&lt;/strong&gt;&lt;/span&gt; crosses the 45-degree line from below: it looks like a threshold.&lt;/p&gt;
+&lt;p&gt;The reverse also holds: many high types can hide a genuine trap.&lt;/p&gt;
+&lt;div class="takeaway"&gt;The shape of a pooled transition equation cannot, on its own, identify a trap&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Where the two sides agree, and disagree
+
+**Agree**:
+
+- the program has large, persistent average effects; heterogeneity is central; a pooled S-shape can mislead
+
+--
+
+**Disagree**:
+
+- whether the Bangladesh evidence identifies a trap, or reflects geography
+
+- which transformation and which test are informative
+
+- whether thresholds generalize beyond Bangladesh
+
+--
+
+.discuss[
+**Discussion** — what evidence would convince you that some households are trapped?
+]
+
+--
+
+.takeaway[Whether poverty traps exist is still open — and the answer is likely "for some households, in some places"]
+
+???
+
+Both proposed designs are worth drawing out. Karlan, Raswan, and Udry: map the local investment options (their costs, returns, and indivisibilities), then randomize transfer SIZES below versus at or above the hypothesized threshold. Balboni et al.: exploit large randomized shocks and long-run follow-ups, with control villages, and model heterogeneity in who is trapped. A randomized variation in transfer size is the cleanest test either side mentions: if a trap exists at a threshold, households given slightly more than the threshold should diverge from those given slightly less.
+
+---
+
+# Second half: presentations and discussions
+
+**Presentation 1**: &lt;a href="https://doi.org/10.1257/pol.20210485"&gt;Li, Song, Zhang, and Zhang (2025)&lt;/a&gt;, *AEJ: Economic Policy*
+
+- "The effects of a multifaceted poverty alleviation program on rural income and household behavior in China"
+
+- presenter: Hana; discussant: Hyangmi
+
+**Presentation 2**: &lt;a href="https://doi.org/10.1038/s41586-022-04647-8"&gt;Bossuroy et al. (2022)&lt;/a&gt;, *Nature*
+
+- "Tackling psychosocial and capital constraints to alleviate poverty"
+
+- presenter: Mariama; discussant: Hana
+
+???
+
+Assignments from the final sign-up sheet (presentation date 9 October). Questions for the presenters, organized by the reading guide in the syllabus, are in the transcript.
+
+---
+
+# Plan for next week
+
+**Week 5: Human capital — Education**
+
+- &lt;a href="https://doi.org/10.1111/1468-0262.00237"&gt;Card (2001)&lt;/a&gt;, *Econometrica* — estimating the returns to schooling
+
+- &lt;a href="https://doi.org/10.1162/qjec.2010.125.2.515"&gt;Jensen (2010)&lt;/a&gt;, *QJE* — the perceived returns to education and the demand for schooling
+
+--
+
+Comments in the &lt;a href="https://docs.google.com/document/d/1-IlEMbnN1wn0kxUqh20z_R09_dYt2VL6O8uBI_rgAgc/edit?usp=sharing"&gt;Google Doc&lt;/a&gt; by **Thursday 14:00**.
+
+**Presentations**: two presentations and discussions, per the schedule from the &lt;a href="https://docs.google.com/spreadsheets/d/1JYnioDWK2cD7upc2n16BE7V-OCPEn9Uc/edit?usp=sharing&amp;ouid=108702181455633968747&amp;rtpof=true&amp;sd=true"&gt;sign-up sheet&lt;/a&gt;.
+
+**Problem set 1**: assigned today, due in Week 6.
+
+---
+
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt;
+
+---
+
+name: appendix
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Appendix: solving the model
+&lt;/div&gt;
+
+---
+
+# Solving the model: consume or save?
+
+Each period, cash on hand `\(k_t + y_t\)` is split between consumption and saving.
+
+- the constraint `\(c_t \leq k_t + y_t\)` is the same as `\(k_{t+1} \geq 0\)`: the household cannot borrow
+
+--
+
+Consider the deterministic case: no shocks, `\(\delta_1 \equiv 0\)`, and write `\(f(k) \equiv f_l(\alpha, k \mid N)\)`.
+
+Consuming one unit less at `\(t\)`:
+
+- lowers utility today by `\(u'(c_t)\)`
+
+- raises `\(k_{t+1}\)` by `\(1+\delta_0\)` — and each unit of `\(k_{t+1}\)` adds `\(1 + f'(k_{t+1})\)` to cash on hand at `\(t+1\)`
+
+--
+
+On an optimal path with `\(k_{t+1} &gt; 0\)`, the **Euler equation** holds:
+
+`$$u'(c_t) = \beta\,(1+\delta_0)\,\big[1+ f'(k_{t+1})\big]\, u'(c_{t+1})$$`
+
+- if the no-borrowing constraint binds, `\(k_{t+1} = 0\)`, the left side can exceed the right
+
+???
+
+Derivation: with cash on hand x_t = k_t + f(k_t) and k_{t+1} = (x_t - c_t)(1 + delta_0), a unit of consumption given up at t becomes 1 + delta_0 units of capital at t+1; each of those is worth the asset itself plus the income it produces, 1 + f'(k_{t+1}), in cash on hand, valued at beta u'(c_{t+1}). At an interior optimum the marginal cost and the discounted marginal benefit are equal. The deterministic case is enough for the intuition; shocks then move households around the steady state derived next.
+
+---
+
+# Solving the model: the steady state
+
+A **steady state** is a capital level `\(k^*\)` with `\(k_{t+1} = k_t = k^*\)`.
+
+--
+
+- then consumption is also constant, `\(c_{t+1} = c_t = c^*\)`, so `\(u'(c_t) = u'(c_{t+1}) &gt; 0\)`
+
+- dividing both sides of the Euler equation by it:
+
+`$$f'(k^*) = \rho, \qquad \rho \equiv \frac{1}{\beta(1+\delta_0)} - 1$$`
+
+- `\(\rho\)` is the household's required return: impatience, net of the natural growth of capital
+
+--
+
+- with `\(f\)` strictly concave and satisfying the Inada conditions, exactly one `\(k^*\)` solves this
+
+- if `\(k_t &lt; k^*\)`, then `\(f'(k_t) &gt; \rho\)`: the optimal path accumulates, and converges monotonically to `\(k^*\)`
+
+- if `\(k_t &gt; k^*\)`, then `\(f'(k_t) &lt; \rho\)`: the household runs capital down, again toward `\(k^*\)`
+
+???
+
+Assume beta(1 + delta_0) &lt; 1, so that rho &gt; 0. The convergence result is the standard one for the one-sector growth model with a strictly concave technology: the optimal policy k_{t+1} = g(k_t) is increasing, lies above the 45-degree line below k* and below it above k*, so capital moves monotonically toward the unique steady state. This is conditional convergence: every household converges, but to a level set by its own alpha and by N_t.
+
+---
+
+# The steady state and capabilities
+
+With `\(\alpha\)` back in, the steady state `\(k^*_l(\alpha \mid N_t)\)` solves `\(\dfrac{\partial f_l(\alpha, k^*_l)}{\partial k} = \rho\)`.
+
+--
+
+By the implicit function theorem:
+
+`$$\frac{d k^*_l}{d\alpha} = -\,\frac{\partial^2 f_l / \partial k\, \partial \alpha}{\partial^2 f_l / \partial k^2} \; &gt; \; 0$$`
+
+- the numerator is positive: capabilities and capital are **complements**
+
+- the denominator is negative: `\(f_l\)` is **concave** in `\(k\)`
+
+--
+
+- steady-state income `\(f_l(\alpha, k^*_l(\alpha))\)` therefore rises with `\(\alpha\)`; `\(\alpha_0\)` solves `\(f_l(\alpha_0, k^*_l(\alpha_0)) = y^p\)`
+
+- households with `\(\alpha &lt; \alpha_0\)` stay below the poverty line in steady state — whatever capital they start with
+
+--
+
+.takeaway[The solution is a steady-state curve, k*(α), rising in α — compare it with the poverty line]
+
+???
+
+Steady-state income rises with alpha for two reasons: directly, because f_l is increasing in alpha, and indirectly, because k*_l rises with alpha and f_l is increasing in k. So there is a single capability level alpha_0 at which steady-state income equals the poverty line; this is where the steady-state curve crosses the poverty locus y^p(alpha, k) in the single-equilibrium figure.
+
+---
+
+# Solving the model with two technologies
+
+With `\(y = \max[f_l, f_h]\)` and `\(f_h &gt; f_l\)` only for `\(k &gt; \hat{k}\)`, output is **not concave** in `\(k\)`.
+
+--
+
+- the steady-state condition can be met on each branch: `\(\partial f_l/\partial k = \rho\)` at `\(k^*_l\)`, and `\(\partial f_h/\partial k = \rho\)` at `\(k^*_h\)`
+
+- without concavity, the Euler equation is **necessary but not sufficient**: it no longer pins down one path
+
+--
+
+- reaching `\(k^*_h\)` means consuming less while capital is below `\(\hat{k}\)` and earns only the low return
+
+- this pays off only if the household starts with enough capital, given its capabilities
+
+- the **Micawber frontier** `\(M(\alpha, k)\)`: the boundary above which households accumulate toward `\(k^*_h\)`
+
+--
+
+.takeaway[Which steady state a household reaches can depend on where it starts — a multiple-equilibrium trap]
+
+???
+
+The high-technology steady state exists when k*_h lies above k-hat (otherwise the high technology is never worth running at its own steady state). The comparison between the two candidate paths is a comparison of lifetime utilities: the path toward k*_h requires a period of low consumption while capital is below k-hat and earns only the low-technology return. For households with very high alpha this sacrifice always pays, so they head to the high steady state from any starting capital; for very low alpha it never does. For the middle group it pays only from starting points close enough to k-hat, which is the region above the Micawber frontier. With shocks, households above the frontier reach the high equilibrium only probabilistically. The precise characterization is in Barrett, Carter, and Chavas (2019) and the Ikegami et al. chapter.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<div id="toc-menu">
+  <button id="toc-btn" type="button">&#9776;&nbsp; Contents</button>
+  <div id="toc-list">
+    <a href="#pt">Poverty traps: a framework</a>
+    <a href="#bbbgh">Evidence: Balboni et al. (2022)</a>
+    <a href="#krU">Re-examination: Karlan, Raswan, and Udry (2026)</a>
+    <a href="#appendix">Appendix: solving the model</a>
+  </div>
+</div>
+<div id="progress-bar"></div>
+<style>
+#toc-menu { position: fixed; bottom: 10px; left: 14px; z-index: 300; }
+#toc-btn { background: rgba(35, 55, 59, 0.75); color: #fafafa; border: none; border-radius: 4px;
+  padding: 5px 12px; font-size: 13px; font-family: inherit; cursor: pointer; }
+#toc-btn:hover { background: #EB811B; }
+#toc-list { display: none; position: absolute; bottom: 34px; left: 0; width: 400px;
+  background: #ffffff; border: 1px solid #d9dee0; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18); padding: 6px 0; }
+#toc-menu.open #toc-list { display: block; }
+#toc-list a { display: block; padding: 8px 16px; font-size: 14px; color: #23373B;
+  text-decoration: none; line-height: 1.35; }
+#toc-list a:hover { background: #eef2f3; color: #EB811B; }
+#progress-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background: #EB811B; z-index: 300; transition: width 0.2s; }
+@media print { #toc-menu, #progress-bar { display: none; } }
+</style>
+<script>
+(function() {
+  var menu = document.getElementById('toc-menu');
+  var btn = document.getElementById('toc-btn');
+  btn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('open'); });
+  document.getElementById('toc-list').addEventListener('click', function() { menu.classList.remove('open'); });
+  document.addEventListener('click', function(e) { if (!menu.contains(e.target)) { menu.classList.remove('open'); } });
+  function init() {
+    if (typeof slideshow === 'undefined') { setTimeout(init, 150); return; }
+    var bar = document.getElementById('progress-bar');
+    var n = slideshow.getSlideCount();
+    slideshow.on('showSlide', function(slide) {
+      bar.style.width = (100 * (slide.getSlideIndex() + 1) / n) + '%';
+    });
+    bar.style.width = (100 * (slideshow.getCurrentSlideIndex() + 1) / n) + '%';
+  }
+  init();
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

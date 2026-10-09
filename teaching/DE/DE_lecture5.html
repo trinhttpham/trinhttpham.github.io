@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>DELD - Lecture 5</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 5: Human Capital — Education
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2026
+]
+
+---
+
+
+# Roadmap
+
+- Some stylized facts on education
+
+- A theoretical framework of the schooling decision: &lt;a href="https://doi.org/10.1111/1468-0262.00237"&gt;Card (2001)&lt;/a&gt;
+
+- Constraints to schooling
+
+- Estimating the returns to schooling
+
+- Education interventions, and perceived returns: &lt;a href="https://doi.org/10.1162/qjec.2010.125.2.515"&gt;Jensen (2010)&lt;/a&gt;
+
+- Second half: presentations and discussions
+
+---
+
+name: trends
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Some stylized facts on education
+&lt;/div&gt;
+
+---
+
+# Schooling is not the same as learning
+
+Enrollment has expanded, but many children in school learn little: in several countries, most grade-2 pupils cannot read a single word or subtract two-digit numbers.
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/wdr1.png" style="width: 70%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1596/978-1-4648-1096-1"&gt;World Bank (2018)&lt;/a&gt;, *World Development Report: Learning to Realize Education's Promise*, Figure O.1.]
+
+---
+
+# Learning and income
+
+Within countries: children from poor households learn much less.
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/wdr2.png" style="width: 70%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1596/978-1-4648-1096-1"&gt;World Bank (2018)&lt;/a&gt;, Figure O.3: grade-6 reading, poorest vs. richest quintile (PASEC 2014).]
+
+---
+
+# Learning and income
+
+Across countries: the share of pupils reaching minimum proficiency is often low.
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/wdr3.png" style="width: 70%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1596/978-1-4648-1096-1"&gt;World Bank (2018)&lt;/a&gt;, Figure O.5.]
+
+---
+
+# Motivation
+
+**Q1**: why do many children — especially poor children — invest so little in school?
+
+- we need a model of the **schooling decision**, and of the **constraints** that distort it
+
+--
+
+**Q2**: what is a year of school actually worth?
+
+- we need to **estimate returns** — and to know whose returns an estimate describes
+
+--
+
+**Then**: which interventions relax which constraints — and do they raise schooling, and learning?
+
+---
+
+name: framework
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  A theoretical framework of the schooling decision
+&lt;/div&gt;
+
+---
+
+# The schooling decision: costs and benefits
+
+Each extra year of school is an investment decision.
+
+--
+
+- **benefit**: higher earnings over the rest of working life — the **return**
+
+--
+
+- **costs**:
+
+  - earnings given up while in school — the **opportunity cost**
+
+  - fees, uniforms, travel — the **direct cost**
+
+  - effort, or dislike of school (or enjoyment of it) — its **intrinsic value**
+
+--
+
+- costs come now, benefits later: how much the future counts — **discounting**, and access to **credit**
+
+--
+
+.takeaway[A child stays in school while a year's benefit exceeds its cost — Card (2001) makes this precise]
+
+---
+
+# Card (2001): a life-cycle model of schooling
+
+The same cost–benefit logic, over a whole life (building on Becker 1967):
+
+--
+
+- time starts at the minimum school-leaving age, `\(t = 0\)`; the horizon is infinite
+
+- the individual chooses, once and for all, when to leave school: after `\(S\)` years
+
+--
+
+- utility flow: `\(u(c(t)) - \phi(t)\)` while in school (working part time), `\(u(c(t))\)` after
+
+  - `\(\phi(t)\)`: the relative **disutility of school** versus work — convex in `\(t\)`
+
+--
+
+Lifetime utility, discounted at the subjective rate `\(\rho\)`:
+
+`$$V(S, c(t)) = \int_0^S \big(u(c(t)) - \phi(t)\big)\, e^{-\rho t}\, dt \; + \; \int_S^\infty u(c(t))\, e^{-\rho t}\, dt$$`
+
+---
+
+# Card (2001): the budget constraint
+
+- `\(y(S, t)\)`: earnings at age `\(t\)` after `\(S\)` years of schooling
+
+- in school: part-time earnings `\(p(t)\)`, tuition `\(T(t)\)`
+
+- borrowing and lending at a fixed interest rate `\(R\)`
+
+--
+
+`$$\int_0^\infty c(t)\, e^{-Rt}\, dt \; = \; \int_0^S \big(p(t) - T(t)\big)\, e^{-Rt}\, dt \; + \; \int_S^\infty y(S, t)\, e^{-Rt}\, dt$$`
+
+- the present value of consumption equals the present value of net income
+
+--
+
+Choose `\(S\)` and `\(c(t)\)` to maximize `\(V\)` subject to it; with multiplier `\(\lambda\)`, the derivative in `\(S\)` is
+
+`$$\Omega_S = \lambda\, e^{-RS} \big\{ MB(S) - MC(S) \big\}$$`
+
+---
+
+# Card (2001): marginal benefit and marginal cost
+
+**Marginal benefit** of the `\(S\)`-th year — the **return**, over the rest of working life:
+
+`$$MB(S) = \int_0^\infty \frac{\partial y(S, S + \tau)}{\partial S}\, e^{-R\tau}\, d\tau$$`
+
+--
+
+**Marginal cost** of the `\(S\)`-th year:
+
+`$$MC(S) = \underbrace{y(S, S) - p(S)}_{\text{opportunity cost}} \; + \; \underbrace{T(S)}_{\text{direct cost}} \; + \; \underbrace{\tfrac{1}{\lambda}\, e^{-(\rho - R)S} \phi(S)}_{\text{intrinsic value, in money}}$$`
+
+--
+
+- **discounting**: future gains are discounted at the interest rate `\(R\)` — the cost of funds
+
+- the optimal `\(S\)` sets `\(MB(S) = MC(S)\)`, if `\(MC\)` rises faster than `\(MB\)`
+
+---
+
+# Card (2001): optimal schooling
+
+Assume separable earnings (Mincer 1974):
+
+`$$y(S, t) = f(S)\, h(t - S), \qquad h(0) = 1$$`
+
+--
+
+- then `\(MB(S) = f'(S)\, H(R)\)`, where `\(H(R) = \int_0^\infty h(\tau) e^{-R\tau} d\tau\)` falls with `\(R\)`
+
+  - flat earnings after school: `\(H(R) = 1/R\)`; earnings growing at rate `\(g\)`: `\(H(R) = 1/(R - g)\)`
+
+--
+
+**The simplest case** — no tuition, no part-time work, no disutility, flat earnings:
+
+`$$\frac{f'(S)}{f(S)} = R$$`
+
+- invest in school until the **marginal return equals the interest rate**
+
+---
+
+# Card (2001): the optimality condition
+
+With log utility, and part-time earnings roughly offsetting tuition, `\(T(S) \approx p(S)\)`:
+
+`$$\frac{f'(S)}{f(S)} \; = \; R - g + \rho\, e^{-\rho S} \phi(S) \; \equiv \; d(S)$$`
+
+--
+
+- **left**: the marginal return — the proportional earnings gain from the `\(S\)`-th year
+
+- **right**: the marginal cost `\(d(S)\)`
+
+  - the interest rate, net of earnings growth, `\(R - g\)`
+
+  - plus the relative disutility of the `\(S\)`-th year of school, `\(\rho\, e^{-\rho S} \phi(S)\)`
+
+--
+
+.takeaway[People can differ on either side: in their returns to school, or in their costs of school]
+
+---
+
+# Card (2001): heterogeneity in returns and costs
+
+Card assumes each side is linear in `\(S\)`, with individual-specific intercepts:
+
+`$$\frac{f'(S)}{f(S)} = b_i - k_1 S, \qquad d(S) = r_i + k_2 S, \qquad k_1, k_2 \geq 0$$`
+
+--
+
+- `\(b_i\)`: differences in the **benefits** of schooling — ability, comparative advantage
+
+- `\(r_i\)`: differences in **costs** — interest rates (access to funds), earnings growth, tastes for school
+
+--
+
+Optimal schooling, and the marginal return at the optimum:
+
+`$$S_i = \frac{b_i - r_i}{k}, \quad k = k_1 + k_2 &gt; 0; \qquad \beta_i \equiv b_i - k_1 S_i = b_i\Big(1 - \frac{k_1}{k}\Big) + r_i \frac{k_1}{k}$$`
+
+--
+
+- average marginal return: `\(\bar{\beta} = E[\beta_i] = \bar{b} - k_1 \bar{S}\)`
+
+- Becker's special cases, where everyone has the same marginal return: "equality of opportunity", all `\(r_i\)` equal with `\(k_2 = 0\)`; "equality of ability", all `\(b_i\)` equal with `\(k_1 = 0\)`
+
+???
+
+All equations are from Section I of Card's NBER working paper (w7769), which is the Econometrica paper's Section 2: lifetime utility V(S, c(t)) with a convex relative disutility of school phi(t); the budget constraint with part-time earnings p(t), tuition T(t), and a fixed interest rate R; the derivative of the Lagrangian Omega_S = lambda e^{-RS} {MB(S) - MC(S)}; the separable (Mincer) earnings function y(S,t) = f(S) h(t - S), so that MB(S) = f'(S) H(R); and, with log utility and T(S) approximately equal to p(S), equation (1): f'(S)/f(S) = R - g + rho e^{-rho S} phi(S) = d(S). Footnote 5: if individuals are indifferent between school and work, k2 = 0 and r_i = R - g, so variation in r_i comes from different interest rates or different lifecycle earnings growth; more generally phi is convex and d(S) is approximated linearly. Card also notes that beta-bar "is not necessarily the relevant marginal return for evaluating any particular schooling intervention" — the point the next slides make with the figure.
+
+---
+
+name: constraints
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Constraints to schooling
+&lt;/div&gt;
+
+---
+
+# Constraints to schooling in the model
+
+Schooling stops where `\(MB(S) = MC(S)\)`. Each of the five terms is a place where schooling can be held back:
+
+--
+
+- **returns** `\(f'(S)/f(S)\)`: low where jobs for the educated are scarce, or schools teach little
+
+  - families act on **perceived** returns: an informational constraint outside Card's model (Jensen 2010)
+
+--
+
+- **direct cost** `\(T(S)\)`: fees, uniforms, transport
+
+- **opportunity cost** `\(y(S,S) - p(S)\)`: child labor, local wages
+
+--
+
+- **discounting** `\(R\)`: families who cannot borrow face a higher cost of funds — a **credit** constraint
+
+- **disutility of school** `\(\phi(S)\)` (the negative of its intrinsic value): unsafe or unpleasant schools, social norms
+
+---
+
+# Heterogeneity in constraints
+
+In Card's linear approximation (tuition roughly offsets part-time earnings), differences in costs are summarized by `\(r_i\)`:
+
+- households that cannot borrow face a high interest rate `\(R\)`, and so a **high** `\(r_i\)`; low earnings growth or a distaste for school raise it too
+
+--
+
+- so they choose **less** schooling — at a point where the marginal return is **higher**
+
+  - if the high cost is a **credit** constraint, it is also **inefficient**: `\(\beta_i\)` exceeds the market interest rate
+
+--
+
+- a proportional cut in costs moves these households most (see the next figure)
+
+.takeaway[Card's reading of the IV evidence: the poor stop early because school costs them more, not because it returns less]
+
+---
+
+class: compact
+
+# Heterogeneity in constraints: a graphical illustration
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="560" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(570,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;years of schooling, S&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;marginal return / marginal cost&lt;/text&gt;
+&lt;line x1="80" y1="110" x2="542" y2="247.5" stroke="#1B7F79" stroke-width="3" stroke-dasharray=""/&gt;
+&lt;text x="470" y="262" font-size="15" fill="#1B7F79"&gt;MB: b &amp;#8722; k&amp;#8321;S&lt;/text&gt;
+&lt;line x1="80" y1="297.5" x2="542" y2="160" stroke="#EB811B" stroke-width="3" stroke-dasharray=""/&gt;
+&lt;text x="452" y="150" font-size="15" fill="#EB811B"&gt;MC: r + k&amp;#8322;S&lt;/text&gt;
+&lt;line x1="395" y1="203.8" x2="395" y2="360" stroke="#23373B" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="80" y1="203.8" x2="395" y2="203.8" stroke="#23373B" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="395" cy="203.8" r="6" fill="#23373B"/&gt;
+&lt;text x="395" y="382" font-size="16" text-anchor="middle" fill="#23373B"&gt;S&amp;#7522;&lt;/text&gt;
+&lt;text x="74" y="208.8" font-size="16" text-anchor="end" fill="#23373B"&gt;&amp;#946;&amp;#7522;&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Drawn from the model in &lt;a href="https://doi.org/10.1111/1468-0262.00237"&gt;Card (2001)&lt;/a&gt;, Section I; lines are illustrative.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;Each person chooses schooling where the &lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;marginal return&lt;/strong&gt;&lt;/span&gt; \(b_i - k_1 S\) (falling in \(S\)) meets the &lt;span style="color:#EB811B;"&gt;&lt;strong&gt;marginal cost&lt;/strong&gt;&lt;/span&gt; \(r_i + k_2 S\) (rising in \(S\)):&lt;/p&gt;
+&lt;p style="text-align:center;"&gt;\(S_i = (b_i - r_i)/k, \quad k = k_1 + k_2\)&lt;/p&gt;
+&lt;p&gt;\(\beta_i\): the marginal return at the chosen \(S_i\).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+class: compact
+
+# Heterogeneity in constraints: a graphical illustration
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="560" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(570,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;years of schooling, S&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;marginal return / marginal cost&lt;/text&gt;
+&lt;line x1="80" y1="110" x2="542" y2="247.5" stroke="#9AA5A8" stroke-width="2" stroke-dasharray=""/&gt;
+&lt;text x="540" y="258" font-size="15" fill="#9AA5A8"&gt;MB&lt;/text&gt;
+&lt;line x1="80" y1="297.5" x2="542" y2="160" stroke="#EB811B" stroke-width="3" stroke-dasharray=""/&gt;
+&lt;text x="452" y="150" font-size="15" fill="#EB811B"&gt;MC: r + k&amp;#8322;S&lt;/text&gt;
+&lt;line x1="395" y1="203.8" x2="395" y2="360" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="80" y1="203.8" x2="395" y2="203.8" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="395" cy="203.8" r="6" fill="#9AA5A8"/&gt;
+&lt;text x="395" y="382" font-size="16" text-anchor="middle" fill="#9AA5A8"&gt;&lt;/text&gt;
+&lt;line x1="80" y1="60" x2="542" y2="197.5" stroke="#1B7F79" stroke-width="3" stroke-dasharray="8 5"/&gt;
+&lt;text x="440" y="196" font-size="15" fill="#1B7F79"&gt;higher ability&lt;/text&gt;
+&lt;line x1="479" y1="178.8" x2="479" y2="360" stroke="#1B7F79" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="80" y1="178.8" x2="479" y2="178.8" stroke="#1B7F79" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="479" cy="178.8" r="6" fill="#1B7F79"/&gt;
+&lt;text x="479" y="382" font-size="16" text-anchor="middle" fill="#1B7F79"&gt;&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Drawn from the model in &lt;a href="https://doi.org/10.1111/1468-0262.00237"&gt;Card (2001)&lt;/a&gt;, Section I; lines are illustrative.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;Each person chooses schooling where the &lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;marginal return&lt;/strong&gt;&lt;/span&gt; \(b_i - k_1 S\) (falling in \(S\)) meets the &lt;span style="color:#EB811B;"&gt;&lt;strong&gt;marginal cost&lt;/strong&gt;&lt;/span&gt; \(r_i + k_2 S\) (rising in \(S\)):&lt;/p&gt;
+&lt;p style="text-align:center;"&gt;\(S_i = (b_i - r_i)/k, \quad k = k_1 + k_2\)&lt;/p&gt;
+&lt;p&gt;\(\beta_i\): the marginal return at the chosen \(S_i\).&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;Higher ability&lt;/strong&gt;&lt;/span&gt; \(b_i\) (same costs): more schooling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+class: compact
+
+# Heterogeneity in constraints: a graphical illustration
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="560" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(570,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;years of schooling, S&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;marginal return / marginal cost&lt;/text&gt;
+&lt;line x1="80" y1="110" x2="542" y2="247.5" stroke="#1B7F79" stroke-width="3" stroke-dasharray=""/&gt;
+&lt;text x="470" y="262" font-size="15" fill="#1B7F79"&gt;MB: b &amp;#8722; k&amp;#8321;S&lt;/text&gt;
+&lt;line x1="80" y1="297.5" x2="542" y2="160" stroke="#9AA5A8" stroke-width="2" stroke-dasharray=""/&gt;
+&lt;text x="545" y="160" font-size="15" fill="#9AA5A8"&gt;MC&lt;/text&gt;
+&lt;line x1="395" y1="203.8" x2="395" y2="360" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="80" y1="203.8" x2="395" y2="203.8" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="395" cy="203.8" r="6" fill="#9AA5A8"/&gt;
+&lt;text x="395" y="382" font-size="16" text-anchor="middle" fill="#9AA5A8"&gt;&lt;/text&gt;
+&lt;line x1="80" y1="247.5" x2="542" y2="110" stroke="#C0392B" stroke-width="3" stroke-dasharray="8 5"/&gt;
+&lt;text x="420" y="115" font-size="15" fill="#C0392B"&gt;higher cost&lt;/text&gt;
+&lt;line x1="311" y1="178.8" x2="311" y2="360" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="80" y1="178.8" x2="311" y2="178.8" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="311" cy="178.8" r="6" fill="#C0392B"/&gt;
+&lt;text x="311" y="382" font-size="16" text-anchor="middle" fill="#C0392B"&gt;&lt;/text&gt;
+&lt;text x="74" y="183.8" font-size="15" text-anchor="end" fill="#C0392B"&gt;higher &amp;#946;&lt;/text&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Drawn from the model in &lt;a href="https://doi.org/10.1111/1468-0262.00237"&gt;Card (2001)&lt;/a&gt;, Section I; lines are illustrative.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;Each person chooses schooling where the &lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;marginal return&lt;/strong&gt;&lt;/span&gt; \(b_i - k_1 S\) (falling in \(S\)) meets the &lt;span style="color:#EB811B;"&gt;&lt;strong&gt;marginal cost&lt;/strong&gt;&lt;/span&gt; \(r_i + k_2 S\) (rising in \(S\)):&lt;/p&gt;
+&lt;p style="text-align:center;"&gt;\(S_i = (b_i - r_i)/k, \quad k = k_1 + k_2\)&lt;/p&gt;
+&lt;p&gt;\(\beta_i\): the marginal return at the chosen \(S_i\).&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#1B7F79;"&gt;&lt;strong&gt;Higher ability&lt;/strong&gt;&lt;/span&gt; \(b_i\) (same costs): more schooling.&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#C0392B;"&gt;&lt;strong&gt;Higher cost&lt;/strong&gt;&lt;/span&gt; \(r_i\) (poorer, credit-constrained, far from school): &lt;strong&gt;less&lt;/strong&gt; schooling &amp;mdash; but a &lt;strong&gt;higher&lt;/strong&gt; marginal return \(\beta_i\).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+count: false
+class: compact
+
+# Heterogeneity in constraints: a graphical illustration
+
+&lt;div style="width: 100%; display: table;"&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 52%; padding-right: 20px;"&gt;
+&lt;svg viewBox="0 0 600 412" style="width: 100%;" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;line x1="80" y1="360" x2="560" y2="360" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(570,360)" fill="#23373B"/&gt;
+&lt;line x1="80" y1="360" x2="80" y2="22" stroke="#23373B" stroke-width="2"/&gt;
+&lt;polygon points="0,0 -14,-7 -14,7" transform="translate(80,12) rotate(-90)" fill="#23373B"/&gt;
+&lt;text x="590" y="404" font-size="17" text-anchor="end" fill="#23373B"&gt;years of schooling, S&lt;/text&gt;
+&lt;text x="92" y="24" font-size="17" fill="#23373B"&gt;marginal return / marginal cost&lt;/text&gt;
+&lt;line x1="80" y1="110" x2="542" y2="247.5" stroke="#1B7F79" stroke-width="3" stroke-dasharray=""/&gt;
+&lt;text x="470" y="262" font-size="15" fill="#1B7F79"&gt;MB: b &amp;#8722; k&amp;#8321;S&lt;/text&gt;
+&lt;line x1="80" y1="297.5" x2="542" y2="160" stroke="#9AA5A8" stroke-width="2" stroke-dasharray=""/&gt;
+&lt;text x="545" y="160" font-size="15" fill="#9AA5A8"&gt;MC&lt;/text&gt;
+&lt;line x1="80" y1="247.5" x2="542" y2="110" stroke="#C0392B" stroke-width="3" stroke-dasharray="8 5"/&gt;
+&lt;text x="420" y="115" font-size="15" fill="#C0392B"&gt;higher cost&lt;/text&gt;
+&lt;line x1="80" y1="316.25" x2="542" y2="178.75" stroke="#9AA5A8" stroke-width="2" stroke-dasharray="3 4"/&gt;
+&lt;line x1="80" y1="281.25" x2="542" y2="143.75" stroke="#C0392B" stroke-width="3" stroke-dasharray="3 4"/&gt;
+&lt;text x="86" y="341" font-size="15" fill="#23373B"&gt;after the reform (dotted)&lt;/text&gt;
+&lt;line x1="311" y1="178.8" x2="311" y2="360" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="80" y1="178.8" x2="311" y2="178.8" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="311" cy="178.8" r="6" fill="#C0392B"/&gt;
+&lt;line x1="367.7" y1="195.6" x2="367.7" y2="360" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;line x1="80" y1="195.6" x2="367.7" y2="195.6" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="367.7" cy="195.6" r="6" fill="#C0392B"/&gt;
+&lt;line x1="395" y1="203.8" x2="395" y2="360" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="395" cy="203.8" r="6" fill="#9AA5A8"/&gt;
+&lt;line x1="426.5" y1="213.1" x2="426.5" y2="360" stroke="#9AA5A8" stroke-width="1.5" stroke-dasharray="4 4"/&gt;
+&lt;circle cx="426.5" cy="213.1" r="6" fill="#9AA5A8"/&gt;
+&lt;line x1="311" y1="372" x2="355.7" y2="372" stroke="#C0392B" stroke-width="2.5"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(367.7,372)" fill="#C0392B"/&gt;
+&lt;line x1="395" y1="386" x2="414.5" y2="386" stroke="#9AA5A8" stroke-width="2.5"/&gt;
+&lt;polygon points="0,0 -12,-6 -12,6" transform="translate(426.5,386)" fill="#9AA5A8"/&gt;
+&lt;/svg&gt;
+&lt;div class="source"&gt;Drawn from the model in &lt;a href="https://doi.org/10.1111/1468-0262.00237"&gt;Card (2001)&lt;/a&gt;, Section I; lines are illustrative.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="display: table-cell; vertical-align: top; width: 48%; padding-left: 20px;"&gt;
+&lt;p&gt;A reform that &lt;strong&gt;scales every cost down by the same proportion&lt;/strong&gt; (Card's example) lowers \(r_i\) most for &lt;span style="color:#C0392B;"&gt;high-cost people&lt;/span&gt;, so their schooling changes most; low-cost people (grey) move less.&lt;/p&gt;
+&lt;p&gt;IV weights them most, and they have &lt;strong&gt;high&lt;/strong&gt; marginal returns.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+???
+
+Card's model (Section I of the NBER version): individuals choose S to maximize discounted utility; at the optimum the proportional marginal benefit of a year of school, f'(S)/f(S), equals a marginal cost d(S) that combines the interest rate, earnings growth, and the relative disutility of school. With linear heterogeneity, marginal benefit b_i - k1 S and marginal cost r_i + k2 S, optimal schooling is S_i = (b_i - r_i)/k with k = k1 + k2, and the marginal return at the optimum is beta_i = b_i - k1 S_i. b_i captures ability and comparative advantage; r_i captures tastes and access to funds (interest rates). Becker's special cases: equality of opportunity (everyone has the same r) and equality of ability (everyone has the same b). The last step is the key to the IV results: a reform that scales marginal costs down (S_i = (b_i - theta r_i)/k) changes schooling by r_i (1 - theta)/k, most for high-r people; because marginal returns fall with schooling (k1 &gt; 0), those people have high beta_i, so IV, which weights people by how much the instrument moved them, exceeds the average marginal return. Lang (1993) called this 'discount rate bias'.
+
+---
+
+name: returns
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Estimating the returns to schooling
+&lt;/div&gt;
+
+---
+
+# Estimating returns to schooling: econometric issues
+
+The return to schooling: the percentage increase in earnings from one more year of school.
+
+`$$\log(y_i) = \alpha + \beta S_i + \varepsilon_i$$`
+
+--
+
+.discuss[
+**Discussion** — does OLS estimate the causal return to schooling? Why or why not?
+]
+
+--
+
+- schooling is **not randomly assigned**: people who stay longer differ in ability, family background, and health
+
+- if those traits also raise earnings, OLS mixes the return with the traits — **omitted variable bias** (Lecture 2)
+
+---
+
+# OLS estimates of the return to schooling
+
+With heterogeneous returns, OLS converges to
+
+`$$\text{plim}\; b_{OLS} = \bar{\beta} + \underbrace{\lambda_0}_{\text{ability bias}} + \underbrace{\psi_0 \bar{S}}_{\text{comparative advantage}}$$`
+
+where `\(\bar{\beta}\)` is the **average marginal return** in the population.
+
+--
+
+- **ability bias** `\(\lambda_0 &gt; 0\)`: if costs are lower for people who would earn more at any schooling level
+
+- **comparative-advantage bias** `\(\psi_0 \bar{S} \geq 0\)`: people with high returns choose more school
+
+--
+
+- **measurement error** in schooling pushes the other way: attenuation of roughly 10%
+
+--
+
+.takeaway[OLS likely **overstates** the average return — so IV estimates should come out **smaller**… should they?]
+
+???
+
+Card's equation (7) in the NBER version: plim b_OLS = beta-bar + lambda_0 + psi_0 S-bar, from projecting the ability intercept a_i and the return b_i on schooling. Card on the ability term: it "arises through the correlation between the ability component a_i and the marginal cost of schooling r_i. If marginal costs are lower for people who would tend to earn more at any level of schooling, then ... lambda_0 &gt; 0." On the heterogeneity term: "Even ignoring the traditional ability bias term, b_ols is therefore an upward-biased estimate of beta-bar." On measurement error: reliability of schooling reports is 85-90 percent, so the downward bias is "on the order of 10-15 percent", and possibly less than 10 percent once mean-reverting error is allowed for.
+
+---
+
+# Instrumental variables for schooling
+
+A standard solution: find **supply-side** variation in schooling.
+
+--
+
+.discuss[
+**Discussion** — what conditions must an instrument for schooling satisfy?
+]
+
+--
+
+- **relevance**: it changes schooling choices
+
+- **independence**: it is unrelated to ability and other unobserved traits
+
+- **exclusion**: it affects earnings only through schooling
+
+- **monotonicity**: it moves everyone's schooling in the same direction (needed to read IV as a LATE)
+
+--
+
+Examples: compulsory schooling laws, tuition costs, distance to school, school construction.
+
+---
+
+# IV estimates with heterogeneous returns
+
+With heterogeneous returns, IV recovers a **weighted average** of marginal returns (a LATE):
+
+`$$\text{plim}\; b_{IV} = \frac{E[\beta_i \, \Delta S_i]}{E[\Delta S_i]}$$`
+
+- each person weighted by how much the instrument **changed their schooling**, `\(\Delta S_i\)`
+
+--
+
+- supply-side instruments cut **costs**; a proportional cut moves **high-cost** people most (the last step of the figure)
+
+- with diminishing returns, high-cost people stop early, where the marginal return is **high**
+
+--
+
+.takeaway[So IV can **exceed** the average return: Lang (1993) called this "discount rate bias"]
+
+???
+
+Card's equation (11): plim b_IV = E[beta_i Delta S_i] / E[Delta S_i], "a weighted average of the marginal returns to education in the population, where the 'weight' for any particular 'person' is the relative size of the increment in his or her schooling induced by the reform." In the model, a reform that scales costs down changes schooling by r_i (1 - theta)/k, so plim b_IV = beta-bar + {sigma_eta^2 k1/k + sigma_b,eta (1 - k1/k)} / r-bar: positive "discount rate bias" when marginal returns fall with schooling (k1 &gt; 0), offset if high-cost people also have low b (sigma_b,eta &lt; 0).
+
+---
+
+# IV estimates of the return to schooling
+
+&lt;a href="https://doi.org/10.1111/1468-0262.00237"&gt;Card (2001)&lt;/a&gt;, Table 2: returns to schooling with supply-side instruments
+
+| Study | Setting | Instrument | OLS | IV |
+|:------|:--------|:-----------|:---:|:--:|
+| Angrist and Krueger (1991) | US, 1940s cohorts | quarter of birth | .052 | .078 |
+| Card (1995) | US young men | nearby four-year college | .073 | .132 |
+| Harmon and Walker (1995) | UK | school-leaving age | .061 | .153 |
+| Maluccio (1997) | rural Philippines | distance to high school | .073 | .145 |
+| Duflo (1999, working paper) | Indonesia | school construction | .078 | .064–.091 |
+
+--
+
+- IV estimates "typically exceed the corresponding OLS estimates — often by 20 percent or more"
+
+- measurement error explains at most a 10% gap; Card's preferred explanation is **heterogeneity** in returns
+
+???
+
+Rows are from Table 2 of the NBER working-paper version (w7769); Duflo's row is from her working paper (log hourly wage), which Card cites. Card's four candidate explanations for IV &gt; OLS: measurement error (can explain only about a 10 percent gap), larger biases in the IV estimates themselves, specification searching, and heterogeneity — the one he favours: "If the main reason that these individuals have low schooling is because of higher-than-average costs of schooling, rather than because of lower-than-average returns to schooling, then 'local average treatment effect' reasoning suggests that IV estimators based on compulsory schooling or school proximity will yield estimated returns to schooling above the average marginal return." His conclusion: the IV literature points "to a causal effect of education that is as big or bigger than the OLS estimated return, at least for people whose schooling choices are affected by the supply-side innovations that have been studied so far."
+
+---
+
+# Duflo (2001): school construction in Indonesia
+
+&lt;a href="https://doi.org/10.1257/aer.91.4.795"&gt;Duflo (2001)&lt;/a&gt;: Indonesia's INPRES program built **61,807 primary schools** between 1973–74 and 1978–79
+
+- more schools went to districts with more unenrolled children in 1972
+
+--
+
+**Identification**: a difference-in-differences in exposure
+
+- children aged 12 or older in 1974 were too old to benefit; younger cohorts were exposed
+
+- instruments: year of birth × program intensity in the district of birth
+
+--
+
+**Results**: one more school per 1,000 children raised education by **0.12–0.19 years** and wages by **1.5–2.7%**
+
+  - education: all men aged 2–6 in 1974; wages: the wage earners among them (Table 4)
+
+- implied returns of **6.8–10.6%** — "close to and not significantly different from the OLS estimates"
+
+---
+
+# Duflo (2001): returns to schooling
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/duflo.png" style="width: 80%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+--
+
+- here IV (6.8–10.6%) brackets OLS (7.8%), and the two are not significantly different
+
+- the program moved mainly **primary** schooling
+
+.takeaway[IV returns are local: they describe the people and the margin the instrument moved]
+
+???
+
+The numbers in square brackets in Duflo's Table 7 are p-values of the overidentification test (her table notes), not first-stage F statistics.
+
+---
+
+# Returns to secondary schooling: Ozier (2018)
+
+&lt;a href="https://doi.org/10.3368/jhr.53.1.0915-7407r"&gt;Ozier (2018)&lt;/a&gt;: admission to government secondary school jumps at a national exam (KCPE) cutoff — a **fuzzy RD**
+
+--
+
+- crossing the cutoff raises the probability of **completing secondary school by about 15 percentage points**
+
+- completing secondary school raises adult **vocabulary and reasoning (Raven's) scores by 0.6 SD**
+
+- for men in their mid-20s, the probability of low-skill self-employment falls by **40–50%**
+
+--
+
+- no earnings estimate: for men this young, Ozier uses the **sector of employment** rather than wages
+
+- the first stage is weak for women (F below 10), so the fertility results are tentative
+
+---
+
+# Returns to secondary schooling: Duflo et al. (2026)
+
+&lt;a href="https://doi.org/10.1257/aer.20241001"&gt;Duflo, Dupas, Spelke, and Walsh (2026)&lt;/a&gt;: an **RCT** of secondary-school scholarships in Ghana, followed for 15 years
+
+- 682 of 2,064 youths, admitted to school but unable to pay the fees, won a scholarship
+
+--
+
+- winners were **28 pp** more likely to finish secondary school, with **1.33** more years of education
+
+  - schooling and labor-market effects: &lt;a href="https://www.nber.org/papers/w28937"&gt;Duflo, Dupas, and Kremer (2021)&lt;/a&gt;, the companion paper
+
+--
+
+- **women**: later marriage and childbearing, fewer unwanted pregnancies; only female winners show labor-market gains
+
+  - their children: under-one mortality falls by **half**; test scores **0.24 SD** higher by age five
+
+- **men**: no labor-market gains, and no positive impact on their children
+
+--
+
+.takeaway[Returns differ across groups, and some accrue in the next generation]
+
+???
+
+Long-run and intergenerational evidence from the same Indonesian program: Akresh, Halim, and Kleemans (2023, EJ) find, 43 years later, 0.27 (men) and 0.23 (women) more years of schooling per school per 1,000 children; exposed men more likely to work formally and outside agriculture; children of exposed mothers get 0.17 more years of school; in a regression with both parents' exposure, the effects run through the mother, not the father. Tax revenues alone offset construction costs within 30-54 years; counting improved living standards, the internal rate of return is 13-18 percent. Ghana: the 682/2,064, 28 pp and 1.33-year figures and the labor-market result are from Duflo, Dupas, and Kremer (NBER w28937, 2021); the child outcomes follow the AER 2026 abstract (the July 2024 draft, w32742, reported under-three mortality down 45 percent and 0.25 SD).
+
+---
+
+name: interventions
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Education interventions
+&lt;/div&gt;
+
+---
+
+class: compact
+
+# Education interventions by constraint
+
+| Constraint | Intervention or shock | Paper |
+|:--|:--|:--|
+| **Perceived returns** | information on earnings by education | &lt;a href="https://doi.org/10.1162/qjec.2010.125.2.515"&gt;Jensen (2010)&lt;/a&gt; |
+| | children's test scores given to parents | &lt;a href="https://doi.org/10.1257/aer.20171172"&gt;Dizon-Ross (2019)&lt;/a&gt; |
+| **Direct costs** | school construction | &lt;a href="https://doi.org/10.1257/aer.91.4.795"&gt;Duflo (2001)&lt;/a&gt; |
+| | bicycles for girls | &lt;a href="https://doi.org/10.1257/app.20160004"&gt;Muralidharan and Prakash (2017)&lt;/a&gt; |
+| | secondary-school scholarships | &lt;a href="https://www.nber.org/papers/w28937"&gt;Duflo, Dupas, and Kremer (2021)&lt;/a&gt; |
+| **Opportunity costs** | rainfall shocks to rural wages | &lt;a href="https://doi.org/10.1086/690828"&gt;Shah and Steinberg (2017)&lt;/a&gt; |
+| **Returns** | bride price (returns to parents) | &lt;a href="https://doi.org/10.1086/704572"&gt;Ashraf, Bau, Nunn, and Voena (2020)&lt;/a&gt; |
+| **Incentives** | merit scholarships for test scores (outcome: learning, not enrollment) | &lt;a href="https://doi.org/10.1162/rest.91.3.437"&gt;Kremer, Miguel, and Thornton (2009)&lt;/a&gt; |
+| **Returns and opportunity costs** | rural roads (raise both) | &lt;a href="https://doi.org/10.1257/app.20180036"&gt;Adukia, Asher, and Novosad (2020)&lt;/a&gt; |
+
+--
+
+.takeaway[Lowering costs raised schooling in each of these studies; information works where returns are the binding constraint]
+???
+
+Sources and details. Muralidharan and Prakash (2017, AEJ Applied, doi 10.1257/app.20160004): Bihar's bicycle program for girls continuing to secondary school increased girls' age-appropriate secondary enrollment by 32 percent and cut the gender gap by 40 percent, with larger effects further from school. Kremer, Miguel, and Thornton (2009, REStat, doi 10.1162/rest.91.3.437): a merit scholarship for the top 15 percent of grade-6 girls in western Kenya raised girls' test scores by 0.19 SD, mainly in Busia (0.27 SD; the Teso estimate is small, insignificant, and affected by attrition), with spillovers to low-scoring girls and, in Busia only, to boys. Shah and Steinberg (2017, JPE, doi 10.1086/690828): a positive rainfall shock raises wages by 2 percent and lowers attendance by 2 pp and math scores by 2-7 percent of an SD — children switch to work when it pays more. Bau, Rotemberg, Shah, and Steinberg (NBER w27241): in high-child-labor districts, more early-life investment even raises dropout, because it raises the child's wage. Ashraf, Bau, Nunn, and Voena (2020, JPE, doi 10.1086/704572): Indonesia's school construction raised girls' schooling only among ethnic groups that practice bride price, where parents capture part of the return to a daughter's education; the result replicates in Zambia.
+
+---
+
+name: jensen
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Perceived returns and schooling: Jensen (2010)
+&lt;/div&gt;
+
+---
+
+# &lt;a href="https://doi.org/10.1162/qjec.2010.125.2.515"&gt;Jensen (2010)&lt;/a&gt;: motivation
+
+**Setting**: Dominican Republic — 80–90% of youths finish primary school, only 25–30% finish secondary
+
+--
+
+In the model, what matters is the **perceived** return to schooling, not the one economists measure:
+
+- if students underestimate returns, they may leave school too early
+
+--
+
+**Survey** (2001): 2,250 8th-grade boys in 150 schools
+
+- asked what they expected to earn with primary, secondary, or university education
+
+---
+
+# Jensen (2010): perceived vs. measured returns
+
+Monthly earnings of men aged 30–40 (RD$):
+
+| | Measured | Expected by students for themselves |
+|:--|:--:|:--:|
+| Primary | 3,180 | 3,516 |
+| Secondary | 4,479 | 3,845 |
+| **Secondary − primary** | **1,299** (41%, ~8% a year) | **329** (9%, ~2% a year) |
+
+.source[&lt;a href="https://doi.org/10.1162/qjec.2010.125.2.515"&gt;Jensen (2010)&lt;/a&gt;, Table III, columns 1 and 2.]
+
+--
+
+- students perceive only about **one-fourth** of the measured return
+
+- 42% expect **no** earnings gain from finishing secondary school
+
+---
+
+# Jensen (2010): research design
+
+**Design**: randomized at the **school** level — 75 treatment and 75 control schools
+
+--
+
+- treated students were told average earnings: RD$3,200 (primary), 4,500 (secondary), 5,900 (university)
+
+- follow-ups in late 2001 and in 2005
+
+--
+
+**Beliefs changed**: perceived returns rose by **RD$366** relative to control schools
+
+- mostly because expected earnings with primary school only **fell** (by RD&amp;#36;284)
+
+- 54% of treated students raised their perceived returns, against 27% of controls
+
+???
+
+Table IV: implied perceived returns rose from 322 to 765 in treatment schools and from 336 to 418 in control schools between Round 1 (April-May 2001) and Round 2 (October 2001); the difference-in-differences is 366 pesos. Expected earnings with primary only fell by 284 pesos relative to controls, while expected earnings with secondary rose by only 82 pesos. Jensen notes that the information therefore also lowered the perceived opportunity cost of school, which is borne sooner and so is discounted less.
+
+---
+
+# Jensen (2010): results
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/jensen.png" style="width: 92%; max-width: 820px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1162/qjec.2010.125.2.515"&gt;Jensen (2010)&lt;/a&gt;, Table V.]
+
+--
+
+- **full sample**: +0.20 years of schooling after four years — the ITT of the information
+
+- **least poor**: +0.33 years; **poor**: +0.04, not significant — though beliefs changed just as much for both
+
+---
+
+# Jensen (2010): heterogeneity by income
+
+Beliefs rose by the same amount in poor and less-poor households.
+
+--
+
+- in the model: raising perceived returns matters only if returns were the **binding** constraint
+
+- for poor households, **credit constraints** — a high cost of funds, a high `\(r_i\)` — may still bind
+
+--
+
+- caution: income was measured after the treatment, and the sample was not stratified by income
+
+--
+
+.discuss[
+**Discussion** — Jensen told students the **raw** earnings gap. Given Card (2001), is that the right number?
+]
+
+--
+
+- raw gaps include ability bias, so they may be too high
+
+- but returns for students on the margin may be as high or higher (IV &gt; OLS)
+
+???
+
+Jensen's own discussion: adding covariates lowers the measured return by only about five percentage points; an IV based on distance to school (Card 1995) makes it 10-20 percent larger; the World Bank's SEDLAC data give 20-30 percent for the Dominican Republic. He also notes that "if those with the highest returns are the ones who currently finish schooling, the marginal child may have lower returns" (footnote 34) — the opposite of the discount-rate logic, if returns and costs are not negatively related. The heterogeneity result should be read with the caution Jensen himself gives: income per capita was measured in Round 2, after treatment, and the experiment was not stratified by income; equality across groups is rejected only for years of schooling; he concludes there is "at least some role for poverty and credit constraints." Footnote 28 notes an alternative: poor students had lower baseline perceived returns (231 vs 417).
+
+---
+
+# Parents' beliefs: Dizon-Ross (2019)
+
+&lt;a href="https://doi.org/10.1257/aer.20171172"&gt;Dizon-Ross (2019)&lt;/a&gt;: 2,634 households in Malawi, each with two children in grades 2–6
+
+--
+
+- beliefs miss true scores by 20 points; low performers are **overestimated**, high ones **underestimated**
+
+--
+
+- randomly giving parents their children's scores cuts the belief gap nearly in half
+
+- parents then match workbooks to each child's level, and raise enrollment of **higher-performing** children
+
+  - lower-performing children are withdrawn more; in a lottery for secondary-school tuition, the child believed stronger gets more tickets
+
+--
+
+.takeaway[Correcting beliefs changes **who** gets the investment, not just how much]
+
+---
+
+# Roads and schooling: Adukia et al. (2020)
+
+&lt;a href="https://doi.org/10.1257/app.20180036"&gt;Adukia, Asher, and Novosad (2020)&lt;/a&gt;: India's rural road program (PMGSY) paved roads to **115,000 villages**, 2001–2015
+
+--
+
+- a new road raises **middle-school enrollment by 7%**; no effect on primary enrollment
+
+--
+
+- the framework predicts heterogeneity — and the paper finds it:
+
+  - **smaller** effects where roads are expected to raise the **opportunity cost** most (large unskilled wage gap; p &lt; 0.01)
+
+  - **larger** effects where roads are expected to raise the **returns** most (gap in returns to schooling; p = 0.08)
+
+---
+
+# Improving learning
+
+Most of these interventions raise **enrollment**; raising **learning** needs changes in the classroom.
+
+--
+
+- &lt;a href="https://doi.org/10.1093/ej/ueae003"&gt;Annie Duflo, Kiessel, and Lucas (2024)&lt;/a&gt;: four government-run policies in Ghana
+
+  - remedial lessons, smaller classes, grouping by level: **+0.1 SD** (ITT), **+0.4 SD** with full implementation (IV, two years)
+
+- &lt;a href="https://www.nber.org/papers/w34205"&gt;Muralidharan and Singh (2025)&lt;/a&gt;: adaptive software in Indian public schools
+
+  - test scores **+0.20–0.22 SD** after 18 months
+
+--
+
+.takeaway[Enrolling children is not teaching them — teaching at the right level moves learning]
+
+---
+
+# Second half: presentations and discussions
+
+**Presentation 1**: &lt;a href="https://doi.org/10.1162/rest.91.3.437"&gt;Kremer, Miguel, and Thornton (2009)&lt;/a&gt;, *Review of Economics and Statistics*
+
+- "Incentives to learn"
+
+- presenter: Phung; discussant: Lien
+
+**Presentation 2**: &lt;a href="https://doi.org/10.1257/app.20160004"&gt;Muralidharan and Prakash (2017)&lt;/a&gt;, *AEJ: Applied Economics*
+
+- "Cycling to school: Increasing secondary school enrollment for girls in India"
+
+- presenter: M.J.; discussant: Muzammil
+
+--
+
+.discuss[
+**Discussion** — for each paper today: which constraint does it relax — and for whom?
+]
+
+---
+
+# Plan for next week
+
+**Week 6: Human capital — Health and nutrition**
+
+- &lt;a href="https://doi.org/10.1111/j.1468-0262.2004.00481.x"&gt;Miguel and Kremer (2004)&lt;/a&gt;, *Econometrica* — worms: impacts on education and health
+
+- &lt;a href="https://doi.org/10.1093/qje/qjae025"&gt;Karing (2024)&lt;/a&gt;, *QJE* — social signaling and childhood immunization
+
+- &lt;a href="https://doi.org/10.3982/ecta19739"&gt;Banerjee et al. (2025)&lt;/a&gt;, *Econometrica* — selecting the most effective nudge for immunization
+
+--
+
+Comments in the &lt;a href="https://docs.google.com/document/d/1-IlEMbnN1wn0kxUqh20z_R09_dYt2VL6O8uBI_rgAgc/edit?usp=sharing"&gt;Google Doc&lt;/a&gt; by **Thursday 14:00**.
+
+**Presentations**: one presentation and discussion, per the schedule from the &lt;a href="https://docs.google.com/spreadsheets/d/1JYnioDWK2cD7upc2n16BE7V-OCPEn9Uc/edit?usp=sharing&amp;ouid=108702181455633968747&amp;rtpof=true&amp;sd=true"&gt;sign-up sheet&lt;/a&gt;.
+
+**Problem set 1**: due in Week 6.
+
+---
+
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<div id="toc-menu">
+  <button id="toc-btn" type="button">&#9776;&nbsp; Contents</button>
+  <div id="toc-list">
+    <a href="#trends">Some stylized facts on education</a>
+    <a href="#framework">A theoretical framework of the schooling decision</a>
+    <a href="#constraints">Constraints to schooling</a>
+    <a href="#returns">Estimating the returns to schooling</a>
+    <a href="#interventions">Education interventions</a>
+    <a href="#jensen">Perceived returns and schooling: Jensen (2010)</a>
+  </div>
+</div>
+<div id="progress-bar"></div>
+<style>
+#toc-menu { position: fixed; bottom: 10px; left: 14px; z-index: 300; }
+#toc-btn { background: rgba(35, 55, 59, 0.75); color: #fafafa; border: none; border-radius: 4px;
+  padding: 5px 12px; font-size: 13px; font-family: inherit; cursor: pointer; }
+#toc-btn:hover { background: #EB811B; }
+#toc-list { display: none; position: absolute; bottom: 34px; left: 0; width: 400px;
+  background: #ffffff; border: 1px solid #d9dee0; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18); padding: 6px 0; }
+#toc-menu.open #toc-list { display: block; }
+#toc-list a { display: block; padding: 8px 16px; font-size: 14px; color: #23373B;
+  text-decoration: none; line-height: 1.35; }
+#toc-list a:hover { background: #eef2f3; color: #EB811B; }
+#progress-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background: #EB811B; z-index: 300; transition: width 0.2s; }
+@media print { #toc-menu, #progress-bar { display: none; } }
+</style>
+<script>
+(function() {
+  var menu = document.getElementById('toc-menu');
+  var btn = document.getElementById('toc-btn');
+  btn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('open'); });
+  document.getElementById('toc-list').addEventListener('click', function() { menu.classList.remove('open'); });
+  document.addEventListener('click', function(e) { if (!menu.contains(e.target)) { menu.classList.remove('open'); } });
+  function init() {
+    if (typeof slideshow === 'undefined') { setTimeout(init, 150); return; }
+    var bar = document.getElementById('progress-bar');
+    var n = slideshow.getSlideCount();
+    slideshow.on('showSlide', function(slide) {
+      bar.style.width = (100 * (slide.getSlideIndex() + 1) / n) + '%';
+    });
+    bar.style.width = (100 * (slideshow.getCurrentSlideIndex() + 1) / n) + '%';
+  }
+  init();
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

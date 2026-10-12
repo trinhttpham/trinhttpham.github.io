@@ -59,9 +59,31 @@ After the program, they find that **participants earn 20% more** than non-partic
 
 ---
 
+# Three explanations for correlation
+
+When we observe that X (job training) and Y (earnings) are correlated:
+
+--
+
+| Explanation | Direction | Example |
+|-------------|-----------|---------|
+| **Causality** | X → Y | Training builds skills → higher earnings |
+| **Reverse causality** | Y → X | Got a better-paid job → enrolls to get the certificate the job requires |
+| **Confounder (omitted variable)** | Z → X and Z → Y | Motivation affects both joining training and earnings |
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Goal of impact evaluation:** Rule out alternative explanations and isolate the true causal effect.
+]
+
+---
+
 # The challenge we face
 
-From last week, we know that simple comparisons can be misleading:
+As we just saw, simple comparisons can be misleading:
 
 - **Confounders and selection bias**: maybe participants were already more motivated or educated
 
@@ -178,42 +200,28 @@ Many more programs go unfunded due to limited resources.
 
 ---
 
-# Three explanations for correlation
-
-When we observe that X (education) and Y (income) are correlated:
-
---
-
-| Explanation | Direction | Example |
-|-------------|-----------|---------|
-| **Causality** | X → Y | Education increases skills → higher income |
-| **Reverse causality** | Y → X | Higher income → can afford more education |
-| **Confounder (omitted variable)** | Z → X and Z → Y | Ability affects both education and income |
-
---
-
-&lt;br&gt;
-
-.content-box-green[
-**Goal of impact evaluation:** Rule out alternative explanations and isolate the true causal effect.
-]
-
----
+class: compact
 
 # Overview of impact evaluation methods
 
-| Method | Approach | Key requirement |
-|--------|----------|-----------------|
-| **RCT** | Random assignment to treatment/control | Feasibility, ethics |
-| **Difference-in-Differences** | Compare changes over time | Parallel trends |
-| **Regression Discontinuity** | Compare people just above vs. just below an eligibility cutoff | A strict cutoff |
-| **Instrumental Variables** | Use something that shifts who gets the program, as if by chance | A valid "instrument" |
+| Method | Approach | Key requirement | Comparison group |
+|--------|----------|-----------------|------------------|
+| **RCT** | Random assignment to treatment/control | Feasibility, ethics | **Before** (ex‑ante) |
+| **Difference‑in‑Differences** | Compare changes over time | Parallel trends | **After** (ex‑post) |
+| **Regression Discontinuity** | Compare people just above vs. just below an eligibility cutoff | A strict cutoff | **After** (ex‑post) |
+| **Instrumental Variables** | Use something that shifts who gets the program, as if by chance | A valid "instrument" | **After** (ex‑post) |
 
 --
 
-&lt;br&gt;
+.content-box-yellow[
+**Ex-ante (before):** we *design* the comparison group before the program starts, using a lottery.
 
-**This week's focus:** RCTs (Session 1) and Difference-in-Differences (Session 2)
+**Ex-post (after):** the program has already happened, so we *search* the data for a good comparison group.
+
+An RCT is a planned experiment; the other methods are detective work after the fact.
+]
+
+--
 
 .small[Regression discontinuity and instrumental variables are beyond this course, but you will see them in research papers.]
 
@@ -376,6 +384,28 @@ class: inverse, middle, center
 
 ---
 
+# RCT in practice: PROGRESA (Mexico)
+
+**Program:** Conditional cash transfers to poor rural families
+
+--
+
+**Conditions:** children attend school; families visit health clinics regularly
+
+--
+
+**Goal:** Break intergenerational poverty cycle through human capital investment
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/progresa2.png" style="width: 100%; max-width: 620px;" /&gt;
+&lt;/div&gt;
+
+**In this figure:** the 186 control communities received the program later (a phased rollout).
+
+.small[Random sampling supports *external* validity; the lottery gives *internal* validity. You will analyze PROGRESA data in Problem Set 2.]
+
+---
+
 # Ethical considerations
 
 **Core principles:**
@@ -419,28 +449,6 @@ class: inverse, middle, center
 | **Attrition** | People drop out | Compare dropout rates across groups; follow up carefully |
 | **Spillovers** | Treatment affects control group | Design to prevent contamination |
 | **Hawthorne effects** | Behavior changes from being observed | Blind evaluation when possible |
-
----
-
-# RCT in practice: PROGRESA (Mexico)
-
-**Program:** Conditional cash transfers to poor rural families
-
---
-
-**Conditions:** children attend school; families visit health clinics regularly
-
---
-
-**Goal:** Break intergenerational poverty cycle through human capital investment
-
-&lt;div style="text-align: center;"&gt;
-  &lt;img src="figures/progresa2.png" style="width: 100%; max-width: 620px;" /&gt;
-&lt;/div&gt;
-
-**In this figure:** the 186 control communities received the program later (a phased rollout).
-
-.small[Random sampling supports *external* validity; the lottery gives *internal* validity. You will analyze PROGRESA data in Problem Set 2.]
 
 ---
 
@@ -982,6 +990,7 @@ class: vocab
 
 - **Impact evaluation** — measuring what a program changed, compared with the counterfactual
 - **Reverse causality** — the outcome drives the "cause" (Y → X), not the other way around
+- **Ex-ante / ex-post** — the comparison group is designed before the program (RCT) / found in data afterwards
 
 **Randomized controlled trials**
 

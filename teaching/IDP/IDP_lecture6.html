@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>DE Lecture 6</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics
+]
+.subtitle[
+## Lecture 6: Social Assistance Programs and Targeting
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2026
+]
+
+---
+
+
+# Opening question
+
+Imagine you run a cash transfer program with enough money for 1,000 families.
+
+--
+
+5,000 families apply, and all of them say they are poor.
+
+--
+
+&lt;br&gt;
+
+.center[
+### How do you decide who gets the money?
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Think about:** What information would you need? Could people misreport? What mistakes could you make?
+]
+
+---
+
+# This week's roadmap
+
+**Session 1: Social Assistance Programs and Targeting**
+
+--
+
+- Types of social assistance programs
+- The challenge of targeting: Who should receive benefits?
+- Methods for identifying beneficiaries
+
+--
+
+&lt;br&gt;
+
+
+**Session 2: Designing Transfers**
+
+--
+
+- Cash vs. food transfers: What does the evidence say?
+- Conditional vs. unconditional cash transfers
+- Policy implications
+
+---
+
+class: inverse, middle, center
+
+# Session 1
+
+&lt;div style="font-size: 22px; margin-top: 10px;"&gt;
+Social Assistance Programs and Targeting
+&lt;/div&gt;
+
+---
+
+# Recap: Types of poverty
+
+In Week 2, we classified people into four groups based on their poverty status:
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/poor_type.png" style="width: 100%; max-width: 650px;" /&gt; &lt;br&gt;
+&lt;/div&gt;
+
+**In this figure:** each wave is one household's income over time; the dashed line is its average.
+
+--
+
+Different groups need different types of support.
+
+---
+
+# Matching programs to needs
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/poverty_program.png" style="width: 100%; max-width: 650px;" /&gt; &lt;br&gt;
+&lt;/div&gt; 
+
+.small[
+- **Transitory poor** describes a pattern over time — people who move in and out of poverty.
+- **Vulnerable non-poor** describes a current status — people above the poverty line right now but at risk of falling below.
+]
+
+---
+
+# Programs for the chronic poor
+
+**Goal:** Help people escape poverty permanently
+
+--
+
+**Two main approaches:**
+
+--
+
+**1. Income generation programs** — Help people earn more
+
+- Education and training (build human capital)
+- Job creation programs
+- Support for small businesses
+
+--
+
+**2. Social assistance programs** — Provide direct support
+
+- Cash transfers
+- Food assistance
+- School feeding programs
+- Healthcare subsidies
+
+---
+
+# Programs for the vulnerable non-poor
+
+**Goal:** Prevent people from falling into poverty
+
+--
+
+Often **contributory social insurance**: people pay in during good times, get benefits after a shock.
+
+--
+
+**Examples:**
+
+- Unemployment insurance
+- Health insurance
+- Pension systems
+- Crop insurance for farmers
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Key insight:** Helping the vulnerable non-poor today can prevent them from becoming the chronic poor tomorrow.
+]
+
+---
+
+# The policy trade-off
+
+With a limited budget, policymakers face a difficult choice:
+
+--
+
+.pull-left[
+**Help the current poor**
+- Direct poverty reduction
+- Addresses immediate suffering
+- But may not prevent future poverty
+]
+
+.pull-right[
+**Protect the vulnerable**
+- Prevents future poverty
+- Builds resilience
+- But doesn't help those already poor
+]
+
+--
+
+&lt;br&gt;
+
+This is sometimes called the **"paradox of social protection"** (Ikegami et al. 2018).
+
+.small[In their model, moving some budget to the vulnerable raises poverty at first but lowers it in the medium term.]
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**There's no single right answer** — it depends on context, resources, and policy priorities.
+]
+
+---
+
+class: inverse, middle, center
+
+# The Targeting Challenge
+
+&lt;div style="font-size: 20px; margin-top: 10px;"&gt;
+How do we identify who should receive benefits?
+&lt;/div&gt;
+
+---
+
+# Why is targeting difficult?
+
+**The core problem:** The government doesn't know everyone's true income or needs.
+
+--
+
+This is **information asymmetry**: families know their own situation better than the government does.
+
+--
+
+&lt;br&gt;
+
+**Two types of errors can occur:**
+
+--
+
+| Error | What happens | Consequence |
+|-------|--------------|-------------|
+| **Exclusion error** | Truly poor person is denied benefits | Needy people suffer |
+| **Inclusion error** | Non-poor person receives benefits | Resources wasted |
+
+.small[Recall Week 3's preview: with imperfect survey data, targeting makes both kinds of mistakes.]
+
+--
+
+There's usually a **trade-off** between these two errors.
+
+---
+
+# Targeting errors visualized
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/targeting_step1.png" style="width: 100%; max-width: 640px;" /&gt;
+&lt;/div&gt;
+
+**In this figure:** true incomes of households the program classifies as poor (blue) or non-poor (gray).
+
+The curves overlap: the program cannot see true income, so some households are misclassified.
+
+---
+
+# Targeting errors visualized
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/targeting_step2.png" style="width: 100%; max-width: 640px;" /&gt;
+&lt;/div&gt;
+
+**Exclusion error** (red): truly poor households that the program classifies as non-poor.
+
+They are left out: the program misses people it was meant to help.
+
+---
+
+# Targeting errors visualized
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/targeting_step3.png" style="width: 100%; max-width: 640px;" /&gt;
+&lt;/div&gt;
+
+**Inclusion error** (yellow): non-poor households that the program classifies as poor.
+
+They receive benefits they don't need: money that could have gone to the poor.
+
+---
+
+# Stricter or looser criteria?
+
+What happens to each error if the program lets **fewer** households qualify? And **more**?
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/targeting_step4.png" style="width: 100%; max-width: 940px;" /&gt;
+&lt;/div&gt;
+
+- **Stricter criteria** → Fewer inclusion errors, but more exclusion errors
+- **Looser criteria** → Fewer exclusion errors, but more inclusion errors
+
+---
+
+# Four approaches to targeting
+
+How can governments identify who is poor?
+
+--
+
+| Method | How it works |
+|--------|--------------|
+| **Means testing** | Directly verify income/assets |
+| **Proxy means testing** | Use observable characteristics to predict poverty |
+| **Community targeting** | Let local communities identify the poor |
+| **Self-targeting** | Design programs so only the poor want to participate |
+
+--
+
+&lt;br&gt;
+
+Let's examine each approach.
+
+---
+
+# 1. Means testing
+
+**Idea:** Directly assess each applicant's income and compare to a threshold.
+
+--
+
+**Methods:**
+- Check tax records or pay stubs
+- Verify bank accounts
+- Home visits by officials
+
+--
+
+**Advantage:** Directly measures what we care about (income)
+
+--
+
+**Disadvantages:**
+- Expensive to implement
+- Requires good administrative data
+- Easy to hide informal income
+
+--
+
+.content-box-yellow[
+**Reality check:** In many developing countries, most people work in the informal sector with no official income records.
+]
+
+---
+
+# 2. Proxy means testing
+
+**Idea:** Use observable characteristics that correlate with poverty to create a "poverty score."
+
+--
+
+**How it works:**
+
+1. Collect easy-to-observe data (housing materials, assets, household size, education)
+
+--
+
+2. Use a regression (Week 4) to predict income or consumption from these variables
+
+--
+
+3. Assign each household a score; those below a threshold qualify
+
+--
+
+**Advantages:**
+- Harder to manipulate than self-reported income
+- Can be implemented without formal income records
+
+--
+
+**Disadvantages:**
+- Imperfect predictor of true poverty
+- May miss the "invisible poor" who look non-poor but are struggling
+
+.small[Recall Week 3: we previewed PMT, and saw Togo use satellite and phone data as new proxies for COVID-19 cash.]
+
+---
+
+# 3. Community-based targeting
+
+**Idea:** Let local community members identify who is poor.
+
+--
+
+**How it works:**
+
+- Community meetings to identify beneficiaries
+- Local leaders provide lists of poor households
+- Verification by community members
+
+--
+
+**Advantages:**
+- Uses local knowledge
+- Low cost
+- Can capture dimensions of poverty outsiders miss
+
+--
+
+**Disadvantages:**
+- Risk of **elite capture** — local leaders favor friends/family
+- Community conflict over who gets benefits
+- May reflect local biases or discrimination
+- Works well only in tight-knit communities
+
+---
+
+# 4. Self-targeting
+
+**Idea:** Design the program so that only poor people want to participate.
+
+--
+
+**How it works:**
+
+--
+
+Make participation unattractive to the non-poor through:
+
+--
+
+- **Waiting costs:** Long lines, inconvenient locations
+- **Stigma:** Visible participation may be embarrassing
+- **Work requirements:** Must work for benefits
+- **Low-quality goods:** Provide basic food, not premium items
+
+--
+
+&lt;br&gt;
+
+**Example:** Public works programs (workfare)
+
+- Offer jobs at a low wage — below what most workers earn
+- Non-poor prefer their regular jobs
+- Poor find the wage attractive
+
+---
+
+# Self-targeting example: The lean season
+
+In many rural areas, cash and food run low in the months before harvest (the **lean season**).
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/fink2.png" style="width: 100%; max-width: 440px;" /&gt;
+&lt;/div&gt;
+
+**In this figure (rural Zambia):** Jan–Apr, cash and meals fall; more families sell farm labor (ganyu).
+
+.small[Source: &lt;a href="https://doi.org/10.1257/aer.20180607"&gt;Fink, Jack &amp; Masiye (2020)&lt;/a&gt;. *Ganyu* = casual day labor on other people's farms.]
+
+--
+
+A **public works program** can provide income during these lean months.
+
+---
+
+# Designing a workfare program
+
+**The challenge:** How do we set the wage so that:
+- Poor people want to participate ✓
+- Non-poor people prefer their regular jobs ✓
+
+--
+
+
+**Simple example:**
+
+| Worker type | Daily wage in regular job |
+|-------------|---------------------------|
+| Poor workers | $5/day |
+| Non-poor workers | $12/day |
+
+--
+
+
+**If the workfare program offers $7/day:**
+
+- Poor workers: "Great! That's better than my $5/day job." → **Will participate**
+- Non-poor workers: "No thanks, I make $12/day." → **Won't participate**
+
+--
+
+.content-box-green[
+**Self-targeting works!** The wage attracts the poor but not the non-poor.
+]
+
+---
+
+# How workfare raises a poor worker's income
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/workfare.png" style="width: 100%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+**In this figure:** without the program, 8 hours of private work earn less than the poverty line z.
+
+With the program, she moves some hours to program work at a higher wage, so income reaches z.
+
+.small[Her net gain is smaller than the program wage: she gives up her private wage for those hours.]
+
+---
+
+# Trade-offs in self-targeting
+
+**Advantages:**
+- No need to verify income
+- People show whether they are poor through their own choices
+- Reduces administrative costs
+
+--
+
+**Disadvantages:**
+- Imposes costs on the poor (time, effort, stigma)
+- Work requirements may exclude the disabled or elderly
+- Some poor may not participate due to stigma
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Key question:** Is it fair to make poor people "prove" their poverty through hardship?
+]
+
+---
+
+# Comparing targeting methods
+
+| Method | Cost | Accuracy | Best when... |
+|--------|------|----------|--------------|
+| Means testing | High | High (if data exists) | Good administrative records |
+| Proxy means testing | Medium | Medium | No income data, large program |
+| Community targeting | Low | Variable | Tight-knit communities, local trust |
+| Self-targeting | Low | Medium | People able to work, clear wage gaps |
+
+--
+
+&lt;br&gt;
+
+**In practice:** Many programs combine multiple methods.
+
+--
+
+For example: first pick poor villages (**geographic targeting**), then pick poor households within them.
+
+PROGRESA (Week 5) did this: poor villages first, then a household survey score (a PMT).
+
+---
+
+# Session 1 summary
+
+--
+
+**Social assistance** (transfers) helps the current poor; **social insurance** protects the vulnerable.
+
+--
+
+**Targeting is difficult** because governments lack full information about who is truly poor.
+
+--
+
+**Four main approaches:**
+- Means testing (verify income directly)
+- Proxy means testing (use observable correlates)
+- Community targeting (local knowledge)
+- Self-targeting (design so only poor want to participate)
+
+--
+
+**Each method has trade-offs** between cost, accuracy, and fairness.
+
+--
+
+&lt;br&gt;
+
+**Next:** How should we design the transfers themselves?
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+class: inverse, middle, center
+
+# Session 2
+
+&lt;div style="font-size: 22px; margin-top: 10px;"&gt;
+Cash vs. Food Transfers and Conditional Cash Transfers
+&lt;/div&gt;
+
+---
+
+# The big design questions
+
+Once we've identified beneficiaries, we face two key questions:
+
+--
+
+&lt;br&gt;
+
+.pull-left[
+**Question 1:**
+
+Should we give **cash** or **food** (in-kind transfers)?
+]
+
+.pull-right[
+**Question 2:**
+
+Should transfers be **conditional** (must meet requirements) or **unconditional**?
+]
+
+--
+
+&lt;br&gt;
+
+These are not just practical questions — they reflect deeper debates about:
+- Trusting poor people to make good decisions
+- Government's role in shaping behavior
+- Freedom of choice vs. **paternalism** (deciding for people what is good for them)
+
+---
+
+class: inverse, middle, center
+
+# Cash vs. Food Transfers
+
+---
+
+# Your choice: Cash or food?
+
+Imagine you are a government official with a limited budget to help poor families.
+
+--
+
+You have two options:
+
+--
+
+.pull-left[
+**Option A: Give cash**
+- Transfer $50/month directly to each family
+- They decide how to spend it
+]
+
+.pull-right[
+**Option B: Give food**
+- Provide a food package worth $50/month
+- Contains rice, beans, oil, etc.
+]
+
+
+&lt;style&gt;
+.pull-left { width: 45%; margin-left: 2.5%; }
+.pull-right { width: 45%; margin-right: 2.5%; }
+&lt;/style&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+--
+
+
+.content-box-green[
+**Which would you choose? Why?**
+]
+
+--
+
+
+Let's look at the arguments on each side, and then at the evidence.
+
+---
+
+# The case for cash
+
+**Argument:** Poor people know their own needs best.
+
+--
+
+**Why cash might be better:**
+
+--
+
+1. **Flexibility** — Families can buy what they need most
+
+   - Maybe they need medicine, not more rice
+   - Maybe they need school fees, not cooking oil
+
+--
+
+2. **Dignity** — Treats recipients as capable adults
+
+--
+
+3. **Lower cost** — No need to store or transport food
+
+--
+
+4. **Market effects** — Cash can stimulate local economies
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Core principle:** If we trust people to know their needs, cash gives them the freedom to address those needs.
+]
+
+---
+
+# The case for food
+
+**Argument:** Sometimes we have specific goals, like improving nutrition.
+
+--
+
+**Why food might be better:**
+
+--
+
+1. **Ensures basic needs are met** — Food goes directly to nutrition
+
+--
+
+2. **Reaches the whole household** — One person may control cash; food is harder to divert
+
+--
+
+3. **Harder to misuse** — Food can't be spent directly on alcohol, gambling, etc.
+
+--
+
+4. **Political acceptability** — Voters/donors may prefer "visible" aid
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**The concern:** What if cash is spent on things that don't help the family?
+]
+
+---
+
+# What does the evidence say?
+
+Let's look at a real experiment that compared cash and food transfers directly.
+
+--
+
+&lt;br&gt;
+
+**Studies:** [Cunha (2014)](https://doi.org/10.1257/app.6.2.195) and [Cunha, De Giorgi, and Jayachandran (2019)](https://academic.oup.com/restud/article/86/1/240/4962153?login=true)
+
+**Setting:** Poor rural villages in southern Mexico
+
+**Program:** Programa de Apoyo Alimentario (PAL)
+
+---
+
+# The Mexico experiment
+
+**Design:** About 200 villages randomly assigned to three groups:
+
+--
+
+| Group | Share of villages | What they received |
+|-------|-------------------|--------------------|
+| **Food transfer** | About half | Monthly food package (rice, beans, oil, etc.) |
+| **Cash transfer** | About a quarter | Monthly cash (150 pesos) of similar value |
+| **Control** | About a quarter | Nothing (for comparison) |
+
+--
+
+Villages were assigned by lottery (an RCT, Week 5), so differences between groups are causal.
+
+--
+
+**Key question:** What happens to consumption, nutrition, and local prices?
+
+---
+
+# Group discussion (5 minutes)
+
+Before we look at the results, discuss with your neighbor:
+
+--
+
+1. What do you expect to happen to **local food prices** in villages receiving food transfers?
+
+--
+
+2. What about in villages receiving cash transfers?
+
+--
+
+3. Who benefits and who might be hurt by these price changes?
+
+---
+
+# Results: Effects on prices
+
+| | Food transfer villages | Cash transfer villages |
+|--|------------------------|------------------------|
+| **Local food prices** | Fell (about 4%) | Rose slightly (not statistically significant) |
+
+--
+
+&lt;br&gt;
+
+**Why?**
+
+--
+
+- **Food transfers** → More food supply in village → Prices fall
+
+--
+
+- **Cash transfers** → More demand for food → Prices rise
+
+--
+
+&lt;br&gt;
+
+**In remote villages, effects were bigger:** cash raised food prices about 5%.
+
+.small[There, prices of the transferred foods were also about 8% lower with food transfers than with cash.]
+
+---
+
+# Results: Effects on consumers
+
+| | Food transfers | Cash transfers |
+|--|----------------|----------------|
+| **Direct benefit** | Receive food | Receive cash |
+| **Indirect effect** | Prices fall → money buys more | Prices rise slightly → money buys a bit less |
+
+--
+
+&lt;br&gt;
+
+On average, these price effects were **small** for households' buying power.
+
+--
+
+But in remote villages they mattered: choosing food over cash gave all buyers extra savings.
+
+.small[Estimated at over 40% of the value of the transfer itself — but these estimates are imprecise.]
+
+---
+
+# Results: Food, nutrition, and health
+
+Did the food package make families eat better than cash did? [Cunha (2014)](https://doi.org/10.1257/app.6.2.195)
+
+--
+
+- Total food consumption rose by **about the same amount** with food as with cash
+
+--
+
+- With food, more children and women got enough iron, zinc, and vitamin C (fortified milk)
+
+--
+
+- But **no meaningful difference** in height, weight, or sickness, and none in children's anemia
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Surprise?** Food did not make people healthier than cash — and it cost at least 18% more to deliver.
+]
+
+---
+
+# But wait — it's more complicated
+
+**What about local food producers?**
+
+--
+
+| | Food transfers | Cash transfers |
+|--|----------------|----------------|
+| **Food prices** | Fall | Rise slightly (more in remote villages) |
+| **Local farmers and shops** | Lose (sell at lower prices) | Gain a little (sell at higher prices) |
+
+--
+
+&lt;br&gt;
+
+**A possible longer-run effect** (not measured in this study):
+- Higher prices → local farmers earn more
+- Farmers may invest and produce more
+
+--
+
+.content-box-green[
+**Key insight:** Who gains depends on whether you buy food or sell it — cash supports local sellers.
+]
+
+---
+
+# What about concerns that cash is "wasted"?
+
+**Common worry:** Won't people spend cash on alcohol, tobacco, or other "temptation goods"?
+
+--
+
+&lt;br&gt;
+
+**Evidence from many studies:**
+
+--
+
+- [Evans &amp; Popova (2017)](https://www.journals.uchicago.edu/doi/full/10.1086/689575) reviewed 19 studies from Latin America, Africa, and Asia
+
+--
+
+- **Finding:** Cash transfers do NOT increase spending on alcohol or tobacco
+
+--
+
+- In fact, on average, spending on these goods **fell** slightly — for both CCTs and UCTs
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Bottom line:** The fear that poor people will "waste" cash is largely unfounded.
+]
+
+---
+
+# When is cash better? When is food better?
+
+**Cash works well when:**
+- Markets function well (goods are available to buy)
+- Recipients have diverse needs
+- Goal is flexibility and dignity
+- Want to stimulate local economy
+
+--
+
+**Food works well when:**
+- Markets don't function well (remote areas, emergencies)
+- Specific nutritional goals (child nutrition programs)
+- Concerns about how cash might be used
+- Food prices are very high or volatile
+
+--
+
+.content-box-green[
+**There's no universal answer** — the best choice depends on context.
+]
+
+---
+
+class: inverse, middle, center
+
+# Conditional vs. Unconditional Transfers
+
+---
+
+# What are conditional cash transfers (CCTs)?
+
+**CCTs** require recipients to meet certain conditions to receive payments.
+
+--
+
+**Common conditions:**
+
+- Children must attend school regularly
+- Children must get health check-ups
+- Pregnant women must attend prenatal visits
+- Adults must attend training programs
+
+--
+
+&lt;br&gt;
+
+**Famous examples:**
+- Mexico's PROGRESA (Week 5), later Oportunidades and Prospera (ended in 2019)
+- Brazil's Bolsa Família
+- Philippines' Pantawid Pamilya
+
+.small[Recall Week 4: per $100, CCTs added few school years — but that money also raises poor families' income.]
+
+---
+
+# The case for conditions
+
+**Argument:** Conditions can encourage beneficial behaviors.
+
+--
+
+**Why conditions might help:**
+
+--
+
+1. **Correct underinvestment** — Families may underestimate the returns to education and health
+
+--
+
+2. **Overcome barriers** — Conditions give families a "reason" to prioritize school
+
+--
+
+3. **Protect children** — Ensures benefits reach children, not just adults
+
+--
+
+4. **Political support** — Easier to justify spending if recipients "do something"
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**Paternalistic?** Yes, but maybe justified if it helps children.
+]
+
+---
+
+# The case against conditions
+
+**Argument:** Conditions add costs and may exclude the most vulnerable.
+
+--
+
+**Why conditions might hurt:**
+
+--
+
+1. **Exclude the neediest** — What if there's no school nearby? No health clinic?
+
+--
+
+2. **Administrative burden** — Monitoring compliance is expensive
+
+--
+
+3. **Punish the poor** — Losing benefits for missing a check-up seems harsh
+
+--
+
+4. **Disrespectful** — Implies poor people can't make good decisions
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**Alternative view:** If people would send kids to school anyway, why add conditions?
+]
+
+---
+
+# Evidence: Malawi schooling experiment
+
+**Study:** [Baird, McIntosh, and Özler (2011)](https://academic.oup.com/qje/article/126/4/1709/1922509?login=true)
+
+**Setting:** Zomba district, Malawi; never-married girls aged 13–22
+
+--
+
+**Design:** Villages (enumeration areas) randomly assigned to three groups:
+
+| Group | What they received |
+|-------|-------------------|
+| **CCT** | Cash transfer IF the girl attends school (at least 80% of school days) |
+| **UCT** | Cash transfer with NO conditions |
+| **Control** | No transfer |
+
+.small[The UCT comparison covers girls who were in school when the program started.]
+
+--
+
+**Key question:** Do conditions improve outcomes, or are they unnecessary?
+
+---
+
+# Results: Staying in school and attendance
+
+| | CCT vs. Control | UCT vs. Control |
+|--|-----------------|-----------------|
+| **Dropping out** | Fell | Fell, but only 43% as much as with CCT |
+| **Attendance rate** | +8 percentage points (about 4 days per term) | No significant effect |
+
+--
+
+&lt;br&gt;
+
+**Interpretation:** **CCT cut dropout much more** than UCT — and only CCT raised attendance.
+
+--
+
+&lt;br&gt;
+
+.content-box-green[
+**For school attendance, conditions helped.**
+]
+
+---
+
+# Results: Test scores
+
+| | CCT vs. Control | UCT vs. Control |
+|--|-----------------|-----------------|
+| **English test scores** | +0.14 standard deviations | No significant effect |
+
+--
+
+&lt;br&gt;
+
+**Interpretation:** **Only CCT improved learning outcomes.**
+
+--
+
+&lt;br&gt;
+
+A likely reason: CCT girls spent more days in class.
+
+---
+
+# But here's the surprise...
+
+**What about teenage pregnancy and marriage?**
+
+--
+
+| | CCT vs. Control | UCT vs. Control |
+|--|-----------------|-----------------|
+| **Teenage pregnancy** | No significant change | **↓ 27%** |
+| **Teenage marriage** | No significant change | **↓ 44%** |
+
+.small[UCT: 7 percentage points less likely to be pregnant (control: 25%); 8 points less likely to be married (control: 18%).]
+
+--
+
+&lt;br&gt;
+
+**Wait — UCT reduced pregnancy and marriage, but CCT didn't?**
+
+---
+
+# Understanding the surprising result
+
+**Why did UCT reduce pregnancy and marriage more than CCT?**
+
+--
+
+**Key insight:** Girls who dropped out still received UCT money — and the whole UCT effect came from them.
+
+--
+
+&lt;div style="text-align: center;"&gt;
+  &lt;img src="figures/malawi_marriage.png" style="width: 100%; max-width: 620px;" /&gt;&lt;br&gt;
+   &lt;a href="https://www.equaltimes.org/malawi-too-young-to-get-married?lang=en"&gt;Source: Equal Times&lt;/a&gt;
+&lt;/div&gt;
+
+---
+
+# The mechanism: Economic pressure
+
+In Malawi (and many countries), **early marriage is partly an economic decision**.
+
+--
+
+- Poor families may marry daughters early because they cannot afford to keep them
+- In the UCT arm, each extra $1 a month to parents cut a girl's chance of marrying by 1.7 points
+- Cash may have let girls support themselves without depending on a husband or older partner
+
+.small[Bride price (lobola) may add to the pressure (Equal Times, previous slide) — a hypothesis the study did not test.]
+
+--
+
+**UCT relaxed this economic pressure** for ALL girls, including dropouts.
+
+--
+
+**CCT only helped girls who stayed in school** — dropouts lost benefits and faced the same economic pressures.
+
+--
+
+&lt;br&gt;
+
+.content-box-yellow[
+**The most vulnerable girls** — those who dropped out of school — were the ones UCT helped most.
+]
+
+---
+
+# Summary: CCT vs. UCT trade-offs
+
+| Outcome | CCT | UCT |
+|---------|-----|-----|
+| Staying in school | ✓ Larger effect | ✓ Smaller effect |
+| Attendance | ✓ Increased | ✗ No significant effect |
+| Learning (test scores) | ✓ Improved | ✗ No significant effect |
+| Teenage pregnancy | ✗ No significant effect | ✓ Reduced |
+| Teenage marriage | ✗ No significant effect | ✓ Reduced |
+
+--
+
+.content-box-green[
+**There's no clear winner** — CCT and UCT have different strengths.
+]
+
+--
+
+**CCT** is better for keeping kids in school and improving learning.
+
+**UCT** is better for reaching the most vulnerable and easing economic pressure.
+
+.small[Two years after payments ended, the UCT gains in marriage and pregnancy had faded (Baird et al. 2019).]
+
+---
+
+# When to use CCT vs. UCT?
+
+**CCT works well when:**
+- Goal is specifically to increase school/health clinic attendance
+- Services (schools, clinics) are available and accessible
+- Monitoring is feasible
+- Beneficiaries wouldn't use services otherwise
+
+--
+
+**UCT works well when:**
+- Services are not accessible to everyone
+- Goal is general poverty reduction and protection
+- Monitoring is expensive or impractical
+- Want to reach the most marginalized
+
+--
+
+**Middle-ground approaches:**
+- **Soft conditions** — encouraged but not enforced
+- **Labeled transfers** — the program suggests a use (e.g., "for school") but does not require it
+
+---
+
+# Main takeaways
+
+--
+
+**Targeting** is hard because governments can't see who is truly poor.
+- Means tests, PMT, community targeting, and self-targeting each trade off cost, accuracy, and fairness
+
+--
+
+**Cash vs. food transfers:**
+- Cash offers flexibility and dignity; in Mexico, food did not improve health more than cash
+- Food may work better when markets are weak or nutrition is the specific goal
+- Evidence does NOT support fears that cash is "wasted"
+
+--
+
+**CCT vs. UCT:**
+- CCT can increase specific behaviors (school attendance)
+- UCT reaches the most vulnerable and may have broader protective effects
+- The best choice depends on program goals and context
+
+--
+
+**No single approach is always best** — the right choice depends on local conditions (recall Rodrik, Week 1).
+
+---
+
+class: vocab
+
+# This week's vocabulary (1/2)
+
+**Who needs what**
+
+- **Social assistance** — support for the poor, such as cash or food transfers, funded by the government
+- **Social insurance** — contributory programs (e.g., pensions) that protect people when a shock hits
+
+**Targeting**
+
+- **Targeting** — deciding who is eligible to receive a program's benefits
+- **Information asymmetry** — families know their own situation better than the government does
+- **Inclusion / exclusion errors** — giving benefits to the non-poor vs. missing the truly poor
+- **Means testing** — checking each applicant's income or assets directly
+- **Proxy means testing (PMT)** — predicting a household's welfare from visible characteristics
+- **Community-based targeting** — local residents decide who is poor
+- **Elite capture** — local leaders steer benefits to their friends and family
+- **Geographic targeting** — choosing poor areas first, then households within them
+
+---
+
+class: vocab
+
+# This week's vocabulary (2/2)
+
+**Self-targeting**
+
+- **Self-targeting** — a program designed so that only the poor choose to join
+- **Public works (workfare)** — jobs at a low wage that mainly poor people will accept
+- **Lean season** — the months before harvest, when food and cash run low
+
+**Designing transfers**
+
+- **In-kind transfer** — support given as goods (e.g., food) instead of money
+- **Paternalism** — deciding for people what is good for them
+- **Price effects** — a transfer changes local prices, helping buyers or sellers
+- **Temptation goods** — items like alcohol and tobacco that critics fear transfers will buy
+- **Unconditional cash transfer (UCT)** — cash with no requirements attached
+- **Labeled transfer** — cash with a suggested use, but no enforced condition
+
+---
+
+# Discussion questions
+
+1. In your country or a country you know well, what targeting method would work best? Why?
+
+--
+
+2. Designing a program for poor rural families: cash or food? What would drive your choice?
+
+--
+
+3. Should cash transfers to families with children have conditions? What are the ethical concerns?
+
+---
+
+class: inverse, middle, center
+
+# Questions?
+
+---
+
+# For next week
+
+**Topic:** Education Policy in Developing Countries
+
+--
+
+**Reading:** de Janvry &amp; Sadoulet, Chapter 17
+
+--
+
+**We will cover:**
+- What determines schooling decisions?
+- Supply-side vs. demand-side interventions
+- Evidence on what works to increase education
+
+--
+
+.content-box-yellow[
+**Problem Set 2** (group, PROGRESA data) is posted this week. Due Sunday, November 1, 9:55 PM.
+]
+
+---
+
+class: inverse, middle, center
+
+# Thank you!
+
+&lt;div style="font-size: 20px; margin-top: 30px;"&gt;
+See you next week for Education Policy.
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<div id="toc-menu">
+  <button id="toc-btn" type="button">&#9776;&nbsp; Contents</button>
+  <div id="toc-list"></div>
+</div>
+<div id="progress-bar"></div>
+<style>
+#toc-menu { position: fixed; bottom: 10px; left: 14px; z-index: 300; }
+#toc-btn { background: rgba(35, 55, 59, 0.75); color: #fafafa; border: none; border-radius: 4px;
+  padding: 5px 12px; font-size: 13px; font-family: inherit; cursor: pointer; }
+#toc-btn:hover { background: #EB811B; }
+#toc-list { display: none; position: absolute; bottom: 34px; left: 0; min-width: 320px; max-width: 480px;
+  background: #ffffff; border: 1px solid #d9dee0; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18); padding: 6px 0; }
+#toc-menu.open #toc-list { display: block; }
+#toc-list a { display: block; padding: 8px 16px; font-size: 14px; color: #23373B;
+  text-decoration: none; line-height: 1.35; }
+#toc-list a:hover { background: #eef2f3; color: #EB811B; }
+@media print { #toc-menu, #progress-bar { display: none; } }
+#progress-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background: #EB811B; z-index: 300; transition: width 0.2s; }
+</style>
+<script>
+(function() {
+  var menu = document.getElementById('toc-menu');
+  var btn = document.getElementById('toc-btn');
+  var list = document.getElementById('toc-list');
+  btn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('open'); });
+  list.addEventListener('click', function() { menu.classList.remove('open'); });
+  document.addEventListener('click', function(e) { if (!menu.contains(e.target)) { menu.classList.remove('open'); } });
+
+  function buildMenu() {
+    var containers = document.querySelectorAll('.remark-slide-container');
+    var seen = {};
+    var count = 0;
+    for (var i = 0; i < containers.length; i++) {
+      var content = containers[i].querySelector('.remark-slide-content');
+      if (!content) continue;
+      var cls = content.className || '';
+      if (cls.indexOf('inverse') === -1 || cls.indexOf('title-slide') !== -1) continue;
+      if (!(cls.indexOf('middle') !== -1 && cls.indexOf('center') !== -1)) continue;
+      var h = content.querySelector('h1, h2');
+      var label = ((h ? h.textContent : content.textContent) || '').replace(/\s+/g, ' ').trim();
+      label = label.replace(/\d+\s*\/\s*\d+\s*$/, '').trim();  /* strip slide number */
+      if (!label) continue;
+      if (label.length > 70) label = label.substring(0, 67) + '...';
+      if (/^(questions|thank|do you have any)/i.test(label)) continue;
+      if (seen[label]) continue;   /* incremental builds repeat the same slide */
+      seen[label] = true;
+      var a = document.createElement('a');
+      a.href = '#' + (i + 1);
+      a.textContent = label;
+      list.appendChild(a);
+      count++;
+    }
+    if (count === 0) { menu.style.display = 'none'; }
+  }
+
+  function init() {
+    if (typeof slideshow === 'undefined') { setTimeout(init, 150); return; }
+    buildMenu();
+    var bar = document.getElementById('progress-bar');
+    var n = slideshow.getSlideCount();
+    slideshow.on('showSlide', function(slide) {
+      bar.style.width = (100 * (slide.getSlideIndex() + 1) / n) + '%';
+    });
+    bar.style.width = (100 * (slideshow.getCurrentSlideIndex() + 1) / n) + '%';
+  }
+  init();
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

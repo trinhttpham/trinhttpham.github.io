@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>DELD - Lecture 6</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 6: Human Capital — Health
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2026
+]
+
+---
+
+
+# Roadmap
+
+- Some facts on health
+
+- Externalities and the case for subsidies
+
+- Treatment externalities: &lt;a href="https://doi.org/10.1111/j.1468-0262.2004.00481.x"&gt;Miguel and Kremer (2004)&lt;/a&gt;
+
+- Social signaling and immunization: &lt;a href="https://doi.org/10.1093/qje/qjae025"&gt;Karing (2024)&lt;/a&gt;
+
+- Selecting the best policy bundle: &lt;a href="https://doi.org/10.3982/ecta19739"&gt;Banerjee et al. (2025)&lt;/a&gt;
+
+- Second half: presentations and discussions
+
+???
+
+Problem set 1 is due today, before class.
+
+---
+
+name: facts
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Some facts on health
+&lt;/div&gt;
+
+---
+
+# Child mortality has fallen in every region
+
+&lt;div style="text-align: center;"&gt;
+&lt;iframe src="https://ourworldindata.org/grapher/child-mortality?tab=chart" style="width: 100%; max-width: 720px; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+???
+
+Use the chart controls to add regions (sub-Saharan Africa, South Asia) and the world line. The level gap across regions is still large, even though the decline is common.
+
+---
+
+# Malaria remains concentrated in sub-Saharan Africa
+
+&lt;div style="text-align: center;"&gt;
+&lt;iframe src="https://ourworldindata.org/grapher/incidence-of-malaria?tab=map" style="width: 100%; max-width: 720px; height: 500px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+???
+
+New cases per 1,000 people at risk (WHO data via Our World in Data). Tuberculosis shows a similar pattern of slow decline from high levels: &lt;a href="https://ourworldindata.org/grapher/incidence-of-tuberculosis-sdgs"&gt;OWID&lt;/a&gt;.
+
+---
+
+# Coverage of the basic childhood vaccines has stalled
+
+DTP3 and first-dose measles have stayed near 85% since 2010; newer vaccines are still rising.
+
+&lt;div style="text-align: center;"&gt;
+&lt;iframe src="https://ourworldindata.org/grapher/global-vaccination-coverage" style="width: 100%; max-width: 720px; height: 460px; border: 0px none;" allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+???
+
+Share of one-year-olds vaccinated, by vaccine (World). The long-established vaccines (DTP3, MCV1, Pol3, and HepB3 from about 2015) rose quickly until the late 2000s and have stayed at 84–86% since, apart from a dip to 81% in 2021 during COVID-19 and a recovery since. The newer vaccines are still being rolled out: pneumococcal (PCV3) rose from 10% in 2010 to 71% in 2025, rotavirus from 8% to 61%. Two of today's three papers are about raising the last steps of the routine schedule: the measles dose that completes the first-year series.
+
+---
+
+# Demand for preventive health products
+
+&lt;div style="float: right; width: 47%; margin-left: 20px;"&gt;
+&lt;img src="figures/demand.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://www.povertyactionlab.org/policy-insight/impact-price-take-and-use-preventive-health-products"&gt;J-PAL (2018)&lt;/a&gt;, Figure 1.]
+&lt;/div&gt;
+
+.small[
+The demand for preventive health products is very sensitive to price:
+
+- Purchase rates drop off quickly as prices increase.
+
+- Information campaigns about the benefits are not enough to offset the drop in demand.
+
+- "$2 deworming (Kenya 2001)": take-up falls from 75% when free to under 20% at a small fee.
+]
+
+--
+
+&lt;div class="discuss" style="overflow: hidden; font-size: 80%;"&gt;&lt;b&gt;Discussion&lt;/b&gt;: why would take-up of a cheap and effective product be this sensitive to price?&lt;/div&gt;
+
+???
+
+The deworming series is from &lt;a href="https://doi.org/10.1162/qjec.122.3.1007"&gt;Kremer and Miguel (2007)&lt;/a&gt;, the cost-sharing follow-up to today's first paper. Candidate answers from the class: liquidity constraints, present bias, low perceived private benefit, benefits that accrue to others, distrust of the product. Today's papers take three of these in turn.
+
+---
+
+# Three potential explanations in today's readings
+
+- **Benefits that accrue to others**: deworming one child reduces infection of other children.
+
+  - &lt;a href="https://doi.org/10.1111/j.1468-0262.2004.00481.x"&gt;Miguel and Kremer (2004)&lt;/a&gt;: how large are the externalities, and how to measure them?
+
+- **Benefits that others cannot see**: timely vaccination earns little social recognition.
+
+  - &lt;a href="https://doi.org/10.1093/qje/qjae025"&gt;Karing (2024)&lt;/a&gt;: does making vaccination visible raise it?
+
+- **Small frictions**: forgetting, travel costs, not knowing when vaccines are offered.
+
+  - &lt;a href="https://doi.org/10.3982/ecta19739"&gt;Banerjee et al. (2025)&lt;/a&gt;: which combination of nudges works, and at what cost?
+
+--
+
+.takeaway[Each paper relaxes a different reason why private demand falls short of the social optimum]
+
+---
+
+name: externalities
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Externalities and the case for subsidies
+&lt;/div&gt;
+
+---
+
+class: tight
+
+# Positive externalities: graphical
+
+&lt;div style="float: left; width: 56%; margin-right: 30px;"&gt;
+&lt;svg viewBox="40 130 1680 1240" style="width: 100%;"&gt;
+&lt;line x1="329" y1="152" x2="329" y2="1120" stroke="#23373B" stroke-width="5"/&gt;
+&lt;line x1="329" y1="1120" x2="1236" y2="1120" stroke="#23373B" stroke-width="5"/&gt;
+&lt;text x="300" y="212" font-size="50" fill="#23373B" text-anchor="end"&gt;Price/Cost&lt;/text&gt;
+&lt;text x="1241" y="1210" font-size="50" fill="#23373B"&gt;Quantity of vaccines&lt;/text&gt;
+&lt;line x1="517" y1="150" x2="1276" y2="886" stroke="#E00000" stroke-width="7"/&gt;
+&lt;text x="1255" y="808" font-size="50" fill="#23373B"&gt;SMB = PMB + EMB&lt;/text&gt;
+&lt;line x1="393" y1="1030" x2="1181" y2="462" stroke="#70AD47" stroke-width="7"/&gt;
+&lt;text x="1201" y="478" font-size="50" fill="#23373B"&gt;SMC = PMC&lt;/text&gt;
+&lt;line x1="376" y1="604" x2="988" y2="604" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;line x1="988" y1="604" x2="988" y2="1085" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;text x="230" y="620" font-size="50" fill="#23373B"&gt;P*&lt;/text&gt;
+&lt;text x="1008" y="1210" font-size="50" fill="#23373B" text-anchor="middle"&gt;Q*&lt;/text&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+
+.beside[
+- SMB = PMB + EMB:
+  - social = private + external marginal benefit.
+
+- Efficient quantity Q\*: SMB = SMC.
+]
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+---
+
+class: tight
+
+# Positive externalities: graphical
+
+&lt;div style="float: left; width: 56%; margin-right: 30px;"&gt;
+&lt;svg viewBox="40 130 1680 1240" style="width: 100%;"&gt;
+&lt;line x1="329" y1="152" x2="329" y2="1120" stroke="#23373B" stroke-width="5"/&gt;
+&lt;line x1="329" y1="1120" x2="1236" y2="1120" stroke="#23373B" stroke-width="5"/&gt;
+&lt;text x="300" y="212" font-size="50" fill="#23373B" text-anchor="end"&gt;Price/Cost&lt;/text&gt;
+&lt;text x="1241" y="1210" font-size="50" fill="#23373B"&gt;Quantity of vaccines&lt;/text&gt;
+&lt;line x1="517" y1="150" x2="1276" y2="886" stroke="#E00000" stroke-width="7"/&gt;
+&lt;text x="1255" y="808" font-size="50" fill="#23373B"&gt;SMB = PMB + EMB&lt;/text&gt;
+&lt;line x1="393" y1="1030" x2="1181" y2="462" stroke="#70AD47" stroke-width="7"/&gt;
+&lt;text x="1201" y="478" font-size="50" fill="#23373B"&gt;SMC = PMC&lt;/text&gt;
+&lt;line x1="376" y1="604" x2="988" y2="604" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;line x1="988" y1="604" x2="988" y2="1085" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;text x="230" y="620" font-size="50" fill="#23373B"&gt;P*&lt;/text&gt;
+&lt;text x="1008" y="1210" font-size="50" fill="#23373B" text-anchor="middle"&gt;Q*&lt;/text&gt;
+&lt;line x1="393" y1="309" x2="1152" y2="1045" stroke="#000000" stroke-width="7"/&gt;
+&lt;text x="1201" y="1050" font-size="50" fill="#23373B"&gt;PMB&lt;/text&gt;
+&lt;line x1="376" y1="725" x2="820" y2="725" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;line x1="820" y1="725" x2="820" y2="1085" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;text x="230" y="741" font-size="50" fill="#23373B"&gt;Pm&lt;/text&gt;
+&lt;text x="812" y="1210" font-size="50" fill="#23373B" text-anchor="middle"&gt;Qm&lt;/text&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+
+.beside[
+- SMB = PMB + EMB:
+  - social = private + external marginal benefit.
+
+- Efficient quantity Q\*: SMB = SMC.
+
+- Individuals choose Qm, where PMB = PMC:
+  - they ignore the benefit to others (EMB).
+]
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+---
+
+class: tight
+
+# Positive externalities: graphical
+
+&lt;div style="float: left; width: 56%; margin-right: 30px;"&gt;
+&lt;svg viewBox="40 130 1680 1240" style="width: 100%;"&gt;
+&lt;line x1="329" y1="152" x2="329" y2="1120" stroke="#23373B" stroke-width="5"/&gt;
+&lt;line x1="329" y1="1120" x2="1236" y2="1120" stroke="#23373B" stroke-width="5"/&gt;
+&lt;text x="300" y="212" font-size="50" fill="#23373B" text-anchor="end"&gt;Price/Cost&lt;/text&gt;
+&lt;text x="1241" y="1210" font-size="50" fill="#23373B"&gt;Quantity of vaccines&lt;/text&gt;
+&lt;line x1="517" y1="150" x2="1276" y2="886" stroke="#E00000" stroke-width="7"/&gt;
+&lt;text x="1255" y="808" font-size="50" fill="#23373B"&gt;SMB = PMB + EMB&lt;/text&gt;
+&lt;line x1="393" y1="1030" x2="1181" y2="462" stroke="#70AD47" stroke-width="7"/&gt;
+&lt;text x="1201" y="478" font-size="50" fill="#23373B"&gt;SMC = PMC&lt;/text&gt;
+&lt;line x1="376" y1="604" x2="988" y2="604" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;line x1="988" y1="604" x2="988" y2="1085" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;text x="230" y="620" font-size="50" fill="#23373B"&gt;P*&lt;/text&gt;
+&lt;text x="1008" y="1210" font-size="50" fill="#23373B" text-anchor="middle"&gt;Q*&lt;/text&gt;
+&lt;line x1="393" y1="309" x2="1152" y2="1045" stroke="#000000" stroke-width="7"/&gt;
+&lt;text x="1201" y="1050" font-size="50" fill="#23373B"&gt;PMB&lt;/text&gt;
+&lt;line x1="376" y1="725" x2="820" y2="725" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;line x1="820" y1="725" x2="820" y2="1085" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;text x="230" y="741" font-size="50" fill="#23373B"&gt;Pm&lt;/text&gt;
+&lt;text x="812" y="1210" font-size="50" fill="#23373B" text-anchor="middle"&gt;Qm&lt;/text&gt;
+&lt;line x1="846" y1="1257" x2="974" y2="1257" stroke="#ED7D31" stroke-width="6"/&gt;
+&lt;polygon points="0,0 -28,-13 -28,13" fill="#ED7D31" transform="translate(1000,1257)"/&gt;
+&lt;polygon points="0,0 -28,-13 -28,13" fill="#ED7D31" transform="translate(820,1257) rotate(180)"/&gt;
+&lt;text x="915" y="1340" font-size="50" fill="#23373B" text-anchor="middle"&gt;Underuse&lt;/text&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+
+.beside[
+- SMB = PMB + EMB:
+  - social = private + external marginal benefit.
+
+- Efficient quantity Q\*: SMB = SMC.
+
+- Individuals choose Qm, where PMB = PMC:
+  - they ignore the benefit to others (EMB).
+
+- Qm is below Q\*: vaccines are underused.
+]
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+---
+
+class: tight
+
+# Positive externalities: graphical
+
+&lt;div style="float: left; width: 56%; margin-right: 30px;"&gt;
+&lt;svg viewBox="40 130 1680 1240" style="width: 100%;"&gt;
+&lt;line x1="329" y1="152" x2="329" y2="1120" stroke="#23373B" stroke-width="5"/&gt;
+&lt;line x1="329" y1="1120" x2="1236" y2="1120" stroke="#23373B" stroke-width="5"/&gt;
+&lt;text x="300" y="212" font-size="50" fill="#23373B" text-anchor="end"&gt;Price/Cost&lt;/text&gt;
+&lt;text x="1241" y="1210" font-size="50" fill="#23373B"&gt;Quantity of vaccines&lt;/text&gt;
+&lt;line x1="517" y1="150" x2="1276" y2="886" stroke="#E00000" stroke-width="7"/&gt;
+&lt;text x="1255" y="808" font-size="50" fill="#23373B"&gt;SMB = PMB + EMB&lt;/text&gt;
+&lt;line x1="393" y1="1030" x2="1181" y2="462" stroke="#70AD47" stroke-width="7"/&gt;
+&lt;text x="1201" y="478" font-size="50" fill="#23373B"&gt;SMC = PMC&lt;/text&gt;
+&lt;line x1="376" y1="604" x2="988" y2="604" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;line x1="988" y1="604" x2="988" y2="1085" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;text x="230" y="620" font-size="50" fill="#23373B"&gt;P*&lt;/text&gt;
+&lt;text x="1008" y="1210" font-size="50" fill="#23373B" text-anchor="middle"&gt;Q*&lt;/text&gt;
+&lt;line x1="393" y1="309" x2="1152" y2="1045" stroke="#000000" stroke-width="7"/&gt;
+&lt;text x="1201" y="1050" font-size="50" fill="#23373B"&gt;PMB&lt;/text&gt;
+&lt;line x1="376" y1="725" x2="820" y2="725" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;line x1="820" y1="725" x2="820" y2="1085" stroke="#A6A6A6" stroke-width="4" stroke-dasharray="18,12"/&gt;
+&lt;text x="230" y="741" font-size="50" fill="#23373B"&gt;Pm&lt;/text&gt;
+&lt;text x="812" y="1210" font-size="50" fill="#23373B" text-anchor="middle"&gt;Qm&lt;/text&gt;
+&lt;line x1="846" y1="1257" x2="974" y2="1257" stroke="#ED7D31" stroke-width="6"/&gt;
+&lt;polygon points="0,0 -28,-13 -28,13" fill="#ED7D31" transform="translate(1000,1257)"/&gt;
+&lt;polygon points="0,0 -28,-13 -28,13" fill="#ED7D31" transform="translate(820,1257) rotate(180)"/&gt;
+&lt;text x="915" y="1340" font-size="50" fill="#23373B" text-anchor="middle"&gt;Underuse&lt;/text&gt;
+&lt;line x1="575" y1="456" x2="668" y2="362" stroke="#00A3E0" stroke-width="6"/&gt;
+&lt;polygon points="0,0 -32,-15 -32,15" fill="#00A3E0" transform="translate(687,343) rotate(-45)"/&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+
+.beside[
+- SMB = PMB + EMB:
+  - social = private + external marginal benefit.
+
+- Efficient quantity Q\*: SMB = SMC.
+
+- Individuals choose Qm, where PMB = PMC:
+  - they ignore the benefit to others (EMB).
+
+- Qm is below Q\*: vaccines are underused.
+
+- Pigouvian subsidy = EMB at Q\*:
+  - moves demand up to SMB and restores Q\*.
+]
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+???
+
+With parallel PMB and SMB, as drawn, the EMB is the same at every quantity, so a per-unit subsidy equal to the EMB works everywhere. In general the subsidy must equal the EMB at Q*.
+
+---
+
+# How large are vaccination externalities?
+
+&lt;a href="https://doi.org/10.3368/jhr.56.3.1118-9893R2"&gt;White (2021)&lt;/a&gt; estimates the benefits of influenza vaccination in the United States:
+
+- About **2 vaccinations** avert one lost 8-hour workday.
+
+- About **4,000 vaccinations** avert one death.
+
+- Most of these benefits operate through an externality: they accrue to others.
+
+--
+
+.takeaway[When most of the benefit goes to others, private demand is too low even with perfect information]
+
+???
+
+The numbers are total social benefits (own plus others) of a one-point rise in the vaccination rate: 4,065 vaccinations per life, 1.92 per 8-hour workday (accepted version, p. 14). The externality decomposition is done for mortality: essentially all the mortality benefit accrues to people 75 and older and comes from vaccinating people under 75. The local copy is the accepted version (June 2019); the published abstract states that "most of benefits operate through an externality".
+
+---
+
+name: worms
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Treatment externalities: Miguel and Kremer (2004)
+&lt;/div&gt;
+
+---
+
+# Miguel and Kremer (2004): questions for discussion
+
+.discuss[
+- What is the research question? Why is the paper considered a contribution?
+
+- What is the unit of randomization, and why does it matter here?
+
+- What is the main estimating equation? Which coefficients are causal, and for whom?
+
+- Which identification assumptions should we worry about?
+
+- How large are the effects, and what do they imply for policy?
+]
+
+---
+
+# Why earlier deworming trials missed the effect
+
+Medical trials randomized treatment **within** schools and found no convincing benefit.
+
+- Worms spread through the environment: treating one child lowers reinfection of others.
+
+- Comparison pupils then benefit too, so SUTVA fails.
+
+--
+
+Individual randomization therefore **doubly underestimates** the benefits:
+
+- it misses the externality benefits to untreated pupils;
+
+- it understates the effect on the treated, because the comparison group also gains.
+
+--
+
+.takeaway[When treatment spills over to the comparison group, within-school randomization understates its benefits]
+
+???
+
+The 2000 BMJ review (Dickson et al.) concluded that the evidence of benefit was "not convincing" (p. 163). Some trials also had differential attrition: 89% of treated vs 59% of comparison pupils tested (p. 164).
+
+---
+
+class: tight
+
+# Research design: a phase-in across 75 schools
+
+- **Setting**: 75 primary schools in Busia, Kenya, with more than 30,000 pupils; NGO program (ICS).
+
+- **Assignment**: three groups of 25, stratified by administrative zone and involvement in other NGO projects.
+
+&lt;div style="font-size: 85%; margin-top: 8px;"&gt;
+&lt;table style="width: 86%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;25 schools each&lt;/th&gt;&lt;th&gt;1998&lt;/th&gt;&lt;th&gt;1999&lt;/th&gt;&lt;th&gt;2000&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Group 1&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;treated&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;treated&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;treated&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Group 2&lt;/td&gt;&lt;td&gt;not yet&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;treated&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;treated&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Group 3&lt;/td&gt;&lt;td&gt;not yet&lt;/td&gt;&lt;td&gt;not yet&lt;/td&gt;&lt;td&gt;not yet&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1111/j.1468-0262.2004.00481.x"&gt;Miguel and Kremer (2004)&lt;/a&gt;, Section 3; timeline as in &lt;a href="https://doi.org/10.1093/qje/qjw022"&gt;Baird et al. (2016)&lt;/a&gt;, Figure I. Group 3 is treated from 2001.]
+
+- **Treatment**: albendazole every six months; praziquantel annually where schistosomiasis prevalence &gt; 30%.
+
+  - Given at school by nurses to all boys and girls under 13; older girls excluded (drug safety in pregnancy).
+
+  - Take-up in 1998: 78% of eligible pupils.
+
+- **Data**: health survey in early 1999 (Group 1 treated, Group 2 not yet); school participation; test scores.
+
+???
+
+The program was run by the NGO ICS with the Busia District Ministry of Health in 75 schools in southern Busia, Kenya (nearly all rural primary schools in the area, over 30,000 pupils). Schools were stratified by administrative subunit (zone) and by involvement in other NGO assistance projects, then "listed alphabetically and every third school was assigned to a given project group" (p. 168). The other NGO projects (27 schools) provided funds for textbooks and classroom construction, and teacher performance incentives (fn 9). Drugs were delivered at school by Ministry of Health nurses and ICS officers: albendazole every six months (all schools qualified) and praziquantel annually where schistosomiasis prevalence exceeded 30% (p. 169). Consent: community consent in 1998; from January 1999, signed parental consent, so take-up among eligible pupils enrolled in 1999 was about 72%. Some older girls were treated anyway: 19% in 1998, 9% in 1999 (pp. 170–171). Absence from school on the day of treatment was a major cause of non-take-up (p. 171). Only 5% of comparison-school pupils received deworming outside the program. Schools also received worm-prevention education, which did not change behavior (Table V, Panel C).
+
+Data: the parasitological survey (early 1999) covers Group 1 and Group 2 schools only; school participation is measured by unannounced visits of NGO field workers; test scores are the ICS exams in grades 3–8.
+
+The eligible pupils (all boys and girls under 13) are the population counted in the externality regressions: N and N^T count eligible pupils, not all pupils.
+
+The paper calls the assignment random. The list rotation is a systematic allocation; the 2015 re-analysis calls it "quasi-randomized" (Aiken et al. 2015, p. 1578). We come back to this.
+
+---
+
+# What does the Group 1 vs Group 2 comparison identify?
+
+&lt;div style="font-size: 80%;"&gt;
+&lt;table style="width: 70%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;25 schools each&lt;/th&gt;&lt;th&gt;1998&lt;/th&gt;&lt;th&gt;1999&lt;/th&gt;&lt;th&gt;2000&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Group 1&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;treated&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;treated&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;treated&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Group 2&lt;/td&gt;&lt;td&gt;not yet&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;treated&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;treated&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Group 3&lt;/td&gt;&lt;td&gt;not yet&lt;/td&gt;&lt;td&gt;not yet&lt;/td&gt;&lt;td&gt;not yet&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+In 1998 and early 1999, Group 1 schools are treated and Group 2 schools are not.
+
+--
+
+- The **ITT effect of assigning a school to treatment**, on takers and non-takers together.
+
+  - The direct effect on takers plus the within-school externality on non-takers.
+
+  - This total effect per school is what within-school randomization could not recover.
+
+--
+
+- If treatment spills over to nearby schools, Group 2 also benefits: the difference **understates** it.
+
+???
+
+Take-up in 1998 was 78% of eligible pupils (Table III), so the school-level comparison is an ITT, not an effect per treated child. Health data were collected only in Group 1 and Group 2 schools (early 1999, before Group 2 was treated), so the health sample has 49 schools.
+
+The second click introduces the second externality, across schools; the next slide separates the two.
+
+---
+
+# Two types of externalities
+
+Treating pupils in school *i* can affect untreated pupils in two places:
+
+- **within school *i***: untreated classmates face fewer worms in the shared environment;
+
+- **across schools**: pupils of nearby schools share water sources and the local environment.
+
+--
+
+.discuss[
+**Question**: can the design measure each externality? Why or why not?
+]
+
+--
+
+- Within school: direct effect and spillover arrive together; assignment alone cannot separate them.
+
+  - The paper compares takers with non-takers inside treatment schools.
+
+- Across schools: assignment gives similar schools different numbers of treated neighbors.
+
+  - This variation identifies the cross-school externality.
+
+???
+
+Within a treatment school, every eligible pupil is offered the drugs, so the school-level assignment cannot tell the direct effect from the spillover to non-takers; separating them needs the comparison of takers and non-takers, which rests on an assumption about who takes up (slides 24–26). Across schools, the assignment is what varies the number of treated pupils nearby, holding the total number of pupils nearby fixed (next slide).
+
+---
+
+# Cross-school externalities: the idea
+
+The assignment gives similar schools very different numbers of treated pupils nearby:
+
+&lt;div style="text-align: center;"&gt;
+&lt;svg viewBox="0 0 1600 470" style="width: 60%;"&gt;
+&lt;text x="380" y="30" font-size="30" font-weight="bold" fill="#23373B" text-anchor="middle"&gt;School A: many treated neighbors&lt;/text&gt;
+&lt;text x="1220" y="30" font-size="30" font-weight="bold" fill="#23373B" text-anchor="middle"&gt;School B: few treated neighbors&lt;/text&gt;
+&lt;circle cx="380" cy="245" r="205" fill="none" stroke="#6c757d" stroke-width="3" stroke-dasharray="14,10"/&gt;
+&lt;circle cx="380" cy="245" r="115" fill="none" stroke="#6c757d" stroke-width="3" stroke-dasharray="14,10"/&gt;
+&lt;circle cx="1220" cy="245" r="205" fill="none" stroke="#6c757d" stroke-width="3" stroke-dasharray="14,10"/&gt;
+&lt;circle cx="1220" cy="245" r="115" fill="none" stroke="#6c757d" stroke-width="3" stroke-dasharray="14,10"/&gt;
+&lt;text x="489" y="255" font-size="24" fill="#6c757d" text-anchor="end"&gt;3 km&lt;/text&gt;
+&lt;text x="578" y="255" font-size="24" fill="#6c757d" text-anchor="end"&gt;6 km&lt;/text&gt;
+&lt;text x="1329" y="255" font-size="24" fill="#6c757d" text-anchor="end"&gt;3 km&lt;/text&gt;
+&lt;text x="1418" y="255" font-size="24" fill="#6c757d" text-anchor="end"&gt;6 km&lt;/text&gt;
+&lt;rect x="362" y="227" width="36" height="36" fill="#23373B"/&gt;
+&lt;rect x="1202" y="227" width="36" height="36" fill="#23373B"/&gt;
+&lt;circle cx="441" cy="210" r="22" fill="#28a745"/&gt;
+&lt;circle cx="345" cy="184" r="22" fill="#28a745"/&gt;
+&lt;circle cx="319" cy="280" r="22" fill="#28a745"/&gt;
+&lt;circle cx="415" cy="306" r="22" fill="#c8c8c8"/&gt;
+&lt;circle cx="530" cy="190" r="22" fill="#28a745"/&gt;
+&lt;circle cx="374" cy="85" r="22" fill="#28a745"/&gt;
+&lt;circle cx="226" cy="201" r="22" fill="#28a745"/&gt;
+&lt;circle cx="291" cy="378" r="22" fill="#c8c8c8"/&gt;
+&lt;circle cx="479" cy="371" r="22" fill="#c8c8c8"/&gt;
+&lt;circle cx="1281" cy="210" r="22" fill="#c8c8c8"/&gt;
+&lt;circle cx="1185" cy="184" r="22" fill="#c8c8c8"/&gt;
+&lt;circle cx="1159" cy="280" r="22" fill="#28a745"/&gt;
+&lt;circle cx="1255" cy="306" r="22" fill="#c8c8c8"/&gt;
+&lt;circle cx="1370" cy="190" r="22" fill="#c8c8c8"/&gt;
+&lt;circle cx="1214" cy="85" r="22" fill="#c8c8c8"/&gt;
+&lt;circle cx="1066" cy="201" r="22" fill="#c8c8c8"/&gt;
+&lt;circle cx="1131" cy="378" r="22" fill="#c8c8c8"/&gt;
+&lt;circle cx="1319" cy="371" r="22" fill="#28a745"/&gt;
+&lt;rect x="622" y="160" width="30" height="30" fill="#23373B"/&gt;
+&lt;text x="668" y="185" font-size="26" fill="#23373B"&gt;School we study&lt;/text&gt;
+&lt;circle cx="637" cy="240" r="16" fill="#28a745"/&gt;
+&lt;text x="668" y="249" font-size="26" fill="#23373B"&gt;Treatment school (Group 1)&lt;/text&gt;
+&lt;circle cx="637" cy="300" r="16" fill="#c8c8c8"/&gt;
+&lt;text x="668" y="309" font-size="26" fill="#23373B"&gt;Not yet treated&lt;/text&gt;
+&lt;text x="800" y="420" font-size="26" fill="#6c757d" text-anchor="middle"&gt;Same number of schools nearby;&lt;/text&gt;
+&lt;text x="800" y="452" font-size="26" fill="#6c757d" text-anchor="middle"&gt;different numbers treated&lt;/text&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+
+--
+
+.discuss[
+**Question**: why must the comparison hold fixed the **total** number of pupils nearby?
+]
+
+--
+
+- School density is not random: crowded areas may differ in contact and sanitation.
+
+- **The paper's argument**: given the total, the number in treatment schools is "exogenous and random".
+
+--
+
+.discuss[
+**Question**: is the number of treated pupils nearby really random? What could make this argument fail?
+]
+
+???
+
+The paper's wording (p. 176): "Given the total number of children attending primary school within a certain distance from the school, the number of these attending schools assigned to treatment is exogenous and random." Under independent random assignment this would be a derivation, not an assumption; under the alphabetical rotation within zones it requires that alphabetical position be unrelated to the geography of schools, which is plausible but untested. The paper also concedes (p. 177) that with 49 schools it cannot estimate how the marginal externality varies with local treatment levels, so the linear-in-N specification is maintained, not checked. A quarter of households send a child to a school other than the nearest (p. 175), so "treated pupils within 3 km of the school" is a proxy for exposure.
+
+The figure is a schematic, not a map of the study area. Schools are drawn as equal-sized, so the same number of schools stands for the same number of pupils; the paper counts pupils (per 1,000) within 0–3 km and 3–6 km. Comparing pupils in schools like A and B, with the total held fixed, identifies the cross-school externality at each distance.
+
+This is the same logic as conditioning on the strata in a stratified experiment: the random component is the share of nearby pupils assigned to treatment, not the number of nearby pupils. In the regression on the next slide, the total enters as N_dit and the treated count as N^T_dit.
+
+---
+
+# Cross-school externalities: estimating equation
+
+`$$Y_{ijt} = a + \beta_1 T_{1it} + X_{ijt}'\delta + \sum_d \gamma_d \cdot N^T_{dit} + \sum_d \phi_d \cdot N_{dit} + u_i + e_{ijt}$$`
+
+- School *i*, pupil *j*, year *t*; `\(T_{1it}\)`: school in its first year of treatment (Group 1 in early 1999)
+
+- `\(N_{dit}\)`: eligible pupils in schools at distance *d* (0–3 km, 3–6 km); `\(N^T_{dit}\)`: those in treatment schools
+
+- `\(u_i + e_{ijt}\)`: errors correlated within schools; standard errors clustered by school
+
+--
+
+&lt;b&gt;Identifying assumption&lt;/b&gt;: conditional on &lt;i&gt;N&lt;sub&gt;dit&lt;/sub&gt;&lt;/i&gt;, &lt;i&gt;N&lt;sup&gt;T&lt;/sup&gt;&lt;sub&gt;dit&lt;/sub&gt;&lt;/i&gt; is as good as random.
+
+- `\(\gamma_d\)`: cross-school externality per 1,000 treated pupils at distance *d*
+
+- `\(\beta_1\)`: effect of the school's own assignment, **including** within-school externalities
+
+&lt;div class="detail"&gt;The paper's equation (1) adds a second-year term, β&lt;sub&gt;2&lt;/sub&gt;T&lt;sub&gt;2it&lt;/sub&gt;, for the school-participation data, which pool 1998 and 1999.&lt;/div&gt;
+
+???
+
+Eligible pupils are girls under 13 and all boys (fn 26). N is measured per 1,000 pupils. Binary outcomes are estimated by probit (fn 24). Own assignment is not correlated with nearby treatment density (Table I).
+
+Why only T1 here: the health outcomes come from the early-1999 survey, which compares Group 1 (first year of treatment) with Group 2 (not yet treated), so Table VII has a single "Group 1 indicator". T2 (a school in its second year: Group 1 in 1999) enters only the school-participation regressions, which pool 1998 and 1999 and include Group 2's first year.
+
+The paper (p. 176): beta_1 and beta_2 "capture both direct effects of deworming treatment on the treated, as well as any externalities on untreated pupils within the treatment schools."
+
+---
+
+# Cross-school externalities: the average effect
+
+The average effect of the first year of treatment on infection in treatment schools:
+
+`$$\beta_1 + \sum_d \gamma_d \cdot \bar{N}^T_{dit}$$`
+
+- `\(\beta_1\)`: effect of the school's own treatment
+
+- `\(\sum_d \gamma_d \cdot \bar{N}^T_{dit}\)`: externality from the average number of treated pupils nearby
+
+--
+
+&lt;div class="takeaway"&gt;The naive comparison (Group 1 − Group 2) estimates only \(\beta_1\): it omits the externality term.&lt;/div&gt;
+
+???
+
+The analogous expression with beta_2 gives the effect of the second year of treatment.
+
+---
+
+# Within-school externalities: estimating equation
+
+Use the first year of eligibility in each group: Group 1 in 1998 and Group 2 in 1999.
+
+`$$Y_{ijt} = a + \lambda T_{1it} + b_1 D_{1ij} + b_2 (T_{1it} \cdot D_{1ij}) + X_{ijt}'\delta + \sum_d \gamma_d N^T_{dit} + \sum_d \phi_d N_{dit} + u_i + e_{ijt}$$`
+
+- `\(D_{1ij}\)`: pupil took the treatment when first offered (1998 in Group 1, 1999 in Group 2)
+
+--
+
+- `\(\lambda\)`: **within-school externality** on pupils who did not take the treatment
+
+- `\(b_1\)`: selection: takers vs non-takers before treatment
+
+- `\(b_2\)`: **additional** direct effect on takers; the total effect on takers is `\(\lambda + b_2\)`
+
+&lt;div class="detail"&gt;The paper writes β&lt;sub&gt;1&lt;/sub&gt; here as well; λ keeps it apart from β&lt;sub&gt;1&lt;/sub&gt; in equation (1), which includes the direct effect on takers.&lt;/div&gt;
+
+???
+
+Notation: Miguel and Kremer use beta_1 for the coefficient on T_1 in both equation (1) and equation (3), although in (1) it is the total effect of own assignment (direct effect plus within-school externality) and in (3), once D and T×D are added, it is the within-school externality on non-takers only. The slides use lambda in (3) to keep the two apart.
+
+The comparison is Group 1 pupils untreated in 1998 vs Group 2 pupils untreated in 1999. Health outcomes are measured in early 1999, before Group 2 pupils were treated, so Group 2 takers and non-takers reveal the selection term.
+
+---
+
+# Within-school externalities: the four groups
+
+Health in early 1999, by group and by whether the pupil took the drugs when first offered:
+
+&lt;div style="font-size: 82%;"&gt;
+&lt;table style="width: 96%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Group 1&lt;br&gt;(treated in 1998)&lt;/th&gt;&lt;th&gt;Group 2&lt;br&gt;(not yet treated)&lt;/th&gt;&lt;th&gt;Difference&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Takers&lt;/td&gt;&lt;td&gt;\(a + \lambda + b_1 + b_2\)&lt;/td&gt;&lt;td&gt;\(a + b_1\)&lt;/td&gt;&lt;td&gt;\(\lambda + b_2\)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Non-takers&lt;/td&gt;&lt;td&gt;\(a + \lambda\)&lt;/td&gt;&lt;td&gt;\(a\)&lt;/td&gt;&lt;td&gt;&lt;b&gt;\(\lambda\)&lt;/b&gt;: within-school externality&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-top: 1px solid #23373B; border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Difference&lt;/td&gt;&lt;td&gt;\(b_1 + b_2\)&lt;/td&gt;&lt;td&gt;&lt;b&gt;\(b_1\)&lt;/b&gt;: selection&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+--
+
+- Group 2 pupils are not yet treated, so takers vs non-takers there reveals pure **selection**.
+
+- Non-takers in Group 1 vs future non-takers in Group 2: the **externality** on the untreated.
+
+&lt;div class="takeaway"&gt;The design needs one assumption: non-takers are selected the same way in both groups.&lt;/div&gt;
+
+???
+
+The cells follow from the equation on the previous slide, ignoring controls and the cross-school terms. Group 2 "takers" are the pupils who later took the drugs in 1999; their health was measured before that.
+
+---
+
+# Within-school externalities: identifying assumption
+
+Take-up is a choice, so this comparison relies on **non-experimental** variation.
+
+- It is valid if non-takers in Group 1 and Group 2 are selected in the same way.
+
+--
+
+**A threat**: the consent rule changed between years, not between groups.
+
+- 1998: community consent; parents could opt out (Group 1's first year).
+
+- From 1999: signed individual parental consent (Group 2's first year).
+
+- Take-up was 78% of eligible pupils in 1998 and about 72% in 1999.
+
+--
+
+.takeaway[If healthier pupils take the drugs more, the estimate understates the within-school externality]
+
+???
+
+The paper's argument (p. 180): infected pupils are no more likely to be treated, and if anything less likely. If take-up is non-decreasing in unobservables associated with good health, the stricter 1999 rule leaves some healthier pupils untreated in Group 2, so untreated Group 2 pupils are at least as healthy as untreated Group 1 pupils, and the comparison underestimates lambda (the paper's beta_1 in equation (3)).
+
+The authors also argue the selection was fairly similar: 73% of eligible pupils in Group 1 and 71% in Group 2 were treated in 1999 (p. 171). Table VI shows no significant baseline differences between the two untreated groups.
+
+---
+
+# Research design: baseline balance
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/worm2.png" style="width: 90%; max-width: 600px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1111/j.1468-0262.2004.00481.x"&gt;Miguel and Kremer (2004)&lt;/a&gt;, Table I (top rows).]
+
+- Mostly balanced, but Group 1 pupils are older and somewhat worse off at baseline.
+
+  - Blood in stool, sick often, less clean: these differences work against finding effects.
+
+???
+
+Other significant differences in Table I: blood in stool (G1−G3 0.07**), sick often (0.02**), cleanliness (−0.07**). The authors note that "Group 1 pupils appear to be worse off ... potentially creating a bias against finding significant program effects" (p. 165). Year of birth is missing for 17%, 19%, and 31% of pupils in Groups 1, 2, and 3 (Aiken et al. 2015).
+
+---
+
+# Health effects: Table VII
+
+&lt;div style="font-size: 80%;"&gt;
+&lt;table style="width: 92%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Any moderate-heavy infection, early 1999&lt;/th&gt;&lt;th&gt;(1)&lt;/th&gt;&lt;th&gt;(2)&lt;/th&gt;&lt;th style="text-align:left;"&gt;Coefficient&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Group 1 (1998 treatment) school&lt;/td&gt;&lt;td&gt;−0.25*** (0.05)&lt;/td&gt;&lt;td&gt;−0.12* (0.07)&lt;/td&gt;&lt;td&gt;(1) \(\beta_1\): own assignment, incl. spillover&lt;br&gt;(2) \(\lambda\): within-school externality&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Group 1 pupils within 3 km (per 1,000)&lt;/td&gt;&lt;td&gt;−0.26*** (0.09)&lt;/td&gt;&lt;td&gt;−0.26*** (0.09)&lt;/td&gt;&lt;td&gt;\(\gamma_{0-3}\): cross-school externality&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Group 1 pupils within 3–6 km (per 1,000)&lt;/td&gt;&lt;td&gt;−0.14** (0.06)&lt;/td&gt;&lt;td&gt;−0.13** (0.06)&lt;/td&gt;&lt;td&gt;\(\gamma_{3-6}\): cross-school externality&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Total pupils within 3 km (per 1,000)&lt;/td&gt;&lt;td&gt;+0.11*** (0.04)&lt;/td&gt;&lt;td&gt;+0.11*** (0.04)&lt;/td&gt;&lt;td&gt;\(\phi_{0-3}\): denser areas are more infected&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Total pupils within 3–6 km (per 1,000)&lt;/td&gt;&lt;td&gt;+0.13** (0.06)&lt;/td&gt;&lt;td&gt;+0.13** (0.06)&lt;/td&gt;&lt;td&gt;\(\phi_{3-6}\)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Took treatment when first offered&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;−0.06* (0.03)&lt;/td&gt;&lt;td&gt;\(b_1\): selection&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;Group 1 school × took treatment&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;−0.14* (0.07)&lt;/td&gt;&lt;td&gt;\(b_2\): additional effect on takers&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1111/j.1468-0262.2004.00481.x"&gt;Miguel and Kremer (2004)&lt;/a&gt;, Table VII, columns 1–2. Groups 1 and 2, grades 3–8, 2,328 pupils, mean 0.41. Probit, weighted by school population; SEs clustered by school.]
+
+--
+
+.takeaway[Externalities within and across schools are both large relative to the 41% infection rate]
+
+???
+
+In column 2, the total effect on takers is λ + b2 = −0.12 + (−0.14) = −0.26.
+
+How column 1 relates to column 2: beta_1 is an ITT for a Group 1 school. The within-school externality λ reaches every pupil, the additional effect b2 only the share s who took the drugs, so beta_1 ≈ λ + s·b2, plus a small selection term if take-up differs between the groups' first years. Rough check (not in the paper): −0.12 + 0.78 × (−0.14) = −0.23, against the −0.25 estimated; the gap reflects probit nonlinearity, weighting and the sample. The positive φ coefficients (more pupils nearby, more infection) are the empirical reason the comparison must hold the total fixed (slide 21). Column 1 is equation (1) with T1 only; column 2 is equation (3).
+
+Size of the externalities, if asked (pp. 187–188): the average cross-school externality from column 1 is (0.26 × 454 + 0.14 × 802)/1,000 = 23 points (SE 7), over 40% of Group 2's infection rate; 454 and 802 are the average numbers of Group 1 pupils within 3 km and 3–6 km. Regression 3 (with interactions) puts it at 9 points for Group 2 pupils and 29 for Group 1 pupils. The paper's total effect on Group 1 pupils is 25 + 9 = 35 points (SE 9), so the cross-school externality is over one-quarter of the total. Infections averted: 0.35 × 9,817 + 0.09 × 19,493 ≈ 5,190, nearly one per treated child.
+
+Cross-school effects are mainly from schistosomiasis (column 4); within-school effects mainly from geohelminths (column 8).
+
+---
+
+# Education effects
+
+School participation, measured by unannounced visits, 1998–1999:
+
+- Total effect in treatment schools: **+7.5 percentage points** (SE 2.7).
+
+  - A one-quarter reduction in absenteeism.
+
+- Cross-school externality: +2.0 points (SE 1.3).
+
+- Within-school externality on non-takers: +5.6 points (first year).
+
+- About **0.14 extra years** of school participation per treated child.
+
+--
+
+Test scores: **no significant effect** (Table X).
+
+--
+
+.takeaway[Deworming raised school participation, including among untreated pupils, but not test scores]
+
+???
+
+Participation effects are in Table IX (pp. 194–197). The 0.14 extra years combine the effects on the treated and the externalities over the program years (p. 196). Test score estimates are small and imprecise: −0.032 (0.046) for the first year of treatment, 0.001 (0.073) for the second.
+
+---
+
+# Cost-effectiveness and the case for subsidies
+
+- Drug cost at scale: **US$0.49** per pupil per year.
+
+- Cost per additional year of school participation: **US$3.50**.
+
+  - School uniforms: about US$99 per additional year.
+
+- Externality benefit: about **US$15.90** per treated child, over 30 times the cost.
+
+--
+
+Back to the graph: the EMB is large relative to the price.
+
+- The authors argue for full subsidy, "perhaps even paying people" to take the drugs.
+
+- The cost-sharing follow-up (&lt;a href="https://doi.org/10.1162/qjec.122.3.1007"&gt;Kremer and Miguel 2007&lt;/a&gt;): small fees cut take-up sharply.
+
+???
+
+Section 8 (pp. 203–208). The US$0.49 cost is from Tanzania's Partnership for Child Development; the program's own cost was US$1.46. The US$3.50 is 0.49/0.14. The paper also reports about US$5 per DALY averted.
+
+---
+
+# Re-analysis and response
+
+&lt;a href="https://doi.org/10.1093/ije/dyv127"&gt;Aiken et al. (2015)&lt;/a&gt; replicated the paper with the original data and found coding errors:
+
+- 0–3 km cross-school infection effect: −0.26 → **−0.21** (SE 0.10), still significant.
+
+- 3–6 km effect: no longer significant; the total participation effect: 7.5 → **3.9** (SE 3.2).
+
+- They describe the allocation as "quasi-randomized", not a strict randomization.
+
+- Treated density was never randomized and only 49 schools carry its variation, so coding choices matter.
+
+--
+
+&lt;a href="https://doi.org/10.1093/ije/dyv129"&gt;Hicks, Kremer, and Miguel (2015)&lt;/a&gt; accept the errors:
+
+- The externalities hold within 3 km but not much beyond; they argue the main conclusions stand.
+
+--
+
+.takeaway[Externality estimates depend on how distance and nearby treatment are coded: replication matters]
+
+???
+
+Davey et al. (2015) re-analyzed the data with epidemiological methods (years analyzed separately, different weighting) and found "some evidence" of an effect on attendance, with a high risk of bias. The debate is known as the "worm wars". Within-school externalities and the naive effect on attendance (+5.7, SE 1.4) survived the corrections.
+
+---
+
+# Long-run effects
+
+The phase-in created 2–3 extra years of deworming for Groups 1 and 2 relative to Group 3:
+
+- 10 years later (&lt;a href="https://doi.org/10.1093/qje/qjw022"&gt;Baird et al. 2016&lt;/a&gt;):
+
+  - men work 17% more hours per week;
+
+  - women are about one-quarter more likely to have attended secondary school.
+
+- 20 years later (&lt;a href="https://doi.org/10.1073/pnas.2023185118"&gt;Hamory et al. 2021&lt;/a&gt;):
+
+  - consumption +14% and hourly earnings +13%; 9% more likely to live in urban areas.
+
+--
+
+.takeaway[A cheap child-health investment with long-run returns in the labor market]
+
+???
+
+Hamory et al. (2021): tracking rate 84%; the consumption effect is significant at 10%; most effects are concentrated among males and older individuals; the annualized social IRR is at least 37%. Baird et al. (2016) is on the presentation list for this week.
+
+---
+
+name: karing
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Social signaling and immunization: Karing (2024)
+&lt;/div&gt;
+
+---
+
+# Karing (2024): questions for discussion
+
+.discuss[
+- What is the research question? Why is the paper considered a contribution?
+
+- What would the ideal experiment be, and how close does the design come?
+
+- What does each comparison between treatment arms identify?
+
+- Which identification assumptions should we worry about?
+
+- How large are the effects, and how do they compare with other interventions?
+]
+
+---
+
+# Motivation: valued but hard to observe
+
+In Sierra Leone, vaccination carries social meaning, but timely vaccination is hard to observe:
+
+- 79% of community groups name parental negligence among the main reasons for missed vaccines.
+
+- Control mothers believe at most 48% of other mothers know their child's vaccination status.
+
+- Nationally, only 56% of children complete the first-year series (DHS 2020).
+
+--
+
+**Question**: if timely vaccination became visible, would parents vaccinate more?
+
+- Karing runs a field experiment that raises the social image return to vaccination.
+
+---
+
+# The idea: social signaling
+
+People care about what others infer about their type from their actions (&lt;a href="https://doi.org/10.1257/aer.96.5.1652"&gt;Bénabou and Tirole 2006&lt;/a&gt;).
+
+- A hidden action earns no social image return; a visible signal can create one.
+
+- Which action to reveal? Five vaccines must be taken, so the signal can be placed at different points.
+
+--
+
+.discuss[
+**Question**: should the signal reward the 4th vaccine (75% on time) or the 5th (58% on time)?
+]
+
+--
+
+- **At 5**: rare, so green says "caring parent"; but it may look too hard to reach.
+
+- **At 4**: common, so yellow says "negligent parent"; the threat of stigma may motivate.
+
+- A signal at 5 can also raise *earlier* vaccines, if parents plan ahead for it.
+
+.detail[Karing: which signal is more effective is "unclear ex ante" (p. 2085).]
+
+???
+
+The theory is in Online Appendix D. Endline survey: 74% of mothers believe they would be scolded for missed vaccinations, and 22% expect praise for completing them (fn 15, p. 2111). The 75% and 58% are timely completion rates of four and five vaccines in the control group.
+
+---
+
+# Research design: what parents experience
+
+- **Control**: no bracelet.
+
+- **Signal at 4**: yellow bracelet at vaccine 1.
+
+  - Green at vaccine 4 only if vaccines 1–4 are on time (by 6 months); otherwise yellow again.
+
+- **Signal at 5**: yellow at vaccine 1, and yellow again at vaccine 4.
+
+  - Green at vaccine 5 only if all five are on time (by 11 months); otherwise yellow again.
+
+- **Uninformative**: parents choose yellow or green at vaccine 1.
+
+  - The same color is handed out again at vaccines 4 and 5.
+
+--
+
+.takeaway[All bracelet arms have the same visits and colors; only what green reveals differs]
+
+???
+
+The five vaccines: one at birth, three DTP doses (1.5, 2.5, 3.5 months), and the first measles dose (9 months). Outcome cutoffs for "timely" are 3, 4, 5, 6, and 11.5 months.
+
+---
+
+# Research design: four arms
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/karing_fig1.png" style="width: 80%; max-width: 560px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjae025"&gt;Karing (2024)&lt;/a&gt;, Figure I.]
+
+- 120 clinics randomized (4 districts × 2 waves); 119 analyzed; 4,897 children.
+
+- Information meetings on the benefits of vaccination were held in all 597 communities.
+
+???
+
+Signal at 4: yellow at vaccine 1; green if vaccines 1–4 are on time (by 6 months). Signal at 5: yellow, replaced by a new yellow at vaccine 4; green if all five are on time (by 11 months). Uninformative: parents choose yellow or green at vaccine 1 and receive identical replacements at vaccines 4 and 5 (62% chose yellow). About 36,000 bracelets were distributed. In bracelet arms, the meetings also explained what the bracelets mean.
+
+---
+
+# What each comparison identifies
+
+.discuss[
+**Question**: what does each difference in vaccination rates tell us?
+]
+
+--
+
+- **Uninformative vs control**: material value of a bracelet, salience, and reminders.
+
+--
+
+- **Signal arms vs Uninformative**: social signaling.
+
+  - Same visits and same colors, so material value and reminders are held fixed.
+
+--
+
+- **Signal at 5 vs Signal at 4** on the first four vaccines: the value parents attach to each signal.
+
+--
+
+- **Anticipation**: signaling should also raise *earlier* vaccines, before any bracelet changes.
+
+???
+
+The paper also proposes separating cost shocks from social learning using the transition from vaccine 4 to vaccine 5 in Signal at 4 relative to the Uninformative arm (p. 2095–96); this test is not reported. Learning is instead examined with belief surveys (Table VII). The design cannot rule out vaccine-specific reminders (Section VI).
+
+---
+
+# Research design: validity
+
+- **Balance**: mostly balanced; Uninformative clinics are smaller and farther away (controlled for).
+
+  - 21 of 378 coefficients significant at 10%; joint F-tests do not reject except for moving.
+
+- **Attrition**: lower in Signal at 4; attriters and resurveyed children respond to treatment alike.
+
+- **Compliance**: 93.5% of children had a bracelet, with no difference across arms.
+
+--
+
+.takeaway[Imbalances are small and documented; the paper controls for them rather than claiming none]
+
+???
+
+Balance: Online Appendix Table B3 Panel B. Attrition: Table B3 Panel A; resurvey success 69–73%; differential response test in Table C1 (Found × Signal at 5 is −0.04 to −0.05 for vaccines 1–2). Pre-trends in timely vaccination for vaccines 1–3 do not differ (Table B3 Panel C).
+
+---
+
+# Compliance: bracelets handed out as designed
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/karing_fig2.png" style="width: 80%; max-width: 620px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjae025"&gt;Karing (2024)&lt;/a&gt;, Figure II. 7,066 children.]
+
+- In the Uninformative arm, color is unrelated to the number of vaccines received.
+
+- Green is a reliable signal of the 4th or 5th vaccine, less so of timeliness.
+
+???
+
+Only 1.8% of children got a green bracelet early; 36.5% got green despite coming late (Online Appendix Figure A5). Green was correctly timed in about 64% of cases (p. 2120). No difference in incorrect handouts between Signal at 4 and Signal at 5.
+
+---
+
+# Do bracelets change what parents infer?
+
+&lt;div style="float: left; width: 56%; margin-right: 24px;"&gt;
+&lt;img src="figures/karing_fig3.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjae025"&gt;Karing (2024)&lt;/a&gt;, Figure III. Δ: green minus yellow, relative to the Uninformative arm.]
+&lt;/div&gt;
+
+.small[
+**Panel A: what mothers infer**
+
+- Mothers see a color, then guess: 4 (or 5) vaccines?
+
+- Uninformative: yellow and green bars coincide, as intended.
+
+- Signal at 4: green raises P(4 vaccines) from 50% to 87%.
+
+- Signal at 5: green raises P(5 vaccines) by 29 points.
+]
+
+--
+
+.small[
+**Panel B: the truth**
+
+- Green in a signal arm means completion for certain.
+
+- Some yellow children completed too: late, or by error.
+
+- Beliefs move the right way, but less than the truth.
+]
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+???
+
+Samples: children aged 3.5–9 months for vaccine 4 (N = 1,866) and 9–12 months for vaccine 5 (N = 1,147); endline mothers asked about a child they observe. The Δs are the green-minus-yellow gap in a signaling arm relative to the same gap in the Uninformative arm, from regressions with strata fixed effects and controls; SEs clustered by clinic. Mothers in Signal at 4 also attach a 10-point higher probability of the fifth vaccine to a green bracelet, although green there says nothing about vaccine 5 (p &lt; .001); this shift is 42% of the Signal at 5 shift (p = .049).
+
+Mothers in signaling arms also believe their own actions are more visible: +13.0 points (Signal at 4) and +16.5 points (Signal at 5) on a control mean of 48% (Table III). Knowledge of other children's vaccinations improves only through green bracelets (Table IV): +9.4 points (Signal at 4, p ≈ 0.10) and +17.1 points (Signal at 5, p = 0.02).
+
+---
+
+class: tight
+
+# Estimating equation
+
+`$$Vaccine_{ia} = \alpha + \beta_{S4}\, S4_{j(i)} + \beta_{S5}\, S5_{j(i)} + \beta_{UI}\, UI_{j(i)} + \delta' X_i + \rho_{s(i)} + \varepsilon_i$$`
+
+- One regression per `\(a = 1, \dots, 5\)`: child *i* received vaccines 1 to *a* on time (by 3, 4, 5, 6, 11.5 months).
+
+- `\(S4\)`, `\(S5\)`, `\(UI\)`: indicators for the arm of the child's clinic *j* (control omitted).
+
+- `\(X_i\)`: distance, clinic size, mother's recall, data source; `\(\rho_{s(i)}\)`: strata (district × wave) fixed effects.
+
+- Sample: 4,897 children born July 2016 to December 2017, observed for all vaccinations to 12 months.
+
+--
+
+&lt;div style="font-size: 85%; margin-top: 6px;"&gt;
+&lt;table style="width: 90%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Comparison&lt;/th&gt;&lt;th style="text-align:left;"&gt;What it identifies&lt;/th&gt;&lt;th&gt;Coefficient&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Uninformative vs control&lt;/td&gt;&lt;td&gt;material value, salience, reminders&lt;/td&gt;&lt;td style="text-align:center;"&gt;\(\beta_{UI}\)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Signal at 5 vs Uninformative&lt;/td&gt;&lt;td&gt;social signaling&lt;/td&gt;&lt;td style="text-align:center;"&gt;\(\beta_{S5} - \beta_{UI}\)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Signal at 5 vs Signal at 4, vaccines 1–4&lt;/td&gt;&lt;td&gt;value parents attach to each signal&lt;/td&gt;&lt;td style="text-align:center;"&gt;\(\beta_{S5} - \beta_{S4}\), \(a \le 4\)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;Anticipation&lt;/td&gt;&lt;td&gt;earlier vaccines respond before any bracelet changes&lt;/td&gt;&lt;td style="text-align:center;"&gt;\(\beta_{S5} &gt; 0\), \(a &lt; 5\)&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+--
+
+**Inference**: about 30 clinics per arm, so SEs are cluster-bootstrapped by clinic (1,000 replications).
+
+???
+
+Linear probability model. The paper writes the treatment indicators as a vector T_j(i) with coefficient vector beta; the slide spells out the three arms so that each comparison on the "what each comparison identifies" slide maps to a coefficient or a difference of coefficients. Timeliness cutoffs follow the WHO schedule with a 2.5-month buffer, because clinics offer vaccination days weekly or monthly (Online Appendix Table B2); alternative cutoffs in Online Appendix Table B13. X also includes an indicator for clinics that were part of a prenatal-care bracelet pilot. The main sample is the constant sample of 4,897 children observed for all vaccinations to age 12 months (1,857 from the listing survey, 3,040 from the follow-up); results are robust to including children with partial histories (Online Appendix Table B14). The paper cites Cameron and Miller (2015) for the small number of clusters per arm (fn 16). Conventional clustered standard errors give the same conclusions (Online Appendix Tables B22–B23). This connects to the inference discussion in Lecture 3.
+
+---
+
+# Main results: timely vaccination
+
+&lt;div style="font-size: 78%;"&gt;
+&lt;table style="width: 96%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Timely completion of&lt;/th&gt;&lt;th&gt;1 vaccine&lt;/th&gt;&lt;th&gt;2 vaccines&lt;/th&gt;&lt;th&gt;3 vaccines&lt;/th&gt;&lt;th&gt;4 vaccines&lt;/th&gt;&lt;th&gt;5 vaccines&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Signal at 4&lt;/td&gt;&lt;td&gt;−0.005&lt;br&gt;(0.009)&lt;/td&gt;&lt;td&gt;0.007&lt;br&gt;(0.014)&lt;/td&gt;&lt;td&gt;0.009&lt;br&gt;(0.025)&lt;/td&gt;&lt;td&gt;0.020&lt;br&gt;(0.037)&lt;/td&gt;&lt;td&gt;0.004&lt;br&gt;(0.041)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Signal at 5&lt;/td&gt;&lt;td&gt;0.008&lt;br&gt;(0.007)&lt;/td&gt;&lt;td&gt;0.033***&lt;br&gt;(0.013)&lt;/td&gt;&lt;td&gt;0.072***&lt;br&gt;(0.024)&lt;/td&gt;&lt;td&gt;0.103***&lt;br&gt;(0.035)&lt;/td&gt;&lt;td&gt;0.133***&lt;br&gt;(0.041)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Uninformative&lt;/td&gt;&lt;td&gt;0.008&lt;br&gt;(0.007)&lt;/td&gt;&lt;td&gt;0.017&lt;br&gt;(0.012)&lt;/td&gt;&lt;td&gt;0.028&lt;br&gt;(0.024)&lt;/td&gt;&lt;td&gt;0.021&lt;br&gt;(0.036)&lt;/td&gt;&lt;td&gt;0.028&lt;br&gt;(0.043)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Control group mean&lt;/td&gt;&lt;td&gt;0.979&lt;/td&gt;&lt;td&gt;0.941&lt;/td&gt;&lt;td&gt;0.860&lt;/td&gt;&lt;td&gt;0.747&lt;/td&gt;&lt;td&gt;0.577&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;p: Signal at 5 = Uninformative&lt;/td&gt;&lt;td&gt;0.981&lt;/td&gt;&lt;td&gt;0.070&lt;/td&gt;&lt;td&gt;0.030&lt;/td&gt;&lt;td&gt;0.004&lt;/td&gt;&lt;td&gt;0.004&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjae025"&gt;Karing (2024)&lt;/a&gt;, Table V, Panel A. Timely = by 3, 4, 5, 6, and 11.5 months. 4,897 children.]
+
+- Each column: all vaccines up to that number received on time.
+
+--
+
+.takeaway[Only Signal at 5 raises timely vaccination: by 13.3 points on a base of 57.7%]
+
+???
+
+All regressions include strata fixed effects and the controls listed on the previous slide; standard errors are cluster-bootstrapped. The drop-off in the control group is steepest between vaccines 3 and 4 (11.3 points) and between 4 and 5 (17 points): these are the margins the signals target. By 12 months, complete vaccination with five vaccines rises by 9.4 points (Panel B). The effect fades over time as control children catch up: +6.1 points at 18 months, +5.1 at 24 months (Table VI).
+
+---
+
+# Parents act months before the signal
+
+.discuss[
+**Question**: under Signal at 5, nothing changes before vaccine 5. Why do vaccines 2 and 3 respond?
+]
+
+--
+
+- Green at vaccine 5 requires **all** earlier vaccines on time: parents must plan ahead.
+
+- Relative to the Uninformative arm: +1.6 points for 2 vaccines, +4.4 for 3 (p = 0.07, 0.03).
+
+- A reminder at vaccine 5 alone could not move the earlier vaccines.
+
+--
+
+- Total timely vaccines: 4.1 → 4.5 per child (+9%) relative to control.
+
+.takeaway[Behavior changes 6–9 months before the reward: evidence of a forward-looking image motive]
+
+???
+
+Section V.C, p. 2118. Relative to control, the effects on 2 and 3 vaccines are +3.3 and +7.2 points (Table V). This anticipation test is what separates signaling from vaccine-specific reminders (Section III.B). Relative to the Uninformative arm, the total number of timely vaccines rises from 4.2 to 4.5 (+6%, p = 0.005).
+
+---
+
+# Why did Signal at 5 work and Signal at 4 not?
+
+Implementation and perceived visibility were similar in the two arms. The paper's explanations:
+
+- **Informativeness**: 58% complete five vaccines on time, against 75% for four.
+
+  - Green is rarer, so it says more; yellow is a weak negative signal.
+
+- **Importance**: mothers rank vaccine 4 least important, and vaccine 5 second most important.
+
+- **Retention**: Signal at 5 children are 10.4 points less likely to lose the bracelet.
+
+--
+
+.takeaway[A signal works when the action it reveals is valued and not taken by almost everyone]
+
+???
+
+Section V.E. A scaling exercise predicts an effect of about 7 points for Signal at 4; the estimate is 2 points with a confidence interval of [−5.3, 9.3], so the two are not statistically distinguishable.
+
+---
+
+# Cost-effectiveness
+
+Cost per additional child fully immunized by 12 months: **US$24.7**
+
+- Bracelets US$0.92 and implementation US$1.28 per child, plus parents' costs of visiting the clinic.
+
+- Rises to US$44.4 at 24 months, because some control children catch up.
+
+--
+
+Comparisons in the paper (cost per additional fully immunized child):
+
+| Intervention | Cost |
+|---|---|
+| Cash incentive + SMS, Kenya (Gibson et al. 2017) | US$90 |
+| Mobile incentives, Pakistan (Chandir et al. 2022) | US$23 |
+| Lentils for each vaccination, India (Banerjee et al. 2010) | US$27.9 |
+| Ambassadors + SMS, India (Banerjee et al. 2021) | US$21 |
+
+???
+
+Section VII and Online Appendix Table B21. The last row is the working-paper version of today's third reading.
+
+---
+
+name: nudge
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Selecting the best policy bundle: Banerjee et al. (2025)
+&lt;/div&gt;
+
+---
+
+# Banerjee et al. (2025): questions for discussion
+
+.discuss[
+- What is the policy question, and why can a standard factorial analysis not answer it?
+
+- What does the method assume, and are the assumptions plausible here?
+
+- How large is the effect of the best policy, before and after the winner's curse correction?
+
+- Which policy would you recommend to a government with a fixed budget?
+]
+
+---
+
+# Setting: immunization in Haryana, India
+
+- Seven low-immunization districts; over 2,360 villages and 140 primary health centers (PHCs).
+
+- At baseline, 86% of children aged 12–23 months had at least 3 vaccines.
+
+  - But only 39% had the measles vaccine, the last in the first-year sequence.
+
+- Nurses recorded every vaccination on tablets: 295,038 children, 471,608 vaccines.
+
+--
+
+**Outcome**: number of measles shots per village per month (control mean 7.32).
+
+- Measles is the last vaccine, so it proxies for completing the schedule.
+
+???
+
+The experiment ran from December 2016 to November 2017. The tablet records were checked against household visits: almost no fake records, and errors did not differ by treatment group (WP Appendix J). The state government wanted to choose a policy to scale up.
+
+---
+
+# Three interventions
+
+**Incentives**: mobile phone credit to the caregiver for each of the five shots.
+
+- **Flat**: the same amount per shot. **Slope**: small at first, larger for the 4th and 5th shots.
+
+- **High** (INR 450 in total) or **low** (INR 250); flat and slope pay the same total.
+
+--
+
+**SMS reminders**: a text and a voice call when a shot is due.
+
+- Sub-centers assigned to remind none, 33%, or 66% of children.
+
+--
+
+**Ambassadors** ("seeds"): six villagers get a monthly SMS and call, to pass on.
+
+- Chosen at random, or named by villagers as **trusted**, as **good at spreading news** (hubs), or both.
+
+???
+
+Incentive schedules (pp. 1205–1206): high flat INR 90 per shot; high slope 50, 50, 50, 100, 200; low flat INR 50; low slope 10, 10, 10, 60, 160. INR 90 was about the price of a kilogram of lentils; INR 50 is about 100 minutes of talk time. In villages with incentives, the ambassadors' messages also mentioned the incentives. Ambassadors were nominated in a survey of 17 randomly sampled villagers; the six named most often were recruited (p. 1207).
+
+---
+
+# Research design: 75 policy bundles
+
+&lt;div style="font-size: 85%;"&gt;
+&lt;table style="width: 95%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Intervention&lt;/th&gt;&lt;th style="text-align:left;"&gt;States&lt;/th&gt;&lt;th style="text-align:left;"&gt;Randomized at&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Incentives&lt;/td&gt;&lt;td&gt;none; high or low × flat or slope (5)&lt;/td&gt;&lt;td&gt;PHC, then sub-center&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Ambassadors&lt;/td&gt;&lt;td&gt;none; random; trusted; info hub; trusted hub (5)&lt;/td&gt;&lt;td&gt;village&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;SMS reminders&lt;/td&gt;&lt;td&gt;none; 33%; 66% (3)&lt;/td&gt;&lt;td&gt;sub-center&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+- Fully cross-randomized: 5 × 5 × 3 = **75 bundles**, one of which is the status quo.
+
+- Analysis sample: 915 villages with a census, about **12 villages per bundle**.
+
+--
+
+.takeaway[The government wants one policy to scale up; the design offers 74 candidates]
+
+???
+
+The 140 PHCs were split into 70 with and 70 without incentives (stratified by district); incentive types were assigned to sub-centers within incentive PHCs. The ambassador intervention was randomized only among the 915 census villages, stratified by sub-center, so all bundle comparisons use these villages. The design figure is Supplemental Appendix Figure H.1.
+
+---
+
+# The standard analysis: one effect per intervention
+
+`$$y_{dsvt} = \alpha + \beta' \, \text{Incentives}_s + \gamma' \, \text{SMS}_s + \delta' \, \text{Ambassador}_v + \upsilon_{dt} + \varepsilon_{dsvt}$$`
+
+- `\(y_{dsvt}\)`: measles shots in village *v* (sub-center *s*, district *d*) in month *t*
+
+- One dummy per variant: 4 incentive types, 2 SMS levels, 4 ambassador types
+
+- `\(\upsilon_{dt}\)`: district × month fixed effects; weighted by village population; SEs clustered by sub-center
+
+--
+
+.discuss[
+**Question**: the coefficient on high slope incentives compares which villages with which?
+]
+
+--
+
+- Villages with vs without it, **averaging over** the ambassadors and reminders they also had.
+
+???
+
+This is the specification in Section 4.5 (p. 1209). Clustering at the sub-center level is the highest level at which a treatment is assigned; village-level clustering gives similar results (fn 27).
+
+---
+
+# Average effects of each intervention
+
+&lt;div style="text-align: center;"&gt;
+&lt;svg viewBox="0 0 1280 640" style="width: 100%; max-width: 790px;" xmlns="http://www.w3.org/2000/svg" font-family="Fira Sans, sans-serif"&gt;
+&lt;g stroke="#e3e6e8" stroke-width="2"&gt;
+&lt;line x1="110" y1="124" x2="1265" y2="124"/&gt;
+&lt;line x1="110" y1="196" x2="1265" y2="196"/&gt;
+&lt;line x1="110" y1="268" x2="1265" y2="268"/&gt;
+&lt;line x1="110" y1="412" x2="1265" y2="412"/&gt;
+&lt;line x1="110" y1="484" x2="1265" y2="484"/&gt;
+&lt;/g&gt;
+&lt;line x1="110" y1="340" x2="1265" y2="340" stroke="#555" stroke-width="3" stroke-dasharray="14,10"/&gt;
+&lt;line x1="352" y1="60" x2="352" y2="545" stroke="#c9cfd2" stroke-width="2" stroke-dasharray="4,8"/&gt;
+&lt;line x1="817" y1="60" x2="817" y2="545" stroke="#c9cfd2" stroke-width="2" stroke-dasharray="4,8"/&gt;
+&lt;rect x="110" y="60" width="1155" height="485" fill="none" stroke="#23373B" stroke-width="2"/&gt;
+&lt;g font-size="26" fill="#23373B" text-anchor="end"&gt;
+&lt;text x="100" y="133"&gt;3&lt;/text&gt;
+&lt;text x="100" y="205"&gt;2&lt;/text&gt;
+&lt;text x="100" y="277"&gt;1&lt;/text&gt;
+&lt;text x="100" y="349"&gt;0&lt;/text&gt;
+&lt;text x="100" y="421"&gt;−1&lt;/text&gt;
+&lt;text x="100" y="493"&gt;−2&lt;/text&gt;
+&lt;/g&gt;
+&lt;text x="0" y="0" font-size="26" fill="#23373B" text-anchor="middle" transform="translate(38,302) rotate(-90)"&gt;Effect on measles shots&lt;/text&gt;
+&lt;g font-size="30" font-weight="bold" text-anchor="middle"&gt;
+&lt;text x="230" y="42" fill="#C77A00"&gt;Reminders&lt;/text&gt;
+&lt;text x="585" y="42" fill="#155F83"&gt;Incentives&lt;/text&gt;
+&lt;text x="1050" y="42" fill="#B22222"&gt;Ambassadors&lt;/text&gt;
+&lt;/g&gt;
+&lt;g stroke="#E8950F" stroke-width="5" fill="#E8950F"&gt;
+&lt;line x1="175" y1="242.4" x2="175" y2="436.3"/&gt;&lt;line x1="163" y1="242.4" x2="187" y2="242.4"/&gt;&lt;line x1="163" y1="436.3" x2="187" y2="436.3"/&gt;&lt;circle cx="175" cy="339.3" r="10"/&gt;
+&lt;line x1="285" y1="320.1" x2="285" y2="489.8"/&gt;&lt;line x1="273" y1="320.1" x2="297" y2="320.1"/&gt;&lt;line x1="273" y1="489.8" x2="297" y2="489.8"/&gt;&lt;circle cx="285" cy="404.7" r="10"/&gt;
+&lt;/g&gt;
+&lt;g stroke="#155F83" stroke-width="5" fill="#155F83"&gt;
+&lt;line x1="420" y1="222.1" x2="420" y2="519.4"/&gt;&lt;line x1="408" y1="222.1" x2="432" y2="222.1"/&gt;&lt;line x1="408" y1="519.4" x2="432" y2="519.4"/&gt;&lt;circle cx="420" cy="370.7" r="10"/&gt;
+&lt;line x1="530" y1="137.2" x2="530" y2="411.6"/&gt;&lt;line x1="518" y1="137.2" x2="542" y2="137.2"/&gt;&lt;line x1="518" y1="411.6" x2="542" y2="411.6"/&gt;&lt;circle cx="530" cy="274.2" r="10"/&gt;
+&lt;line x1="640" y1="86.5" x2="640" y2="309.1"/&gt;&lt;line x1="628" y1="86.5" x2="652" y2="86.5"/&gt;&lt;line x1="628" y1="309.1" x2="652" y2="309.1"/&gt;&lt;circle cx="640" cy="198.2" r="10"/&gt;
+&lt;line x1="750" y1="219.8" x2="750" y2="400.5"/&gt;&lt;line x1="738" y1="219.8" x2="762" y2="219.8"/&gt;&lt;line x1="738" y1="400.5" x2="762" y2="400.5"/&gt;&lt;circle cx="750" cy="310.2" r="10"/&gt;
+&lt;/g&gt;
+&lt;g stroke="#B22222" stroke-width="5" fill="#B22222"&gt;
+&lt;line x1="885" y1="265.3" x2="885" y2="517.1"/&gt;&lt;line x1="873" y1="265.3" x2="897" y2="265.3"/&gt;&lt;line x1="873" y1="517.1" x2="897" y2="517.1"/&gt;&lt;circle cx="885" cy="391.3" r="10"/&gt;
+&lt;line x1="995" y1="76.3" x2="995" y2="330.7"/&gt;&lt;line x1="983" y1="76.3" x2="1007" y2="76.3"/&gt;&lt;line x1="983" y1="330.7" x2="1007" y2="330.7"/&gt;&lt;circle cx="995" cy="203.7" r="10"/&gt;
+&lt;line x1="1105" y1="223.4" x2="1105" y2="410.2"/&gt;&lt;line x1="1093" y1="223.4" x2="1117" y2="223.4"/&gt;&lt;line x1="1093" y1="410.2" x2="1117" y2="410.2"/&gt;&lt;circle cx="1105" cy="316.6" r="10"/&gt;
+&lt;line x1="1215" y1="236.6" x2="1215" y2="432.7"/&gt;&lt;line x1="1203" y1="236.6" x2="1227" y2="236.6"/&gt;&lt;line x1="1203" y1="432.7" x2="1227" y2="432.7"/&gt;&lt;circle cx="1215" cy="334.7" r="10"/&gt;
+&lt;/g&gt;
+&lt;g font-size="24" font-weight="bold" fill="#23373B"&gt;
+&lt;text x="656" y="192"&gt;p = 0.013&lt;/text&gt;
+&lt;text x="1011" y="197"&gt;p = 0.036&lt;/text&gt;
+&lt;/g&gt;
+&lt;g font-size="26" fill="#23373B" text-anchor="middle"&gt;
+&lt;text x="175" y="580"&gt;SMS&lt;/text&gt;&lt;text x="175" y="610"&gt;33%&lt;/text&gt;
+&lt;text x="285" y="580"&gt;SMS&lt;/text&gt;&lt;text x="285" y="610"&gt;66%&lt;/text&gt;
+&lt;text x="420" y="580"&gt;High&lt;/text&gt;&lt;text x="420" y="610"&gt;flat&lt;/text&gt;
+&lt;text x="530" y="580"&gt;Low&lt;/text&gt;&lt;text x="530" y="610"&gt;flat&lt;/text&gt;
+&lt;text x="640" y="580"&gt;High&lt;/text&gt;&lt;text x="640" y="610"&gt;slope&lt;/text&gt;
+&lt;text x="750" y="580"&gt;Low&lt;/text&gt;&lt;text x="750" y="610"&gt;slope&lt;/text&gt;
+&lt;text x="885" y="580"&gt;Random&lt;/text&gt;
+&lt;text x="995" y="580"&gt;Info&lt;/text&gt;&lt;text x="995" y="610"&gt;hub&lt;/text&gt;
+&lt;text x="1105" y="580"&gt;Trusted&lt;/text&gt;
+&lt;text x="1215" y="580"&gt;Trusted&lt;/text&gt;&lt;text x="1215" y="610"&gt;hub&lt;/text&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+
+.source[Redrawn from &lt;a href="https://doi.org/10.3982/ecta19739"&gt;Banerjee et al. (2025)&lt;/a&gt;, Figure 4. Effects relative to control (7.32 shots per village-month); 95% CIs.]
+
+- Information hubs (+1.89, +26%) and high slope incentives have similar effects; SMS is not significant.
+
+???
+
+The points and intervals were measured from the published (vector) figure; the information-hub estimate measures 1.89, the value reported in the text (p. 1209). These average effects were first reported in Banerjee et al. (2019), "Using Gossips to Spread Information". The text reports p = 0.04 for information hubs; the figure label shows 0.036. The other ambassador types: p = 0.42 (random), 0.63 (trusted), 0.92 (trusted hub).
+
+---
+
+# Why average effects are not enough
+
+- Each estimate averages over bundles with and without the other interventions.
+
+  - It does not tell us what a policy would do if implemented **alone**.
+
+- Interventions may be **complements**: the authors expected hubs to spread news better when there is concrete news, such as incentives.
+
+- Estimating all 75 bundles separately: about 12 villages each, so very low power.
+
+--
+
+.takeaway[We need to allow interactions without estimating 75 separate effects]
+
+???
+
+Pages 1210–1211. The authors note that in Banerjee et al. (2019) they reported only average effects because it was not feasible to think through all interactions ex ante. Muralidharan, Romero, and Wuthrich (2019) show that short regressions that omit interactions can mislead when interactions are small but non-zero ("local-to-zero").
+
+---
+
+class: tight
+
+# A second problem: the winner's curse
+
+Suppose we estimate many policies and pick the one with the largest estimate.
+
+- Each estimate = true effect + sampling noise.
+
+- The largest estimate is likely to be one whose noise happened to be positive.
+
+- So the winner's estimate **overstates** its true effect, even if each estimate is unbiased.
+
+--
+
+How large the overstatement is depends on the race:
+
+- More candidates with similar true effects: luck decides the winner more often, and the bias grows.
+
+- One policy far ahead of the rest: it wins on merit, and there is no curse.
+
+--
+
+.takeaway[Selecting the best policy and estimating its effect from the same data biases the estimate up]
+
+???
+
+If asked for a magnitude (a back-of-the-envelope calculation of ours, not in the paper): with n candidates of identical true effect and independent estimates with standard error 1, the winner's estimate exceeds the truth by the expected maximum of n standard normal draws: 0.56 SE for n = 2, 0.85 for 3, 1.16 for 5, 1.54 for 10. That is the worst case; with unequal true effects the overstatement is smaller, and it vanishes when the leader is well separated. Same logic as reporting only the best of many A/B tests. Banerjee et al. use the hybrid estimator of Andrews, Kitagawa, and McCloskey (2024, QJE), which shrinks the winner's estimate more when the runner-up is close behind; the mechanics are on the results slide.
+
+---
+
+# Treatment variant aggregation (TVA): the key step
+
+Take one intervention with three doses: SMS to none, 33%, or 66% of children.
+
+`$$y = \alpha_0 + \alpha_1 \cdot 1\{\text{SMS} \geq 33\%\} + \alpha_2 \cdot 1\{\text{SMS} = 66\%\} + \varepsilon$$`
+
+- `\(\alpha_1\)`: effect of reminding 33% of children, relative to none
+
+- `\(\alpha_2\)`: **additional** effect of going from 33% to 66%
+
+--
+
+- If `\(\alpha_2 = 0\)`: the two doses have the same effect. **Pool** them into "SMS (All)".
+
+- If also `\(\alpha_1 = 0\)`: reminders have no effect. **Prune** them: treat as control.
+
+--
+
+.takeaway[Writing effects as steps between doses turns "are two bundles equal?" into "is a coefficient zero?"]
+
+???
+
+This is the marginal-effects representation (Section 1, p. 1186). With several arms, every bundle gets such step coefficients for each arm in it; the appendix slide writes out the first terms for two arms.
+
+---
+
+class: tight
+
+# TVA: four steps
+
+&lt;svg viewBox="0 0 1600 380" style="width: 100%;"&gt;
+&lt;rect x="10" y="20" width="370" height="300" rx="12" fill="#eef2f3" stroke="#23373B" stroke-width="3"/&gt;
+&lt;rect x="410" y="20" width="370" height="300" rx="12" fill="#eef2f3" stroke="#23373B" stroke-width="3"/&gt;
+&lt;rect x="810" y="20" width="370" height="300" rx="12" fill="#eef2f3" stroke="#23373B" stroke-width="3"/&gt;
+&lt;rect x="1210" y="20" width="370" height="300" rx="12" fill="#eef2f3" stroke="#23373B" stroke-width="3"/&gt;
+&lt;polygon points="0,0 -24,-12 -24,12" fill="#23373B" transform="translate(408,170)"/&gt;
+&lt;polygon points="0,0 -24,-12 -24,12" fill="#23373B" transform="translate(808,170)"/&gt;
+&lt;polygon points="0,0 -24,-12 -24,12" fill="#23373B" transform="translate(1208,170)"/&gt;
+&lt;text x="195" y="72" font-size="31" font-weight="bold" fill="#23373B" text-anchor="middle"&gt;1. Marginal effects&lt;/text&gt;
+&lt;text x="195" y="130" font-size="24" fill="#23373B" text-anchor="middle"&gt;75 bundle dummies become&lt;/text&gt;
+&lt;text x="195" y="166" font-size="24" fill="#23373B" text-anchor="middle"&gt;steps between doses&lt;/text&gt;
+&lt;text x="195" y="240" font-size="24" fill="#EB811B" text-anchor="middle"&gt;SMS: α₁ for 0 → 33%,&lt;/text&gt;
+&lt;text x="195" y="276" font-size="24" fill="#EB811B" text-anchor="middle"&gt;α₂ for 33% → 66%&lt;/text&gt;
+&lt;text x="595" y="72" font-size="31" font-weight="bold" fill="#23373B" text-anchor="middle"&gt;2. LASSO&lt;/text&gt;
+&lt;text x="595" y="130" font-size="24" fill="#23373B" text-anchor="middle"&gt;Select the non-zero steps&lt;/text&gt;
+&lt;text x="595" y="166" font-size="24" fill="#23373B" text-anchor="middle"&gt;Penalty set strictly&lt;/text&gt;
+&lt;text x="595" y="240" font-size="24" fill="#EB811B" text-anchor="middle"&gt;α₂ not selected:&lt;/text&gt;
+&lt;text x="595" y="276" font-size="24" fill="#EB811B" text-anchor="middle"&gt;33% and 66% act alike&lt;/text&gt;
+&lt;text x="995" y="72" font-size="31" font-weight="bold" fill="#23373B" text-anchor="middle"&gt;3. Pool and prune&lt;/text&gt;
+&lt;text x="995" y="130" font-size="24" fill="#23373B" text-anchor="middle"&gt;Zero step: pool the doses&lt;/text&gt;
+&lt;text x="995" y="166" font-size="24" fill="#23373B" text-anchor="middle"&gt;All steps zero: prune&lt;/text&gt;
+&lt;text x="995" y="240" font-size="24" fill="#EB811B" text-anchor="middle"&gt;33% and 66% become&lt;/text&gt;
+&lt;text x="995" y="276" font-size="24" fill="#EB811B" text-anchor="middle"&gt;one policy, "SMS (All)"&lt;/text&gt;
+&lt;text x="1395" y="72" font-size="31" font-weight="bold" fill="#23373B" text-anchor="middle"&gt;4. Estimate&lt;/text&gt;
+&lt;text x="1395" y="130" font-size="24" fill="#23373B" text-anchor="middle"&gt;OLS on the pooled policies&lt;/text&gt;
+&lt;text x="1395" y="166" font-size="24" fill="#23373B" text-anchor="middle"&gt;Pick the best; adjust it&lt;/text&gt;
+&lt;text x="1395" y="240" font-size="24" fill="#EB811B" text-anchor="middle"&gt;Winner's-curse correction&lt;/text&gt;
+&lt;text x="1395" y="276" font-size="24" fill="#EB811B" text-anchor="middle"&gt;for the top policy&lt;/text&gt;
+&lt;text x="800" y="362" font-size="24" fill="#6c757d" text-anchor="middle"&gt;Orange: the SMS example (0 / 33% / 66%) from the previous slide&lt;/text&gt;
+&lt;/svg&gt;
+
+--
+
+**Which doses may pool** is decided by the authors from the nature of each variant:
+
+&lt;div style="font-size: 82%;"&gt;
+&lt;table style="width: 88%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Arm&lt;/th&gt;&lt;th style="text-align:left;"&gt;Doses of one variant (may pool)&lt;/th&gt;&lt;th style="text-align:left;"&gt;Different variants (never pool)&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Incentives&lt;/td&gt;&lt;td&gt;low and high amount&lt;/td&gt;&lt;td&gt;flat vs slope&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;SMS reminders&lt;/td&gt;&lt;td&gt;33% and 66% coverage&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;Ambassadors&lt;/td&gt;&lt;td&gt;information hub → trusted information hub&lt;/td&gt;&lt;td&gt;random vs trusted vs information hub&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+???
+
+Steps as in Section 2 of the paper: marginal specification (step 1), Puffer LASSO (step 2), reconstruction of unique policies with pooling and pruning (step 3), post-selection OLS (step 4), then the winner's-curse adjustment of Section 3. The table restates Section 5.1.1 (p. 1211): "slope and flat incentives are not allowed to pool, but the amount of money (high or low) is considered to be a dosage"; random, trusted, and information-hub ambassadors do not pool; "trusted information hub" is a higher dosage of information hub.
+
+Pooling rules: p. 1211. The LASSO is applied after a "Puffer" transformation, because the nested dose indicators are highly correlated. The penalty is set very strictly, to avoid false positives: a government scaling up a policy on a false positive is the costly error here (fn 29, Supplemental Appendix D).
+
+---
+
+# TVA: assumptions
+
+- Only doses of the **same** variant can pool, as listed on the previous slide.
+
+- Neighboring doses have either **equal** effects or effects that differ by at least a fixed amount.
+
+  - This rules out small but non-zero differences, which the LASSO could not detect.
+
+--
+
+.discuss[
+**Question**: is it plausible that high and low slope incentives have exactly the same effect?
+]
+
+--
+
+.takeaway[The method trades assumptions about which bundles can be equal for power to compare them]
+
+???
+
+The second assumption is a "beta-min" condition; it rules out exactly the local-to-zero case of Muralidharan, Romero, and Wuthrich (2019). The authors call the assumptions "strong" (p. 1216). If the assumption fails, two doses with slightly different effects may be pooled, and the pooled estimate is a weighted average of the two.
+
+---
+
+class: tight
+
+# From 75 bundles to four pooled policies
+
+TVA on measles shots keeps four policies. A label lists one state per intervention; "(All)" marks pooled doses.
+
+&lt;div style="font-size: 78%; margin-top: 6px;"&gt;
+&lt;table style="width: 100%; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Label in Figure 5&lt;/th&gt;&lt;th style="text-align:left;"&gt;Ambassadors&lt;/th&gt;&lt;th style="text-align:left;"&gt;Incentive&lt;/th&gt;&lt;th style="text-align:left;"&gt;SMS&lt;/th&gt;&lt;th&gt;Bundles pooled&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;(Info Hubs, Slopes (All), SMS (All))&lt;/td&gt;&lt;td&gt;information hubs&lt;/td&gt;&lt;td&gt;sloped, low or high&lt;/td&gt;&lt;td&gt;33% or 66%&lt;/td&gt;&lt;td style="text-align:center;"&gt;4&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;(No Seeds, High Slopes, SMS (All))&lt;/td&gt;&lt;td&gt;none&lt;/td&gt;&lt;td&gt;sloped, high only&lt;/td&gt;&lt;td&gt;33% or 66%&lt;/td&gt;&lt;td style="text-align:center;"&gt;2&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;(Trusted Info Hubs, Slopes (All), SMS (All))&lt;/td&gt;&lt;td&gt;trusted information hubs&lt;/td&gt;&lt;td&gt;sloped, low or high&lt;/td&gt;&lt;td&gt;33% or 66%&lt;/td&gt;&lt;td style="text-align:center;"&gt;4&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;(Trusted Seeds, High Slope, SMS (All))&lt;/td&gt;&lt;td&gt;trusted seeds&lt;/td&gt;&lt;td&gt;sloped, high only&lt;/td&gt;&lt;td&gt;33% or 66%&lt;/td&gt;&lt;td style="text-align:center;"&gt;2&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;&lt;b&gt;The other 63 bundles&lt;/b&gt;&lt;/td&gt;&lt;td colspan="3"&gt;pruned: estimated to have the same effect as the status quo&lt;/td&gt;&lt;td style="text-align:center;"&gt;&lt;b&gt;63&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+--
+
+- The four policies cover 12 of the 75 bundles (16%); every selected policy includes SMS and a sloped incentive.
+
+- Trusted hubs stayed apart from hubs here; per dollar (Panel B) they pool into "Info Hubs (All)".
+
+???
+
+Count for Panel A: info hubs × 2 slopes × 2 SMS = 4; no seeds × high slope × 2 SMS = 2; trusted info hubs × 2 slopes × 2 SMS = 4; trusted seeds × high slope × 2 SMS = 2; total 12, which matches the "16% of the possible options" on p. 1212.
+
+---
+
+# Results: the most effective policies
+
+&lt;div style="float: left; width: 56%; margin-right: 24px;"&gt;
+&lt;img src="figures/nudge_fig5a.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.3982/ecta19739"&gt;Banerjee et al. (2025)&lt;/a&gt;, Figure 5, Panel A. Measles shots per village-month, relative to control (7.32); 95% CIs.]
+&lt;/div&gt;
+
+.small[
+**Significant**
+
+- Hubs + slopes + SMS: +4.02 shots, +55% (p = 0.001)
+
+- Trusted seeds + high slope + SMS: +3.24, +44% (p = 0.009)
+
+**Not significant**
+
+- No seeds + high slope + SMS: +2.68 (p = 0.145)
+
+- Trusted hubs + slopes + SMS: −0.48 (p = 0.515)
+]
+
+--
+
+.small[
+- Both winners combine all three interventions.
+
+- No intervention is effective on its own.
+]
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+.takeaway[Both effective policies combine all three interventions: they work as complements]
+
+???
+
+p = 0.001 and p = 0.009 (p. 1212). No intervention is effective alone: incentives and reminders work with hubs or trusted seeds. The authors note that ignoring interactions "would have led to the conclusion that nothing is effective" (p. 1215). The other two pooled policies are not significant: no seeds + high slopes + SMS (+2.68, p = 0.145) and trusted info hubs + slopes + SMS (−0.48, p = 0.515).
+
+---
+
+class: tight
+
+# Correcting for the winner's curse
+
+&lt;div style="font-size: 80%;"&gt;
+&lt;table style="width: 85%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;&lt;/th&gt;&lt;th&gt;Measles shots&lt;/th&gt;&lt;th&gt;Shots per US$&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Best policy&lt;/td&gt;&lt;td&gt;Info hubs + slope + SMS&lt;/td&gt;&lt;td&gt;Info hubs + SMS&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Post-LASSO estimate&lt;/td&gt;&lt;td&gt;4.02&lt;/td&gt;&lt;td&gt;0.004&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Winner's curse adjusted&lt;/td&gt;&lt;td&gt;3.26&lt;/td&gt;&lt;td&gt;0.004&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;95% confidence interval&lt;/td&gt;&lt;td&gt;[0.32, 6.25]&lt;/td&gt;&lt;td&gt;[0.003, 0.005]&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;Control mean&lt;/td&gt;&lt;td&gt;7.32&lt;/td&gt;&lt;td&gt;0.0436&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.3982/ecta19739"&gt;Banerjee et al. (2025)&lt;/a&gt;, Table I.]
+
+--
+
+**How the correction works** (&lt;a href="https://doi.org/10.1093/qje/qjad043"&gt;Andrews, Kitagawa, and McCloskey, 2024&lt;/a&gt;):
+
+- Condition on winning: the estimate is reported only because it exceeded the runner-up's.
+
+- Remove the upward shift that winning implies: a median-unbiased estimate and a 95% interval.
+
+- Far ahead: almost no shift. Close race: a large shift. A wrong ranking cannot be repaired.
+
+--
+
+- Measles shots: the runner-up (3.24) is close, so 4.02 → 3.26: **+44%**, not 55%.
+
+- Shots per dollar: the runner-up is the status quo, far behind, so no adjustment.
+
+???
+
+Mechanics: conditional on the selection event (this policy had the largest estimate), the estimate's sampling distribution is truncated from below at the runner-up's estimate; the conditional estimator inverts that truncated distribution to get a median-unbiased point estimate and a conditional confidence interval. The "hybrid" version combines this with a simultaneous (projection) interval so that the interval stays short when the race is not close; Banerjee et al. use alpha = 0.05 and beta = 0.005, giving median bias at most beta/2 and coverage (1 − alpha)/(1 − beta) ≈ 95.5% (Section 2.5). The estimator converges to the post-LASSO estimate whenever the winner is well separated in the sample, so it acts as insurance; the authors note it "cannot correct for ordinal misrankings".
+
+The text on p. 1214 prints the interval as [0.032, 6.25]; Table I and p. 1215 give [0.32, 6.25]. J-PAL's summary of the study reports the unadjusted 55%.
+
+---
+
+# Results: the most cost-effective bundle
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/nudge_fig5b.png" style="width: 72%; max-width: 590px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.3982/ecta19739"&gt;Banerjee et al. (2025)&lt;/a&gt;, Figure 5, Panel B. Measles shots per US$ relative to control.]
+
+- Only information hubs + SMS **without incentives** is more cost-effective than control: +9.1%.
+
+- Incentives cut shots per dollar: they also pay parents who would vaccinate anyway.
+
+???
+
+In Panel B, every selected pooled policy that includes incentives is less cost-effective than the status quo. The two most effective bundles produce 36.0 immunizations per village per month per US$1,000, against 43.6 in control (p. 1212).
+
+---
+
+# Threats and limitations
+
+- **Administrative data**: tablet records verified by household visits; errors similar across arms.
+
+- **Substitution**: no rise in immunization outside the tablet system.
+
+- **Assumptions**: results rely on the pooling rules and the choice of LASSO penalty.
+
+  - The adjusted estimates are robust across the admissible penalty values.
+
+- **External validity**: seven low-coverage districts of one state.
+
+--
+
+.takeaway[The best bundle depends on the objective: more shots, or more shots per dollar]
+
+???
+
+Bootstrap stability: the cost-effective best policy is selected in 96% of samples, the most effective one in 77% (p. 1215). Spillovers across villages are not estimated. According to J-PAL, the Haryana government is working to scale up information hubs with targeted reminders.
+
+---
+
+# Second half: presentations and discussions
+
+**Presentation**: &lt;a href="https://doi.org/10.1257/aer.20230521"&gt;Dupas and Jain (2024)&lt;/a&gt;, *American Economic Review*
+
+- "Women left behind: Gender disparities in utilization of government health insurance in India"
+
+- presenter: Farangiz; discussant: Mariama
+
+--
+
+.discuss[
+**Discussion**: insurance makes care free at the point of use. Which constraints remain, and for whom?
+]
+
+---
+
+# Plan for next week
+
+**Week 7 (Thursday 29 October): Labor markets I — Rural labor markets**
+
+- &lt;a href="https://doi.org/10.1146/annurev-economics-091124-051650"&gt;Breza and Kaur (2025)&lt;/a&gt;, *Annual Review of Economics*: labor markets in developing countries
+
+- &lt;a href="https://doi.org/10.1257/aer.20141625"&gt;Kaur (2019)&lt;/a&gt;, *AER*: nominal wage rigidity in village labor markets
+
+- &lt;a href="https://doi.org/10.1257/aer.20201385"&gt;Breza, Kaur, and Shamdasani (2021)&lt;/a&gt;, *AER*: labor rationing
+
+- &lt;a href="https://doi.org/10.1257/app.20130401"&gt;Imbert and Papp (2015)&lt;/a&gt;, *AEJ: Applied*: public employment and the rural labor market
+
+--
+
+Comments in the &lt;a href="https://docs.google.com/document/d/1-IlEMbnN1wn0kxUqh20z_R09_dYt2VL6O8uBI_rgAgc/edit?usp=sharing"&gt;Google Doc&lt;/a&gt; by **Wednesday 28 October, 14:00**.
+
+**Second half**: presentation and discussion.
+
+**Paper proposal**: first draft due on **Sunday 1 November**.
+
+---
+
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt;
+
+---
+
+name: appendix
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Appendix
+&lt;/div&gt;
+
+---
+
+# Appendix: marginal effects with two arms
+
+Two arms, each at dose 0, 1, or 2: nine bundles `\([T_1, T_2]\)`. The first terms of the marginal form:
+
+`$$\begin{aligned}
+y = \alpha_{[00]} &amp;+ \alpha_{[10]} \cdot 1\{T_1 \geq 1\} \cdot 1\{T_2 = 0\} + \alpha_{[01]} \cdot 1\{T_1 = 0\} \cdot 1\{T_2 \geq 1\} \\
+&amp;+ \alpha_{[20]} \cdot 1\{T_1 = 2\} \cdot 1\{T_2 = 0\} + \alpha_{[02]} \cdot 1\{T_1 = 0\} \cdot 1\{T_2 = 2\} + \dots
+\end{aligned}$$`
+
+- `\(\alpha_{[20]}\)` is the gain from raising arm 1 from dose 1 to dose 2 (arm 2 off).
+
+- If `\(\alpha_{[20]} = 0\)`, bundles [1,0] and [2,0] pool; if also `\(\alpha_{[10]} = 0\)`, both pool with control.
+
+.source[&lt;a href="https://doi.org/10.3982/ecta19739"&gt;Banerjee et al. (2025)&lt;/a&gt;, Section 1, p. 1186.]
+
+???
+
+The full marginal-effects specification has one term for each bundle; each coefficient is the increment from a one-step dose increase within a treatment profile (equation (5)). The Hasse diagram (Figure 2, p. 1192) shows how zeros in these increments imply pooling.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<div id="toc-menu">
+  <button id="toc-btn" type="button">&#9776;&nbsp; Contents</button>
+  <div id="toc-list">
+    <a href="#facts">Some facts on health</a>
+    <a href="#externalities">Externalities and the case for subsidies</a>
+    <a href="#worms">Treatment externalities: Miguel and Kremer (2004)</a>
+    <a href="#karing">Social signaling and immunization: Karing (2024)</a>
+    <a href="#nudge">Selecting the best policy bundle: Banerjee et al. (2025)</a>
+    <a href="#appendix">Appendix</a>
+  </div>
+</div>
+<div id="progress-bar"></div>
+<style>
+#toc-menu { position: fixed; bottom: 10px; left: 14px; z-index: 300; }
+#toc-btn { background: rgba(35, 55, 59, 0.75); color: #fafafa; border: none; border-radius: 4px;
+  padding: 5px 12px; font-size: 13px; font-family: inherit; cursor: pointer; }
+#toc-btn:hover { background: #EB811B; }
+#toc-list { display: none; position: absolute; bottom: 34px; left: 0; width: 400px;
+  background: #ffffff; border: 1px solid #d9dee0; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18); padding: 6px 0; }
+#toc-menu.open #toc-list { display: block; }
+#toc-list a { display: block; padding: 8px 16px; font-size: 14px; color: #23373B;
+  text-decoration: none; line-height: 1.35; }
+#toc-list a:hover { background: #eef2f3; color: #EB811B; }
+#progress-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background: #EB811B; z-index: 300; transition: width 0.2s; }
+@media print { #toc-menu, #progress-bar { display: none; } }
+</style>
+<script>
+(function() {
+  var menu = document.getElementById('toc-menu');
+  var btn = document.getElementById('toc-btn');
+  btn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('open'); });
+  document.getElementById('toc-list').addEventListener('click', function() { menu.classList.remove('open'); });
+  document.addEventListener('click', function(e) { if (!menu.contains(e.target)) { menu.classList.remove('open'); } });
+  function init() {
+    if (typeof slideshow === 'undefined') { setTimeout(init, 150); return; }
+    var bar = document.getElementById('progress-bar');
+    var n = slideshow.getSlideCount();
+    slideshow.on('showSlide', function(slide) {
+      bar.style.width = (100 * (slide.getSlideIndex() + 1) / n) + '%';
+    });
+    bar.style.width = (100 * (slideshow.getCurrentSlideIndex() + 1) / n) + '%';
+  }
+  init();
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

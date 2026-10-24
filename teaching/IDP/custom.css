@@ -107,6 +107,16 @@
   margin-right: 0;
 }
 
+/* Slides with a table plus a lot of text (add "class: compact"):
+   slimmer table rows so the slide doesn't run into the footer */
+.remark-slide-content.compact table {
+  margin: 8px 0;
+}
+.remark-slide-content.compact th,
+.remark-slide-content.compact td {
+  padding: 4px 12px;
+}
+
 /* Content boxes for highlighting key points */
 .content-box-green {
   background-color: #d4edda;
@@ -163,6 +173,13 @@
    bullets revealed with "--" — to keep stacking in the left column. */
 .remark-slide-content .pull-right + .pull-left {
   clear: left;
+}
+
+/* Text block beside a floated figure (step-by-step graph slides): takes the
+   space left of/right of the float without wrapping under it */
+.beside {
+  overflow: hidden;
+  display: block;
 }
 
 /* Small text for notes and sources */

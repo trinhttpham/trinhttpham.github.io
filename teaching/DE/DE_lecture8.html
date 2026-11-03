@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>DELD - Lecture 8</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 8: Labor Markets II — Urban Labor Markets
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2026
+]
+
+---
+
+
+name: facts
+
+# Urban labor markets in developing countries
+
+- **Johannesburg**: unemployment 28% for the working-age population, 51% at ages 15–24.
+
+  - Young workseekers have little experience; school grades say little about skills.
+
+- **Addis Ababa**: work is easy to find, good work is not.
+
+  - In the study's control group, 65% work after four years, but only 25% have a permanent job with a written contract.
+
+- **Across developing countries**: informal work is 20–80% of the labor force.
+
+  - Much of it is inside formal firms: 56% of informal employment in Mexico, at least 40% in Brazil.
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;; &lt;a href="https://doi.org/10.1093/restud/rdaa057"&gt;Abebe et al. (2021)&lt;/a&gt;; &lt;a href="https://doi.org/10.1146/annurev-economics-082119-121914"&gt;Ulyssea (2020)&lt;/a&gt;.]
+
+--
+
+.discuss[
+**Discussion**: why do young urban job-seekers remain without good jobs, even where jobs exist?
+]
+
+???
+
+Johannesburg: Statistics South Africa figures for the study period, quoted in Carranza et al. (2022, p. 3555); 32% at ages 25–34. Addis Ababa: Abebe et al. (2021, p. 1283); their terms: a formal job has a written contract with the employer, a permanent job has an open-ended contract with no fixed duration. Informality: Ulyssea (2020, p. 526) gives one-third to two-thirds of economic activity and 20–80% of the labor force; the shares of informal employment in formal firms (the intensive margin) are 56% in Mexico, at least 40% in Brazil and 32% in Peru (p. 528). Candidate answers: too few formal jobs at the going wage (Harris–Todaro), search costs, employers who cannot tell who is skilled, workers who do not know which jobs suit them, and firms and workers who find informality cheaper than formality.
+
+Link to last week: Breza, Kaur, and Shamdasani (2021) found that at least 24% of lean-season self-employment among casual workers in rural Odisha occurs because workers cannot find jobs. Today we ask the same question in cities: is informal work what people are left with, or a choice?
+
+Week 8 meets on Wednesday 4 November at 8:30 AM and is a lecture only, with no presentation. Problem set 2 (DiD and RD) is due Friday 27 November, before 14:00. There is no class on 6 and 13 November. Week 9 meets on Friday 20 November and Week 10 on Friday 27 November.
+
+---
+
+# Three explanations for the lack of good urban jobs
+
+Young urban workers may lack good jobs because:
+
+- **Formal jobs are too few at the going wage**: the formal wage is set above market clearing.
+
+  - Jobs are rationed; those without one wait, unemployed or in informal work.
+
+--
+
+- **Workers and jobs fail to meet**: search is costly, and skills are hard to observe.
+
+  - Firms cannot tell who is skilled; workers do not know which jobs suit them.
+
+--
+
+- **Informality is chosen**: firms and workers find formal registration and contracts costly.
+
+--
+
+.takeaway[Each explanation calls for a different policy, so the evidence matters for policy]
+
+???
+
+The first explanation is last week's involuntary unemployment, now in cities: Harris and Todaro (1970) place it in an urban formal sector with a wage set above market clearing. The second is the "search-and-matching frictions" on Breza and Kaur's (2025) list, which last week's outline left for this week. The third is new: the margin is not whether to work for a wage, but whether to work formally.
+
+The policies differ. Under the first, creating formal jobs can draw more migrants than it employs. Under the second, the policies are cheaper search or certified skills. Under the third, the policies change the costs and benefits of formality: registration costs, taxes, benefits for informal workers, and enforcement.
+
+---
+
+name: outline
+
+# Outline of the lecture
+
+**Part 1. Too few formal jobs**
+
+- Why urban unemployment persists: &lt;a href="https://www.jstor.org/stable/1807860"&gt;Harris and Todaro (1970)&lt;/a&gt;
+
+**Part 2. Search frictions: who gets the formal jobs?**
+
+- Information about skills: &lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;
+- Anonymity or distance: &lt;a href="https://doi.org/10.1093/restud/rdaa057"&gt;Abebe et al. (2021)&lt;/a&gt;
+
+**Part 3. Informality: a queue or a choice?**
+
+- Why firms and workers stay informal: &lt;a href="https://doi.org/10.1146/annurev-economics-082119-121914"&gt;Ulyssea (2020)&lt;/a&gt;
+- Raising the cost of informal jobs: &lt;a href="https://doi.org/10.1257/app.20200763"&gt;Samaniego de la Parra and Fernández Bujanda (2024)&lt;/a&gt;
+
+???
+
+The three Parts follow the previous slide. Part 1 builds the benchmark: Harris and Todaro, where formal jobs are allocated at random, extended so that informal work is what is left. Parts 2 and 3 each relax one of its assumptions. Part 2 asks who gets the formal jobs when workers search and firms screen, with two experiments in Johannesburg and Addis Ababa. Part 3 asks whether informal work is a queue or a choice, with Ulyssea's review and random labor inspections in Mexico. Each Part ends with a summary slide, and the last slide brings the three explanations together.
+
+The evidence, by design: Carranza et al. (2022) randomize what workseekers learn about their skills and whether they can show it to firms. Abebe et al. (2021) randomize transport subsidies and a job application workshop across neighborhoods. Samaniego de la Parra and Fernández Bujanda (2024) use labor inspections drawn at random.
+
+---
+
+name: ht
+class: inverse, middle, center
+
+&lt;div style="font-size: 34px; text-align: center;"&gt;
+  Part 1. Too few formal jobs
+  &lt;div style="font-size: 22px; margin-top: 18px;"&gt;Harris and Todaro (1970)&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Harris and Todaro (1970): setup
+
+Two sectors: rural agriculture and urban manufacturing.
+
+- The urban wage `\(\bar{w}_U\)` is set institutionally (e.g., a minimum wage) above market clearing.
+
+  - Urban firms hire `\(E_U\)` workers, where the marginal product of labor equals `\(\bar{w}_U\)`.
+
+- The rural wage `\(w_R\)` equals the marginal product of labor in agriculture.
+
+- `\(L_U\)`: urban labor force, natives plus migrants. Jobs are allocated at random each period:
+
+`$$p = \frac{E_U}{L_U}$$`
+
+.source[&lt;a href="https://www.jstor.org/stable/1807860"&gt;Harris and Todaro (1970)&lt;/a&gt;]
+
+???
+
+Harris and Todaro write the minimum wage as W_M, manufacturing employment as N_M and the urban labor force as N_u; I use w̄_U, E_U and L_U so that N_M is not confused with the number of migrants (notation adapted). The model's key assumption is that the urban wage is "an institutionally determined urban minimum wage at levels substantially higher than that which the free market would allow" (p. 129). The number of formal jobs is not fixed by assumption: urban firms are competitive and hire until the marginal product equals the minimum wage (equation 5). The rural wage is the marginal product of agricultural labor valued at the relative price of the agricultural good, which rises as rural output falls. Jobs: "a periodic random job selection process exists whenever the number of available jobs is exceeded by the number of job seekers" (p. 127); fn 5 says the conclusions do not depend on the precise selection process. Migrants are assumed to keep their ties to the rural sector (p. 127).
+
+Checked against the 1970 text (local copy in readings). The JSTOR page is the stable link; the paper has no working DOI (10.2307/1807860 does not resolve).
+
+---
+
+# Harris and Todaro (1970): migration equilibrium
+
+A worker moves to the city if expected urban income exceeds the rural wage.
+
+- In the basic model, an urban worker without a formal job earns **zero**, so migration stops when
+
+`$$p \cdot \bar{w}_U = \frac{E_U}{L_U} \, \bar{w}_U = w_R$$`
+
+--
+
+- So the urban **unemployment** rate is pinned down by the wage gap: `\(u = 1 - p = 1 - w_R / \bar{w}_U\)`.
+
+--
+
+- An extension adds informal work: if those without a formal job earn `\(w_I &gt; 0\)`, the condition becomes
+
+`$$p \cdot \bar{w}_U + (1 - p) \cdot w_I = w_R$$`
+
+- Then `\(1 - p\)` is the share **without a formal job**: unemployed or informally employed.
+
+--
+
+&lt;div class="takeaway"&gt;Unemployment, and in the extension informal work, equates expected urban income with \(w_R\).&lt;/div&gt;
+
+???
+
+The 1970 paper has no informal sector: workers without a formal job are unemployed. The extension with informal earnings is the standard one; Fields (1975, Journal of Development Economics 2(2): 165–187) is usually credited with adding an urban informal sector and job search to the model. I have not checked the extension against Fields's text, so the slide states it as an extension of the Harris–Todaro condition, not as Fields's model.
+
+In this version, informal work is a waiting room: everyone prefers a formal job, and informal work is what is left for those who did not get one.
+
+---
+
+# Harris and Todaro (1970): creating urban jobs
+
+.discuss[
+**Discussion**: the government creates more formal urban jobs. Does urban unemployment fall?
+]
+
+--
+
+- With a fixed rural wage, each new job draws `\(1/p = \bar{w}_U / w_R &gt; 1\)` workers to the city.
+
+  - The unemployment **rate** `\(1 - w_R/\bar{w}_U\)` is unchanged; the **number** unemployed rises.
+
+- If the rural wage rises as workers leave agriculture, fewer workers migrate.
+
+  - In the full model the **rate** falls; the **number** still rises if the rural wage responds little.
+
+--
+
+.takeaway[Creating urban jobs alone can raise the number of urban unemployed]
+
+???
+
+Derivation, fixed rural wage: L_U = E_U·w̄_U/w_R, so dL_U/dE_U = w̄_U/w_R = 1/p, and the number unemployed U = L_U − E_U rises by 1/p − 1 per job.
+
+Endogenous rural wage: let w_R depend on agricultural employment L_A = L̄ − L_U, with w_R' &lt; 0 in L_A. Differentiating the equilibrium condition gives dL_U/dE_U = 1 / (p + |w_R'|·L_U/w̄_U). The number unemployed rises if and only if |w_R'|·L_U/w̄_U &lt; 1 − p, which can be written η·p·(L_U/L_A) &lt; u, where η is the elasticity of the rural wage with respect to agricultural employment. This is my derivation. Harris and Todaro's Appendix II: when dN_u/dN_M &gt; 1, a new job "will increase the absolute level of unemployment although the rate of urban unemployment will have to fall". The literature calls the case in which job creation raises unemployment the "Todaro paradox". Harris and Todaro's own statement (p. 127): generating urban employment "through the use of 'shadow prices' implemented by means of wage subsidies or direct government hiring will not necessarily lead to a welfare improvement and may, in fact, exacerbate the problem of urban unemployment".
+
+---
+
+# Harris and Todaro (1970): two assumptions to relax
+
+The model, with the extension, makes two assumptions that today's papers relax.
+
+- **Formal jobs are allocated at random** among urban workers.
+
+  - In practice, workers search and firms screen: who gets the formal jobs?
+
+--
+
+- **Informal work is what is left** for those who did not get a formal job (the extension).
+
+  - In practice, firms and workers may choose informality: why does it persist?
+
+--
+
+.takeaway[Search frictions decide who gets the formal jobs; choice may explain why informal work persists]
+
+???
+
+Since u = 1 − w_R/w̄_U, policies that raise rural incomes also reduce urban unemployment in this model. Last week's rural employment guarantee is an example: Imbert and Papp (2015, pp. 246–247) cite their companion paper (Imbert and Papp 2014, later published as "Short-term migration, rural public works, and urban labor markets") for evidence that NREGA reduced short-term migration to cities. Harris and Todaro's own policy conclusion (p. 127): without wage flexibility, the best policy is a "policy package" of partial wage subsidies (or direct government employment) and measures to restrict free migration. I do not put this on the slide; restricting migration is not a policy the readings evaluate.
+
+---
+
+name: search
+class: inverse, middle, center
+
+&lt;div style="font-size: 34px; text-align: center;"&gt;
+  Part 2. Search frictions
+  &lt;div style="font-size: 22px; margin-top: 18px;"&gt;Who gets the formal jobs?&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Search frictions: three reasons workers and jobs fail to match
+
+- **Search is costly**: job-seekers meet few employers.
+
+  - Policy: lower search costs (Abebe et al.: transport subsidy).
+
+--
+
+- **Firms cannot observe skills**: wrong hires are costly, so firms make few offers.
+
+  - Policy: certify skills credibly (Carranza et al.: public certificate; Abebe et al.: workshop).
+
+--
+
+- **Workers do not know their skills**: they apply for jobs that do not suit them.
+
+  - Policy: tell workers their skills (Carranza et al.: private certificate).
+
+--
+
+.takeaway[Each friction calls for a different policy, and the two experiments vary them]
+
+???
+
+The three frictions summarize the frameworks of the two papers; there is no equation here on purpose. Abebe et al. (2021, Section 2.4) separate the meeting rate (search intensity) from the precision of the signal that firms observe (search efficacy). Carranza et al. (2022, Section I.A) ask whether firms, workseekers, or both have limited information about skills. Under Harris–Todaro, by contrast, jobs are allocated at random among urban workers, so none of these margins matters.
+
+The two experiments also differ in what they can say about the number of jobs. If firms have no unfilled vacancies, a certified worker's job is another worker's lost job; the gains are better matches, not more employment. Keep this in mind for the comparison at the end.
+
+---
+
+name: carranza
+
+# Carranza et al. (2022): the question
+
+.discuss[
+**Discussion**: what is the research question? Why is the paper considered a contribution?
+]
+
+--
+
+**Question**: how does limited information about workseekers' skills affect firms and workseekers?
+
+- Workseekers: young South Africans with at most 12 months of formal work experience.
+
+- The skills: communication, numeracy, and soft skills such as focus and planning.
+
+- **Contribution**: the experiment varies who receives the information.
+
+  - Only the workseeker, or also firms; and whether it can be credibly shared.
+
+--
+
+.takeaway[If firms and workseekers learn workseekers' skills, do workseekers find more and better jobs?]
+
+???
+
+Introduction: "Our main contribution is to study workseeker and firm responses to additional information about workseekers' skills, highlighting the importance of information that is easily and credibly shared." Earlier work documents patterns consistent with either firms alone or workseekers alone facing limited information. The closest studies (Abebe et al. 2021, today's second paper; Bassi and Nansamba; Groh et al.; Pallais 2014) give information to both sides; this paper varies which agents receive it and how easily it can be shared. "Workseekers" is the paper's term.
+
+---
+
+# Carranza et al. (2022): framework
+
+- If only **firms** observe skills with error, they offer lower wages and hire mismatched workers.
+
+  - Some offers fall below the reservation wage or the minimum wage: employment falls.
+
+- If only **workseekers** know their skills poorly, they search for the wrong jobs.
+
+  - They meet fewer firms and produce less when hired: employment and wages fall.
+
+--
+
+- Both cases lower employment and mean wages conditional on employment.
+
+--
+
+.takeaway[A rise in employment after disclosure cannot reveal which side lacked information]
+
+???
+
+Conceptual framework, Section I.A (pp. 3552–3554): two types of workseekers and jobs, a fixed search cost, and firms whose utility is concave in output (wrong hires are costly). The framework allows horizontal differentiation (each type is better in its own job) or vertical differentiation (one type is better in all jobs).
+
+---
+
+# Carranza et al. (2022): setting and sample
+
+- **Johannesburg**: grades say little about skills; wrong hires are costly (dismissal is slow).
+
+- 6,891 workseekers assessed by the Harambee Youth Employment Accelerator, a social enterprise.
+
+  - Eligible: aged 18–29, completed secondary school, at most 12 months of formal work experience.
+
+  - 99% Black African, 62% female, mean age 24; 38% worked in the week before baseline.
+
+- Six assessments: communication, concept formation, focus, grit, numeracy, planning.
+
+- Beliefs are inaccurate: only 8% place themselves in the right third on all of three tests.
+
+- **Data**: baseline before results are shown; phone endline 3–4 months later, 96% response.
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;]
+
+???
+
+Setting (Section I.B, pp. 3554–3555): grades are weakly correlated with measured skills and firms say grades convey little; dismissal is slow and can be challenged, and probation is at most 3 months; minimum wages have high compliance in the formal sector, and commuting costs are high; unemployment is 28% overall, 51% at ages 15–24, 32% at ages 25–34. A near-universal state pension in multigenerational households gives workseekers non-labor income, which raises reservation wages (p. 3555). More than half of firms prefer referrals for recruitment (fn 8).
+
+Sample: all candidates who came to Harambee for the second assessment day on 84 operational days (p. 3555). The endline has 6,609 respondents. 22% overestimate their tercile on all three tests and 1% underestimate on all three (p. 3557). 97% searched in the week before baseline; median job tenure is two months. Labor outcomes use a seven-day recall. Earnings, hours and wages are transformed by the inverse hyperbolic sine, and the authors read coefficients as percentage changes; non-workers are coded zero. See the caveat on the results slide.
+
+---
+
+# Carranza et al. (2022): what each arm received
+
+.discuss[
+**Discussion**: what would the ideal experiment be? Which side of the market should receive information?
+]
+
+--
+
+&lt;div style="font-size: 76%;"&gt;
+&lt;table style="width: 100%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;&lt;/th&gt;&lt;th&gt;Control&lt;/th&gt;&lt;th&gt;Public&lt;/th&gt;&lt;th&gt;Private&lt;/th&gt;&lt;th&gt;Placebo&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Assessed on six skills&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;About 1 hour of job-search counseling&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Learns results (psychologist briefing)&lt;/td&gt;&lt;td&gt;no&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;td&gt;yes, no advice to share&lt;/td&gt;&lt;td&gt;no&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Certificate&lt;/td&gt;&lt;td&gt;none&lt;/td&gt;&lt;td&gt;20 color copies + email&lt;/td&gt;&lt;td&gt;1 black-and-white copy&lt;/td&gt;&lt;td&gt;as public, no results&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Name, ID number, branding&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;td&gt;no&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Workseekers (assessment days)&lt;/td&gt;&lt;td&gt;2,274 (27)&lt;/td&gt;&lt;td&gt;2,247 (27)&lt;/td&gt;&lt;td&gt;2,114 (27)&lt;/td&gt;&lt;td&gt;254 (3)&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;]
+
+--
+
+.takeaway[Every workseeker is assessed and counseled; the arms differ only in what is learned and shared]
+
+???
+
+Branding: the public certificate carries the Harambee and World Bank logos and links to a website describing the assessments (pp. 3558–3559). Counseling for all: how to create an email address, prepare for and dress for an interview, plus an email with a CV template and search tips (p. 3559). Control workseekers were not told that others received certificates. The placebo arm (branding and ID, no results) shows whether the results matter or only having been assessed (p. 3573).
+
+---
+
+class: tight
+
+# Carranza et al. (2022): the two certificates
+
+&lt;div style="display: flex; gap: 32px; justify-content: center;"&gt;
+&lt;img src="figures/jobsignal1.png" style="height: 250px;" /&gt;
+&lt;img src="figures/jobsignal2.png" style="height: 250px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;, Figure 1 (public, left) and Figure 3 (private, right).]
+
+- Both report the same results: the workseeker's third (lower, middle, top) on each of six skills.
+
+--
+
+- Only the public one is built to be credible to firms:
+
+  - name and ID number tie the results to the applicant;
+
+  - logos of the World Bank and Harambee, a well-known recruiter, vouch for the tests;
+
+  - it says the tests predict workplace productivity, and links to a website.
+
+???
+
+The public certificate reports the tercile on each skill relative to other Harambee candidates and states the candidate's name and national identity number, which South African resumes usually show. It carries the Harambee and World Bank logos and links to a website describing the assessments. The private one is an unbranded "personal copy" in black and white. The public template labels the fourth skill "Systematic problem-solving"; the private one says "Planning Ability". The left image is the template, with placeholders for the name and the terciles.
+
+Why the public certificate is credible, in the authors' words: "To provide credibility to the assessments and results, the certificate is branded with the World Bank and Harambee logos. Harambee is a widely recognized brand in South African marketing surveys" (Section II.A). The private one, by contrast, does not have the name and ID number, "so they cannot be linked to a particular candidate; have no branding from Harambee or the World Bank; do not explain that Harambee has used these assessments widely to place candidates with companies or that assessments predict workplace productivity; and do not link to a website" (p. 3569). It is one black-and-white copy on low-quality paper, with no electronic version, and the psychologist's briefing does not suggest sharing it. The public certificate also comes in 20 color copies plus an email version. Point to make in class: the content is identical; what differs is whether a firm can verify who measured the skills and whose skills they are.
+
+---
+
+# Carranza et al. (2022): estimating equation
+
+`$$Y_{id} = \mathbf{T}_d \cdot \Delta + \mathbf{X}_{id} \cdot \Gamma + S_d + \epsilon_{id}$$`
+
+- `\(Y_{id}\)`: outcome of workseeker *i* assessed on date *d*; `\(\mathbf{T}_d\)`: indicators for the arms
+
+- `\(\mathbf{X}_{id}\)`: prespecified baseline covariates; `\(S_d\)`: block fixed effects (blocks of 6–10 days)
+
+- Each assessment day is assigned to one arm; standard errors are clustered by day (84 days)
+
+.discuss[
+**Discussion**: which identification assumptions should we worry about?
+]
+
+--
+
+**Estimand**: the intent-to-treat effect of being assessed on a day assigned to an arm.
+
+**Identifying assumption**: days are assigned at random within blocks, and arms do not interact.
+
+- Control workseekers are unaffected by others' certificates, e.g., through competing for jobs.
+
+???
+
+Equation (1), p. 3560. Assigning days rather than individuals reduces the risk that treated and control workseekers meet at Harambee. The covariates are measured skills, self-reported skills, education, age, gender, employment, discount rate and risk aversion (Table 1 notes).
+
+---
+
+# Carranza et al. (2022): evidence for the assumption
+
+- **Balance**: arms are balanced on most baseline variables; the authors flag search and earnings.
+
+- **Attrition**: 96% respond at endline; response is balanced across arms.
+
+- **Specification**: results hold without covariates, and when controlling for search and earnings.
+
+- **Multiple outcomes**: q-values, p-values adjusted for testing many outcomes at once.
+
+- **Other contacts with Harambee**: only 1.4% were invited back; uncorrelated with treatment.
+
+- **Competition for jobs**: 2,247 certified workseekers in a city with about 2 million employed.
+
+--
+
+.takeaway[Days are randomized, and response is high and balanced across arms, so the comparisons are credible]
+
+???
+
+Balance: Table D.3 (p for equal means: searched 0.058, earnings 0.083, grit 0.089); attrition: Table D.6; specification: Tables D.8 and D.9; q-values control the false discovery rate (Anderson 2008). All tables are in the online appendix. Response is unrelated to most baseline covariates (Table D.7). Only 0.17% received a job offer through further contact with Harambee, and results are robust to dropping these workseekers (fn 17). With 84 clusters, cluster-robust standard errors are reasonable; the paper does not report randomization inference.
+
+---
+
+# Carranza et al. (2022): what each comparison identifies
+
+.discuss[
+**Discussion**: what does each comparison between arms identify?
+]
+
+--
+
+- **Public vs control**: information reaches workseekers and, through them, firms.
+
+- **Private vs control**: mainly workseeker learning; little reaches firms.
+
+- **Public vs private**: the value of information that can be easily and credibly shared with firms.
+
+- **Placebo vs public**: whether the results matter, or only the logos and having been assessed.
+
+- **Correspondence study**: firm responses alone, holding workseeker behavior fixed.
+
+--
+
+.takeaway[The design varies who receives information and whether it can be shared]
+
+???
+
+The paper does not cross-randomize firm and workseeker information, so interactions between the two sides are not identified (fn 7). Public vs private bundles credibility (name, ID, logos) with ease of sharing (20 copies, email, a briefing that says they can be attached), and the design cannot separate the two; fn 25 adds that firms may view both certificates as equally credible.
+
+---
+
+# Carranza et al. (2022): effects of public certification
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/jobsignal3.png" style="width: 58%; max-width: 450px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;, Table 1. "Treatment" = public certification vs control.]
+
+--
+
+- Employment +5.2 pp on 30.9% (+17%); earnings +34%; hourly wage +20%; contract +2.0 pp.
+
+  - The authors transform hours, earnings, and wages (inverse hyperbolic sine) and read effects as % changes.
+
+  - Caveat: with zeros, such effects depend on units: &lt;a href="https://doi.org/10.1093/qje/qjad054"&gt;Chen and Roth (2024)&lt;/a&gt;; &lt;a href="https://doi.org/10.1093/ectj/utaa032"&gt;Aihounton and Henningsen (2021)&lt;/a&gt;.
+
+???
+
+Hours, earnings and wages are in inverse hyperbolic sine (IHS). The authors read 0.337 as about 34% (p. 3560). Recent work disagrees when treatment moves people from zero to positive values. Chen and Roth (2024, QJE 139(2), doi 10.1093/qje/qjad054): such coefficients should not be read as percentage effects, because they depend on the units of the outcome; with an extensive-margin effect, any magnitude can be obtained by rescaling. Aihounton and Henningsen (2021, Econometrics Journal 24(2), doi 10.1093/ectj/utaa032): IHS results can depend heavily on units. Bellemare and Wichman (2020, OBES 82(1), doi 10.1111/obes.12325): derive the elasticities and show that ad hoc transformations matter. Mullahy and Norton (2024, OBES 86(2), doi 10.1111/obes.12583): recommend an untransformed outcome, a two-part model, or Poisson. Here about two-thirds of the sample have zero earnings. Rescaling by a factor a shifts the coefficient by about ln(a) times the employment effect: in PPP dollars (1 rand ≈ US&amp;#36;0.167, ln = −1.79), earnings 0.337 becomes about 0.24 and the hourly wage 0.197 about 0.10 (my approximation, not in the paper). Employment and written contracts are not affected. Chen and Roth's alternatives: the effect in levels as a percentage of the control mean (e.g., Poisson), an explicit value on each margin, or separate effects for each margin. Certification increases employment in every month between treatment and endline (Table D.12). 4 of the 5.2 points are wage employment (p. 3562). The written contract is Statistics South Africa's definition of a formal job.
+
+---
+
+# Carranza et al. (2022): more jobs or better jobs
+
+&lt;div style="font-size: 82%;"&gt;
+&lt;table style="width: 80%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Public certification effect&lt;/th&gt;&lt;th&gt;Hours&lt;/th&gt;&lt;th&gt;Earnings&lt;/th&gt;&lt;th&gt;Hourly wage&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Total effect&lt;/td&gt;&lt;td&gt;0.201 (0.052)&lt;/td&gt;&lt;td&gt;0.337 (0.073)&lt;/td&gt;&lt;td&gt;0.197 (0.039)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Extensive margin (more employment)&lt;/td&gt;&lt;td&gt;0.188 (0.042)&lt;/td&gt;&lt;td&gt;0.269 (0.059)&lt;/td&gt;&lt;td&gt;0.141 (0.031)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Intensive margin (among employed)&lt;/td&gt;&lt;td&gt;0.013 (0.020)&lt;/td&gt;&lt;td&gt;0.069 (0.040)&lt;/td&gt;&lt;td&gt;0.056 (0.027)&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;, Table 2.]
+
+- Extensive margin: the employment effect times the mean outcome of employed control workers.
+
+- Intensive margin: the remainder, which must come from changes among the employed.
+
+--
+
+.takeaway[Earnings rise mostly through employment; hourly wages also rise among the employed]
+
+???
+
+Decomposition adapted from Attanasio, Kugler and Meghir (2011), online Appendix C. The extensive margin is 0.052 times the mean IHS outcome of employed controls, so it changes with the units, while the intensive margin barely does (Chen and Roth 2024). In PPP dollars the earnings row would be about 0.18 and 0.07, so earnings still rise mostly through employment; the hourly wage row would be about 0.05 and 0.06, so the split for wages is not robust (my approximation). Hours rise entirely through employment. Treatment group employment is 36%, so the effect conditional on employment is roughly three times the intensive margin: 0.194 for earnings and 0.158 for wages (Table 2 notes). The paper cannot separate lower screening costs from higher match quality without data on firm screening (p. 3561).
+
+---
+
+# Carranza et al. (2022): effects across the earnings distribution
+
+.discuss[
+**Discussion**: if certification only helped people find jobs, which percentiles of earnings would move?
+]
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/jobsignal4.png" style="width: 48%; max-width: 400px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;, Figure 2. Earnings transformed, read by the authors as % changes; zero for non-workers.]
+
+--
+
+- Only percentiles 66–71, where new workers go from zero to low earnings.
+
+- **Instead**: effects are positive well above the 71st percentile: not only new low-paid jobs.
+
+???
+
+Quantile effects (Figure 2) support the decomposition on the previous slide. The mass at zero is about 0.71 in the control group and 0.67 in the treated group (Panel A), so the newly employed occupy percentiles 66–71. Pointwise 95% intervals exclude zero at all percentiles except 73–74, 86 and 93–99 (figure notes); effects are not significant above the 93rd percentile (p. 3562). This rejects the special case in which information raises job-finding but not the value of matches net of screening costs. Earnings are in inverse hyperbolic sine, which behaves like a logarithm but is defined at zero.
+
+---
+
+# Carranza et al. (2022): public vs private certificate
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/jobsignal7.png" style="width: 82%; max-width: 640px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;, Table 3.]
+
+--
+
+- Private: employment +1.1 pp (n.s.); earnings +16% and wages +9%, both less than half the public effects.
+
+???
+
+Table 3, columns 9–13. The authors read the private effects as 16% and 9%, "less than one-half" of the public effects (p. 3568). Caveat: that ratio depends on units, because the public employment effect is larger: in PPP dollars the shares would be about 0.6 for earnings and 0.7 for wages (my approximation, see Chen and Roth 2024). In rand, the public and private effects differ significantly for employment (p = 0.002), hours (0.011), earnings (0.028) and wages (0.030), but not for written contracts (0.769). The private earnings effect comes from workseekers not employed at baseline, so it reflects new jobs rather than bargaining in a current job (p. 3568).
+
+---
+
+# Carranza et al. (2022): beliefs and search
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/jobsignal5.png" style="display: block; margin: 0 auto 8px; width: 50%; max-width: 420px;" /&gt;
+&lt;img src="figures/jobsignal6.png" style="display: block; margin: 0 auto; width: 60%; max-width: 500px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;, Table 3.]
+
+--
+
+- Both certificates make beliefs more accurate (public slightly more) and target search equally.
+
+- The public one is used far more often, and brings more interviews and offers.
+
+???
+
+Table 3, columns 1–8. Column 1: share of the six assessments on which the perceived tercile matches the actual one (public +0.158, private +0.123, p equal 0.000; control mean 0.389); the gap is absent 2–3 days after treatment, so the authors attribute it to retention (fn 24). Column 2: above-median self-esteem (shortened Rosenberg scale) does not change. Column 3: "targeted search" means mainly applying for jobs that most value the skill with the highest score (+0.051 vs +0.047; p equal 0.701). Columns 4–7: used the certificate in an application (0.699 vs 0.290), applications, interviews (0.432 vs 0.144) and offers (0.112 vs 0.036) from applications with the certificate; control means are zero because controls have no certificate. Column 8: expected offers, +11% vs +5% (p = 0.025). Superscripts in the image, from the table notes: a = 30-day recall or forecast, b = since treatment, c = inverse hyperbolic sine (the authors read effects as % changes; see the caveat on the results slide).
+
+---
+
+# Carranza et al. (2022): which side of the market learns
+
+.discuss[
+**Discussion**: does the private effect show that workseekers' own learning matters?
+]
+
+--
+
+- **Leakage to firms**: 29% used the private certificate (70% the public one), in fewer applications.
+
+  - It has no name, ID, or logos; none of 15 hiring managers found it credible.
+
+- **Private earnings gain**: concentrated among those who did **not** use the certificate.
+
+- **Only workseeker learning?** Then both arms would gain alike, as they search alike; they do not.
+
+--
+
+.takeaway[Both sides face limited information; the authors view two-sided learning as most plausible]
+
+???
+
+Mechanism outcomes (Table 3, columns 1, 3, 4, 7, 8; public vs private): accurate skill beliefs +0.158 vs +0.123 (control mean 0.389); targeting jobs that value one's best skill +0.051 vs +0.047 (p equal 0.701; mean 0.155); used the certificate in an application 0.699 vs 0.290; job offers from applications with it 0.112 vs 0.036; expected offers next month (IHS) +0.106 vs +0.054. Neither certificate changes self-esteem (column 2). Interviews from applications with the certificate: 0.432 vs 0.144 (column 6). Certification does not change search effort (Table D.12). The text-message survey 2–3 days after treatment shows equal belief updating in the two arms; the endline gap reflects retention (fn 24).
+
+pp. 3568–3569. The authors interpret the stratification by certificate use with caution, because use is a post-treatment outcome. The quotation for the summary: the treatment effects "are evidence that both firms and workseekers face limited information and that providing more information leads to quantitatively important improvements in labor market outcomes" (p. 3568). The only-workseeker explanation would require workseekers to believe, wrongly, that firms value the certificate; then search behavior would differ between the two arms, and it does not.
+
+Careful with offers: offers from applications with the certificate are 0.112 (public) vs 0.036 (private) per workseeker, but applications with it are about 6.7 vs 1.8 per workseeker (fn 21 and p. 3568; the 1.682 and 0.572 in Table 3 are inverse hyperbolic sine coefficients), so offers per application are about the same (about 0.017 vs 0.020, my arithmetic). The authors cannot reject equal offer-to-application ratios and say this "might mean that firms view both certificates as equally credible", though the estimates are imprecise and selection into use differs (fn 25). So the clear difference is in how often the certificate is used (29% vs 70%; ten times more often in the audit-study resumes), not in how firms treat each application. The 15 hiring managers were interviewed during piloting.
+
+---
+
+# Carranza et al. (2022): a second experiment with firms
+
+The researchers send applications to real vacancies and vary only what **firms** see.
+
+- Resumes of 717 workseekers sent to 998 online entry-level vacancies, 4 applications per vacancy.
+
+- Randomized: which applications include a public certificate, and whether 1 or 3 of the 4 do.
+
+`$$\begin{aligned}
+Y_{rv} = \; &amp; \text{Certificate}_{rv} \cdot \beta_1 + \text{Certificate}_{rv} \cdot \text{HighIntensity}_v \cdot \beta_2 + \mathbf{V}_v \\
+&amp; + \mathbf{X}_r \cdot \Gamma + \mathbf{E}_{rv} + \epsilon_{rv}
+\end{aligned}$$`
+
+- `\(Y_{rv}\)`: any response, or an interview invitation; HighIntensity: 3 of the 4 are certified.
+
+- `\(\mathbf{V}_v\)`: vacancy fixed effects; `\(\mathbf{X}_r\)`: resume covariates; `\(\mathbf{E}_{rv}\)`: email-address fixed effects.
+
+- `\(\beta_1\)`: effect of being the **only** certified application; `\(\beta_1 + \beta_2\)`: one of three certified.
+
+.takeaway[Workseekers do not choose where to apply, so any effect comes from firms]
+
+???
+
+Estimating equation: Y_rv = Cert_rv·β1 + Cert_rv × High_v·β2 + V_v + X_r·Γ + E_rv + ε_rv. The workseeker's arm in the main study is irrelevant here. Because applications are matched to vacancies at random, search targeting plays no role.
+
+Online Appendix E (pp. 29–30): vacancies were scraped online; scams and jobs requiring work experience or a university degree were excluded (1,068 collected, 70 dropped). Randomization was in three stages: half of each candidate's applications carry a certificate; vacancies get one or three certified applications; applications are matched to vacancies at random, never twice to the same vacancy. Assignment is independent of the workseeker's arm in the main experiment. V_v: vacancy fixed effects (absorb High_v); X_r: resume covariates; E_rv: email-address fixed effects. Standard errors are clustered by resume and by vacancy. Like Bertrand and Mullainathan (2004, doi 10.1257/0002828042002561), this is a correspondence study: written applications, not in-person auditors.
+
+---
+
+# Carranza et al. (2022): how firms respond to the certificate
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/jobsignal8.png" style="width: 66%; max-width: 520px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20200961"&gt;Carranza et al. (2022)&lt;/a&gt;, Table 4, Panel A. 3,992 applications to 998 vacancies.]
+
+--
+
+- The only certified application: responses +1.6 pp, interviews +1.0 pp (11% of the means).
+
+  - Significant only at 10%.
+
+- When 3 of 4 applications are certified: −2.8 and −1.7 pp, so the advantage disappears.
+
+--
+
+.takeaway[Firms act on the certificate, but the gain may shrink as more applicants hold one]
+
+???
+
+Control means: any response 0.130, interview invitation 0.087 (applications without certificates to vacancies with one certificate). At the vacancy level (Panel B), vacancies with three certified applications make 2.3 pp more callbacks (n.s.) and are 4.2 pp more likely to make any callback (p = 0.099). The study observes only online applications and interview invitations, not offers, and matches applicants to vacancies at random, which removes search targeting (p. 3572).
+
+---
+
+# Carranza et al. (2022): size, cost, and limits
+
+.discuss[
+**Discussion**: how large are the effects, and would they survive at scale?
+]
+
+--
+
+- Both firms and workseekers in the same market respond to information about skills.
+
+  - A placebo (logos and ID, no results) has minimal effects: credibility without content adds little.
+
+- The employment effect is almost three times the mean short-run effect of labor market programs.
+
+- Three-month earnings gain: 5.6 times the variable cost of certification, 2.3 including assessment.
+
+--
+
+**Limits**: a 3–4 month horizon; a sample of active, low-income workseekers with little experience; scale.
+
+--
+
+.takeaway[Information helps when it reaches the right agent in a form that can be credibly shared]
+
+???
+
+Robustness (Section IV.A, pp. 3572–3574): the placebo certificate (branding and ID, no results) moves the labor market index by +0.03 SD (n.s.), against 0.12 SD for the public certificate. Willingness to pay: 69 establishments bid for three months of access to assessment results; 68% bid a positive amount, with a mean of 1,161 rand (US$195 PPP). Who gains most: workseekers with a low predicted chance of employment (the effect is 7.6 pp smaller above the median, SE 2.8). The willingness to pay uses a Becker–DeGroot–Marschak mechanism against a database with contact details but no results; the mean WTP is 224% of mean weekly earnings of employed candidates. Heterogeneity (Section IV.C): the public certification effect on employment is 7.6 pp smaller for candidates with above-median latent probability of employment (SE 2.8 pp; pp. 3576–3577); it is 4.3 pp smaller with prior work experience (SE 3.2) and 2.7 pp smaller with post-secondary education (SE 2.8). Effects are not increasing in measured skill, which is more consistent with horizontal than vertical differentiation (Section IV.B).
+
+Contribution: the employment benchmark is a meta-analysis of active labor market programs cited in the paper. The earnings gain in the first three months is 778 rand (US$130 PPP), 5.6 times the variable cost of adding certification to an existing assessment program. Displacement within the experiment is unlikely: 2,247 workseekers were certified in a metropolitan area of roughly 8 million people and 2 million employed workers; displacement of workers outside the sample cannot be tested (pp. 3577–3578). The gain is 2.3 times the variable cost of assessment plus certification, and the average weekly earnings gain equals 17% of the weekly adult poverty line (pp. 3551, 3562–3563). Most results are consistent with mechanisms that raise total employment (p. 3550). Scale: the correspondence study shows the advantage disappears when most applicants hold a certificate, so effects at scale could be smaller.
+
+---
+
+name: abebe
+
+# Abebe et al. (2021): two views of youth exclusion
+
+.discuss[
+**Discussion**: what is the research question? Why is the paper considered a contribution?
+]
+
+--
+
+**Question**: for young job-seekers, which matters more: search costs, or signaling skills?
+
+**Distance**: searching is costly in a large, spread-out city.
+
+- Vacancies are posted on boards in the center; job-seekers live far away.
+
+- Policy: lower the cost of search, e.g., transport subsidies or online postings.
+
+**Anonymity**: young workers cannot show employers what they can do.
+
+- Little experience, few credentials, few referrals.
+
+- Policy: help workers present and certify their skills.
+
+--
+
+.takeaway[Contribution: one experiment tests both views, and follows workers for four years]
+
+???
+
+Checked against the published article: Review of Economic Studies 88(3): 1279–1310 (advance access 28 December 2020). Page numbers in these notes are journal pages. The spillover results are in the Supplementary Appendix (Section A.3), which I checked only in the appendix of the authors' February 2020 version.
+
+p. 1280. The authors call the two views widely held and competing. Under the anonymity view, encouraging harder search would bring little long-run improvement.
+
+Setting (Section 2.1, pp. 1283–1284): informal and temporary work is common, while formal permanent jobs are scarce; in the control group after four years, 65% work and 25% hold a formal job with an open-ended contract. Many formal vacancies are posted on boards in the city center. The median active job-seeker spends about 16% of total expenditure on search; living 10 km closer means 6.7 more board visits a year and 1.9 more applications to permanent jobs. Firms select on experience and referrals; 41% of recent applicants had not prepared a CV. "Formal" means a written contract; "permanent" means an open-ended contract (p. 1283). Workers older than 30 have rates of formal permanent employment 40% higher (Supplementary Table A.3). In a survey of 500 firms, churning accounts for about 65% of worker flows (p. 1284). The 1.9 extra applications are to permanent jobs.
+
+---
+
+# Abebe et al. (2021): two interventions
+
+.discuss[
+**Discussion**: what are the two treatment arms meant to relax?
+]
+
+--
+
+&lt;div style="font-size: 76%;"&gt;
+&lt;table style="width: 100%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;&lt;/th&gt;&lt;th style="text-align:left;"&gt;Job application workshop&lt;/th&gt;&lt;th style="text-align:left;"&gt;Transport subsidy&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Friction&lt;/td&gt;&lt;td&gt;anonymity&lt;/td&gt;&lt;td&gt;distance&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Content&lt;/td&gt;&lt;td&gt;day 1: tests (Raven, Amharic, mathematics, work sample);&lt;br&gt;day 2: orientation on CVs, letters, interviews&lt;/td&gt;&lt;td&gt;cash for a return bus fare to the center, collected in person, up to 3 times a week&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Output&lt;/td&gt;&lt;td&gt;certificate from the AAU School of Commerce (a screener many firms trust) and EDRI, with percentile bands&lt;/td&gt;&lt;td&gt;median 20 birr (about US&amp;#36;1) per day, for 13–20 weeks&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Cost per person&lt;/td&gt;&lt;td&gt;US&amp;#36;18.2 (US&amp;#36;35 with fixed costs)&lt;/td&gt;&lt;td&gt;US&amp;#36;19.8&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;Take-up&lt;/td&gt;&lt;td&gt;61% attend; 80% of them collect the certificate&lt;/td&gt;&lt;td&gt;about 50% collect at least once&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/restud/rdaa057"&gt;Abebe et al. (2021)&lt;/a&gt;]
+
+--
+
+.takeaway[The workshop adds a credible certificate to orientation; the subsidy only lowers search costs]
+
+???
+
+Workshop: September–October 2014. The certificates report a band for the bottom half and separate bands for 50–60, 60–70, 70–80, 80–90 and 90–100 percent, for each test and an aggregate score (p. 1285). About 40% of firms know the School of Commerce's selection services, and 80% of those trust them (fn 14). Credibility, as in Carranza et al., comes from the issuer: "The School of Commerce has a reputation for reliable personnel selection services" (Section 2.2); employers wishing to know more could contact the School of Commerce, and the certificates make no reference to Oxford (fn 15). Costs: p. 1286. Transport: September 2014 to January 2015; start and end weeks staggered at random; on average 191 birr per person (pp. 1286–1287). Only about 6% of disbursements went to people who already had permanent jobs (fn 21). Take-up: pp. 1291–1292.
+
+---
+
+# Abebe et al. (2021): searching harder vs searching better
+
+- Workers meet vacancies at some rate; firms see a **noisy signal** of match quality.
+
+  - Firms are risk averse and hire only if expected match quality is high enough.
+
+- Transport raises the **meeting rate** (search intensity).
+
+- The workshop raises the **precision of the signal** (search efficacy).
+
+--
+
+**Predictions**:
+
+- Both raise formal employment; effects fade after support ends, as controls catch up.
+
+- Only the workshop raises match quality, and the effect persists.
+
+- Workshop gains are larger for workers whose observable traits look worse to firms.
+
+???
+
+Section 2.4 (pp. 1287–1289) and Supplementary Appendix. Prediction 2 distinguishes mechanisms: transport raises vacancies viewed; the workshop raises offers per vacancy viewed. Prediction 4 follows from statistical discrimination: when the signal is noisy, firms rely on observable group traits; a more precise signal makes this less necessary. Earnings may respond to match quality with a delay because of wage-setting frictions.
+
+---
+
+# Abebe et al. (2021): sample and randomized saturation
+
+.discuss[
+**Discussion**: what would the ideal experiment be, and how close does the design come?
+]
+
+--
+
+- 3,052 job-seekers in random areas more than 2.5 km from the center, in 178 clusters.
+
+  - Aged 18–29, completed high school, not in a permanent job or full-time education.
+
+- Clusters are randomized within blocks; individuals are then randomized within treated clusters.
+
+  - Transport: 20, 40, 75 or 90% of the cluster offered; workshop: 80%; 48 pure control clusters.
+
+  - Untreated people in treated clusters measure spillovers through local networks.
+
+- Interventions September 2014–January 2015; endlines about **8 months** and **4 years** later.
+
+.source[&lt;a href="https://doi.org/10.1093/restud/rdaa057"&gt;Abebe et al. (2021)&lt;/a&gt;]
+
+???
+
+Table 1 (p. 1291), untreated / treated / clusters: transport 20%: 256 / 65 / 18; transport 40%: 150 / 96 / 15; transport 75%: 56 / 191 / 15; transport 90%: 38 / 422 / 26; workshop 80%: 187 / 768 / 56; pure control: 823 / 0 / 48. Total: 1,510 untreated, 1,542 treated, 178 clusters. The text (p. 1289) reports 3,052 individuals in 179 clusters, while Table 1 sums to 178; the published version keeps this discrepancy.
+
+Blocks of clusters with similar baseline characteristics (Bruhn and McKenzie 2009), e.g., distance to the center and education. Within clusters, individuals are blocked by education with a re-randomization rule (Section 3.3, p. 1290). Endline 1 was face-to-face, June–August 2015; endline 2 by phone, May 2018. Baseline May–July 2014. More educated groups are oversampled, with sampling weights; eligibility also required availability to work within three months.
+
+Section 3 (pp. 1289–1290). A fortnightly phone panel ran between baseline and endline 1. 4,388 baseline interviews; people who could not be reached, had found a permanent job or had left Addis were dropped; 1,007 of the remaining 4,059 joined a separate job-fair study (fn 25). About 20% of all youth in Addis Ababa would be eligible.
+
+---
+
+# Abebe et al. (2021): estimating equation
+
+`$$y_{ic} = \beta_0 + \sum_f \left[ \beta_f \cdot \texttt{treat}_{fic} + \gamma_f \cdot \texttt{spillover}_{fic} \right] + \alpha \cdot y_{ic,pre} + \boldsymbol{\delta} \cdot \boldsymbol{x}_{ic0} + \mu_{ic}$$`
+
+- `\(\texttt{treat}_{fic}\)`: offered treatment *f*, so `\(\beta_f\)` is an **intent-to-treat** effect
+
+- `\(\texttt{spillover}_{fic}\)`: untreated person in a cluster assigned to *f*; `\(\gamma_f\)`: spillover effect
+
+- `\(y_{ic,pre}\)`: baseline outcome; `\(\boldsymbol{x}_{ic0}\)`: covariates used for blocking and re-randomization
+
+- SEs clustered by neighborhood cluster; q-values adjust p-values for six primary outcomes
+
+.discuss[
+**Discussion**: which identification assumptions should we worry about?
+]
+
+--
+
+**Identifying assumption**: offers are random, and pure control clusters are not affected by treatment.
+
+???
+
+Equation (1), p. 1292. Regressions use sampling weights. Because take-up is about 50% and 61%, the effect of actually using the intervention would be larger than the ITT; the paper reports ITT throughout. The q-values are the sharpened procedure of Benjamini, Krieger and Yekutieli (2006), within the family of six primary outcomes for each program.
+
+---
+
+# Abebe et al. (2021): evidence for the assumption
+
+- **Balance**: equality across groups is not rejected for any baseline variable.
+
+- **Attrition**: 93.5% found at endline 1, unrelated to treatment; over 85% at endline 2.
+
+  - Workshop respondents are 3.5 pp more likely to be found at endline 2 (p = 0.08).
+
+  - Bounds leave the 2015 formal-work (Lee) and 2018 earnings (Karlan and Valdivia) results intact.
+
+- **Pre-analysis plan**: outcomes, subgroups, and multiple testing registered in advance.
+
+--
+
+.takeaway[Balance and low attrition support the comparison; differential attrition is bounded]
+
+???
+
+Balance: Supplementary Table A.6. Section 3.4 (p. 1291) and Supplementary Appendix A.2; the 3.5 pp difference is also in fn 4 (p. 1282). The plan was registered for the short-run analysis and reproduced for the long-run (fn 39, p. 1293). Lee bounds are used for the endline-1 formality results (p. 1294).
+
+---
+
+# Abebe et al. (2021): results after 8 months and 4 years
+
+&lt;div style="font-size: 70%;"&gt;
+&lt;table style="width: 100%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th colspan="3" style="border-bottom: 1px solid #23373B;"&gt;2015 (about 8 months)&lt;/th&gt;&lt;th colspan="3" style="border-bottom: 1px solid #23373B;"&gt;2018 (about 4 years)&lt;/th&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Outcome&lt;/th&gt;&lt;th&gt;Control&lt;/th&gt;&lt;th&gt;Transport&lt;/th&gt;&lt;th&gt;Workshop&lt;/th&gt;&lt;th&gt;Control&lt;/th&gt;&lt;th&gt;Transport&lt;/th&gt;&lt;th&gt;Workshop&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Worked&lt;/td&gt;&lt;td&gt;0.537&lt;/td&gt;&lt;td&gt;0.037 (0.029)&lt;/td&gt;&lt;td&gt;0.021 (0.031)&lt;/td&gt;&lt;td&gt;0.657&lt;/td&gt;&lt;td&gt;−0.058* (0.035)&lt;/td&gt;&lt;td&gt;0.029 (0.032)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Permanent work&lt;/td&gt;&lt;td&gt;0.120&lt;/td&gt;&lt;td&gt;0.033* (0.018)&lt;/td&gt;&lt;td&gt;&lt;b&gt;0.069*** (0.019)&lt;/b&gt;&lt;/td&gt;&lt;td&gt;0.248&lt;/td&gt;&lt;td&gt;−0.034 (0.025)&lt;/td&gt;&lt;td&gt;−0.010 (0.028)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Formal work&lt;/td&gt;&lt;td&gt;0.172&lt;/td&gt;&lt;td&gt;&lt;b&gt;0.054*** (0.019)&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;0.053*** (0.020)&lt;/b&gt;&lt;/td&gt;&lt;td&gt;0.259&lt;/td&gt;&lt;td&gt;−0.005 (0.030)&lt;/td&gt;&lt;td&gt;−0.007 (0.030)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Wage earnings (birr/month)&lt;/td&gt;&lt;td&gt;739.2&lt;/td&gt;&lt;td&gt;65.9 (63.9)&lt;/td&gt;&lt;td&gt;3.4 (65.7)&lt;/td&gt;&lt;td&gt;1,216.8&lt;/td&gt;&lt;td&gt;30.9 (102.4)&lt;/td&gt;&lt;td&gt;&lt;b&gt;299.5** (121.4)&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/restud/rdaa057"&gt;Abebe et al. (2021)&lt;/a&gt;, Table 2. ITT. Formal = written contract; permanent = open-ended contract.]
+
+.discuss[
+**Discussion**: how large are the effects, and how do they change between 8 months and 4 years?
+]
+
+--
+
+- After 8 months: formal work +5 pp in both arms (+30%); permanent work +6.9 pp with the workshop.
+
+- After 4 years: the job effects have faded; the workshop raises earnings by 25% (q-value 0.096).
+
+--
+
+.takeaway[Lower search costs brought formal jobs sooner; only the workshop raised earnings four years later]
+
+???
+
+N = 2,201 (2015) and 2,018 (2018). 2015 (columns 1–4, p. 1294): hours worked, control 25.6; 0.183 (1.543) and −0.214 (1.533). Satisfaction with work: −0.001 (0.027) and 0.022 (0.027). q-values: permanent work 0.215 (transport) and 0.004 (workshop); formal work 0.032 and 0.021. Over similar horizons, meta-analyses find employment effects of 1.6–2 pp and earnings effects of about 7% (fn 40, p. 1293). The workshop closes about 20% of the gap in permanent employment between youth and older workers (p. 1294).
+
+2018 (columns 5–8): hours −2.499* (transport), 0.218 (workshop); satisfaction −0.025 (0.037) and 0.066* (0.036). The transport arm's −5.8 pp in work does not survive the q-value correction. The earnings gain is about half of the earnings premium of vocational tertiary education in these data and 60% of the control group's nominal earnings growth between the two endlines (p. 1295). Spillover groups were not followed in 2018, so they are dropped from both years for consistency (Table 2 notes). The workshop's formal-work effect fell by 5 pp between 2015 and 2018 (p = 0.068, p. 1295); the transport effects on permanent and formal work fell significantly (p = 0.023 and 0.071, p. 1296).
+
+The earnings gain shifts the whole distribution (Figure 1, p. 1296): Kolmogorov–Smirnov p = 0.115 (two-sided), 0.058 (one-sided); D-statistic 0.0647. Quantile regressions show significant effects from the 60th to the 90th percentile (fn 41, Supplementary Table A.12). For the transport arm, the two distributions are almost identical (KS p = 0.996).
+
+---
+
+# Abebe et al. (2021): mechanisms
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/abebe_pub_fig2.png" style="width: 80%; max-width: 640px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/restud/rdaa057"&gt;Abebe et al. (2021)&lt;/a&gt;, Figure 2. Transport arm: fortnightly ITT effects; dashed: start, dotted: end.]
+
+--
+
+- **Transport**: any search about +5 pp on 40%, job boards about +9 pp on 28%; both fade after.
+
+- **Workshop**: same search; applications per permanent-job offer fall from 7.2 to 5.2 (significant at 10%).
+
+???
+
+Transport (Figure 2, p. 1298): estimated from the fortnightly phone panel with equation (2), with treatment effects constrained to a quadratic in time since treatment start (equations (3)–(4)); Section 5.1.1 (p. 1297). During the subsidy, treated people are also less likely to be working (Supplementary Figure A.6, fn 45), consistent with search being constrained by resources. Most formal jobs are advertised on the central boards, which explains why search intensity translates into formal jobs (p. 1297).
+
+Workshop (Figure 3, p. 1298; pp. 1297–1299): no change in search or in the number of applications. The conversion effect is significant at 10%, and its q-value is above conventional levels (Supplementary Table A.15, p. 1299). This is the search-efficacy channel of Prediction 2.
+
+---
+
+# Abebe et al. (2021): match quality
+
+&lt;div style="font-size: 76%;"&gt;
+&lt;table style="width: 92%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;2018 outcome&lt;/th&gt;&lt;th&gt;Control mean&lt;/th&gt;&lt;th&gt;Transport&lt;/th&gt;&lt;th&gt;Workshop&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Wage, if in a wage job (birr/month)&lt;/td&gt;&lt;td&gt;2,580.5&lt;/td&gt;&lt;td&gt;81.7 (161.6)&lt;/td&gt;&lt;td&gt;562.6*** (188.5)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Longest tenure (months, any job)&lt;/td&gt;&lt;td&gt;10.132&lt;/td&gt;&lt;td&gt;0.213 (0.561)&lt;/td&gt;&lt;td&gt;1.258** (0.628)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Uses own skills in current job&lt;/td&gt;&lt;td&gt;0.282&lt;/td&gt;&lt;td&gt;0.032 (0.040)&lt;/td&gt;&lt;td&gt;0.082** (0.040)&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/restud/rdaa057"&gt;Abebe et al. (2021)&lt;/a&gt;, Table 3. ITT.]
+
+--
+
+- The earnings gain comes from higher wages (+22%), not more employment.
+
+  - Bounds for selection into employment: +405 to +720 birr (+16% to +28%).
+
+- Longer spells with one employer (+12%) and better use of skills.
+
+???
+
+Table 3 (p. 1300); bounds follow Attanasio, Kugler and Meghir (2011) (p. 1300). Longest tenure among those with any job in the last two years: 12.276 control mean, workshop +1.128* (0.678). Promotion: no effect, 0.007 (0.016). The text's "about 10 percent" (p. 1301) refers to the longest spell; the unconditional coefficient 1.258 on 10.132 is 12%. In 2015, workshop participants were less likely to work in construction (p = 0.025), an occupation with high turnover (Supplementary Figure A.8, p. 1301).
+
+Mediation (Figure 4, p. 1302): the authors estimate average controlled direct effects, the workshop effect with a mediator held fixed. Permanent work in 2015 accounts for 24% of the 2018 earnings effect, the longest job spell for 51%, both together for 69%. Method of Acharya, Blackwell and Sen (2016), pp. 1301–1302 and fn 52. The identification requirement is stated by the authors: no omitted variables that, conditional on controls, are correlated with the mediator and the outcome. Mediators are post-treatment choices, so this is a strong assumption; read the shares as suggestive. The authors' 2020 version reported smaller shares (22%, 46%, 63%) and a 77% share for the third proxy (uses skills); the published Figure 4 omits the third proxy.
+
+---
+
+# Abebe et al. (2021): who gains from the workshop
+
+Workshop effect on 2018 earnings (birr per month); the last column tests if a row's two effects are equal:
+
+&lt;div style="font-size: 72%;"&gt;
+&lt;table style="width: 100%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Group expected to be disadvantaged&lt;/th&gt;&lt;th&gt;Effect&lt;/th&gt;&lt;th style="text-align:left;"&gt;Other group&lt;/th&gt;&lt;th&gt;Effect&lt;/th&gt;&lt;th&gt;p: equal effects&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;No tertiary education&lt;/td&gt;&lt;td&gt;467.6** (188.0)&lt;/td&gt;&lt;td style="text-align:left;"&gt;Some tertiary education&lt;/td&gt;&lt;td&gt;41.1 (134.4)&lt;/td&gt;&lt;td&gt;0.07&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Women&lt;/td&gt;&lt;td&gt;126.3 (106.6)&lt;/td&gt;&lt;td style="text-align:left;"&gt;Men&lt;/td&gt;&lt;td&gt;480.1** (227.5)&lt;/td&gt;&lt;td&gt;0.15&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Not searching actively&lt;/td&gt;&lt;td&gt;347.1* (181.2)&lt;/td&gt;&lt;td style="text-align:left;"&gt;Searching actively&lt;/td&gt;&lt;td&gt;239.5 (170.5)&lt;/td&gt;&lt;td&gt;0.68&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Never had a permanent job&lt;/td&gt;&lt;td&gt;356.8*** (130.4)&lt;/td&gt;&lt;td style="text-align:left;"&gt;Had a permanent job&lt;/td&gt;&lt;td&gt;−298.2 (343.9)&lt;/td&gt;&lt;td&gt;0.08&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Lives far from the center&lt;/td&gt;&lt;td&gt;407.5** (181.1)&lt;/td&gt;&lt;td style="text-align:left;"&gt;Lives close to the center&lt;/td&gt;&lt;td&gt;136.9 (146.4)&lt;/td&gt;&lt;td&gt;0.25&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Predicted earnings below median&lt;/td&gt;&lt;td&gt;439.4*** (151.8)&lt;/td&gt;&lt;td style="text-align:left;"&gt;Above median&lt;/td&gt;&lt;td&gt;24.6 (211.9)&lt;/td&gt;&lt;td&gt;0.087&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/restud/rdaa057"&gt;Abebe et al. (2021)&lt;/a&gt;, Table 4. ITT; standard errors in parentheses.]
+
+--
+
+- Larger gains without tertiary education, without a past permanent job, or with low predicted earnings.
+
+- Women, also expected to be disadvantaged, gain less than men, though not significantly (p = 0.15).
+
+--
+
+.takeaway[The workshop helps most those with weak credentials; women, also disadvantaged, gain less than men]
+
+???
+
+Section 5.3 (pp. 1303–1304); Table 4 is on p. 1303. Rows 1–5 are the pre-specified covariates; in each row, "Covariate = 0" is the group the authors expect to face greater disadvantage (for gender, women). Control means (birr per month): no tertiary 826.4 vs some tertiary 1,755.5; women 905.5 vs men 1,564.3; not active 1,096.7 vs active 1,363.7; never permanent 1,160.5 vs ever 1,687.4; far 1,171.5 vs close 1,278.1; predicted below median 806.8 vs above 1,853.2. The q-values in the paper (brackets) for the disadvantaged-group effects are 0.036 (education), 0.077 (women), 0.045 (searching), 0.036 (permanent job), 0.036 (distance). The authors' summary is that effects are "substantial for the more disadvantaged" across a wide range of covariates; the gender row is the exception, and the paper does not discuss it anywhere (no mention of women or gender in the text). The table has no gender × credentials split, so it says nothing about women with weak credentials. The earnings premium of vocational education falls by 83% in the workshop group (moved here from the slide). The effect for those without tertiary education is about 60% of the control mean, and for the low-predicted-earnings group about 50% (p. 1304). The predicted-earnings split (Abadie, Chingos and West 2018) was not pre-specified; standard errors are bootstrapped. The earnings gap between the low and high predicted-earnings groups falls from 130% to 48% (p. 1304). The same groups gain most in permanent and formal work in 2015 (Tables 5 and 6, p. 1305). The premium of previous permanent work experience is fully erased, but imprecisely (p = 0.110).
+
+---
+
+# Abebe et al. (2021): threats and robustness
+
+- **A bundle**: orientation and certificate are offered together.
+
+  - RD at the certificate's band cutoffs: earnings +0.37 SD (p = 0.146); 0.46 SD at twice the bandwidth.
+
+- **Attrition and multiple testing**: bounds and q-values, as above.
+
+- **Spillovers**: untreated people in treated clusters do not differ from pure controls on average.
+
+  - Clusters are at most 300 m across: the design cannot detect displacement in the city.
+
+--
+
+.takeaway[The certificate seems to matter, but the design cannot rule out displacement of other workers]
+
+???
+
+The RD (Supplementary Table A.14) pools all cutoffs of the aggregate score, normalized by bin; it uses the Imbens–Kalyanaraman bandwidth and is significant at 5% with twice the optimal bandwidth (p. 1299). It was not pre-registered (fn 44). The authors' 2020 version reported 0.36 SD and significance at 10%. Spillovers (Supplementary Appendix A.3, Tables A.34–A.35; checked in the 2020 version's appendix only): at 90% transport saturation, untreated people are 5.6 pp less likely to have permanent work; at 40%, there is a positive indirect effect; the authors treat these as tentative. Only 30% of employed young people walk to work, and commutes are long, so displacement would occur outside the cluster.
+
+---
+
+# Abebe et al. (2021): scale and cost
+
+The framework assumes full displacement: each hire replaces another candidate.
+
+- Gains then come from better matches, not more jobs.
+
+Concerns at scale, and the paper's evidence:
+
+- **Stigma for low scorers?** Few score low on everything: only 10% are in the lower half on all tests.
+
+- **Congestion?** The workshop does not raise the number of applications.
+
+- **Firms misled?** Then they would dismiss after probation; certified workers keep jobs longer.
+
+--
+
+**Cost**: wages rise by about US&amp;#36;10 per month, for a one-off cost of US&amp;#36;18.20.
+
+--
+
+.takeaway[The workshop is cheap relative to its gains, but its effect on total employment is unknown]
+
+???
+
+Section 6 (pp. 1306–1308). The logic of the three checks: stigma would hurt workers revealed as low-skilled, but few are low on every test; congestion would show up as more applications; and if certificates made firms overrate workers, firms would dismiss them once probation ends. 44% of participants score high on at least one test (p. 1307). The cost figures are on p. 1283. Figure 5 (p. 1306) compares cost and earnings impacts with the ALMPs reviewed by McKenzie (2017): the workshop's impact-to-cost ratio is unusually high. The authors note that if firms have unfilled vacancies, better signals could also raise employment, but the design cannot test this.
+
+---
+
+class: tight
+
+# What we have learned: search frictions
+
+- **Johannesburg**: a credible skills certificate raised employment and earnings.
+
+  - Both sides lacked information: workseekers searched better, firms responded.
+
+--
+
+- **Addis Ababa**: lower search costs brought formal jobs sooner, but not for good.
+
+  - A workshop with a skills certificate raised earnings four years later.
+
+  - Gains were largest for workers with weak credentials; women gained less than men.
+
+--
+
+- **Unknown**: whether these gains displace other job-seekers.
+
+--
+
+.takeaway[Search frictions decide who gets formal jobs: credible signals improve matches or cut screening costs]
+
+???
+
+Against Harris–Todaro: jobs are not allocated at random. Who gets them depends on how many employers a worker meets and on what employers can learn about the worker's skills. Lowering search costs speeds up matching but does not change who gets which job; certifying skills changes who is hired and how well the match fits. Carranza et al. cannot separate better matches from lower screening costs; Abebe et al. measure match quality through tenure and use of skills. Neither design can tell whether the certified workers took jobs that others would have filled.
+
+---
+
+name: informality
+class: inverse, middle, center
+
+&lt;div style="font-size: 34px; text-align: center;"&gt;
+  Part 3. Informality
+  &lt;div style="font-size: 22px; margin-top: 18px;"&gt;A queue or a choice?&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Informality: definitions
+
+**Legalistic definition**: firms and workers that operate outside the relevant laws and regulations.
+
+- **Informal firm**: not registered, for example with the tax authorities.
+
+- **Informal worker**: no formal labor contract.
+
+Two margins of informality:
+
+- **Extensive margin**: whether a firm registers and becomes formal.
+
+- **Intensive margin**: whether a formal firm hires workers without a formal contract.
+
+.source[&lt;a href="https://doi.org/10.1146/annurev-economics-082119-121914"&gt;Ulyssea (2020)&lt;/a&gt;]
+
+--
+
+.discuss[
+**Discussion**: Carranza et al. and Abebe et al. define formal work by a written contract. Which margin is that?
+]
+
+--
+
+- Either: a worker without a contract may work for an unregistered or a registered firm.
+
+???
+
+Ulyssea (2020, p. 526) uses the legalistic definition throughout; the alternative "productive" definition classifies firms and workers by their characteristics (small, low productivity, unskilled; fn 1). The distinction between the two margins matters for policy, as we will see: enforcement on one margin can raise informality on the other.
+
+Abebe et al. (2021, p. 1283): "formal" means a written contract. Carranza et al. (2022): the written contract is Statistics South Africa's definition of a formal job. A worker-level contract measure cannot tell whether the employer is registered.
+
+---
+
+# Facts about informal firms and workers
+
+- **Firms**: informal firms are smaller, pay lower wages, and earn lower profits than formal firms.
+
+  - But formal and informal firms coexist within narrow industries, with overlapping productivity.
+
+  - Both margins of informality fall with firm size: larger firms are more visible.
+
+--
+
+- **Workers**: informality is U-shaped in age, higher among women, and falls with schooling.
+
+  - In Brazilian matched data, the formal–informal wage gap vanishes with firm fixed effects.
+
+  - Informal employment is countercyclical: it rises in recessions, like unemployment.
+
+.source[&lt;a href="https://doi.org/10.1146/annurev-economics-082119-121914"&gt;Ulyssea (2020)&lt;/a&gt;]
+
+--
+
+.takeaway[Formal and informal firms differ in degree, not in kind; workers sort between them]
+
+???
+
+Firms (pp. 527–528): informal firms are also run by less educated individuals and hire less educated workers. Coexistence within narrowly defined industries and overlapping productivity distributions contradict the dual view (Ulyssea 2018; Meghir et al. 2015; Allen et al. 2018). Hsieh and Olken (2014) find no "missing middle" in the firm size distributions of India, Indonesia and Mexico, and the same holds for Brazil including informal firms (Ulyssea 2018). The decline with size suggests that the cost of informality rises with size, e.g., because detection is more likely.
+
+Workers (pp. 528–529): the wage gap persists after controlling for observables, but with firm fixed effects it disappears (Ulyssea 2018). If firms and workers match assortatively, firm effects also absorb unobserved worker quality. Ulyssea's reading: self-selection drives the gap, and conditional on skill, formal and informal workers do the same tasks within the firm. Several papers argue that wage gaps cannot test labor market segmentation (Maloney 1999 and others).
+
+Cyclicality (p. 529): the job-finding rate into formal jobs is strongly procyclical, informal-to-formal transitions are procyclical, and separations are countercyclical in both sectors.
+
+---
+
+# Why do firms stay informal? A simple framework
+
+`$$\begin{aligned}
+\pi_f(\theta) &amp;= (1-\tau_y)\,\theta F(k,\ell) - (1+\tau_w)\,w_f \ell - r_f k - \bar{c}_f \\
+\pi_i(\theta) &amp;= \big(1 - p(y(\theta))\big)\,\theta F(k,\ell) - w_i \ell - r_i k
+\end{aligned}$$`
+
+- `\(\theta\)`: productivity; `\(\tau_y\)`: revenue tax; `\(\tau_w\)`: payroll tax; `\(\bar{c}_f\)`: cost of complying
+
+- `\(p(\cdot)\)`: expected cost of informality, increasing and convex in output
+
+A firm registers if the value of formality, net of the registration cost `\(c^e_f\)`, is higher:
+
+`$$V_f(\theta) - c^e_f \;\geq\; V_i(\theta)$$`
+
+.source[&lt;a href="https://doi.org/10.1146/annurev-economics-082119-121914"&gt;Ulyssea (2020)&lt;/a&gt;]
+
+--
+
+.takeaway[Three levers: cheaper formality (entry, taxes, compliance), more benefits of it, or costlier informality]
+
+???
+
+V_s(θ) = π_s(θ)/δ_s is the present value of profits with an exogenous exit probability δ_s (discount rate normalized to one). The framework abstracts from the intensive margin and from uncertainty. p(·) increasing in output captures the facts on the previous slide: larger firms are more likely to be detected. This formulation is standard (Rauch 1991; Fortin et al. 1997; De Paula and Scheinkman 2011; Meghir et al. 2015; Ulyssea 2018).
+
+The three levers (p. 531): lower the costs of formality, i.e., the entry cost c^e_f (cheaper, simpler registration) or the cost of staying formal, the taxes and the recurrent administrative cost c̄_f (term A in Ulyssea's equation); raise the benefits of formality, e.g., cheaper credit, a lower r_f; raise the cost of remaining informal (term B), a steeper p(·) through enforcement such as more inspections, or a higher exit rate.
+
+---
+
+# Three views of informal firms
+
+- **De Soto**: productive entrepreneurs kept out of formality by costly registration.
+
+- **Parasite**: firms productive enough to be formal that stay informal to avoid taxes.
+
+- **Survival**: low-skill entrepreneurs too unproductive ever to be formal.
+
+--
+
+.discuss[
+**Discussion**: which policy lever fits each view?
+]
+
+--
+
+- De Soto: a lower `\(c^e_f\)`. Parasite: a steeper `\(p(\cdot)\)`. Survival: no lever makes them formal.
+
+  - Under the survival view, enforcement makes firms exit rather than register.
+
+.source[&lt;a href="https://doi.org/10.1146/annurev-economics-082119-121914"&gt;Ulyssea (2020)&lt;/a&gt;, following La Porta and Shleifer (2014).]
+
+???
+
+De Soto (1989) motivates the many reforms that cut registration costs; the parasite view (e.g., Levy 2008) motivates enforcement; the survival view implies that cutting the costs of formality does little and that enforcement can have large adverse effects, because these businesses would close rather than formalize (p. 534).
+
+---
+
+# Three views as three ranges of productivity
+
+&lt;div style="float: right; width: 52%; margin-left: 16px;"&gt;
+&lt;img src="figures/ulyssea_fig2.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1146/annurev-economics-082119-121914"&gt;Ulyssea (2020)&lt;/a&gt;, Figure 2. Brazil, from the model in Ulyssea (2018).]
+&lt;/div&gt;
+
+Red: informal value. Blue: formal value.
+
+Dashed: formal value with informal entry costs.
+
+- **Survival** (48.8%): not viable as formal firms.
+
+- **Parasite** (41.9%): viable, yet stay informal.
+
+- **De Soto** (9.3%): held back by entry costs.
+
+&lt;div style="clear: both; padding-top: 6px;"&gt;&lt;/div&gt;
+
+--
+
+.takeaway[The three views are not rivals: they describe different firms in the same economy]
+
+???
+
+Shares of informal firms in Brazil from Ulyssea's (2018) estimated model (pp. 534–535). Reading the figure: below v1, the formal value is negative even when formal entry costs are set equal to the informal sector's (dashed line below zero): survival firms. Between v1 and v2, the dashed line is positive but below the informal value: these firms could survive as formal firms but choose informality, the parasite type. Between v2 and v3, the dashed line is above the informal value while the solid blue line is below: they would formalize if entry costs fell, the De Soto type. Above v3, firms are formal.
+
+If these shares carry over to other countries, few firms are held back by registration costs, and enforcement could formalize many firms but would close nearly half of informal firms (p. 535).
+
+---
+
+class: tight
+
+# Evidence on what makes firms formalize
+
+.discuss[
+**Discussion**: which lever would you expect to formalize the most firms?
+]
+
+&lt;div style="float: right; width: 42%; margin-left: 16px; margin-top: -10px;"&gt;
+&lt;img src="figures/ulyssea_fig1.png" style="width: 100%;" /&gt;
+&lt;/div&gt;
+
+Effects on registration (blue: experiments; red: not):
+
+- Information and free registration: about zero.
+
+- Adding a payment of two months' profits: +27.5 pp.
+
+- Registration assistance (Benin): +6.6 to 9.6 pp.
+
+- Lower taxes, up to one employee (Brazil): about 11%.
+
+  - Not an experiment; Piza (2018): not significant.
+
+- Inspector visits (Brazil): ITT +2 to 4 pp; visited, 21–27 pp.
+
+.source[&lt;a href="https://doi.org/10.1146/annurev-economics-082119-121914"&gt;Ulyssea (2020)&lt;/a&gt;, Figure 1.]
+
+&lt;div style="clear: both; padding-top: 6px;"&gt;&lt;/div&gt;
+
+--
+
+.takeaway[Cheaper entry alone formalizes few firms; payments and inspector visits formalize more]
+
+???
+
+Studies (Figure 1 labels): information alone, De Giorgi and Rahman (2013, Bangladesh); information plus reimbursed registration, de Mel, McKenzie and Woodruff (2013, Sri Lanka) and de Andrade, Bruhn and McKenzie (2016, Brazil); payments of half, one and two months' profits, de Mel et al. (2013): with two months' profits the ITT is 27.5% and the effect on those who took up the offer is 47% (p. 533); Benhassine et al. (2018, Benin), where the effect disappears when the same information is delivered without the high-quality staff (pp. 532–533); economy-wide registration reforms in Mexico and Brazil (Bruhn 2011; Kaplan et al. 2011; Rocha et al. 2018; Piza 2018), red diamonds; Rocha et al. (2018): the first phase removed entry costs with no effect, the second phase cut taxes and raised formalization by about 11%, entirely among existing informal firms (p. 533). Enforcement: de Andrade et al. (2016) randomly assigned municipal inspectors in Minas Gerais; ITT 2–4 pp, IV effect of an actual visit 21–27 pp (p. 533).
+
+Ulyssea's own summary (p. 533): reducing entry costs has "very limited or no formalization effects", reducing ongoing costs is "more effective, but the effects are not large and the policies do not seem to be cost effective", and "the largest formalization effects come from greater enforcement". The slide does not say "enforcement, the most", because the figure shows the two-months-of-profits payment (+27.5 pp ITT) larger than the inspection ITT (+2 to 4 pp); the inspection effect on firms actually visited (21–27 pp) is the comparable large number, and paying firms is costly. The inspection ITT is also below the Benin assistance effect, which Ulyssea treats as an exception to the small effects of cheaper entry; he and the Benin authors attribute it to higher perceived benefits and high-quality staff.
+
+Consequences for firms (pp. 538–539): formalizing has no significant effect on sales, profits or employment in most studies; in de Mel et al. (2013) the average gain in profits comes from a few firms that grew. The perceived benefits of formality are low for most small firms (Bruhn and McKenzie 2014), though horizons are short (2–3 years) and the estimates imprecise.
+
+---
+
+# Informal workers: a queue or a choice?
+
+**Queue**: everyone prefers a formal job; informal work is what is left (extended Harris–Todaro).
+
+**Choice**: workers weigh social security and job security against taxes and flexibility.
+
+--
+
+.discuss[
+**Discussion**: informal workers get free health insurance. What does each view predict for formal jobs?
+]
+
+--
+
+- **Queue**: formal jobs stay filled. **Choice**: some formal workers move to informal jobs.
+
+- Evidence: benefits that do not require formal work reduce formal employment.
+
+  - Seguro Popular, Mexico: about 4% fewer formal employees in small and medium firms.
+
+  - Means-tested cash transfers, Uruguay: formal −8 pp in eligible households, half into non-employment.
+
+.source[&lt;a href="https://doi.org/10.1146/annurev-economics-082119-121914"&gt;Ulyssea (2020)&lt;/a&gt;]
+
+???
+
+The queue prediction is my reading of the Harris–Todaro condition with informal earnings: formal employment is set by firms' labor demand at the formal wage, and as long as every worker prefers a formal job, all formal jobs are filled. A more valuable informal sector raises w_I and draws more workers to the city, but does not empty formal jobs.
+
+Seguro Popular (Bosch and Campos-Vazquez 2014): without the program, about 4.6% more employers and 4% more employees would have registered with social security, in small and medium firms (p. 536); Conti et al. (2018) estimate that the program was worth 4–9% of household income. Ulyssea calls the effect "not very large"; Azuara and Marinescu (2013) find a very small effect among unskilled workers and none overall (fn 15). Cash transfers: because governments can verify only registered earnings, means-tested programs reward moving work off the books; Bergolo and Cruces (2018) find a reduction in formal employment of about 8 pp in eligible households, split equally between informal employment and non-employment; Garganta and Gasparini (2015) find large effects in Argentina (p. 537). Unemployment insurance: once workers qualify, they can combine benefits with untaxed informal earnings; Gerard and Gonzaga provide evidence for Brazil (p. 537). That paper is on the presentation list.
+
+Benefits of formal jobs listed by Ulyssea (p. 536): coverage by labor regulations and social security, job security, lower earnings volatility, on-the-job human capital. Costs: income taxes and less flexibility in hours; part of the cost can be the expected wait for a formal job.
+
+---
+
+# Enforcement on the two margins of informality
+
+Equilibrium models, mostly estimated for Brazil:
+
+- **Extensive margin** (unregistered firms): output and TFP rise as resources move to formal firms.
+
+  - Older matching models predict more unemployment; recent models find no such effect.
+
+- **Intensive margin** (informal workers in formal firms): informal employment falls.
+
+  - But small formal firms leave formality; TFP +1.7%, output −1.6% (Ulyssea 2018).
+
+.source[&lt;a href="https://doi.org/10.1146/annurev-economics-082119-121914"&gt;Ulyssea (2020)&lt;/a&gt;]
+
+--
+
+.discuss[
+**Discussion**: what data would test the intensive-margin prediction?
+]
+
+--
+
+- Random enforcement on formal firms, observing their formal and informal workers.
+
+???
+
+Extensive margin (p. 539): all models find gains in aggregate productivity through composition and reallocation, easier transitions to formal jobs, capital accumulation, occupational choice and human capital. The trade-off is unemployment: Boeri and Garibaldi (2005), Ulyssea (2010) and Charlot et al. (2015) find higher unemployment and lower welfare; Meghir et al. (2015), Haanwinckel and Soares (2016) and Dix-Carneiro et al. find no unemployment effects, because large formal firms can absorb displaced workers (pp. 539–540). Welfare: steady states only; transition and implementation costs are unknown.
+
+Intensive margin (p. 540): enforcing labor rules raises the effective cost of formality for small formal firms, so many move into informality; low-productivity formal firms lose and high-productivity ones gain. Reduced-form evidence exists only for the intensive margin (p. 540): Almeida and Carneiro (2009, 2012) use variation in inspections across Brazilian municipalities; Ponczek and Ulyssea find that, after the trade shock of the 1990s, regions with weaker enforcement had more informality but no disemployment, and regions with stricter enforcement had more unemployment (pp. 540–541).
+
+---
+
+name: inspections
+
+# Labor inspections in Mexico: the question
+
+.discuss[
+**Discussion**: what is the research question? Which margin of informality does the paper study?
+]
+
+--
+
+**Question**: what happens to formal firms and their workers when informal hiring becomes costlier?
+
+- **Informal job**: an employee the employer has not registered with social security, as the law requires.
+
+- **The intensive margin**: informal workers inside registered, formal firms.
+
+  - 26% of workers in the study's formal establishments; 73% in those with at most five workers.
+
+- **Why this is hard to study**: informal jobs are missing from official records, and enforcement is targeted.
+
+  - The paper uses random inspections, and a household survey that also records informal jobs.
+
+.source[&lt;a href="https://doi.org/10.1257/app.20200763"&gt;Samaniego de la Parra and Fernández Bujanda (2024)&lt;/a&gt;]
+
+???
+
+Abstract and introduction (pp. 377–380): "We estimate the effect of increasing the cost of informal jobs on formal firms' and workers' outcomes." Informal jobs are "those in which workers are not registered in the social security system through their employer, as required by law in Mexico" (fn 1). Two challenges: informal spells are not in administrative records, and causal estimation requires exogenous variation in the cost of informality (the social security institute's own inspections are risk-based, p. 384). They merge the inspection roster with a household survey to observe informal spells at identified formal firms, and use inspections at randomly selected establishments. Unlike earlier work (Almeida and Carneiro in Brazil, Ronconi in Argentina), which uses variation in enforcement across whole labor markets, this paper studies an increase in enforcement at individual firms. The 26% and 73% shares: Table 2, for establishments matched to the inspection directory, which are much larger than the average employer (mean about 150 formal workers vs 19.5, Table 1); the informal share falls to 8% above 100 workers.
+
+---
+
+# Labor inspections: how inspections raise costs
+
+- Each year, the labor ministry draws establishments **at random** from a national directory.
+
+  - Random within state and industry; 487,118 routine inspections, 2005–2016.
+
+- The inspector cannot fine for informality, but reports informal workers to social security.
+
+- Social security can then charge back contributions and a fine for each unregistered worker.
+
+  - The fine is 20–250 daily minimum wages per worker.
+
+.source[&lt;a href="https://doi.org/10.1257/app.20200763"&gt;Samaniego de la Parra and Fernández Bujanda (2024)&lt;/a&gt;]
+
+.discuss[
+**Discussion**: what is random, and at what level?
+]
+
+--
+
+.takeaway[Which establishment is inspected is random: one firm faces a higher cost of informal jobs]
+
+???
+
+Inspections are run by the labor ministry (STPS). Each state branch submits an annual plan; the centralized system selects establishments from the National Firms Directory (DNE) by industry-stratified random sampling without replacement and spreads the visits across months; inspectors are assigned at random within the state (pp. 383–384). Firms receive 24 hours' notice (fn 18). STPS fines only for its own violations, such as safety; it notifies the social security institute (IMSS) of informal workers, and IMSS inspections are risk-based and use these notifications (pp. 384–386). Employers must register every wage employee with IMSS within 5 days. Inspection outcomes: 43% closed with no violations, 48% proof of compliance, 4% fine imposed, 6% fining process started (Appendix Table C1).
+
+---
+
+# Labor inspections: the comparison
+
+- **Inspected firms**: firms inspected for the first time, followed six quarters before and after.
+
+- **Control firms**: same industry, age, and size, not selected; given the same date as a placebo.
+
+- Compare the change at inspected firms with the change at control firms, quarter by quarter.
+
+--
+
+Two kinds of outcomes, from two data sets:
+
+- **Firms**, from social security records: formal workers, hires, separations, wages.
+
+- **Workers**, from a household survey: what happens to those informal or formal before.
+
+  - Social security records cannot show informal jobs; the survey can.
+
+--
+
+.takeaway[A difference-in-differences for each quarter around the inspection: an event study]
+
+???
+
+For each inspected firm with at least one formal worker in the quarter before, the authors draw active employers from the same industry × age × size cell that were not selected and assign them the inspected firm's date (pp. 395–396). The treatment is the first inspection. The matched IMSS–directory panel has 13,951 inspected and 69,407 control employers; matched firms are much larger than the average IMSS employer (pp. 388–390).
+
+Why two data sets: informal spells are, by definition, absent from IMSS records. The household survey (ENOE) records informal jobs, and the authors link respondents to employers in the inspection directory by employer name (about one-third of ENOE workers who report an employer name can be matched; Section I). The ENOE match covers about 42,000 workers per quarter; a job is formal if the worker reports employer-provided health care (p. 391). Worker regressions (equation (2), pp. 400–401) have worker fixed effects and calendar-time effects; the control group includes workers at never-selected and not-yet-inspected establishments; standard errors are clustered by worksite.
+
+---
+
+# Labor inspections: estimating equation
+
+`$$\begin{aligned}
+Y_{j,t} = \; &amp; \textstyle\sum_{q=-6}^{6} \beta^q \, Treated_j \times \mathbf{1}\{t = t^I_j + q\} + \textstyle\sum_{q=-6}^{6} \alpha^q \, \mathbf{1}\{t = t^I_j + q\} \\
+&amp; + \lambda_j + \theta_{t \times s(j) \times z(j)} + \epsilon_{j,t}
+\end{aligned}$$`
+
+- `\(t^I_j\)`: quarter of the first (or placebo) inspection; `\(q\)`: quarters since then.
+
+- `\(\beta^q\)`: inspected minus control firms, `\(q\)` quarters out, relative to the quarter before.
+
+- `\(\alpha^q\)`: change common to both groups; `\(\lambda_j\)`: firm effects; `\(\theta\)`: quarter × industry × size.
+
+- Counts are estimated by Poisson, so a small `\(\beta^q\)` reads as a percentage change.
+
+.discuss[
+**Discussion**: what does a firm-level event study identify, and what does it leave out?
+]
+
+--
+
+- **Identifies**: the effect at the inspected firm. **Leaves out**: effects on other firms and on market wages.
+
+???
+
+Equation (1), p. 396: a stacked difference-in-differences. Count outcomes are estimated by Poisson pseudo-maximum likelihood with the quarter prior to the inspection as the baseline period (fn 62), so coefficients are approximately proportional changes: a coefficient of −0.15 is about −14%. Standard errors are clustered by firm. The model does not need a separate Treated_j term because λ_j absorbs it.
+
+What it leaves out: workers who leave the inspected firm may find formal jobs at other firms, and other firms face no new cost, so the firm-level effect is not the effect of a national increase in enforcement.
+
+---
+
+# Labor inspections: identification
+
+.discuss[
+**Discussion**: which identification assumptions should we worry about?
+]
+
+--
+
+**Identifying assumption**: without inspection, inspected and control firms would trend in parallel.
+
+- Firm size and sector do not predict inspection (joint test p = 0.68).
+
+  - Older firms are less likely to be inspected; controls are matched on age.
+
+- Formal employment shows no trend before the inspection (next slide, Panel A).
+
+- **But**: formal hires already differ before the inspection (next slide, Panel B).
+
+- **And**: inspections also bring disruption and other compliance costs, which the authors argue are minor.
+
+.source[&lt;a href="https://doi.org/10.1257/app.20200763"&gt;Samaniego de la Parra and Fernández Bujanda (2024)&lt;/a&gt;]
+
+--
+
+.takeaway[Selection is random by design, but hiring trends before the inspection deserve scrutiny]
+
+???
+
+Appendix Table C2: firms aged 8 years or more are significantly less likely to receive a first inspection (fn 47). The authors also test whether alphabetical or zip-code order predicts selection ("haphazard sampling"): they fail to reject in 74–96% of categories (Appendix Tables C4–C5), which is somewhat below what pure randomness would give. In Figure 2, Panel B (formal hires), the pre-period coefficients are about −0.06 to −0.11, and q = −3 appears significant; poaching hires (Figure 3, Panel B) show a similar pattern. The paper does not discuss these. Other channels: an inspection disrupts the worksite and enforces other rules (safety, child labor); the authors argue these effects are small and short-lived because 91% of inspections end with no violation or quick proof of compliance (pp. 384–386). Samples: inspected firms are larger than controls (161 vs 132 formal workers), which the cell matching addresses; in the worker sample, controls are not matched and inspected workers are younger and less schooled (34.1 vs 37.4 years, 11.1 vs 12.6 years of schooling, Table 1, Panel B), so those comparisons rely on worker fixed effects.
+
+---
+
+# Labor inspections: effects on firms
+
+Each dot: inspected minus control firms, by quarter since the inspection (0 = inspection).
+
+&lt;div style="float: right; width: 45%; margin-left: 16px;"&gt;
+&lt;img src="figures/sdlp_fig2.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/app.20200763"&gt;Samaniego de la Parra and Fernández Bujanda (2024)&lt;/a&gt;, Figure 2.]
+&lt;/div&gt;
+
+- **Formal employment** (A): −11% after a year.
+
+  - About −15% by 18 months.
+
+- In the inspection quarter:
+
+  - **hires** fall by 20% (B);
+
+  - **separations** rise by 10% (C).
+
+- Mean formal wages do not change (D).
+
+- Exit from the formal sector does not rise.
+
+&lt;div style="clear: both; padding-top: 6px;"&gt;&lt;/div&gt;
+
+--
+
+.takeaway[Inspected firms end up with fewer formal workers, and the gap persists]
+
+???
+
+pp. 396–399. Coefficients are from Poisson regressions; −0.15 is about −14%, which the authors call 15 percent. The omitted quarter is −1. Hires from outside the formal sector do not change, while poaching from other formal firms rises by about 20% a year later (Figure 3). Firms with at most 10 formal workers increase hiring from outside the formal sector in the inspection quarter. In Panel C, separations turn negative from about quarter 3, with intervals excluding zero from quarter 4 and about −0.19 at quarters 6–7, which the text does not discuss. The published paper reports these effects in the text and figures only, without standard errors in a table. Exit: a linear probability model for permanent exit from the formal sector shows no significant difference (Figure 1).
+
+---
+
+# Labor inspections: effects on workers
+
+Workers in the household survey, by their status before the inspection:
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/sdlp_fig4ab.png" style="width: 62%; max-width: 520px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/app.20200763"&gt;Samaniego de la Parra and Fernández Bujanda (2024)&lt;/a&gt;, Figure 4: informal before. A: formal job anywhere; B: formal at the inspected firm.]
+
+--
+
+- **Informal before**: formal job +13.7 pp in the inspection quarter, mostly at the same firm.
+
+  - Some lose their job: +0.8 pp unemployed, +1.8 pp in informal jobs elsewhere.
+
+- **Formal before**: more likely to stay formal (+3.6 pp), but start to leave the inspected firm.
+
+  - 4.7 pp less likely to be there after six months; wages about 6% higher at first, temporary.
+
+???
+
+pp. 401–405 and the summary on p. 408. Informal workers (Figure 4): +13.7 pp doubles the control group's transition probability; about +6 pp nine months later. "Most of this increase in formal sector participation is due to within-firm formalizations": Panel B shows +18 pp for being formal at the inspected employer. The paper does not reconcile 18 with 13.7 (panel B can exceed panel A only if moves to formal jobs elsewhere fall), so the slide gives only the 13.7 and says "mostly at the same firm". Formal at the inspected employer is positive for up to three quarters. Employment at the inspected firm (any contract) +8.6 pp in the inspection quarter, gone after six months. Separations to unemployment +0.8 pp and to the informal sector +1.8 pp (p. 408). Hours fall slightly (not significant); wages +MXN 400 (n.s.). The figure's y-axis says "percentage points" but plots proportions: 0.2 is 20 pp.
+
+Formal workers (Figures 5–6): +3.6 pp probability of remaining formal for up to nine months, at first because they stay with the inspected employer; six months after the inspection they are 4.7 pp less likely to still work at the inspected firm, and move to formal jobs at other firms. Wages +MXN 520, about 6% (p. 379; pp. 405 and 408 say 500), temporary. The paper is inconsistent on timing: the abstract and p. 379 say the rise is temporary and gone six months after the inspection, while p. 408 says wages are MXN 500 higher at six months. Figure 6, Panel D, shows the rise in the inspection quarter and, read by eye, about 30, 400 and 200 in the next three quarters.
+
+---
+
+class: tight
+
+# Labor inspections: why formal employment falls
+
+**The puzzle**: informal workers are formalized, yet the firm ends up with fewer formal workers.
+
+--
+
+The authors' two explanations:
+
+- **Informal jobs feed formal jobs**: most formalizations happen in the same firm, early in a job.
+
+  - Informal jobs work as a trial period for screening workers.
+
+  - Fewer informal hires, so fewer later promotions to formal jobs.
+
+- **Formal labor costs more**: firms must register workers they chose not to register.
+
+  - About 30% more in labor costs per worker: fewer hires, more separations.
+
+--
+
+**Consistent evidence**:
+
+- Hiring already formal workers rises 20% a year later (driven by larger firms): formality as a signal.
+
+- New formal hires after an inspection start 2.5% lower, with slower wage growth (composition included).
+
+--
+
+.takeaway[Raising the cost of informal jobs also removes a route into formal jobs]
+
+???
+
+The authors call the fall in formal employment "counterintuitive" and offer two mechanisms (pp. 379, 408–409). First, "within-firm informal-to-formal flows are an important source of formal employment growth. Hence, when informal employment declines, so do these transitions". The paper's conclusion: most formalizations occur within the same firm, "suggesting that informal jobs can serve as a screening tool for employers"; the probability of formalization at the same employer is highest in the first quarter of employment and falls with tenure. Second, inspections push firms to formalize workers "whom employers were presumably unwilling to formally employ in the absence of enforcement", which "increases the marginal and average costs of formal employment and can lead to higher match termination and fewer hires". The 30% is the increase in labor costs for the mean informal worker who is formalized (Section on worker outcomes).
+
+How common within-firm formalization is: Table 3 gives 14.2% of informal workers per quarter, close to the conclusion's 13.5%. The introduction's "one out of every four" appears to be conditional on staying at the same establishment (14.2 of 52.7, my inference). The slide uses neither.
+
+Evidence: hiring from outside the formal sector does not change overall, which the authors read as two opposing forces; poaching of workers already formal elsewhere is 20% higher a year after the inspection, consistent with firms favoring workers whose "current formality status provides information on worker quality". The 20% is an average: firms with fewer than 50 formal workers significantly reduce poaching, and larger firms raise it (online Appendix D). Workers who start a formal job right after an inspection, coming from informal work or non-employment, have 2.5% lower starting wages and lower wage growth than coworkers hired just before it. The authors say the conditions for a causal reading are "unlikely to hold", so they read this as a difference that includes composition and treatment effects (p. 405), and they posit a downward shift in the average skill of workers formalized after an inspection.
+
+Caveat: the mechanisms are proposed, not separately measured; the paper does not decompose the 11–15% into the two channels.
+
+---
+
+# Labor inspections: interpretation and policy
+
+- It supports an assumption in Ulyssea (2018): the cost of informal jobs rises with firm size.
+
+.discuss[
+**Discussion**: what do the results imply for enforcement policy?
+]
+
+--
+
+- To formalize today's informal workers: inspections work, at least for a year.
+
+- To raise formal employment: inspected firms end up with fewer formal workers.
+
+- Market-wide enforcement could differ: labor supply and wages would also adjust.
+
+--
+
+.takeaway[Raising the cost of informal jobs formalizes some workers and shrinks formal employment]
+
+???
+
+Link to Ulyssea (2018) (p. 381): the paper provides "an empirical foundation for some of its central assumptions", in particular that the cost of informal employment within formal firms rises with firm size (the informal share falls from 73% at establishments with five or fewer workers to 8% above 100). This evidence is descriptive, and fn 4 notes that in theory the cost on this margin could rise or fall with size. The paper also says its reduction in hiring and rise in separations "are consistent with the counterfactual exercise" of raising the cost of hiring informal workers in Ulyssea (2018). Note a contrast worth raising if students ask: Ulyssea's intensive-margin enforcement counterfactual has small formal firms leaving formality, whereas inspected firms here are no more likely to exit the formal sector; one inspection at one firm is a much smaller shock than economy-wide enforcement.
+
+Policy (p. 409): if the aim is to formalize currently informal workers, inspections are "arguably successful"; if the aim is more workers with social benefits at formal firms, "inspections have the opposite effect". The paper reports no cost or welfare calculation.
+
+Market-wide variation: the authors cite Almeida and Carneiro (2012), who find that more monitoring in a Brazilian city raises formal employment there, and say the two findings are not at odds because they estimate different effects (p. 381). Checked against Almeida and Carneiro: stricter enforcement raises formal employment and non-employment and lowers informal employment and self-employment. Ulyssea (2020, p. 540) summarizes the same paper as reducing the proportion of formal workers, which does not match its text, so if students read both, the original is the reference.
+
+---
+
+class: tight
+
+# What we have learned: informality
+
+- **Firms in Brazil** (model estimates): about half of informal firms would not survive as formal firms.
+
+  - Only 9% are held back by entry costs alone.
+
+- **Firm studies**: cheaper registration formalizes few firms; payments and inspector visits, more.
+
+--
+
+- **Mexico and Uruguay**: free health coverage and means-tested transfers reduce formal employment.
+
+--
+
+- **Inspections in Mexico**: informal workers are formalized, but formal employment falls.
+
+  - Informal jobs often lead to formal jobs in the same firm: a way to screen workers.
+
+--
+
+.takeaway[Informality is partly a choice, so raising its cost has a price in formal jobs]
+
+???
+
+Against the extended Harris–Todaro benchmark: informal work is not only a waiting room. Many informal firms would not be viable as formal firms, and many that could be formal choose not to be; some workers leave formal jobs when informal work becomes more attractive. The last bullet links back to Part 2: if firms use informal jobs to learn about workers, informality is also a response to the screening problem that Carranza et al. and Abebe et al. study.
+
+Sources: Ulyssea (2020), Figure 2 shares from Ulyssea (2018): survival 48.8%, parasite 41.9%, De Soto 9.3%; Seguro Popular (Mexico) and means-tested transfers (Uruguay) as on the workers slide; Samaniego de la Parra and Fernández Bujanda (2024), Table 3: from one quarter to the next, 14.2% of informal workers are formal at the same establishment, which is about one in four of those who stay there (14.2 of 52.7, my arithmetic).
+
+---
+
+name: compare
+
+# Three papers, three designs
+
+&lt;div style="font-size: 76%;"&gt;
+&lt;table style="width: 100%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;&lt;/th&gt;&lt;th style="text-align:left;"&gt;Carranza et al. (2022)&lt;/th&gt;&lt;th style="text-align:left;"&gt;Abebe et al. (2021)&lt;/th&gt;&lt;th style="text-align:left;"&gt;Samaniego de la Parra and Fernández Bujanda (2024)&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Question&lt;/td&gt;&lt;td&gt;which side lacks information on skills?&lt;/td&gt;&lt;td&gt;anonymity or distance?&lt;/td&gt;&lt;td&gt;effects of raising the cost of informal jobs&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Design&lt;/td&gt;&lt;td&gt;RCT by assessment day; correspondence study&lt;/td&gt;&lt;td&gt;cluster RCT with randomized saturation&lt;/td&gt;&lt;td&gt;random inspections; event study vs matched firms&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Unit&lt;/td&gt;&lt;td&gt;workseeker&lt;/td&gt;&lt;td&gt;job-seeker in a cluster&lt;/td&gt;&lt;td&gt;firm, and its workers&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;Spillovers&lt;/td&gt;&lt;td&gt;displacement not observed; gains may fall at scale&lt;/td&gt;&lt;td&gt;local networks only; not displacement&lt;/td&gt;&lt;td&gt;other firms face no new cost; no market-wide wage effect&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+--
+
+.takeaway[All three measure partial effects; market-wide effects need market-level variation]
+
+???
+
+The two RCTs answer "does this help the person who receives it?" The inspection study answers "what does this firm do when its cost of informality rises?" None of them answers "what happens to everyone in the market?", which needs variation across whole labor markets, as in last week's Imbert and Papp (2015) or Muralidharan, Niehaus, and Sukhtankar (2023). The β2 coefficient in Carranza et al., the full-displacement assumption in Abebe et al., and the partial-equilibrium caveat of Samaniego de la Parra and Fernández Bujanda are reminders that individual or firm-level gains need not add up to aggregate gains.
+
+---
+
+name: synthesis
+class: tight
+
+# What we have learned: the three explanations
+
+**Too few formal jobs** (Harris and Todaro)
+
+- Unemployment, and in the extension informal work, equates expected urban and rural income.
+
+--
+
+**Search frictions**
+
+- Johannesburg, Addis Ababa: credible skill signals raised employment or earnings.
+
+  - Lower search costs brought formal jobs sooner; the effect was gone after four years.
+
+--
+
+**Informality as a choice**
+
+- Brazil: many informal firms could be formal (model). Mexico, Uruguay: workers respond to benefits.
+
+  - Enforcement formalizes informal workers but costs formal jobs.
+
+--
+
+.takeaway[Informal work is partly a queue and partly a choice; good policy depends on the mix]
+
+???
+
+The three explanations are not rivals. Harris and Todaro, with the informal-work extension, give the benchmark in which informal work is a queue for scarce formal jobs; the readings give no direct test of the queue. The search experiments show that who gets the formal jobs is not random: it depends on what employers can learn about workers. The informality evidence shows that many firms, and some workers, would stay informal even if formal jobs were available, and that raising the cost of informality has a price in formal employment.
+
+Last week, Breza, Kaur, and Shamdasani (2021) showed that much rural self-employment in the lean season is rationing. Today's evidence suggests that in cities, informality is partly a choice made by heterogeneous firms and workers. Next week, Donovan, Lu, and Schoellman (2023) and Feng, Lagakos, and Rauch (2024) look at the same question with macro data: how employment, self-employment and unemployment change with development.
+
+---
+
+# Plan for next week
+
+**Week 9 (Friday 20 November): Structural transformation of labor markets**
+
+- &lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;, *QJE*: labor market dynamics and development
+
+- &lt;a href="https://doi.org/10.1093/ej/uead076"&gt;Feng, Lagakos, and Rauch (2024)&lt;/a&gt;, *Economic Journal*: unemployment and development
+
+- &lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;, *AER*: the human side of structural transformation
+
+--
+
+Comments in the &lt;a href="https://docs.google.com/document/d/1-IlEMbnN1wn0kxUqh20z_R09_dYt2VL6O8uBI_rgAgc/edit?usp=sharing"&gt;Google Doc&lt;/a&gt; by **Thursday 19 November, 14:00**.
+
+**No class on 6 and 13 November.**
+
+Week 9: Friday 20 November, two presentations. Week 10: Friday 27 November, one presentation.
+
+**Problem set 2**: due Friday 27 November, before 14:00.
+
+???
+
+There is no class on Friday 6 November or Friday 13 November. Week 9 is Friday 20 November with two presentations, and Week 10 is Friday 27 November with one presentation; the papers for the three slots are on the &lt;a href="https://docs.google.com/spreadsheets/d/1JYnioDWK2cD7upc2n16BE7V-OCPEn9Uc/edit?usp=sharing&amp;ouid=108702181455633968747&amp;rtpof=true&amp;sd=true"&gt;sign-up sheet&lt;/a&gt;.
+
+---
+
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<div id="toc-menu">
+  <button id="toc-btn" type="button">&#9776;&nbsp; Contents</button>
+  <div id="toc-list">
+    <a href="#facts">Urban labor markets: some facts</a>
+    <a href="#outline">Outline of the lecture</a>
+    <a href="#ht">Part 1. Too few formal jobs: Harris and Todaro (1970)</a>
+    <a href="#search">Part 2. Search frictions</a>
+    <a href="#carranza">Information about skills: Carranza et al. (2022)</a>
+    <a href="#abebe">Anonymity or distance: Abebe et al. (2021)</a>
+    <a href="#informality">Part 3. Informality: a queue or a choice?</a>
+    <a href="#inspections">Labor inspections: Samaniego de la Parra and Fern&aacute;ndez Bujanda (2024)</a>
+    <a href="#compare">Three papers, three designs</a>
+    <a href="#synthesis">What we have learned: the three explanations</a>
+  </div>
+</div>
+<div id="progress-bar"></div>
+<style>
+#toc-menu { position: fixed; bottom: 10px; left: 14px; z-index: 300; }
+#toc-btn { background: rgba(35, 55, 59, 0.75); color: #fafafa; border: none; border-radius: 4px;
+  padding: 5px 12px; font-size: 13px; font-family: inherit; cursor: pointer; }
+#toc-btn:hover { background: #EB811B; }
+#toc-list { display: none; position: absolute; bottom: 34px; left: 0; width: 400px;
+  background: #ffffff; border: 1px solid #d9dee0; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18); padding: 6px 0; }
+#toc-menu.open #toc-list { display: block; }
+#toc-list a { display: block; padding: 8px 16px; font-size: 14px; color: #23373B;
+  text-decoration: none; line-height: 1.35; }
+#toc-list a:hover { background: #eef2f3; color: #EB811B; }
+#progress-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background: #EB811B; z-index: 300; transition: width 0.2s; }
+@media print { #toc-menu, #progress-bar { display: none; } }
+</style>
+<script>
+(function() {
+  var menu = document.getElementById('toc-menu');
+  var btn = document.getElementById('toc-btn');
+  btn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('open'); });
+  document.getElementById('toc-list').addEventListener('click', function() { menu.classList.remove('open'); });
+  document.addEventListener('click', function(e) { if (!menu.contains(e.target)) { menu.classList.remove('open'); } });
+  function init() {
+    if (typeof slideshow === 'undefined') { setTimeout(init, 150); return; }
+    var bar = document.getElementById('progress-bar');
+    var n = slideshow.getSlideCount();
+    slideshow.on('showSlide', function(slide) {
+      bar.style.width = (100 * (slide.getSlideIndex() + 1) / n) + '%';
+    });
+    bar.style.width = (100 * (slideshow.getCurrentSlideIndex() + 1) / n) + '%';
+  }
+  init();
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>DELD - Lecture 9</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 9: Structural Transformation of Labor Markets
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2026
+]
+
+---
+
+
+name: facts
+
+# Labor markets in poor and rich countries
+
+.discuss[
+**Discussion**: is unemployment higher in poor or in rich countries? Where do workers change jobs more?
+]
+
+--
+
+- **Unemployment is lower**: 2.5% in the poorest quarter of countries, 8.7% in the richest.
+
+  - Prime-aged adults who are not working and are searching; the self-employed count as employed.
+
+--
+
+- **Transitions are more frequent**: exits from employment and job changes, about twice as often.
+
+  - Urban workers in 49 countries, from below &amp;#36;5,000 (India, Nicaragua) to above &amp;#36;50,000 (US, Europe).
+
+  - Changes of occupation are about four times as frequent.
+
+--
+
+- **Agricultural employment falls over time**: by about 2% of its level each year (men, 52 countries).
+
+.source[&lt;a href="https://doi.org/10.1093/ej/uead076"&gt;Feng, Lagakos, and Rauch (2024)&lt;/a&gt;; &lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;; &lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;.]
+
+--
+
+.takeaway[Lower unemployment and more frequent job changes in poorer countries: is work easier to find there?]
+
+???
+
+Unemployment: Feng, Lagakos, and Rauch (2024, p. 620), prime-aged adults (25–54), "simple averages by country income quartile" (the paper does not say over which units; the Figure 1 crosses, which average country-years, sit near 4% and 8%); 199 surveys and censuses, 84 countries. Unemployed = not employed and searched recently; self-employment and work on a family farm or business count as employment. Flows: Donovan, Lu, and Schoellman (2023, p. 2298): "employment exit rates, job-finding rates, and job-job transition rates are roughly twice as high in developing economies, while occupational switching rates are roughly four times as high"; urban workers aged 16–65 in 49 countries, GDP per capita from below $5,000 (India, Nicaragua, Philippines) to above $50,000; the sample has none of the World Bank's low-income economies. Job finding is not on the slide: the two job-finding gradients are statistically insignificant (−0.025 (0.022) and −0.017 (0.014) per log point), and the trend line for job finding from unemployment falls only from about 0.34 to 0.25, so "twice" does not describe it. "Leaving employment" covers exits to unemployment and to inactivity; the second is the larger flow (3.7% against 2.2% a quarter). Agriculture: Porzio, Rossi, and Santangelo (2022, Table 1): agricultural employment of men aged 25–59 falls by 2.11% a year on average across 52 countries (3.41% in high-income, 2.19% in middle-income and 1.41% in low-income countries), each country observed for about 27 years. This is a rate of decline of the level (log points), not percentage points, and a within-country fact, unlike the two cross-country comparisons above it.
+
+Link to Weeks 7 and 8. The micro evidence said that wage jobs are scarce (Breza and Kaur 2025), that part of rural self-employment is rationing (Breza, Kaur, and Shamdasani 2021), and that urban job search is costly and skills are hard to observe (Carranza et al. 2022; Abebe et al. 2021). Read naively, low unemployment and frequent job changes suggest the opposite: a labor market in which work is easy to find. Today's first two papers resolve the puzzle with cross-country data.
+
+Week 9 meets on Friday 20 November. The second half has two presentations. Problem set 2 is due Sunday 29 November, 14:00.
+
+---
+
+# Three questions for today
+
+- **Why is unemployment low, and turnover high, where good jobs are scarce?**
+
+  - What kinds of jobs do workers move into and out of?
+
+--
+
+- **Is labor misallocated between agriculture and the rest of the economy?**
+
+  - Output per worker is much lower in agriculture. Would moving workers raise total output?
+
+--
+
+- **What moves labor out of agriculture?**
+
+  - Rising incomes, farm technology, or a more educated labor force?
+
+--
+
+.takeaway[Development moves workers from farming and self-employment into wage jobs. How, and why?]
+
+???
+
+The first question is about labor market statistics. Unemployment and job flows were designed for economies in which most people work for a wage; today's papers ask what they measure where most people work for themselves. The second and third questions are about structural transformation: the reallocation of economic activity across agriculture, manufacturing, and services (Herrendorf, Rogerson, and Valentinyi 2014).
+
+The three questions share one theme. In Weeks 7 and 8 we asked whether self-employment and informal work are what people are left with or what they choose, one market at a time. This week we look at the same margin across countries and over decades.
+
+---
+
+name: outline
+
+# Outline of the lecture
+
+**Part 1. Labor markets across development**
+
+- Labor market flows: &lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;
+- Unemployment: &lt;a href="https://doi.org/10.1093/ej/uead076"&gt;Feng, Lagakos, and Rauch (2024)&lt;/a&gt;
+
+**Part 2. Is labor misallocated between sectors?**
+
+- Structural transformation: &lt;a href="https://doi.org/10.1016/B978-0-444-53540-5.00006-9"&gt;Herrendorf, Rogerson, and Valentinyi (2014)&lt;/a&gt;
+- The agricultural productivity gap: &lt;a href="https://doi.org/10.1093/qje/qjt056"&gt;Gollin, Lagakos, and Waugh (2014)&lt;/a&gt;; &lt;a href="https://doi.org/10.1093/jeea/jvaa043"&gt;Hamory et al. (2021)&lt;/a&gt;
+
+**Part 3. What moves labor out of agriculture?**
+
+- A more educated labor force: &lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;
+- Agricultural technology: &lt;a href="https://doi.org/10.1257/aer.20131061"&gt;Bustos, Caprettini, and Ponticelli (2016)&lt;/a&gt;
+
+???
+
+The three Parts follow the three questions. Part 1 covers two required readings that describe labor markets across the whole range of development. Part 2 sets out the facts of structural transformation and asks whether the gap in output per worker between sectors is misallocation or selection. Part 3 covers the third required reading, which asks who leaves agriculture, and one paper on farm technology. Each Part ends with a summary slide.
+
+A note on method. Nothing today is a randomized experiment. Parts 1 and 2 are descriptive: cross-country correlations and accounting, read through a model. Part 3 uses cohort decompositions, education reforms as instruments, and a difference-in-differences from Indonesia that you know from Week 5. Each time, ask what the comparison identifies.
+
+---
+
+name: part1
+class: inverse, middle, center
+
+&lt;div style="font-size: 34px; text-align: center;"&gt;
+  Part 1. Labor markets across development
+  &lt;div style="font-size: 22px; margin-top: 18px;"&gt;Why is unemployment low, and turnover high, where good jobs are scarce?&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+name: donovan
+
+# Donovan et al. (2023): the question
+
+.discuss[
+**Discussion**: what is the research question? Why is the paper considered a contribution?
+]
+
+--
+
+**Question**: how do labor market flows differ between poor and rich countries, and why?
+
+- **Flows**: how often workers leave employment, find work, change jobs, and change occupations.
+
+- Until this paper, systematic evidence on flows came mostly from developed countries.
+
+- **Contribution**: comparable flows for 49 countries, from surveys that follow the same people.
+
+  - 80 million people; GDP per capita from below &amp;#36;5,000 to above &amp;#36;50,000.
+
+--
+
+.takeaway[If frictions raise the cost of changing jobs, flows should be lower in poorer countries. Are they?]
+
+???
+
+Introduction (pp. 2287–2289). The motivation: there are large, persistent gaps in wages and labor productivity between sectors and regions, "but again we do not know whether this stems from labor market frictions". "Research on this topic faces an important roadblock: we have little systematic evidence on labor market dynamics outside of developed countries." The paper "provides evidence on how labor market flows and the job ladder vary with development. It documents the sources of these differences and considers their implications for theories of labor market frictions in developing countries."
+
+Earlier cross-country work covers Europe, Latin America, or Africa separately, or uses aggregate data for up to 27 countries (fn 2). The data here: "49 countries across five continents", "GDP per capita differs by a factor of 34 between the richest and poorest countries", from below $5,000 (India, Nicaragua, Philippines) to more than $50,000 (United States, much of Europe) (p. 2292). The 80 million counts people matched across two consecutive quarters, not observations.
+
+The takeaway question is the test the authors set up: many models of misallocation treat frictions as a cost of switching jobs, occupations, or locations, which predicts fewer moves in poorer countries.
+
+---
+
+# Donovan et al. (2023): data and definitions
+
+- **Surveys**: official labor force surveys that interview each household in consecutive quarters.
+
+  - Sample: urban areas, ages 16–65.
+
+- **Four states**: wage work, self-employment, unemployment, inactivity.
+
+  - Self-employment includes own-account workers, employers, and unpaid family workers.
+
+- **Flows**, from one quarter to the next:
+
+  - **employment exit rate**: share of the employed who become unemployed or inactive;
+
+  - **job-finding rate**: share of the unemployed, or the inactive, who become employed;
+
+  - **job-to-job rate**: share of the employed who change jobs;
+
+  - **occupational switching rate**: share of those employed in both quarters who change occupation.
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;]
+
+???
+
+Section II (pp. 2292–2296). Rotating panels "track workers for two to three consecutive quarters". Urban areas only "because some countries do not collect data on rural areas"; rural results are in the online appendix. Unemployed: wants a job, searched in the past four weeks, and is available; otherwise inactive. Unpaid family workers count as self-employed if they work at least 15 hours. Because the line between unemployment and inactivity "may not be behaviorally meaningful or may be subject to significant classification error" in developing countries, the authors report exits to, and job finding from, each state separately, which gives six flows.
+
+The job-to-job rate includes moves from self-employment to wage work, from wage work to self-employment, and changes of employer among wage workers (inferred from tenure of less than three months in the second quarter). Switches between two self-employed activities cannot be measured (fn 12). Occupational switching uses one-digit occupations, for workers employed in both quarters. People who move dwelling cannot be matched; weights are adjusted for this. Quarterly seasonality is removed.
+
+The data do not cover the very poorest economies, such as the World Bank's 28 low-income economies (p. 2292).
+
+---
+
+# Donovan et al. (2023): employment exit rates
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/donovan_fig1ab.png" style="width: 78%; max-width: 1000px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;, Figure I. Left: exit to unemployment; right: exit to inactivity. Faint dots: country-years; labelled dots: country averages; GDP per capita on a log scale.]
+
+- **Both panels**: exit rates fall with GDP per capita, roughly twice as high in developing economies.
+
+- **Right**: exits to inactivity are the larger flow, 3.7% a quarter on average against 2.2% to unemployment.
+
+???
+
+Figure I and Table I (pp. 2297–2298). Regressions of each flow on log GDP per capita, standard errors clustered by country: exit to unemployment −0.013 (0.005), sample average 0.022 per quarter; exit to inactivity −0.024 (0.003), average 0.037; job finding from unemployment −0.025 (0.022), average 0.292; job finding from inactivity −0.017 (0.014), average 0.085. "The relationship is statistically significant except for the two job-finding rates."
+
+"Roughly twice as high" is the authors' reading of the trend lines in Figure I (p. 2298). It fits the exit rates. The job-finding panels (C and D) are not shown: those rates are also higher in poorer countries, but the relationship is not statistically significant. For the job-finding rate from unemployment, the trend line falls only from about 0.34 to about 0.25 (read from the figure), so "twice" overstates that one.
+
+Among rich countries alone (United States, United Kingdom, Switzerland, European Union) the relationship is positive for most flows (Table I, Panel B): the negative gradient is a comparison of developing with developed economies.
+
+---
+
+# Donovan et al. (2023): job and occupation changes
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/donovan_fig1ef.png" style="width: 56%; max-width: 1000px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;, Figure I. Left: job-to-job rate; right: occupational switching rate.]
+
+- **Left**: job-to-job transitions are roughly twice as frequent in developing economies.
+
+- **Right**: occupational switching, roughly four times as frequent.
+
+.discuss[
+**Discussion**: what do these cross-country relationships show, and what do they not show?
+]
+
+--
+
+.takeaway[All six flows are negatively correlated with GDP per capita: a description, not a causal effect]
+
+???
+
+Table I: job-to-job rate −0.031 (0.011), sample average 0.050 per quarter; occupational switching −0.073 (0.013), average 0.105. The relationship is "strongest for the job-job transition rate and occupational switching rate and weakest for the job-finding rates".
+
+Discussion answer. The regressions describe how flows vary with development across 49 countries with rotating-panel surveys. They do not show that raising income lowers flows: "we do not claim that GDP per capita has a direct, causal effect on labor market flows" (p. 2298). The rest of the paper asks which workers and which jobs account for the pattern. Occupational switching matters as a check because it is "less subject to concerns about classification error of labor force status": it is measured among people employed in both quarters.
+
+---
+
+# Donovan et al. (2023): what does not explain the higher flows
+
+.discuss[
+**Discussion**: which explanations should we rule out before reading the pattern as a fact about jobs?
+]
+
+--
+
+- **Worker characteristics**: age, gender, education (and occupation, where observed) explain less than half.
+
+  - Observably similar workers change status more often in poorer countries.
+
+--
+
+- **Labor regulation**: severance pay and minimum wages matter among rich countries.
+
+  - They do not explain the difference between developing and developed countries.
+
+--
+
+- **Misclassification of labor force status**: occupation changes show the same pattern.
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;]
+
+--
+
+.takeaway[Neither worker characteristics nor labor regulation explains the higher flows in poorer countries]
+
+???
+
+Composition (Table III, p. 2302): each flow is decomposed into a part due to the mix of age, gender, education, and occupation, and a country effect. The composition share is 0.41 for exits to unemployment, 0.35 for the job-to-job rate, and 0.09 or less for the other four. "Most of our results are driven by country effects, meaning that observably similar workers experience more frequent transitions in developing economies. The exact share ranges from one-half to one, with a simple average of three-quarters."
+
+Institutions (Table II, pp. 2299–2301): required severance pay (for exit and job-to-job rates) and the minimum wage relative to the average wage (for job-finding rates), from the World Bank's labor regulation data. Among rich countries, "severance payments lower the employment exit and job-job transition rate, while minimum wages lower the job-finding rate". In the full sample the coefficients are small and insignificant. "Although labor market institutions help understand flows among developed economies, they do not help understand differences in flows between developing and developed economies." The introduction: "Higher flows in developing economies are not the result of more flexible labor market institutions."
+
+Last year's slide said the opposite of the paper on this point; the institutions result holds only within rich countries.
+
+---
+
+# Donovan et al. (2023): which jobs account for the higher flows
+
+.discuss[
+**Discussion**: are the extra transitions in poorer countries into and out of all jobs, or of particular jobs?
+]
+
+--
+
+Each flow is split by the type of job that workers enter or leave:
+
+- **Job finding**: the higher rate in poorer countries is almost entirely finding self-employment.
+
+  - Finding a wage job is not more frequent in poorer countries than in richer ones.
+
+--
+
+- **Employment exit**: about half of the higher rate is exits from self-employment.
+
+  - The other half is exits from wage work; informal wage jobs account for more than half of it.
+
+--
+
+- **Low-paid wage jobs**: exits fall steeply with earnings, and the gradient is largest at the bottom.
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;, Table IV and Figures II–III.]
+
+--
+
+.takeaway[The higher flows are into and out of marginal jobs: self-employment, informal and low-paid wage work]
+
+???
+
+The authors call self-employment, informal wage work, and low-earnings wage work "marginal jobs" (p. 2289). Self-employment "accounts for nearly all of the higher aggregate job-finding rate and about half of the higher employment exit rate. The other half ... come from wage work. We show that informal and low-earnings wage work account for most of this remaining difference. Put differently: labor market flows for workers with formal, above–median earnings wage work are similar around the world" (p. 2290).
+
+Table IV: the rate at which the unemployed find self-employment falls with GDP per capita, −0.044 (0.008); the rate at which they find wage work does not, 0.017 (0.019). "All of the differences in job-finding rates between developing and developed economies are due to differences in finding self-employment" (p. 2304). So wage jobs are not easier to find in poorer countries, which fits Weeks 7 and 8.
+
+Formality (Figure II, not shown): a formal job is one in which the employer pays into a social benefits scheme; the question is asked only in developing countries. Treating exit rates in France, the United Kingdom, Switzerland, and the United States as formal, the correlation of the formal exit rate with development is 44% of the correlation for all wage work, "implying that controlling for formal status accounts for more than half of the overall pattern" (p. 2306).
+
+The third bullet is documented on the next slide.
+
+---
+
+# Donovan et al. (2023): exit rates by earnings
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/donovan_fig3ab.png" style="width: 64%; max-width: 1000px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;, Figure III. Left: quarterly exit rate from wage work by earnings decile, four countries. Right: slope on log GDP per capita by decile, 95% intervals.]
+
+- **Left**: in the bottom decile, 7.5% of wage workers exit each quarter in the United Kingdom, 27.6% in Peru.
+
+  - In the top decile the rates are 1.3% and 1.7%: the country gap almost disappears.
+
+- **Right**: the gradient with development is four times steeper for the bottom decile than for the top.
+
+--
+
+.takeaway[Flows into and out of formal, above-median wage jobs are similar around the world]
+
+???
+
+Figure III, Panel A: four countries (Switzerland, United Kingdom, Bolivia, Peru); in the bottom decile Bolivia is at 31.2% (pp. 2306–2307). Earnings deciles are defined within each country. Panel B: each dot is the coefficient on log GDP per capita from a regression of the exit rate for that decile; "The semi-elasticity is four times larger for the bottom decile compared with the top decile" (p. 2307). The intervals for the top deciles still exclude zero, and no table tests formal and above-median jobs jointly, so "similar around the world" is the authors' summary (p. 2290), not a formal test.
+
+---
+
+# Donovan et al. (2023): a slippery job ladder
+
+.discuss[
+**Discussion**: do more frequent job changes mean that workers reach better jobs sooner?
+]
+
+--
+
+For workers who moved from state *a* to state *b* between quarters 1 and 2, by country-year *jt*:
+
+&lt;div&gt;
+\[ \text{share in state } c \text{ in quarter 3}_{jt} \;=\; \alpha_{abc} + \beta_{abc} \log(\text{GDP per capita}_{jt}) + \varepsilon_{jt} \]
+&lt;/div&gt;
+
+&lt;div style="float: right; width: 28%; margin-left: 16px;"&gt;
+&lt;img src="figures/donovan_fig4.png" style="width: 100%;" /&gt;
+&lt;/div&gt;
+
+- **Poorest vs richest** = β × 1.9 (the log of the 95th/5th percentile GDP ratio)
+
+- **Top row**, U → S, then U: −0.051 × 1.9
+
+  - 10 points more likely to be unemployed again a quarter later.
+
+- **Bottom row**, S → W, then S: −0.146 × 1.9
+
+  - 28 points more likely to be self-employed again.
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+&lt;div class="source" style="margin: 0 0 6px 0;"&gt;&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;, Figure IV, 28 countries. Cells: β by row (&lt;i&gt;a&lt;/i&gt; → &lt;i&gt;b&lt;/i&gt;) and column (&lt;i&gt;c&lt;/i&gt;). Blue: more likely in poorer countries; red: in richer.&lt;/div&gt;
+
+--
+
+.takeaway[In poorer countries, moves into or out of self-employment are much more often reversed in a quarter]
+
+???
+
+Section V (pp. 2308–2312), for the 28 countries in which workers can be followed for three quarters. For each country-year the authors compute, among workers who made transition a → b between the first two quarters, the share in each state c in the third quarter, and regress that share on log GDP per capita; each cell of Figure IV is the estimated slope with its standard error, and the colour codes its sign and size (figure note, p. 2309). The equation on the slide is my transcription of that description; the paper gives the procedure in words, not as a displayed equation. "Poorest against richest" multiplies the coefficient by 1.9, "the log of the 95-5 ratio of GDP per capita" in the sample (p. 2309), so −0.051 × 1.9 ≈ −0.10 and −0.146 × 1.9 ≈ −0.28. Top row: among those who move from unemployment to self-employment, the probability of being unemployed in the third quarter has a coefficient of −0.051 (0.02), so 10 percentage points; the probability of staying self-employed, 0.140 (0.036), so new self-employment persists in richer countries. Bottom row: among those who move from self-employment to wage work, the probability of returning to self-employment has a coefficient of −0.146 (0.029), so 28 percentage points; the probability of staying in wage work, 0.121 (0.032). Middle row, inactivity to self-employment: 26 points more likely to be inactive again (−0.136 (0.033)); the paper summarizes the two nonemployment rows as "20–28 percentage points more likely to return to nonemployment" (p. 2312).
+
+The introduction gives slightly different numbers (24 and 39 points); the slide uses the body's.
+
+---
+
+# Donovan et al. (2023): moving up the earnings ladder
+
+&lt;div style="float: right; width: 38%; margin-left: 16px;"&gt;
+&lt;img src="figures/donovan_fig5a.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;, Figure V, Panel A. Ws, Wu, Wd: same, higher, lower decile in quarter 3. Red: more likely in richer countries; blue: in poorer.]
+&lt;/div&gt;
+
+**Rows**: entered wage work (from U, N) or moved up (W,Wu).
+
+- **Wu column**: in poorer countries, more likely to move up a decile;
+
+- yet 40–46 points more likely to move down or out of wage work:
+
+  - **Wd, U, N, S columns**: all blue in every row.
+
+- **Ws column**: staying in the same decile rises with income.
+
+&lt;div style="clear: both; padding-top: 6px;"&gt;&lt;/div&gt;
+
+--
+
+.takeaway[Higher flows reflect a slippery job ladder, not faster movement into better jobs]
+
+???
+
+Figure V, Panel A (p. 2310): rows are workers who moved from unemployment, from inactivity, or from a lower decile into wage work between quarters 1 and 2; columns are their state in quarter 3. The Wu column is negative in every row (−0.094, −0.068, −0.065), so workers in poorer countries "are more likely to move up the job ladder to a higher-earnings wage job. However, they are much more likely to fall down the job ladder to a lower earnings decile or to fall off it entirely" (p. 2311). Pooling the U, N, S, and Wd columns gives −0.221 (0.038), −0.213 (0.050), and −0.240 (0.043), which the authors report as 42, 40, and 46 percentage points for the three rows. The Ws column is positive and large (0.294, 0.256, 0.281): in richer countries the new job is kept at the same pay.
+
+Summary (p. 2312): "there is no evidence that these flows allow workers to find or persist in higher-paying work ... This is the phenomenon we label the slippery job ladder." And: "higher labor market flows are not a result of growth and do not aid growth". Panel B of the figure (not shown) repeats the exercise decile by decile: the diagonal (staying in the same decile) is red throughout, and the first column (falling to nonemployment) is blue.
+
+---
+
+# Donovan et al. (2023): self-employment and unemployment
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/donovan_fig6.png" style="width: 58%; max-width: 1000px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;, Figure VI. Left: probability of moving into wage work, unemployed relative to self-employed. Right: entry wages relative to continuing wage workers.]
+
+- **Left**: US unemployed are five times as likely as the self-employed to move into wage work.
+
+  - In many poor and middle-income countries the ratio is close to one.
+
+- **Right**: the entry-wage gap, formerly self-employed vs unemployed, is smaller in poorer countries.
+
+--
+
+.takeaway[The authors' reading: without unemployment insurance, self-employment provides income during search]
+
+???
+
+pp. 2313–2316. Panel A plots the ratio of the unemployed's to the self-employed's quarterly probability of moving into wage work: "In many poor and middle-income countries, the self-employed are almost as likely to transition to wage work as the unemployed. In the United States, the unemployed are five times as likely." Table VI: the ratio rises with log GDP per capita, 4.394 (0.987); sample average 7.0. Panel B: "In rich countries, the previously self-employed earn a higher wage than the previously unemployed ... in developing economies this gap is smaller."
+
+Interpretation (p. 2291): self-employment in developing countries is "a closer substitute to unemployment, used to allow people to earn income while searching for wage work in countries without unemployment insurance". The conclusion proposes "modeling self-employment as quasi-unemployment rather than including it with wage work".
+
+Link to Week 7: Breza, Kaur, and Shamdasani (2021) reached the same conclusion from an experiment in rural Odisha, where at least 24% of lean-season self-employment among casual workers occurs because workers cannot find wage jobs. Feng, Lagakos, and Rauch (2024), next, build a model on the same idea.
+
+---
+
+# Donovan et al. (2023): wage–tenure profiles
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/donovan_fig8.png" style="width: 54%; max-width: 1000px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;, Figure VIII: wage difference (%) relative to workers in their first six months with the employer; left: 6–12 months of tenure, right: 1–5 years.]
+
+- **Both panels**: the tenure premium falls with GDP per capita: steeper wage–tenure profiles in poorer countries.
+
+- Wage–experience profiles (Figure VII, not shown) are flatter in poorer countries.
+
+.discuss[
+**Discussion**: why would wages rise faster with tenure where they rise more slowly with experience?
+]
+
+--
+
+.takeaway[The authors' reading: initial match quality is lower in poorer countries, and poor matches end sooner]
+
+???
+
+Section VI (pp. 2316–2320). The wage regression has dummies for potential experience (age minus expected years of schooling minus 6) and for tenure with the current employer, plus education and year. Figure VII: "Wage-experience profiles are substantially flatter in developing countries." Figure VIII: "The striking new finding here is that wage-tenure profiles are steeper in developing economies."
+
+Discussion answer. If steep tenure profiles reflected faster accumulation of skills on the job, experience profiles should be steep too; they are flatter, and the authors find the human capital reading "implausible". The alternative is selection: bad matches end quickly, so workers observed at long tenure are those in good matches. "Matches that survive to high tenure levels in developing areas have been more selected"; "initial match quality is on average lower in those countries ... matches there are subject to a more rapid selection process" (pp. 2319–2320). The next slide shows the exit side of that selection.
+
+Last year's slide merged the two profiles ("flatter for experienced workers, steeper for younger workers"). They are different variables: experience is years since leaving school, tenure is time with the current employer.
+
+---
+
+# Donovan et al. (2023): exit rates by tenure
+
+&lt;div style="float: right; width: 40%; margin-left: 16px;"&gt;
+&lt;img src="figures/donovan_fig9.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjad019"&gt;Donovan, Lu, and Schoellman (2023)&lt;/a&gt;, Figure IX: quarterly exit rate of wage workers to nonemployment, by tenure with the employer.]
+&lt;/div&gt;
+
+- **Lines**: tenure groups, from 0–6 months (top) to 5+ years.
+
+- All four slope down:
+
+  - exit rates are higher at every tenure in poorer countries.
+
+- The gap is largest in the first six months;
+
+  - after five years it narrows but does not close.
+
+&lt;div style="clear: both; padding-top: 6px;"&gt;&lt;/div&gt;
+
+--
+
+.takeaway[Exits are concentrated at low tenure: the rapid selection that the wage–tenure profiles implied]
+
+???
+
+Figure IX (p. 2319): "employment exit rates are higher at all tenure levels in developing economies, but ... the gap between developing and developed ones is largest at low tenure levels." Read from the fitted lines, from the poorest to the richest countries: 0–6 months of tenure, about 0.26 to 0.03 a quarter; 6–12 months, 0.15 to 0.02; 1–5 years, 0.09 to 0.01; more than 5 years, 0.05 to about 0. The rate is the exit of wage workers to nonemployment, so a move to another employer is not counted.
+
+Together with the wage–tenure profiles this is the authors' case for selection (pp. 2319–2320): a larger share of new matches in developing economies are of low quality and end quickly; those that survive are better matches and pay more. The text says the figure is plotted against GDP per worker; the axis is labelled GDP per capita.
+
+---
+
+# Donovan et al. (2023): interpretation
+
+.discuss[
+**Discussion**: what do these facts imply for how we model frictions in poor-country labor markets?
+]
+
+--
+
+- **Not** a cost of changing jobs: flows are higher in poorer countries, not lower.
+
+- **Not** faster reallocation toward productive jobs: workers who move up often return to lower-paid work.
+
+--
+
+- **Self-employment**: a closer substitute for unemployment than for wage work.
+
+- **Wage work**: many low-quality matches that end early.
+
+  - One reading: workers and firms have weak signals of match quality, so matches form and then dissolve.
+
+--
+
+- **Limits**: urban samples; the poorest countries are missing; the facts do not single out one theory.
+
+--
+
+.takeaway[The facts point to subsistence self-employment and low-quality matches, not to costs of changing jobs]
+
+???
+
+The authors (p. 2290): "our results are inconsistent with modeling labor market frictions as a cost to switching jobs or moving ... our results show that labor market flows are actually much higher in developing areas"; the findings are "at odds with the standard approach to modeling labor market frictions that 'lock' workers into jobs, occupations, or locations" (p. 2322).
+
+For wage work they offer two candidate theories (pp. 2320–2321): composition, "a higher share of the low-quality matches", and "endogenous differences in match formation and match destruction", through more volatile demand or "weaker signals about match quality. In the framework of Jovanovic (1984), this would lead to both higher match formation rates and higher endogenous destruction rates". "These findings do not pin down a unique theory of wage work."
+
+Link to Week 8. Carranza et al. (2022) and Abebe et al. (2021) showed that employers in Johannesburg and Addis Ababa cannot observe workseekers' skills and that credible signals raise employment or earnings. Samaniego de la Parra and Fernández Bujanda (2024) showed that Mexican firms use informal jobs to screen workers. Weak signals at hiring are one way to read the short, low-quality matches in this paper. This link is mine, not the authors'.
+
+Limits stated by the authors: no low-income economies; urban areas and ages 16–65; unemployment and inactivity are less distinct in developing economies; formality is observed only in developing countries; three-quarter panels exist for 28 countries.
+
+---
+
+name: feng
+
+# Feng et al. (2024): the question
+
+.discuss[
+**Discussion**: what is the research question? Why is the paper considered a contribution?
+]
+
+--
+
+**Question**: how does unemployment vary with income per capita, and why?
+
+- Published cross-country series are not comparable: definitions differ, and poor countries are few.
+
+- **Contribution**: unemployment rates from 199 surveys and censuses in 84 countries, tiered by comparability.
+
+  - Prime-aged adults (25–54), 1960–2015.
+
+- **Unemployed**: not employed, and searched recently for a job.
+
+  - The self-employed and those working on a family farm or business count as employed.
+
+--
+
+.takeaway[Measured the same way everywhere, is unemployment higher in poor or in rich countries?]
+
+???
+
+Sections 1–2 (pp. 614–619). "We define an unemployed person as one who (i) is not employed and (ii) has searched recently for a job. ... Thus, we count those working in self-employment as employed." Employment follows the UN System of National Accounts: wage employment, self-employment, or work at a family business or farm, "whether or not the output is sold or consumed directly". Household surveys are used because "they cover all individuals, including the self-employed". The sample has 23 countries from the bottom quartile of the world income distribution and 27 from the second.
+
+Comparability is handled by tiers: 131 Tier 1 surveys (standard employment definition, search in the last week or four weeks), 37 Tier 2 (search "currently" or over another period), 31 Tier 3 (non-standard employment question). The availability criterion of official statistics is not imposed because only 49 of the 199 surveys ask it (fn 2).
+
+Why published series mislead (p. 619): with ILO modelled estimates for 2014 the slope of unemployment on log GDP per capita is small and insignificant; with the ILO's comparable series, which cover 30 countries of which one is in the bottom half of the income distribution, it is negative. "Any of the readily available unemployment databases paints a misleading picture."
+
+---
+
+# Feng et al. (2024): unemployment rises with income per capita
+
+&lt;div style="float: right; width: 52%; margin-left: 16px;"&gt;
+&lt;img src="figures/feng_fig1.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/ej/uead076"&gt;Feng, Lagakos, and Rauch (2024)&lt;/a&gt;, Figure 1. Black dots: country averages; crosses: averages of country–year observations by income quartile.]
+&lt;/div&gt;
+
+- Poorest quarter of countries: 2.5%.
+
+- Richest quarter: 8.7%.
+
+  - Text averages; the crosses (country-years) sit higher.
+
+- One log point of GDP per capita:
+
+  - 1.8 points more unemployment.
+
+- Wide variation at every income level.
+
+&lt;div style="clear: both; padding-top: 6px;"&gt;&lt;/div&gt;
+
+--
+
+.takeaway[Unemployment is higher in rich countries than in poor countries]
+
+???
+
+p. 620 and Table 1. "The slope coefficient for the regression of the unemployment rate in natural units on log GDP per capita is 1.8 and is statistically significant at the 1% level. Taking simple averages by country income quartile, the bottom (poorest) quartile has an average unemployment rate of 2.5%. By contrast, the top (richest) quartile has an average unemployment rate of 8.7%." The 1.8 uses country averages for the 55 countries with at least two surveys: 1.82 (0.46). With all 199 surveys the slope is 1.15 (0.29); Tier 1 only, 1.45 (0.31).
+
+In the figure, black dots are country averages, grey dots are country–years, and the red crosses are averages by quartile. Read from the figure, the crosses sit near 4, 7, 8, and 8%, which does not match the 2.5% and 8.7% in the text; the figure note says the crosses average country–year observations, the text says simple averages by country quartile. The paper does not explain the difference. The slide quotes the text.
+
+The authors stress the dispersion: "Figure 1 highlights the large variation in average unemployment rates within each income group." They also note that the cross-country data "are thus not suitable for studying how unemployment correlates with income levels over time within particular economies" (p. 624); historical series for five rich countries and United States censuses from 1910 to 2010 point the same way (Tables 3–4).
+
+---
+
+# Feng et al. (2024): unemployment by education
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/feng_fig2a.png" style="width: 32%;" /&gt; &lt;img src="figures/feng_fig2b.png" style="width: 32%;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/ej/uead076"&gt;Feng, Lagakos, and Rauch (2024)&lt;/a&gt;, Figure 2. Left: below secondary school; right: secondary or more. Crosses: averages of country–year observations by quartile.]
+
+- **Left**, less educated: 2.7% in the poorest quarter of countries, 14.3% in the richest.
+
+- **Right**, more educated: 4.9%, 7.7%, 6.2%, and 7.3% across the four quarters, with no clear trend.
+
+- Ratio of less- to more-educated unemployment, country average: 0.52 (poorest quarter), 2.1 (richest).
+
+--
+
+.takeaway[In poor countries the more educated are more often unemployed; in rich countries, the less educated]
+
+???
+
+pp. 621–623, Table 1, and Figure 3. "For the low-educated group, unemployment is strongly increasing in GDP per capita. For the high-educated group, unemployment rates are roughly constant across income levels." Slopes on log GDP per capita (country averages): low-educated 3.39 (0.56), high-educated 0.58 (0.41), ratio 0.48 (0.05). Quartile averages for the low-educated: 2.7, 8.1, 9.5, and 14.3%. The ratio: "For the poorest quartile of the world income distribution, the average ratio is 0.52. It rises to 1.1 in the second quartile, 1.5 in the third and 2.1 in the richest quartile." "Virtually all of the poorest countries have ratios less than one."
+
+The pattern holds for men and women, for each age group, and in rural and urban areas separately (Table 2). Because it holds in both rural and urban areas, the authors leave the rural–urban divide out of the model (p. 617).
+
+As with Figure 1, the red crosses in Figure 2 do not match the quartile averages in the text exactly (the high-educated cross for the poorest quartile sits near 7%, against 4.9% in the text).
+
+---
+
+# Feng et al. (2024): a model with two sectors
+
+&lt;div style="text-align: center;"&gt;
+&lt;svg viewBox="0 0 1280 300" style="width: 66%; max-width: 900px;" xmlns="http://www.w3.org/2000/svg" font-family="Fira Sans, Arial, sans-serif"&gt;
+&lt;line x1="60" y1="170" x2="1200" y2="170" stroke="#23373B" stroke-width="4"/&gt;
+&lt;polygon points="1232,170 1200,157 1200,183" fill="#23373B"/&gt;
+&lt;text x="1236" y="215" font-size="26" text-anchor="end" fill="#23373B" font-style="italic"&gt;ability x&lt;/text&gt;
+&lt;line x1="440" y1="142" x2="440" y2="198" stroke="#23373B" stroke-width="4"/&gt;
+&lt;text x="440" y="238" font-size="30" text-anchor="middle" font-style="italic" fill="#23373B"&gt;x*&lt;tspan baseline-shift="sub" font-size="22"&gt;T&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="820" y1="142" x2="820" y2="198" stroke="#23373B" stroke-width="4"/&gt;
+&lt;text x="820" y="238" font-size="30" text-anchor="middle" font-style="italic" fill="#23373B"&gt;x*&lt;tspan baseline-shift="sub" font-size="22"&gt;M&lt;/tspan&gt;&lt;/text&gt;
+&lt;text x="250" y="286" font-size="26" text-anchor="middle" fill="#555"&gt;traditional work, no search&lt;/text&gt;
+&lt;text x="630" y="286" font-size="26" text-anchor="middle" fill="#555"&gt;traditional work, searching&lt;/text&gt;
+&lt;text x="1010" y="286" font-size="26" text-anchor="middle" fill="#555"&gt;unemployed, searching&lt;/text&gt;
+&lt;circle cx="250" cy="80" r="34" fill="#3b6fb6"/&gt;
+&lt;text x="250" y="92" font-size="34" text-anchor="middle" fill="#fff"&gt;T&lt;/text&gt;
+&lt;circle cx="520" cy="80" r="34" fill="#3b6fb6"/&gt;
+&lt;text x="520" y="92" font-size="34" text-anchor="middle" fill="#fff"&gt;T&lt;/text&gt;
+&lt;circle cx="740" cy="80" r="34" fill="#3b6fb6"/&gt;
+&lt;text x="740" y="92" font-size="34" text-anchor="middle" fill="#fff"&gt;E&lt;/text&gt;
+&lt;line x1="562" y1="64" x2="686" y2="64" stroke="#23373B" stroke-width="4"/&gt;
+&lt;polygon points="700,64 676,54 676,74" fill="#23373B"/&gt;
+&lt;text x="630" y="44" font-size="28" text-anchor="middle" font-style="italic" fill="#23373B"&gt;f&lt;tspan baseline-shift="sub" font-size="20"&gt;T&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="698" y1="98" x2="574" y2="98" stroke="#23373B" stroke-width="4"/&gt;
+&lt;polygon points="560,98 584,88 584,108" fill="#23373B"/&gt;
+&lt;text x="630" y="134" font-size="28" text-anchor="middle" font-style="italic" fill="#23373B"&gt;s&lt;/text&gt;
+&lt;circle cx="900" cy="80" r="34" fill="#3b6fb6"/&gt;
+&lt;text x="900" y="92" font-size="34" text-anchor="middle" fill="#fff"&gt;U&lt;/text&gt;
+&lt;circle cx="1120" cy="80" r="34" fill="#3b6fb6"/&gt;
+&lt;text x="1120" y="92" font-size="34" text-anchor="middle" fill="#fff"&gt;E&lt;/text&gt;
+&lt;line x1="942" y1="64" x2="1066" y2="64" stroke="#23373B" stroke-width="4"/&gt;
+&lt;polygon points="1080,64 1056,54 1056,74" fill="#23373B"/&gt;
+&lt;text x="1010" y="44" font-size="28" text-anchor="middle" font-style="italic" fill="#23373B"&gt;f&lt;tspan baseline-shift="sub" font-size="20"&gt;U&lt;/tspan&gt;&lt;/text&gt;
+&lt;line x1="1078" y1="98" x2="954" y2="98" stroke="#23373B" stroke-width="4"/&gt;
+&lt;polygon points="940,98 964,88 964,108" fill="#23373B"/&gt;
+&lt;text x="1010" y="134" font-size="28" text-anchor="middle" font-style="italic" fill="#23373B"&gt;s&lt;/text&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+
+.source[Redrawn from &lt;a href="https://doi.org/10.1093/ej/uead076"&gt;Feng, Lagakos, and Rauch (2024)&lt;/a&gt;, Figure 4, with the paper's region labels. T: traditional sector; E: modern-sector job; U: unemployed.]
+
+- **T, traditional sector**: self-employment; pay does not depend on ability; no search is needed.
+
+- **E, modern sector**: wage jobs; pay rises with ability; entered only through search.
+
+- **Arrows**: job finding at rate f&lt;sub&gt;T&lt;/sub&gt; while self-employed, f&lt;sub&gt;U&lt;/sub&gt; &gt; f&lt;sub&gt;T&lt;/sub&gt; while unemployed; s: separation.
+
+- **Cut-offs**: the higher a worker's ability, the more a modern job pays, so search is worth more.
+
+--
+
+.takeaway[Unemployment is chosen by workers for whom a modern-sector job pays enough more to justify search]
+
+???
+
+Section 3 (pp. 626–632). The authors' summary (p. 615): "we build a simple two-sector model with frictional labour markets, based on Diamond (1982) and Mortensen and Pissarides (1994), and heterogeneous workers that sort by ability as in Roy (1951). In the modern sector, labour markets are governed by search frictions, and worker productivity is determined by a worker's ability level. In the traditional sector, workers are self-employed with productivity that is independent of ability. Countries differ exogenously in their ratios of modern- to traditional-sector productivity."
+
+Countries differ exogenously in the productivity of the modern sector relative to the traditional sector (this line was on the slide and now sits here; the next slide uses it). Reading the figure: below the first cut-off, workers stay in the traditional sector and do not search. Between the two cut-offs, they work in the traditional sector and search with lower intensity; when a modern job ends they return to the traditional sector. Above the second cut-off, they search full time while unemployed. More-educated workers draw ability from a better distribution, so more of them are above the cut-offs. There are two search markets, one per education group, and their outputs are perfect substitutes: there is no shift in relative demand toward educated workers.
+
+The traditional sector in the data: low-skilled own-account workers and unpaid family workers (p. 633). Its share of prime-age employment falls from about 80% in the poorest countries to about 2% in the United States (Figure 5).
+
+The driving force is equation (5): traditional-sector productivity rises less than one for one with modern-sector productivity. The authors call this technological change "skill-biased across countries", following Caselli and Coleman (2006); the calibrated elasticity is 0.023, so traditional-sector productivity is almost constant across countries. Job-finding rates do not depend on ability (f_U = θ^(1−α)): who searches is decided by how much more a modern job pays, not by who is likely to find one.
+
+---
+
+# Feng et al. (2024): why unemployment rises with development
+
+.discuss[
+**Discussion**: why does unemployment rise as the modern sector grows, and why more for the less educated?
+]
+
+--
+
+- **As modern productivity rises**, a modern job pays more relative to traditional work.
+
+  - The gain from finding one grows; traditional earnings barely change.
+
+--
+
+- **Searching while unemployed** finds a job faster (f&lt;sub&gt;U&lt;/sub&gt; &gt; f&lt;sub&gt;T&lt;/sub&gt;) but forgoes traditional earnings.
+
+  - With a larger gain, more workers accept that loss: the cut-off x*&lt;sub&gt;M&lt;/sub&gt; falls and unemployment rises.
+
+--
+
+- Unemployment benefits also become more generous, which lowers the cost of searching while unemployed.
+
+--
+
+- **Less-educated workers**: in poor countries most are in the traditional sector.
+
+  - As the modern sector grows, a larger share of them is drawn into search.
+
+  - More-educated workers' unemployment rises less, because fewer of them start in the traditional sector.
+
+--
+
+.takeaway[Unemployment rises as less-skilled workers leave self-employment to search for wage work]
+
+???
+
+The authors (p. 615): "as modern-sector productivity increases, the aggregate unemployment rate increases. This occurs because workers can search more effectively for the increasingly attractive modern sector jobs when unemployed than when self-employed in the traditional sector. In addition, unemployment benefits become more generous when productivity increases, making job search—and potential unemployment spells—more attractive for workers. Second, as modern-sector productivity increases, unemployment rates rise faster for less able than for more able workers, since a greater share of less able workers are drawn out of the traditional sector." Conclusion (p. 645): "unemployment is a consequence of the development process, as progressively less skilled individuals move from self-employment into wage work."
+
+A second channel (p. 631): the workers drawn into search are of lower ability than existing modern-sector workers, so the expected value of a match falls and firms post fewer vacancies per searcher. Two conditions the authors state: the elasticity of substitution between the two goods must be high enough (calibrated 3.97), and the aggregate rate can fall at the top of the income distribution because the less-educated share shrinks (it does for the richest model economies, p. 637). A further reason the less educated are affected more (p. 632): their separation rate is higher, which lowers the value of a modern-sector match.
+
+Last year's slide explained the result as rising demand for educated workers. That is not the model: the two education groups do not compete, and unemployment rises for both groups in the model. The less educated are affected more because more of them start in the traditional sector.
+
+---
+
+# Feng et al. (2024): the model and the data
+
+&lt;div style="float: right; width: 43%; margin-left: 16px;"&gt;
+&lt;img src="figures/feng_fig5.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/ej/uead076"&gt;Feng, Lagakos, and Rauch (2024)&lt;/a&gt;, Figure 5 (slope targeted; the convex shape is not) and Table 8.]
+&lt;/div&gt;
+
+&lt;div style="font-size: 82%;"&gt;
+&lt;table style="width: 54%; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left; white-space: nowrap;"&gt;Slope of unemployment on log GDP&lt;/th&gt;&lt;th style="text-align:right;"&gt;Data&lt;/th&gt;&lt;th style="text-align:right;"&gt;Model&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;All workers&lt;/td&gt;&lt;td style="text-align:right;"&gt;1.82&lt;/td&gt;&lt;td style="text-align:right;"&gt;1.80&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Less educated&lt;/td&gt;&lt;td style="text-align:right;"&gt;3.39&lt;/td&gt;&lt;td style="text-align:right;"&gt;3.13&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;More educated&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.58&lt;/td&gt;&lt;td style="text-align:right;"&gt;1.08&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;Ratio, less to more&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.48&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.57&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+- Calibrated to United States moments.
+
+- **Figure**: traditional-sector share, data and model (targeted).
+
+- The unemployment slopes in the table are not targeted.
+
+- Relative productivity alone gives 76% of the model's slope; benefits alone, 21%.
+
+&lt;div style="clear: both; padding-top: 6px;"&gt;&lt;/div&gt;
+
+--
+
+.takeaway[In the model, skill-biased productivity differences alone account for most of the rise in unemployment]
+
+???
+
+Section 4 (pp. 632–642). The model is calibrated to eight United States moments (unemployment 5.71%, a low-to-high unemployment ratio of 2.31, the wage ratio 1.60, two log-wage variances, a vacancy cost of 17%, the traditional sector's expenditure and employment shares; the 45% replacement rate and the high-educated separation rate 0.045 are set, not calibrated) and to two cross-country slopes: the traditional sector's employment share on log GDP per capita (−19.90) and the relative price of traditional services (0.60). Across countries the authors lower modern-sector productivity and vary unemployment benefits (from 0.45 to almost zero), wage taxes, the share of less-educated workers, and the search intensity of the self-employed, the last three from data.
+
+Table 8: "For the aggregate unemployment rate, the model yields a semi-elasticity of 1.80 compared to 1.82 in the data. Thus, the model accounts for almost all of the empirical relationship between unemployment and log GDP per capita." The model overstates the slope for the more educated (1.08 against 0.58) and the steepness of the ratio.
+
+Table 9, varying one factor at a time: "skill-biased technical change alone can account for 76% (1.36/1.80) of the benchmark model semi-elasticity, unemployment transfers alone can account for 21% (0.38/1.80) and wage taxes alone can account for 9% (0.17/1.80)." The rising share of educated workers alone works against the gradient (−1.4). These are shares of the model's slope and do not add up to one.
+
+What the calibration cannot show: that the mechanism is the right one. Labor market institutions such as employment protection, minimum wages, or unions are not in the paper; benefits and wage taxes are the only policy differences across countries.
+
+---
+
+# Feng et al. (2024): interpretation
+
+.discuss[
+**Discussion**: is low unemployment in poor countries a sign that their labor markets work well?
+]
+
+--
+
+- Not by itself: unemployment is low because search is not worthwhile for most workers.
+
+  - A modern job would pay them little more than traditional work, and benefits are near zero.
+
+--
+
+- Higher unemployment in rich countries is partly an efficient outcome of search.
+
+--
+
+- Raising less-educated workers' productivity by 20% in a &amp;#36;3,000 economy, in the model:
+
+  - wage employment rises by 4.8 points, unemployment by 0.3 points.
+
+--
+
+- **Limits**: a calibrated steady-state model; much cross-country variation is left unexplained.
+
+.source[&lt;a href="https://doi.org/10.1093/ej/uead076"&gt;Feng, Lagakos, and Rauch (2024)&lt;/a&gt;]
+
+--
+
+.takeaway[Measured unemployment rises with development; in poor countries self-employment takes its place]
+
+???
+
+Discussion answer. In the model and in the data, low unemployment goes with a large traditional sector. Unemployment is the state of searching for a wage job without working, which pays off only for workers whose modern-sector earnings exceed traditional earnings by enough, and is easier to sustain with unemployment benefits. The planner's solution also has very low unemployment in low-income countries (p. 643), so low unemployment there is not in itself a sign of malfunction, nor of a well-functioning market. Conclusion (p. 645): "unemployment is a consequence of the development process, as progressively less skilled individuals move from self-employment into wage work."
+
+Efficiency (Figure 9, p. 643): comparing the equilibrium with a planner's solution, "greater unemployment levels in richer countries are, at least in part, efficient outcomes given search frictions in labour markets."
+
+Policy experiment (Table 11, p. 644): productivity of less-educated workers rises by 20% in an economy with GDP per capita of $3,000. Wage employment rises by 4.82 percentage points and unemployment by 0.26, "5.3 unemployed workers for every additional 100 wage workers". Human capital policy raises measured unemployment and is still an improvement.
+
+Limits the authors state: "there is a great deal of variation in unemployment that is not explained by our model, suggesting a large scope for policies targeted more directly at improving the functioning of the labour market"; results are sensitive to the elasticity of substitution between traditional and modern goods if the traditional-sector slope is not targeted.
+
+The takeaway follows the conclusion (p. 645). The paper does not discuss labor market slack; the point that self-employment can hide rationing is from Week 7: Breza, Kaur, and Shamdasani (2021) measure it directly in rural Odisha. Make that link in words, not as the paper's claim.
+
+---
+
+# What we have learned: labor markets across development
+
+- **Flows** (49 countries): workers leave employment and change jobs more often in poorer countries.
+
+  - Most of the difference comes from self-employment and from informal and low-paid wage jobs.
+
+  - Workers who move up often return to lower-paid work: a slippery job ladder.
+
+--
+
+- **Unemployment** (84 countries): higher in richer countries, because of less-educated workers.
+
+  - In poorer countries these workers are self-employed in a traditional sector.
+
+--
+
+- **Both papers**: in poor countries self-employment, not unemployment, absorbs workers without wage jobs.
+
+--
+
+.takeaway[Low unemployment and high turnover reflect self-employment and short-lived jobs, not plentiful work]
+
+???
+
+The answer to the first question. The two statistics that looked favorable on the first slide are both produced by the same margin: where formal wage jobs are scarce and there is no unemployment insurance, people work for themselves or take short-lived wage jobs, and they move among these states often. Formal, better-paid wage jobs look alike everywhere; what changes with development is how many workers hold them.
+
+This is the macro counterpart of Weeks 7 and 8. Breza, Kaur, and Shamdasani (2021) and the Harris–Todaro extension treated self-employment and informal work as what is left for those without a wage job; Donovan, Lu, and Schoellman (2023) and Feng, Lagakos, and Rauch (2024) find the same in cross-country data, with the qualification from Week 8 that some informality is chosen.
+
+Next: the largest reallocation of all, out of agriculture.
+
+---
+
+name: part2
+class: inverse, middle, center
+
+&lt;div style="font-size: 34px; text-align: center;"&gt;
+  Part 2. Is labor misallocated between sectors?
+  &lt;div style="font-size: 22px; margin-top: 18px;"&gt;Structural transformation and the agricultural productivity gap&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+name: transformation
+# Structural transformation: the facts
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/herrendorf1.png" style="width: 52%; max-width: 580px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1016/B978-0-444-53540-5.00006-9"&gt;Herrendorf, Rogerson, and Valentinyi (2014)&lt;/a&gt;, Figure 6.1, agriculture panels: ten countries, 1800–2000.]
+
+- As GDP per capita rises, agriculture's shares of employment and of value added (current prices) fall.
+
+- The shares of services rise; those of manufacturing rise and then fall (panels not shown).
+
+.discuss[
+**Discussion**: agriculture employs a larger share of workers than it produces of output. What follows?
+]
+
+--
+
+.takeaway[In almost every country, agriculture produces less value added per worker than the rest of the economy]
+
+???
+
+Herrendorf, Rogerson, and Valentinyi (2014): "Structural transformation refers to the reallocation of economic activity across the broad sectors agriculture, manufacturing, and services." The facts (pp. 860–861): "Over the last two centuries, increases in GDP per capita have been associated with decreases in both the employment share and the nominal value added share in agriculture, and increases in both the employment share and the nominal value added share in services. Manufacturing has behaved differently from the other two sectors: its employment and nominal value added shares follow a hump shape". The figure covers Belgium, Finland, France, Japan, Korea, the Netherlands, Spain, Sweden, the United Kingdom, and the United States; the same patterns appear in cross sections of today's countries (their Figures 6.5–6.6).
+
+Discussion answer. At low levels of development the value added share of agriculture "is considerably lower than the employment share" (p. 862). If agriculture has 70% of workers and 40% of value added, value added per worker outside agriculture is (0.6/0.3)/(0.4/0.7) = 3.5 times that in agriculture. The numbers in this example are mine, chosen to match the average gap on the next slide.
+
+---
+
+name: apg
+
+# The agricultural productivity gap
+
+Value added per worker outside agriculture, relative to agriculture:
+
+`$$\text{APG} = \frac{VA_n / L_n}{VA_a / L_a}$$`
+
+- With Cobb–Douglas technology, equal labor shares, free mobility, and competitive wages, the gap is 1.
+
+- In the data, 151 countries: the average gap is 3.5.
+
+  - Poorest quarter of countries: 5.6. Richest quarter: 2.0.
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjt056"&gt;Gollin, Lagakos, and Waugh (2014)&lt;/a&gt;]
+
+.discuss[
+**Discussion**: what could produce a gap above 1, other than misallocation of labor?
+]
+
+--
+
+.takeaway[Taken at face value, a gap of 3.5 implies that labor is greatly misallocated across sectors]
+
+???
+
+Gollin, Lagakos, and Waugh (2014, pp. 944–945). In a two-sector model with Cobb–Douglas production, the same labor share in both sectors, free labor mobility, and competitive labor markets, value added per worker is equalized, so the ratio equals 1. If it does not, "the explanation must lie in either measurement problems related to labor inputs or value added, or in frictions of some kind in the labor market—nothing else."
+
+Table I: raw gaps for 151 countries, from national accounts (value added shares) and censuses or labor force surveys (employment shares). Mean 3.5, median 2.6. By quartile of income, from richest to poorest, the means are 2.0, 3.2, 3.4, and 5.6, and the medians 1.7, 2.7, 2.8, and 4.3. Abstract: "Taken at face value, this 'agricultural productivity gap' suggests that labor is greatly misallocated across sectors."
+
+Discussion answers: workers in agriculture work fewer hours; they have less human capital; value added in agriculture is mismeasured in national accounts (home production); the cost of living and amenities differ; and workers select into sectors on ability that we do not observe. The next two slides take measurement and selection in turn.
+
+Link to Week 7: Lewis (1954) assumed that the marginal product of labor in agriculture is below the wage in the modern sector, which is one form of a gap. Link to Week 8: Harris and Todaro (1970) explain a gap in wages without misallocation, because the urban wage is offset by unemployment.
+
+---
+
+# Gollin, Lagakos, and Waugh (2014): is the gap mismeasured?
+
+- **Hours**: workers outside agriculture work about 1.1 times as many hours.
+
+  - 1.3 times in the poorest quarter of countries.
+
+- **Human capital**: schooling is lower in agriculture in every country.
+
+  - Human capital per worker is 1.3 times as high outside agriculture; 1.4 in the poorest quarter.
+
+--
+
+- **Adjusted gap**, 72 countries: the average falls from 3.5 to 2.2.
+
+  - Poorest quarter: 3.0.
+
+- **Household surveys**, 10 countries: 2.2 with survey value added, 2.6 with national-accounts value added.
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjt056"&gt;Gollin, Lagakos, and Waugh (2014)&lt;/a&gt;]
+
+--
+
+.takeaway[After adjustment the gap is still about 2 in the typical country and about 3 in the poorest quarter]
+
+???
+
+Sections IV–V. Hours (p. 953): "on average, workers in nonagriculture supply around 1.1 times more hours than workers in agriculture". Human capital (pp. 961–964): "in literally every country, average schooling is lower in agriculture than nonagriculture"; with a 10% return per year of schooling, "the average across countries is a factor 1.3 difference". The adjusted gap divides the raw gap by both ratios, for the 72 countries with both (Table III): mean 3.5 raw and 2.2 adjusted; median 3.1 and 1.9; poorest quartile mean 3.0, median 2.3.
+
+Household surveys (Table IV): Living Standards Measurement Surveys for 10 countries, with value added built from self-employment income (home-consumed output valued at farm-gate prices), labor income, and capital income. Average gap 2.2 from the surveys against 2.6 from the national accounts for the same countries: "the two measures provide surprisingly similar estimates". So the gap is not an artifact of national accounts.
+
+Conclusion (p. 990): "even after taking all these measurement issues into consideration, a puzzlingly large agricultural productivity gap remains. The value of output per worker in nonagriculture still appears to be roughly twice as high as in agriculture in the typical country, and even higher in the typical developing countries. The implication is that there should be large income gains from workers moving out of agriculture and into other economic activities."
+
+Selection is listed as a potential explanation (Section VI.C) and is not quantified; the authors cite Young (2013) as the most compelling evidence for it.
+
+---
+
+name: hamory
+
+# Hamory et al. (2021): misallocation or selection?
+
+.discuss[
+**Discussion**: how could we tell misallocation from the selection of more able workers out of agriculture?
+]
+
+--
+
+- Follow the same people as they change sector, and compare each person with themselves.
+
+- **Data**: panels that track migrants, in Indonesia (1988–2015) and Kenya (1998–2014).
+
+`$$y_{it} = z_a + \beta D_{it} + l_{it} + \theta_i + \omega_{it}$$`
+
+- `\(y\)`: log earnings; `\(D\)`: 1 if the job is outside agriculture; `\(l\)`: log hours, entering one-for-one.
+
+- `\(z_a\)`: the agricultural wage per efficiency unit; `\(\omega\)`: a mean-zero time-varying shock.
+
+- `\(\theta\)`: individual fixed effect, which absorbs ability and other fixed traits.
+
+.source[&lt;a href="https://doi.org/10.1093/jeea/jvaa043"&gt;Hamory, Kleemans, Li, and Miguel (2021)&lt;/a&gt;]
+
+--
+
+&lt;div class="takeaway"&gt;With fixed effects, \(\beta\) compares the same worker in and out of agriculture&lt;/div&gt;
+
+???
+
+Equation (4), p. 1528, the paper's key estimating equation. Standard errors are clustered by individual. Because hours enter with a unit coefficient, equation (4) is a wage equation: it corresponds to the hourly-wage row of the results table (0.077 / 0.014). The earnings rows control for a quadratic in log hours instead, and the data reject the unit coefficient (p. 1543).
+
+Data. Indonesia Family Life Survey: five rounds between 1993 and 2015, representative of 83% of the 1993 population; re-contact rates between rounds above 90%; an annual employment panel for 1988–2015 with 31,537 individuals and 258,745 individual-years. Kenya Life Panel Survey: 8,999 people who attended rural primary schools in Busia (the deworming and scholarship samples from Weeks 5 and 6), tracked for 10–15 years with an effective tracking rate of about 85% per round; a monthly panel for March 1998 to October 2014 with 4,718 individuals.
+
+Evidence of selection before any regression: rural-born Indonesians who move to urban areas score more than 0.2 standard deviations higher on Raven's matrices; in Kenya the raw gap is 0.3 standard deviations (pp. 1534, 1540).
+
+---
+
+# Hamory et al. (2021): results
+
+&lt;div style="font-size: 78%;"&gt;
+&lt;table style="width: 78%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Gap in log earnings, non-agricultural relative to agricultural work&lt;/th&gt;&lt;th style="text-align:right;"&gt;Indonesia&lt;/th&gt;&lt;th style="text-align:right;"&gt;Kenya&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Raw gap&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.715&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.724&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;With hours, gender, and education&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.376&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.470&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;With individual fixed effects and hours&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.239&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.219&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;Hourly wage, with individual fixed effects&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.077&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.014&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/jeea/jvaa043"&gt;Hamory, Kleemans, Li, and Miguel (2021)&lt;/a&gt;, Table 4.]
+
+- With fixed effects the gap falls by 67% in Indonesia and by 70% in Kenya.
+
+  - Kenya's wage estimate is not significant; the confidence intervals still allow meaningful gains.
+
+.discuss[
+**Discussion**: for whom does the fixed-effects estimate measure the gain from leaving agriculture?
+]
+
+--
+
+- For those who switched sector; under a Roy model they gain more than the average worker would.
+
+--
+
+.takeaway[Most of the raw gap reflects who works in each sector; the gain to a given worker is far smaller]
+
+???
+
+Table 4, columns (1), (3), (7), and (8). Standard errors: Indonesia 0.013, 0.012, 0.017, 0.020; Kenya 0.060, 0.054, 0.086, 0.106. The fixed-effects estimates rest on 3,907 switchers in Indonesia and 324 in Kenya. "Comparing column (1) (the raw gap) to column (7) in Table 4, the agricultural productivity gap is reduced by 67% in Indonesia and by 70% in Kenya" (p. 1543). For the urban–rural gap the reductions are 92% and 72% (p. 1544). The abstract says "roughly 67%–92%".
+
+Interpretation (p. 1551): "the findings point to the role that individual selection plays in driving observed sectoral gaps and could call into question strong causal interpretations. As a result, the puzzle of why the share of workers in rural agriculture remains high may not be as much of a puzzle as previously thought. Similarly, if observed gaps are partly driven by selection, then policies to incentivize workers to move to urban areas (and out of agriculture), based on the logic of input misallocation, might not appreciably raise aggregate living standards".
+
+Discussion answer. The estimate is identified from movers: "it is possible that productivity gains could be different among non-movers" (p. 1526). Under a Roy model movers gain more than the average person would. But the estimate would be too low "if individuals who are especially well-suited to urban and non-agricultural work face particularly large barriers (e.g., credit constraints and information barriers)"; "we are unable to rule out these possibilities". Gains beyond five years and gains to children are not captured; urban-born children score higher on cognitive tests conditional on their parents' schooling and ability. Two countries only.
+
+---
+
+# What we have learned: labor across sectors
+
+- **Structural transformation**: employment and value added move from agriculture to services.
+
+  - Manufacturing first rises, then falls.
+
+--
+
+- **The gap**: value added per worker is 3.5 times as high outside agriculture on average (median 2.6).
+
+  - About 2 after adjusting for hours and human capital.
+
+--
+
+- **The same worker** earns 22–24 log points more outside agriculture (Kenya, Indonesia); per hour, far less.
+
+  - Movers are positively selected, so most of the raw gap is selection.
+
+--
+
+- **Experiments** find gains for some workers who face barriers to moving.
+
+  - A small subsidy for seasonal migration in Bangladesh raised household consumption.
+
+.source[&lt;a href="https://doi.org/10.3982/ecta10489"&gt;Bryan, Chowdhury, and Mobarak (2014)&lt;/a&gt;]
+
+--
+
+.takeaway[For a given worker the sectoral gap is much smaller, so reallocating labor yields smaller gains]
+
+???
+
+The answer to the second question is "less than the raw numbers suggest". The raw gap would imply very large gains from moving workers; the adjusted gap still implies large gains; the within-person estimates imply modest ones. The three numbers answer different questions: the first two compare average workers in each sector, the third compares the same worker in both.
+
+This does not mean that there are no barriers. Bryan, Chowdhury, and Mobarak (2014), a presentation paper on the syllabus, randomize a small incentive for seasonal migration in rural Bangladesh and find that it raises migration and household consumption, and that many households migrate again in later years without the incentive. Some workers are held back by risk or liquidity, even if the average non-mover would not gain much. I give no numbers here because I have not re-checked them against the paper for this lecture.
+
+Next: if most workers are not misallocated, why does labor leave agriculture at all, and who leaves?
+
+---
+
+name: part3
+class: inverse, middle, center
+
+&lt;div style="font-size: 34px; text-align: center;"&gt;
+  Part 3. What moves labor out of agriculture?
+  &lt;div style="font-size: 22px; margin-top: 18px;"&gt;Demand, technology, and the labor force&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Three forces that move labor out of agriculture
+
+- **Income effects**: as incomes rise, households spend a smaller share of their budget on food.
+
+--
+
+- **Relative prices and technology**: productivity grows at different rates across sectors.
+
+  - When goods are complements, labor leaves the sector whose productivity grows faster.
+
+--
+
+- **The labor force**: each new cohort has more schooling than the last.
+
+  - If schooling is worth more outside agriculture, fewer workers supply labor to farms.
+
+--
+
+.takeaway[The first two lower the demand for farm labor; the third lowers its supply]
+
+???
+
+The first two are the standard mechanisms in models of structural transformation. Herrendorf, Rogerson, and Valentinyi (2014, p. 894) organize the theory around "two different channels through which expenditure shares may change over time: income changes and relative price changes". Income effects come from non-homothetic preferences, as in Kongsamut, Rebelo, and Xie (2001): a subsistence requirement for food means that the food share falls as income rises (Engel's law). Relative price effects come from differential productivity growth, as in Ngai and Pissarides (2007), building on Baumol (1967): when the elasticity of substitution across goods is below one, employment moves toward the sectors with slow productivity growth. Neither alone matches all the facts; a model with both might (p. 893).
+
+The third is the hypothesis of Caselli and Coleman (2001) for the United States, which Porzio, Rossi, and Santangelo (2022) take to data for many countries. It is a supply story: the labor force itself changes.
+
+Why the distinction matters empirically: a fall in demand for farm labor affects workers of all ages; a change in the labor force appears as a difference between birth cohorts. That is the identification idea of the next paper.
+
+Lewis (1954), from Week 7, is a fourth view: labor is in surplus in agriculture and is drawn out by capital accumulation in the modern sector at a constant wage.
+
+---
+
+name: porzio
+
+# Porzio et al. (2022): the question
+
+.discuss[
+**Discussion**: what is the research question? Why is the paper considered a contribution?
+]
+
+--
+
+**Question**: how much of the decline in agricultural employment comes from the labor force itself?
+
+- **Demand** for farm labor falls: workers of every cohort are affected alike.
+
+- **Supply** of farm labor falls: new cohorts are less likely to farm than those they replace.
+
+- **Contribution**: measure the fall in supply in many countries, and link it to schooling.
+
+  - Then quantify its effect on aggregate agricultural employment with a model.
+
+--
+
+.takeaway[A demand shift moves all cohorts; a supply shift appears as a difference between cohorts]
+
+???
+
+Introduction (pp. 2774–2777). "This paper argues that the labor force itself has been subject to a radical transformation, which has contributed significantly to the global decline in agricultural employment by reducing the supply of agricultural labor." The identification idea: "while changes in the demand for agricultural labor should affect different cohorts similarly, supply shifts due to changes in cohort-level characteristics—such as the quantity and quality of education—should be reflected in differences across cohorts." Contribution: "to develop and apply a methodology to measure changes in the supply of agricultural workers for many countries, link them to changes in schooling, and quantify their aggregate impact." The mechanism was "first proposed by Caselli and Coleman II (2001) in the US context, which we bring under empirical scrutiny on a global scale".
+
+---
+
+# Porzio et al. (2022): data and decomposition
+
+- **Data**: censuses and surveys for 58 countries (52 in the main results); men aged 25–59.
+
+- **Outcome**: the share of a birth cohort employed in agriculture, in each cross-section.
+
+For each country, with cohort `\(c\)` observed in year `\(t\)`:
+
+`$$\log l_{A,t,c} = Y_t + C_c + \varepsilon_{t,c}$$`
+
+- **Year effects** `\(Y\)`: the fall in agricultural employment within cohorts over time.
+
+- **Cohort effects** `\(C\)`: the gap between successive cohorts in any given year.
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;]
+
+--
+
+.takeaway[The year component is the slope of each cohort's path; the cohort component is the gap between paths]
+
+???
+
+Sections I–II (pp. 2778–2784). Data: IPUMS-International (censuses and labor force surveys) and IPUMS-Global Health (Demographic and Health Surveys); "58 countries and 241 cross-sections, covering more than two-thirds of the world population". The core sample for the tables is the 52 IPUMS-International countries (9 high-income, 24 middle-income, 19 low-income). Countries are observed for 27 years on average, with cross-sections 8.8 years apart. Women are excluded because "their low labor force participation in many countries makes it difficult to properly compute the cohort-level reallocation across sectors". The sample is not restricted to the labor force.
+
+Equation (1) is estimated separately for each country (the slide drops the country subscript). The annual rate of decline in aggregate agricultural employment is then split into a year component, the average change in year effects, and a cohort component, which combines the cohort effects with the changing age structure (equations (2)–(4)). In the authors' words (p. 2783): "the year component ... is the average slope of the cohorts' paths, while the cohort component ... is the average vertical gap across cohorts, properly annualized."
+
+---
+
+# Porzio et al. (2022): two examples
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/porzio_fig2.png" style="width: 64%; max-width: 1000px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;, Figure 2. Each line follows one birth cohort; the numbers are the cohort's age.]
+
+.discuss[
+**Discussion**: in which country do workers leave agriculture during their own working lives?
+]
+
+--
+
+- **Brazil**: every cohort's line falls. Workers leave agriculture over time: the year component.
+
+- **Indonesia**: no systematic trend within cohorts, and younger cohorts sit lower: the cohort component.
+
+???
+
+p. 2781: "In Brazil, the year component largely drives aggregate reallocation: within each given cohort, a large share of individuals reallocates out of agriculture over time. In Indonesia, the cohort component plays a more important role: there is no systematic within-cohort time trend in agricultural employment, and, in any given year, younger cohorts are less likely to work in agriculture. As younger cohorts enter the labor market and older ones exit, aggregate agricultural employment decreases as a result."
+
+The vertical axis is the share of the cohort employed in agriculture on a log scale. Through the lens of the model, the larger cohort component in Indonesia means that human capital growth played a larger role there; the authors note that schooling rose faster in Indonesia, while agricultural productivity grew faster in Brazil (p. 2803, fn 31).
+
+---
+
+# Porzio et al. (2022): separating cohort from age
+
+.discuss[
+**Discussion**: age is year minus birth year. What must we assume to separate cohort from age effects?
+]
+
+--
+
+- **The problem**: if older workers move less, each cohort's path flattens as it ages.
+
+  - Without age effects, the model reads this as a gap between cohorts.
+
+--
+
+- **The restriction**: age has no effect at the start of working life, around age 29.
+
+  - Age enters through quadratic and cubic terms in the distance from that age.
+
+--
+
+- **In words**: consecutive cohorts face the same barriers to moving when they are young.
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;]
+
+--
+
+.takeaway[Cohort effects are identified only under an assumption about how age affects mobility]
+
+???
+
+p. 2783: "It is well known that year, cohort and age are collinear, and can be separately identified only if an additional linear restriction is imposed. Our restriction is that age has no effect in the first few years a cohort is employed. ... Intuitively, this amounts to assuming that frictions to labor reallocation affect equally consecutive cohorts at the beginning of their working career." Why age matters: "older workers plausibly face stronger barriers ... this may contribute to a large role of cohort effects".
+
+Equation (5), following Card, Heining, and Kline (2013), adds to equation (1) a quadratic and a cubic term in age minus 29.4, "the average age of the youngest cohort that we observe for at least two successive cross-sections"; the linear term is omitted on purpose, so that age effects are zero at that age in levels and in changes. Alternatives (country-specific reference ages, age dummies, time-varying age controls) give similar results in the online appendix.
+
+The model later rationalizes the restriction: with a fixed cost of changing sector, cohorts below a threshold age reallocate at a common rate and older cohorts stop moving (Lemma 1). On average across all countries, workers are constrained in the last 30% of their working life, after about age 49; frictions are virtually absent in high-income countries and larger in poorer ones (p. 2804; the middle-income average is partly driven by three outliers, fn 33).
+
+---
+
+# Porzio et al. (2022): how much is due to new cohorts
+
+Annual change in agricultural employment, and the share of it due to the cohort component:
+
+&lt;div style="font-size: 84%;"&gt;
+&lt;table style="width: 86%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Countries&lt;/th&gt;&lt;th style="text-align:right; white-space: nowrap;"&gt;Change per year (%)&lt;/th&gt;&lt;th style="text-align:right; white-space: nowrap;"&gt;Cohort share, no age effects&lt;/th&gt;&lt;th style="text-align:right; white-space: nowrap;"&gt;Cohort share, with age effects&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="white-space: nowrap;"&gt;All (52)&lt;/td&gt;&lt;td style="text-align:right;"&gt;−2.11&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.56&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.38&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;High income (9)&lt;/td&gt;&lt;td style="text-align:right;"&gt;−3.41&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.59&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.59&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="white-space: nowrap;"&gt;Middle income (24)&lt;/td&gt;&lt;td style="text-align:right;"&gt;−2.19&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.56&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.27&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;Low income (19)&lt;/td&gt;&lt;td style="text-align:right;"&gt;−1.41&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.55&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.34&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;, Table 1.]
+
+- Agricultural employment falls by 2.1% a year on average.
+
+- New cohorts account for 56% of the fall, or 38% once age effects are allowed.
+
+- Age effects matter in low- and middle-income countries, not in high-income countries.
+
+--
+
+.takeaway[New cohorts account for about 40% of the decline in agricultural employment]
+
+???
+
+Table 1, columns (1), (3), and (5). Without age controls (p. 2783): "the agricultural employment declines on average by 2.11 percent each year, of which 0.92 percent is due to the year component. Therefore ... 56 percent of the aggregate reallocation is due to the cohort component; this contribution is similar across all income groups." With age controls (p. 2784): "the cohort component still explains almost 40 percent of the total reallocation out of agriculture".
+
+The paper states this number in three ways: the abstract says "nearly half", the introduction "about 40 percent" with age effects controlled, and Table 1 gives 0.56 and 0.38. The 38% is the preferred estimate and the one the model uses.
+
+The third bullet: with age effects the cohort share falls from 0.56 to 0.27 in middle-income and from 0.55 to 0.34 in low-income countries, and does not change in high-income countries. In the model this difference measures mobility frictions for older workers.
+
+---
+
+# Porzio et al. (2022): cohort effects and schooling
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/porzio_fig4.png" style="width: 50%; max-width: 650px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;, Figure 4. B: country-by-country coefficient of cohort effects on cohort schooling.]
+
+- **Left**: schooling rises across birth cohorts in every income group.
+
+- **Right**: one more year of schooling, net of the country's cohort trend: farm employment about 10% lower.
+
+.discuss[
+**Discussion**: is this the causal effect of schooling? What else differs across cohorts?
+]
+
+--
+
+- Schooling may respond to expected demand for non-agricultural work.
+
+- Cohorts also differ in early-childhood investment, ability, and preferences.
+
+???
+
+Section III.A (pp. 2785–2787). For each country, cohort effects are regressed on average cohort schooling with a country-specific quadratic trend in birth year (equation (6)). Panel B plots the coefficients against GDP per capita: "For almost all countries, the coefficient is negative". Pooled (Table 2, columns 1–2): −0.100 (0.004), and −0.108 (0.004) with birth-decade by income-group controls; 3,238 cohort observations. "One additional year of schooling decreases cohort-level agricultural employment by approximately 10 percent relative to what it would have been otherwise."
+
+The authors' own caution (p. 2786): "We should be cautious in interpreting this relationship as causal. If educational decisions are forward-looking, changes in schooling might be ultimately driven by the anticipation of higher demand for nonagricultural labor ... Moreover, cohort-level average schooling might be correlated with other cohort-level characteristics that affect sectoral choices, such as average early-childhood human capital investments, ability or preferences."
+
+Link to Week 5: these resemble the ability-bias and reverse-causality problems of Card (2001), but at the level of a cohort, and the authors argue they are "different (and, arguably, less severe)": individual selection on omitted characteristics does not matter "as long as the cohort-level distribution of these characteristics does not vary over time" (fn 17). Jensen (2010) showed that schooling responds to perceived returns, which is the first concern. Panel B also shows that "one extra year of schooling in rich countries appears to have a larger effect" (p. 2786).
+
+---
+
+# Porzio et al. (2022): education reforms as instruments
+
+&lt;div style="float: right; width: 50%; margin-left: 16px;"&gt;
+&lt;img src="figures/porzio_fig6.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;, Figure 6, with 90% confidence bands. Cohort 0 is the first cohort a reform could affect.]
+&lt;/div&gt;
+
+- 39 compulsory-schooling reforms, 23 countries.
+
+  - The 15 weakly implemented reforms are excluded.
+
+- After the first affected cohort:
+
+  - cohort effects fall (left);
+
+  - schooling rises (right).
+
+- **IV**: one more year of schooling,
+
+  - 17% lower agricultural employment.
+
+&lt;div style="clear: both; padding-top: 6px;"&gt;&lt;/div&gt;
+
+.discuss[
+**Discussion**: the first-stage F-statistics are 2.9 and 2.4. How should we read the IV estimate?
+]
+
+--
+
+.takeaway[The reform estimates have the same sign as OLS, but the instruments are weak]
+
+???
+
+Section III.B (pp. 2787–2790). The authors collect "39 policy reforms extending compulsory education, and 86 political events such as independence from colonial powers, transitions to democracy and wars"; 15 of the 39 reforms were weakly implemented, and the event study uses the fully implemented ones. Both series are detrended using the ten cohorts before the reform; the bands are 90 percent intervals. "We observe an increase in schooling and a decrease in cohort effects" for cohorts young enough to be affected. The dummies for cohorts around the reform then instrument for schooling in the pooled regression: −0.169 (0.038), and −0.157 (0.031) with birth-year controls; 907 observations (Table 2, columns 3–4). "One extra year of schooling induced by the policy reforms led to a decline of cohort-level agricultural employment of almost 17 percent."
+
+Discussion answer. Table 2 reports first-stage F-statistics of 2.93 and 2.40. Recall Lecture 2: the old rule of thumb was F above 10, and Lee, McCrary, Moreira, and Porter (2022) show that t-ratio inference at the 5% level needs an F near 105. With F below 3, the IV estimate is biased toward OLS and its standard errors understate the uncertainty. The paper does not discuss instrument strength. So the reform evidence is best read as an event study that points in the same direction as OLS, not as a precise causal estimate.
+
+The authors list other concerns (pp. 2789–2790): "educational reforms are often part of broader policy interventions"; "the reforms themselves might be implemented in anticipation of higher demand for nonagricultural labor"; "large educational expansions may have general equilibrium effects that impact all birth cohorts"; "it is in general not possible to fully rule out these alternative interpretations".
+
+In the published figure, the notes describe the panels in the opposite order from the panel titles; the slide follows the titles.
+
+---
+
+# Porzio et al. (2022): school construction in Indonesia
+
+- **Setting**: Indonesia built 61,000 primary schools between 1974 and 1978.
+
+- **Design**, as in &lt;a href="https://doi.org/10.1257/aer.91.4.795"&gt;Duflo (2001)&lt;/a&gt;: a difference-in-differences across cohorts and districts.
+
+  - Children aged 2–6 in 1974 against those aged 12–17; districts with more against fewer schools.
+
+--
+
+&lt;div style="font-size: 84%;"&gt;
+&lt;table style="width: 80%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;One more year of schooling: effect on the probability of working in&lt;/th&gt;&lt;th style="text-align:right;"&gt;Estimate&lt;/th&gt;&lt;th style="text-align:right;"&gt;Std. error&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;agriculture&lt;/td&gt;&lt;td style="text-align:right;"&gt;−0.063&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.030&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;non-agriculture&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.223&lt;/td&gt;&lt;td style="text-align:right;"&gt;0.063&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;, Table 3. First-stage F = 14.3.]
+
+- Non-agricultural employment rises by more than agricultural employment falls.
+
+  - The asymmetry suggests a flow from non-employment into non-agricultural work.
+
+--
+
+.takeaway[With a stronger instrument, schooling again moves workers out of agriculture]
+
+???
+
+Section III.C (pp. 2790–2793). Data: the 1995 intercensal survey, men born 1950–1977, 53,154 observations. The instrument is the interaction of being young enough to attend the new schools with the number of schools built per 1,000 children in the individual's district (the paper writes "currently living in district d" while saying it follows Duflo, who uses the district of birth), controlling for cohort and district effects and for 1972 enrollment interacted with cohort. First stage: 0.137 years of schooling per school per 1,000 children (0.036), F = 14.29. "One extra year of schooling reduces the probability of agricultural employment by 6.3 percentage points, and increases the probability of nonagricultural employment by 22.3 percentage points"; the asymmetry suggests "a significant flow from nonemployment to nonagricultural employment".
+
+You know this design from Week 5: Duflo (2001) used it to estimate the return to schooling in wages. Here the outcome is the sector of work. The estimates are from a linear probability model and are not directly comparable with the log specification of the reform regressions (fn 22).
+
+Two cautions of mine. The agriculture estimate has a t-ratio of about 2.1; with a first-stage F of 14, the Lee et al. (2022) correction from Lecture 2 would widen its confidence interval enough to include zero. And the identifying assumption is the one from Week 5: without the program, the cohort difference would have been the same in districts that received more and fewer schools.
+
+---
+
+# Porzio et al. (2022): from labor supply to the aggregate
+
+.discuss[
+**Discussion**: if schooling makes each cohort 10% less likely to farm, does farm employment fall by 10%?
+]
+
+--
+
+- No. When fewer workers supply labor to farms, the agricultural wage rises.
+
+  - Land is fixed, so the farm wage rises and more workers stay; food prices barely respond in the data.
+
+--
+
+- **The model**: two sectors; costs of moving; human capital raises productivity only outside agriculture.
+
+--
+
+- **At fixed wages**: human capital growth accounts for about 40% of the fall in agricultural employment.
+
+- **In general equilibrium**: about 20%. Wage adjustment offsets about half of the shift; prices add little.
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20201157"&gt;Porzio, Rossi, and Santangelo (2022)&lt;/a&gt;]
+
+--
+
+.takeaway[The cohort comparison measures a shift in labor supply; its aggregate effect is about half as large]
+
+???
+
+Sections IV–VI. The model has overlapping cohorts, two sectors, land as a fixed factor in agriculture, identical productivity of all workers in agriculture, and human capital that raises productivity only in non-agriculture. There are two frictions: a one-time fixed cost of changing sector and a per-period cost of working outside agriculture. Human capital, not schooling, is the model object; schooling is its empirical proxy. In the model the cohort component measures the partial-equilibrium shift in the supply of agricultural labor: "If wages are kept fixed (i.e., if the labor demand is vertical) this coincides with the labor reallocation induced by human capital growth, representing 38 percent of the overall reallocation" (p. 2803); the abstract rounds to 40.
+
+General equilibrium (pp. 2806–2811): the supply shift is multiplied by a factor that depends on the land share, the dispersion of ability, and the response of food prices; in a small open economy it lies between 0 and 1, in a closed economy it can amplify or attenuate (p. 2800), and the estimates put it below one. The price response is "positive, small and statistically insignificant" (p. 2808), so the offset comes mainly through the agricultural wage. A calibration without price effects gives a multiplier of 0.57–0.79, so that human capital "can account for between 20 percent and 30 percent of the observed rate of labor reallocation". A cross-country regression for 46 countries gives 0.51 (0.21): "human capital growth accounts for about 20 percent of labor reallocation". Conclusion: "if human capital growth (either endogenous or exogenous) did not take place, we would have observed 20 percent less labor reallocation out of agriculture."
+
+The authors' caveats: "the exact quantification hinges on the structure of the model"; it is "an accounting result"; "these numbers should be interpreted with caution: as well known, obtaining reliable estimates for general equilibrium effects is challenging". The cohort component also captures any cohort difference in the non-monetary value of non-agricultural work: "their relative importance cannot be separately identified".
+
+This is the same lesson as the comparison slide in Week 8 and Imbert and Papp (2015) in Week 7: an effect measured by comparing individuals or cohorts within a market is not the effect of changing the whole market.
+
+---
+
+# Agricultural technology and industry: Bustos et al. (2016)
+
+**Question**: in an open economy, does higher farm productivity release labor to industry?
+
+- **Brazil, 2000–2010**: two new technologies, compared across municipalities.
+
+  - Exposure: FAO-GAEZ potential yield under high minus low inputs, a function of soil and weather.
+
+--
+
+- **Genetically engineered soy** needs less labor per hectare.
+
+  - With land and labor strong complements, this lowers the marginal product of farm labor.
+
+  - One SD more exposure: agricultural employment share −1.8 points, manufacturing +1.8.
+
+- **A second maize harvest** is equivalent to more land, and raises the demand for farm labor.
+
+  - Farm employment rises and manufacturing falls; only the cross-municipality variation is arguably exogenous.
+
+.source[&lt;a href="https://doi.org/10.1257/aer.20131061"&gt;Bustos, Caprettini, and Ponticelli (2016)&lt;/a&gt;]
+
+--
+
+.takeaway[In an open economy, farm technology releases labor only if it lowers the marginal product of farm labor]
+
+???
+
+A presentation paper on the syllabus that no one chose, so one slide. Model: in a small open economy the wage is pinned down by manufacturing; labor-augmenting technical change in agriculture lowers the marginal product of labor on the farm when land and labor are strong complements ("strongly labor-saving"), so agricultural employment falls; land-augmenting change raises it. Soy that is resistant to herbicide removes the need for tillage: "This new technology requires less labor per unit of land to yield the same output." Second-season maize "permits the growth of two crops per year, effectively increasing the land endowment".
+
+Design: about 4,150 municipalities; outcomes from the 2000 and 2010 population censuses and the 1996 and 2006 agricultural censuses; exposure is the difference between FAO-GAEZ potential yields under high and low inputs, which depend on soil and weather and not on actual yields; a difference-in-differences with controls for 1991 characteristics. Table 8–9, per unit of soy exposure: agricultural employment share −0.021 (0.002), manufacturing share 0.021 (0.002), manufacturing wage −0.024 (0.012); for maize the signs reverse, 0.006 (0.001) and −0.004 (0.001). One standard deviation of soy exposure: "the agricultural employment share would fall 1.76 percentage points", and the manufacturing share rises by 1.79 (pp. 1348–1350). About one-third of the adjustment is through migration.
+
+Threats the authors address: municipalities with high soy exposure were less rural and richer in 1991 (hence the controls); no pre-trends in manufacturing employment for 1991–2000 (the 1980 census supplies only lagged controls), though pre-trends in employment shares cannot be tested because the employment definition changed between the 1991 and 2000 censuses; commodity prices; input–output links to manufacturing.
+
+Link: this is the "relative prices and technology" force, with a qualification. In a closed economy higher farm productivity releases labor through food demand; in an open economy the direction depends on the factor bias.
+
+---
+
+# What we have learned: what moves labor out of agriculture
+
+- **Who leaves** (52 countries): about 40% of the decline comes from new cohorts.
+
+  - Workers also leave within their working lives, less so when they are older.
+
+--
+
+- **Schooling**: cohorts with more schooling farm less.
+
+  - Reforms and school construction point to a causal effect; the reform instruments are weak.
+
+--
+
+- **In the aggregate**: human capital growth explains about 20% of the move out of agriculture.
+
+  - Part of the rise in schooling is itself a response to demand for non-agricultural labor.
+
+--
+
+- **Technology** (Brazil): labor-saving soy moved workers to manufacturing; land-augmenting maize, to farms.
+
+--
+
+.takeaway[Schooling is a labor-supply force behind structural transformation, alongside demand and technology]
+
+???
+
+The answer to the third question. All three forces are at work. The contribution of Porzio, Rossi, and Santangelo (2022) is to show that the labor force is not a passive input that waits to be pulled out of agriculture: the composition of the labor force changes, and that change accounts for a sizeable part of the reallocation. The estimate of about 20% in general equilibrium leaves the rest to demand and technology, which is where Bustos, Caprettini, and Ponticelli (2016) belong; but the split is not clean. Using the Green Revolution as a demand shock (Section VI.B), the authors estimate that about 40% of the cohort component is itself an endogenous response of schooling to demand (p. 2810), so human capital is "both a mediating factor and an independent driver" (abstract).
+
+Link to Part 2. Hamory et al. (2021) found that the workers who leave agriculture are positively selected. Porzio, Rossi, and Santangelo (2022) say the same in a different way: it is the more schooled cohorts who leave. Both suggest that the gap between sectors closes through the people who enter the labor force, more than through moving existing farmers.
+
+Link to Week 5: the return to schooling includes access to non-agricultural work, as in the Indonesian school construction estimates.
+
+---
+
+name: synthesis
+# What we have learned: the three questions
+
+**Low unemployment and high turnover where good jobs are scarce**
+
+- Self-employment and short-lived wage jobs absorb workers who lack formal wage jobs.
+
+--
+
+**Misallocation between sectors**
+
+- Value added per worker is about twice as high outside agriculture after adjustment.
+
+  - For a given worker the gap is much smaller: most of it is selection.
+
+--
+
+**What moves labor out of agriculture**
+
+- New, more schooled cohorts account for about 40% of the decline; about 20% in the aggregate.
+
+  - Demand and technology drive the rest, and part of the schooling rise is itself a response to them.
+
+--
+
+.takeaway[As countries develop, wage work replaces farming and self-employment, in part through new cohorts]
+
+???
+
+The three answers fit together. In poor countries most people work for themselves, on farms or in a traditional sector, and move frequently among self-employment, short-lived wage jobs, and non-employment. Measured unemployment is low because for most workers a modern-sector job would pay little more than self-employment, and there are no benefits. The gap in output per worker between agriculture and the rest of the economy is large on average, but most of it reflects who works where. Over time the labor force changes: each cohort is more schooled, less likely to farm, and more likely to search for wage work, which raises measured unemployment.
+
+Weeks 7 to 9 together: Week 7 asked whether rural labor is rationed; Week 8 asked who gets urban formal jobs and whether informality is a choice; this week showed the same margins in cross-country data. The common finding is that self-employment in poor countries is partly a substitute for unemployment and that the scarce resource is good wage jobs, not work.
+
+A word on method, in speech rather than on a slide. None of today's required papers has an experiment or a single natural experiment at its core, and each is explicit about what it claims. Donovan, Lu, and Schoellman (2023): "we do not claim that GDP per capita has a direct, causal effect on labor market flows"; "these findings do not pin down a unique theory of wage work". Feng, Lagakos, and Rauch (2024) show that a calibrated model with two mechanisms matches the slope, with skill-biased productivity differences accounting for about three quarters of it, and note that much variation is unexplained. Porzio, Rossi, and Santangelo (2022) call their quantification "an accounting result" that "hinges on the structure of the model". Cross-country facts constrain theories; they do not by themselves identify causes.
+
+For your research proposals: a descriptive fact that is new, comparable across countries, and inconsistent with a standard model can be a contribution without a causal design. The standard is different, not lower: the measurement must be comparable, the alternative explanations must be ruled out one by one, and the claims must match what the data can support.
+
+Next week: environment and development.
+
+---
+
+# Second half: presentations and discussions
+
+**Presentation 1**: &lt;a href="https://doi.org/10.1086/728429"&gt;Bandiera, Bassi, Burgess, Rasul, Sulaiman, and Vitali (2025)&lt;/a&gt;, *Journal of Labor Economics*
+
+- "The search for good jobs: Evidence from a six-year field experiment in Uganda"
+
+- presenter: Lien; discussant: Farangiz
+
+**Presentation 2**: &lt;a href="https://doi.org/10.1257/pol.20180072"&gt;Gerard and Gonzaga (2021)&lt;/a&gt;, *American Economic Journal: Economic Policy*
+
+- "Informal labor and the efficiency cost of social programs: Evidence from unemployment insurance in Brazil"
+
+- presenter: Dongyoung; discussant: M.J.
+
+--
+
+.discuss[
+**Discussion**: which Week 8 explanation does each paper address: too few jobs, search frictions, or choice?
+]
+
+???
+
+Both papers are from the Week 8 list and were moved to today because Week 8 had no presentations. Bandiera et al. (2025) track young job seekers in Uganda for six years and study how vocational training and matching change job search: training amplifies initial optimism and leads to more intensive search directed at high-quality firms; adding matching has the opposite effect, plausibly because of low callback rates. Gerard and Gonzaga (2021) use quasi-experimental variation in potential benefit duration in Brazil: unemployment insurance reduces the incentive to return to a formal job, but the efficiency cost is lower where informality is higher, because formal reemployment is low there to begin with.
+
+Links to today's lecture: the Uganda paper is about the search for the formal, better-paid jobs that Donovan, Lu, and Schoellman (2023) find are similar everywhere but scarce in poor countries. The Brazil paper is about unemployment benefits, which in Feng, Lagakos, and Rauch (2024) make full-time search more attractive.
+
+---
+
+# Plan for next week
+
+**Week 10 (Friday 27 November): Environment and development**
+
+- &lt;a href="https://doi.org/10.1257/jel.53.1.5"&gt;Greenstone and Jack (2015)&lt;/a&gt;, *JEL*: environmental quality in developing countries
+
+- &lt;a href="https://doi.org/10.1257/pol.20220066"&gt;del Valle (2024)&lt;/a&gt;, *AEJ: Economic Policy*: indexed disaster funds in Mexico
+
+- &lt;a href="https://doi.org/10.1093/qje/qjaf009"&gt;Greenstone, Pande, Ryan, and Sudarshan (2025)&lt;/a&gt;, *QJE*: a pollution market in India
+
+--
+
+Comments in the &lt;a href="https://docs.google.com/document/d/1-IlEMbnN1wn0kxUqh20z_R09_dYt2VL6O8uBI_rgAgc/edit?usp=sharing"&gt;Google Doc&lt;/a&gt; by **Thursday 26 November, 14:00**.
+
+Second half: one presentation, &lt;a href="https://doi.org/10.1093/ej/ueaa013"&gt;Asher, Garg, and Novosad (2020)&lt;/a&gt;.
+
+**Problem set 2**: due **Sunday 29 November, 14:00**.
+
+???
+
+Week 10 is the last class. The presentation is Asher, Garg, and Novosad (2020), "The ecological impact of transportation infrastructure" (presenter: Muzammil; discussant: Phung). The schedule is on the &lt;a href="https://docs.google.com/spreadsheets/d/1JYnioDWK2cD7upc2n16BE7V-OCPEn9Uc/edit?usp=sharing&amp;ouid=108702181455633968747&amp;rtpof=true&amp;sd=true"&gt;sign-up sheet&lt;/a&gt;.
+
+Problem set 2 is due on Sunday 29 November at 14:00, after the Week 10 class, so its solutions cannot be discussed in class before the deadline.
+
+---
+
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<div id="toc-menu">
+  <button id="toc-btn" type="button">&#9776;&nbsp; Contents</button>
+  <div id="toc-list">
+    <a href="#facts">Labor markets as countries grow richer</a>
+    <a href="#outline">Outline of the lecture</a>
+    <a href="#part1">Part 1. Labor markets across development</a>
+    <a href="#donovan">Labor market flows: Donovan et al. (2023)</a>
+    <a href="#feng">Unemployment: Feng et al. (2024)</a>
+    <a href="#part2">Part 2. Is labor misallocated between sectors?</a>
+    <a href="#apg">The agricultural productivity gap</a>
+    <a href="#part3">Part 3. What moves labor out of agriculture?</a>
+    <a href="#porzio">A more educated labor force: Porzio et al. (2022)</a>
+    <a href="#synthesis">What we have learned: the three questions</a>
+  </div>
+</div>
+<div id="progress-bar"></div>
+<style>
+#toc-menu { position: fixed; bottom: 10px; left: 14px; z-index: 300; }
+#toc-btn { background: rgba(35, 55, 59, 0.75); color: #fafafa; border: none; border-radius: 4px;
+  padding: 5px 12px; font-size: 13px; font-family: inherit; cursor: pointer; }
+#toc-btn:hover { background: #EB811B; }
+#toc-list { display: none; position: absolute; bottom: 34px; left: 0; width: 400px;
+  background: #ffffff; border: 1px solid #d9dee0; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18); padding: 6px 0; }
+#toc-menu.open #toc-list { display: block; }
+#toc-list a { display: block; padding: 8px 16px; font-size: 14px; color: #23373B;
+  text-decoration: none; line-height: 1.35; }
+#toc-list a:hover { background: #eef2f3; color: #EB811B; }
+#progress-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background: #EB811B; z-index: 300; transition: width 0.2s; }
+@media print { #toc-menu, #progress-bar { display: none; } }
+</style>
+<script>
+(function() {
+  var menu = document.getElementById('toc-menu');
+  var btn = document.getElementById('toc-btn');
+  btn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('open'); });
+  document.getElementById('toc-list').addEventListener('click', function() { menu.classList.remove('open'); });
+  document.addEventListener('click', function(e) { if (!menu.contains(e.target)) { menu.classList.remove('open'); } });
+  function init() {
+    if (typeof slideshow === 'undefined') { setTimeout(init, 150); return; }
+    var bar = document.getElementById('progress-bar');
+    var n = slideshow.getSlideCount();
+    slideshow.on('showSlide', function(slide) {
+      bar.style.width = (100 * (slide.getSlideIndex() + 1) / n) + '%';
+    });
+    bar.style.width = (100 * (slideshow.getCurrentSlideIndex() + 1) / n) + '%';
+  }
+  init();
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>DELD - Lecture 10</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Trinh Pham" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Development Economics: Labor and Development
+]
+.subtitle[
+## Lecture 10: Environment and Development
+]
+.author[
+### Trinh Pham
+]
+.institute[
+### KDI School of Public Policy and Management
+]
+.date[
+### Fall 2026
+]
+
+---
+
+
+name: facts
+
+# Environmental quality is worse in developing countries
+
+&lt;div style="display: flex; justify-content: center; gap: 16px;"&gt;
+&lt;img src="figures/gj_fig1a.png" style="width: 42%;" /&gt;
+&lt;img src="figures/gj_fig1b.png" style="width: 42%;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/jel.53.1.5"&gt;Greenstone and Jack (2015)&lt;/a&gt;, Figure 1. Panel A: urban PM10 (µg/m³), WHO (2011). Panel B: dissolved oxygen in water (mls/litre), UNEP (2001).]
+
+- Developing countries have more particulate matter in city air and less dissolved oxygen in water.
+
+--
+
+- More children under five die from pollution there (WHO estimates; deaths per 100,000, 2004).
+
+  - outdoor air pollution: India 3.39, Germany 0.01; water, sanitation, and hygiene: India 315.61, United States 0.09
+
+???
+
+The four most populous developed and developing countries are shown (Figure 1 notes). Dissolved oxygen is "a proxy for organic waste, which uses oxygen in decomposition" (fn 1); sources include sewage and urban runoff. The death rates are from Figure 2 (WHO 2004), Panels A and B, p. 8.
+
+Dissolved oxygen is a measure of good water quality: the higher, the better.
+
+---
+
+# The central puzzle: large damages, low willingness to pay
+
+- The evidence suggests that poor environmental quality causes large losses in health and productivity.
+
+--
+
+- Yet the few estimates of marginal willingness to pay (MWTP) for a cleaner environment are low.
+
+  - willingness to pay for clean water in Kenya implies a value of a statistical life (VSL) of US$860
+
+  - typical estimates for the United States are about US$8.6 million (both in 2013 dollars)
+
+--
+
+.discuss[
+Is the value of a life in Kenya "really 10,000 times lower"? What else could explain the gap?
+]
+
+???
+
+Greenstone and Jack (2015), p. 7 and fn 3 ("obtaining causal estimates of the health consequences of environmental quality is challenging"). The abstract calls the paradox "the central puzzle at the intersection of environmental and development economics"; p. 16 says the field is "defined by the question of why environmental quality is so poor". The Kenyan figure is imputed from households' willingness to pay for access to clean water in Kremer, Leino, Miguel, and Zwane (2011, QJE); the US figure is the US EPA (2010) value. The paper asks whether the value of a life in Kenya is "really 10,000 times lower than typical figures for the value of a statistical life in the United States" (p. 7). The framework in Part 1 is built to answer this question and the optimality question on the next slide.
+
+---
+
+# The question for today
+
+&lt;a href="https://doi.org/10.1257/jel.53.1.5"&gt;Greenstone and Jack (2015)&lt;/a&gt; ask:
+
+**Why is environmental quality so poor in developing countries, and is the current level optimal?**
+
+--
+
+.discuss[
+Is poor environmental quality "just another dimension of poverty", or can policy improve it?
+]
+
+--
+
+- If it reflects only low income or a high cost of improvement, the current level may be optimal.
+
+- If other forces keep it low, there may be room for policy improvement.
+
+???
+
+The first bullet names low income and a high cost of improvement together, because the framework of Part 1 treats both as explanations under which poor quality can be efficient (explanations 1 and 2); "poverty" in the paper's phrase is read in this broad sense. This wording is the lecture's.
+
+Greenstone and Jack (2015), p. 7: the central puzzle is that the available evidence suggests large health and productivity losses from poor environmental quality, while the few estimates of willingness to pay for cleaner environments are low. "Just another dimension of poverty" is the paper's phrase: they ask whether the current level of environmental quality "is optimal, leaving no room for policy improvements (i.e., is poor environmental quality just another dimension of poverty)?" Their central question is the first clause on the slide; the second clause is their question about optimality. The four explanations, in the abstract's words: low income levels, high marginal costs of improvements, political economy factors, and "market failures such as weak property rights and missing capital markets" that distort MWTP. The four explanations are not on this slide; they are introduced in Part 1, each with the piece of the model that produces it. The lecture uses the paper's model as its spine, and each empirical paper is read through it (see the note on the outline slide).
+
+---
+
+name: outline
+
+# Outline of the lecture
+
+**Part 1. Why is environmental quality so poor?** &lt;a href="https://doi.org/10.1257/jel.53.1.5"&gt;Greenstone and Jack (2015)&lt;/a&gt;
+
+**Part 2. Is abatement too costly, or is enforcement too weak?** &lt;a href="https://doi.org/10.1093/qje/qjaf009"&gt;Greenstone et al. (2025)&lt;/a&gt;
+
+**Part 3. Who protects the poor from environmental shocks?** &lt;a href="https://doi.org/10.1257/pol.20220066"&gt;del Valle (2024)&lt;/a&gt;, &lt;a href="https://doi.org/10.1093/qje/qjac020"&gt;Carleton et al. (2022)&lt;/a&gt;
+
+**Part 4. Does development itself harm the environment?** &lt;a href="https://doi.org/10.1146/annurev-economics-082321-123803"&gt;Jayachandran (2022)&lt;/a&gt;, &lt;a href="https://doi.org/10.1257/pol.20220422"&gt;Garg et al. (2024)&lt;/a&gt;
+
+**Second half**: presentation of &lt;a href="https://doi.org/10.1093/ej/ueaa013"&gt;Asher, Garg, and Novosad (2020)&lt;/a&gt;
+
+???
+
+Required readings: Greenstone and Jack (2015), Greenstone, Pande, Ryan, and Sudarshan (2025), del Valle (2024). Jayachandran (2022) and Carleton et al. (2022) are references; Garg, Jagnani, and Pullabhotla (2024) is a presentation paper that is not being presented this semester, included because it connects Week 9 (labor leaving agriculture) to this week and to the presentation paper, which uses the same road program and the same design.
+
+The organization is the lecture's reading of Greenstone and Jack's model, not theirs. Part 2 is about the cost of improving environmental quality (explanation 2): Greenstone and Jack write (p. 24) that where existing policies are lax, marginal abatement costs may be low. Part 3 is about protection: the harm that a given shock does to health, h(s,e), depends on protection. In the model, s is private self-protection; the lecture extends it to public protection. The four explanations then apply to protection as they do to environmental quality: income buys private protection (Carleton et al., explanation 1), and public protection is weak where it is costly to deliver or left to discretion (del Valle, explanations 2 and 3). Part 4 is about the effect of economic activity on environmental quality, the model's a(c,s) with externalities: it starts from explanation 1 (if demand for environmental quality rises with income, does growth improve it?) and shows why the question must be asked feature by feature. Part 4 comes last because it leads into the presentation paper.
+
+---
+
+name: part1
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Part 1. Why is environmental quality so poor?&lt;br&gt;The framework of Greenstone and Jack (2015)
+&lt;/div&gt;
+
+---
+
+# The benchmark model: the choice
+
+One period, `\(n\)` identical agents, perfect markets. Each agent divides wealth among three uses:
+
+- **consumption** `\(c\)`
+
+- **improving environmental quality** by `\(\Delta e\)`, at cost `\(c_e(\Delta e)\)`
+
+- **self-protection** `\(s\)`, at cost `\(c_s(s)\)`, such as an air purifier or water treatment
+
+--
+
+.discuss[
+**Discussion**: in the model, through which channels does environmental quality affect welfare?
+]
+
+--
+
+- **Utility** directly: aesthetics, existence values.
+
+- **Health** `\(h(s,e)\)`, which self-protection mitigates.
+
+- **Income** `\(\Delta y\)`, such as farm income that depends on water quality.
+
+???
+
+Equations (1)–(4), Greenstone and Jack (2015), p. 10. Total wealth y is endowment plus income. In this benchmark, experienced environmental quality depends only on the agent's own choices, not on others' (p. 11). Agents affect e directly through Delta e and indirectly through consumption and self-protection: air conditioning or bottled water protect the agent but can affect environmental quality.
+
+The three channels (pp. 10–11): direct utility (aesthetic preferences or existence values); health, mitigated by self-protection such as indoor air purifiers or water treatment; income, for example tourism from a national park or agricultural income that depends on water quality or pollinators.
+
+---
+
+# The benchmark model: the equations
+
+`$$\max_{c,\,\Delta e,\,s}\; u\big(e,\, h(s,e),\, c\big) \quad \text{(1)} \qquad \text{s.t.} \quad y \geq c_e(\Delta e) + c_s(s) + c \quad \text{(2)}$$`
+
+- Utility (1) depends on environmental quality `\(e\)`, health `\(h\)`, and consumption `\(c\)`.
+
+- The budget (2): wealth `\(y\)` pays for improving `\(e\)`, for self-protection, and for consumption.
+
+--
+
+`$$y = y_0 + \Delta y\big(e,\, h(s,e)\big) \quad \text{(3)} \qquad \qquad e = e_0 + \Delta e + a(c,s) \quad \text{(4)}$$`
+
+- Wealth (3) is the endowment `\(y_0\)` plus income `\(\Delta y\)`, which depends on `\(e\)` and on health.
+
+- Environmental quality (4) is its initial level `\(e_0\)`, plus the improvement `\(\Delta e\)`, plus `\(a(c,s)\)`.
+
+  - `\(a(c,s)\)`: the effect of the agent's own consumption and self-protection on `\(e\)`
+
+???
+
+Equations (1)–(4), Greenstone and Jack (2015), p. 10; see the note on the previous slide. The term a(c,s) is the feedback of the agent's own consumption and self-protection on the environmental quality that the agent experiences.
+
+---
+
+# Explanation 1: high marginal utility of consumption
+
+How much consumption would an agent give up for a small improvement in `\(e\)`?
+
+--
+
+`$$\text{MWTP}_e \equiv \frac{\lambda_e}{\lambda_y} \equiv \underbrace{\frac{1}{\lambda_y}\left(\frac{\partial u}{\partial e} + \frac{\partial u}{\partial h}\frac{\partial h}{\partial e}\right)}_{\text{utility: direct and via health}} + \underbrace{\frac{\partial \Delta y}{\partial e} + \frac{\partial \Delta y}{\partial h}\frac{\partial h}{\partial e}}_{\text{income: direct and via health}} \quad \text{(5)}$$`
+
+- `\(\lambda_e\)`: the marginal utility of an improvement in environmental quality
+
+- `\(\lambda_y\)`: the marginal utility of consumption; dividing by it converts the utility terms into income units
+
+--
+
+- With concave utility, low income means a high `\(\lambda_y\)` and therefore a low `\(\text{MWTP}_e\)`.
+
+  - what little money the very poor have goes toward immediate consumption needs
+
+--
+
+.takeaway[This explanation involves no market failure and suggests that low quality is socially efficient]
+
+???
+
+Equation (5), p. 11. MWTP_e is the marginal rate of substitution between income and environmental quality. The paper: "if utility is concave in consumption, low levels of income will correspond to high marginal utility of income (lambda_y) and low MWTP_e."
+
+Explanation 1 is Section 2.2.1 (p. 12): "MWTP_e is low because people in developing countries are poor, and therefore the marginal utility of consumption is high relative to the marginal utility of environmental quality. To put it simply: when people are very poor, what little money they have goes toward immediate consumption needs." As the budget constraint is relaxed, "the trade-off between consumption and environmental quality becomes less extreme, increasing demand for the latter". The takeaway is the paper's sentence: "This explanation does not result from any market failure and suggests that the low levels of environmental quality in developing countries are socially efficient." The efficiency of private choices in the benchmark is stated formally on the next slide, after equation (7). A two-period extension adds that if survival depends on environmental quality or health, MWTP_e rises with income.
+
+Footnote 9: lambda_y equals the partial derivative of u with respect to c only if consumption does not affect e (da/dc = 0); otherwise it also contains the feedback of consumption on e and, through e, on utility, income, and health. The slide's second bullet follows the paper's own wording (the utility terms are "scaled by the marginal utility of consumption"); the income terms in (5) are in money units in every case.
+
+Order of Part 1: each explanation is introduced with the piece of the model that produces it, in the paper's order. Equation (5) gives explanation 1, equation (7) explanation 2, the planner's assumptions explanations 3 and 4. Externalities come after the four explanations, as Section 2.3 follows Section 2.2 in the paper.
+
+---
+
+# Explanation 2: high marginal costs of improvements
+
+Self-protection has its own marginal willingness to pay, `\(\text{MWTP}_s\)`, defined like `\(\text{MWTP}_e\)` (appendix).
+
+The agent equates the ratio of marginal WTPs to the ratio of marginal costs:
+
+`$$\frac{\text{MWTP}_e}{\text{MWTP}_s} = \frac{\partial c_e / \partial \Delta e}{\partial c_s / \partial s} \quad \text{(7)}$$`
+
+- With perfect markets, private choices of `\(c\)`, `\(\Delta e\)`, and `\(s\)` are socially efficient.
+
+--
+
+- A high marginal cost of improving `\(e\)` can make improvements socially inefficient.
+
+  - an improvement then costs more than agents are willing to pay for it
+
+- The marginal cost reflects abatement costs and the capacity to design and implement policy.
+
+  - where capacity is weak, it may be high even if marginal abatement costs are relatively low
+
+--
+
+.takeaway[Like explanation 1, this explanation requires no departure from efficient markets]
+
+???
+
+Equation (6), the definition of MWTP_s, is on an appendix slide: it values self-protection through its effects on e, on health, and on income.
+
+Equations (6) and (7), pp. 11–12. Equation (7) in the paper prints the denominator as the derivative of c_s with respect to Delta s. This is a typo: the sentence above (7) defines the marginal cost of self-protection as the derivative with respect to s, and s is the choice variable, so the slide writes it that way. After (7): "With this set-up, individuals' decisions about c, Delta e, and s will produce the first-best or socially efficient outcomes."
+
+If the marginal utility of consumption is decreasing, MWTP_s is higher at higher consumption, "as long as any negative impacts of self-protection on environmental quality can be offset by compensatory investment in self-protection" (p. 11).
+
+Explanation 2 is Section 2.2.2 (p. 13): "Without departing from an assumption of efficient markets, high marginal costs of providing environmental quality can explain the observed poor quality in developing countries. Specifically, high marginal costs of environmental quality improvements can make such improvements socially inefficient (recall equation 7)." "Socially inefficient" here describes the improvement: it would cost more than agents are willing to pay for it. Marginal costs "also reflect local capacity for policy design and implementation. In settings where capacity is weak, the marginal cost of environmental quality improvement may be high even if marginal abatement costs are relatively low." If tax collection is costly, so is raising revenue for environmental investment. Low marginal costs of self-protection may also lead individuals or policy makers to prefer self-protection to improvements in environmental quality. The sub-bullet on weak capacity is what the Surat experiment in Part 2 examines.
+
+---
+
+# Explanation 3: political economy and rent seeking
+
+- A social planner who chooses `\(e\)` reproduces the efficient outcome under three assumptions:
+
+  - she can raise revenue costlessly
+
+  - she has no preferences of her own
+
+  - she observes true `\(\text{MWTP}_e\)`
+
+--
+
+- Under explanation 3, the planner does not maximize social welfare.
+
+  - her objective includes her own payoff or extra weight on her preferred group
+
+  - this drives a wedge between aggregate preferences and the payoffs that she optimizes
+
+--
+
+.takeaway[In many cases, the result is a downward bias in the chosen level of environmental quality]
+
+???
+
+The planner (p. 12): "For the social planner to achieve the socially efficient outcome by aggregating across the agents, it is necessary to assume that she has a costless technology to raise revenue, has no preferences of her own, and is able to observe true MWTP_e." The paper says "three of the explanations" rely on violations of these assumptions without naming them; the mapping that fits Section 2.2 is that explanation 2 violates costless revenue (p. 13: collecting tax revenue "may be costly"), 3 the absence of own preferences, and 4 the observability of true MWTP_e. The mapping is the lecture's reading and is not on the slide. Page 10: "the first two of these explanations require no deviation from unconstrained social welfare maximization, while the second two assume some additional constraints on optimization."
+
+Explanation 3 is Section 2.2.3 (p. 13): "in a world of political economy constraints, poor environmental quality may stem from a social planner who does not maximize social welfare". "Political economy factors add an additional element to the social welfare function, such as the social planner's own payoff or utility weights on her preferred group (see Fisman 2001 for a compelling example of utility weights). In many cases, this will result in a downward bias on the optimal level of environmental quality, by driving a wedge between aggregate preferences and the payoffs over which the social planner optimizes." The slide's "chosen level" stands for the paper's "optimal level", which is the level optimal for the planner.
+
+The third assumption, that she observes true MWTP_e, is the subject of the next slide.
+
+---
+
+# Explanation 4: measured MWTP differs from true MWTP
+
+**True MWTP**, as defined in (5), is what would be observed without market failures or biases.
+
+**Measured MWTP** is inferred from actual choices, which market failures and biases distort:
+
+- **Information**: revealed preference assumes that people know the payoffs, but information may be poor.
+
+- **Credit**: investments that pay off later may not be financed, so measured MWTP reflects liquidity.
+
+- **Risk**: uninsured, uncertain payoffs and competing risks to survival can lower measured MWTP.
+
+- **Property rights**: weak land tenure may lower investments such as tree planting or erosion mitigation.
+
+- **Behavioral biases**: most likely where decisions are infrequent, outcomes probabilistic, consequences distant.
+
+--
+
+.takeaway[Even a faithful planner may choose suboptimally low quality if she relies on measured MWTP]
+
+???
+
+The slide runs in three steps: the definition of true MWTP, the reasons why the measured value differs from it, and the consequence for policy. The takeaway is the first sentence of the section: "Even a faithful social planner may choose suboptimally low levels of environmental quality if revealed preference measures of MWTP_e do not reveal MWTP_e as defined in equation (5)" (p. 13). "Faithful" marks the contrast with explanation 3, where the planner does not maximize social welfare. Market failures, the paper continues, potentially result "in a lower level of environmental quality than would be preferred in the absence of these market failures" (p. 14).
+
+Section 2.2.4, pp. 13–15; the heading is "Measured MWTP_e May Not Equal True MWTP_e", and the section distinguishes "measured MWTP_e and the theoretical level of MWTP_e that would be observed in the absence of any market failures or biases" (p. 13). The abstract describes the fourth explanation as "market failures such as weak property rights and missing capital markets distort MWTP for environmental quality". The sentence that opens the information discussion (p. 14): "Revealed preference measures of MWTP_e rely on individuals knowing the payoffs from investments in environmental quality." The paper's own hedge (p. 14): "information, credit, risk, or land/property rights imperfections may be reflected in measured MWTP_e". The behavioral-biases sentence (p. 15): biases are "most likely to affect decision making in situations where decisions are infrequent, outcomes are probabilistic, and consequences are in the future".
+
+For these market failures in general, "whether measured MWTP_e is above or below perfect-markets MWTP_e is theoretically ambiguous" (p. 14). For information, missing insurance, and weak property rights, the paper argues that measured MWTP_e is biased downward. With multiple uninsured risks, an "O-ring" logic (Kremer 1993) can drive measured MWTP_e to zero. Weak property rights also make Coasean bargaining over externalities unlikely.
+
+---
+
+# Four explanations for poor environmental quality
+
+.discuss[
+**Discussion**: which explanations imply that poor environmental quality is efficient, and which do not?
+]
+
+--
+
+&lt;div style="font-size: 78%;"&gt;
+&lt;table style="width: 98%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left; width:33%;"&gt;Explanation&lt;/th&gt;&lt;th style="text-align:left; width:49%;"&gt;In the model&lt;/th&gt;&lt;th style="text-align:left;"&gt;Efficient?&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1. High marginal utility of consumption&lt;/td&gt;&lt;td&gt;low income raises \(\lambda_y\) and lowers \(\text{MWTP}_e\) in (5)&lt;/td&gt;&lt;td&gt;efficient&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;2. High marginal costs of improvements&lt;/td&gt;&lt;td&gt;high \(\partial c_e/\partial \Delta e\) in (7), including weak policy capacity&lt;/td&gt;&lt;td&gt;can be efficient&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;3. Political economy and rent seeking&lt;/td&gt;&lt;td&gt;the planner does not maximize social welfare&lt;/td&gt;&lt;td&gt;no, in many cases&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;4. Measured \(\text{MWTP}_e\) ≠ true \(\text{MWTP}_e\)&lt;/td&gt;&lt;td&gt;revealed preference does not recover (5)&lt;/td&gt;&lt;td&gt;not necessarily&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/jel.53.1.5"&gt;Greenstone and Jack (2015)&lt;/a&gt;.]
+
+- The explanations are not mutually exclusive, and any one of them is enough.
+
+--
+
+.takeaway[Only explanations 3 and 4 depart from unconstrained social welfare maximization]
+
+???
+
+This slide collects the four explanations of the previous four slides; the quotations for each are in the notes there.
+
+The takeaway is the paper's sorting (p. 10): "the first two of these explanations require no deviation from unconstrained social welfare maximization, while the second two assume some additional constraints on optimization". It answers the discussion question and the question for today: only under explanations 3 and 4 may there be room for policy improvement.
+
+The last column. Explanation 1 "suggests that the low levels of environmental quality in developing countries are socially efficient" (p. 12). Explanation 2: high marginal costs "can make such improvements socially inefficient" without any departure from efficient markets (p. 13). Explanation 3: "In many cases, this will result in a downward bias on the optimal level of environmental quality" (p. 13). Explanation 4 (the table says "not necessarily", following the paper's "may"): "even a faithful social planner may choose suboptimally low levels" (p. 13); "there may be opportunities to correct these market failures or behavioral biases in ways that produce Pareto improvements" (p. 14). The paper does not use the word "inefficient" for 3 and 4; the abstract says political economy factors "undermine efficient policymaking".
+
+Counting: p. 10 says only explanations 3 and 4 depart from welfare maximization; p. 12 says "three of the explanations" rely on violations of the planner assumptions. Both are right if explanation 2 violates the costless-revenue assumption without departing from welfare maximization (the paper does not name the three; see the note on the explanation 3 slide).
+
+Weak policy capacity in row 2: the capacity to design and enforce policy and to collect taxes (p. 13).
+
+---
+
+# Externalities and public goods
+
+The model so far ignores spillovers across agents. With them, `\(e\)` depends on everyone's choices:
+
+`$$e = e_0 + \sum_{i=1}^{n}\big(\Delta e_i + a(c_i, s_i)\big) \quad \text{(8)}$$`
+
+`$$\text{SMWTP}_e \equiv \frac{n}{\lambda_y^{SP}}\left(\frac{\partial u}{\partial e} + \frac{\partial u}{\partial h}\frac{\partial h}{\partial e}\right) + n\frac{\partial \Delta y}{\partial e} + n\frac{\partial \Delta y}{\partial h}\frac{\partial h}{\partial e} \quad \text{(9)}$$`
+
+--
+
+- `\(\text{SMWTP}_e\)`: the social MWTP, summed over the `\(n\)` agents; `\(\lambda_y^{SP}\)`: the social marginal utility of consumption
+
+--
+
+`\(\text{SMWTP}_e &gt; \text{MWTP}_e\)` with **public goods or positive externalities**, or **negative consumption externalities**.
+
+- A farm household does not capture the full benefit of less harmful pesticides, so it underinvests in them.
+
+- Self-protection can create externalities too: air conditioning adds emissions, so people may overinvest.
+
+--
+
+.takeaway[Rich countries likely share these market failures, so alone they do not explain worse quality in poor ones]
+
+???
+
+This slide follows the four explanations, as Section 2.3 follows Section 2.2 in the paper: "The simplified one period model has so far ignored spillovers across agents, such that the social planner's problem is identical to that of the representative agent. While a useful benchmark, it is also implausible, given that decisions that affect the environment involve externalities and public goods, almost by definition" (p. 15).
+
+Equations (8) and (9), pp. 15–16; lambda_y^SP is the social marginal utility of consumption (fn 10). The pesticide and air-conditioning examples are the paper's own (p. 16): the farmer "does not enjoy the full environmental benefits ... and underinvests"; individuals "may overinvest in self-protection relative to the first best allocation". The paper treats these classic market failures as "likely to be equally present in developing and developed countries", so they do not by themselves explain the gap between the two (p. 10), and the four explanations "go beyond the traditional market failures" (p. 7); externalities "may be exacerbated by, and interact with, other market failures" (p. 16), such as those of explanation 4. The takeaway is the lecture's summary of these three passages.
+
+Two kinds of market failure appear in Part 1 and should be kept apart when speaking: the classic ones of environmental economics on this slide (externalities and public goods, common to rich and poor countries), and those of development economics under explanation 4 (information, credit, risk, property rights), which are more common in poor countries.
+
+---
+
+# Evidence that would distinguish the four explanations
+
+.discuss[
+**Discussion**: what evidence would distinguish the four explanations in a given setting?
+]
+
+--
+
+&lt;div style="font-size: 78%;"&gt;
+&lt;table style="width: 98%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left; width:24%;"&gt;Explanation&lt;/th&gt;&lt;th style="text-align:left;"&gt;Evidence that would show it&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1. Low income&lt;/td&gt;&lt;td&gt;how \(\text{MWTP}_e\) responds to an exogenous, permanent change in income (evidence "extremely scarce")&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;2. High marginal costs&lt;/td&gt;&lt;td&gt;estimates of the marginal cost of improvements: abatement costs and the cost of weak policy capacity&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;3. Political economy&lt;/td&gt;&lt;td&gt;provision that follows political interests, such as withheld water connections (&lt;a href="https://doi.org/10.1016/j.jue.2010.09.006"&gt;Feler and Henderson 2011&lt;/a&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;4. Mismeasured MWTP&lt;/td&gt;&lt;td&gt;studies that relax one market failure (information, credit, land titles) and observe how demand responds&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+???
+
+Section 3.3, pp. 22–32. Explanation 1 (p. 22): "an ideal experiment would measure how MWTP_e changes with an exogenous change in income", but most experiments shift income only in the short run, and the evidence "is extremely scarce in both developing and developed countries". Explanation 2 (p. 24): "high costs of improving environmental quality that are driven by poor policy design and implementation do not imply that marginal abatement costs in developing countries are high. In fact, where existing policies are lax, marginal abatement costs may be relatively low." This is exactly what the Surat experiment in Part 2 finds. Explanation 3 (p. 28): distortions enter as extra parameters in the planner's objective; "the supply or withholding of environmental quality by the social planner may be one form of affecting distributional outcomes across groups, as shown by Feler and Henderson (2011) for water connections in Brazil". Explanation 4: Table 4 of the paper (p. 30) lists the evidence by market failure (formal titling raised soil conservation in Rwanda, a spatial regression discontinuity, not an experiment; information raised water-filter investment and switching to clean sources in India and Bangladesh; credit raised willingness to pay for self-protection); no evidence yet on labor and risk markets.
+
+---
+
+# What we have learned: the framework
+
+- The damages appear large, yet measured willingness to pay is low.
+
+  - under explanation 1 it is truly low, and under explanation 4 it may be measured too low
+
+  - under explanations 2 and 3, quality can be poor even where willingness to pay is high
+
+--
+
+- Under explanations 1 and 2 poor quality can be efficient; under 3 and 4 it may be suboptimally low.
+
+--
+
+- Each explanation calls for its own evidence, and causal evidence on explanation 1 is scarce.
+
+--
+
+- The rest of the lecture takes up three parts of the framework.
+
+  - Part 2: the cost of improving environmental quality (explanation 2)
+
+  - Part 3: self-protection against environmental shocks
+
+  - Part 4: income growth and externalities
+
+???
+
+The last bullet is a roadmap: it says which part of Greenstone and Jack's framework each later Part examines, and each Part opens with a sentence of theirs. Part 2: the marginal cost of improvement reflects abatement costs and policy capacity (p. 13). Part 3: self-protection against climate damages is adaptation (Section 4, p. 34). Part 4: demand for environmental quality increases with income (p. 12), while externalities from consumption may increase more quickly (p. 24).
+
+This slide answers the question of the puzzle slide, whether the value of a life in Kenya is "really 10,000 times lower". The sorting of the four explanations is the lecture's reading. Greenstone and Jack pose the Kenyan question about the value "as suggested by the revealed preference data" (p. 7). Explanation 1 says that the valuation is truly low: "MWTP_e is low because people in developing countries are poor" (p. 12). Explanation 4 says that the revealed-preference measure may differ from the true valuation (Section 2.2.4), and for information, missing insurance, and weak property rights the paper argues that the bias is downward. Explanations 2 and 3 do not work through households' willingness to pay: they concern the cost of supplying environmental quality and the objective of the planner who supplies it.
+
+The last bullet summarizes the previous slide; "extremely scarce" is the paper's phrase for the evidence on how MWTP_e responds to income (p. 22).
+
+---
+
+name: part2
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Part 2. Is abatement too costly, or is enforcement too weak?&lt;br&gt;Greenstone, Pande, Ryan, and Sudarshan (2025)
+&lt;/div&gt;
+
+---
+
+# Greenstone et al. (2025): the question
+
+Under explanation 2, the cost of improvement reflects abatement costs and policy capacity.
+
+- India regulates air pollution with command-and-control rules, modeled on US rules of 50 years ago.
+
+  - stringent on paper, weakly enforced in practice, "perhaps because strict enforcement would be too costly for firms"
+
+- In theory, markets can abate pollution at the lowest cost, and US and EU markets have reduced air pollution.
+
+--
+
+.discuss[
+**Discussion**: why have pollution markets not been used in low-income countries?
+]
+
+--
+
+- Markets rely on continuous emissions monitoring (CEMS), and state capacity may limit such instruments.
+
+- The absence of markets "may reflect a correct judgment that they cannot work, or a self-fulfilling policy".
+
+--
+
+- **Can a pollution market work where state capacity is low?**
+
+  - with the regulator, the authors design and evaluate the first particulate-matter emissions market as an RCT
+
+???
+
+Greenstone, Pande, Ryan, and Sudarshan (2025), pp. 1003–1005. Quotations: "These regulations are stringent on paper but weakly enforced in practice (Duflo et al. 2013, 2018), perhaps because strict enforcement would be too costly for firms"; "Foundational theoretical work has shown that markets can abate pollution at the lowest possible cost (Coase 1960; Dales 1968). Further, the United States and the European Union have had great success in building markets to reduce air pollution" (p. 1004); the evidence that markets cost less than standards rests on "strong assumptions", because regulated and unregulated plants differ (p. 1008). "In spite of high pollution and a high concern for cost, low-income countries have not followed these examples"; "The absence of pollution markets in these countries may reflect a correct judgment that they cannot work, or a self-fulfilling policy: pollution markets cannot work only because they have not been tried before." On state capacity the paper associates rather than asserts: markets are "seldom used in low-income countries, where ... state capacity is often low" (abstract), and "state capacity is not a universal constant" (p. 1056). The market is "the world's first market for particulate-matter emissions ... introduced through a randomized controlled trial" (p. 1004); fn 7 notes that randomizing participation in the EU ETS "is neither desirable nor politically feasible". The authors' decade-long collaboration with the Gujarat Pollution Control Board built the institutions (monitoring infrastructure, market rules) before the trial.
+
+The link to Part 1 is the lecture's reading, not the paper's: Greenstone and Jack's explanation 2 says that where policies are lax, marginal abatement costs may be low, so the binding cost may be enforcement rather than abatement. This experiment separates the two.
+
+---
+
+# Experimental design
+
+- The sample is the 342 plants with the highest pollution potential in Surat, Gujarat.
+
+  - all were mandated to install CEMS
+
+- Half were assigned at random to an emissions market; the others stayed under the existing regulation.
+
+  - after plants found closed or seasonal were removed: 162 treatment and 156 control plants
+
+- The market ran for 10 compliance periods, from September 2019 to April 2021.
+
+  - with a COVID-19 lockdown in between
+
+???
+
+Eligibility (pp. 1013–1014): solid fuel, boiler capacity of at least one ton of steam per hour, stack diameter of at least 24 cm. "After treatment assignment but before the market began, the GPCB gathered more information on plants' operating status and deemed ineligible any plants that were closed or operated only seasonally" (p. 1014): "This restriction left 162 and 156 plants in the treatment and control groups, respectively." Of these, 156 treatment and 136 control plants (292) have at least one day of CEMS data and form the analysis sample (Table I; Figure V legend). Attrition by arm is in Online Appendix Table A3. The paper itself is inconsistent on the mandate: p. 1005 says 318 plants were mandated to install CEMS, p. 1014 that all 342 were and 318 remained after the screen; the slide follows Section II.D.
+
+The cap was set "to try to match the stringency of control regulation" and was then lowered (p. 1006), so the emissions effect bundles the cap level, compliance, and the tightening. The cost comparison on the abatement slide holds aggregate emissions fixed by construction (p. 1050). A separate earlier randomized trial showed that CEMS alone had no effect on emissions (fn 17).
+
+The three differences between regimes (Section II.C.6, p. 1013): a tradeable obligation set by a market-level cap rather than a fixed plant standard; regulation of total mass rather than concentration at one point in time; financial penalties set by ex ante rules. Control CEMS readings "could therefore be used to direct or coordinate in-person visits but not to impose penalties" (p. 1016).
+
+Balance (Table I, 292 plants with CEMS data): mean stack PM concentration 179.0 mg/Nm³ in treatment vs 168.8 in control; about 30% of plants in both arms were above the standard at baseline. Plants are on average 11 km apart, less than the distance particulates travel from a tall stack, so trades are unlikely to create local hot spots (p. 1014).
+
+---
+
+# Location of the sample plants in Surat
+
+&lt;div style="float: right; width: 38%; margin-left: 24px;"&gt;
+&lt;img src="figures/gprs_fig1_pub.jpg" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjaf009"&gt;Greenstone et al. (2025)&lt;/a&gt;, Figure I.]
+&lt;/div&gt;
+
+- Shading shows ambient PM2.5 concentrations in 2018.
+
+  - 10 to 20 times the WHO standard of 5 µg/m³
+
+- Crosses are treatment plants and circles are control plants.
+
+- Sample plants are on average 11 km apart.
+
+  - far less than the distance particulates travel from a high stack
+
+  - so trade among nearby plants is unlikely to raise pollution locally
+
+???
+
+Figure I, "Ambient Pollution Levels and the Location of Plants in Surat" (p. 1015), and the text of Section II.D (p. 1014): "The average pairwise distance between sample plants is 11 km, far below the dispersion of particulate matter from a high plant stack (Guttikunda, Nishadh, and Jawahar 2019). Since plants are close by, relative to how far pollution spreads, trade among nearby plants is unlikely to generate areas of locally increasing pollution. The ambient shading in the background shows that PM2.5 concentrations in Surat are 10 to 20 times the WHO standard of 5 µg/m³." Figure notes: the shading is ambient PM2.5 averaged over 2018, from Guttikunda, Nishadh, and Jawahar (2019); India's National Ambient Air Quality Standard for PM2.5 is 40 µg/m³; plant locations are geolocations from the authors' plant survey.
+
+The image is the published figure at its native resolution (827 × 907 pixels in the journal PDF).
+
+---
+
+# Two regimes: command and control vs an emissions market
+
+.discuss[
+**Discussion**: every plant has a monitor. What does the market change for a treatment plant?
+]
+
+--
+
+&lt;div style="font-size: 76%;"&gt;
+&lt;table style="width: 98%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;&lt;/th&gt;&lt;th style="text-align:left;"&gt;Command and control (control)&lt;/th&gt;&lt;th style="text-align:left;"&gt;Emissions market (treatment)&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;b&gt;Regulated&lt;/b&gt;&lt;/td&gt;&lt;td&gt;PM concentration in stack gas (limit typically 150 mg/Nm³)&lt;/td&gt;&lt;td&gt;total PM mass emitted (kg) in a period&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;b&gt;Monitoring&lt;/b&gt;&lt;/td&gt;&lt;td&gt;in-person spot samples; CEMS readings cannot be used for penalties&lt;/td&gt;&lt;td&gt;CEMS readings determine compliance; missing data replaced punitively&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;b&gt;Obligation&lt;/b&gt;&lt;/td&gt;&lt;td&gt;the same standard for every plant&lt;/td&gt;&lt;td&gt;hold permits for all emissions, under a cap&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;&lt;b&gt;Penalties&lt;/b&gt;&lt;/td&gt;&lt;td&gt;discretionary; severe sanctions seldom used&lt;/td&gt;&lt;td&gt;rule-based fine: 2 × ceiling price per kg short&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjaf009"&gt;Greenstone et al. (2025)&lt;/a&gt;.]
+
+--
+
+.discuss[
+**Discussion**: what does the treatment–control comparison identify, and what does it not?
+]
+
+--
+
+- The effect of the bundle: tradeable permits under a cap, mass instead of concentration, rule-based fines.
+
+- The emissions effect reflects the stringency of the cap and compliance, not the gain from trading.
+
+???
+
+Surat, Gujarat: an industrial city of 7 million; about one-third of ambient fine particles come from industrial plants. This is the world's first particulate-matter market and India's first market for any pollutant (p. 1011). Under the status quo, plants are mandated to install abatement equipment ("command") and must meet a concentration limit ("control"), checked on sporadic visits; the limit is uniform across plants (pp. 1009–1010). CEMS data are not legally admissible as a basis for penalties, so CEMS could direct visits but not impose fines (p. 1016). In the market, compliance is computed from validated CEMS data, and missing data are replaced by a rule that becomes more punitive as the share missing rises (p. 1016).
+
+Market details (pp. 1011–1013): the cap went 280 → 200 → 180 → 170 tons (Figure V caption); the holding limit is the greater of 1.5 times a plant's allocation or 3% of the cap (fn 12); over-the-counter trades at the latest auction price; at the end of each compliance period the regulator buys at the floor and sells at the ceiling; an environmental bond (EDCD) of usually INR 200,000, from which fines are deducted. The paper's three differences between the regimes (Section II.C.6, p. 1013) are the Regulated, Obligation, and Penalties rows; the monitors themselves are installed in both arms.
+
+Permits (pp. 1011–1013): one permit covers 1 kg of particulate matter; 80% of permits are allocated free in proportion to capacity and 20% are auctioned in weekly auctions; a price collar of INR 5–100 per kg; no banking across periods.
+
+What the comparison identifies: the monitors are installed in both arms, but only in the market do their readings carry penalties. The cap was set "to try to match the stringency of control regulation" and was then lowered (p. 1006), so the emissions effect bundles the cap level, compliance, and the tightening. The cost comparison on the abatement slide holds aggregate emissions fixed by construction (p. 1050).
+
+---
+
+# The market functioned: compliance and emissions
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/gprs_fig5.png" style="width: 60%; max-width: 640px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjaf009"&gt;Greenstone et al. (2025)&lt;/a&gt;, Figure V. Weekly mean PM emissions per plant (kg/month); horizontal lines: the cap per plant-month.]
+
+- The cap for all plants together starts at 280 tons a month and is lowered in steps to 170.
+
+- Treatment plants stay near or below the cap and emit about 300 kg a month less than control plants.
+
+- Treatment plants held enough permits for their emissions in **99%** of plant-periods.
+
+  - at baseline, only 66% of treatment and 72% of control plants met the concentration standard
+
+???
+
+The figure reading is p. 1029–1030: "treatment plants largely followed the market rules and emissions therefore met or nearly met the cap in all compliance periods"; "By the start of compliance period 1, in September 2019, treatment plants emit roughly 300 kg/month less PM than control plants. The treatment-induced gap in average emissions remains throughout". Compliance is from Figure IV and pp. 1025–1027 (97% without the permits the regulator added in period 7, fn 22). The two statistics differ in unit: 99% is of plant-periods under the permit rule; 66% is the share of treatment plants meeting the concentration standard before the market, which is the "66%" of the abstract. The regulator established credibility early: two plants that were short of permits in the first period were fined, and one that failed to post its bond was ordered closed; it reopened after two weeks, having paid INR 652,000, more than ten times what permits covering its emissions for the period would have cost (fn 23). The paper's explanation for high compliance (p. 1027): the regulator "established that violators would be penalized immediately and a nondiscretionary rule for fines proportional to permit shortfalls made strict enforcement credible". Plants used 95% of their final permit holdings on average, and 78% held exactly the permits they needed (fn 24). Daily trading reached up to 20% of the cap.
+
+Units: the cap is an aggregate, in tons per 30 days for all market plants together (280 for the two mock periods and period 1, 200 for period 2, 180 for period 3, 170 thereafter; Figure V notes), while the two series are kilograms per plant-month; the horizontal lines divide each cap by the number of plants, which makes the two comparable. Why the cap fell: GPCB "got better estimates of load from CEMS devices and judged that the initial cap had been set too high" (p. 1011); p. 1006 calls the later cuts "an endogenous tightening of regulation after seeing the relatively low costs of compliance, reflected in low permit prices". The 20–30% fall in emissions therefore combines a cap stricter than the control rules, higher compliance, and this tightening.
+
+The image is rendered from the authors' working-paper version of the same figure (Figure 5, Warwick Economics Research Paper 1453, updated November 2024), because the figure in the journal PDF is a traced image that blurs when enlarged. The figure's legend shows 136 control and 156 treatment plants with CEMS data; the black and red lines mark the cap per plant-month in each period. Before the experiment, reporting was low and concentrated among large plants, which explains the early decline in the series (p. 1029).
+
+---
+
+# Effects on emissions
+
+`$$\log(\text{Pollution}_{it}) = \beta_1 \, \text{Treatment}_i + X_i'\beta_2 + \alpha_t + \varepsilon_{it}$$`
+
+- `\(\text{Treatment}_i\)`: plant assigned to the market; `\(X_i\)`: plant controls; `\(\alpha_t\)`: year-month fixed effects
+
+&lt;div style="font-size: 78%;"&gt;
+&lt;table style="width: 90%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;&lt;/th&gt;&lt;th&gt;(2)&lt;/th&gt;&lt;th&gt;(4)&lt;/th&gt;&lt;th&gt;(6)&lt;/th&gt;&lt;th&gt;(8)&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Market (ETS) treatment&lt;/td&gt;&lt;td&gt;−0.193**&lt;br&gt;(0.076)&lt;/td&gt;&lt;td&gt;−0.194**&lt;br&gt;(0.075)&lt;/td&gt;&lt;td&gt;−0.282***&lt;br&gt;(0.075)&lt;/td&gt;&lt;td&gt;−0.316***&lt;br&gt;(0.057)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Missing months&lt;/td&gt;&lt;td&gt;dropped&lt;/td&gt;&lt;td&gt;dropped, reweighted&lt;/td&gt;&lt;td&gt;imputed (rule A)&lt;/td&gt;&lt;td&gt;imputed (rule B)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Plant-months&lt;/td&gt;&lt;td&gt;3,235&lt;/td&gt;&lt;td&gt;3,235&lt;/td&gt;&lt;td&gt;3,796&lt;/td&gt;&lt;td&gt;3,796&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjaf009"&gt;Greenstone et al. (2025)&lt;/a&gt;, Table III. 292 plants; standard errors clustered by plant.]
+
+- Control plants reported less often, because for them missing data carried no permit cost.
+
+  - rule A fills a gap with the stack's own mean over the experiment; rule B, with its arm's mean in that month
+
+--
+
+.takeaway[Emissions fall by 0.19 to 0.32 log points, the paper's "20%–30%", depending on how missing data are treated]
+
+???
+
+Equation (1), p. 1030. X_i: capital expenditure, operating cost, log heat output, boiler installation year, and indicators for missing values of these. Rule A imputes a stack's missing data with its mean over the experiment; rule B with the monthly mean of its treatment arm. Imputation raises the estimate because missing control observations are replaced with values above the reporting-control mean (p. 1032). In the market, non-reporting is replaced punitively, so treatment plants reported more; applying that rule to control plants would bias the effect upward (fn 19), which is why the paper uses non-punitive rules. Columns without year-month fixed effects give −0.178 and −0.177 for the raw series and the same −0.282 and −0.316 for the imputed series.
+
+The effect is negative under every treatment of missing data, but its size varies: columns (2) and (4) drop missing plant-months (column (4) reweights), and columns (6) and (8) impute them. Online Appendix Table C4 bounds the effect with differential imputation by arm.
+
+In percentage terms, the log-point estimates correspond to −17.6%, −17.6%, −24.6%, and −27.1% (exp(β) − 1); the paper summarizes the range as 20–30% and notes (fn 4) that the range reflects the imputation rule. Why emissions fell: the initial cap was stricter than control regulation, compliance was higher, and the regulator lowered the cap over the first periods (p. 1006).
+
+---
+
+# Abatement costs: what the bids reveal
+
+.discuss[
+**Discussion**: how can costs be compared across regimes when only treatment plants trade?
+]
+
+--
+
+&lt;div style="float: right; width: 36%; margin-left: 20px;"&gt;
+&lt;img src="figures/gprs_fig10.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjaf009"&gt;Greenstone et al. (2025)&lt;/a&gt;, Figure X. Period 8: total variable cost by total emissions. Dotted: status quo; solid: market.]
+&lt;/div&gt;
+
+- A plant's bid reveals its marginal abatement cost (MAC)
+
+  - if it minimizes costs and has no market power in permits
+
+- Bids are used to estimate a MAC curve per plant and period.
+
+- Randomization gives both arms the same distribution of curves.
+
+- The status quo cost applies these curves to control emissions.
+
+- The market cost uses the cheapest split of the **same** total.
+
+--
+
+- In period 8, at 240 tons, the market costs 10% less.
+
+  - at the same cost, emissions could be 43% lower
+
+- Over all periods, variable costs are **11% lower**.
+
+&lt;div style="clear: both; padding-top: 10px;"&gt;&lt;/div&gt;
+
+???
+
+Section V. A plant minimizes a fixed abatement cost plus variable abatement cost plus permit purchases, Z_i0 + Z_i(E_i) + P(E_i − A_i) (equation (2), p. 1033); under cost minimization and no market power, the first-order condition equates the marginal abatement cost to the permit price (equation (3), p. 1034), independently of Z_i0 and of the allocation A_i. Bids reflect marginal costs only while emissions are not yet sunk, so the estimation uses the 3,120 bids from the first half of each period (2,775 in non-singleton plant-periods, fn 30) out of 8,433 bids in total. The preferred specification (equation (4), plant-by-period fixed effects, common elasticity) gives a MAC elasticity with respect to emissions of −0.609 (0.087) (Table IV, column 4). Random assignment makes the control plants' cost curves the same ex ante; Table V shows that the market did not change abatement capital, so the comparison is valid ex post as well (pp. 1041–1042). The command-and-control cost is obtained by "evaluating treatment cost functions at control emissions levels" (p. 1049): the authors draw emissions levels from the control distribution (residualized on plant heat capacity, 100 simulation draws) and sum the areas under the treatment plants' MAC curves down to those levels. To compare the regimes at the same aggregate emissions, the control emissions are scaled up or down by a common factor (p. 1050), which assumes that a change in stringency changes all plants' emissions proportionally. The market cost at the same aggregate is the allocation at which marginal abatement costs are equal across plants.
+
+Figure X (period 8): at the control emissions of 240 tons, the market cuts variable costs by 10%; at the same variable cost as the status quo, emissions could be 43% lower (p. 1050). Across all periods (Online Appendix Table D1): at 170 tons, costs are 12% higher under the status quo, so the market cuts costs by 11% (p. 1051). These are variable costs only ("the gains in efficiency we estimate are due only to reductions in variable abatement costs", p. 1055). At the realized outcome, costs are 6% lower under the market with 30% less emissions than under command-and-control at the status quo emissions level (p. 1051).
+
+The comparisons are at fixed emissions: 240 tons in period 8, and 170 tons across all periods.
+
+---
+
+# Scale-up: benefits, costs, and external validity
+
+.discuss[
+**Discussion**: would the results hold if the market were scaled up, or used elsewhere?
+]
+
+--
+
+- The authors compute the benefits and costs of extending the market to all 906 solid-fuel plants in Surat.
+
+- For a 30% cut in emissions, the mortality benefits are 25 to over 200 times the costs.
+
+  - the range depends on the estimate of how air pollution shortens life
+
+  - a large share of the costs is the fixed cost of monitoring each plant
+
+--
+
+- Abatement cost little in part because mandated equipment was installed but under-used.
+
+  - the authors call this a frequent starting point for markets, and longer-run changes may add to the gains
+
+???
+
+Table VI and pp. 1051–1055. The benefit–cost analysis counts the market's operating and abatement costs and takes the existing abatement capital as given (Section VI.C); "a large share of the costs of the market are fixed costs of monitoring" (p. 1055), so the ratio rises with the size of the cut. Costs: about US$5,000 per plant-year for CEMS, partly offset by abatement-cost savings of US$648 per plant-year at a 30% cut; aggregate costs US$3.4, 3.9, and 4.6 million for 10%, 30%, and 50% cuts. The US$847 million is the Ebenstein et al. (2017) estimate, which gives about 215:1; the 25:1 lower bound uses the Apte et al. (2018) estimate (about 26:1), a different benefit figure; "the benefit to cost ratio ranges from roughly 25:1 to more than 200:1, depending on the estimate of the elasticity of life expectancy with respect to ambient PM2.5" (p. 1055). Benefits count only mortality, through the industrial share of ambient PM2.5 (Guttikunda et al. 2019), the life-expectancy response from Ebenstein et al. (2017), and a value of a statistical life of US$665,000: US$282, 847, and 1,412 million.
+
+Missing data: Online Appendix Table C4 bounds the effect with differential imputation by arm; fn 4 says the 20–30% range "reflects variation in point estimates based on how emissions are imputed". The cap: GPCB "got better estimates of load from CEMS devices and judged that the initial cap had been set too high" (p. 1011); p. 1006 calls the later cuts "an endogenous tightening of regulation after seeing the relatively low costs of compliance, reflected in low permit prices". COVID: results hold before and after the lockdown, though the post-lockdown effect is smaller under rule B (fn 27). Data after April 2021 are excluded because many plants had not reopened, prices sat at the floor, and GPCB was preparing to extend the market to control plants (fn 16); the extension took effect in September 2022 (p. 1056). The conclusion (p. 1055) notes that low-cost abatement was possible "in part because the existing regime mandated the installation of air pollution abatement equipment but could not adequately enforce its use", "a frequent starting point for introducing markets", and that longer-run changes "may augment" the gains through capital reallocation and further cap tightening.
+
+The main text does not discuss spillovers between arms through the regulator's attention. If a student raises them, the point is ours, not the paper's.
+
+---
+
+# What we have learned: a market for pollution
+
+- Plants complied in 99% of plant-periods, and emissions fell by 20–30% relative to control.
+
+- At equal emissions, variable abatement costs were an estimated 11% lower in the market.
+
+- At the scale of Surat, the estimated benefits are at least 25 times the costs.
+
+--
+
+- The authors return to the larger question of why environmental quality is so poor.
+
+  - explanation 2: the cost may be high where capacity is weak, even if abatement costs are low
+
+--
+
+.takeaway[The results point to high fixed costs of monitoring and enforcement, not to high abatement costs at plants]
+
+???
+
+The fourth bullet is the paper's own return to the question of Part 1: "The larger question remains why environmental quality is so poor in many developing countries. Our results suggest that industrial air pollution remains high not because of high abatement costs, at the level of individual plants, but due to high fixed costs of monitoring and enforcement. State capacity may limit the use of sophisticated regulatory instruments, but state capacity is not a universal constant" (p. 1056). The sub-bullet repeats Greenstone and Jack's sentence from the explanation 2 slide (p. 13).
+
+The scale-up figures are from Table VI and pp. 1051–1055 (see the note on the previous slide): costs of about US$3.9 million a year for a 30% cut in emissions (CEMS monitoring, net of abatement-cost savings), and mortality benefits of about US$847 million with the Ebenstein et al. (2017) estimate.
+
+The third bullet is the paper's statement: "the benefits of pollution reductions under an emissions market therefore exceed the costs of the market by at least 25 times" (p. 1055). The word "fixed" in the takeaway is the paper's ("high fixed costs of monitoring and enforcement", p. 1056); the paper adds that "the establishment of the emissions market in Gujarat took years" (p. 1056).
+
+The takeaway follows p. 1056: "Our results suggest that industrial air pollution remains high not because of high abatement costs, at the level of individual plants, but due to high fixed costs of monitoring and enforcement", and p. 1007–1008: "at least in Gujarat, high private abatement costs are not the primary culprit for high emissions." The link to explanation 2 is the lecture's reading of the result in Greenstone and Jack's terms: the status quo's high "cost" of improvement reflected weak policy design and enforcement, not high abatement costs, which is the distinction their Section 3.3.2 draws. Marginal abatement costs were the same in both arms by randomization; the market revealed and exploited them. The experiment also shows what building state capacity for environmental regulation involves: a decade of collaboration, monitors, rules, and early credible penalties.
+
+---
+
+name: part3
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Part 3. Who protects the poor from environmental shocks?&lt;br&gt;del Valle (2024) and Carleton et al. (2022)
+&lt;/div&gt;
+
+---
+
+# Greenstone and Jack (2015): climate change and adaptation
+
+- &lt;a href="https://doi.org/10.1257/jel.53.1.5"&gt;Greenstone and Jack (2015)&lt;/a&gt; call climate change "the most important topic in envirodevonomics".
+
+  - the greatest damages are projected to occur in today's developing countries
+
+- For climate damages, self-protection `\(s\)` in the model is **adaptation**.
+
+  - losses are likely to be greater in developing countries, where resources for adaptation are limited
+
+  - incomplete insurance markets complicate efforts to protect oneself from uncertain climate damages
+
+- Those with opportunities for self-protection are able to mitigate the negative health impacts.
+
+--
+
+- Their research agenda asks which programs or policies can best protect vulnerable populations.
+
+  - &lt;a href="https://doi.org/10.1257/pol.20220066"&gt;del Valle (2024)&lt;/a&gt;: a public disaster fund in Mexico
+
+  - &lt;a href="https://doi.org/10.1093/qje/qjac020"&gt;Carleton et al. (2022)&lt;/a&gt;: adaptation to heat, and its cost, across 40 countries
+
+???
+
+This slide connects Part 3 to the framework with Greenstone and Jack's own Section 4, "Climate Change" (pp. 33–35), and their research agenda in Section 5. Every bullet except the last two sub-bullets is theirs.
+
+"We believe that climate change is the most important topic in envirodevonomics ... the greatest damages are projected to occur in today's developing countries, especially those in the tropics" (p. 33). Projected losses (agricultural losses, storm damages, civil conflicts, morbidity and mortality) "are all likely to be of a greater magnitude in developing countries, where the resources available for investment in self-protection (adaptation) are limited" (p. 34): the paper itself equates self-protection, s in the model, with adaptation. "Incomplete insurance markets complicate efforts to protect oneself from uncertain climate damages" (p. 34; the paper lists this under explanation 4). Burgess et al. (2011) "compare results from rural areas to urban areas and to developed countries to show that those with opportunities for self-protection are able to mitigate the negative health impacts" (p. 34). Adaptation "does occur, but not without its own drawbacks": air conditioners moderate the effect of extreme weather on mortality but run on carbon-intensive electricity and "do little to protect against other climate-related risks such as storm frequency"; "adaptation is never sufficient to shrink damages to zero" (p. 34).
+
+The paper also applies its four explanations to climate change, but to mitigation, not adaptation: they "all pose serious challenges to any global effort to significantly limit climate change" (p. 33), and climate change "encompasses all of the explanations for poor environmental quality in developing countries" (p. 9).
+
+The research agenda (Section 5), question 3: "What policies can be effective for climate mitigation and adaptation?", item (e): "What programs or policies can best protect vulnerable populations, like children, the elderly, and smallholder farmers, against the effects [of] climate change?"
+
+The last two sub-bullets place this week's papers under that question. del Valle describes his own contribution in the same terms: the paper "extends the literature on adaptation to climate shocks" (p. 445). Carleton et al. estimate how the mortality effect of temperature varies with income and climate, and the cost of adaptation.
+
+---
+
+# del Valle (2024): the question
+
+Developing economies are not more exposed to natural disasters, yet significantly more people die in them.
+
+- Disaster aid is often financed after the event and disbursed without rules, which causes delays and leakage.
+
+- Mexico's **FONDEN** (1996–2020) insured public infrastructure and low-income housing.
+
+  - funds were arranged **before** disasters and released under index-based **rules**
+
+  - ineligible municipalities depended on the discretionary efforts of state and municipal governments
+
+--
+
+.discuss[
+**Discussion**: what is the research question, and what is new relative to the literature on disasters?
+]
+
+--
+
+- Does faster, rules-based reconstruction of public infrastructure reduce deaths after a disaster?
+
+- The paper provides "the first causal estimates of indexed disaster funds on mortality".
+
+???
+
+Introduction pp. 442–446; Section I, pp. 446–448. The opening sentence paraphrases the abstract: "Developing economies are not disproportionately exposed to natural disasters, but they experience significantly more deaths." Delays: "Two common sources of delays and leakage in the provision of disaster aid are reliance on postdisaster financing and lack of rules and administrative capacity to disburse these resources (Clarke and Dercon 2016)" (p. 442). Reserve: 0.4% of the federal budget (about US$800 million); a US$400 million excess-loss reinsurance policy on yearly payouts above US$1 billion; hurricane and earthquake catastrophe bonds. The rules "resembled an index insurance contract that allowed damage assessment when triggered" (p. 447). In the sample, the time from disaster to resource authorization has a mean of 75 days and a median of 38; planned reconstruction has a mean of 149 days, so projects would be completed within seven to eight months (p. 448). Since 2009, critical infrastructure (including medical) could be funded immediately after verification. Ineligible municipalities "depended on the discretionary efforts of state and municipal governments"; interviews indicate they relied on post-disaster financing (p. 448). FONDEN ceased operations in 2020, when its funds were diverted to pandemic relief (p. 446). Contribution wording: p. 444.
+
+The previous slide gives Greenstone and Jack's own link to the framework (self-protection as adaptation, and their question about programs that protect vulnerable populations). The further mapping to the four explanations is the lecture's and stays in these notes: in Greenstone and Jack's model, s is private self-protection (pp. 10–11), and the model has no public protection. Read through it, FONDEN is protection supplied by the state, and the outcome, deaths, is the health channel h(s,e) of Greenstone and Jack's model. Pre-arranged finance and index rules remove two reasons why public protection is weak, which correspond to explanations 2 and 3: the administrative cost of acting and the discretion that political economy distorts.
+
+The companion paper (del Valle, de Janvry, and Sadoulet 2020, AEJ: Applied) uses the same design to show faster economic recovery, measured with night lights. Indirect deaths can be large: after Hurricane Maria, total deaths may have been more than 70 times the directly attributed deaths (Kishore et al. 2018, cited on p. 442). The published article is single-authored (the syllabus bib entry was corrected on 2026-10-05).
+
+---
+
+# The heavy-rainfall rule: a fuzzy eligibility threshold
+
+.discuss[
+**Discussion**: what would the ideal experiment be? How close does the eligibility rule come?
+]
+
+--
+
+- The ideal experiment would assign FONDEN at random among equally affected municipalities.
+
+- The heavy-rainfall rule is met if rainfall at any representative station reaches a threshold.
+
+  - the threshold is the 90th percentile of maximum daily rainfall for that month
+
+- The running variable `\(R\)` is rainfall minus the threshold, in mm, so the rule is met if `\(R \geq 0\)`.
+
+--
+
+- The design compares municipalities just above the threshold with those just below it.
+
+- Floods and hurricanes also qualify a municipality, under criteria that the author does not observe.
+
+- A declaration also requires that the disaster exceed local response capacity, as it almost always does.
+
+--
+
+.takeaway[Some municipalities below the threshold receive FONDEN, and some above do not, so the RD is fuzzy]
+
+???
+
+The ideal-experiment answer is ours, not the paper's. The rule was introduced in 2004; formally, a municipality is "eligible for damage assessment if, at any of the municipality's representative weather stations, daily rainfall is greater than or equal to the percentile 90 of maximum daily rainfall for the month in which the event took place" (p. 447). Floods are verified when water pooled where it normally does not or a body of water overflowed; hurricanes when sustained winds exceed 80 km/h. After verification, the department of the interior (Segob) confirms that the disaster exceeded local response capacity, which is "almost always the case", and publishes the declaration in the Federal Register. Treatment is defined as being listed as eligible in the Federal Register (Table 1 note, p. 452). Only 58 requests (2.1%) qualify under the rainfall rule but are not listed as verified, and they do not differ from other requests on 28 characteristics (fn 2, p. 447).
+
+The design is fuzzy for two reasons (p. 451): "Fonden requires the disaster to exceed local response capacity (which is almost always the case)", which explains municipalities above the threshold that are not declared, and the unobserved flood and hurricane criteria, which make municipalities below the rainfall threshold eligible. The size of the two groups at the threshold is on the slide about compliers.
+
+Terms used from here on: the rainfall rule being met (R at or above zero) is the instrument, the Z of Week 3; being declared eligible for FONDEN is the treatment, and the slides call it receiving FONDEN, as the paper does.
+
+---
+
+# Data and estimating equation
+
+- The sample is 2,742 municipal requests for FONDEN, 2004–2012.
+
+  - 1,949 were declared eligible and so received FONDEN, which is the treatment
+
+- **Outcome**: excess mortality, per 1,000 person-years
+
+  - the annualized mortality rate over the `\(k\)` months after the disaster, minus the rate over the same months two years earlier
+
+`$$Y_{mt} = \alpha + \beta \, Above_{mt} + g(R_{mt}) + \varepsilon_{mt}, \qquad Above_{mt} = 1\{R_{mt} \geq 0\}$$`
+
+- `\(Above\)`: the cutoff indicator, the `\(Z\)` of Week 3; `\(g(R)\)`: a polynomial in `\(R\)`, fitted separately on each side
+
+--
+
+.discuss[
+**Discussion**: what do the first stage, the ITT, and the LATE each measure in this design?
+]
+
+--
+
+- **First stage**: the outcome is receiving FONDEN. **ITT**, the reduced form: the outcome is excess mortality.
+
+- **LATE** = ITT / first stage: the effect of FONDEN for complier municipalities at the threshold.
+
+- Estimation as in Week 3: local linear regression in an optimal bandwidth, clustered by municipality.
+
+???
+
+Section II, pp. 448–451; equation (1), pp. 454–455. Mortality is from INEGI death certificates (2000–2017); population from CONAPO projections. The expected rate, two years earlier, uses only pre-disaster data and the same calendar months, because deaths in Mexico "display seasonal but stable trends" (p. 450); calendar-month fixed effects are added as a further check (Table A11). Running variable: rainfall minus the FONDEN threshold, using the maximum across stations and days when a municipality has several stations or the event spans several days. The sample is municipal-month-year requests from disaster declarations, 2004–2012, so all municipalities were plausibly affected by a hydrometeorological event; 229 observations with a station out of service and 16 without mortality data are excluded (fn 5). The thresholds average 89.60 mm; the events average 81.62 mm (Table 1, p. 452).
+
+In equation (1), g(R) is a polynomial of order p in R, fully interacted with Above; the paper uses p = 1 and 2, the MSE-optimal bandwidth of Calonico et al. (2019), a triangular kernel, bandwidth selection and standard errors adjusted for clustering by municipality, and robust bias-corrected confidence intervals (p. 455). LATE assumptions (Hahn, Todd, and Van der Klaauw 2001): monotonicity, a first stage, and local independence, or local smoothness (Dong 2018) (p. 452).
+
+The paper's name for the outcome is the annualized mortality rate difference (AMRD); the slides call it excess mortality, the term the paper uses when it reads the estimates.
+
+---
+
+# Identifying assumption and the evidence
+
+.discuss[
+**Discussion**: which identifying assumption does the design need, and how can it be tested?
+]
+
+--
+
+**Assumption**: municipal characteristics, observed and unobserved, vary smoothly with rainfall at the threshold.
+
+- The LATE also requires monotonicity and a first stage.
+
+- Manipulation is difficult: only the water commission (Conagua) knows the thresholds and the stations used.
+
+  - rainfall is also reported nearly in real time
+
+- The density test does not reject continuity of `\(R\)` at the threshold: p = 0.567.
+
+- None of 28 predetermined covariates shows a discontinuity at the threshold.
+
+- There is no evidence that migration responds, so selective migration is an unlikely explanation.
+
+- Placebo outcomes from mortality before the disaster show no effect after multiple-testing adjustment.
+
+???
+
+Continuity assumption, p. 452: "the characteristics of municipalities (observed and unobserved) vary smoothly with the running variable at the threshold". The paper's list for the LATE (Hahn, Todd, and Van der Klaauw 2001) is monotonicity, a first stage, and local independence, or local smoothness in its place (Dong 2018); the assumption in bold on the slide is that smoothness condition, so the slide adds only monotonicity and the first stage. Evidence: Section IV.A, pp. 466–472. "Gaming the verification process is complicated because the thresholds and the subset of weather stations used for verification are only known to Conagua and because rainfall is reported nearly in real time" (p. 467). Density test: p = 0.567 (p. 467 and Figure 2 note); an alternative test gives p = 0.452 (fn 18). The 28 covariates (Figure 3, p. 469) cover state capacity and public goods, municipal finances and political alignment, geography and demographics, and public medical infrastructure. A review of regulations and interviews found no other program allocated by the FONDEN thresholds, and federal transfers do not jump at the threshold (del Valle, de Janvry, and Sadoulet 2020).
+
+Migration (Figure 4, pp. 469–472): no effect on 11 internal-migration outcomes (census, 2000 and 2010; the sample is restricted to requests before 2010, fn 19) or on migration to the United States (EMFI-North survey). The author concludes that differential migration is "unlikely" to explain the effect, with two caveats: the census measures five-year migration only, and the 2010 counts cannot exclude moves that predate the request (p. 470).
+
+Placebos (p. 472): 5 of 63 placebo LATEs are significant at conventional levels (Table 2 col. 6, Table 5 col. 4, Tables A1 col. 1, A6 col. 1, A11 col. 7); with false-discovery-rate q-values, all 63 are indistinguishable from zero. Two inconsistencies inside the paper: p. 457 says all Table 2 placebos are indistinguishable from zero while p. 472 lists Table 2 col. 6 (p = 0.072) among the five; and the appendix's Table A1 col. 1 placebo has p = 0.364, so the list of five is itself off by one (the four verifiable cases, p = 0.072, 0.052, 0.053, 0.066, are significant only at the 10% level).
+
+---
+
+# No bunching at the threshold
+
+&lt;div style="text-align: center;"&gt;
+&lt;img src="figures/delvalle_pub_fig2b.png" style="width: 62%; max-width: 700px;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/pol.20220066"&gt;del Valle (2024)&lt;/a&gt;, Figure 2, Panel B. Estimated density of rainfall minus threshold; shaded bands: confidence bands.]
+
+- The two estimated densities, below (red) and above (blue), nearly meet at the threshold.
+
+  - the test does not reject continuity, with p = 0.567
+
+- The tails are sparse because the sample contains only municipalities that requested FONDEN.
+
+???
+
+The density peaks about 20 mm below the threshold. The test concerns a jump at the threshold, not the location of the peak, and the two estimates at zero lie within each other's confidence bands (this reading of the figure is ours).
+
+Figure 2, p. 468. Panel A (not shown) is the histogram, whose modal bins lie about 10 to 30 mm below the threshold; Table 1 gives a mean R of −7.97 mm, with 36% of requests above the threshold. Footnote 6 (p. 453): "The sample is sparse in the tails because it's composed of municipalities that requested Fonden verification." The density test is Cattaneo, Jansson, and Ma (2018), implemented in `rddensity`, the same test used in Problem set 2.
+
+---
+
+# First stage and intention-to-treat
+
+&lt;div style="display: flex; justify-content: center; gap: 16px;"&gt;
+&lt;img src="figures/delvalle_pub_fig1a.png" style="width: 47%;" /&gt;
+&lt;img src="figures/delvalle_pub_fig1b.png" style="width: 47%;" /&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/pol.20220066"&gt;del Valle (2024)&lt;/a&gt;, Figure 1. Gray: global fourth-order fits; blue: local linear fits; binned means with 95% CIs.]
+
+- **Left**: the probability of receiving FONDEN rises from 0.65 just below the threshold to 0.87 just above.
+
+- **Right**: excess mortality in the 8 months after the disaster drops at the threshold.
+
+???
+
+Figure 1, p. 453; discussion pp. 452–454. The 8-month window is shown because the effect is largest there; reconstruction projects are completed, on average, within seven to eight months. The gray global polynomials are for illustration; the blue local linear fits, within the MSE-optimal bandwidth, correspond to the estimates on the next slide. Just left of the threshold, municipalities have roughly 0.79 excess deaths per 1,000 person-years; just right, none (p. 454). The paper notes that the global fit and the local means closely track each other and that there is no other discontinuity away from the threshold; bins far from the threshold are sparse because only requesting municipalities are in the sample (fn 6).
+
+---
+
+# Effects on excess mortality, 4 to 24 months after a disaster
+
+&lt;div style="font-size: 76%;"&gt;
+&lt;table style="width: 96%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Window (months)&lt;/th&gt;&lt;th&gt;4&lt;/th&gt;&lt;th&gt;8&lt;/th&gt;&lt;th&gt;12&lt;/th&gt;&lt;th&gt;16&lt;/th&gt;&lt;th&gt;20&lt;/th&gt;&lt;th&gt;24&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;First stage&lt;/td&gt;&lt;td&gt;0.220&lt;/td&gt;&lt;td&gt;0.222&lt;/td&gt;&lt;td&gt;0.223&lt;/td&gt;&lt;td&gt;0.226&lt;/td&gt;&lt;td&gt;0.232&lt;/td&gt;&lt;td&gt;0.239&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;ITT&lt;/td&gt;&lt;td&gt;−0.502&lt;/td&gt;&lt;td&gt;&lt;b&gt;−0.816&lt;/b&gt;&lt;/td&gt;&lt;td&gt;−0.491&lt;/td&gt;&lt;td&gt;−0.412&lt;/td&gt;&lt;td&gt;−0.334&lt;/td&gt;&lt;td&gt;−0.335&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;p-value&lt;/td&gt;&lt;td&gt;0.187&lt;/td&gt;&lt;td&gt;0.002&lt;/td&gt;&lt;td&gt;0.022&lt;/td&gt;&lt;td&gt;0.039&lt;/td&gt;&lt;td&gt;0.039&lt;/td&gt;&lt;td&gt;0.013&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Control mean&lt;/td&gt;&lt;td&gt;0.618&lt;/td&gt;&lt;td&gt;0.794&lt;/td&gt;&lt;td&gt;0.529&lt;/td&gt;&lt;td&gt;0.505&lt;/td&gt;&lt;td&gt;0.445&lt;/td&gt;&lt;td&gt;0.447&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;LATE&lt;/td&gt;&lt;td&gt;−2.277&lt;/td&gt;&lt;td&gt;−3.676&lt;/td&gt;&lt;td&gt;−2.203&lt;/td&gt;&lt;td&gt;−1.822&lt;/td&gt;&lt;td&gt;−1.440&lt;/td&gt;&lt;td&gt;−1.400&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/pol.20220066"&gt;del Valle (2024)&lt;/a&gt;, Table 2. Deaths per 1,000 person-years. Control mean: left limit at the threshold.]
+
+- At 8 months, crossing the threshold offsets all of the excess mortality: −0.816 against a control mean of 0.794.
+
+  - reconstruction projects are completed, on average, within seven to eight months
+
+- At 24 months, the ITT still offsets 75% of the control mean.
+
+  - the paper calls the effect largely permanent, with limited evidence that deaths were only postponed
+
+???
+
+Table 2, p. 456; text pp. 455–457. The 8-month ITT has p = 0.002 and 95% CI [−1.48, −0.34], with a bandwidth of 51.4 mm and 944 | 488 observations. The timing of the peak "coincides well with the Fonden administrative records, which show that on average, reconstruction projects are completed within seven to eight months" (p. 456). The paper: at 8 months, FONDEN enables municipalities just above the threshold "to fully offset" the excess mortality just below; the 24-month effect "is equivalent to offsetting 75 percent" and is "largely permanent", with "limited evidence of temporal death displacement" (pp. 456–457). Because the 24-month AMRD includes all deaths in the two years, a later rise that merely displaced deaths in time would erase it. Across windows, the LATE ranges from 1.4 to 3.7 fewer deaths per 1,000 person-years; all except the 4-month estimate are significant at 5% (p. 457). Placebo LATE p-values: 0.658, 0.155, 0.105, 0.175, 0.288, 0.072.
+
+Why the LATE is large: the left limit (0.79) averages always-takers, who receive FONDEN, with compliers and never-takers, who do not. A complier effect of −3.68 times a complier share of 0.22 gives the ITT of −0.82. The LATE is local to compliers at the threshold, and its confidence interval is wide: [−7.36, −1.48]. The paper notes that the first stage implies a LATE about 4.5 times the ITT (p. 454).
+
+---
+
+# The LATE and the compliers at the threshold
+
+.discuss[
+**Discussion**: at 8 months the LATE is −3.68 and the control mean is 0.79. Is that a contradiction?
+]
+
+--
+
+&lt;div style="font-size: 76%;"&gt;
+&lt;table style="width: 92%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Type of municipality&lt;/th&gt;&lt;th&gt;\(R &lt; 0\)&lt;/th&gt;&lt;th&gt;\(R \geq 0\)&lt;/th&gt;&lt;th&gt;Share&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Always-takers: declared eligible through other criteria&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;FONDEN&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;FONDEN&lt;/td&gt;&lt;td&gt;0.65&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Compliers: eligible only through the rainfall rule&lt;/td&gt;&lt;td&gt;no FONDEN&lt;/td&gt;&lt;td style="background:#d4edda;"&gt;FONDEN&lt;/td&gt;&lt;td&gt;0.22&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Never-takers: not declared eligible&lt;/td&gt;&lt;td&gt;no FONDEN&lt;/td&gt;&lt;td&gt;no FONDEN&lt;/td&gt;&lt;td&gt;0.13&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[Shares at the threshold implied by the first stage (0.65 below, 0.87 above), assuming no defiers.]
+
+--
+
+- No. The control mean averages always-takers, who receive FONDEN, with the others, who do not.
+
+- The ITT is the effect on compliers times their share: −3.676 × 0.222 ≈ −0.816.
+
+???
+
+The shares are our calculation, not the paper's. The 0.65 and 0.87 are from the text (p. 454): "the likelihood of receiving Fonden increasing from 0.65 just below the threshold to 0.87 just above". Under monotonicity, about 65% of municipalities at the threshold are always-takers, 22% compliers, and 13% never-takers. The 13% share at the threshold is far above the 2.1% of all requests that qualify under the rule but are not listed (fn 2), so non-listing is concentrated near the threshold, consistent with the author's replication of the rule being imperfect (fn 1).
+
+Why the LATE is large: the left limit (0.79) averages always-takers, who receive FONDEN, with compliers and never-takers, who do not. A complier effect of −3.676 times a complier share of 0.222 gives the ITT of −0.816. The LATE is local to compliers at the threshold, and its confidence interval is wide: [−7.36, −1.48]. The paper notes that the first stage implies a LATE about 4.5 times the ITT (p. 454).
+
+The paper calls the control mean the no-program counterfactual (p. 456) and "excess mortality observed among ineligible municipalities" (p. 443); the point of this slide is that 65% of municipalities just below the rainfall threshold nevertheless receive FONDEN through the other criteria.
+
+Unlike the Burlig–Preonas template of Lecture 3 (sharp in eligibility, fuzzy in take-up), the fuzziness here is in FONDEN eligibility itself, since the treatment is being listed as eligible; there is no separate take-up step.
+
+---
+
+# Mechanisms: cause of death
+
+.discuss[
+**Discussion**: through which channel does the program save lives?
+]
+
+--
+
+Reconstruction could prevent deaths from traffic accidents, violence, epidemics, or interrupted health care.
+
+&lt;div style="font-size: 74%;"&gt;
+&lt;table style="width: 80%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;Cause of death (excess mortality at 8 months)&lt;/th&gt;&lt;th&gt;ITT&lt;/th&gt;&lt;th&gt;p-value&lt;/th&gt;&lt;th&gt;Control mean&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Transport fatalities&lt;/td&gt;&lt;td&gt;−0.040&lt;/td&gt;&lt;td&gt;0.215&lt;/td&gt;&lt;td&gt;0.028&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Self-harm and interpersonal violence&lt;/td&gt;&lt;td&gt;−0.040&lt;/td&gt;&lt;td&gt;0.244&lt;/td&gt;&lt;td&gt;0.046&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Communicable diseases&lt;/td&gt;&lt;td&gt;0.026&lt;/td&gt;&lt;td&gt;0.322&lt;/td&gt;&lt;td&gt;−0.031&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Non-communicable, amenable to basic medical care&lt;/td&gt;&lt;td&gt;&lt;b&gt;−0.508&lt;/b&gt;&lt;/td&gt;&lt;td&gt;0.002&lt;/td&gt;&lt;td&gt;0.501&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Amenable and covered free by public health insurance&lt;/td&gt;&lt;td&gt;&lt;b&gt;−0.299&lt;/b&gt;&lt;/td&gt;&lt;td&gt;0.037&lt;/td&gt;&lt;td&gt;0.361&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/pol.20220066"&gt;del Valle (2024)&lt;/a&gt;, Table 3. Deaths per 1,000 person-years.]
+
+- The reduction comes from non-communicable conditions that are amenable to basic medical care.
+
+  - deaths from transport, violence, and communicable diseases do not change significantly
+
+???
+
+The bullets read the table: only the last two rows are significant. All non-communicable conditions together: −0.464 (p = 0.026).
+
+The line above the table lists the mechanisms that the paper tests (p. 443): "risk reduction in traffic accidents, self-harm and violence, epidemics, and disruptions in access to health services", plus "an income channel where Fonden curbs mortality by accelerating economic recovery". The first three rows of the table correspond to the first three mechanisms (communicable diseases stand for epidemics), and the last two rows to access to health services.
+
+Section III.B–C, pp. 457–463. Table 3 (p. 458): all non-communicable conditions −0.464 (p = 0.026). The PHI-covered effect offsets 83% of the control mean (p. 459). The 24-month versions (online Appendix Table A1) show the same pattern: amenable −0.296 (p = 0.005), PHI-covered −0.239 (p = 0.010); the transport estimate there (−0.033, p = 0.085) is not significant after multiple-testing adjustment.
+
+Table 4 (p. 460): above-median public doctors per capita (median 0.45 in 2003), ITT −1.640 (p &lt; 0.001), LATE −7.943; below-median 0.087 (p = 0.648); equal LATEs rejected with p = 0.007 (all-cause) and 0.031 (PHI-covered). At 24 months (Table A2): −0.675 vs 0.140, p = 0.009.
+
+Table 5 (p. 463): ages 50 or older, ITT −3.376 (p = 0.002), LATE −15.109; the LATE for 50+ differs from ages 0–14 and 15–49 with p = 0.002 and 0.006. Income channel (pp. 461–462): night-light effects do not differ by public-doctor availability (Table A3, p = 0.799; ITTs 0.057 and 0.056), which does not support an income channel ("Contrary to the idea that Fonden operates through an income channel ... I fail to reject the null hypothesis of equal Fonden LATEs", p. 461). By storm-drain coverage, where below-median municipalities see an economic recovery an order of magnitude larger, mortality effects do not differ significantly (p = 0.520 and 0.413); the paper calls this "only suggestive", because the point estimates are consistently larger in the below-median municipalities, so the income channel is not entirely ruled out. The paper's wording: "the most likely channel ... is the restoration of access to health services" (p. 462); the mechanisms are not mutually exclusive (p. 443).
+
+Amenable conditions follow Kruk et al. (2018): 34 conditions that need only basic medical services, such as ischemic heart disease and diabetes; 20 of them are covered free by public health insurance.
+
+---
+
+# Mechanisms: medical infrastructure, age, and income
+
+- Where public doctors per capita are above the median, the all-cause ITT is −1.640; below it, 0.087.
+
+- The effect is concentrated among people aged 50 or older.
+
+--
+
+- The evidence does not support an income channel, though the paper does not entirely rule it out.
+
+  - the recovery of night lights after a disaster does not differ with the availability of public doctors
+
+--
+
+.takeaway[FONDEN most likely saves lives by restoring access to health services]
+
+???
+
+The numbers are in the note on the previous slide: Table 4 for public doctors (ITT −1.640, p &lt; 0.001, against 0.087, p = 0.648; equal LATEs rejected with p = 0.007), Table 5 for age (50 or older: ITT −3.376, p = 0.002). Income channel (pp. 461–462): if FONDEN saved lives by speeding economic recovery, the recovery of night lights should be stronger where mortality falls more, but the night-light effects do not differ by public-doctor availability (Table A3, p = 0.799). A second test, by storm-drain coverage, also finds no significant difference in mortality effects, but the paper calls it "only suggestive" and says that the results "do not entirely rule out the income channel". The paper's conclusion: "the most likely channel ... is the restoration of access to health services" (p. 462).
+
+---
+
+# Robustness and spillovers
+
+- Excluding the observations closest to the threshold leaves the ITT between −0.570 and −1.067.
+
+- Other bandwidths, polynomial orders, and kernels leave it between −0.636 and −1.102.
+
+- Placebo thresholds on each side show no significant discontinuity.
+
+- At 8 months, excess mortality also falls in neighbors within 15 km: the ITT is −0.37.
+
+  - so the estimates are likely a lower bound of the program's capacity to reduce deaths
+
+???
+
+Robustness (Section IV.B–C, pp. 472–475, and online appendix): Table A8, donut radii of 0.5 to 2.5 mm (at 2.5 mm, p = 0.057); Table A9, placebo cutoffs at the first five deciles of the running variable on each side (p-values from 0.269 to 0.855); Table A10 and Figure A6, bandwidths (0.5 to 1.5 times the optimal), local quadratic, other kernels; Table A11, age-sex standardized outcome (87% offset), a four-year baseline (94% reduction), calendar-month fixed effects, excluding repeated FONDEN exposure, excluding extreme events; Figure A7, effects homogeneous across threshold levels.
+
+Spillovers (Section III.D, pp. 463–464; Table A7): neighbors are municipalities with an urban area within 15 km, about the 22-minute average travel time to medical care. Within 15 km at 8 months: −0.37 fewer excess deaths, against a direct effect 2.2 times larger; 15–30 km and 24-month spillovers are small and not significant. The paper's wording (p. 464): because neighboring municipalities benefit, "the paper's estimates of Fonden's impact are likely to provide a lower bound of the program's capacity to mitigate mortality after disasters". The slide follows this wording. The lives-saved calculation uses the same idea in the sense that the gains of neighbors are left out of the count: it is a lower bound because it does "not account for the spillover effects" (p. 465).
+
+Cost-effectiveness (Section III.E, pp. 464–466): the 24-month LATE (Table 2, col. 6) times the population of municipalities that received FONDEN gives 11,922 lives a year (2.1% of annual deaths), at 66,403 per life (all monetary values in constant 2010 international dollars, p. 465). With "the lower-bound VSL estimate" for Mexico (210,880, p. 466), the ratio is at least 3.2 (210,880/66,403); counting only people aged 50 or older, at least 1.8. FONDEN is not the cheapest disaster intervention per life saved (early warning systems: 41,293) but is at the bottom of the range (median 2.4 million in the Copenhagen Consensus proposals). The extrapolation from the LATE is supported by treatment-effect and complier-probability derivatives near zero (p = 0.333 and 0.825, fn 14).
+
+Speed: the paper does not estimate the effect of speed directly; it compares eligibility under the rules with discretionary financing and interprets the result as "accelerated reconstruction" (abstract), with indirect evidence on p. 448 that ineligible municipalities rebuilt more slowly.
+
+---
+
+# Lives saved and cost-effectiveness
+
+.discuss[
+**Discussion**: is the program cost-effective?
+]
+
+--
+
+- A back-of-the-envelope calculation gives about 12,000 lives saved a year.
+
+  - it applies the LATE at 24 months, an effect for compliers, to all municipalities that received FONDEN
+
+- The cost is about 66,000 international dollars per life saved.
+
+- Benefits are at least 3.2 times the costs, even at the lowest VSL estimate for Mexico.
+
+???
+
+Cost-effectiveness is Section III.E, pp. 464–466 (details in the note on the previous slide): 11,922 lives a year at 66,403 per life, in constant 2010 international dollars. The calculation restricts the sample to municipalities that received FONDEN, multiplies the LATE (Table 2, column 6) by the municipal population, and averages over the years. The paper calls this "a back-of-the-envelope calculation", which assumes a homogeneous treatment effect and a LATE that is informative away from the threshold (p. 465); in support, the treatment-effect and complier-probability derivatives are close to zero (fn 14). The sub-bullet states this assumption because the previous slides stressed that the LATE belongs to compliers at the threshold, about 22% of municipalities there. The ratio of 3.2 uses the lower-bound VSL estimate for Mexico (210,880).
+
+---
+
+# del Valle (2024): takeaways
+
+- Rules-based eligibility for pre-arranged funds offset all excess deaths at 8 months, and 75% at 24 months.
+
+- The most likely channel is restored access to health care.
+
+- Benefits are at least 3.2 times the costs.
+
+--
+
+.takeaway[Funds arranged before a disaster and released by rule save lives, so here the state supplies protection]
+
+???
+
+The mapping to Greenstone and Jack is the lecture's reading. The paper's own framing is disaster aid and state capacity (Clarke and Dercon 2016): pre-arranged financing and rules remove the delays and leakage of discretionary post-disaster aid. In the terms of Part 1, FONDEN is protection supplied by the state: the same shock does more harm to health, h(s,e), where protection is weaker. Pre-arranged finance and rules remove two reasons why public protection is weak, the cost of delivering it (explanation 2) and the political process that allocates it (explanation 3). The finding that only places with medical infrastructure benefit says that restoring one public good (infrastructure) is valuable only where another (public health care) already exists; the paper's own term is complementarity with public health infrastructure (p. 445), and access to PHI-covered care "depends only on the availability of services and not on the capacity of households to pay" (p. 459).
+
+---
+
+# Carleton et al. (2022): heat, mortality, and adaptation
+
+How does the effect of temperature on mortality vary with income and climate, across 40 countries?
+
+&lt;div style="float: right; width: 46%; margin-left: 20px;"&gt;
+&lt;img src="figures/carleton_fig1.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1093/qje/qjac020"&gt;Carleton et al. (2022)&lt;/a&gt;, Figure I. Ages over 64. Rows: income; columns: climate.]
+&lt;/div&gt;
+
+- Weather varies from year to year within a region.
+
+  - this variation identifies the effect of temperature
+
+- Adaptation is inferred by comparing regions.
+
+- Hot days raise mortality less in hot climates.
+
+  - compare the panels from left to right
+
+- They also raise it less at high incomes.
+
+  - compare the panels from bottom to top
+
+- These comparisons are cross-sectional.
+
+  - the income gradient is not significant at these ages
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+???
+
+The bullets on weather and on adaptation rest on Carleton et al. (2022), p. 2055: "there exists no experimental or quasi-experimental variation in climate as opposed to weather ... we must use cross-sectional variation in climate, as well as in income, between locations to estimate heterogeneity", which continues: "Put simply, meaningful variation in climate in a location is not available in recorded history." Carleton et al. measure climate by TMEAN, the sample-period average annual temperature of the first administrative unit. Weather panels use within-location year-to-year fluctuations, which are as good as random, but they identify short-run responses. Long differences compare places whose climate changed more or less over decades, which captures some adaptation but with fewer observations; this characterization is ours, not Carleton et al.'s. Integrated assessment models (Nordhaus 1992 and others, cited in Carleton et al., p. 2038) capture the global and long-run nature of climate change but rest on assumed damage functions.
+
+The question line is the lecture's statement of the part of the paper used here; the paper's own aim is broader, to value the global mortality consequences of climate change net of adaptation costs and benefits. The data are subnational mortality records from 40 countries covering 38% of the global population (p. 2039).
+
+In the framework of Part 1, adaptation is self-protection s, and the question is how it varies with income, which is explanation 1 applied to protection.
+
+The estimating equation (not on the slide) is the paper's equation (4): the age-specific mortality rate in region i and year t on a fourth-order polynomial in daily temperature summed over the year, interacted with the long-run climate (TMEAN) and the log GDP per capita of the first administrative unit, plus precipitation, age × region fixed effects, and age × country × year fixed effects. Age groups: under 5, 5–64, over 64.
+
+Equation (4), p. 2054. TMEAN and log GDPpc are sample-period averages at the ADM1 level, interacted with each term of the temperature polynomial. R is a second-order polynomial in daily precipitation summed over the year, with age- and country-specific coefficients. The model has no uninteracted terms for TMEAN and GDPpc because they are collinear with the age × region fixed effects; the authors note that this restricts adaptation to change the shape of the mortality–temperature response, not its level, which matches their definition of adaptation (p. 2055). ADM2 is the usual unit; the EU data are at NUTS2 and Japan reports at ADM1 (fn 11). The quotation: "the estimates of heterogeneity rely on cross-sectional variation and therefore must be considered associational" (p. 2040).
+
+Figure I, p. 2057; discussion p. 2058. "In each income tercile in Figure I, the effect of hot days (days &gt; 35°C) on mortality rates declines as one moves from left (cold climates) to right (hot climates) ... moving from the bottom (low income) to top (high income) in a climate tercile causes a substantial flattening of the response function, especially at high temperatures." The income effect "would not be judged statistically significant by conventional criteria for the &gt; 64 age category" (p. 2058); the paper treats the two together as evidence of adaptation. The red and black text in each panel gives the share of the 2010 and projected 2100 population in that cell.
+
+Magnitudes at 35°C for the over-64 group: moving from the cold to the hot tercile saves 7.9 deaths per 100,000 (p = .06); moving from the poor to the rich tercile about 5.0 (p = .1).
+
+---
+
+# Carleton et al. (2022): projected damages
+
+- Projections combine the responses with climate models and each region's projected income and climate.
+
+- The mortality cost of climate change in 2100 is about **3.2% of global GDP**.
+
+  - under a high-emissions scenario (RCP 8.5), counting the benefits and inferred costs of adaptation
+
+  - the interquartile range is −5.4% to 9.1%
+
+- Today's cold places are projected to benefit, and today's poor and hot places to bear large damages.
+
+- Poor countries are projected to bear it mostly as deaths, rich ones mostly as adaptation costs.
+
+???
+
+Abstract and p. 2040. The interquartile ranges account for both econometric and climate uncertainty and include negative values. Not on the slide: under the same scenario, the mortality cost of one more ton of CO2 is US$36.6, with an interquartile range of −7.8 to 73.0, in 2019 dollars, at a 2% discount rate, with an age-varying VSL (p. 2041).
+
+On the inferred costs of adaptation, the paper states its own assumption (p. 2040): "Like all revealed-preference approaches, this one requires a set of nontrivial assumptions, including that there are optimizing agents and that key markets are frictionless." Adaptation costs are inferred by revealed preference: agents are assumed to adapt until the marginal benefit equals the marginal cost, so the observed benefits identify the marginal costs; this requires optimizing agents and frictionless markets (p. 2040). Income matters because "higher incomes relax agents' budget constraints and hence facilitate adaptive behavior" (p. 2053); the income gradient is cross-sectional and, for the over-64 group, not statistically significant by conventional criteria (p. 2058). The fourth bullet follows the paper: "poor countries are projected to disproportionately experience these effects through deaths, while wealthy countries experience effects largely through costly adaptation investments" (pp. 2040–2041). The uneven distribution in the third bullet: mortality rates in Accra are projected to rise by 17% and those in Berlin to fall by 15%, because of milder winters (p. 2040).
+
+---
+
+# What we have learned: shocks and protection
+
+- In Mexico, funds arranged in advance and released by rule cut deaths after disasters.
+
+  - protection here is public, supplied by the state
+
+- Under heat, the mortality response is flatter at higher incomes.
+
+  - a cross-sectional association, consistent with income buying private protection
+
+--
+
+.takeaway[The same shock does more harm to health where protection, private or public, is weaker]
+
+???
+
+This summary is the lecture's reading, not a claim of either paper. In Greenstone and Jack's model, health is h(s,e): self-protection s, a private purchase, mitigates the health effect of the environment; the lecture extends the idea to protection that the state supplies. del Valle (2024) opens with the fact that developing economies are not disproportionately exposed to natural disasters but experience significantly more deaths; Carleton et al. (2022) project that "poor countries are projected to disproportionately experience these effects through deaths, while wealthy countries experience effects largely through costly adaptation investments" (pp. 2040–2041), and write that "higher incomes relax agents' budget constraints and hence facilitate adaptive behavior" (p. 2053). The income gradient in Carleton et al. is cross-sectional and, for the over-64 group, not statistically significant by conventional criteria (p. 2058).
+
+---
+
+name: part4
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Part 4. Does development itself harm the environment?&lt;br&gt;Roads, crop fires, and forests
+&lt;/div&gt;
+
+---
+
+# Is there an environmental Kuznets curve?
+
+In Part 1, demand for environmental quality rises with income, but externalities may rise faster.
+
+&lt;div style="float: right; width: 36%; margin-left: 20px;"&gt;
+&lt;img src="figures/jaya_fig2.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1146/annurev-economics-082321-123803"&gt;Jayachandran (2022)&lt;/a&gt;, Figure 2. Dashed line: best-fit quadratic.]
+&lt;/div&gt;
+
+- The curve predicts that damage rises, then falls, with income.
+
+- Across countries, the pattern differs by pollutant:
+
+  - CO2 per capita rises with income (panel a)
+
+  - urban PM2.5 is negatively correlated with income (b)
+
+  - ozone shows no clear correlation (c)
+
+--
+
+- These are raw correlations, not causal effects.
+
+- The consensus: limited empirical support for the curve.
+
+&lt;div style="clear: both; padding-top: 10px;"&gt;&lt;/div&gt;
+
+--
+
+.takeaway[Ask how a specific feature of development affects a specific environmental outcome]
+
+???
+
+The opening line joins two statements of Greenstone and Jack. The first (p. 12, explanation 1): "As the budget constraint is relaxed, the value of an additional unit of consumption falls and the trade-off between consumption and environmental quality becomes less extreme, increasing demand for the latter"; Jayachandran (2022, Section 3.1.3) quotes this sentence and calls it the reasoning for why willingness to pay for environmental protection rises with income. The second (p. 24): studies of income transfers in Mexico (more deforestation, more energy-using durables) "highlight the importance of externalities from consumption and self-protection (a(c,s)) that may increase more quickly with income than does private investment in environmental quality". The curve is the hypothesis that the second force dominates at low incomes and the first at high incomes. Greenstone and Jack connect the curve to their model in footnote 8: the environmental Kuznets curve has several potential explanations, "including ones consistent with the micro model we present here", but "the macro relationship does not, however, appear robust across pollutants or time".
+
+Jayachandran (2022), pp. 231–232, cites Grossman and Krueger (1995) for the hypothesis and notes that it was first formulated to describe the effects of international trade. Panels: (a) CO2 emissions per capita, World Bank data; (b) urban PM2.5, population-weighted city averages, WHO data; (c) ozone exposure, Health Effects Institute data. Her description: CO2 is "mostly linear, and the best-fit quadratic curve is U-shaped rather than an inverted-U"; PM in cities shows a "negative correlation"; ozone "no clear correlation" (p. 232). Leaded gasoline in the United States is her example of a pollutant that did follow the predicted trajectory (Figure 1), and she calls it "an exception" (p. 231).
+
+The two answers on the slide are Jayachandran's own (p. 232): "Perhaps at this point in history, all the countries in the world are on the rising part of the Kuznets curve for CO2 emissions"; "these are raw correlations and not causal effects." The rest is p. 233: she cites Stern (2017) for the consensus, notes the "difficulty of isolating exogenous changes in GDP per capita", and writes that "there is no a priori reason to assume that when we account for all the forces that constitute economic development, the detrimental ones prevail at low levels of development and the beneficial ones at higher levels". Her conclusion: the relationship "will differ across pollutants and will not have a simple, generalizable link with economic development"; we "should not expect to give a blanket answer" to whether development helps or hurts the environment, and the question "is ill-posed because it disregards how development came about". Most micro-empirical studies instead ask how a particular cause or feature of development affects a particular environmental outcome. The next paper, and the presentation paper, are examples: the same rural road program, one for air pollution and one for forests.
+
+---
+
+# Garg, Jagnani, and Pullabhotla (2024): the question
+
+Policies that move labor out of agriculture (Week 9) are judged by their effect on productivity.
+
+- Their production externalities, such as air pollution, had not been studied.
+
+- India's rural road program (PMGSY) moved workers out of farming, with no evidence of higher farm output.
+
+  - &lt;a href="https://doi.org/10.1257/aer.20180268"&gt;Asher and Novosad (2020)&lt;/a&gt;: the share of workers in agriculture fell by 10 pp; no evidence of gains in assets or income
+
+- The paper asks whether roads raise crop fires and PM2.5, by what mechanism, and at what health cost.
+
+--
+
+.discuss[
+**Discussion**: through what mechanism could a new road raise the number of crop fires?
+]
+
+--
+
+- Fire clears rice residue before wheat planting and makes sugarcane harvesting less labor-intensive.
+
+- The authors propose that workers leave farming, farm wages rise, and farmers substitute fire for labor.
+
+???
+
+Garg, Jagnani, and Pullabhotla (2024), AEJ: Economic Policy 16(3), pp. 420–423 and Section I. The paper opens with the agricultural productivity gap (Gollin, Lagakos, and Waugh 2014) and policies that address labor misallocation, and asks about their production externalities; it cites Barrett, Ortiz-Bobea, and Pham (2023) on structural transformation under high pollution. Asher and Novosad (2020): rural roads under PMGSY increased transportation services and led to a 10 percentage point (20%) decrease in the share of workers in agriculture, with no increase in assets or income, no more agricultural equipment, and no change in agricultural production (fn 1). Why fire (Section I.A): clearing rice residue in the roughly 13 days between rice harvest and wheat planting; removing sugarcane leaves before manual harvest; clearing undergrowth under shifting cultivation. In a survey in Punjab, about half of local leaders said labor was more expensive than fire and more than 55% said machines were. Fires contribute up to half of particulate pollution in parts of India in winter months.
+
+Contributions (pp. 422–423): the first evidence of direct substitution between environmental quality and labor; the first causal link from the environmental effect of an antipoverty program to health, using wind direction.
+
+---
+
+# Garg et al. (2024): data and design
+
+&lt;div style="float: right; width: 42%; margin-left: 20px;"&gt;
+&lt;img src="figures/garg_fig2.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/pol.20220422"&gt;Garg et al. (2024)&lt;/a&gt;, Figure 2. Residualized means by population bin.]
+&lt;/div&gt;
+
+- The design is a fuzzy RD at population thresholds.
+
+  - the program prioritized villages above 500 or 1,000
+
+- The sample is 11,151 villages in six states, 2002–2013.
+
+- Fires are satellite detections within 10 km, per year.
+
+- PM2.5 is an annual mean modeled from satellite data.
+
+--
+
+- At the threshold, three outcomes jump (panels A–C):
+
+  - the probability of a road, fires, and PM2.5
+
+&lt;div style="clear: both; padding-top: 10px;"&gt;&lt;/div&gt;
+
+???
+
+Section II–III, pp. 428–431. Villages without a paved road in 2001 in Chhattisgarh, Gujarat, Madhya Pradesh, Maharashtra, Orissa, and Rajasthan, the states that followed the population priority rule (Asher and Novosad 2020). The estimating equations are the paper's (1)–(2): a first stage for Road_vdst on 1{pop ≥ T}, the running variable (pop − T) interacted with the indicator, baseline controls X, district-by-threshold fixed effects and year fixed effects; the second stage replaces the indicator with Road. Optimal bandwidth 84, triangular kernel, standard errors clustered by village. The McCrary density test statistic is −0.010 (SE 0.048). Baseline covariates and baseline outcomes are balanced at the threshold (Table 1).
+
+Fires: MODIS detects pixels of about 1 km² with a thermal anomaly; fires of about 0.1 hectares are detectable, while the average farm is 1.33 hectares. PM2.5: gridded 0.1° estimates from satellite aerosol measures, chemical transport models, and ground calibration; the authors note two sources of measurement error (modeled exposure, and pollution that travels across villages). Monthly black and organic carbon emissions by source (MERRA-2) are used for the seasonal and source tests.
+
+---
+
+# Garg et al. (2024): fires, pollution, and the mechanism
+
+&lt;div style="font-size: 80%;"&gt;
+&lt;table style="width: 92%; margin: auto; border-collapse: collapse; text-align: center;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left;"&gt;&lt;/th&gt;&lt;th&gt;First stage&lt;/th&gt;&lt;th&gt;Fires: reduced form&lt;/th&gt;&lt;th&gt;Fires: IV&lt;/th&gt;&lt;th&gt;PM2.5: reduced form&lt;/th&gt;&lt;th&gt;PM2.5: IV&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left;"&gt;Estimate (SE)&lt;/td&gt;&lt;td&gt;0.230 (0.017)&lt;/td&gt;&lt;td&gt;0.366 (0.152)&lt;/td&gt;&lt;td&gt;1.567 (0.689)&lt;/td&gt;&lt;td&gt;0.106 (0.045)&lt;/td&gt;&lt;td&gt;0.470 (0.207)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td style="text-align:left;"&gt;Control mean&lt;/td&gt;&lt;td&gt;0.10&lt;/td&gt;&lt;td&gt;2.77&lt;/td&gt;&lt;td&gt;2.77&lt;/td&gt;&lt;td&gt;42.69&lt;/td&gt;&lt;td&gt;42.69&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/pol.20220422"&gt;Garg et al. (2024)&lt;/a&gt;, Table 2. 133,788 village-years. Fires: annual count; PM2.5: µg/m³. Reduced form: the ITT of crossing the threshold.]
+
+- A road raises annual fires by 1.6, or 60%, and PM2.5 by 0.5 µg/m³, or 1.1%.
+
+- Fires and particulate emissions rise in October–March, and the added emissions come from biomass burning.
+
+--
+
+- The effects are concentrated where relative farm wages were low and rice or sugarcane acreage was high.
+
+  - where relative farm wages are low, more workers leave farming, so labor costs likely rise most
+
+- There is no evidence for other explanations: crop calendars, combine harvesters, or non-cropland fires.
+
+--
+
+.takeaway[A likely mechanism: roads made farm labor more expensive, and farmers replaced it with fire]
+
+???
+
+Table 2, p. 434; Table 3, p. 435; Table 4, p. 439. The 0.5 µg/m³ is about 4% of the reduction that India's strictest air pollution regulations achieved in cities (Greenstone and Hanna 2014). Seasonality: the PM2.5 data are annual only (fn 20), so the seasonal and source split uses monthly black- and organic-carbon emissions from MERRA-2: fires +1.05 in October–March (significant) vs +0.28 in the rest of the year; biomass black carbon +0.32 and organic carbon +2.80 in October–March, vs 0.01 from non-biomass sources. Mechanism (Section IV.A): roads raised village agricultural wages (REDS, suggestive); at baseline, fires correlate positively with relative farm wages and negatively with the farm labor share. Why low relative wages (pp. 436–437): "farm laborers in districts with lower relative agricultural wages are more likely to reallocate to nonfarm work ... therefore ... farmers in these districts observe a larger increase in labor costs". Heterogeneity: in districts with low relative agricultural wages and high rice or sugarcane acreage, roads add 4.4 fires and 1.3 µg/m³; elsewhere 0.7 fires and 0.3 µg/m³, neither significant (Table 4). The paper hedges the mechanism throughout: "Farm labor exits are a likely mechanism" (abstract); reallocation of farm labor "is one mechanism responsible" (p. 446). Alternatives tested, none supported (pp. 437–442, "we evaluate these alternative possibilities but fail to find evidence to support these mechanisms"): rice harvest and planting dates unchanged (satellite phenology); no increase in combine stock or hired machinery; effects no larger in high-mechanization districts; sugarcane districts show the same increase as rice districts, although mechanized sugarcane harvest would reduce burning; fires rise in cropland, with "comparatively small and statistically insignificant effects" elsewhere (p. 442); school enrollment does not explain the pattern.
+
+---
+
+# Garg et al. (2024): crop fires and infant mortality
+
+.discuss[
+**Discussion**: roads change many things. How can the health cost of the pollution alone be isolated?
+]
+
+--
+
+&lt;div style="float: right; width: 40%; margin-left: 20px;"&gt;
+&lt;img src="figures/garg_fig5.png" style="width: 100%;" /&gt;
+
+.source[&lt;a href="https://doi.org/10.1257/pol.20220422"&gt;Garg et al. (2024)&lt;/a&gt;, Figure 5. Top: downwind; bottom: other directions.]
+&lt;/div&gt;
+
+- Smoke follows the wind, and a road's other effects do not.
+
+- The same RD is estimated for survey villages within 50 km.
+
+  - separately for villages downwind and in other directions
+
+- Infant deaths come from birth histories, 2002–2013.
+
+--
+
+- Downwind, a road raises PM2.5 by 1.0 µg/m³ (2.3%)
+
+  - and infant deaths by 0.31 percentage points (5.5%)
+
+- In other directions, a road changes neither significantly.
+
+&lt;div style="clear: both; padding-top: 10px;"&gt;&lt;/div&gt;
+
+???
+
+What is compared: each estimate is still the fuzzy RD at the population threshold of the nearby program village. The authors "estimate equation (2) separately for all matched downwind NFHS villages and all matched nondownwind NFHS villages" (Section V), so "a road raises" means the effect of a road in a program village within 50 km, identified by that village's position relative to the threshold, on the outcome in the survey village.
+
+Section V, pp. 442–446; Table 5, p. 445. Infant mortality is an indicator for death within 12 months of birth, at the child-birth-year level (9.6 million births downwind, 8.2 million in other directions); standard errors clustered by program village. Prevailing wind direction from ERA-5 monthly wind vectors averaged to the year; downwind = within 45° on either side of the wind vector and within 50 km (Figure 4). Table 5: downwind PM2.5 1.0072 (0.1979), infant mortality 0.0031 (0.0015), control means 42.9 and 0.0569; other directions −0.1551 (0.1423) and −0.0005 (0.0015). "Because, unlike air pollution, other socioeconomic effects of rural roads are not correlated with wind direction, the increase in infant mortality in downwind locations is likely driven solely by the increase in air pollution from crop fires" (p. 422). The downwind PM2.5 effect exceeds the village-level 0.5 because the matched program villages themselves show a larger effect (0.72 µg/m³, Appendix Table H.2) and because one survey village can lie within 50 km of several treated villages (fn 31). The implied 5.5% per µg/m³ is in the range of other quasi-experimental estimates (Harmattan dust 5.8%, US congestion 7.4%, Turkish gas infrastructure 2.8%, Mexico City inversions 0.7%). Effects are strongest for downwind villages closest to the treated village and become smaller and imprecise as more distant downwind villages are added (fn 32); robust to district clustering (fn 33); no evidence of sorting on wind direction (Online Appendix H).
+
+For a proposal on wildfires and child mortality, this paper is the template: a source of fire exposure, a pollution measure that responds to it, an outcome measured from birth histories, and wind direction to separate smoke from everything else the shock changes.
+
+---
+
+# What we have learned: development and the environment
+
+- Whether development harms the environment has no general answer: the EKC has little empirical support.
+
+- Specific features can: rural roads raised crop fires and PM2.5, and infant deaths downwind.
+
+- &lt;a href="https://doi.org/10.1093/ej/ueaa013"&gt;Asher, Garg, and Novosad (2020)&lt;/a&gt; ask the same question of the same program for forests.
+
+--
+
+&lt;div class="takeaway"&gt;Development policies can have environmental externalities that productivity evaluations miss&lt;/div&gt;
+
+???
+
+If a student asks how this fits Part 1, where externalities alone did not explain the rich–poor difference: Greenstone and Jack give externalities limited attention because they are "likely to be equally present in developing and developed countries" (p. 10), and they add that externalities "may be exacerbated by, and interact with, other market failures that are more prevalent in developing country settings" (p. 16).
+
+
+Garg et al. conclude that their results "do not imply such efforts are misguided or should be discouraged" but that labor-reallocation policies need complementary strategies for their environmental externalities (p. 446). Asher, Garg, and Novosad (2020), the presentation paper, use the same RD (plus a difference-in-differences on construction timing) for rural roads and find no post-completion effect on forest cover, with a transient loss of about 0.5% during construction; highways, evaluated by a near–far comparison with the delayed NS–EW corridor as counterfactual, cut forest cover by about 20% within 100 km, which the authors attribute to timber demand. The contrast between the two outcomes of the same rural road program is a good discussion point for the second half.
+
+---
+
+name: synthesis
+
+# What we have learned: poverty, or room for policy?
+
+- **Low income may be part of the answer**: the model predicts it, but causal evidence is scarce.
+
+  - heat is associated with fewer deaths in richer places, a cross-sectional comparison
+
+- **It is not the whole answer**:
+
+  - environmental quality in Surat: abatement costs were low, and a market with rule-based fines cut emissions by 20–30%
+
+  - protection in Mexico: funds arranged in advance and released by rule cut deaths after disasters
+
+- **Development policy can add to the problem**: rural roads raised crop fires, PM2.5, and infant deaths downwind.
+
+- This week's papers do not test explanations 3 and 4 directly.
+
+--
+
+.takeaway[Where quality is poor, ask which explanation applies; only some leave room for a welfare-improving policy]
+
+???
+
+The slide answers the question posed at the start, whether poor environmental quality is "just another dimension of poverty". The grouping is the lecture's. The first bullet is hedged on purpose: the support for explanation 1 this week is the model's prediction and the cross-sectional income gradient in Carleton et al. (2022), which is not significant for the over-64 group, and Greenstone and Jack call the causal evidence on income and MWTP "extremely scarce" (p. 22). The two sub-bullets under "not the whole answer" name their object: Surat is evidence on environmental quality, and Mexico is evidence on protection from a given shock, not on environmental quality. Explanations 3 and 4 have no paper of their own this week: del Valle touches explanation 3 only through the contrast between rules and discretion, and explanation 4 appears only as the assumption behind Carleton et al.'s adaptation costs.
+
+Method note: the three empirical designs this week are an RCT (Surat), a fuzzy RD on an administrative threshold (FONDEN), and a fuzzy RD combined with wind direction (roads and fires). Each answers a question of the form Jayachandran recommends: how a specific policy or feature of development affects a specific environmental or health outcome. For research proposals, the environmental papers of this week also show how to measure outcomes without surveys: continuous emissions monitors, death certificates, satellite fire detections, and modeled PM2.5.
+
+The discussion question on research proposals was removed from this slide on 2026-11-26 at the user's request.
+
+---
+
+name: presentation
+
+# Second half: presentation and discussion
+
+**Presentation**: &lt;a href="https://doi.org/10.1093/ej/ueaa013"&gt;Asher, Garg, and Novosad (2020)&lt;/a&gt;, *Economic Journal*
+
+- "The ecological impact of transportation infrastructure"
+
+- presenter: Muzammil; discussant: Phung
+
+--
+
+.discuss[
+**Discussion**: same program, same RD as Garg et al. Why might rural roads raise fires but not deforestation?
+]
+
+???
+
+The paper is a case of the question raised by Jayachandran (2022): how one specific feature of development, new roads, affects one environmental outcome, forest cover. Garg et al. (2024) report that Asher, Garg, and Novosad find no effect of rural roads on deforestation, while highways increase it through demand for commercial timber (fn 2). Qualifications from Asher et al. themselves: the rural-road zero is post-completion (a transient loss of about 0.5% during construction, reversed afterwards), and the highway result comes from a near–far comparison with the delayed NS–EW corridor as placebo, not from the RD. The mechanism in Garg et al. is a change in factor prices, not in market access; the discussion can start there. The questions and reference answers for the presentation are in the transcript.
+
+---
+
+# Next steps
+
+**Problem set 2** is due on e-Education by **14:00 on Sunday, 29 November**: one PDF and your Stata do-file.
+
+- Solutions will be posted after the deadline.
+
+**Week 11**: reading period, no class.
+
+**Week 12** (final exam week): research proposal due, at most 5 pages, single-spaced.
+
+- An introduction written like a published article's: question, data, strategy, expected results.
+
+- A data section: the datasets and key variables, and a realistic path to obtaining them.
+
+- An empirical strategy: the regressions, and the identification assumptions and their justification.
+
+--
+
+Check the syllabus for how the proposal is evaluated: clarity of the writing and quality of the idea.
+
+Revise your first draft using the written feedback on it.
+
+???
+
+The proposal requirements are from the syllabus (Research Proposal section). The first draft was due on Sunday 1 November. The proposal is graded on the clarity of the writing and the quality of the idea. Problem set 2 instructions: due on e-Education by 14:00 on Sunday, November 29, 2026, as one PDF together with the Stata do-file; individual submissions; late submissions are not accepted.
+
+---
+
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Thank you!
+&lt;/div&gt;
+
+---
+
+name: appendix
+class: inverse, middle, center
+
+&lt;div style="font-size: 26px; text-align: center;"&gt;
+  Appendix
+&lt;/div&gt;
+
+---
+
+# Marginal willingness to pay for self-protection
+
+`$$\begin{aligned}
+\text{MWTP}_s \equiv\; &amp; \frac{1}{\lambda_y}\left(\frac{\partial u}{\partial e}\frac{\partial a}{\partial s} + \frac{\partial u}{\partial h}\left(\frac{\partial h}{\partial s} + \frac{\partial h}{\partial e}\frac{\partial a}{\partial s}\right)\right) \\
+&amp; + \frac{\partial \Delta y}{\partial e}\frac{\partial a}{\partial s} + \frac{\partial \Delta y}{\partial h}\left(\frac{\partial h}{\partial s} + \frac{\partial h}{\partial e}\frac{\partial a}{\partial s}\right) \qquad \text{(6)}
+\end{aligned}$$`
+
+- `\(\text{MWTP}_s\)`: the value of self-protection through its effects on `\(e\)`, on health, and on income (second line).
+
+- Self-protection affects health directly, `\(\partial h / \partial s\)`, and through its effect on the environment, `\(\partial a / \partial s\)`.
+
+???
+
+Equation (6), Greenstone and Jack (2015), p. 11. If the marginal utility of consumption is decreasing, MWTP_s is higher at higher consumption, "as long as any negative impacts of self-protection on environmental quality can be offset by compensatory investment in self-protection" (p. 11).
+
+---
+
+# Further evidence: development, pollution, and regulation
+
+&lt;div style="font-size: 76%;"&gt;
+&lt;table style="width: 98%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left; width:28%;"&gt;Paper&lt;/th&gt;&lt;th style="text-align:left; width:30%;"&gt;Question and setting&lt;/th&gt;&lt;th style="text-align:left;"&gt;Design&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href="https://doi.org/10.1093/restud/rdad011"&gt;Dias, Rocha, and Soares (2023)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;glyphosate use and infant health, Brazil&lt;/td&gt;&lt;td&gt;GM-soy legalization × upstream soy potential&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href="https://doi.org/10.1073/pnas.1300018110"&gt;Chen et al. (2013)&lt;/a&gt;; &lt;a href="https://doi.org/10.1073/pnas.1616784114"&gt;Ebenstein et al. (2017)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;air pollution and life expectancy, China&lt;/td&gt;&lt;td&gt;RD in latitude at the Huai River (free heating coal north)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;&lt;a href="https://doi.org/10.1093/qje/qjaa024"&gt;He, Wang, and Zhang (2020)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;water regulation and firm TFP, China&lt;/td&gt;&lt;td&gt;spatial RD around water monitoring stations&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+???
+
+Short descriptions for questions.
+
+Dias et al.: glyphosate is the herbicide that genetically modified soybeans are engineered to tolerate. The identifying variation combines the legalization of GM soy (provisional measures from March 2003, the Bio-Safety Law of March 2005), the potential productivity gain from GM soy in upstream areas, and the direction of water flow within basins; health in a municipality should respond to glyphosate use upstream, not downstream. Their preferred estimate: the average increase in upstream glyphosate use raised infant mortality by 0.88 per 1,000 births, 5% of the mean.
+
+Chen et al. (2013): the policy provided free coal for winter heating north of the Huai River. With demographic and climate controls (Table 3, column 2), TSP concentrations are about 184 µg/m³ higher and life expectancy about 5.5 years lower north of the river (abstract); the figures and column 1, a cubic in latitude without controls, show 247.5 µg/m³ and 5.04 years. Ebenstein et al. (2017) re-estimate with PM10 and newer data: 10 µg/m³ more PM10 reduces life expectancy by 0.64 years (abstract).
+
+He et al.: water quality grades run from I (best) to VI (worst); from 2003 the central government set explicit water-quality targets for the monitoring stations and tied local officials' promotions to the readings, which created incentives to regulate polluters just upstream of a station. Upstream polluting firms have 24–25% lower TFP with station-by-industry fixed effects (29–32% with separate station and industry fixed effects, Table I); precisely estimated zeros for non-polluting industries.
+
+---
+
+# Further evidence: climate, productivity, and adaptation
+
+&lt;div style="font-size: 76%;"&gt;
+&lt;table style="width: 98%; margin: auto; border-collapse: collapse;"&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;th style="text-align:left; width:28%;"&gt;Paper&lt;/th&gt;&lt;th style="text-align:left; width:30%;"&gt;Question and setting&lt;/th&gt;&lt;th style="text-align:left;"&gt;Design&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href="https://doi.org/10.1038/nature15725"&gt;Burke, Hsiang, and Miguel (2015)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;temperature and output, 166 countries&lt;/td&gt;&lt;td&gt;country-year panel, 1960–2010&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href="https://doi.org/10.1086/684582"&gt;Barreca et al. (2016)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;heat and mortality, United States&lt;/td&gt;&lt;td&gt;response over 1900–2004 and with air conditioning&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href="https://doi.org/10.1086/713733"&gt;Somanathan et al. (2021)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;heat, worker output, absenteeism, India&lt;/td&gt;&lt;td&gt;factories with and without climate control; plant panel&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #23373B;"&gt;&lt;td&gt;&lt;a href="https://doi.org/10.1162/rest_a_00886"&gt;Adhvaryu, Kala, and Nyshadham (2020)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;LED lighting and productivity, Bangalore&lt;/td&gt;&lt;td&gt;temperature–efficiency gradient before and after LED&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+???
+
+Short descriptions for questions. All numbers are from the published versions in the readings folder.
+
+Burke et al.: productivity peaks at an annual average temperature of about 13°C and declines strongly at higher temperatures.
+
+Barreca et al. (JPE, abstract): the mortality effect of a day with mean temperature above 80°F fell by about 75% over the twentieth century, almost entirely after 1960; the diffusion of residential air conditioning explains essentially the entire decline.
+
+Somanathan et al. (JPE): in the national plant panel, annual plant output falls by about 2% per degree Celsius, and district manufacturing output by about 3%; in daily factory data, worker output falls on hot days in plants without climate control, by up to 8% per additional day in the hottest bin in garment plants; climate control eliminates the productivity loss but not the rise in absenteeism, presumably because workers remain exposed at home.
+
+Adhvaryu et al. (REStat): LED bulbs emit less waste heat than the compact fluorescent lamps they replaced. Above 19°C wet-bulb globe temperature, one more degree reduces line efficiency by about 2 percentage points; LED adoption offsets about 85% of this effect, flattening the slope from about −2 to about −0.3.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"mathjax": "default",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<div id="toc-menu">
+  <button id="toc-btn" type="button">&#9776;&nbsp; Contents</button>
+  <div id="toc-list">
+    <a href="#facts">Environmental quality is worse in developing countries</a>
+    <a href="#outline">Outline of the lecture</a>
+    <a href="#part1">Part 1. Why is environmental quality so poor? Greenstone and Jack (2015)</a>
+    <a href="#part2">Part 2. Is abatement too costly, or is enforcement too weak? Greenstone et al. (2025)</a>
+    <a href="#part3">Part 3. Who protects the poor from environmental shocks? del Valle (2024), Carleton et al. (2022)</a>
+    <a href="#part4">Part 4. Does development itself harm the environment? Roads, crop fires, and forests</a>
+    <a href="#synthesis">What we have learned</a>
+    <a href="#presentation">Second half: presentation and discussion</a>
+    <a href="#appendix">Appendix</a>
+  </div>
+</div>
+<div id="progress-bar"></div>
+<style>
+#toc-menu { position: fixed; bottom: 10px; left: 14px; z-index: 300; }
+#toc-btn { background: rgba(35, 55, 59, 0.75); color: #fafafa; border: none; border-radius: 4px;
+  padding: 5px 12px; font-size: 13px; font-family: inherit; cursor: pointer; }
+#toc-btn:hover { background: #EB811B; }
+#toc-list { display: none; position: absolute; bottom: 34px; left: 0; width: 440px;
+  background: #ffffff; border: 1px solid #d9dee0; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18); padding: 6px 0; }
+#toc-menu.open #toc-list { display: block; }
+#toc-list a { display: block; padding: 8px 16px; font-size: 14px; color: #23373B;
+  text-decoration: none; line-height: 1.35; }
+#toc-list a:hover { background: #eef2f3; color: #EB811B; }
+#progress-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background: #EB811B; z-index: 300; transition: width 0.2s; }
+@media print { #toc-menu, #progress-bar { display: none; } }
+</style>
+<script>
+(function() {
+  var menu = document.getElementById('toc-menu');
+  var btn = document.getElementById('toc-btn');
+  btn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('open'); });
+  document.getElementById('toc-list').addEventListener('click', function() { menu.classList.remove('open'); });
+  document.addEventListener('click', function(e) { if (!menu.contains(e.target)) { menu.classList.remove('open'); } });
+  function init() {
+    if (typeof slideshow === 'undefined') { setTimeout(init, 150); return; }
+    var bar = document.getElementById('progress-bar');
+    var n = slideshow.getSlideCount();
+    slideshow.on('showSlide', function(slide) {
+      bar.style.width = (100 * (slide.getSlideIndex() + 1) / n) + '%';
+    });
+    bar.style.width = (100 * (slideshow.getCurrentSlideIndex() + 1) / n) + '%';
+  }
+  init();
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
